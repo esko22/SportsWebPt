@@ -140,6 +140,7 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\swpt_splash.png" />
+    <Content Include="Content\sportsweb-pt.css" />
     <Content Include="Global.asax" />
     <Content Include="index.cshtml" />
     <None Include="Scripts\libs\jquery-1.8.3.intellisense.js" />
@@ -155,7 +156,9 @@
     <Content Include="Scripts\libs\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\libs\knockout-2.2.0.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
