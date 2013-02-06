@@ -1,0 +1,16 @@
+﻿#mainsplash {
+    background: url(images/swpt_splash.png)no-repeat; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#mainsplash h1,#mainsplash h2 {
+    color: #ffffff
+}
+
+body {
+     padding-top: 50px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
