@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace SportsWebPt.Common.Utilities
+{
+    /// <summary>
+    /// This class implements string comparison algorithm
+    /// based on character pair similarity
+    /// Source: http://www.catalysoft.com/articles/StrikeAMatch.html/// 
+    /// </summary>
+    public class StringSimilarity
+    {
+        /// <summary>
+        /// Compares the two strings based on letter pair matches 
+        /// </summary>    
+        /// <param name="str1"></param>    
+        /// <param name="str2"></param>    
+        /// <returns>The percentage match from 0.0 to 1.0 where 1.0 is 100%</returns> 
+        public double CompareStrings(string str1, string str2)
+        {
+            List<string> pairs1 = WordLetterPairs(str1.ToUpper());
+            List<string> pairs2 = WordLetterPairs(str2.ToUpper());
+            int intersection = 0;
+            int union = pairs1.Count + pairs2.Count;
+            for (int i = 0; i < pairs1.Count; i++)
+            {
+                for (int j = 0; j < pairs2.Count; j++)
+                {
+                    if (pairs1[i] == pairs2[j])
+                    {
+                        intersection++;
+                        pairs2.RemoveAt(j);
+                        //Must remove the match to prevent "GGGG" from appearing to match "GG" with 100% success  
+                        break;
+                    }
+                }
+            }
+            return (2.0 * intersection) / union;
+        }
+
+        /// <summary> 
+        /// Gets all letter pairs for each   
+        /// individual word in the string    
+        /// </summary>    
+        ///  <param name="str"></param>    
+        ///  <returns></returns>    
+        private List<string> WordLetterPairs(string str)
+        {
+            var AllPairs = new List<string>();
+            // Tokenize the string and put the tokens/words into an array   
+            string[] words = Regex.Split(str, @"\s");
+            // For each word
+            for (int w = 0; w < words.Length; w++)
+            {
+                if (!string.IsNullOrEmpty(words[w]))
+                {
+                    // Find the pairs of characters                    
+                    string[] pairsInWord = LetterPairs(words[w]);
+                    for (int p = 0; p < pairsInWord.Length; p++)
+                    {
+                        AllPairs.Add(pairsInWord[p]);
+                    }
+                }
+            }
+            return AllPairs;
+        }
+
+        /// <summary>  
+        /// Generates an array containing every     
+        ///  two consecutive letters in the input string   
+        ///  </summary>    
+        ///  <param name="str"></param>  
+        /// <returns></returns>
+        private string[] LetterPairs(string str)
+        {
+            int numPairs = str.Length - 1;
+            var pairs = new string[numPairs];
+            for (int i = 0; i < numPairs; i++)
+            {
+                pairs[i] = str.Substring(i, 2);
+            }
+            return pairs;
+        }
+    }
+}
