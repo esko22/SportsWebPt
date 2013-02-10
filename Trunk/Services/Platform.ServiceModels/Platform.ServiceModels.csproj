@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,11 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DataTransferObjects\" />
-    <Folder Include="Operations\" />
+    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.ServiceStack\Common.ServiceStack.csproj">
+      <Project>{19bc98b1-126d-4558-ab1d-b6a28a14a143}</Project>
+      <Name>Common.ServiceStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utilities\Common.Utilities.csproj">
+      <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
+      <Name>Common.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
