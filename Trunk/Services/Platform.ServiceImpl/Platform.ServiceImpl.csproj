@@ -88,6 +88,14 @@
       <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
       <Name>Common.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Platform.Core\Platform.Core.csproj">
+      <Project>{2f7c46d3-b6af-4f81-bfea-b2cb778ab7cc}</Project>
+      <Name>Platform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform.DataAccess\Platform.DataAccess.csproj">
+      <Project>{e0791486-cf4d-4495-ab53-8e6b3eb125b0}</Project>
+      <Name>Platform.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Platform.ServiceModels\Platform.ServiceModels.csproj">
       <Project>{1afe645d-a08f-4b96-b6d8-d47fffd8486f}</Project>
       <Name>Platform.ServiceModels</Name>

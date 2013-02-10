@@ -7,7 +7,7 @@
     <ProjectGuid>{96B34C60-A4FC-4CE1-AE9B-181F5596B542}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Illumina.Common.DataAccess.Ef</RootNamespace>
+    <RootNamespace>SportsWebPt.Common.DataAccess.Ef</RootNamespace>
     <AssemblyName>Common.DataAccess.Ef</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="EfRepository.cs" />
     <Compile Include="IRepositoryProvider.cs" />
+    <Compile Include="ISeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="RepositoryProvider.cs" />

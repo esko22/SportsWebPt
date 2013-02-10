@@ -33,8 +33,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +47,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
+    <Compile Include="PlatformDbContext.cs" />
+    <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UOW\UserUOW.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.DataAccess.Ef\Common.DataAccess.Ef.csproj">
+      <Project>{96b34c60-a4fc-4ce1-ae9b-181f5596b542}</Project>
+      <Name>Common.DataAccess.Ef</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utilities\Common.Utilities.csproj">
+      <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
+      <Name>Common.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform.Core\Platform.Core.csproj">
+      <Project>{2f7c46d3-b6af-4f81-bfea-b2cb778ab7cc}</Project>
+      <Name>Platform.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
