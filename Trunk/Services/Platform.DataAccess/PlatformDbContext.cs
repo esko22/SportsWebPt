@@ -19,17 +19,9 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Construction
 
-        static PlatformDbContext()
-        {
-            //TODO: HACK this needs to be moved out
-            //TODO: look at making this swappable
-            Database.SetInitializer(new PlatformDbCreateInitializer());
-        }
-
         public PlatformDbContext()
             : this("sportsWebPtDb")
         {}
-
 
         public PlatformDbContext(String connectionStringName)
             :base(connectionStringName)

@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using Funq;
 using ServiceStack.Common;
 using ServiceStack.Common.Web;
 using ServiceStack.ServiceHost;
 using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
+using Funq;
+using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Core;
+using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceImpl.Services;
 
@@ -32,8 +35,6 @@ namespace SportsWebPt.Platform.ServiceHost
 
         #endregion
 
-
-
         #region Construction
 
         public AppHost()
@@ -41,7 +42,6 @@ namespace SportsWebPt.Platform.ServiceHost
         { } 
 
         #endregion
-
 
         #region Methods
         
@@ -92,7 +92,9 @@ namespace SportsWebPt.Platform.ServiceHost
 
             ConfigureContainer(container);
             BuildRoutes();
+            BoostrapEf();
             Container.Resolve<ApiDocumentGenerator>().Generate();
+
         } 
 
         private void BuildRoutes()
@@ -104,10 +106,15 @@ namespace SportsWebPt.Platform.ServiceHost
 
         private void ConfigureContainer(Container container)
         {
-
             container.Register<ApiDocumentGenerator>(c => new SwaggerApiDocumentGenerator(_configuration.ApiDocumentAssemblies)).ReusedWithin(ReuseScope.Container);
             container.Register<IBaseApiConfig>(c => PlatformServiceConfiguration.Instance).ReusedWithin(ReuseScope.Container);
+        }
 
+        private void BoostrapEf()
+        {
+            var seeder = new PlatformDbDefaultSeeder();
+            var dbConextInitializer = new PlatformDbCreateInitializer {Seeder = seeder};
+            Database.SetInitializer(dbConextInitializer);
         }
 
         #endregion

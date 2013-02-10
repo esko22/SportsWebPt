@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    internal class PlatformDbDefaultSeeder : ISeed<PlatformDbContext>
+    public class PlatformDbDefaultSeeder : ISeed<DbContext>
     {
         #region Fields
 
@@ -15,10 +16,14 @@ namespace SportsWebPt.Platform.DataAccess
 
         #endregion
 
-        public void Seed(PlatformDbContext dbContext)
+        public void Seed(DbContext dbContext)
         {
             Check.Argument.IsNotNull(dbContext, "DbConext");
-            _dbContext = dbContext;
+
+            if(!(dbContext is PlatformDbContext))
+                throw new ArgumentException("Invalid DbConextType");
+
+            _dbContext = dbContext as PlatformDbContext;
 
             var users = AddUsers();
         }

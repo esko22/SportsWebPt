@@ -14,7 +14,7 @@
     <RootNamespace>SportsWebPt.Platform.ServiceHost</RootNamespace>
     <AssemblyName>Platform.ServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -117,6 +117,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.DataAccess.Ef\Common.DataAccess.Ef.csproj">
+      <Project>{96b34c60-a4fc-4ce1-ae9b-181f5596b542}</Project>
+      <Name>Common.DataAccess.Ef</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
       <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
       <Name>Common.Logging</Name>
@@ -132,6 +136,10 @@
     <ProjectReference Include="..\Platform.Core\Platform.Core.csproj">
       <Project>{2f7c46d3-b6af-4f81-bfea-b2cb778ab7cc}</Project>
       <Name>Platform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Platform.DataAccess\Platform.DataAccess.csproj">
+      <Project>{e0791486-cf4d-4495-ab53-8e6b3eb125b0}</Project>
+      <Name>Platform.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Platform.ServiceImpl\Platform.ServiceImpl.csproj">
       <Project>{b98d5687-0971-486c-adec-cf57a00057a2}</Project>
@@ -153,7 +161,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61730</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:20281/</IISUrl>
+          <IISUrl>http://localhost/v1</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

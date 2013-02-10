@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+
 using SportsWebPt.Common.DataAccess.Ef;
 
 namespace SportsWebPt.Platform.DataAccess
@@ -13,17 +9,6 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public ISeed<PlatformDbContext> Seeder { get; set; }
-
-        #endregion
-
-
-        #region Construction
-
-        public PlatformDbCreateInitializer()
-        {
-            //TODO: look at making this swappable
-            Seeder = new PlatformDbDefaultSeeder();
-        }
 
         #endregion
 
