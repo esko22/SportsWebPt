@@ -32,10 +32,10 @@ namespace SportsWebPt.Platform.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jsextlibs").Include(
                         "~/Scripts/libs/knockout-{version}.js",
-                        "~/Scripts/libs/bootstrap.js",
-                        "~/Scripts/libs/knockback.js",
+                        "~/Scripts/libs/underscore.js",
                         "~/Scripts/libs/backbone.js",
-                        "~/Scripts/libs/underscore.js"));
+                        "~/Scripts/libs/bootstrap.js",
+                        "~/Scripts/libs/knockback.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jsapplibs")
                     .IncludeDirectory("~/Scripts/app/", "*.js", searchSubdirectories: false));
