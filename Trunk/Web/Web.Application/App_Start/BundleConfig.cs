@@ -31,11 +31,14 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jsextlibs").Include(
+                        "~/Scripts/lib/TrafficCop.js",
+                        "~/Scripts/lib/infuser.js", // depends on TrafficCop
                         "~/Scripts/libs/knockout-{version}.js",
                         "~/Scripts/libs/underscore.js",
-                        "~/Scripts/libs/backbone.js",
-                        "~/Scripts/libs/bootstrap.js",
-                        "~/Scripts/libs/knockback.js"));
+                        "~/Scripts/libs/backbone.js", // depends on underscore
+                        "~/Scripts/libs/bootstrap.js", 
+                        "~/Scripts/libs/knockback.js" // depends on backbone, knockout
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jsapplibs")
                     .IncludeDirectory("~/Scripts/app/", "*.js", searchSubdirectories: false));
