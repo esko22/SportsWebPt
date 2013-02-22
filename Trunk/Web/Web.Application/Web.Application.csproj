@@ -164,6 +164,7 @@
     <Content Include="Areas\Examine\Views\SelfExam\Index.cshtml" />
     <Content Include="Areas\Main\Views\Web.config" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\app\configuration.js" />
     <Content Include="Scripts\libs\infuser.js" />
     <Content Include="Scripts\libs\backbone.js" />
     <Content Include="Scripts\libs\backbone.min.js" />

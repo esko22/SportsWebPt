@@ -2,7 +2,9 @@
     function($) {
         var run = function() {
 
-            alert('fuck face');
+            //$(".alert").alert('close');
+            //$(".alert").show();
+            $('#myModal').modal({ show : true});
         };
 
         return { run: run };
