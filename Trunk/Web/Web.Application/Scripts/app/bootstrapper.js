@@ -4,7 +4,7 @@
 
             //$(".alert").alert('close');
             //$(".alert").show();
-            $('#myModal').modal({ show : true});
+            //$('#myModal').modal({ show : true});
         };
 
         return { run: run };

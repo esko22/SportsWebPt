@@ -10,7 +10,6 @@ using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
 using Funq;
-using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
@@ -100,7 +99,7 @@ namespace SportsWebPt.Platform.ServiceHost
         private void BuildRoutes()
         {
             Routes
-                .Add<UserRequest>("user");
+                .Add<UserRequest>("user/{Id}");
 
         }
 

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities.ServiceApi;
-using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.DataAccess.UOW;
+using SportsWebPt.Platform.ServiceContracts.Models;
 using SportsWebPt.Platform.ServiceImpl.Operations;
-using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.ServiceModels;
+using SportsWebPt.Platform.ServiceContracts.Models;
 
 namespace SportsWebPt.Platform.ServiceImpl.Operations
 {
