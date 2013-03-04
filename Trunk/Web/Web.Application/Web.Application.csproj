@@ -148,7 +148,8 @@
     <Compile Include="Areas\Main\Controllers\SecureController.cs" />
     <Compile Include="Areas\Main\Controllers\UserController.cs" />
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
-    <Compile Include="Areas\Main\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Main\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
     <Compile Include="AuthHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,14 +157,16 @@
     <Compile Include="GoogleProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenValidator.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Areas\Main\Scripts\app\shared\sharedBinder.js" />
-    <Content Include="Areas\Main\Scripts\app\shared\sharedBootstrapper.js" />
-    <Content Include="Areas\Main\Scripts\app\shared\vm.masterHeader.js" />
+    <Content Include="Areas\Main\Scripts\app\main.area.bootstrapper.js" />
+    <Content Include="Areas\Main\Scripts\shared\shared.binder.js" />
+    <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
+    <Content Include="Areas\Main\Scripts\shared\vm.master.header.js" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -180,9 +183,13 @@
     <Content Include="Areas\Examine\Views\Web.config" />
     <Content Include="Areas\Examine\Views\SelfExam\Index.cshtml" />
     <Content Include="Areas\Main\Views\Web.config" />
-    <Content Include="Areas\Main\Scripts\app\shared\vm.masterFooter.js" />
+    <Content Include="Areas\Main\Scripts\shared\vm.master.footer.js" />
+    <Content Include="Areas\Main\Scripts\shared\shared.vm.js" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
-    <Content Include="Scripts\app\configuration.js" />
+    <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\libs\infuser.js" />
     <Content Include="Scripts\libs\backbone.js" />
     <Content Include="Scripts\libs\backbone.min.js" />
@@ -216,13 +223,12 @@
     <Content Include="Areas\Main\Views\_viewStart.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_masterHeader.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_masterFooter.cshtml" />
-    <Content Include="Areas\Main\Views\Home\index.cshtml" />
+    <Content Include="Areas\Main\Views\Index\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Examine\Models\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
-    <Folder Include="Areas\Main\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -27,10 +27,11 @@
     }
 
     function boot() {
-        require(['bootstrapper', 'sharedBootstrapper'],
-            function(bs, sbs) {
+        require(['bootstrapper', 'shared.bootstrapper', 'area.bootstrapper'],
+            function(bs, sbs, abs) {
                 bs.run();
                 sbs.run();
+                abs.run();
             });
     }
     

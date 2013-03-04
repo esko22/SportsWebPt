@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
-
+@using SportsWebPt.Platform.Web.Application
+@model BaseViewModel
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,23 +16,19 @@
         <div class="container">
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterHeader.cshtml"); }
             @RenderBody()
-            <hr>
-            <footer>
-                <p>&copy; SportsWebPT 2013</p>
-            </footer>
+            @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterFooter.cshtml"); }
         </div>
-        
-       
 
         @Scripts.Render(
-            "~/bundles/jquery", 
-            "~/bundles/jsextlibs", 
-            "~/Scripts/libs/require.js", 
-            "~/bundles/baseapplib",
-            "~/bundles/sharedapplib",
-            "~/bundles/utils",
-            "~/Scripts/main.js"
-             )
+               "~/bundles/jquery",
+               "~/bundles/jsextlibs",
+               "~/Scripts/libs/require.js",
+               "~/bundles/baseapplib",
+               "~/bundles/sharedapplib",
+               "~/bundles/utils",
+               "~/Scripts/main.js"               
+               )
+        @Scripts.Render(Model.AreaBundles.ToArray())
 
     </body>
 </html>

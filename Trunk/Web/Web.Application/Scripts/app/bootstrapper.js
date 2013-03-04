@@ -1,5 +1,5 @@
-﻿define('bootstrapper', ['jquery', 'logger'],
-    function($, logger) {
+﻿define('bootstrapper', ['jquery', 'logger','config'],
+    function($, logger, config) {
         var run = function() {
             logger.log('running base bs');
         };
