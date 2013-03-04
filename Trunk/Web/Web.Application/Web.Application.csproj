@@ -161,6 +161,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\Main\Scripts\app\shared\sharedBinder.js" />
+    <Content Include="Areas\Main\Scripts\app\shared\sharedBootstrapper.js" />
+    <Content Include="Areas\Main\Scripts\app\shared\vm.masterHeader.js" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -177,6 +180,7 @@
     <Content Include="Areas\Examine\Views\Web.config" />
     <Content Include="Areas\Examine\Views\SelfExam\Index.cshtml" />
     <Content Include="Areas\Main\Views\Web.config" />
+    <Content Include="Areas\Main\Scripts\app\shared\vm.masterFooter.js" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\app\configuration.js" />
     <Content Include="Scripts\libs\infuser.js" />
@@ -199,6 +203,7 @@
     <Content Include="Scripts\libs\underscore.min.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\libs\require.js" />
+    <Content Include="Scripts\utils\logger.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

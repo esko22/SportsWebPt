@@ -13,6 +13,7 @@
         define('infuser', [], function () { return root.infuser; });
         define('underscore', [], function () { return root._; });
         define('kb', [], function () { return root.kb; });
+        define('logger', [], function () { return root.logger; });
     }
 
     function loadPluginsAndBoot() {
@@ -26,7 +27,11 @@
     }
 
     function boot() {
-        require(['bootstrapper'], function (bs) { bs.run(); });
+        require(['bootstrapper', 'sharedBootstrapper'],
+            function(bs, sbs) {
+                bs.run();
+                sbs.run();
+            });
     }
     
 })();

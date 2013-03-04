@@ -1,10 +1,7 @@
-﻿define('bootstrapper', ['jquery'],
-    function($) {
+﻿define('bootstrapper', ['jquery', 'logger'],
+    function($, logger) {
         var run = function() {
-
-            //$(".alert").alert('close');
-            //$(".alert").show();
-            //$('#myModal').modal({ show : true});
+            logger.log('running base bs');
         };
 
         return { run: run };

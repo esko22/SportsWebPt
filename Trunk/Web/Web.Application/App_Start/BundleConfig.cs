@@ -40,14 +40,22 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/knockback.js" // depends on backbone, knockout
                         ));
 
-            bundles.Add(new ScriptBundle("~/bundles/jsapplibs")
+            bundles.Add(new ScriptBundle("~/bundles/utils")
+                .IncludeDirectory("~/Scripts/utils/", "*.js", searchSubdirectories: false));
+
+            bundles.Add(new ScriptBundle("~/bundles/baseapplib")
                     .IncludeDirectory("~/Scripts/app/", "*.js", searchSubdirectories: false));
+
+            bundles.Add(new ScriptBundle("~/bundles/sharedapplib")
+                    .IncludeDirectory("~/Areas/Main/Scripts/app/shared", "*.js", searchSubdirectories: false));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
                         "~/Content/bootstrap-responsive.css",
                          "~/Content/sportsweb-pt.css",
                          "~/Content/icon-fonts.css"));
+
 
         }
     }
