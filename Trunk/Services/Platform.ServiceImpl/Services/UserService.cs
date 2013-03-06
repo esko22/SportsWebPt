@@ -31,7 +31,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new UserResponse()
                 {
-                    Response = new UserDto() {EmailAddress = user.EmailAddress, FirstName = user.FirstName, LastName = user.LastName}
+                    Response = new UserDto() {emailAddress = user.EmailAddress, firstName = user.FirstName, lastName = user.LastName}
                 });
         }
 

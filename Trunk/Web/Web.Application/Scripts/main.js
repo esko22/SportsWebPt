@@ -9,7 +9,7 @@
         // We define them and put them in the root object.
         define('jquery', [], function () { return root.jQuery; });
         define('ko', [], function () { return root.ko; });
-        define('Backbone', [], function () { return root.Backbone; });
+        define('backbone', [], function () { return root.Backbone; });
         define('infuser', [], function () { return root.infuser; });
         define('underscore', [], function () { return root._; });
         define('kb', [], function () { return root.kb; });

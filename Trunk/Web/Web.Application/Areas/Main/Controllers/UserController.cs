@@ -29,10 +29,10 @@ namespace SportsWebPt.Platform.Web.Application
         #endregion
 
 
-        [GET("User")]
-        public ActionResult GetUser()
+        [GET("User/{id}")]
+        public ActionResult GetUser(int id)
         {
-            var user = _userManagementService.GetUser(2);
+            var user = _userManagementService.GetUser(id);
             return Json(user, JsonRequestBehavior.AllowGet);
         }
 

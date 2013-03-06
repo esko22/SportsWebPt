@@ -43,6 +43,10 @@ namespace SportsWebPt.Platform.Web
             bundles.Add(new ScriptBundle("~/bundles/utils")
                 .IncludeDirectory("~/Scripts/utils/", "*.js", searchSubdirectories: false));
 
+            bundles.Add(new ScriptBundle("~/bundles/models")
+                .IncludeDirectory("~/Scripts/models/", "*.js", searchSubdirectories: false));
+
+
             bundles.Add(new ScriptBundle("~/bundles/baseapplib")
                     .IncludeDirectory("~/Scripts/app/", "*.js", searchSubdirectories: false));
 

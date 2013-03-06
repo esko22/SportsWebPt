@@ -9,19 +9,19 @@ namespace SportsWebPt.Platform.ServiceContracts.Models
         #region Properties
 
         [DataMember]
-        public String EmailAddress { get; set; }
+        public String emailAddress { get; set; }
 
         [DataMember]
-        public String FirstName { get; set; }
+        public String firstName { get; set; }
 
         [DataMember]
-        public String LastName { get; set; }
+        public String lastName { get; set; }
 
         [DataMember]
-        public String Phone { get; set; }
+        public String phone { get; set; }
 
         [DataMember]
-        public String SkypeHandle { get; set; }
+        public String skypeHandle { get; set; }
 
         #endregion
     }

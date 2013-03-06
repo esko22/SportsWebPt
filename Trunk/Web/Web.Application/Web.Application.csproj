@@ -210,6 +210,7 @@
     <Content Include="Scripts\libs\underscore.min.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\libs\require.js" />
+    <Content Include="Scripts\models\model.user.js" />
     <Content Include="Scripts\utils\logger.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
