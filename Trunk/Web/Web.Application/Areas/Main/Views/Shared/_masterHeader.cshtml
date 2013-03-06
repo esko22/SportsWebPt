@@ -15,7 +15,7 @@
                     <li><a href="#">Blog</a></li>
                     <li class="divider-vertical"></li>
                 </ul>
-                <li class="dropdown" id="accountMenu">
+                <li class="dropdown" data-bind="visible: isAuthenticated" id="accountMenu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu"><span data-bind="text: user"></span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#about">Edit Profile</a></li>
@@ -24,7 +24,7 @@
                         <li><a href="#about">Log Out</a></li>
                     </ul>
                 </li>
-                <div class="btn-group pull-right hidden">
+                <div class="btn-group pull-right">
                     <button type="submit" class="btn btn-inverse" data-toggle="modal" data-target="#signInDialog">Sign In</button>
                     <button type="submit" class="btn btn-inverse" data-toggle="modal" data-target="#signUpDialog">Sign Up</button>
                 </div>
