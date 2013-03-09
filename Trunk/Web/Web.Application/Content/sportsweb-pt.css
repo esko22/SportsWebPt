@@ -15,13 +15,130 @@ body {
 }
 
 
+.login-modal {
+    width: 360px;
+    height: 600px;
+}
+
+.login-icon {
+    height: 24px;
+    width: 20px;
+    background-size: 24px;
+    display: inline-block;
+    vertical-align: text-top;
+    margin-right: 15px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 1px 0 0 rgba(255,255,255,0.2);
+}
+
+.login-btn {
+    display:block;
+    border:1px solid #272b30;
+    color:#fff;
+    font-weight:bold;
+    font-size:18px;
+    padding:12px 30px 12px 0;
+    border-radius:3px;
+    margin:10px 0 25px;
+    box-shadow:0 1px 0 rgba(255,255,255,0.25) inset;
+    text-shadow:0 1px 0 #1a64bf;
+    cursor:pointer;
+    text-align: left;
+    text-decoration: none;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    text-decoration: none;
+    color: #dcdcdc;
+}
+
+.login-facebook {
+    background-color: #4264b3;
+    background-image: -moz-linear-gradient(#679ace,#4264b3);
+    background-image: -o-linear-gradient(#679ace,#4264b3);
+    background-image: -ms-linear-gradient(#679ace,#4264b3);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#679ace),color-stop(1,#4264b3));
+    background-image: -webkit-linear-gradient(#679ace,#4264b3);
+    border-color: #1b345a;
+    text-shadow: 0 1px 0 #2d449e;
+}
+
+.login-twitter {
+    background-color:#0ba8d6;
+    background-image:-moz-linear-gradient(#35bfe7,#0ba8d6);
+    background-image:-o-linear-gradient(#35bfe7,#0ba8d6);
+    background-image:-ms-linear-gradient(#35bfe7,#0ba8d6);
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#35bfe7),color-stop(1,#0ba8d6));
+    background-image:-webkit-linear-gradient(#35bfe7,#0ba8d6)
+}
+
+.login-google {
+    background-color:#b22222;
+    background-image:-moz-linear-gradient(#b94a48,#b22222);
+    background-image:-o-linear-gradient(#b94a48,#b22222);
+    background-image:-ms-linear-gradient(#b94a48,#b22222);
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#b94a48),color-stop(1,#b22222));
+    background-image:-webkit-linear-gradient(#b94a48,#b22222)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ICON FONT AUGMENTS */
+
+.splash-icon {
+  display: block; /* Chrome 19 was weird with clickability without this */
+    text-align: center;
+    font-size: 5em;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 40px;
+    color: #424947
+}
+
+.icon-alone {
+  display: inline-block; /* Chrome 19 was weird with clickability without this */
+}
+
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+
+/* BOOTSTRAP AUGMENTS*/
+
+.top-border-header {
+    padding-top: 5px;
+    margin: 21px 0 20px;
+    border-top: 1px solid #dcdcdc;
+}
+
 .modal-header {
-  padding: 9px 15px;
   border-bottom: 1px solid #eee;
   background-color: #272b30;
 }
 
-.modal-header h2, .modal-header h3, .modal-header h4{
+.modal-header h2, .modal-header h3, .modal-header h4, .modal-header h5{
     color: #ffffff;
 }
 

@@ -8,6 +8,7 @@
                 logger.log('shared binding bound');
                 ko.applyBindings(vm.header, getView(ids.header));
                 ko.applyBindings(vm.footer, getView(ids.footer));
+                ko.applyBindings(vm.login, getView(ids.login));
             },
 
             getView = function (viewName) {

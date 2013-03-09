@@ -15,7 +15,7 @@
                     <li><a href="#">Blog</a></li>
                     <li class="divider-vertical"></li>
                 </ul>
-                <li class="dropdown" id="accountMenu">
+                <li class="dropdown" id="accountMenu" data-bind="visible: isAuthenticated">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu"><span data-bind="text: name"></span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#about">Edit Profile</a></li>
@@ -24,9 +24,9 @@
                         <li><a href="#about">Log Out</a></li>
                     </ul>
                 </li>
-                <div class="btn-group pull-right"  data-bind="visible: isAuthenticated">
-                    <button type="submit" class="btn btn-inverse" data-toggle="modal" data-target="#signInDialog">Sign In</button>
-                    <button type="submit" class="btn btn-inverse" data-toggle="modal" data-target="#signUpDialog">Sign Up</button>
+                <div class="btn-group pull-right">
+                    <button type="submit" class="btn btn-inverse" data-bind="click: toggleSignUp.bind($data, 'signin')" data-toggle="modal" data-target="#login-dialog">Sign In</button>
+                    <button type="submit" class="btn btn-inverse" data-bind="click: toggleSignUp.bind($data, 'signup')" data-toggle="modal" data-target="#login-dialog">Sign Up</button>
                 </div>
             </div>
             <!--/.nav-collapse -->
@@ -35,30 +35,50 @@
 </div>
 
 <!-- LOGIN Dialogs --> 
-<div id="signInDialog" class="modal hide fade" tabindex="-1" role="dialog">
+<div class="modal fade login-modal" id="login-dialog" tabindex="-1" role="dialog">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 id="signInLabel">Sign In To SportsWebPt</h4>
+        <h4>Sign In</h4>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" data-bind="visible: signInVisible" id="signInForm">
         <form>
-            <p>Lets log your ass in…</p>
+            <a class="login-facebook login-btn"><i class="iconmoon-facebook login-icon"></i>Sign in with Facebook</a>
         </form>
+        <form>
+            <a class="login-twitter login-btn"><i class="iconmoon-twitter login-icon"></i>Sign in with Twitter</a>
+        </form>
+        <form>
+            <a class="login-google login-btn"><i class="iconmoon-google login-icon"></i>Sign in with Google</a>
+        </form>
+        <div class="top-border-header text-center">or with SportsWebPt account</div>
+        <form  >
+                <div class="input-prepend input-xlarge">
+                    <span class="add-on iconmoon-untitled-16 input-xlarge"></span>
+                    <input class="input-xlarge" id="username" type="text" placeholder="Username">
+                </div>
+            <div class="input-prepend input-xlarge">
+                <span class="add-on  iconmoon-untitled-7"></span>
+                <input class="input-xlarge" id="password" type="text" placeholder="Password">
+            </div>
+            <div>
+                
+            </div>
+            <div class="text-center">
+                <button class="btn"> Sign in >> </button>
+            </div>
+            <div class="top-border-header text-center">
+                forgot password? *  signup
+            </div>
+        </form>
+
     </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
-</div>
-        
-<div id="signUpDialog" class="modal hide fade" tabindex="-1" role="dialog">
-    <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 id="signUpLabel">Sign up for SportsWebPt</h4>
-    </div>
-    <div class="modal-body">
-        <p>Lets sign your ass up....</p>
-        <button class="btn btn-primary">Sign Up</button>
+    <div class="modal-body" data-bind="visible: signUpVisible" id="signUpForm">
+        <form>
+            <a class="login-facebook login-btn"><i class="iconmoon-facebook login-icon"></i>Sign in with Facebook</a>
+        </form>
+        <form>
+            <a class="login-google login-btn"><i class="iconmoon-google login-icon"></i>Sign in with Google</a>
+        </form>
     </div>
 </div>
   

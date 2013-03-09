@@ -1,6 +1,6 @@
 ﻿define('vm.master.header',
-['ko', 'config', 'model.user', 'kb'],
-    function (ko, config, user, kb) {
+['ko', 'config', 'model.user', 'kb', 'vm.login.dialog'],
+    function (ko, config, user, kb, login) {
 
         var user2 = new user({ id: 2 }),
         firstName = kb.observable(user2, 'firstName'),
@@ -14,12 +14,14 @@
         });
         
         var isAuthenticated = ko.observable(false);
+        
         var name = ko.computed(function() {
             return firstName() + ' ' + lastName();
         });
-
+        
         return {
             name: name,
-            isAuthenticated : isAuthenticated
+            isAuthenticated: isAuthenticated,
+            toggleSignUp: login.toggleSignUp
         };
     });

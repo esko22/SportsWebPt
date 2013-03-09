@@ -3,7 +3,8 @@
         
         var viewIds = {
             header: '#master-header',
-            footer: '#master-footer'
+            footer: '#master-footer',
+            login: '#login-dialog'
         };
 
         return {

@@ -166,6 +166,7 @@
     <Content Include="Areas\Main\Scripts\app\main.area.bootstrapper.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.binder.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
+    <Content Include="Areas\Main\Scripts\shared\vm.login.dialog.js" />
     <Content Include="Areas\Main\Scripts\shared\vm.master.header.js" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
