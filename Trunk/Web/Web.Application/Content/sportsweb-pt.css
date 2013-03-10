@@ -15,9 +15,20 @@ body {
 }
 
 
+#login-dialog .login-input {
+    height: 30px;
+    font-size: 20px;
+    padding-top: 6px;
+}
+
 .login-modal {
     width: 360px;
-    height: 600px;
+    height: 620px;
+}
+
+.login-modal-body {
+    position: relative;
+    padding: 0 10px 0 10px;
 }
 
 .login-icon {
@@ -141,6 +152,19 @@ body {
 .modal-header h2, .modal-header h3, .modal-header h4, .modal-header h5{
     color: #ffffff;
 }
+
+a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #cccccc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 
 
 

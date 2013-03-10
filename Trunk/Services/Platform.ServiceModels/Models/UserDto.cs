@@ -18,6 +18,12 @@ namespace SportsWebPt.Platform.ServiceContracts.Models
         public String lastName { get; set; }
 
         [DataMember]
+        public String userName { get; set; }
+
+        [DataMember]
+        public String password { get; set; }
+
+        [DataMember]
         public String phone { get; set; }
 
         [DataMember]

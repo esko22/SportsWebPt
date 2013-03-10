@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application
@@ -29,11 +30,19 @@ namespace SportsWebPt.Platform.Web.Application
         #endregion
 
 
-        [GET("User/{id}")]
+        [GET("Users/{id}")]
         public ActionResult GetUser(int id)
         {
             var user = _userManagementService.GetUser(id);
             return Json(user, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("Users/")]
+        [PUT("Users/")]
+        public ActionResult GetUser(User user)
+        {
+            var response = _userManagementService.AddUser(user);
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
     }

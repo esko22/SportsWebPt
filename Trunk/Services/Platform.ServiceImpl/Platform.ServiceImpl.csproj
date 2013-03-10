@@ -74,6 +74,10 @@
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.DataAccess\Common.DataAccess.csproj">
+      <Project>{5293b515-3077-4c12-8d07-7577878a8511}</Project>
+      <Name>Common.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
       <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
       <Name>Common.Logging</Name>

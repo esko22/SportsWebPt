@@ -10,6 +10,7 @@ using ServiceStack.Text;
 using ServiceStack.WebHost.Endpoints;
 
 using Funq;
+using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
@@ -99,7 +100,8 @@ namespace SportsWebPt.Platform.ServiceHost
         private void BuildRoutes()
         {
             Routes
-                .Add<UserRequest>("user/{Id}");
+                .Add<UserRequest>("users/{Id}")
+                .Add<UserRequest>("users");
 
         }
 
@@ -107,6 +109,11 @@ namespace SportsWebPt.Platform.ServiceHost
         {
             container.Register<ApiDocumentGenerator>(c => new SwaggerApiDocumentGenerator(_configuration.ApiDocumentAssemblies)).ReusedWithin(ReuseScope.Container);
             container.Register<IBaseApiConfig>(c => PlatformServiceConfiguration.Instance).ReusedWithin(ReuseScope.Container);
+            container.Register<RepositoryFactory>(c => new PlatformRepositoryFactory())
+                     .ReusedWithin(ReuseScope.Container);
+            container.Register<IRepositoryProvider>(c => new PlatformRepositoryProvider(c.Resolve<RepositoryFactory>()))
+                     .ReusedWithin(ReuseScope.Request);
+            container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
         }
 
         private void BoostrapEf()

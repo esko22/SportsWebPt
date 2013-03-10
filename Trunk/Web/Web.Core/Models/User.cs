@@ -16,9 +16,13 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String lastName { get; set; }
 
-        public String Phone { get; set; }
+        public String phone { get; set; }
 
-        public String SkypeHandle { get; set; } 
+        public String password { get; set; }
+
+        public String skypeHandle { get; set; }
+
+        public String userName { get; set; }
 
         #endregion
 

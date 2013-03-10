@@ -18,6 +18,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String LastName { get; set; }
 
+        public String UserName { get; set; }
+
+        public String Password { get; set; }
+
         public String Phone { get; set; }
 
         public String SkypeHandle { get; set; }

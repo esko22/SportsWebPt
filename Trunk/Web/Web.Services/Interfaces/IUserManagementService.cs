@@ -14,5 +14,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         User GetUser(int id);
 
+        int AddUser(User user);
+
     }
 }
