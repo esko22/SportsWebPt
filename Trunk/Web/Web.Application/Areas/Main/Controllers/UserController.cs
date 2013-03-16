@@ -38,8 +38,7 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [POST("Users/")]
-        [PUT("Users/")]
-        public ActionResult GetUser(User user)
+        public ActionResult CreateUser(User user)
         {
             var response = _userManagementService.AddUser(user);
             return Json(response, JsonRequestBehavior.AllowGet);
