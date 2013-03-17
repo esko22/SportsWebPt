@@ -68,6 +68,8 @@ local.properties
 
 # Logs and databases #
 ######################
+archive/
+logs/
 *.log
 *.sql
 *.sqlite

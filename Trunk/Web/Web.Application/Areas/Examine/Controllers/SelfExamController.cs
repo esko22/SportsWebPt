@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
+using SportsWebPt.Platform.Web.Application;
 
 namespace SportsWebPt.Platform.Web.Examine
 {
@@ -15,7 +16,7 @@ namespace SportsWebPt.Platform.Web.Examine
         [GET("Examine", IsAbsoluteUrl = true)]
         public ActionResult Index()
         {
-            return View();
+            return View(new SelfExamViewModel());
         }
 
     }

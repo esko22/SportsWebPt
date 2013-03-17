@@ -10,7 +10,7 @@ using DotNetOpenAuth.OAuth2;
 namespace SportsWebPt.Platform.Web.Application
 {
     [RouteArea("Main")]
-    public class SecureController : Controller
+    public class AuthController : Controller
     {
 
         #region Fields
@@ -18,6 +18,12 @@ namespace SportsWebPt.Platform.Web.Application
         private readonly WebServerClient _client = AuthHelper.CreateClient();
 
         #endregion
+
+        [GET("Logon", IsAbsoluteUrl = true)]
+        public ActionResult LogOn()
+        {
+            return View(new LogonViewModel());
+        }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
         public ActionResult OAuth()

@@ -143,13 +143,18 @@
     <Compile Include="App_Start\AttributeRouting.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\UserDashboardController.cs" />
+    <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
+    <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="Areas\Examine\Controllers\SelfExamController.cs" />
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
-    <Compile Include="Areas\Main\Controllers\SecureController.cs" />
+    <Compile Include="Areas\Examine\ViewModels\SelfExamViewModel.cs" />
+    <Compile Include="Areas\Main\Controllers\AuthController.cs" />
     <Compile Include="Areas\Main\Controllers\UserController.cs" />
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
     <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
+    <Compile Include="Areas\Main\ViewModels\LogonViewModel.cs" />
     <Compile Include="AuthHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -189,6 +194,10 @@
     <Content Include="Content\fonts\icomoon.eot" />
     <Content Include="Content\fonts\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon.woff" />
+    <Content Include="Areas\Main\Views\Auth\logon.cshtml" />
+    <Content Include="Areas\Main\Views\Shared\_authDialogs.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Web.config" />
+    <Content Include="Areas\Dashboard\Views\UserDashboard\Index.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\libs\infuser.js" />
@@ -229,11 +238,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Dashboard\Models\" />
+    <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Examine\Models\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
-    <Folder Include="NewFolder1\" />
-    <Folder Include="NewFolder2\" />
-    <Folder Include="NewFolder3\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -34,83 +34,10 @@
     </div>
 </div>
 
-<!-- LOGIN Dialogs --> 
 <div class="modal fade login-modal" id="login-dialog" tabindex="-1" role="dialog">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4>SportsWebPT</h4>
     </div>
-    <div class="login-modal-body" data-bind="visible: signInVisible" id="signInForm">
-        <form>
-            <a class="login-facebook login-btn"><i class="iconmoon-facebook login-icon"></i>Sign in with Facebook</a>
-        </form>
-        <form>
-            <a class="login-twitter login-btn"><i class="iconmoon-twitter login-icon"></i>Sign in with Twitter</a>
-        </form>
-        <form>
-            <a class="login-google login-btn"><i class="iconmoon-google login-icon"></i>Sign in with Google</a>
-        </form>
-        <div class="top-border-header text-center"><strong>or with SportsWebPt account</strong></div>
-        <form class="form-horizontal">
-            <fieldset>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-envelope"></span>
-                    <input class="input-xlarge login-input" id="email" type="text" placeholder="Email Address">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-suitcase-2"></span>
-                    <input class="input-xlarge login-input" id="password" type="password" placeholder="Password">
-                </div>
-                <div class="control-group text-center">
-                    <button class="btn"><strong>Sign in >> </strong></button>
-                </div>
-            </fieldset>
-        </form>
-        <div class="top-border-header text-center">
-            <strong>
-                <a >forgot password</a>
-                <span>-</span>
-                <a data-bind="click: toggleSignUp.bind($data, 'signup')">create account</a>            
-            </strong>
-        </div>
-    </div>
-    <div class="login-modal-body" data-bind="visible: signUpVisible" id="signUpForm">
-        <form>
-            <a class="login-facebook login-btn"><i class="iconmoon-facebook login-icon"></i>Sign up with Facebook</a>
-        </form>
-        <form>
-            <a class="login-twitter login-btn"><i class="iconmoon-twitter login-icon"></i>Sign in with Twitter</a>
-        </form>
-        <form>
-            <a class="login-google login-btn"><i class="iconmoon-google login-icon"></i>Sign up with Google</a>
-        </form>
-        <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
-        <form class="form-horizontal">
-            <fieldset>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-single-user"></span>
-                    <input class="input-xlarge login-input" id="username" type="text" data-bind="value: username" placeholder="User Name">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-envelope"></span>
-                    <input class="input-xlarge login-input" id="email" type="text" data-bind="value: emailAddress" placeholder="Email Address">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-suitcase-2"></span>
-                    <input class="input-xlarge login-input" id="password" type="password" data-bind="value: password" placeholder="Password">
-                </div>
-                <div class="control-group text-center">
-                    <button class="btn" data-bind="click: signUp"><strong>Sign up >> </strong></button>
-                </div>
-            </fieldset>
-        </form>
-        <div class="top-border-header text-center">
-            <strong>
-                <a>forgot password</a>
-                <span>-</span>
-                <a data-bind="click: toggleSignUp.bind($data, 'signin')">have an account</a>            
-            </strong>
-        </div>
-    </div>
+    @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
 </div>
-  
