@@ -231,6 +231,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Examine\Models\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder2\" />
+    <Folder Include="NewFolder3\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

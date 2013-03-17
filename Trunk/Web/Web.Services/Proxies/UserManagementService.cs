@@ -35,8 +35,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userResuest = new AddUserRequest
                 {
                     emailAddress = user.emailAddress,
-                    firstName = user.firstName,
-                    lastName = user.lastName,
+                    userName = user.userName,
                     password = user.password
                 };
 

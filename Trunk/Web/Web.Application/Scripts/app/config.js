@@ -7,8 +7,11 @@
             login: '#login-dialog'
         };
 
+        var currentUser = ko.observable();
+        
         return {
-            viewIds: viewIds
+            viewIds: viewIds,
+            currentUser: currentUser
         };
 
     });

@@ -2,15 +2,21 @@
     ['ko', 'config', 'kb', 'model.user'],
     function (ko, config, kb, user) {
         
-        var signUpVisible = ko.observable(false);
-        var signInVisible = ko.observable(false);
+        var signUpVisible = ko.observable(false),
+            signInVisible = ko.observable(false),
+            emailAddress = kb.observable(null, 'emailAddress'),
+            password = kb.observable(null, 'password'),
+            username = kb.observable(null, 'userName');
 
-        var userToAdd = new user();
-        var emailAddress = kb.observable(userToAdd,'emailAddress');
-        var password = kb.observable(userToAdd, 'password');
-        var username = kb.observable(userToAdd, 'userName');
+        //functions
+        var activate = function () {
+            config.currentUser(new user());
+            emailAddress.model(config.currentUser());
+            password.model(config.currentUser());
+            username.model(config.currentUser());
+        },
 
-        var toggleSignUp = function (toggleValue) {
+        toggleSignUp = function (toggleValue) {
             if (toggleValue === 'signup') {
                 signInVisible(false);
                 signUpVisible(true);
@@ -18,10 +24,10 @@
                 signInVisible(true);
                 signUpVisible(false);
             }
-        };
-
-        var signUp = function() {
-            userToAdd.save();            
+        },
+            
+        signUp = function() {
+            config.currentUser().save();
         };
 
         return {
@@ -31,7 +37,8 @@
             signUp : signUp,
             emailAddress : emailAddress,
             password : password,
-            username : username
+            username: username,
+            activate : activate
         };
 
     });
