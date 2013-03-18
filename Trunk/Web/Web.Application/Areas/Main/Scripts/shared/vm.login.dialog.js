@@ -3,7 +3,7 @@
     function (ko, config, kb, user) {
         
         var signUpVisible = ko.observable(false),
-            signInVisible = ko.observable(false),
+            loginVisible = ko.observable(true),
             emailAddress = kb.observable(null, 'emailAddress'),
             password = kb.observable(null, 'password'),
             username = kb.observable(null, 'userName');
@@ -18,10 +18,10 @@
 
         toggleSignUp = function (toggleValue) {
             if (toggleValue === 'signup') {
-                signInVisible(false);
+                loginVisible(false);
                 signUpVisible(true);
             } else {
-                signInVisible(true);
+                loginVisible(true);
                 signUpVisible(false);
             }
         },
@@ -33,7 +33,7 @@
         return {
             toggleSignUp: toggleSignUp,
             signUpVisible: signUpVisible,
-            signInVisible: signInVisible,
+            loginVisible: loginVisible,
             signUp : signUp,
             emailAddress : emailAddress,
             password : password,

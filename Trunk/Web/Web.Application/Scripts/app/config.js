@@ -7,13 +7,11 @@
             login: '#login-dialog'
         },
 
-        someTextVal = 'default',
         currentUser = ko.observable();
 
         return {
             viewIds: viewIds,
-            currentUser: currentUser,
-            someTextVal : someTextVal
+            currentUser: currentUser
         };
 
     });

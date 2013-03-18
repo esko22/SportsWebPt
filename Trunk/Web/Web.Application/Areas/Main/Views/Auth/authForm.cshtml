@@ -1,0 +1,54 @@
+﻿@model SportsWebPt.Platform.Web.Application.AuthFormViewModel
+@{
+    Model.AreaBundles.Add("~/bundles/mainapplib");
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>SportsWebPT | Authentication</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" id="auth-form-header">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/">SportsWebPT</a>
+                <div class="nav nav-collapse collapse pull-right">
+                    <ul class="nav">
+                        <li><a href="#about">Store</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li class="divider-vertical"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="login-container" id="login-dialog">
+            @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
+        </div>
+
+        @Scripts.Render(
+        
+            "~/bundles/jquery",
+            "~/bundles/jsextlibs",
+            "~/Scripts/libs/require.js",
+            "~/bundles/baseapplib",
+            "~/bundles/sharedapplib",
+            "~/bundles/utils",
+            "~/bundles/models",
+            "~/Scripts/auth.form.main.js"               
+             )
+        @Scripts.Render(Model.AreaBundles.ToArray())
+    </body>
+</html>

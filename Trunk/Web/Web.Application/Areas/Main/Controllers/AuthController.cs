@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 using AttributeRouting;
@@ -20,17 +21,19 @@ namespace SportsWebPt.Platform.Web.Application
         #endregion
 
         [GET("Logon", IsAbsoluteUrl = true)]
-        public ActionResult LogOn()
+        public ActionResult AuthForm()
         {
-            return View(new LogonViewModel());
+            return View(new AuthFormViewModel());
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
         public ActionResult OAuth()
         {
             if (string.IsNullOrEmpty(Request.QueryString["code"]))
-                return  InitAuth();
-
+            {
+                Session["redirectUri"] = "http://localhost:8022";
+                return InitAuth();
+            }
             return  OAuthCallback();
         }
 
@@ -68,7 +71,7 @@ namespace SportsWebPt.Platform.Web.Application
             var tv = new TokenValidator();
 
             var tokenInfo = google.GetTokenInfo(auth.AccessToken);
-            tv.ValidateToken(tokenInfo, expectedAudience: "291493632670.apps.googleusercontent.com");
+            tv.ValidateToken(tokenInfo, expectedAudience: "136219353860.apps.googleusercontent.com");
 
             var userInfo = google.GetUserInfo(auth.AccessToken);
 
@@ -81,7 +84,7 @@ namespace SportsWebPt.Platform.Web.Application
             // Later, if necessary:
             // bool success = client.RefreshAuthorization(auth);
 
-            return new ViewResult();
+            return Redirect((String)Session["redirectUri"]);
         }
     }
 }

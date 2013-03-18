@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Web.Application
 {
-    public class LogonViewModel : BaseViewModel
+    public class AuthFormViewModel : BaseViewModel
     {
 
     }

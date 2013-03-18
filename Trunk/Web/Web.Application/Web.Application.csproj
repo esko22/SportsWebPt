@@ -154,7 +154,7 @@
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
     <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
-    <Compile Include="Areas\Main\ViewModels\LogonViewModel.cs" />
+    <Compile Include="Areas\Main\ViewModels\AuthFormViewModel.cs" />
     <Compile Include="AuthHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +185,8 @@
     <Content Include="Content\images\swpt_splash.png" />
     <Content Include="Content\sportsweb-pt.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\auth.form.bootstrapper.js" />
+    <Content Include="Scripts\auth.form.main.js" />
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Areas\Examine\Views\Web.config" />
     <Content Include="Areas\Examine\Views\SelfExam\Index.cshtml" />
@@ -194,7 +196,7 @@
     <Content Include="Content\fonts\icomoon.eot" />
     <Content Include="Content\fonts\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon.woff" />
-    <Content Include="Areas\Main\Views\Auth\logon.cshtml" />
+    <Content Include="Areas\Main\Views\Auth\authForm.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_authDialogs.cshtml" />
     <Content Include="Areas\Dashboard\Views\Web.config" />
     <Content Include="Areas\Dashboard\Views\UserDashboard\Index.cshtml" />
@@ -231,7 +233,6 @@
     </Content>
     <Content Include="Scripts\libs\jquery-1.9.0.min.map" />
     <Content Include="Areas\Main\Views\Shared\_masterLayout.cshtml" />
-    <Content Include="Areas\Main\Views\_viewStart.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_masterHeader.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_masterFooter.cshtml" />
     <Content Include="Areas\Main\Views\Index\index.cshtml" />

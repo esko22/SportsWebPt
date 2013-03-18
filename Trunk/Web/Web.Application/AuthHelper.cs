@@ -9,8 +9,8 @@ namespace SportsWebPt.Platform.Web.Application
         public static WebServerClient CreateClient()
         {
             var desc = GetAuthServerDescription();
-            var client = new WebServerClient(desc, clientIdentifier: "291493632670.apps.googleusercontent.com");
-            client.ClientCredentialApplicator = ClientCredentialApplicator.PostParameter("cjMF6fRII99PyOYRKHMbLKRc");
+            var client = new WebServerClient(desc, clientIdentifier: "136219353860.apps.googleusercontent.com");
+            client.ClientCredentialApplicator = ClientCredentialApplicator.PostParameter("SNzL1wJ1Pf_EdiwYrXh0kvtN");
             return client;
         }
 

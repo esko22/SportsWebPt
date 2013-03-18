@@ -4,6 +4,6 @@
         return {
             header: header,
             footer: footer,
-            login: login
+            login: login,
         };
     });
