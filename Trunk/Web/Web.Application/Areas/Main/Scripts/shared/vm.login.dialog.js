@@ -1,6 +1,6 @@
 ﻿define('vm.login.dialog',
-    ['ko', 'config', 'kb', 'model.user'],
-    function (ko, config, kb, user) {
+    ['ko', 'config', 'kb', 'model.user', 'jquery'],
+    function (ko, config, kb, user, $) {
         
         var signUpVisible = ko.observable(false),
             loginVisible = ko.observable(true),
@@ -28,7 +28,12 @@
             
         signUp = function() {
             config.currentUser().save();
+        },
+
+        signUpGoogle = function(onSuccess, onError) {
+            window.location.href = '/oauth?returnUrl=examine';
         };
+       
 
         return {
             toggleSignUp: toggleSignUp,
@@ -38,7 +43,8 @@
             emailAddress : emailAddress,
             password : password,
             username: username,
-            activate : activate
+            activate: activate,
+            signUpGoogle : signUpGoogle
         };
 
     });

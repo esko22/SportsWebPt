@@ -53,6 +53,9 @@
     <Reference Include="AttributeRouting.Web.Mvc">
       <HintPath>..\packages\AttributeRouting.3.4.1\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="BrockAllen.CookieTempData">
+      <HintPath>..\packages\BrockAllen.CookieTempData.dll.1.2.1\lib\net45\BrockAllen.CookieTempData.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetOpenAuth">
       <HintPath>..\packages\DotNetOpenAuth.Ultimate.4.2.1.13026\lib\net45-full\DotNetOpenAuth.dll</HintPath>
     </Reference>
@@ -251,6 +254,10 @@
     <ProjectReference Include="..\..\Common\Common.ServiceStackClient\Common.ServiceStackClient.csproj">
       <Project>{bcc6d799-39dc-465a-bd9d-3a13f0c6b889}</Project>
       <Name>Common.ServiceStackClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Web\Common.Web.csproj">
+      <Project>{384f69b9-e154-4845-a9b9-5b71406e50fe}</Project>
+      <Name>Common.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\Web.Core\Web.Core.csproj">
       <Project>{6e825362-1bf2-4828-b57d-6a238a8e8df4}</Project>

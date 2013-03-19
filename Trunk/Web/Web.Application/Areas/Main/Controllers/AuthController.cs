@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 
@@ -27,17 +28,19 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
-        public ActionResult OAuth()
+        public ActionResult OAuth(string code, string returnUrl)
         {
-            if (string.IsNullOrEmpty(Request.QueryString["code"]))
+            if (string.IsNullOrEmpty(code))
             {
-                Session["redirectUri"] = "http://localhost:8022";
+                Response.Cookies.Add(new HttpCookie("nothingToSeeHear") {Value = returnUrl});
+
                 return InitAuth();
             }
+
             return  OAuthCallback();
         }
 
-        private ActionResult InitAuth()
+        public ActionResult InitAuth()
         {
             var state = new AuthorizationState();
             var uri = Request.Url.AbsoluteUri;
@@ -45,10 +48,10 @@ namespace SportsWebPt.Platform.Web.Application
             state.Callback = new Uri(uri);
 
             state.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
-            state.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
-            state.Scope.Add("https://www.googleapis.com/auth/calendar");
-
+            //state.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
+            //state.Scope.Add("https://www.googleapis.com/auth/calendar");
             var r = _client.PrepareRequestUserAuthorization(state);
+
             return r.AsActionResult();
         }
 
@@ -65,7 +68,7 @@ namespace SportsWebPt.Platform.Web.Application
         private ActionResult OAuthCallback()
         {
             var auth = _client.ProcessUserAuthorization(this.Request);
-            Session["auth"] = auth;
+            //Session["auth"] = auth;
 
             var google = new GoogleProxy();
             var tv = new TokenValidator();
@@ -75,16 +78,17 @@ namespace SportsWebPt.Platform.Web.Application
 
             var userInfo = google.GetUserInfo(auth.AccessToken);
 
-            Session["user.name"] = userInfo.name;
-            Session["user.birthday"] = userInfo.birthday;
-            Session["user.locale"] = userInfo.locale;
-            Session["user.userid"] = userInfo.id;
-            Session["user.email"] = userInfo.email;
+            //Session["user.name"] = userInfo.name;
+            //Session["user.birthday"] = userInfo.birthday;
+            //Session["user.locale"] = userInfo.locale;
+            //Session["user.userid"] = userInfo.id;
+            //Session["user.email"] = userInfo.email;
 
             // Later, if necessary:
             // bool success = client.RefreshAuthorization(auth);
 
-            return Redirect((String)Session["redirectUri"]);
+            var redirectUrl = Request.Cookies["nothingToSeeHear"].Value;
+            return Redirect(redirectUrl);
         }
     }
 }

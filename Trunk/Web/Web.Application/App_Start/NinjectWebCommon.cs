@@ -4,7 +4,6 @@ using SportsWebPt.Platform.Web.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(SportsWebPt.Platform.Web.Application.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(SportsWebPt.Platform.Web.Application.App_Start.NinjectWebCommon), "Stop")]
-
 namespace SportsWebPt.Platform.Web.Application.App_Start
 {
     using System;

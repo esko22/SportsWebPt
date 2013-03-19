@@ -23,4 +23,5 @@ namespace SportsWebPt.Platform.Web.Application
             return authServerDescription;
         }
     }
+
 }

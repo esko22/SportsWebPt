@@ -36,17 +36,17 @@
 
 <!-- SIGN UP -->
 <div class="login-modal-body" data-bind="visible: signUpVisible" id="signUpForm">
-    <form id="signUpGoogle" action="http://localhost:8022/oauth?redirectUri=localhost" method="GET" >
-        <a class="login-facebook login-btn" href="javascript:;" onclick="parentNode.submit();"><i class="iconmoon-facebook login-icon"></i>Sign up using Facebook</a>
+    <form id="signUpFacebook" >
+        <a class="login-facebook login-btn"><i class="iconmoon-facebook login-icon"></i>Sign up using Facebook</a>
     </form>
-    <form>
+    <form id="signUpTwitter">
         <a class="login-twitter login-btn"><i class="iconmoon-twitter login-icon"></i>Sign up using Twitter</a>
     </form>
-    <form>
-        <a class="login-google login-btn"><i class="iconmoon-google login-icon"></i>Sign up using Google</a>
+    <form id="signUpGoogle">
+        <a class="login-google login-btn" data-bind="click: signUpGoogle" ><i class="iconmoon-google login-icon"></i>Sign up using Google</a>
     </form>
     <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
-    <form class="form-horizontal">
+    <form class="form-horizontal" id="signUpSwpt">
         <fieldset>
             <div class="control-group input-prepend">
                 <span class="add-on login-input iconmoon-single-user"></span>
