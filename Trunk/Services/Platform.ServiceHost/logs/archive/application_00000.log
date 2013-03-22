@@ -1,5 +1,50 @@
-03-09-13@18:43:12 Info (5)  [Common] UserRequest request submitted 
-03-09-13@18:43:15 Error (5)  [Common] [UserService: 3/10/2013 2:43:15 AM]:
-[REQUEST: {Id:3,IdAsLong:3,IdAsInt:3,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException The model backing the 'PlatformDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269). Void InitializeDatabase(TContext)
-03-09-13@18:44:59 Info (10)  [Common] UserRequest request submitted 
-03-09-13@18:45:06 Info (10)  [Common] UserRequest request completed with duration of 00:00:06.3651009 
+03-21-13@23:17:01 Info (6)  [Common] UserRequest request submitted 
+03-21-13@23:17:03 Info (6)  [Common] UserRequest request completed with duration of 00:00:02.2907281 
+03-21-13@23:17:05 Info (6)  [Common] UserRequest request submitted 
+03-21-13@23:17:05 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0041990 
+03-21-13@23:17:50 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:17:50 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0033582 
+03-21-13@23:18:11 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:18:11 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0033024 
+03-21-13@23:18:58 Info (13)  [Common] UserRequest request submitted 
+03-21-13@23:18:58 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0041851 
+03-21-13@23:19:08 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:19:08 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0032819 
+03-21-13@23:19:10 Info (13)  [Common] UserRequest request submitted 
+03-21-13@23:19:10 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0031524 
+03-21-13@23:19:20 Info (5)  [Common] UserRequest request submitted 
+03-21-13@23:19:20 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.0039013 
+03-21-13@23:19:37 Info (9)  [Common] UserRequest request submitted 
+03-21-13@23:19:37 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0033979 
+03-21-13@23:19:44 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:19:44 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0037270 
+03-21-13@23:21:06 Info (5)  [Common] UserRequest request submitted 
+03-21-13@23:21:06 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.0040845 
+03-21-13@23:21:30 Info (5)  [Common] UserRequest request submitted 
+03-21-13@23:21:30 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.0037171 
+03-21-13@23:22:02 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:22:02 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0034771 
+03-21-13@23:22:21 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:22:21 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0040367 
+03-21-13@23:23:27 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:23:27 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0033082 
+03-21-13@23:23:27 Info (9)  [Common] UserRequest request submitted 
+03-21-13@23:23:27 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0038331 
+03-21-13@23:24:01 Info (8)  [Common] UserRequest request submitted 
+03-21-13@23:24:01 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0032152 
+03-21-13@23:24:09 Info (14)  [Common] UserRequest request submitted 
+03-21-13@23:24:09 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0033567 
+03-21-13@23:24:17 Info (14)  [Common] UserRequest request submitted 
+03-21-13@23:24:17 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0031827 
+03-21-13@23:24:54 Info (9)  [Common] UserRequest request submitted 
+03-21-13@23:24:54 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0034957 
+03-21-13@23:25:31 Info (9)  [Common] UserRequest request submitted 
+03-21-13@23:25:31 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0051562 
+03-21-13@23:26:01 Info (7)  [Common] UserRequest request submitted 
+03-21-13@23:26:01 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0031597 
+03-21-13@23:45:33 Info (34)  [Common] UserRequest request submitted 
+03-21-13@23:45:33 Info (34)  [Common] UserRequest request completed with duration of 00:00:00.0127047 
+03-21-13@23:57:00 Info (43)  [Common] UserRequest request submitted 
+03-21-13@23:57:00 Info (43)  [Common] UserRequest request completed with duration of 00:00:00.0095099 
+03-21-13@23:57:59 Info (43)  [Common] UserRequest request submitted 
+03-21-13@23:57:59 Info (43)  [Common] UserRequest request completed with duration of 00:00:00.0038255 

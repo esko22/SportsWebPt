@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Web;
+using System.Text;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
 
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 
 using DotNetOpenAuth.Messaging;
 using DotNetOpenAuth.OAuth2;
+
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Common.Web.Attributes;
 
 namespace SportsWebPt.Platform.Web.Application
 {
@@ -18,6 +23,8 @@ namespace SportsWebPt.Platform.Web.Application
         #region Fields
 
         private readonly WebServerClient _client = AuthHelper.CreateClient();
+        private readonly String _returnUrlCookieName = "SWPT-XSRF-RU";
+        private String _redirectUri = "/";
 
         #endregion
 
@@ -32,7 +39,15 @@ namespace SportsWebPt.Platform.Web.Application
         {
             if (string.IsNullOrEmpty(code))
             {
-                Response.Cookies.Add(new HttpCookie("nothingToSeeHear") {Value = returnUrl});
+                if (!String.IsNullOrEmpty(returnUrl))
+                {
+                    var encryptedValue = Convert.ToBase64String(MachineKey.Protect(returnUrl.ToUtf8ByteArray(), null));
+                    Response.Cookies.Add(new HttpCookie(_returnUrlCookieName)
+                        {
+                            Value = encryptedValue,
+                            Expires = DateTime.Now.AddSeconds(300)
+                        });
+                }
 
                 return InitAuth();
             }
@@ -40,7 +55,7 @@ namespace SportsWebPt.Platform.Web.Application
             return  OAuthCallback();
         }
 
-        public ActionResult InitAuth()
+        private ActionResult InitAuth()
         {
             var state = new AuthorizationState();
             var uri = Request.Url.AbsoluteUri;
@@ -87,8 +102,22 @@ namespace SportsWebPt.Platform.Web.Application
             // Later, if necessary:
             // bool success = client.RefreshAuthorization(auth);
 
-            var redirectUrl = Request.Cookies["nothingToSeeHear"].Value;
-            return Redirect(redirectUrl);
+            
+            var cookie = Request.Cookies[_returnUrlCookieName];
+
+            if (cookie != null && !String.IsNullOrEmpty(cookie.Value))
+            {
+                var redirectUri = Encoding.UTF8.GetString(MachineKey.Unprotect(Convert.FromBase64String(cookie.Value), null));
+
+                if (Url.IsLocalUrl(redirectUri))
+                {
+                    _redirectUri = redirectUri;
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies.Set(cookie);
+                }
+            }
+
+            return Redirect(_redirectUri); 
         }
     }
 }

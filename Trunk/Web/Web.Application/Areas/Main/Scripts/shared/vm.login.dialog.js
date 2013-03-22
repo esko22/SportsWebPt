@@ -1,6 +1,6 @@
 ﻿define('vm.login.dialog',
-    ['ko', 'config', 'kb', 'model.user', 'jquery'],
-    function (ko, config, kb, user, $) {
+    ['ko', 'config', 'kb', 'model.user', 'jquery', 'uri'],
+    function (ko, config, kb, user, $, uri) {
         
         var signUpVisible = ko.observable(false),
             loginVisible = ko.observable(true),
@@ -26,12 +26,25 @@
             }
         },
             
-        signUp = function() {
+        signUp = function () {
+
+            //var token = $('input[name=""__RequestVerificationToken""]').val();
+            //var headers = {};
+            //headers['__RequestVerificationToken'] = token;
+            //ajax ---- headers: headers
+            
             config.currentUser().save();
         },
 
-        signUpGoogle = function(onSuccess, onError) {
-            window.location.href = '/oauth?returnUrl=examine';
+        signUpGoogle = function (onSuccess, onError) {
+
+            var returnUri = location.pathname + location.search;
+            var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
+            if (returnUriParams.length > 0) {
+                returnUri = returnUriParams[0];
+            } 
+            
+            window.location.href = '/oauth?returnUrl=' + returnUri;
         };
        
 

@@ -219,6 +219,8 @@
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
+    <Content Include="Scripts\libs\Uri.js" />
+    <Content Include="Scripts\libs\Uri.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\underscore.js" />
@@ -254,6 +256,10 @@
     <ProjectReference Include="..\..\Common\Common.ServiceStackClient\Common.ServiceStackClient.csproj">
       <Project>{bcc6d799-39dc-465a-bd9d-3a13f0c6b889}</Project>
       <Name>Common.ServiceStackClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utilities\Common.Utilities.csproj">
+      <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
+      <Name>Common.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common.Web\Common.Web.csproj">
       <Project>{384f69b9-e154-4845-a9b9-5b71406e50fe}</Project>

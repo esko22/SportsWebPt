@@ -17,6 +17,7 @@
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterHeader.cshtml"); }
             @RenderBody()
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterFooter.cshtml"); }
+            @Html.AntiForgeryToken()
         </div>
 
         @Scripts.Render(

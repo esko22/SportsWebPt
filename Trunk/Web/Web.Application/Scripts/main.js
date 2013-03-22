@@ -14,6 +14,7 @@
         define('underscore', [], function () { return root._; });
         define('kb', [], function () { return root.kb; });
         define('logger', [], function () { return root.logger; });
+        define('uri', [], function() { return root.Uri; });
     }
 
     function loadPluginsAndBoot() {
