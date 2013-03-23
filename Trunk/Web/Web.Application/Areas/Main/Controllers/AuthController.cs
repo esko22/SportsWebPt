@@ -13,11 +13,13 @@ using DotNetOpenAuth.OAuth2;
 
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Web.Attributes;
+using SportsWebPt.Platform.Web.Core;
+using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application
 {
     [RouteArea("Main")]
-    public class AuthController : Controller
+    public class AuthController : BaseController
     {
 
         #region Fields
@@ -25,6 +27,21 @@ namespace SportsWebPt.Platform.Web.Application
         private readonly WebServerClient _client = AuthHelper.CreateClient();
         private readonly String _returnUrlCookieName = "SWPT-XSRF-RU";
         private String _redirectUri = "/";
+
+        #endregion
+
+        #region Properties
+
+        public IUserManagementService UserManagementService { get; set; }
+
+        #endregion
+
+        #region Construction
+
+        public AuthController(IUserManagementService userManagementService)
+        {
+            UserManagementService = userManagementService;
+        }
 
         #endregion
 
@@ -92,6 +109,15 @@ namespace SportsWebPt.Platform.Web.Application
             tv.ValidateToken(tokenInfo, expectedAudience: "136219353860.apps.googleusercontent.com");
 
             var userInfo = google.GetUserInfo(auth.AccessToken);
+            var userId = 0;
+
+            if (userInfo != null)
+            {
+                userId =
+                    UserManagementService.AddUser(new User() {emailAddress = userInfo.email, firstName = userInfo.given_name, lastName = userInfo.family_name});
+                FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+            }
+
 
             //Session["user.name"] = userInfo.name;
             //Session["user.birthday"] = userInfo.birthday;

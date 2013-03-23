@@ -38,7 +38,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public override object OnPost(UserRequest request)
         {
-            UserUnitOfWork.UserRepository.Add(new User()
+           var userId = UserUnitOfWork.UserRepository.Add(new User()
                 {
                     EmailAddress = request.emailAddress,
                     FirstName = request.firstName,
@@ -47,11 +47,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     UserName = request.userName
                 });
 
-            UserUnitOfWork.Commit();
-
             return Ok(new UserResponse()
                 {
-                    Response = new UserDto()
+                    Response = new UserDto() { id = userId }
                 });
         }
 

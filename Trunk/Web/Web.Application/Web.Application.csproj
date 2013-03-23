@@ -153,6 +153,8 @@
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
     <Compile Include="Areas\Examine\ViewModels\SelfExamViewModel.cs" />
     <Compile Include="Areas\Main\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Main\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Main\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Main\Controllers\UserController.cs" />
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />

@@ -9,6 +9,9 @@ namespace SportsWebPt.Platform.ServiceContracts.Models
         #region Properties
 
         [DataMember]
+        public int id { get; set; }
+
+        [DataMember]
         public String emailAddress { get; set; }
 
         [DataMember]

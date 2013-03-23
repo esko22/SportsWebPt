@@ -42,7 +42,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 PostSync<AddUserResponse, UserDto>(String.Format("/{0}/users", _settings.Version), userResuest);
 
-            return 0;
+            return response.Response.id;
         }
 
         #endregion

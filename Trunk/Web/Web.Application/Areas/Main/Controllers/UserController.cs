@@ -12,7 +12,7 @@ using SportsWebPt.Platform.Web.Services;
 namespace SportsWebPt.Platform.Web.Application
 {
     [RouteArea]
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         #region Fields
 

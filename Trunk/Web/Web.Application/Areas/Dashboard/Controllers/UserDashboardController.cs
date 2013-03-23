@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 
-namespace SportsWebPt.Platform.Web.Application.Areas.Dashboard.Controllers
+namespace SportsWebPt.Platform.Web.Application
 {
-    [RouteArea("Dashboard")]
     [Authorize]
-    public class UserDashboardController : Controller
+    [RouteArea("Dashboard")]
+    public class UserDashboardController : BaseController
     {
         [GET("Dashboard", IsAbsoluteUrl = true)]
         public ActionResult Index()

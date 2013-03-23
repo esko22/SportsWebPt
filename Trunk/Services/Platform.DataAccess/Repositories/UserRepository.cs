@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
+
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Platform.Core.Models;
 
@@ -23,7 +22,23 @@ namespace SportsWebPt.Platform.DataAccess
         public User GetUserByEmailAddress(string emailAddress)
         {
             throw new NotImplementedException();
-        } 
+        }
+
+        public new int Add(User entity)
+        {
+            DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
+            else
+            {
+                DbSet.Add(entity);
+                DbContext.SaveChanges();
+            }
+
+            return entity.Id;
+        }
 
         #endregion
     }

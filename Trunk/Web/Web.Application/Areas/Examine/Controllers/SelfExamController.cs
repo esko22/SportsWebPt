@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
-using SportsWebPt.Platform.Web.Application;
 
-namespace SportsWebPt.Platform.Web.Examine
+namespace SportsWebPt.Platform.Web.Application
 {
     [RouteArea("Examine")]
-    public class SelfExamController : Controller
+    public class SelfExamController : BaseController
     {
 
         [GET("Examine", IsAbsoluteUrl = true)]

@@ -11,6 +11,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         User GetUserByEmailAddress(String emailAddress);
 
+        new int Add(User userentity);
+
         #endregion
     }
 }
