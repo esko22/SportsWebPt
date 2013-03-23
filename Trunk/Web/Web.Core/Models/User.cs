@@ -24,6 +24,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String userName { get; set; }
 
+        public int id { get; set; }
+
         #endregion
 
     }

@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("",IsAbsoluteUrl = true)]
         public ActionResult Index()
         {
-            return View(new IndexViewModel());
+            return View(CreateViewModel<IndexViewModel>());
         }
 
     }

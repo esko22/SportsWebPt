@@ -29,10 +29,22 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
 
             var user = UserUnitOfWork.UserRepository.GetById((int)request.IdAsInt);
+            var userDto = new UserDto();
+
+            //TODO: this needs to cleaned up for sure
+
+            if (user != null)
+                userDto = new UserDto()
+                    {
+                        emailAddress = user.EmailAddress,
+                        firstName = user.FirstName,
+                        lastName = user.LastName,
+                        id = user.Id
+                    };
 
             return Ok(new UserResponse()
                 {
-                    Response = new UserDto() {emailAddress = user.EmailAddress, firstName = user.FirstName, lastName = user.LastName}
+                    Response = userDto
                 });
         }
 

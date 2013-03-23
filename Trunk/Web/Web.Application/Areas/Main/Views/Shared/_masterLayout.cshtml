@@ -13,6 +13,11 @@
 
     </head>
     <body id="body-content">
+        
+        <input type="hidden" id="userid" value="@Model.User.id"/>
+        <input type="hidden" id="username" value="@Model.User.userName"/>
+        <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
+
         <div class="container">
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterHeader.cshtml"); }
             @RenderBody()
@@ -21,15 +26,15 @@
         </div>
 
         @Scripts.Render(
-               "~/bundles/jquery",
-               "~/bundles/jsextlibs",
-               "~/Scripts/libs/require.js",
-               "~/bundles/baseapplib",
-               "~/bundles/sharedapplib",
-               "~/bundles/utils",
-               "~/bundles/models",
-               "~/Scripts/main.js"               
-               )
+            "~/bundles/jquery",
+            "~/bundles/jsextlibs",
+            "~/Scripts/libs/require.js",
+            "~/bundles/baseapplib",
+            "~/bundles/sharedapplib",
+            "~/bundles/utils",
+            "~/bundles/models",
+            "~/Scripts/main.js"               
+             )
         @Scripts.Render(Model.AreaBundles.ToArray())
     </body>
 </html>

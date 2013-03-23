@@ -3,6 +3,7 @@ using System.Web;
 using System.Text;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using System.Web.Security;
 
 using AttributeRouting;
@@ -27,21 +28,6 @@ namespace SportsWebPt.Platform.Web.Application
         private readonly WebServerClient _client = AuthHelper.CreateClient();
         private readonly String _returnUrlCookieName = "SWPT-XSRF-RU";
         private String _redirectUri = "/";
-
-        #endregion
-
-        #region Properties
-
-        public IUserManagementService UserManagementService { get; set; }
-
-        #endregion
-
-        #region Construction
-
-        public AuthController(IUserManagementService userManagementService)
-        {
-            UserManagementService = userManagementService;
-        }
 
         #endregion
 
@@ -80,7 +66,7 @@ namespace SportsWebPt.Platform.Web.Application
             state.Callback = new Uri(uri);
 
             state.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
-            //state.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
+            state.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
             //state.Scope.Add("https://www.googleapis.com/auth/calendar");
             var r = _client.PrepareRequestUserAuthorization(state);
 
@@ -108,22 +94,16 @@ namespace SportsWebPt.Platform.Web.Application
             var tokenInfo = google.GetTokenInfo(auth.AccessToken);
             tv.ValidateToken(tokenInfo, expectedAudience: "136219353860.apps.googleusercontent.com");
 
-            var userInfo = google.GetUserInfo(auth.AccessToken);
+            var userInfo = (new JavaScriptSerializer()).Deserialize<dynamic>(google.GetUserInfo(auth.AccessToken).ToString());
             var userId = 0;
 
             if (userInfo != null)
             {
                 userId =
-                    UserManagementService.AddUser(new User() {emailAddress = userInfo.email, firstName = userInfo.given_name, lastName = userInfo.family_name});
+                    _userManagementService.AddUser(new User() {emailAddress = userInfo["email"], firstName = userInfo["given_name"], lastName = userInfo["family_name"]});
+                //TODO: consider changing this to email addy
                 FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
             }
-
-
-            //Session["user.name"] = userInfo.name;
-            //Session["user.birthday"] = userInfo.birthday;
-            //Session["user.locale"] = userInfo.locale;
-            //Session["user.userid"] = userInfo.id;
-            //Session["user.email"] = userInfo.email;
 
             // Later, if necessary:
             // bool success = client.RefreshAuthorization(auth);
@@ -144,6 +124,12 @@ namespace SportsWebPt.Platform.Web.Application
             }
 
             return Redirect(_redirectUri); 
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if(_userManagementService != null)
+                _userManagementService.Dispose();
         }
     }
 }

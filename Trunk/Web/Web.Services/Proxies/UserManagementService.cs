@@ -27,7 +27,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 GetSync<UserResponse, UserDto>(String.Format("/{0}/users/{1}", _settings.Version, id));
 
-            return new User() { emailAddress = response.emailAddress, firstName = response.firstName, lastName = response.lastName} ;
+            return new User() { emailAddress = response.emailAddress, firstName = response.firstName, lastName = response.lastName, id = response.id} ;
         }
 
         public int AddUser(User user)

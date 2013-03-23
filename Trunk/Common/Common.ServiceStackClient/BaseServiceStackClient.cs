@@ -118,7 +118,6 @@ namespace SportsWebPt.Common.ServiceStackClient
 
         #endregion
 
-
         #region IDisposable
         
         public void Dispose()

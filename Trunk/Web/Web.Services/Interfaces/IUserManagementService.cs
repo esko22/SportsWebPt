@@ -8,7 +8,7 @@ using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services
 {
-    public interface IUserManagementService
+    public interface IUserManagementService : IDisposable
     {
         User GetUser(String emailAddress);
 
