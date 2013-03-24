@@ -58,6 +58,15 @@ namespace SportsWebPt.Platform.Web.Application
             return  OAuthCallback();
         }
 
+        [GET("Logout", IsAbsoluteUrl = true)]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("AuthForm");
+
+        }
+
         private ActionResult InitAuth()
         {
             var state = new AuthorizationState();

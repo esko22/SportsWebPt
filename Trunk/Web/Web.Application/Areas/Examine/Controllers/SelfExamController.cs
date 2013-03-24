@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("Examine", IsAbsoluteUrl = true)]
         public ActionResult Index()
         {
-            return View(new SelfExamViewModel());
+            return View(CreateViewModel<SelfExamViewModel>());
         }
 
     }

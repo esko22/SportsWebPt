@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("Dashboard", IsAbsoluteUrl = true)]
         public ActionResult Index()
         {
-            return View(new UserDashboardViewModel());
+            return View(CreateViewModel<UserDashboardViewModel>());
         }
     }
 }
