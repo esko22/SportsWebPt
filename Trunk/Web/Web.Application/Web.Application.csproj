@@ -173,6 +173,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\Dashboard\Scripts\app\dashboard.area.boostrapper.js" />
+    <Content Include="Areas\Examine\Scripts\app\examine.area.bootstrapper.js" />
     <Content Include="Areas\Main\Scripts\app\main.area.bootstrapper.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.binder.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
