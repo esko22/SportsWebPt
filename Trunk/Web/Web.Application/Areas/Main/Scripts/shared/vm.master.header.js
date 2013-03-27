@@ -1,6 +1,6 @@
 ﻿define('vm.master.header',
 ['ko', 'config', 'model.user', 'kb', 'vm.login.dialog','jquery'],
-    function (ko, config, user, kb, login,$) {
+    function (ko, config, user, kb, login, $) {
 
         var userId = $('#userid').val(),
         emailAddress = $('#userEmail').val(),
@@ -22,6 +22,8 @@
 
         var name = ko.observable(emailAddress);
 
+        $('#header-nav').removeClass('hidden');
+        
         return {
             name: name,
             isAuthenticated: isAuthenticated,

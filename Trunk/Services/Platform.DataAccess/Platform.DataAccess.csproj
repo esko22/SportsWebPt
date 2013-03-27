@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
+    <Compile Include="EntityConfiguration\UserEntityConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
     <Compile Include="PlatformRepositoryFactory.cs" />

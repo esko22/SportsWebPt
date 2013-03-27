@@ -160,13 +160,10 @@
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
     <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
     <Compile Include="Areas\Main\ViewModels\AuthFormViewModel.cs" />
-    <Compile Include="AuthHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="GoogleProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TokenValidator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +204,9 @@
     <Content Include="Areas\Main\Views\Shared\_authDialogs.cshtml" />
     <Content Include="Areas\Dashboard\Views\Web.config" />
     <Content Include="Areas\Dashboard\Views\UserDashboard\Index.cshtml" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\libs\infuser.js" />
@@ -257,6 +257,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.ServiceStackClient\Common.ServiceStackClient.csproj">
       <Project>{bcc6d799-39dc-465a-bd9d-3a13f0c6b889}</Project>
       <Name>Common.ServiceStackClient</Name>

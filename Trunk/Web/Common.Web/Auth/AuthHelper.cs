@@ -2,7 +2,7 @@
 
 using DotNetOpenAuth.OAuth2;
 
-namespace SportsWebPt.Platform.Web.Application
+namespace SportsWebPt.Common.Web.Auth
 {
     public class AuthHelper
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web;
 using System.Text;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Security;
@@ -13,9 +12,8 @@ using DotNetOpenAuth.Messaging;
 using DotNetOpenAuth.OAuth2;
 
 using SportsWebPt.Common.Utilities;
-using SportsWebPt.Common.Web.Attributes;
+using SportsWebPt.Common.Web.Auth;
 using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application
 {
@@ -25,11 +23,21 @@ namespace SportsWebPt.Platform.Web.Application
 
         #region Fields
 
-        private readonly WebServerClient _client = AuthHelper.CreateClient();
-        private readonly String _returnUrlCookieName = "SWPT-XSRF-RU";
-        private String _redirectUri = "/";
+        private readonly String _redirectCookieName = "SWPT-XSRF-RU";
+        private Func<OAuthProvider, String, AuthWebServerClient> _authWebServerClientFactory;
 
         #endregion
+
+        #region Construction
+
+        public AuthController(Func<OAuthProvider,String,AuthWebServerClient> authWebServerClientFactory)
+        {
+            Check.Argument.IsNotNull(authWebServerClientFactory, "authWebServerClientFactory");
+            _authWebServerClientFactory = authWebServerClientFactory;
+        }
+
+        #endregion
+
 
         [GET("Logon", IsAbsoluteUrl = true)]
         public ActionResult AuthForm()
@@ -38,24 +46,31 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
-        public ActionResult OAuth(string code, string returnUrl)
+        public ActionResult OAuth(string code, string returnUrl, string provider)
         {
             if (string.IsNullOrEmpty(code))
             {
-                if (!String.IsNullOrEmpty(returnUrl))
-                {
-                    var encryptedValue = Convert.ToBase64String(MachineKey.Protect(returnUrl.ToUtf8ByteArray(), null));
-                    Response.Cookies.Add(new HttpCookie(_returnUrlCookieName)
-                        {
-                            Value = encryptedValue,
-                            Expires = DateTime.Now.AddSeconds(300)
-                        });
-                }
+                var authWebServerClient = GetOAuthWebServerClient(provider);
+                var redirectTokens = String.Format("{0}|{1}", returnUrl, provider);
+                var encryptedValue = Convert.ToBase64String(MachineKey.Protect(redirectTokens.ToUtf8ByteArray(), null));
+                Response.Cookies.Add(new HttpCookie(_redirectCookieName)
+                    {
+                        Value = encryptedValue,
+                        Expires = DateTime.Now.AddSeconds(300)
+                    });
 
-                return InitAuth();
+                return authWebServerClient.PrepareRequestUserAuthorization().AsActionResult();
             }
 
             return  OAuthCallback();
+        }
+
+        private AuthWebServerClient GetOAuthWebServerClient(string provider)
+        {
+            Check.Argument.IsNotNullOrEmpty(provider, "OAuthProvider");
+            var oauthProvider = (OAuthProvider) Enum.Parse(typeof (OAuthProvider), provider, true);
+
+            return _authWebServerClientFactory.Invoke(oauthProvider, Request.Url.GetLeftPart(UriPartial.Path));
         }
 
         [GET("Logout", IsAbsoluteUrl = true)]
@@ -67,49 +82,22 @@ namespace SportsWebPt.Platform.Web.Application
 
         }
 
-        private ActionResult InitAuth()
-        {
-            var state = new AuthorizationState();
-            var uri = Request.Url.AbsoluteUri;
-            uri = RemoveQueryStringFromUri(uri);
-            state.Callback = new Uri(uri);
-
-            state.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
-            state.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
-            //state.Scope.Add("https://www.googleapis.com/auth/calendar");
-            var r = _client.PrepareRequestUserAuthorization(state);
-
-            return r.AsActionResult();
-        }
-
-        private static string RemoveQueryStringFromUri(string uri)
-        {
-            var index = uri.IndexOf('?');
-          
-            if (index > -1)
-                uri = uri.Substring(0, index);
-          
-            return uri;
-        }
-
         private ActionResult OAuthCallback()
         {
-            var auth = _client.ProcessUserAuthorization(this.Request);
-            //Session["auth"] = auth;
+            var redirectTokens = GetRedirectTokens();
+            var redirectUri = redirectTokens[0];
+            var authWebServerClient = GetOAuthWebServerClient(redirectTokens[1]);
+            authWebServerClient.ProcessUserAuthorization(Request);
+            
+            //authWebServerClient.ValidateToken("136219353860.apps.googleusercontent.com");
 
-            var google = new GoogleProxy();
-            var tv = new TokenValidator();
-
-            var tokenInfo = google.GetTokenInfo(auth.AccessToken);
-            tv.ValidateToken(tokenInfo, expectedAudience: "136219353860.apps.googleusercontent.com");
-
-            var userInfo = (new JavaScriptSerializer()).Deserialize<dynamic>(google.GetUserInfo(auth.AccessToken).ToString());
-            var userId = 0;
-
+            var userInfo = authWebServerClient.GetUserInfo();
+            
             if (userInfo != null)
             {
-                userId =
-                    _userManagementService.AddUser(new User() {emailAddress = userInfo["email"], firstName = userInfo["given_name"], lastName = userInfo["family_name"]});
+                var userId =
+                    _userManagementService.AddUser(new User() { emailAddress = userInfo.EmailAddress, firstName = userInfo.FirstName, lastName = userInfo.LastName });
+
                 //TODO: consider changing this to email addy
                 FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
             }
@@ -117,22 +105,26 @@ namespace SportsWebPt.Platform.Web.Application
             // Later, if necessary:
             // bool success = client.RefreshAuthorization(auth);
 
-            
-            var cookie = Request.Cookies[_returnUrlCookieName];
+            if (Url.IsLocalUrl(redirectUri))
+                return Redirect(redirectUri); 
 
-            if (cookie != null && !String.IsNullOrEmpty(cookie.Value))
+            return Redirect("/"); 
+        }
+
+        private String[] GetRedirectTokens()
+        {
+            var cookie = Request.Cookies[_redirectCookieName];
+
+            if (cookie != null 
+                && !String.IsNullOrEmpty(cookie.Value))
             {
-                var redirectUri = Encoding.UTF8.GetString(MachineKey.Unprotect(Convert.FromBase64String(cookie.Value), null));
-
-                if (Url.IsLocalUrl(redirectUri))
-                {
-                    _redirectUri = redirectUri;
-                    cookie.Expires = DateTime.Now.AddDays(-1);
-                    Response.Cookies.Set(cookie);
-                }
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Set(cookie);
+ 
+                return Encoding.UTF8.GetString(MachineKey.Unprotect(Convert.FromBase64String(cookie.Value), null)).Split('|');
             }
 
-            return Redirect(_redirectUri); 
+            return new string[]{};
         }
 
         protected override void Dispose(bool disposing)

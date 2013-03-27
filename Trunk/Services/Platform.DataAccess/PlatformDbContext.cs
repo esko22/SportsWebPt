@@ -37,6 +37,9 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+            //TODO: reflect over assembly and add dynamically
+            modelBuilder.Configurations.Add(new UserEntityConfiguration());
+
             //modelBuilder.Entity<AnnotationCollection>()
             //    .HasMany(p => p.AnnotationSources)
             //    .WithMany(t => t.AnnotationCollections)

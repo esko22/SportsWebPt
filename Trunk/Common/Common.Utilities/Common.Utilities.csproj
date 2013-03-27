@@ -8,7 +8,7 @@
     <ProjectGuid>{673DF020-3C60-4285-9318-AE793B2DC0B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Illumina.Design.Common.Utilities</RootNamespace>
+    <RootNamespace>SportsWebPt.Common.Utilities</RootNamespace>
     <AssemblyName>Common.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -163,6 +163,11 @@
     <Compile Include="Helper\DisposableBase.cs" />
     <Compile Include="Helper\DisposableResource.cs" />
     <Compile Include="Helper\OrderByFilter.cs" />
+    <Compile Include="Helper\TextResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TextResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ICreateContentMaps.cs" />
     <Compile Include="LazyT.cs" />
     <Compile Include="Linq\AlphanumericComparer.cs" />
@@ -184,7 +189,6 @@
     <Compile Include="Search\StringSimilarity.cs" />
     <Compile Include="Serialization\IGenericSerializer.cs" />
     <Compile Include="Serialization\XmlGenericSerializer.cs" />
-    <Compile Include="Helper\TextResources.Designer.cs" />
     <Compile Include="Serialization\XmlSerializationStorageExtension.cs" />
     <Compile Include="Wrappers\PerlWrapper.cs" />
     <Compile Include="Xml\SchemaValidationMessage.cs" />
@@ -194,7 +198,10 @@
     <Compile Include="Xml\XslTransformer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Helper\TextResources.resx" />
+    <EmbeddedResource Include="Helper\TextResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

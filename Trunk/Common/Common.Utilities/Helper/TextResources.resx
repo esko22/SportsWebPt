@@ -153,6 +153,18 @@
   <data name="InvalidEmail" xml:space="preserve">
     <value>"\"{0}\" is not a valid email address."</value>
   </data>
+  <data name="InvalidEnum" xml:space="preserve">
+    <value>Enum value '{0}' is not defined for enumeration '{1}'.</value>
+  </data>
+  <data name="InvalidEnumForFlags" xml:space="preserve">
+    <value>Enum value '{0}' is not valid for flags enumeration '{1}'.</value>
+  </data>
+  <data name="InvalidEnumPermission" xml:space="preserve">
+    <value>Enum value '{0}' is defined for enumeration '{1}' but it is not permitted in this context.</value>
+  </data>
+  <data name="InvalidGuid" xml:space="preserve">
+    <value>The value for {0} cannot be an empty Guid.</value>
+  </data>
   <data name="InvalidLength" xml:space="preserve">
     <value>"\"{0}\" cannot be more than {1} character."</value>
   </data>
@@ -161,17 +173,5 @@
   </data>
   <data name="OutOfRange" xml:space="preserve">
     <value>"{0} must be between \"{1}\"-\"{2}\"."</value>
-  </data>
-  <data name="InvalidEnumForFlags" xml:space="preserve">
-    <value>Enum value '{0}' is not valid for flags enumeration '{1}'.</value>
-  </data>
-  <data name="InvalidEnum" xml:space="preserve">
-    <value>Enum value '{0}' is not defined for enumeration '{1}'.</value>
-  </data>
-  <data name="InvalidEnumPermission" xml:space="preserve">
-    <value>Enum value '{0}' is defined for enumeration '{1}' but it is not permitted in this context.</value>
-  </data>
-  <data name="InvalidGuid" xml:space="preserve">
-    <value>The value for {0} cannot be an empty Guid.</value>
   </data>
 </root>

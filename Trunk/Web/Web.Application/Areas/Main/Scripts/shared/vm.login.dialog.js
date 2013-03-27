@@ -44,7 +44,18 @@
                 returnUri = returnUriParams[0];
             } 
             
-            window.location.href = '/oauth?returnUrl=' + returnUri;
+            window.location.href = '/oauth?provider=Google&returnUrl=' + returnUri;
+        };
+        
+        signUpFacebook = function (onSuccess, onError) {
+
+            var returnUri = location.pathname + location.search;
+            var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
+            if (returnUriParams.length > 0) {
+                returnUri = returnUriParams[0];
+            }
+
+            window.location.href = '/oauth?provider=Facebook&returnUrl=' + returnUri;
         };
        
 
@@ -57,7 +68,8 @@
             password : password,
             username: username,
             activate: activate,
-            signUpGoogle : signUpGoogle
+            signUpGoogle: signUpGoogle,
+            signUpFacebook: signUpFacebook
         };
 
     });

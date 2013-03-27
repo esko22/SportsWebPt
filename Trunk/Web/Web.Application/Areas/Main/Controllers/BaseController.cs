@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
@@ -12,6 +14,7 @@ namespace SportsWebPt.Platform.Web.Application
         #region Fields
 
         protected IUserManagementService _userManagementService;
+        protected ILog _logger = LogManager.GetCommonLogger();
 
         #endregion
         
