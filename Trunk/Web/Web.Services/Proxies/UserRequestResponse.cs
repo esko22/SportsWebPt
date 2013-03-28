@@ -18,19 +18,7 @@ namespace SportsWebPt.Platform.Web.Services
     {
         #region v1.0
 
-        public String emailAddress { get; set; }
-
-        public String firstName { get; set; }
-
-        public String lastName { get; set; }
-
-        public String userName { get; set; }
-
-        public String password { get; set; }
-
-        public String phone { get; set; }
-
-        public String skypeHandle { get; set; }
+        public UserDto User { get; set; }
 
         #endregion
     }

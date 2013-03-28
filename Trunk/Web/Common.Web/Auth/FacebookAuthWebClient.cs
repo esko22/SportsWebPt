@@ -26,27 +26,34 @@ namespace SportsWebPt.Common.Web.Auth
         {
             _authorizationState = new AuthorizationState();
             _authorizationState.Scope.Add("email");
+            _userInfoUri = "https://graph.facebook.com/me?access_token=";
         }
 
         #endregion
 
         public override OAuthUser GetUserInfo()
         {
-            var request = WebRequest.Create("https://graph.facebook.com/me?access_token=" + Uri.EscapeDataString(_authorizationState.AccessToken));
-            var user = new OAuthUser();
+            var request =
+                WebRequest.Create(String.Format("{0}{1}", _userInfoUri,
+                                                Uri.EscapeDataString(_authorizationState.AccessToken)));
 
             using (var response = request.GetResponse())
             {
                 using (var responseStream = response.GetResponseStream())
                 {
                     var graph = FacebookGraph.Deserialize(responseStream);
-                    user.EmailAddress = HttpUtility.HtmlEncode(graph.EmailAddress);
-                    user.FirstName = HttpUtility.HtmlEncode(graph.FirstName);
-                    user.LastName = HttpUtility.HtmlEncode(graph.LastName);
+                    return new OAuthUser
+                        {
+                            EmailAddress = graph.EmailAddress,
+                            FirstName = graph.FirstName,
+                            LastName = graph.LastName,
+                            ProviderId = graph.Id,
+                            Locale = graph.Locale,
+                            Gender = graph.Gender,
+                            Provider = OAuthProvider.Facebook
+                        };
                 }
             }
-
-            return user;
         }
 
         protected override dynamic GetTokenInfo()

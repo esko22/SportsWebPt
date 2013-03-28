@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -27,8 +28,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public override object OnGet(UserRequest request)
         {
-
-            var user = UserUnitOfWork.UserRepository.GetById((int)request.IdAsInt);
+            var user = request.IdAsInt > 0
+                           ? UserUnitOfWork.UserRepository.GetById((int) request.IdAsInt)
+                           : UserUnitOfWork.UserRepository.GetUserByEmailAddress(request.User.emailAddress);
             var userDto = new UserDto();
 
             //TODO: this needs to cleaned up for sure
@@ -39,7 +41,12 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         emailAddress = user.EmailAddress,
                         firstName = user.FirstName,
                         lastName = user.LastName,
-                        id = user.Id
+                        id = user.Id,
+                        gender = user.Gender,
+                        locale = user.Locale,
+                        provider = user.Provider,
+                        providerId = user.ProviderId,
+                        skypeHandle = user.SkypeHandle
                     };
 
             return Ok(new UserResponse()
@@ -50,18 +57,25 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public override object OnPost(UserRequest request)
         {
-           var userId = UserUnitOfWork.UserRepository.Add(new User()
+            var userToAdd = request.User;
+            Check.Argument.IsNotNull(userToAdd,"UserToAdd");
+
+            var userId = UserUnitOfWork.UserRepository.Add(new User()
                 {
-                    EmailAddress = request.emailAddress,
-                    FirstName = request.firstName,
-                    LastName = request.lastName,
-                    Password = request.password,
-                    UserName = request.userName
+                    EmailAddress = userToAdd.emailAddress,
+                    FirstName = userToAdd.firstName,
+                    LastName = userToAdd.lastName,
+                    Password = userToAdd.password,
+                    UserName = userToAdd.userName,
+                    Gender = userToAdd.gender,
+                    Locale = userToAdd.locale,
+                    Provider = userToAdd.provider,
+                    ProviderId = userToAdd.providerId
                 });
 
             return Ok(new UserResponse()
                 {
-                    Response = new UserDto() { id = userId }
+                    Response = new UserDto() {id = userId}
                 });
         }
 

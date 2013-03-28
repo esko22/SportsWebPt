@@ -32,6 +32,18 @@ namespace SportsWebPt.Platform.ServiceContracts.Models
         [DataMember]
         public String skypeHandle { get; set; }
 
+        [DataMember]
+        public String locale { get; set; }
+
+        [DataMember]
+        public String gender { get; set; }
+
+        [DataMember]
+        public String provider { get; set; }
+
+        [DataMember]
+        public String providerId { get; set; }
+
         #endregion
     }
 }

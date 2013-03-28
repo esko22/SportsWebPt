@@ -2,14 +2,12 @@
 using System.Web;
 using System.Text;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
 using System.Web.Security;
 
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 
 using DotNetOpenAuth.Messaging;
-using DotNetOpenAuth.OAuth2;
 
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Web.Auth;
@@ -42,7 +40,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("Logon", IsAbsoluteUrl = true)]
         public ActionResult AuthForm()
         {
-            return View(new AuthFormViewModel());
+            return View(new AuthFormViewModel() { AuthenticationError = TempData["authError"] as string} );
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
@@ -78,8 +76,7 @@ namespace SportsWebPt.Platform.Web.Application
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("AuthForm");
-
+            return Redirect(String.Format("/logon?returnUrl={0}", String.Empty));
         }
 
         private ActionResult OAuthCallback()
@@ -89,21 +86,37 @@ namespace SportsWebPt.Platform.Web.Application
             var authWebServerClient = GetOAuthWebServerClient(redirectTokens[1]);
             authWebServerClient.ProcessUserAuthorization(Request);
             
-            //authWebServerClient.ValidateToken("136219353860.apps.googleusercontent.com");
-
             var userInfo = authWebServerClient.GetUserInfo();
             
             if (userInfo != null)
             {
-                var userId =
-                    _userManagementService.AddUser(new User() { emailAddress = userInfo.EmailAddress, firstName = userInfo.FirstName, lastName = userInfo.LastName });
+                var existingUser = _userManagementService.GetUser(userInfo.EmailAddress);
+                var userId = existingUser.id;
+
+                if (userId > 0)
+                {
+                    if (!existingUser.provider.Equals(redirectTokens[1], StringComparison.OrdinalIgnoreCase))
+                    {
+                        TempData["authError"] = "Email already being used";
+                        return Redirect(String.Format("/logon?returnUri={0}",redirectUri));
+                    }
+                }
+                else
+                    userId =
+                        _userManagementService.AddUser(new User()
+                            {
+                                emailAddress = userInfo.EmailAddress,
+                                firstName = userInfo.FirstName,
+                                lastName = userInfo.LastName,
+                                gender = userInfo.Gender,
+                                locale = userInfo.Locale,
+                                provider = userInfo.Provider.ToString(),
+                                providerId = userInfo.ProviderId
+                            });
 
                 //TODO: consider changing this to email addy
                 FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
             }
-
-            // Later, if necessary:
-            // bool success = client.RefreshAuthorization(auth);
 
             if (Url.IsLocalUrl(redirectUri))
                 return Redirect(redirectUri); 

@@ -8,6 +8,9 @@ namespace SportsWebPt.Platform.Web.Core
 {
     public class User
     {
+        //TODO: look into case sensitivity issues. Props have to match case so work
+        //with backbone model mappings, atleast the id prop
+
         #region Properties
         
         public String emailAddress { get; set; }
@@ -25,6 +28,15 @@ namespace SportsWebPt.Platform.Web.Core
         public String userName { get; set; }
 
         public int id { get; set; }
+
+        public String providerId { get; set; }
+
+        public String provider { get; set; }
+
+        public String locale { get; set; }
+
+        public String gender { get; set; }
+
 
         #endregion
 

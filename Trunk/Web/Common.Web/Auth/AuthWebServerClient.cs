@@ -11,6 +11,8 @@ namespace SportsWebPt.Common.Web.Auth
         #region Fields
 
         protected IAuthorizationState _authorizationState;
+        protected String _expectedAudience = String.Empty;
+        protected String _userInfoUri = String.Empty;
 
         #endregion
 
@@ -42,24 +44,13 @@ namespace SportsWebPt.Common.Web.Auth
             return _authorizationState;
         }
 
-        public void ValidateToken(string expectedAudience)
+        public void ValidateToken()
         {
             var tokenInfo = GetTokenInfo();
             var audience = tokenInfo.audience.ToString();
-            if (string.IsNullOrEmpty(audience) || audience != expectedAudience)
+
+            if (string.IsNullOrEmpty(audience) || audience != _expectedAudience)
                 throw new HttpException("tokes with unexpected audience: ");
-      
-            if (tokenInfo.expires_in == null) 
-                return;
-            
-            
-            var expiresIn = tokenInfo.expires_in.ToString();
-            int intExpiresIn;
-
-            var isInt = int.TryParse(expiresIn, out intExpiresIn);
-
-            //if (!isInt || intExpiresIn)
-            //    return;
         }
 
         #endregion

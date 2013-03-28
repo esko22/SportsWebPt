@@ -12,7 +12,7 @@
         private static DataContractJsonSerializer jsonSerializer = new DataContractJsonSerializer(typeof(FacebookGraph));
 
         [DataMember(Name = "id")]
-        public long Id { get; set; }
+        public String Id { get; set; }
 
         [DataMember(Name = "name")]
         public string Name { get; set; }
@@ -32,6 +32,12 @@
         [DataMember(Name = "email")]
         public string EmailAddress { get; set; }
 
+        [DataMember(Name = "locale")]
+        public String Locale { get; set; }
+
+        [DataMember(Name = "gender")]
+        public String Gender { get; set; }
+        
         public static FacebookGraph Deserialize(string json)
         {
             if (string.IsNullOrEmpty(json))

@@ -5,7 +5,6 @@ using System.Net.Http.Headers;
 using DotNetOpenAuth.OAuth2;
 
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace SportsWebPt.Common.Web.Auth
 {
@@ -31,6 +30,9 @@ namespace SportsWebPt.Common.Web.Auth
             _authorizationState.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
             _authorizationState.Scope.Add("https://www.googleapis.com/auth/userinfo.email");
 
+            _expectedAudience = clientIdentifier;
+            _userInfoUri = "https://www.googleapis.com/oauth2/v1/userinfo";
+
             //state.Scope.Add("https://www.googleapis.com/auth/calendar");
         }
 
@@ -44,19 +46,23 @@ namespace SportsWebPt.Common.Web.Auth
                 {
                     EmailAddress = userInfo["email"],
                     FirstName = userInfo["given_name"],
-                    LastName = userInfo["family_name"]
+                    LastName = userInfo["family_name"],
+                    ProviderId = userInfo["id"],
+                    Locale = userInfo["locale"],
+                    Gender = userInfo["gender"],
+                    Provider = OAuthProvider.Google
                 };
         }
 
         private dynamic DoGetUserInfo()
         {
-            var userInfoUrl = "https://www.googleapis.com/oauth2/v1/userinfo";
-            var hc = new HttpClient();
-            hc.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _authorizationState.AccessToken);
-            var response = hc.GetAsync(userInfoUrl).Result;
-            dynamic userInfo = response.Content.ReadAsAsync<object>().Result;
+            ValidateToken();
 
-            return userInfo;
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _authorizationState.AccessToken);
+            var response = httpClient.GetAsync(_userInfoUri).Result;
+
+            return response.Content.ReadAsAsync<object>().Result;
         }
 
         protected override dynamic GetTokenInfo()
@@ -65,8 +71,8 @@ namespace SportsWebPt.Common.Web.Auth
                     "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token="
                      + _authorizationState.AccessToken;
 
-            var hc = new HttpClient();
-            var response = hc.GetAsync(verificationUri).Result;
+            var httpClient = new HttpClient();
+            var response = httpClient.GetAsync(verificationUri).Result;
 
             dynamic tokenInfo = response.Content.ReadAsAsync<object>().Result;
             return tokenInfo;

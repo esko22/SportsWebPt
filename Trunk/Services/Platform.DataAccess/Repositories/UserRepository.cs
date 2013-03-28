@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
@@ -21,7 +22,7 @@ namespace SportsWebPt.Platform.DataAccess
         
         public User GetUserByEmailAddress(string emailAddress)
         {
-            throw new NotImplementedException();
+            return DbSet.FirstOrDefault(p => p.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase));
         }
 
         public new int Add(User entity)

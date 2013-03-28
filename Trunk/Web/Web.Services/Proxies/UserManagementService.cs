@@ -34,9 +34,17 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var userResuest = new AddUserRequest
                 {
-                    emailAddress = user.emailAddress,
-                    userName = user.userName,
-                    password = user.password
+                   User = new UserDto()
+                        {
+                            emailAddress = user.emailAddress,
+                            firstName = user.firstName,
+                            lastName = user.lastName,
+                            id = user.id,
+                            gender = user.gender,
+                            locale = user.locale,
+                            provider = user.provider,
+                            providerId = user.providerId
+                        }
                 };
 
             var response =

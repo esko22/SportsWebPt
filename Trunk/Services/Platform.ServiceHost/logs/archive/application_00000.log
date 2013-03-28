@@ -1,13 +1,20 @@
-03-26-13@21:37:32 Info (5)  [Common] UserRequest request submitted 
-03-26-13@21:37:34 Error (5)  [Common] [UserService: 3/27/2013 4:37:34 AM]:
-[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-03-26-13@21:41:16 Info (14)  [Common] UserRequest request submitted 
-03-26-13@21:41:16 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0966158 
-03-26-13@21:41:16 Info (15)  [Common] UserRequest request submitted 
-03-26-13@21:41:16 Info (15)  [Common] UserRequest request completed with duration of 00:00:00.0832515 
-03-26-13@21:45:00 Info (7)  [Common] UserRequest request submitted 
-03-26-13@21:45:00 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0035406 
-03-26-13@21:45:12 Info (7)  [Common] UserRequest request submitted 
-03-26-13@21:45:12 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0059080 
+03-27-13@22:01:38 Info (6)  [Common] UserRequest request submitted 
+03-27-13@22:01:56 Error (6)  [Common] [UserService: 3/28/2013 5:01:56 AM]:
+[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.ArgumentNullException Value cannot be null.
+Parameter name: UserToAdd Void IsNotNull(System.Object, System.String)
+03-27-13@22:06:38 Info (17)  [Common] UserRequest request submitted 
+03-27-13@22:06:57 Info (17)  [Common] UserRequest request completed with duration of 00:00:18.7873043 
+03-27-13@22:06:57 Info (9)  [Common] UserRequest request submitted 
+03-27-13@22:06:58 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0889528 
+03-27-13@22:07:48 Info (13)  [Common] UserRequest request submitted 
+03-27-13@22:07:48 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0339590 
+03-27-13@22:07:48 Info (16)  [Common] UserRequest request submitted 
+03-27-13@22:07:48 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0032900 
+03-27-13@22:27:34 Info (41)  [Common] UserRequest request submitted 
+03-27-13@22:27:34 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0259100 
+03-27-13@22:27:34 Info (40)  [Common] UserRequest request submitted 
+03-27-13@22:27:34 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0045707 
+03-27-13@22:28:32 Info (41)  [Common] UserRequest request submitted 
+03-27-13@22:28:32 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0310498 
+03-27-13@22:28:32 Info (40)  [Common] UserRequest request submitted 
+03-27-13@22:28:32 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0057085 

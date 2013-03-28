@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SportsWebPt.Common.Web
+namespace SportsWebPt.Common.Web.Auth
 {
     public class OAuthUser
     {
@@ -15,6 +11,14 @@ namespace SportsWebPt.Common.Web
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
+
+        public String Gender { get; set; }
+
+        public String Locale { get; set; }
+
+        public String ProviderId { get; set; }
+
+        public OAuthProvider Provider { get; set; }
 
         #endregion
     }

@@ -22,6 +22,14 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String SkypeHandle { get; set; }
 
+        public String ProviderId { get; set; }
+
+        public String Provider { get; set; }
+
+        public String Locale { get; set; }
+
+        public String Gender { get; set; }
+
         #endregion
 
     }
