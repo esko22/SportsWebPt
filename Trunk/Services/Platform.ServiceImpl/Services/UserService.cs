@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Web;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities;
@@ -15,7 +11,7 @@ using SportsWebPt.Platform.ServiceImpl.Operations;
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
     [ApiResource("User CRUD endpoint", "user", "/operations?resource=user")]
-    public class UserService : LoggingRestServiceBase<UserRequest, UserResponse>
+    public class UserService : LoggingRestServiceBase<UserRequest, ApiResponse<UserDto>>
     {
 
         #region Properties
@@ -30,7 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             var user = request.IdAsInt > 0
                            ? UserUnitOfWork.UserRepository.GetById((int) request.IdAsInt)
-                           : UserUnitOfWork.UserRepository.GetUserByEmailAddress(request.User.emailAddress);
+                           : UserUnitOfWork.UserRepository.GetUserByEmailAddress(HttpUtility.UrlDecode(Request.QueryString["email"]));
             var userDto = new UserDto();
 
             //TODO: this needs to cleaned up for sure
@@ -49,15 +45,15 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         skypeHandle = user.SkypeHandle
                     };
 
-            return Ok(new UserResponse()
+            return Ok(new ApiResponse<UserDto>()
                 {
-                    Response = userDto
+                    Resource = userDto
                 });
         }
 
         public override object OnPost(UserRequest request)
         {
-            var userToAdd = request.User;
+            var userToAdd = request.Resource;
             Check.Argument.IsNotNull(userToAdd,"UserToAdd");
 
             var userId = UserUnitOfWork.UserRepository.Add(new User()
@@ -73,9 +69,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     ProviderId = userToAdd.providerId
                 });
 
-            return Ok(new UserResponse()
+            return Ok(new ApiResponse<UserDto>()
                 {
-                    Response = new UserDto() {id = userId}
+                    Resource = new UserDto() {id = userId}
                 });
         }
 

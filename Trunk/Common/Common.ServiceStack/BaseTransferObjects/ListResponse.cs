@@ -48,6 +48,6 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
         }
 
         [DataMember(IsRequired = true)]
-        public override ResourceList<CompactResourceType, SortFieldEnumType> Response { get { return resourceList; } set { resourceList = value; } }
+        public override ResourceList<CompactResourceType, SortFieldEnumType> Resource { get { return resourceList; } set { resourceList = value; } }
     }
 }

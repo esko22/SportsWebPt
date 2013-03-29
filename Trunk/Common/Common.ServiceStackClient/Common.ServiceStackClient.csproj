@@ -50,9 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractListRequest.cs" />
-    <Compile Include="AbstractRequest.cs" />
-    <Compile Include="BaseResponse.cs" />
+    <Compile Include="ApiListRequest.cs" />
+    <Compile Include="ApiResourceRequest.cs" />
+    <Compile Include="ApiResponse.cs" />
     <Compile Include="BaseServiceStackClient.cs" />
     <Compile Include="BaseServiceStackClientSettings.cs" />
     <Compile Include="ListResponse.cs" />

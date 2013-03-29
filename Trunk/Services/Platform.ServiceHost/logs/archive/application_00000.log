@@ -1,20 +1,4 @@
-03-27-13@22:01:38 Info (6)  [Common] UserRequest request submitted 
-03-27-13@22:01:56 Error (6)  [Common] [UserService: 3/28/2013 5:01:56 AM]:
-[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.ArgumentNullException Value cannot be null.
-Parameter name: UserToAdd Void IsNotNull(System.Object, System.String)
-03-27-13@22:06:38 Info (17)  [Common] UserRequest request submitted 
-03-27-13@22:06:57 Info (17)  [Common] UserRequest request completed with duration of 00:00:18.7873043 
-03-27-13@22:06:57 Info (9)  [Common] UserRequest request submitted 
-03-27-13@22:06:58 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0889528 
-03-27-13@22:07:48 Info (13)  [Common] UserRequest request submitted 
-03-27-13@22:07:48 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0339590 
-03-27-13@22:07:48 Info (16)  [Common] UserRequest request submitted 
-03-27-13@22:07:48 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0032900 
-03-27-13@22:27:34 Info (41)  [Common] UserRequest request submitted 
-03-27-13@22:27:34 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0259100 
-03-27-13@22:27:34 Info (40)  [Common] UserRequest request submitted 
-03-27-13@22:27:34 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0045707 
-03-27-13@22:28:32 Info (41)  [Common] UserRequest request submitted 
-03-27-13@22:28:32 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0310498 
-03-27-13@22:28:32 Info (40)  [Common] UserRequest request submitted 
-03-27-13@22:28:32 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0057085 
+03-28-13@21:32:57 Info (9)  [Common] UserRequest request submitted 
+03-28-13@21:33:32 Info (9)  [Common] UserRequest request completed with duration of 00:00:34.8048841 
+03-28-13@21:34:18 Info (7)  [Common] UserRequest request submitted 
+03-28-13@21:34:18 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0041140 

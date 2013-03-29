@@ -8,7 +8,7 @@
     <ProjectGuid>{19BC98B1-126D-4558-AB1D-B6A28A14A143}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Illumina.Common.ServiceStack.Infrastructure</RootNamespace>
+    <RootNamespace>SportsWebPt.Common.ServiceStack.Infrastructure</RootNamespace>
     <AssemblyName>Common.ServiceStack</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -85,8 +85,8 @@
     <Compile Include="Swagger\SwaggerResourceService.cs" />
     <Compile Include="ServiceBase\ExtendedRestServiceBase.cs" />
     <Compile Include="ServiceBase\LoggingRestServiceBase.cs" />
-    <Compile Include="BaseTransferObjects\BaseResourceListRequest.cs" />
-    <Compile Include="BaseTransferObjects\BaseResourceRequest.cs" />
+    <Compile Include="BaseTransferObjects\ApiResourceListRequest.cs" />
+    <Compile Include="BaseTransferObjects\ApiResourceRequest.cs" />
     <Compile Include="BaseTransferObjects\ApiResponse.cs" />
     <Compile Include="BaseTransferObjects\ErrorResponse.cs" />
     <Compile Include="BaseTransferObjects\ListResponse.cs" />

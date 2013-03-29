@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Common.ServiceStack.Infrastructure
 {
-    public abstract class BaseResourceListRequest : BaseResourceRequest
+    public abstract class ApiResourceListRequest
     {
         [Description("The starting offset to read")]
         public int? Offset { get; set; }

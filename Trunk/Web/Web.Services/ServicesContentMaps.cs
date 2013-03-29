@@ -7,9 +7,9 @@ using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services
 {
-    public class ServicesContentMaps : ICreateContentMaps
+    public static class ServicesContentMaps
     {
-        public void CreateContentMaps()
+        public static void CreateContentMaps()
         {
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<UserDto, User>();

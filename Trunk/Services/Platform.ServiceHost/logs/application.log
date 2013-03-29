@@ -1,66 +1,38 @@
-03-27-13@23:04:55 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:04:58 Info (52)  [Common] UserRequest request completed with duration of 00:00:02.2644676 
-03-27-13@23:04:58 Info (43)  [Common] UserRequest request submitted 
-03-27-13@23:04:58 Info (43)  [Common] UserRequest request completed with duration of 00:00:00.0797488 
-03-27-13@23:05:11 Info (18)  [Common] UserRequest request submitted 
-03-27-13@23:05:11 Info (18)  [Common] UserRequest request completed with duration of 00:00:00.0625820 
-03-27-13@23:05:11 Info (18)  [Common] UserRequest request submitted 
-03-27-13@23:05:11 Info (18)  [Common] UserRequest request completed with duration of 00:00:00.0037284 
-03-27-13@23:05:19 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:05:19 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0494179 
-03-27-13@23:05:19 Info (43)  [Common] UserRequest request submitted 
-03-27-13@23:05:19 Info (43)  [Common] UserRequest request completed with duration of 00:00:00.0035639 
-03-27-13@23:06:05 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:06:05 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0587751 
-03-27-13@23:06:05 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:06:05 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0030193 
-03-27-13@23:06:15 Info (16)  [Common] UserRequest request submitted 
-03-27-13@23:06:15 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0505531 
-03-27-13@23:06:15 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:06:15 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0030941 
-03-27-13@23:06:25 Info (16)  [Common] UserRequest request submitted 
-03-27-13@23:06:25 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0246347 
-03-27-13@23:06:25 Info (52)  [Common] UserRequest request submitted 
-03-27-13@23:06:25 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0030306 
-03-27-13@23:07:28 Info (18)  [Common] UserRequest request submitted 
-03-27-13@23:07:28 Info (18)  [Common] UserRequest request completed with duration of 00:00:00.0358924 
-03-27-13@23:07:28 Info (16)  [Common] UserRequest request submitted 
-03-27-13@23:07:28 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0030784 
-03-27-13@23:07:48 Info (16)  [Common] UserRequest request submitted 
-03-27-13@23:07:48 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0583140 
-03-27-13@23:07:48 Info (17)  [Common] UserRequest request submitted 
-03-27-13@23:07:48 Info (17)  [Common] UserRequest request completed with duration of 00:00:00.0031714 
-03-27-13@23:09:17 Info (17)  [Common] UserRequest request submitted 
-03-27-13@23:09:17 Info (17)  [Common] UserRequest request completed with duration of 00:00:00.0283752 
-03-27-13@23:09:17 Info (18)  [Common] UserRequest request submitted 
-03-27-13@23:09:21 Info (18)  [Common] UserRequest request completed with duration of 00:00:04.3229946 
-03-27-13@23:26:00 Info (30)  [Common] UserRequest request submitted 
-03-27-13@23:26:00 Info (30)  [Common] UserRequest request completed with duration of 00:00:00.0925689 
-03-27-13@23:26:01 Info (27)  [Common] UserRequest request submitted 
-03-27-13@23:26:06 Info (27)  [Common] UserRequest request completed with duration of 00:00:04.9829126 
-03-27-13@23:26:45 Info (41)  [Common] UserRequest request submitted 
-03-27-13@23:26:45 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0241452 
-03-27-13@23:26:45 Info (32)  [Common] UserRequest request submitted 
-03-27-13@23:26:45 Info (32)  [Common] UserRequest request completed with duration of 00:00:00.0040192 
-03-27-13@23:27:35 Info (41)  [Common] UserRequest request submitted 
-03-27-13@23:27:35 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0398707 
-03-27-13@23:27:35 Info (23)  [Common] UserRequest request submitted 
-03-27-13@23:27:35 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0036259 
-03-27-13@23:27:50 Info (32)  [Common] UserRequest request submitted 
-03-27-13@23:27:50 Info (32)  [Common] UserRequest request completed with duration of 00:00:00.0195131 
-03-27-13@23:27:55 Info (32)  [Common] UserRequest request submitted 
-03-27-13@23:27:55 Info (32)  [Common] UserRequest request completed with duration of 00:00:00.0035858 
-03-27-13@23:28:42 Info (21)  [Common] UserRequest request submitted 
-03-27-13@23:28:42 Info (21)  [Common] UserRequest request completed with duration of 00:00:00.0046287 
-03-27-13@23:28:59 Info (8)  [Common] UserRequest request submitted 
-03-27-13@23:28:59 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0208282 
-03-27-13@23:29:07 Info (8)  [Common] UserRequest request submitted 
-03-27-13@23:29:07 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0036398 
-03-27-13@23:29:25 Info (21)  [Common] UserRequest request submitted 
-03-27-13@23:29:25 Info (21)  [Common] UserRequest request completed with duration of 00:00:00.0031444 
-03-27-13@23:29:28 Info (23)  [Common] UserRequest request submitted 
-03-27-13@23:29:28 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0032309 
-03-27-13@23:29:29 Info (21)  [Common] UserRequest request submitted 
-03-27-13@23:29:29 Info (21)  [Common] UserRequest request completed with duration of 00:00:00.0031798 
-03-27-13@23:29:32 Info (23)  [Common] UserRequest request submitted 
-03-27-13@23:29:32 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0034698 
+03-28-13@23:13:50 Info (7)  [Common] UserResourceRequest request submitted 
+03-28-13@23:13:56 Info (7)  [Common] UserResourceRequest request completed with duration of 00:00:06.0188886 
+03-28-13@23:15:12 Info (20)  [Common] UserResourceRequest request submitted 
+03-28-13@23:15:20 Info (20)  [Common] UserResourceRequest request completed with duration of 00:00:07.3258181 
+03-28-13@23:18:09 Info (20)  [Common] UserRequest request submitted 
+03-28-13@23:18:17 Info (20)  [Common] UserRequest request completed with duration of 00:00:07.7498973 
+03-28-13@23:18:36 Info (15)  [Common] UserRequest request submitted 
+03-28-13@23:18:41 Info (15)  [Common] UserRequest request completed with duration of 00:00:04.2988662 
+03-28-13@23:20:02 Info (26)  [Common] UserRequest request submitted 
+03-28-13@23:20:02 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0032670 
+03-28-13@23:23:28 Info (35)  [Common] UserRequest request submitted 
+03-28-13@23:23:28 Info (35)  [Common] UserRequest request completed with duration of 00:00:00.0039396 
+03-28-13@23:25:06 Info (34)  [Common] UserRequest request submitted 
+03-28-13@23:25:08 Info (34)  [Common] UserRequest request completed with duration of 00:00:02.0144863 
+03-28-13@23:29:30 Info (40)  [Common] UserRequest request submitted 
+03-28-13@23:29:30 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0034381 
+03-28-13@23:30:57 Info (40)  [Common] UserRequest request submitted 
+03-28-13@23:30:57 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0139629 
+03-28-13@23:30:57 Info (44)  [Common] UserRequest request submitted 
+03-28-13@23:30:57 Info (44)  [Common] UserRequest request completed with duration of 00:00:00.3172284 
+03-28-13@23:30:57 Info (40)  [Common] UserRequest request submitted 
+03-28-13@23:30:57 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0030733 
+03-28-13@23:37:05 Info (48)  [Common] UserRequest request submitted 
+03-28-13@23:37:05 Info (48)  [Common] UserRequest request completed with duration of 00:00:00.0513743 
+03-28-13@23:37:31 Info (49)  [Common] UserRequest request submitted 
+03-28-13@23:37:31 Info (49)  [Common] UserRequest request completed with duration of 00:00:00.0042256 
+03-28-13@23:43:07 Info (51)  [Common] UserRequest request submitted 
+03-28-13@23:43:09 Info (51)  [Common] UserRequest request completed with duration of 00:00:01.9948791 
+03-28-13@23:44:04 Info (52)  [Common] UserRequest request submitted 
+03-28-13@23:44:04 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0130155 
+03-28-13@23:44:07 Info (51)  [Common] UserRequest request submitted 
+03-28-13@23:44:07 Info (51)  [Common] UserRequest request completed with duration of 00:00:00.0031141 
+03-28-13@23:44:15 Info (41)  [Common] UserRequest request submitted 
+03-28-13@23:44:15 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0033636 
+03-28-13@23:44:30 Info (40)  [Common] UserRequest request submitted 
+03-28-13@23:44:30 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0031710 
+03-28-13@23:44:30 Info (46)  [Common] UserRequest request submitted 
+03-28-13@23:44:30 Info (46)  [Common] UserRequest request completed with duration of 00:00:00.0031729 

@@ -18,7 +18,7 @@ namespace SportsWebPt.Common.ServiceStackClient
 
         protected BaseServiceStackClient(BaseServiceStackClientSettings clientSettings)
         {
-            Check.Argument.IsNotNull(clientSettings, "AnnotationClientSettings");
+            Check.Argument.IsNotNull(clientSettings, "ClientSettings");
             _settings = clientSettings;
 
             switch (clientSettings.ClientType.ToLowerInvariant())
@@ -65,55 +65,22 @@ namespace SportsWebPt.Common.ServiceStackClient
                 _serviceClientBase.LocalHttpWebRequestFilter += request => request.Headers.Add("IAFT-debug: true");
         }
 
-        
-        protected TResult GetSync<TResponse, TResult>(string uri)
-            where TResponse : BaseResponse<TResult>
-            where TResult : class
+
+        protected TResponse GetSync<TResponse>(string uri)
         {
-            try
-            {
-                return _serviceClientBase.Get<TResponse>(uri).Response;
-            }
-            catch (WebServiceException e)
-            {
-                return default(TResult); // TODO: handle in a better fashion?
-            }
+            return _serviceClientBase.Get<TResponse>(uri);
         }
 
-        protected void PostAsync<TResponse, TResult>(string uri, object request, Action<TResult, Exception> callback)
-            where TResponse : BaseResponse<TResult>
-            where TResult : class
+        protected void PostAsync<TResponse>(string uri, object request, Action<TResponse, Exception> callback)
         {
-            try
-            {
-                _serviceClientBase.PostAsync<TResponse>(uri, request,
-                     successResponse =>
-                     {
-                         callback(successResponse.Response, null);
-                     },
-                     (errorResponse, ex) =>
-                     {
-                         callback(errorResponse.Response, ex);
-                     });
-            }
-            catch (WebServiceException e)
-            {
-                callback(default(TResult), e);
-            }
+            _serviceClientBase.PostAsync(uri, request,
+                                            successResponse => callback(successResponse, null),
+                                            callback);
         }
 
-        protected TResponse PostSync<TResponse, TResult>(string uri, object request)
-            where TResponse : BaseResponse<TResult>
-            where TResult : class
+        protected TResponse PostSync<TResponse>(string uri, object request)
         {
-            try
-            {
-                return _serviceClientBase.Post<TResponse>(uri, request);
-            }
-            catch (WebServiceException e)
-            {
-                return null; // TODO: handle in a better fashion?
-            }
+            return _serviceClientBase.Post<TResponse>(uri, request);
         }
 
         #endregion

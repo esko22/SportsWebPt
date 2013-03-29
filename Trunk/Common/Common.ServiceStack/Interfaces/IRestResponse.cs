@@ -9,6 +9,6 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
     /// <typeparam name="TResult"></typeparam>
     public interface IRestResponse<TResult> : IHasResponseStatus, IHasNotifications
     {
-        TResult Response { get; }
+        TResult Resource { get; }
     }
 }

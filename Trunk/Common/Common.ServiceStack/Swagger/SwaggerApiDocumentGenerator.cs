@@ -59,12 +59,12 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
 
             //TODO: not sure if I like using the following types to find appropriate types
             var requestType =
-                requestResponseTypes.SingleOrDefault(p => typeof(BaseResourceRequest).IsAssignableFrom(p));
+                requestResponseTypes.SingleOrDefault(p => typeof(ApiResourceRequest<>).IsAssignableFrom(p));
 
             var responseType =
                 requestResponseTypes.SingleOrDefault(p => typeof(IHasResponseStatus).IsAssignableFrom(p));
 
-            BuildOps(requestType,responseType,operationListings);
+            //BuildOps(requestType,responseType,operationListings);
 
             if (!ApiModelListing.TryGetValue(resourceName, out modelListings))
                 modelListings = GetModel(new[] { requestType, responseType});

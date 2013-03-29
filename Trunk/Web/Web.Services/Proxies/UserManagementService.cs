@@ -1,56 +1,57 @@
 ﻿using System;
+using System.Web;
+using AutoMapper;
 using SportsWebPt.Platform.ServiceContracts.Models;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
     public class UserManagementService : BaseServiceStackClient, IUserManagementService
     {
 
+        #region Fields
+
+        private String _userUriPath = String.Empty;
+
+        #endregion
+
         #region Methods
 
         public UserManagementService(BaseServiceStackClientSettings clientSettings) 
             : base(clientSettings)
         {
+            _userUriPath = String.Format("/{0}/users", _settings.Version);
         }
 
         public User GetUser(String emailAddress)
         {
+            var response =
+                GetSync<UserResourceResponse>(String.Format("{0}?email={1}", _userUriPath, HttpUtility.UrlEncode(emailAddress)));
 
-            return new User();
+            return Mapper.Map<User>(response.Resource);
         }
 
         public User GetUser(int id)
         {
-            //TODO: need to put rest uris into a static config
             var response =
-                GetSync<UserResponse, UserDto>(String.Format("/{0}/users/{1}", _settings.Version, id));
+                GetSync<UserResourceResponse>(String.Format("{0}/{1}", _userUriPath, id));
 
-            return new User() { emailAddress = response.emailAddress, firstName = response.firstName, lastName = response.lastName, id = response.id} ;
+            return Mapper.Map<User>(response.Resource);
         }
 
         public int AddUser(User user)
         {
-            var userResuest = new AddUserRequest
+            var userResuest = new ApiResourceRequest<UserDto>
                 {
-                   User = new UserDto()
-                        {
-                            emailAddress = user.emailAddress,
-                            firstName = user.firstName,
-                            lastName = user.lastName,
-                            id = user.id,
-                            gender = user.gender,
-                            locale = user.locale,
-                            provider = user.provider,
-                            providerId = user.providerId
-                        }
+                    Resource = Mapper.Map<UserDto>(user)
                 };
 
             var response =
-                PostSync<AddUserResponse, UserDto>(String.Format("/{0}/users", _settings.Version), userResuest);
+                PostSync<UserResourceResponse>(_userUriPath, userResuest);
 
-            return response.Response.id;
+            return response.Resource.id;
         }
 
         #endregion

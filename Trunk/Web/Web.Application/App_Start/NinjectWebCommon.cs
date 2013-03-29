@@ -26,6 +26,7 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
 
             LogManager.LoggerFactory = new NLogLoggerFactory();
+            ServicesContentMaps.CreateContentMaps();
 
             bootstrapper.Initialize(CreateKernel);
         }

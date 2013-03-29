@@ -7,19 +7,19 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
 {
     [KnownType(typeof(Notification))]
     [DataContract]
-    public class ApiResponse<TResponse> : IRestResponse<TResponse>
+    public class ApiResponse<TTypeOfResource> : IRestResponse<TTypeOfResource>
     {
         public ApiResponse() { }
 
-        public ApiResponse(TResponse responseContent)
+        public ApiResponse(TTypeOfResource responseContent)
         {
             ResponseStatus = new ResponseStatus();
             Notifications = new List<INotification<object>>();
-            Response = responseContent;
+            Resource = responseContent;
         }
 
         [DataMember(IsRequired = true)]
-        public virtual TResponse Response { get; set; }
+        public virtual TTypeOfResource Resource { get; set; }
 
         [DataMember(IsRequired = true)]
         public ResponseStatus ResponseStatus { get; set; }

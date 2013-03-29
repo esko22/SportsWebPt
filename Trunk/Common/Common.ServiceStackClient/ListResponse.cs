@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SportsWebPt.Common.ServiceStackClient
 {
-    public class ListResponse<TResource, TSortField> : BaseResponse<ResourceList<TResource, TSortField>>
+    public class ListResponse<TResource, TSortField> : ApiResponse<ResourceList<TResource, TSortField>>
         where TSortField : struct
     {
-        public override ResourceList<TResource, TSortField> Response { get; set; }
+        public override ResourceList<TResource, TSortField> Resource { get; set; }
     }
 
     public class ResourceList<TResource, TSortField>

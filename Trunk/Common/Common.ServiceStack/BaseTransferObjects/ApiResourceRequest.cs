@@ -4,11 +4,15 @@ using System.Runtime.Serialization;
 namespace SportsWebPt.Common.ServiceStack.Infrastructure
 {
     [DataContract]
-    public abstract class BaseResourceRequest
+    public abstract class ApiResourceRequest<TTypeOfResource>
     {
         [DataMember]
         [Description("The Id of the resource")]
         public string Id { get; set; }
+
+        [DataMember]
+        [Description("The resource to be updated / created ")]
+        public TTypeOfResource Resource { get; set; }
 
         public long? IdAsLong
         {
@@ -43,5 +47,6 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
                 return !string.IsNullOrEmpty(Id) && Id.ToLower() == "current";
             }
         }
+
     }
 }

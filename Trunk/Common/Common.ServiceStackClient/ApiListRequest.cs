@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsWebPt.Common.ServiceStackClient
 {
-    public abstract class AbstractListRequest : AbstractRequest
+    public abstract class ApiListRequest
     {
         public int? Offset { get; set; }
 

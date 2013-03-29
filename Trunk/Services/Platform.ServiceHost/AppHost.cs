@@ -16,6 +16,7 @@ using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
+using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceImpl.Services;
 
@@ -88,12 +89,14 @@ namespace SportsWebPt.Platform.ServiceHost
             Config.GlobalResponseHeaders["Access-Control-Allow-Headers"] = "Content-Type";
 
             LogManager.LoggerFactory = new NLogLoggerFactory();
+            ServiceContentMaps.CreateContentMaps();
+
             _configuration = PlatformServiceConfiguration.Instance;
 
             ConfigureContainer(container);
             BuildRoutes();
             BoostrapEf();
-            Container.Resolve<ApiDocumentGenerator>().Generate();
+            //Container.Resolve<ApiDocumentGenerator>().Generate();
 
         } 
 
@@ -107,7 +110,7 @@ namespace SportsWebPt.Platform.ServiceHost
 
         private void ConfigureContainer(Container container)
         {
-            container.Register<ApiDocumentGenerator>(c => new SwaggerApiDocumentGenerator(_configuration.ApiDocumentAssemblies)).ReusedWithin(ReuseScope.Container);
+            //container.Register<ApiDocumentGenerator>(c => new SwaggerApiDocumentGenerator(_configuration.ApiDocumentAssemblies)).ReusedWithin(ReuseScope.Container);
             container.Register<IBaseApiConfig>(c => PlatformServiceConfiguration.Instance).ReusedWithin(ReuseScope.Container);
             container.Register<RepositoryFactory>(c => new PlatformRepositoryFactory())
                      .ReusedWithin(ReuseScope.Container);
