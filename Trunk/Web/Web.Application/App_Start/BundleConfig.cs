@@ -25,9 +25,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/libs/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jsextlibs").Include(

@@ -76,7 +76,7 @@ namespace SportsWebPt.Platform.Web.Application
         {
             FormsAuthentication.SignOut();
 
-            return Redirect(String.Format("/logon?returnUrl={0}", String.Empty));
+            return Redirect(String.Format("/logon?ReturnUrl={0}", String.Empty));
         }
 
         private ActionResult OAuthCallback()
@@ -98,7 +98,7 @@ namespace SportsWebPt.Platform.Web.Application
                     if (!existingUser.provider.Equals(redirectTokens[1], StringComparison.OrdinalIgnoreCase))
                     {
                         TempData["authError"] = "Email already being used";
-                        return Redirect(String.Format("/logon?returnUri={0}",redirectUri));
+                        return Redirect(String.Format("/logon?ReturnUrl={0}",redirectUri));
                     }
                 }
                 else

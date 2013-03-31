@@ -26,7 +26,7 @@
             }
         },
             
-        signUp = function () {
+        signUpSwptUser = function () {
 
             //var token = $('input[name=""__RequestVerificationToken""]').val();
             //var headers = {};
@@ -35,19 +35,12 @@
             
             config.currentUser().save();
         },
-
-        signUpGoogle = function (onSuccess, onError) {
-
-            var returnUri = location.pathname + location.search;
-            var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
-            if (returnUriParams.length > 0) {
-                returnUri = returnUriParams[0];
-            } 
             
-            window.location.href = '/oauth?provider=Google&returnUrl=' + returnUri;
-        };
-        
-        signUpFacebook = function (onSuccess, onError) {
+        loginSwptUser = function() {
+            
+        },
+
+        signUpOAtuhUser = function (provider) {
 
             var returnUri = location.pathname + location.search;
             var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
@@ -55,21 +48,20 @@
                 returnUri = returnUriParams[0];
             }
 
-            window.location.href = '/oauth?provider=Facebook&returnUrl=' + returnUri;
+            window.location.href = $.format('/oauth?provider={0}&ReturnUrl={1}', provider, returnUri);
         };
-       
 
         return {
             toggleSignUp: toggleSignUp,
             signUpVisible: signUpVisible,
             loginVisible: loginVisible,
-            signUp : signUp,
             emailAddress : emailAddress,
             password : password,
             username: username,
             activate: activate,
-            signUpGoogle: signUpGoogle,
-            signUpFacebook: signUpFacebook
+            signUpSwptUser: signUpSwptUser,
+            signUpOAtuhUser: signUpOAtuhUser,
+            loginSwptUser: loginSwptUser
         };
 
     });
