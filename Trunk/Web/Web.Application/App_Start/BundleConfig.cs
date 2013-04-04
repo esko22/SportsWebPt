@@ -33,6 +33,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/TrafficCop.js",
                         "~/Scripts/libs/infuser.js", // depends on TrafficCop
                         "~/Scripts/libs/knockout-{version}.js",
+                        "~/Scripts/libs/knockout-extensions.js",
                         "~/Scripts/libs/underscore.js",
                         "~/Scripts/libs/backbone.js", // depends on underscore
                         "~/Scripts/libs/bootstrap.js", 

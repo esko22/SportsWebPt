@@ -13,29 +13,19 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top" id="auth-form-header">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="/">SportsWebPT</a>
-                <div class="nav nav-collapse collapse pull-right">
-                    <ul class="nav">
-                        <li><a href="#about">Store</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li class="divider-vertical"></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
+        @{Html.RenderPartial("~/Areas/Main/Views/Shared/_noAuthHeader.cshtml"); }
+
         <div class="login-container" id="login-dialog">
-            @Model.AuthenticationError
+            @{
+                if (!String.IsNullOrEmpty(Model.oAuthError))
+                {
+                    <div class="alert alert-block alert-error fade in" id="oauth-error">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>We got problems... </h4>
+                        <p>@Model.oAuthError</p>
+                    </div>
+                }
+            }
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
         </div>
 

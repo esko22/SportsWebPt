@@ -33,6 +33,7 @@ body {
     margin-right: auto ;
 }
 
+
 .login-modal-body {
     position: relative;
     padding: 0 10px 0 10px;
@@ -100,6 +101,10 @@ body {
     background-image:-ms-linear-gradient(#b94a48,#b22222);
     background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#b94a48),color-stop(1,#b22222));
     background-image:-webkit-linear-gradient(#b94a48,#b22222)
+}
+
+.login-popover {
+    width: 250px;
 }
 
 

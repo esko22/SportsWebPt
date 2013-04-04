@@ -40,12 +40,21 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("Logon", IsAbsoluteUrl = true)]
         public ActionResult AuthForm()
         {
-            return View(new AuthFormViewModel() { AuthenticationError = TempData["authError"] as string} );
+            return View(new AuthFormViewModel() { oAuthError = TempData["authError"] as string} );
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
-        public ActionResult OAuth(string code, string returnUrl, string provider)
+        public ActionResult OAuth(string code, string returnUrl, string provider, string error)
         {
+            if (!String.IsNullOrWhiteSpace(error))
+            {
+                //TODO: Move to resource file
+                TempData["authError"] =
+                    "Access has been denied to your provider account info. For additional features please accept permission request or create a SportsWebPt account";
+                return Redirect(String.Format("/logon?ReturnUrl={0}", returnUrl));
+            }
+
+
             if (string.IsNullOrEmpty(code))
             {
                 var authWebServerClient = GetOAuthWebServerClient(provider);
@@ -97,7 +106,11 @@ namespace SportsWebPt.Platform.Web.Application
                 {
                     if (!existingUser.provider.Equals(redirectTokens[1], StringComparison.OrdinalIgnoreCase))
                     {
-                        TempData["authError"] = "Email already being used";
+                        //TODO: Move to resource file
+                        TempData["authError"] =
+                            String.Format(
+                                "The email address used for your {0} account is already being used. Please try another login provider or your SportsWebPt account",
+                                redirectTokens[1]);
                         return Redirect(String.Format("/logon?ReturnUrl={0}",redirectUri));
                     }
                 }

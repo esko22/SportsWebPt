@@ -1,38 +1,20 @@
-03-28-13@23:13:50 Info (7)  [Common] UserResourceRequest request submitted 
-03-28-13@23:13:56 Info (7)  [Common] UserResourceRequest request completed with duration of 00:00:06.0188886 
-03-28-13@23:15:12 Info (20)  [Common] UserResourceRequest request submitted 
-03-28-13@23:15:20 Info (20)  [Common] UserResourceRequest request completed with duration of 00:00:07.3258181 
-03-28-13@23:18:09 Info (20)  [Common] UserRequest request submitted 
-03-28-13@23:18:17 Info (20)  [Common] UserRequest request completed with duration of 00:00:07.7498973 
-03-28-13@23:18:36 Info (15)  [Common] UserRequest request submitted 
-03-28-13@23:18:41 Info (15)  [Common] UserRequest request completed with duration of 00:00:04.2988662 
-03-28-13@23:20:02 Info (26)  [Common] UserRequest request submitted 
-03-28-13@23:20:02 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0032670 
-03-28-13@23:23:28 Info (35)  [Common] UserRequest request submitted 
-03-28-13@23:23:28 Info (35)  [Common] UserRequest request completed with duration of 00:00:00.0039396 
-03-28-13@23:25:06 Info (34)  [Common] UserRequest request submitted 
-03-28-13@23:25:08 Info (34)  [Common] UserRequest request completed with duration of 00:00:02.0144863 
-03-28-13@23:29:30 Info (40)  [Common] UserRequest request submitted 
-03-28-13@23:29:30 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0034381 
-03-28-13@23:30:57 Info (40)  [Common] UserRequest request submitted 
-03-28-13@23:30:57 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0139629 
-03-28-13@23:30:57 Info (44)  [Common] UserRequest request submitted 
-03-28-13@23:30:57 Info (44)  [Common] UserRequest request completed with duration of 00:00:00.3172284 
-03-28-13@23:30:57 Info (40)  [Common] UserRequest request submitted 
-03-28-13@23:30:57 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0030733 
-03-28-13@23:37:05 Info (48)  [Common] UserRequest request submitted 
-03-28-13@23:37:05 Info (48)  [Common] UserRequest request completed with duration of 00:00:00.0513743 
-03-28-13@23:37:31 Info (49)  [Common] UserRequest request submitted 
-03-28-13@23:37:31 Info (49)  [Common] UserRequest request completed with duration of 00:00:00.0042256 
-03-28-13@23:43:07 Info (51)  [Common] UserRequest request submitted 
-03-28-13@23:43:09 Info (51)  [Common] UserRequest request completed with duration of 00:00:01.9948791 
-03-28-13@23:44:04 Info (52)  [Common] UserRequest request submitted 
-03-28-13@23:44:04 Info (52)  [Common] UserRequest request completed with duration of 00:00:00.0130155 
-03-28-13@23:44:07 Info (51)  [Common] UserRequest request submitted 
-03-28-13@23:44:07 Info (51)  [Common] UserRequest request completed with duration of 00:00:00.0031141 
-03-28-13@23:44:15 Info (41)  [Common] UserRequest request submitted 
-03-28-13@23:44:15 Info (41)  [Common] UserRequest request completed with duration of 00:00:00.0033636 
-03-28-13@23:44:30 Info (40)  [Common] UserRequest request submitted 
-03-28-13@23:44:30 Info (40)  [Common] UserRequest request completed with duration of 00:00:00.0031710 
-03-28-13@23:44:30 Info (46)  [Common] UserRequest request submitted 
-03-28-13@23:44:30 Info (46)  [Common] UserRequest request completed with duration of 00:00:00.0031729 
+04-02-13@23:31:41 Info (5)  [Common] UserRequest request submitted 
+04-02-13@23:31:42 Info (6)  [Common] UserRequest request submitted 
+04-02-13@23:31:45 Error (6)  [Common] [UserService: 4/3/2013 6:31:45 AM]:
+[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+04-02-13@23:31:45 Error (5)  [Common] [UserService: 4/3/2013 6:31:45 AM]:
+[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+04-02-13@23:32:20 Info (7)  [Common] UserRequest request submitted 
+04-02-13@23:32:20 Error (7)  [Common] [UserService: 4/3/2013 6:32:20 AM]:
+[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+04-02-13@23:38:50 Info (14)  [Common] UserRequest request submitted 
+04-02-13@23:38:50 Error (14)  [Common] [UserService: 4/3/2013 6:38:50 AM]:
+[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()

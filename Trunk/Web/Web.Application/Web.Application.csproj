@@ -207,6 +207,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Main\Views\Shared\_noAuthHeader.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\libs\infuser.js" />
@@ -223,6 +224,7 @@
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
+    <Content Include="Scripts\libs\knockout-extensions.js" />
     <Content Include="Scripts\libs\Uri.js" />
     <Content Include="Scripts\libs\Uri.min.js" />
     <Content Include="Scripts\main.js" />

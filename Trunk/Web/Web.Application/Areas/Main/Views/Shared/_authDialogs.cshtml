@@ -11,20 +11,18 @@
             <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="iconmoon-google login-icon"></i>Log in using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or using a SportsWebPt account</strong></div>
-        <form class="form-horizontal">
-            <fieldset>
+        <form class="form-horizontal text-center" id="loginSwpt">
                 <div class="control-group input-prepend">
                     <span class="add-on login-input iconmoon-envelope"></span>
-                    <input class="input-xlarge login-input" id="email" type="text" placeholder="Email Address">
+                    <input class="input-xlarge login-input" id="loginEmail" type="text" placeholder="Email Address">
                 </div>
                 <div class="control-group input-prepend">
                     <span class="add-on login-input iconmoon-suitcase-2"></span>
-                    <input class="input-xlarge login-input" id="password" type="password" placeholder="Password">
+                    <input class="input-xlarge login-input" id="loginPassword" type="password" placeholder="Password">
                 </div>
                 <div class="control-group text-center">
                     <button class="btn" data-bind="click: loginSwptUser"><strong>Log in >> </strong></button>
                 </div>
-            </fieldset>
         </form>
         <div class="top-border-header text-center">
             <strong>
@@ -46,25 +44,29 @@
         <form id="signUpGoogle">
             <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="iconmoon-google login-icon"></i>Sign up using Google</a>
         </form>
+@*        data-bind="validateForm: validationOptions"*@
         <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
-        <form class="form-horizontal" id="signUpSwpt">
-            <fieldset>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-single-user"></span>
-                    <input class="input-xlarge login-input" id="username" type="text" data-bind="value: username" placeholder="User Name">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-envelope"></span>
-                    <input class="input-xlarge login-input" id="email" type="text" data-bind="value: emailAddress" placeholder="Email Address">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-suitcase-2"></span>
-                    <input class="input-xlarge login-input" id="password" type="password" data-bind="value: password" placeholder="Password">
-                </div>
-                <div class="control-group text-center">
-                    <button class="btn" data-bind="click: signUpSwptUser"><strong>Sign up >> </strong></button>
-                </div>
-            </fieldset>
+        <form class="form-horizontal text-center"  id="signUpSwpt">
+            <div class="control-group input-prepend">
+                <span class="add-on login-input iconmoon-single-user"></span>
+                <input class="input-xlarge login-input" id="username" name="username" type="text" data-bind="value: username" placeholder="User Name">
+            </div>
+            <div class="control-group input-prepend">
+                <span class="add-on login-input iconmoon-envelope"></span>
+                <input class="input-xlarge login-input" id="signupEmail" name="signupEmail" type="text" data-bind="value: emailAddress" placeholder="Email Address">
+            </div>
+            <div class="control-group input-prepend">
+                <span class="add-on login-input iconmoon-suitcase-2"></span>
+                <input class="input-xlarge login-input" id="signupPassword" name="signupPassword" type="password" data-bind="value: password" placeholder="Password">
+            </div>
+            <div class="control-group input-prepend">
+                <span class="add-on login-input iconmoon-suitcase-2"></span>
+                <input class="input-xlarge login-input" id="retryPassword" equalTo="#signupPassword" name="retryPassword" type="password" data-bind="value: verificationPassword" placeholder="Verify Password">
+            </div>
+            <div class="control-group text-center">
+                <input class="btn" type="submit" value="Sign up >>" />
+            </div>
+            <label id="errorDisplay"></label>
         </form>
         <div class="top-border-header text-center">
             <strong>

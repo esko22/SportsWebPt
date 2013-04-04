@@ -3,6 +3,7 @@
     function (ko, config, user, kb, login, $) {
 
         //TODO: this needs to come from user passed in
+        //ko mapping plugin fromJS
         var userId = $('#userid').val(),
         emailAddress = $('#userEmail').val(),
         isAuthenticated = ko.observable(false)

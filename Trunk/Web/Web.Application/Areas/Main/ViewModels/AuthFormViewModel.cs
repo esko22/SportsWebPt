@@ -6,7 +6,8 @@ namespace SportsWebPt.Platform.Web.Application
     {
         #region Properties
 
-        public string AuthenticationError { get; set; }
+        public string oAuthError { get; set; }
+
 
         #endregion
     }
