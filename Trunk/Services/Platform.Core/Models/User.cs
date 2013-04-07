@@ -16,7 +16,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String UserName { get; set; }
 
-        public String Password { get; set; }
+        public String Hash { get; set; }
 
         public String Phone { get; set; }
 

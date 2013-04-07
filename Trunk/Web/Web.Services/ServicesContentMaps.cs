@@ -1,8 +1,7 @@
 ﻿using System;
 using AutoMapper;
 
-using SportsWebPt.Common.Utilities;
-using SportsWebPt.Platform.ServiceContracts.Models;
+using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services

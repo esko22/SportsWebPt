@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.ServiceContracts.Models;
+using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Operations
 {

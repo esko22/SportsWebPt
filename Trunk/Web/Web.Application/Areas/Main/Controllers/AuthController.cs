@@ -10,6 +10,7 @@ using AttributeRouting.Web.Mvc;
 using DotNetOpenAuth.Messaging;
 
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Common.Web.Auth;
 using SportsWebPt.Platform.Web.Core;
 
@@ -79,7 +80,7 @@ namespace SportsWebPt.Platform.Web.Application
         {
             FormsAuthentication.SignOut();
 
-            return Redirect(String.Format("/logon?ReturnUrl={0}", String.Empty));
+            return Redirect(String.Format("/logon?ReturnUrl={0}", "/"));
         }
 
         [POST("Validate", IsAbsoluteUrl = true)]
@@ -91,17 +92,61 @@ namespace SportsWebPt.Platform.Web.Application
             {
                 var existingUser = _userManagementService.GetUser(signupEmail);
 
-                if (existingUser.id == 0)
+                if (existingUser == null)
                     isValid = true;
             }
 
             return Json(isValid, JsonRequestBehavior.DenyGet);
+        }
 
+        [POST("CreateUser", IsAbsoluteUrl = true)]
+        public ActionResult CreateNewUser(LoginCommand loginCommand)
+        {
+            //TODO: relying on client side validation right now
+            var userId = _userManagementService.AddUser(new User()
+            {
+                emailAddress = loginCommand.signupEmail,
+                userName = loginCommand.username,
+                hash = PasswordHashHelper.CreateHash(loginCommand.signupPassword),
+                provider = "SWPT"
+            });
+
+            FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+
+            if (Url.IsLocalUrl(loginCommand.returnUrl))
+                return Redirect(loginCommand.returnUrl);
+
+            return Redirect("/");
+        }
+
+        [POST("Login", IsAbsoluteUrl = true)]
+        public ActionResult LoginSwptAccount(LoginCommand loginCommand)
+        {
+            var user = _userManagementService.Auth(loginCommand.loginEmail, loginCommand.loginPassword);
+
+            if (user == null)
+            {
+                TempData["authError"] = "Your email address and password do not match, please try again.";
+                return Redirect(String.Format("/logon?ReturnUrl={0}", loginCommand.returnUrl));
+            }
+
+            return SwptLoginRedirect(loginCommand, user.id);
         }
 
         #endregion
 
         #region Private Methods
+
+        private RedirectResult SwptLoginRedirect(LoginCommand loginCommand,int userId)
+        {
+            FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+
+            if (Url.IsLocalUrl(loginCommand.returnUrl))
+                return Redirect(loginCommand.returnUrl);
+
+            return Redirect("/");
+        }
+
         private AuthWebServerClient GetOAuthWebServerClient(string provider)
         {
             Check.Argument.IsNotNullOrEmpty(provider, "OAuthProvider");
@@ -123,7 +168,7 @@ namespace SportsWebPt.Platform.Web.Application
             if (userInfo != null)
             {
                 var existingUser = _userManagementService.GetUser(userInfo.EmailAddress);
-                var userId = existingUser.id;
+                var userId = existingUser != null ? existingUser.id : 0;
 
                 if (userId > 0)
                 {
@@ -150,7 +195,6 @@ namespace SportsWebPt.Platform.Web.Application
                                 providerId = userInfo.ProviderId
                             });
 
-                //TODO: consider changing this to email addy
                 FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
             }
 

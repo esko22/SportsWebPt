@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace SportsWebPt.Platform.ServiceContracts.Models
+namespace SportsWebPt.Platform.ServiceModels
 {
     [DataContract(Name = "User", Namespace = "http://SportsWebPt.Platform")]
     public class UserDto
@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.ServiceContracts.Models
         public String userName { get; set; }
 
         [DataMember]
-        public String password { get; set; }
+        public String hash { get; set; }
 
         [DataMember]
         public String phone { get; set; }

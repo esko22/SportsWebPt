@@ -153,6 +153,10 @@
       <Project>{b98d5687-0971-486c-adec-cf57a00057a2}</Project>
       <Name>Platform.ServiceImpl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Platform.ServiceModels\Platform.ServiceModels.csproj">
+      <Project>{1afe645d-a08f-4b96-b6d8-d47fffd8486f}</Project>
+      <Name>Platform.ServiceModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

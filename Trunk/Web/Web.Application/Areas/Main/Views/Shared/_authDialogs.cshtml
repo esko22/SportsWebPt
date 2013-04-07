@@ -8,7 +8,7 @@
             <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="iconmoon-google login-icon"></i>Log in using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or using a SportsWebPt account</strong></div>
-        <form class="form-horizontal text-center" data-bind="validateForm: loginValidationOptions" id="loginSwpt">
+        <form class="form-horizontal text-center" action="/login" method="POST" data-bind="validateForm: loginValidationOptions" id="loginSwpt">
                 <div class="control-group input-prepend">
                     <span class="add-on login-input iconmoon-envelope"></span>
                     <input class="input-xlarge login-input" id="loginEmail" name="loginEmail" type="text" placeholder="Email Address">
@@ -39,7 +39,7 @@
             <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="iconmoon-google login-icon"></i>Sign up using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
-        <form class="form-horizontal text-center" data-bind="validateForm: signUpValidationOptions" id="signUpSwpt">
+        <form class="form-horizontal text-center" action="/createuser" method="POST" data-bind="validateForm: signUpValidationOptions" id="signUpSwpt">
             <div class="control-group input-prepend">
                 <span class="add-on login-input iconmoon-single-user"></span>
                 <input class="input-xlarge login-input" id="username" name="username" type="text" placeholder="User Name">

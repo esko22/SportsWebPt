@@ -1,20 +1,49 @@
-04-02-13@23:31:41 Info (5)  [Common] UserRequest request submitted 
-04-02-13@23:31:42 Info (6)  [Common] UserRequest request submitted 
-04-02-13@23:31:45 Error (6)  [Common] [UserService: 4/3/2013 6:31:45 AM]:
-[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-04-02-13@23:31:45 Error (5)  [Common] [UserService: 4/3/2013 6:31:45 AM]:
-[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-04-02-13@23:32:20 Info (7)  [Common] UserRequest request submitted 
-04-02-13@23:32:20 Error (7)  [Common] [UserService: 4/3/2013 6:32:20 AM]:
-[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-04-02-13@23:38:50 Info (14)  [Common] UserRequest request submitted 
-04-02-13@23:38:50 Error (14)  [Common] [UserService: 4/3/2013 6:38:50 AM]:
-[REQUEST: {Resource:{id:0,firstName:alex,lastName:nut},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Column 'EmailAddress' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+04-07-13@01:11:45 Info (6)  [Common] UserRequest request submitted 
+04-07-13@01:11:48 Info (6)  [Common] UserRequest request completed with duration of 00:00:02.3208344 
+04-07-13@01:12:00 Info (10)  [Common] UserRequest request submitted 
+04-07-13@01:12:00 Info (10)  [Common] UserRequest request completed with duration of 00:00:00.0044927 
+04-07-13@01:12:01 Info (6)  [Common] UserRequest request submitted 
+04-07-13@01:12:01 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.4654773 
+04-07-13@01:12:01 Info (7)  [Common] UserRequest request submitted 
+04-07-13@01:12:01 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0516854 
+04-07-13@01:12:40 Info (10)  [Common] AuthRequestDto request submitted 
+04-07-13@01:12:40 Info (10)  [Common] AuthRequestDto request completed with duration of 00:00:00.0184800 
+04-07-13@01:12:40 Info (8)  [Common] UserRequest request submitted 
+04-07-13@01:12:40 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0054327 
+04-07-13@01:12:57 Info (7)  [Common] UserRequest request submitted 
+04-07-13@01:12:57 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0039750 
+04-07-13@01:12:57 Info (6)  [Common] UserRequest request submitted 
+04-07-13@01:12:57 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0035745 
+04-07-13@01:14:26 Info (7)  [Common] UserRequest request submitted 
+04-07-13@01:14:31 Info (7)  [Common] UserRequest request completed with duration of 00:00:05.4355331 
+04-07-13@01:14:34 Info (7)  [Common] UserRequest request submitted 
+04-07-13@01:14:34 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0033990 
+04-07-13@01:14:34 Info (6)  [Common] UserRequest request submitted 
+04-07-13@01:14:34 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.1338678 
+04-07-13@01:14:34 Info (10)  [Common] UserRequest request submitted 
+04-07-13@01:14:34 Info (10)  [Common] UserRequest request completed with duration of 00:00:00.0239132 
+04-07-13@01:14:56 Info (7)  [Common] AuthRequestDto request submitted 
+04-07-13@01:14:56 Error (7)  [Common] [AuthService: 4/7/2013 8:14:56 AM]:
+[REQUEST: {EmailAddress:t@t.com,Hash:test123}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Boolean ValidatePassword(System.String, System.String)
+04-07-13@01:15:27 Info (6)  [Common] AuthRequestDto request submitted 
+04-07-13@01:15:27 Error (6)  [Common] [AuthService: 4/7/2013 8:15:27 AM]:
+[REQUEST: {EmailAddress:t@t.com,Hash:test123}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Boolean ValidatePassword(System.String, System.String)
+04-07-13@01:16:19 Info (9)  [Common] AuthRequestDto request submitted 
+04-07-13@01:17:10 Error (9)  [Common] [AuthService: 4/7/2013 8:17:10 AM]:
+[REQUEST: {EmailAddress:t@t.com,Hash:test123}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Boolean ValidatePassword(System.String, System.String)
+04-07-13@01:18:48 Info (13)  [Common] UserRequest request submitted 
+04-07-13@01:18:50 Info (13)  [Common] UserRequest request completed with duration of 00:00:02.1038371 
+04-07-13@01:18:51 Info (13)  [Common] UserRequest request submitted 
+04-07-13@01:18:51 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0036150 
+04-07-13@01:18:51 Info (23)  [Common] UserRequest request submitted 
+04-07-13@01:18:51 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.2093826 
+04-07-13@01:18:51 Info (18)  [Common] UserRequest request submitted 
+04-07-13@01:18:51 Info (18)  [Common] UserRequest request completed with duration of 00:00:00.0259246 
+04-07-13@01:19:15 Info (10)  [Common] AuthRequestDto request submitted 
+04-07-13@01:19:15 Info (10)  [Common] AuthRequestDto request completed with duration of 00:00:00.0177979 
+04-07-13@01:19:15 Info (23)  [Common] UserRequest request submitted 
+04-07-13@01:19:15 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0039462 
+04-07-13@01:19:27 Info (23)  [Common] AuthRequestDto request submitted 
+04-07-13@01:19:27 Info (23)  [Common] AuthRequestDto request completed with duration of 00:00:00.0150073 
+04-07-13@01:19:41 Info (19)  [Common] AuthRequestDto request submitted 
+04-07-13@01:19:41 Info (19)  [Common] AuthRequestDto request completed with duration of 00:00:00.0160257 

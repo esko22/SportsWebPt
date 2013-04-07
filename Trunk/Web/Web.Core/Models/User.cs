@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String phone { get; set; }
 
-        public String password { get; set; }
+        public String hash { get; set; }
 
         public String skypeHandle { get; set; }
 

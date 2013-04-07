@@ -16,5 +16,6 @@ namespace SportsWebPt.Platform.Web.Services
 
         int AddUser(User user);
 
+        User Auth(String emailAddress, String hash);
     }
 }

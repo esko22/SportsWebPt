@@ -19,6 +19,7 @@ using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceImpl.Services;
+using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceHost
 {
@@ -104,7 +105,8 @@ namespace SportsWebPt.Platform.ServiceHost
         {
             Routes
                 .Add<UserRequest>("users/{Id}")
-                .Add<UserRequest>("users");
+                .Add<UserRequest>("users")
+                .Add<AuthRequestDto>("auth");
 
         }
 

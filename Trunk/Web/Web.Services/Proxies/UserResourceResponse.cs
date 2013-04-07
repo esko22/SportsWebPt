@@ -1,5 +1,5 @@
 ﻿using SportsWebPt.Common.ServiceStackClient;
-using SportsWebPt.Platform.ServiceContracts.Models;
+using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.Web.Services.Proxies
 {

@@ -28,15 +28,22 @@
 
             },
             signUpOAtuhUser = function(provider) {
-
-                var returnUri = location.pathname + location.search;
-                var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
-                if (returnUriParams.length > 0) {
-                    returnUri = returnUriParams[0];
-                }
-
-                window.location.href = $.format('/oauth?provider={0}&ReturnUrl={1}', provider, returnUri);
+                window.location.href = $.format('/oauth?provider={0}&ReturnUrl={1}', provider, getReturnUrl());
             };
+
+        function getReturnUrl() {
+            var returnUri = location.pathname + location.search;
+            var returnUriParams = new uri(location.search).getQueryParamValues('ReturnUrl');
+            if (returnUriParams.length > 0) {
+                returnUri = returnUriParams[0];
+            }
+
+            if (returnUri === '/logon'
+                    || returnUri === '/LOGON')
+                returnUri = '';
+            
+            return returnUri;
+        }
 
         var signUpValidationOptions = ko.observable({
                 debug: true,
@@ -50,8 +57,7 @@
                     signupPassword:
                     {
                         required: true,
-                        minlength: 6,
-                        maxlength: 12
+                        minlength: 6
                     },
                     retryPassword:
                     {
@@ -82,16 +88,16 @@
                     signupPassword:
                     {
                         required: "password required",
-                        minlength: "must be between 6 and 12 characters",
-                        maxlength: "must be between 6 and 12 characters"
+                        minlength: "must be atleast 6 characters"
                     },
                     retryPassword: {
                         required: "verification password required",
                         equalTo: "passwords do not match"
                     }
                 },
-                submitHandler: function() {
-                    alert('submitted!');
+                submitHandler: function (form) {
+                    ($('<input/>', { type: 'hidden', id: 'returnUrl', name: 'returnUrl', value: getReturnUrl() })).appendTo(form);
+                    form.submit();
                 },
                 errorPlacement: bh.popoverErrorPlacement('login-popover'),
                 unhighlight: bh.popoverUnhighlight
@@ -118,8 +124,9 @@
                     required: "password required"
                 }
             },
-            submitHandler: function() {
-                alert('submitted!');
+            submitHandler: function(form) {
+                ($('<input/>', { type: 'hidden', id: 'returnUrl', name: 'returnUrl', value: getReturnUrl() })).appendTo(form);
+                form.submit();
             },
             errorPlacement: bh.popoverErrorPlacement('login-popover'),
             unhighlight: bh.popoverUnhighlight

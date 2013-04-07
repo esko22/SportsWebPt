@@ -1,12 +1,12 @@
 ﻿using System.Web;
-
+using AutoMapper;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
-using SportsWebPt.Platform.ServiceContracts.Models;
 using SportsWebPt.Platform.ServiceImpl.Operations;
+using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
@@ -27,23 +27,10 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var user = request.IdAsInt > 0
                            ? UserUnitOfWork.UserRepository.GetById((int) request.IdAsInt)
                            : UserUnitOfWork.UserRepository.GetUserByEmailAddress(HttpUtility.UrlDecode(Request.QueryString["email"]));
-            var userDto = new UserDto();
-
-            //TODO: this needs to cleaned up for sure
+            UserDto userDto = null;
 
             if (user != null)
-                userDto = new UserDto()
-                    {
-                        emailAddress = user.EmailAddress,
-                        firstName = user.FirstName,
-                        lastName = user.LastName,
-                        id = user.Id,
-                        gender = user.Gender,
-                        locale = user.Locale,
-                        provider = user.Provider,
-                        providerId = user.ProviderId,
-                        skypeHandle = user.SkypeHandle
-                    };
+                userDto = Mapper.Map<UserDto>(user);
 
             return Ok(new ApiResponse<UserDto>()
                 {
@@ -56,18 +43,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var userToAdd = request.Resource;
             Check.Argument.IsNotNull(userToAdd,"UserToAdd");
 
-            var userId = UserUnitOfWork.UserRepository.Add(new User()
-                {
-                    EmailAddress = userToAdd.emailAddress,
-                    FirstName = userToAdd.firstName,
-                    LastName = userToAdd.lastName,
-                    Password = userToAdd.password,
-                    UserName = userToAdd.userName,
-                    Gender = userToAdd.gender,
-                    Locale = userToAdd.locale,
-                    Provider = userToAdd.provider,
-                    ProviderId = userToAdd.providerId
-                });
+            var userId = UserUnitOfWork.UserRepository.Add(Mapper.Map<User>(userToAdd));
 
             return Ok(new ApiResponse<UserDto>()
                 {
