@@ -187,6 +187,7 @@
     <Content Include="Content\icon-fonts.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\skeletor.jpg" />
     <Content Include="Content\images\swpt_splash.png" />
     <Content Include="Content\sportsweb-pt.css" />
     <Content Include="Global.asax" />

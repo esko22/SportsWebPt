@@ -108,6 +108,18 @@ body {
 }
 
 
+/* Image map styles  */
+
+#skeletor {
+    background: url(images/skeletor.jpg)no-repeat; 
+    width: 800px;
+    height: 600px;
+    margin-left: auto ;
+    margin-right: auto ;
+    position:relative;
+}
+
+
 
 
 
