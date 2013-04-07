@@ -224,7 +224,7 @@
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
-    <Content Include="Scripts\libs\knockout-extensions.js" />
+    <Content Include="Scripts\libs\extentsions\knockout-extensions.js" />
     <Content Include="Scripts\libs\Uri.js" />
     <Content Include="Scripts\libs\Uri.min.js" />
     <Content Include="Scripts\main.js" />
@@ -234,6 +234,7 @@
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\models\model.user.js" />
+    <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

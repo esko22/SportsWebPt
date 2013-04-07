@@ -1,22 +1,12 @@
 ﻿define('vm.login.dialog',
-    ['ko', 'config', 'kb', 'model.user', 'jquery', 'uri'],
-    function (ko, config, kb, user, $, uri) {
-        
+    ['ko', 'config', 'kb', 'model.user', 'jquery', 'uri', 'bootstrap.helper'],
+    function (ko, config, kb, user, $, uri, bh) {
+
         var signUpVisible = ko.observable(false),
             loginVisible = ko.observable(true),
-            emailAddress = kb.observable(null, 'emailAddress'),
-            password = kb.observable(null, 'password'),
-            verificationPassword = ko.observable(''),
-            username = kb.observable(null, 'userName');
+            verificationPassword = ko.observable('');
 
-        //functions
-        var activate = function() {
-            config.currentUser(new user());
-            emailAddress.model(config.currentUser());
-            password.model(config.currentUser());
-            username.model(config.currentUser());
-        },
-            toggleSignUp = function(toggleValue) {
+        var toggleSignUp = function(toggleValue) {
                 if (toggleValue === 'signup') {
                     loginVisible(false);
                     signUpVisible(true);
@@ -48,64 +38,103 @@
                 window.location.href = $.format('/oauth?provider={0}&ReturnUrl={1}', provider, returnUri);
             };
 
-        $('#signUpSwpt').validate(
-        {
-            debug: true,
-            rules: {
-                username: "required",
-                signupPassword: "required",
-                retryPassword:
-                {
-                    required: true
+        var signUpValidationOptions = ko.observable({
+                debug: true,
+                rules: {
+                    username:
+                    {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 10
+                    },
+                    signupPassword:
+                    {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    retryPassword:
+                    {
+                        required: true
+                    },
+                    signupEmail: {
+                        required: true,
+                        email: true,
+                        remote:
+                        {
+                            url: "/validate",
+                            type: "post"
+                        }
+                    }
                 },
-                signupEmail: {
+                messages: {
+                    username:
+                    {
+                        required: "username required",
+                        minlength: "must be between 4 and 10 characters",
+                        maxlength: "must be between 4 and 10 characters"
+                    },
+                    signupEmail: {
+                        required: "email address required",
+                        email: "not a valid email address",
+                        remote: "email address is already in use"
+                    },
+                    signupPassword:
+                    {
+                        required: "password required",
+                        minlength: "must be between 6 and 12 characters",
+                        maxlength: "must be between 6 and 12 characters"
+                    },
+                    retryPassword: {
+                        required: "verification password required",
+                        equalTo: "passwords do not match"
+                    }
+                },
+                submitHandler: function() {
+                    alert('submitted!');
+                },
+                errorPlacement: bh.popoverErrorPlacement('login-popover'),
+                unhighlight: bh.popoverUnhighlight
+            });
+            
+        var loginValidationOptions = ko.observable({        
+            rules: {
+                loginPassword:
+                {
+                    required: true,
+                },
+                loginEmail: {
                     required: true,
                     email: true
                 }
             },
             messages: {
-                username: "username reqd" ,
-                signupEmail: {
-                    required: "email reqd",
-                    email: "no email"
+                loginEmail: {
+                    required: "email address required",
+                    email: "not a valid email address"
                 },
-                signupPassword: "required",
-                retryPassword: {
-                    required: "verify password required verify password required verify password required",
-                    equalTo: "passwords not equal"
+                loginPassword:
+                {
+                    required: "password required"
                 }
             },
             submitHandler: function() {
                 alert('submitted!');
             },
-            errorPlacement: function (error, element) {
-                $(element).popover({
-                    animation: true,
-                    trigger: 'manual',
-                    content: error.text(),
-                    template: '<div class="popover"><div class="arrow"></div><div class="popover-inner login-popover"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
-                });
-                $(element).popover('show');
-            },
-            unhighlight: function(element) {
-                $(element).popover('hide');
-            } 
-                
+            errorPlacement: bh.popoverErrorPlacement('login-popover'),
+            unhighlight: bh.popoverUnhighlight
         });
 
         return {
             toggleSignUp: toggleSignUp,
             signUpVisible: signUpVisible,
             loginVisible: loginVisible,
-            emailAddress : emailAddress,
-            password : password,
-            username: username,
-            activate: activate,
             signUpSwptUser: signUpSwptUser,
             signUpOAtuhUser: signUpOAtuhUser,
             loginSwptUser: loginSwptUser,
-            verificationPassword: verificationPassword
-            //validationOptions: validationOptions
+            verificationPassword: verificationPassword,
+            signUpValidationOptions: signUpValidationOptions,
+            loginValidationOptions: loginValidationOptions
         };
 
     });

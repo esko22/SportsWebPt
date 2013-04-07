@@ -37,10 +37,12 @@ namespace SportsWebPt.Platform.Web.Application
         #endregion
 
 
+        #region Controller Endpoints
+
         [GET("Logon", IsAbsoluteUrl = true)]
         public ActionResult AuthForm()
         {
-            return View(new AuthFormViewModel() { oAuthError = TempData["authError"] as string} );
+            return View(new AuthFormViewModel() { oAuthError = TempData["authError"] as string });
         }
 
         [GET("OAuth", IsAbsoluteUrl = true)]
@@ -69,15 +71,7 @@ namespace SportsWebPt.Platform.Web.Application
                 return authWebServerClient.PrepareRequestUserAuthorization().AsActionResult();
             }
 
-            return  OAuthCallback();
-        }
-
-        private AuthWebServerClient GetOAuthWebServerClient(string provider)
-        {
-            Check.Argument.IsNotNullOrEmpty(provider, "OAuthProvider");
-            var oauthProvider = (OAuthProvider) Enum.Parse(typeof (OAuthProvider), provider, true);
-
-            return _authWebServerClientFactory.Invoke(oauthProvider, Request.Url.GetLeftPart(UriPartial.Path));
+            return OAuthCallback();
         }
 
         [GET("Logout", IsAbsoluteUrl = true)]
@@ -88,15 +82,44 @@ namespace SportsWebPt.Platform.Web.Application
             return Redirect(String.Format("/logon?ReturnUrl={0}", String.Empty));
         }
 
+        [POST("Validate", IsAbsoluteUrl = true)]
+        public ActionResult ValidateEmail(String signupEmail)
+        {
+            var isValid = false;
+
+            if (signupEmail.IsNotNullOrEmpty())
+            {
+                var existingUser = _userManagementService.GetUser(signupEmail);
+
+                if (existingUser.id == 0)
+                    isValid = true;
+            }
+
+            return Json(isValid, JsonRequestBehavior.DenyGet);
+
+        }
+
+        #endregion
+
+        #region Private Methods
+        private AuthWebServerClient GetOAuthWebServerClient(string provider)
+        {
+            Check.Argument.IsNotNullOrEmpty(provider, "OAuthProvider");
+            var oauthProvider = (OAuthProvider)Enum.Parse(typeof(OAuthProvider), provider, true);
+
+            return _authWebServerClientFactory.Invoke(oauthProvider, Request.Url.GetLeftPart(UriPartial.Path));
+        }
+
+
         private ActionResult OAuthCallback()
         {
             var redirectTokens = GetRedirectTokens();
             var redirectUri = redirectTokens[0];
             var authWebServerClient = GetOAuthWebServerClient(redirectTokens[1]);
             authWebServerClient.ProcessUserAuthorization(Request);
-            
+
             var userInfo = authWebServerClient.GetUserInfo();
-            
+
             if (userInfo != null)
             {
                 var existingUser = _userManagementService.GetUser(userInfo.EmailAddress);
@@ -111,7 +134,7 @@ namespace SportsWebPt.Platform.Web.Application
                             String.Format(
                                 "The email address used for your {0} account is already being used. Please try another login provider or your SportsWebPt account",
                                 redirectTokens[1]);
-                        return Redirect(String.Format("/logon?ReturnUrl={0}",redirectUri));
+                        return Redirect(String.Format("/logon?ReturnUrl={0}", redirectUri));
                     }
                 }
                 else
@@ -132,31 +155,32 @@ namespace SportsWebPt.Platform.Web.Application
             }
 
             if (Url.IsLocalUrl(redirectUri))
-                return Redirect(redirectUri); 
+                return Redirect(redirectUri);
 
-            return Redirect("/"); 
+            return Redirect("/");
         }
 
         private String[] GetRedirectTokens()
         {
             var cookie = Request.Cookies[_redirectCookieName];
 
-            if (cookie != null 
+            if (cookie != null
                 && !String.IsNullOrEmpty(cookie.Value))
             {
                 cookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Set(cookie);
- 
+
                 return Encoding.UTF8.GetString(MachineKey.Unprotect(Convert.FromBase64String(cookie.Value), null)).Split('|');
             }
 
-            return new string[]{};
+            return new string[] { };
         }
 
         protected override void Dispose(bool disposing)
         {
-            if(_userManagementService != null)
+            if (_userManagementService != null)
                 _userManagementService.Dispose();
-        }
+        } 
+        #endregion
     }
 }

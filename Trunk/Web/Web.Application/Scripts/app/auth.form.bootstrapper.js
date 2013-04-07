@@ -5,7 +5,6 @@
 
             var ids = config.viewIds;
             ko.applyBindings(vm.login, getView(ids.login));
-            vm.login.activate();
         },
 
         getView = function (viewName) {

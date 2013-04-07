@@ -10,8 +10,6 @@
                 ko.applyBindings(vm.header, getView(ids.header));
                 ko.applyBindings(vm.footer, getView(ids.footer));
                 ko.applyBindings(vm.login, getView(ids.login));
-                
-                vm.login.activate();
             },
 
             getView = function (viewName) {
