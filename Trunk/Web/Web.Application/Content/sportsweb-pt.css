@@ -119,15 +119,77 @@ body {
     position:relative;
 }
 
+ul#skeletor li a{
+	display: block;
+	height: 100%;
+	text-indent: -9000px;
+}
+
+ul#skeletor li {
+	border: 1px solid #000;	
+	position: absolute;
+}
+
+ul#skeletor li a:hover {
+	display: block;
+	background: #47cb2a;
+	position: relative;
+	font: 11px Arial, Helvetica, sans-serif;
+	opacity: .75;
+	filter:alpha(opacity=75);
+	color: #FFF;
+}
+
+#rightAnkle {
+	width: 227px;
+	height: 142px;
+	top: 2px;
+	left: 0px;
+}
+
+#rightQuad {
+	width: 108px;
+	height: 130px;
+	top: 131px;
+	left: 76px;
+}
+
+#rightFoot {
+	width: 120px;
+	height: 140px;
+	top: 83px;
+	left: 209px;
+}
+
+#rightKnee {
+	width: 120px;
+	height: 84px;
+	top: 1px;
+	left: 211px;
+}
 
 
 
 
+#footerTop {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: #f0f0f0;
+    background-color: #f5f5f5;
+    display: block;
+    height: 150px;
+    margin-top: 60px;
+}
 
-
-
-
-
+#footerBottom {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: #f0f0f0;
+    background-color: #1e2125;
+    display: block;
+    height: 250px;
+    color: #ffffff;
+}
 
 
 
@@ -148,6 +210,14 @@ body {
     margin-bottom: 40px;
     color: #424947
 }
+
+.header-icon {
+    display: block;
+    font-size: 40pt;
+    color: #424947;
+    width: 100%;
+}
+
 
 .icon-alone {
   display: inline-block; /* Chrome 19 was weird with clickability without this */
