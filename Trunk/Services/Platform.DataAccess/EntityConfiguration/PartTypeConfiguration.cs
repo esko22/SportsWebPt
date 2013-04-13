@@ -4,7 +4,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class PartTypeConfiguration : EntityTypeConfiguration<PartType>
+    public class PartTypeConfiguration : EntityTypeConfiguration<BodyPart>
     {
         #region Construction
 

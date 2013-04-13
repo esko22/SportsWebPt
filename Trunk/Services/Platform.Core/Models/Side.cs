@@ -2,14 +2,14 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class OrientationType
+    public class Side
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public String Orientation { get; set; }
+        public String Value { get; set; }
 
-        #endregion
+        #endregion    
     }
 }

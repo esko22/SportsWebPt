@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class PartType
+    public class BodyPart
     {
         #region Properties
 

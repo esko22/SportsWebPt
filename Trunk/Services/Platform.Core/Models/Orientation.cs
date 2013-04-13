@@ -2,14 +2,14 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class RegionType
+    public class Orientation
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public String Region { get; set; }
+        public String Value { get; set; }
 
-        #endregion    
+        #endregion
     }
 }

@@ -9,10 +9,9 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IRepository<SkeletonHotspot> SkeletonHotspotRepo { get { return GetStandardRepo<SkeletonHotspot>(); } }
+        public IRepository<SkeletonHotspot> SkeletonHotspotRepo { get { return GetRepo<SkeletorRepo>(); } }
 
         #endregion
-
 
         #region Construction
 

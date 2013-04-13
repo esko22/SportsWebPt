@@ -9,12 +9,12 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class UserRepository : EFRepository<User>, IUserRepository
+    public class UserRepo : EFRepository<User>, IUserRepository
     {
 
         #region Construction
 
-        public UserRepository(DbContext context) : base(context) {}
+        public UserRepo(DbContext context) : base(context) {}
 
         #endregion
 

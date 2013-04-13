@@ -12,10 +12,10 @@ namespace SportsWebPt.Platform.DataAccess
         #region Entities
 
         public DbSet<User> Users { get; set; }
-        public DbSet<OrientationType> OrientationTypes { get; set; }
-        public DbSet<PartType> PartTypes { get; set; }
-        public DbSet<SideType> SideTypes { get; set; }
-        public DbSet<RegionType> RegionTypes { get; set; }
+        public DbSet<Orientation> OrientationTypes { get; set; }
+        public DbSet<BodyPart> PartTypes { get; set; }
+        public DbSet<Side> SideTypes { get; set; }
+        public DbSet<BodyRegion> RegionTypes { get; set; }
         public DbSet<SkeletonHotspot> SkeletonHotspots { get; set; } 
 
         #endregion

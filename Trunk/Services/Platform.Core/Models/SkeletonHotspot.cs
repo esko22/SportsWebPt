@@ -8,11 +8,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public OrientationType Orientation { get; set; }
+        public Orientation Orientation { get; set; }
 
-        public SideType Side { get; set; }
+        public Side Side { get; set; }
 
-        public RegionType Region { get; set; }
+        public BodyRegion Region { get; set; }
 
         #endregion
     }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SportsWebPt.Common.DataAccess;
+
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Platform.Core.Models;
 
-namespace SportsWebPt.Platform.DataAccess.Repositories
+namespace SportsWebPt.Platform.DataAccess
 {
     public class SkeletorRepo: EFRepository<SkeletonHotspot>
     {
@@ -25,7 +19,10 @@ namespace SportsWebPt.Platform.DataAccess.Repositories
 
         public override IQueryable<SkeletonHotspot> GetAll()
         {
-            return base.GetAll().Include("Region");
+            return base.GetAll()
+                .Include("Region")
+                .Include("Side")
+                .Include("Orientation");
         }
 
         #endregion

@@ -107,7 +107,7 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<UserRequest>("users/{Id}")
                 .Add<UserRequest>("users")
                 .Add<AuthRequestDto>("auth")
-                .Add<SkeletorHotspotDto>("skeletor");
+                .Add<SkeletorHotspotListRequest>("skeletor");
 
         }
 

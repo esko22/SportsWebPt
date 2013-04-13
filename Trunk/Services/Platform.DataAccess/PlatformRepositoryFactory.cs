@@ -12,7 +12,8 @@ namespace SportsWebPt.Platform.DataAccess
         {
             return new Dictionary<Type, Func<DbContext, object>>
                 {
-                   {typeof(IUserRepository), dbContext => new UserRepository(dbContext)}
+                   {typeof(IUserRepository), dbContext => new UserRepo(dbContext)},
+                   {typeof(SkeletorRepo), dbContext => new SkeletorRepo(dbContext)}
                 };
         }
 

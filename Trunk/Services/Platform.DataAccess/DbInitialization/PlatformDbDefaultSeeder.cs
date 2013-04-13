@@ -49,14 +49,14 @@ namespace SportsWebPt.Platform.DataAccess
             return users;
         }
 
-        private List<PartType> AddParts()
+        private List<BodyPart> AddParts()
         {
-            var parts = new List<PartType>()
+            var parts = new List<BodyPart>()
                 {
-                    new PartType() {CommonName = "Foot", ScientificName = "FancyFoot"},
-                    new PartType() {CommonName = "Ankle"},
-                    new PartType() {CommonName = "Wrist"},
-                    new PartType() {CommonName = "Hamstring"},
+                    new BodyPart() {CommonName = "Foot", ScientificName = "FancyFoot"},
+                    new BodyPart() {CommonName = "Ankle"},
+                    new BodyPart() {CommonName = "Wrist"},
+                    new BodyPart() {CommonName = "Hamstring"},
                 };
 
             parts.ForEach(u => _dbContext.PartTypes.Add(u));
@@ -65,21 +65,21 @@ namespace SportsWebPt.Platform.DataAccess
             return parts;
         }
 
-        private List<RegionType> AddRegions()
+        private List<BodyRegion> AddRegions()
         {
-            var regions = new List<RegionType>()
+            var regions = new List<BodyRegion>()
                 {
-                    new RegionType() { Region = "AboveShoulder"},
-                    new RegionType() { Region = "Chest"},
-                    new RegionType() { Region = "Shoulders"},
-                    new RegionType() { Region = "Core"},
-                    new RegionType() { Region = "LowerBack"},
-                    new RegionType() { Region = "UpperArm"},
-                    new RegionType() { Region = "LowerArm"},
-                    new RegionType() { Region = "UpperLeg"},
-                    new RegionType() { Region = "LowerLeg"},
-                    new RegionType() { Region = "Groin"},
-                    new RegionType() { Region = "Butt"}
+                    new BodyRegion() { Name = "AboveShoulder"},
+                    new BodyRegion() { Name = "Chest"},
+                    new BodyRegion() { Name = "Shoulders"},
+                    new BodyRegion() { Name = "Core"},
+                    new BodyRegion() { Name = "LowerBack"},
+                    new BodyRegion() { Name = "UpperArm"},
+                    new BodyRegion() { Name = "LowerArm"},
+                    new BodyRegion() { Name = "UpperLeg"},
+                    new BodyRegion() { Name = "LowerLeg"},
+                    new BodyRegion() { Name = "Groin"},
+                    new BodyRegion() { Name = "Butt"}
                 };
 
             regions.ForEach(u => _dbContext.RegionTypes.Add(u));
@@ -88,13 +88,13 @@ namespace SportsWebPt.Platform.DataAccess
             return regions;
         }
 
-        private List<OrientationType> AddOrientations()
+        private List<Orientation> AddOrientations()
         {
-            var orientations = new List<OrientationType>()
+            var orientations = new List<Orientation>()
                 {
-                    new OrientationType() { Orientation = "Front"},
-                    new OrientationType() { Orientation = "Side"},
-                    new OrientationType() { Orientation = "Back"}
+                    new Orientation() { Value = "Front"},
+                    new Orientation() { Value = "Side"},
+                    new Orientation() { Value = "Back"}
                 };
 
             orientations.ForEach(u => _dbContext.OrientationTypes.Add(u));
@@ -103,13 +103,13 @@ namespace SportsWebPt.Platform.DataAccess
             return orientations;
         }
 
-        private List<SideType> AddSides()
+        private List<Side> AddSides()
         {
-            var sides = new List<SideType>()
+            var sides = new List<Side>()
                 {
-                    new SideType() { Side = "Left"},
-                    new SideType() { Side = "Right"},
-                    new SideType() { Side = "Both"}
+                    new Side() { Value = "Left"},
+                    new Side() { Value = "Right"},
+                    new Side() { Value = "Both"}
                 };
 
             sides.ForEach(u => _dbContext.SideTypes.Add(u));
@@ -118,7 +118,7 @@ namespace SportsWebPt.Platform.DataAccess
             return sides;
         }
 
-        private List<SkeletonHotspot> AddSkeletonHotspots(List<RegionType> regionTypes,List<SideType> sides,List<OrientationType> orientations)
+        private List<SkeletonHotspot> AddSkeletonHotspots(List<BodyRegion> regionTypes,List<Side> sides,List<Orientation> orientations)
         {
             var hotspots = new List<SkeletonHotspot>()
                 {

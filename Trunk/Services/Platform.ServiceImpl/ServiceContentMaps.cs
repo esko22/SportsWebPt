@@ -11,6 +11,10 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<UserDto, User>();
+            Mapper.CreateMap<SkeletonHotspot, SkeletorHotspotDto>()
+                  .ForMember(d => d.Orientation, opt => opt.MapFrom(s => s.Orientation.Value))
+                  .ForMember(d => d.Region, opt => opt.MapFrom(s => s.Region.Name))
+                  .ForMember(d => d.Side, opt => opt.MapFrom(s => s.Side.Value));
         }
     }
 }

@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\OrientationType.cs" />
-    <Compile Include="Models\RegionType.cs" />
-    <Compile Include="Models\SideType.cs" />
-    <Compile Include="Models\PartType.cs" />
+    <Compile Include="Models\Orientation.cs" />
+    <Compile Include="Models\BodyRegion.cs" />
+    <Compile Include="Models\Side.cs" />
+    <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\SkeletonHotspot.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
