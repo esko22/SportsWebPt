@@ -51,16 +51,24 @@
   <ItemGroup>
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
-    <Compile Include="EntityConfiguration\UserEntityConfiguration.cs" />
+    <Compile Include="EntityConfiguration\OrientationTypeConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PartTypeConfiguration.cs" />
+    <Compile Include="EntityConfiguration\RegionTypeConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SideTypeConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SkeletorHotspotConfiguration.cs" />
+    <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
     <Compile Include="PlatformRepositoryFactory.cs" />
     <Compile Include="PlatformRepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\SkeletorRepo.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IBaseUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ISkeletorUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IUserUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\SkeletorUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

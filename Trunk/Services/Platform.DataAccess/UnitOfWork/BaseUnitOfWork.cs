@@ -27,7 +27,7 @@ namespace SportsWebPt.Platform.DataAccess
             _context.Configuration.ProxyCreationEnabled = false;
 
             // Load navigation properties explicitly (avoid serialization trouble)
-            _context.Configuration.LazyLoadingEnabled = false;
+            _context.Configuration.LazyLoadingEnabled = true;
 
             // Because Web API will perform validation, we don't need/want EF to do so
             _context.Configuration.ValidateOnSaveEnabled = false;

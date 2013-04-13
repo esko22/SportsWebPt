@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SportsWebPt.Common.DataAccess;
-using SportsWebPt.Common.DataAccess.Ef;
-using SportsWebPt.Platform.Core.Models;
+﻿using SportsWebPt.Common.DataAccess.Ef;
 
 namespace SportsWebPt.Platform.DataAccess
 {

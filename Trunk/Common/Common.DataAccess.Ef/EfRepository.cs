@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+
+using SportsWebPt.Common.Utilities;
 
 namespace SportsWebPt.Common.DataAccess.Ef
 {
@@ -23,6 +26,14 @@ namespace SportsWebPt.Common.DataAccess.Ef
         protected DbContext DbContext { get; set; }
 
         protected DbSet<T> DbSet { get; set; }
+
+        public IQueryable<T> GetAll(IEnumerable<String> includes)
+        {
+            var dynamicIncludeQuery = DbSet.AsQueryable();
+            includes.ForEach(i => dynamicIncludeQuery = dynamicIncludeQuery.Include(i));
+
+            return dynamicIncludeQuery;
+        }
 
         public virtual IQueryable<T> GetAll()
         {

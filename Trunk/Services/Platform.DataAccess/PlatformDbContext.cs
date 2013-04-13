@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SportsWebPt.Platform.Core.Models;
+using SportsWebPt.Platform.DataAccess.EntityConfiguration;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -13,7 +11,12 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Entities
 
-        public DbSet<User> Users { get; set; } 
+        public DbSet<User> Users { get; set; }
+        public DbSet<OrientationType> OrientationTypes { get; set; }
+        public DbSet<PartType> PartTypes { get; set; }
+        public DbSet<SideType> SideTypes { get; set; }
+        public DbSet<RegionType> RegionTypes { get; set; }
+        public DbSet<SkeletonHotspot> SkeletonHotspots { get; set; } 
 
         #endregion
 
@@ -38,7 +41,13 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             //TODO: reflect over assembly and add dynamically
-            modelBuilder.Configurations.Add(new UserEntityConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new OrientationTypeConfiguration());
+            modelBuilder.Configurations.Add(new PartTypeConfiguration());
+            modelBuilder.Configurations.Add(new SideTypeConfiguration());
+            modelBuilder.Configurations.Add(new RegionTypeConfiguration());
+            modelBuilder.Configurations.Add(new SkeletorHotspotConfiguration());
+
 
             //modelBuilder.Entity<AnnotationCollection>()
             //    .HasMany(p => p.AnnotationSources)
