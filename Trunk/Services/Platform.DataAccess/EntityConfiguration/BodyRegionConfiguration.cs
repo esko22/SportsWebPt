@@ -5,14 +5,15 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class RegionTypeConfiguration : EntityTypeConfiguration<BodyRegion>
+    public class BodyRegionConfiguration : EntityTypeConfiguration<BodyRegion>
     {
         #region Construction 
 
-        public RegionTypeConfiguration()
+        public BodyRegionConfiguration()
         {
+            ToTable("BodyRegion");
             Property(p => p.Id).IsRequired().HasColumnName("region_id");
-            Property(p => p.Name).IsRequired().HasColumnName("region").HasMaxLength(50);
+            Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(50);
 
         }
 

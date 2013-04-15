@@ -5,13 +5,14 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess.EntityConfiguration
 {
-    public class SideTypeConfiguration : EntityTypeConfiguration<Side>
+    public class SideConfiguration : EntityTypeConfiguration<Side>
     {
          #region Construction
 
-        public SideTypeConfiguration()
+        public SideConfiguration()
         {
-            Property(p => p.Value).IsRequired().HasColumnName("side").HasMaxLength(50);
+            ToTable("Side");
+            Property(p => p.Value).IsRequired().HasColumnName("value").HasMaxLength(50);
             Property(p => p.Id).IsRequired().HasColumnName("side_id");
         }
 

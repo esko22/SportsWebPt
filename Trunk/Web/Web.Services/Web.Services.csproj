@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IExamineService.cs" />
+    <Compile Include="Proxies\ExamineService.cs" />
     <Compile Include="Proxies\UserResourceResponse.cs" />
     <Compile Include="ServicesContentMaps.cs" />
     <Compile Include="Interfaces\IUserManagementService.cs" />

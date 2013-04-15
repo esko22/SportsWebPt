@@ -6,9 +6,9 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public String EmailAddress { get; set; }
+        public String emailAddress { get; set; }
 
-        public String Hash { get; set; }
+        public String hash { get; set; }
 
         #endregion
     }

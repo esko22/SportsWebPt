@@ -12,7 +12,7 @@
         define('backbone', [], function () { return root.Backbone; });
         define('infuser', [], function () { return root.infuser; });
         define('underscore', [], function () { return root._; });
-        define('kb', [], function () { return root.kb; });
+        define('knockback', [], function () { return root.kb; });
         define('logger', [], function () { return root.logger; });
         define('uri', [], function () { return root.Uri; });
     }

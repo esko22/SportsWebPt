@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,8 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\SkeletonHotspot.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPlatformConfigSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.ServiceStackClient\Common.ServiceStackClient.csproj">
+      <Project>{bcc6d799-39dc-465a-bd9d-3a13f0c6b889}</Project>
+      <Name>Common.ServiceStackClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utilities\Common.Utilities.csproj">
+      <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
+      <Name>Common.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

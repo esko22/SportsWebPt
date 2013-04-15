@@ -51,11 +51,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
-    <Compile Include="EntityConfiguration\OrientationTypeConfiguration.cs" />
-    <Compile Include="EntityConfiguration\PartTypeConfiguration.cs" />
-    <Compile Include="EntityConfiguration\RegionTypeConfiguration.cs" />
-    <Compile Include="EntityConfiguration\SideTypeConfiguration.cs" />
-    <Compile Include="EntityConfiguration\SkeletorHotspotConfiguration.cs" />
+    <Compile Include="EntityConfiguration\OrientationConfiguration.cs" />
+    <Compile Include="EntityConfiguration\BodyPartConfiguration.cs" />
+    <Compile Include="EntityConfiguration\BodyRegionConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SideConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SkeletonHotspotConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />

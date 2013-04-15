@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using SportsWebPt.Common.Utilities;
 using http = System.Web.Http;
 
 using AttributeRouting;
@@ -24,6 +25,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         public UserController(IUserManagementService userManagementService)
         {
+            Check.Argument.IsNotNull(userManagementService, "User Management Service");
             _userManagementService = userManagementService;
         }
 
@@ -41,14 +43,14 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult CreateUser(User user)
         {
             var response = _userManagementService.AddUser(user);
-            return Json(response, JsonRequestBehavior.AllowGet);
+            return Json(response, JsonRequestBehavior.DenyGet);
         }
 
         [PUT("Users/{id}")]
         public ActionResult UpdateUser(User user)
         {
             var response = _userManagementService.AddUser(user);
-            return Json(response, JsonRequestBehavior.AllowGet);
+            return Json(response, JsonRequestBehavior.DenyGet);
         }
 
         //[DELETE("Users/{id}")]

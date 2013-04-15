@@ -19,11 +19,11 @@ namespace SportsWebPt.Platform.ServiceImpl
         public override object OnPost(AuthRequestDto request)
         {
             UserDto userDto = null;
-            var user = UserUnitOfWork.UserRepository.GetUserByEmailAddress(request.EmailAddress);
+            var user = UserUnitOfWork.UserRepository.GetUserByEmailAddress(request.emailAddress);
 
             if (user != null)
             {
-                if(PasswordHashHelper.ValidatePassword(request.Hash,user.Hash))
+                if(PasswordHashHelper.ValidatePassword(request.hash,user.Hash))
                     userDto = Mapper.Map<UserDto>(user);
             }
 

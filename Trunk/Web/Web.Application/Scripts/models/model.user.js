@@ -1,11 +1,9 @@
-﻿define('model.user', ['backbone'],
-    function(backbone) {
+﻿define('model.user', ['backbone','config'],
+    function(backbone, config) {
        var
            user = backbone.Model.extend({
-               urlRoot: 'http://localhost:8022/users',
+               urlRoot: config.users,
                defaults : {
-                   firstName: 'alex',
-                   lastName: 'nut',
                }
         });
 

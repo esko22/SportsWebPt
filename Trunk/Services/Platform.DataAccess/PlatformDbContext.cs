@@ -42,11 +42,11 @@ namespace SportsWebPt.Platform.DataAccess
 
             //TODO: reflect over assembly and add dynamically
             modelBuilder.Configurations.Add(new UserConfiguration());
-            modelBuilder.Configurations.Add(new OrientationTypeConfiguration());
-            modelBuilder.Configurations.Add(new PartTypeConfiguration());
-            modelBuilder.Configurations.Add(new SideTypeConfiguration());
-            modelBuilder.Configurations.Add(new RegionTypeConfiguration());
-            modelBuilder.Configurations.Add(new SkeletorHotspotConfiguration());
+            modelBuilder.Configurations.Add(new OrientationConfiguration());
+            modelBuilder.Configurations.Add(new BodyPartConfiguration());
+            modelBuilder.Configurations.Add(new SideConfiguration());
+            modelBuilder.Configurations.Add(new BodyRegionConfiguration());
+            modelBuilder.Configurations.Add(new SkeletonHotspotConfiguration());
 
 
             //modelBuilder.Entity<AnnotationCollection>()

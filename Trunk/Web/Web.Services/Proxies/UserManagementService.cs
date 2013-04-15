@@ -24,7 +24,6 @@ namespace SportsWebPt.Platform.Web.Services
         public UserManagementService(BaseServiceStackClientSettings clientSettings) 
             : base(clientSettings)
         {
-            //TODO: something feels wrong here
             _userUriPath = String.Format("/{0}/users", _settings.Version);
             _authUriPath = String.Format("/{0}/auth", _settings.Version);
         }
@@ -34,10 +33,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 GetSync<UserResourceResponse>(String.Format("{0}?email={1}", _userUriPath, HttpUtility.UrlEncode(emailAddress)));
 
-            if (response.Resource == null)
-                return null;
-
-            return Mapper.Map<User>(response.Resource);
+            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }
 
         public User GetUser(int id)
@@ -45,10 +41,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 GetSync<UserResourceResponse>(String.Format("{0}/{1}", _userUriPath, id));
 
-            if (response.Resource == null)
-                return null;
-
-            return Mapper.Map<User>(response.Resource);
+            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }
 
         public int AddUser(User user)
@@ -67,12 +60,9 @@ namespace SportsWebPt.Platform.Web.Services
         public User Auth(string emailAddress, string hash)
         {
             var response =
-                PostSync<UserResourceResponse>(_authUriPath, new AuthRequestDto() { EmailAddress = emailAddress, Hash = hash} );
+                PostSync<UserResourceResponse>(_authUriPath, new AuthRequestDto() { emailAddress = emailAddress, hash = hash} );
 
-            if (response.Resource == null)
-                return null;
-
-            return Mapper.Map<User>(response.Resource);
+            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }
 
         #endregion

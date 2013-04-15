@@ -1,5 +1,5 @@
 ﻿define('vm.login.dialog',
-    ['ko', 'config', 'kb', 'model.user', 'jquery', 'uri', 'bootstrap.helper'],
+    ['ko', 'config', 'knockback', 'model.user', 'jquery', 'uri', 'bootstrap.helper'],
     function (ko, config, kb, user, $, uri, bh) {
 
         var signUpVisible = ko.observable(false),

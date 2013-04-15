@@ -1,5 +1,5 @@
 ﻿define('vm.master.header',
-['ko', 'config', 'model.user', 'kb', 'vm.login.dialog','jquery'],
+['ko', 'config', 'model.user', 'knockback', 'vm.login.dialog', 'jquery'],
     function (ko, config, user, kb, login, $) {
 
         //TODO: this needs to come from user passed in

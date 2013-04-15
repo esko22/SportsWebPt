@@ -2,6 +2,7 @@ using System.Configuration;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.ServiceStackClient;
 using SportsWebPt.Common.Web.Auth;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(SportsWebPt.Platform.Web.Application.App_Start.NinjectWebCommon), "Start")]
@@ -48,14 +49,14 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            var baseClientSettings = new BaseServiceStackClientSettings()
-                {
-                    BaseUri = ConfigurationManager.AppSettings["platofrmServiceUri"]
-                };
 
             kernel.Bind<IUserManagementService>()
                   .To<UserManagementService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", baseClientSettings);
+                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+
+            kernel.Bind<IExamineService>()
+                  .To<ExamineService>().InRequestScope()
+                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
 
             kernel.Bind<Func<OAuthProvider, String, AuthWebServerClient>>().ToConstant(
@@ -64,11 +65,9 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
                         switch (oauthProvider)
                         {
                             case OAuthProvider.Facebook:
-                                return new FacebookAuthWebClient("440254562722232", "e23388db22fdf5330b7459b7697fa13a");
+                                return new FacebookAuthWebClient(WebPlatformConfigSettings.Instance.FacebookClientKey, WebPlatformConfigSettings.Instance.FacebookClientSecret);
                             case OAuthProvider.Google:
-                                return new GoogleAuthWebClient("136219353860.apps.googleusercontent.com",
-                                                               "SNzL1wJ1Pf_EdiwYrXh0kvtN",
-                                                               uri);
+                                return new GoogleAuthWebClient(WebPlatformConfigSettings.Instance.GoogleClientKey, WebPlatformConfigSettings.Instance.GoogleClientSecret,uri);
                             default:
                                 throw new ArgumentException(
                                     String.Format("{0} OAuth Provider does not have a web client", oauthProvider));

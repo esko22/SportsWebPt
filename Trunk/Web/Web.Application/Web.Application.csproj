@@ -149,9 +149,9 @@
     <Compile Include="Areas\Dashboard\Controllers\UserDashboardController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
-    <Compile Include="Areas\Examine\Controllers\SelfExamController.cs" />
+    <Compile Include="Areas\Examine\Controllers\ExamineController.cs" />
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
-    <Compile Include="Areas\Examine\ViewModels\SelfExamViewModel.cs" />
+    <Compile Include="Areas\Examine\ViewModels\ExamineViewModel.cs" />
     <Compile Include="Areas\Main\Commands\LoginCommand.cs" />
     <Compile Include="Areas\Main\Controllers\AuthController.cs" />
     <Compile Include="Areas\Main\Controllers\BaseController.cs" />
@@ -173,6 +173,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Areas\Dashboard\Scripts\app\dashboard.area.boostrapper.js" />
     <Content Include="Areas\Examine\Scripts\app\examine.area.bootstrapper.js" />
+    <Content Include="Areas\Examine\Scripts\app\examine.binder.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\examine.vm.js" />
     <Content Include="Areas\Main\Scripts\app\main.area.bootstrapper.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.binder.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
@@ -195,7 +197,7 @@
     <Content Include="Scripts\auth.form.main.js" />
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Areas\Examine\Views\Web.config" />
-    <Content Include="Areas\Examine\Views\SelfExam\Index.cshtml" />
+    <Content Include="Areas\Examine\Views\Examine\Index.cshtml" />
     <Content Include="Areas\Main\Views\Web.config" />
     <Content Include="Areas\Main\Scripts\shared\vm.master.footer.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.vm.js" />
@@ -210,6 +212,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Main\Views\Shared\_noAuthHeader.cshtml" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeletor.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.master.js" />
     <None Include="Scripts\libs\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\app\config.js" />
     <Content Include="Scripts\libs\infuser.js" />
@@ -235,6 +239,7 @@
     <Content Include="Scripts\libs\underscore.min.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\libs\require.js" />
+    <Content Include="Scripts\models\model.skeleton.hotspot.js" />
     <Content Include="Scripts\models\model.user.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\logger.js" />

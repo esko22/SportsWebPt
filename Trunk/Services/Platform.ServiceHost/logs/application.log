@@ -1,14 +1,34 @@
-04-13-13@11:06:21 Info (43)  [Common] SkeletorHotspotListRequest request submitted 
-04-13-13@11:06:40 Info (43)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:18.9126103 
-04-13-13@11:08:23 Info (30)  [Common] SkeletorHotspotListRequest request submitted 
-04-13-13@11:08:29 Info (30)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:05.9055947 
-04-13-13@11:22:47 Info (31)  [Common] SkeletorHotspotListRequest request submitted 
-04-13-13@11:23:35 Error (31)  [Common] [SkeletorService: 4/13/2013 6:23:35 PM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.NotImplementedException No factory for repository type, SportsWebPt.Platform.DataAccess.SkeletorRepo T MakeRepository[T](System.Func`2[System.Data.Entity.DbContext,System.Object], System.Data.Entity.DbContext)
-04-13-13@11:25:33 Info (10)  [Common] SkeletorHotspotListRequest request submitted 
-04-13-13@11:26:28 Error (10)  [Common] [SkeletorService: 4/13/2013 6:26:28 PM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.NotImplementedException No factory for repository type, SportsWebPt.Platform.DataAccess.SkeletorRepo T MakeRepository[T](System.Func`2[System.Data.Entity.DbContext,System.Object], System.Data.Entity.DbContext)
-04-13-13@11:26:49 Info (37)  [Common] SkeletorHotspotListRequest request submitted 
-04-13-13@11:26:52 Info (37)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:02.4986637 
-04-13-13@11:27:16 Info (10)  [Common] UserRequest request submitted 
-04-13-13@11:27:19 Info (10)  [Common] UserRequest request completed with duration of 00:00:02.4606887 
+04-14-13@23:05:44 Info (5)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:05:47 Info (5)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:02.6425130 
+04-14-13@23:13:22 Info (16)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:13:22 Info (16)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0121630 
+04-14-13@23:14:49 Info (13)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:14:49 Info (13)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0046116 
+04-14-13@23:15:06 Info (21)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:15:06 Info (21)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0049939 
+04-14-13@23:15:39 Info (11)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:15:39 Info (11)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0057129 
+04-14-13@23:16:35 Info (11)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:16:35 Info (11)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0049348 
+04-14-13@23:26:02 Info (22)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:26:02 Info (22)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0126828 
+04-14-13@23:32:16 Info (36)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:32:16 Info (36)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0163595 
+04-14-13@23:32:22 Info (11)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:32:23 Info (11)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0055111 
+04-14-13@23:37:43 Info (42)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:37:43 Info (42)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0152188 
+04-14-13@23:38:35 Info (41)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:38:35 Info (41)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0057140 
+04-14-13@23:39:52 Info (42)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:39:52 Info (42)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0046119 
+04-14-13@23:40:14 Info (32)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:40:14 Info (32)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0045153 
+04-14-13@23:41:07 Info (40)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:41:07 Info (40)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0053247 
+04-14-13@23:41:28 Info (33)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:41:28 Info (33)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0066898 
+04-14-13@23:41:59 Info (40)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:41:59 Info (40)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0047316 
+04-14-13@23:42:25 Info (45)  [Common] SkeletorHotspotListRequest request submitted 
+04-14-13@23:42:25 Info (45)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0072880 

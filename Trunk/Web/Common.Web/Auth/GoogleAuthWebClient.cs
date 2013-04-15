@@ -49,7 +49,6 @@ namespace SportsWebPt.Common.Web.Auth
                     LastName = userInfo["family_name"],
                     ProviderId = userInfo["id"],
                     Locale = userInfo["locale"],
-                    Gender = userInfo["gender"],
                     Provider = OAuthProvider.Google
                 };
         }
