@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Knockback.js</id>
+    <version>0.17.2</version>
+    <title>Knockback.js</title>
+    <authors>Kevin Malakoff</authors>
+    <owners>Kevin Malakoff</owners>
+    <licenseUrl>https://github.com/kmalakoff/knockback/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://kmalakoff.github.com/knockback/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Knockback.js provides Knockout.js magic for Backbone.js Models and Collections.</description>
+    <summary>Knockback.js provides Knockout.js magic for Backbone.js Models and Collections.</summary>
+    <copyright>Copyright (c) 2011-2012 Kevin Malakoff</copyright>
+    <tags>Kockout KnockoutJS Knockout.js Knockback Backbone BackboneJS Bakcbone.js Javascript</tags>
+    <dependencies>
+      <dependency id="knockoutjs" version="2.2.0" />
+      <dependency id="Backbone.js" version="0.9.9" />
+      <dependency id="Underscore.js" version="1.4.3" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>

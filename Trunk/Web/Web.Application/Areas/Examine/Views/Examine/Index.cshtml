@@ -1,19 +1,25 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ExamineViewModel
 @{
-    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
     Model.AreaBundles.Add("~/bundles/examineapplib");
+    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
 }
 
 <div>
-         <h2><span aria-hidden="true" data-icon="&#xf0f1;" class="header-icon" /> Examine</h2>
+    <h2><span aria-hidden="true" data-icon="&#xf0f1;" class="header-icon" /> Examine</h2>
 </div>
-<div class="container">
+<div>
     <ul class="breadcrumb">
         <li><a href="#">Home</a> <span class="divider">/</span></li>
         <li><a href="#">Library</a> <span class="divider">/</span></li>
         <li class="active">Data</li>
     </ul>
-    <div id="skeletor-container" >
+</div>
+
+
+
+<div class="container">
+    
+    <div id="skeletor-container" class="view">
         <ul id="skeletor" data-bind="foreach: hotspots" class="img-rounded">
             <li data-bind="attr: { id: name }">
                 <a href="http://en.wikipedia.org/wiki/North_America">
@@ -21,6 +27,22 @@
                 </a>
             </li>
         </ul>
+        <div>
+            <a class="btn btn-success btn-large" href="#crap" >Next &raquo;</a>>
+        </div>
     </div>
+        
+    <div id="page2" class="view">
+        <div>
+            <a class="btn btn-success btn-large" href="javascript:history.back()" >Back &raquo;</a>>
+        </div>
+    </div>
+    
+
 </div>
+
+
 <input type="hidden" id="skeleton-hotspots" value="@Html.Raw(Json.Encode(Model.SkeletonHotspots))" />
+
+
+

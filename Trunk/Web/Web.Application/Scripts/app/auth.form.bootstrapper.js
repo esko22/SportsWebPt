@@ -1,10 +1,10 @@
-﻿define('auth.form.bootstrapper', ['jquery', 'logger', 'config','shared.vm'],
-    function ($, logger, config, vm) {
+﻿define('auth.form.bootstrapper', ['jquery', 'logger', 'config','shared.vm','knockback'],
+    function ($, logger, config, vm, kb) {
         var run = function () {
             logger.log('running auth form bs');
 
             var ids = config.viewIds;
-            ko.applyBindings(vm.login, getView(ids.login));
+            kb.applyBindings(vm.login, getView(ids.login));
         },
 
         getView = function (viewName) {

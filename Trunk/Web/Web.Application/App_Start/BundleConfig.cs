@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.Web
             // Force optimization to be on or off, regardless of web.config setting
             BundleTable.EnableOptimizations = false;
             bundles.UseCdn = false;
-
+            
             // .debug.js, -vsdoc.js and .intellisense.js files 
             // are in BundleTable.Bundles.IgnoreList by default.
             // Clear out the list and add back the ones we want to ignore.
@@ -37,7 +37,9 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/underscore.js",
                         "~/Scripts/libs/backbone.js", // depends on underscore
                         "~/Scripts/libs/bootstrap.js", 
-                        "~/Scripts/libs/knockback.js" // depends on backbone, knockout
+                        "~/Scripts/libs/knockback.js", // depends on backbone, knockout
+                        "~/Scripts/libs/knockback-page-navigator-panes.js",
+                        "~/Scripts/libs/knockback-sample-transitions.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/utils")
@@ -67,7 +69,8 @@ namespace SportsWebPt.Platform.Web
                         "~/Content/bootstrap.css",
                         "~/Content/bootstrap-responsive.css",
                          "~/Content/sportsweb-pt.css",
-                         "~/Content/icon-fonts.css"));
+                         "~/Content/icon-fonts.css",
+                         "~/Content/knockback-navigators.css"));
 
 
         }

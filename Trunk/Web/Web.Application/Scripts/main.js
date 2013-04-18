@@ -28,11 +28,12 @@
     }
 
     function boot() {
-        require(['bootstrapper', 'shared.bootstrapper', 'area.bootstrapper'],
-            function(bs, sbs, abs) {
+        require(['bootstrapper', 'shared.bootstrapper', 'area.bootstrapper','router'],
+            function(bs, sbs, abs, router) {
                 bs.run();
                 sbs.run();
                 abs.run();
+                router.configure();
             });
     }
     
