@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class BodyPart
+    public class AreaComponent
     {
         #region Properties
 
@@ -11,6 +12,8 @@ namespace SportsWebPt.Platform.Core.Models
         public String CommonName { get; set; }
 
         public String ScientificName { get; set; }
+
+        public ICollection<SkeletonArea> SkeletonAreas { get; set; }
 
         #endregion
     }

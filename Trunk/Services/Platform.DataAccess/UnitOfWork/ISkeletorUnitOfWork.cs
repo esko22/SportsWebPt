@@ -6,6 +6,8 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public interface ISkeletonUnitOfWork : IBaseUnitOfWork
     {
-        IRepository<SkeletonHotspot> SkeletonHotspotRepo { get; }
+        IRepository<SkeletonArea> SkeletonAreaRepo { get; }
+
+        IRepository<AreaComponent> AreaComponentRepo { get; } 
     }
 }

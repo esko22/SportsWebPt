@@ -6,6 +6,6 @@ namespace SportsWebPt.Platform.Web.Services
 {
     public interface IExamineService
     {
-        IEnumerable<SkeletonHotspot> GetSkeletonHotspots();
+        IEnumerable<SkeletonArea> GetSkeletonAreas();
     }
 }

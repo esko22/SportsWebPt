@@ -31,7 +31,7 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<ExamineViewModel>();
-            viewModel.SkeletonHotspots = _examineService.GetSkeletonHotspots();
+            viewModel.SkeletonAreas = _examineService.GetSkeletonAreas();
 
             return View(viewModel);
         }

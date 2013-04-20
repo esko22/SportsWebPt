@@ -6,7 +6,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class SkeletonRepo: EFRepository<SkeletonHotspot>
+    public class SkeletonRepo: EFRepository<SkeletonArea>
     {
 
         #region Construction
@@ -17,12 +17,13 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public override IQueryable<SkeletonHotspot> GetAll()
+        public override IQueryable<SkeletonArea> GetAll()
         {
             return base.GetAll()
                 .Include("Region")
                 .Include("Side")
-                .Include("Orientation");
+                .Include("Orientation")
+                .Include("Components");
         }
 
         #endregion

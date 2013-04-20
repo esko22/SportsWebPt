@@ -1,4 +1,6 @@
-﻿#mainsplash {
+﻿html { overflow-y: scroll; }
+
+#mainsplash {
     background: url(images/swpt_splash.png)no-repeat; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -117,7 +119,8 @@ body {
 /* Image map styles  */
 
 #skeleton {
-    background: url(images/skeletor.jpg)no-repeat; 
+	display: block;
+    background: url(images/skeletor.jpg)no-repeat;
     height: 600px;
     margin-left: auto ;
     margin-right: auto ;

@@ -31,7 +31,9 @@ namespace SportsWebPt.Platform.DataAccess
             var regions = AddRegions();
             var orientations = AddOrientations();
             var sides = AddSides();
-            var skeletonHotspots = AddSkeletonHotspots(regions, sides, orientations);
+            var skeletonareas = AddSkeletonAreas(regions, sides, orientations);
+
+            AddComponentsToAreas(skeletonareas,parts);
         }
 
         private List<User> AddUsers()
@@ -49,14 +51,25 @@ namespace SportsWebPt.Platform.DataAccess
             return users;
         }
 
-        private List<BodyPart> AddParts()
+        private List<AreaComponent> AddParts()
         {
-            var parts = new List<BodyPart>()
+            var parts = new List<AreaComponent>()
                 {
-                    new BodyPart() {CommonName = "Foot", ScientificName = "FancyFoot"},
-                    new BodyPart() {CommonName = "Ankle"},
-                    new BodyPart() {CommonName = "Wrist"},
-                    new BodyPart() {CommonName = "Hamstring"},
+                    new AreaComponent() {CommonName = "Foot", ScientificName = "FancyFoot"},
+                    new AreaComponent() {CommonName = "Ankle"},
+                    new AreaComponent() {CommonName = "Wrist"},
+                    new AreaComponent() {CommonName = "Hamstring"},
+                    new AreaComponent() {CommonName = "Quad"},
+                    new AreaComponent() {CommonName = "Neck"},
+                    new AreaComponent() {CommonName = "Throat"},
+                    new AreaComponent() {CommonName = "Shoulder"},
+                    new AreaComponent() {CommonName = "Elbow"},
+                    new AreaComponent() {CommonName = "Knee"},
+                    new AreaComponent() {CommonName = "Shin"},
+                    new AreaComponent() {CommonName = "Calf"},
+                    new AreaComponent() {CommonName = "Hip"},
+                    new AreaComponent() {CommonName = "Bicep"},
+                    new AreaComponent() {CommonName = "Tricep"}
                 };
 
             parts.ForEach(u => _dbContext.PartTypes.Add(u));
@@ -118,56 +131,53 @@ namespace SportsWebPt.Platform.DataAccess
             return sides;
         }
 
-        private List<SkeletonHotspot> AddSkeletonHotspots(List<BodyRegion> regionTypes,List<Side> sides,List<Orientation> orientations)
+        private IList<SkeletonArea> AddSkeletonAreas(List<BodyRegion> regionTypes,List<Side> sides,List<Orientation> orientations)
         {
-            var hotspots = new List<SkeletonHotspot>()
+            var areas = new List<SkeletonArea>()
                 {
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[0], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[0], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[1], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[2], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[3], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[4], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[5], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[5], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[5], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[5], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[6], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[6], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[6], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[6], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[7], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[7], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[7], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[7], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[8], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[8], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[8], Side = sides[0]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[8], Side = sides[1]},
-                    new SkeletonHotspot() { Orientation = orientations[0], Region = regionTypes[9], Side = sides[2]},
-                    new SkeletonHotspot() { Orientation = orientations[2], Region = regionTypes[10], Side = sides[2]}
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[0], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[0], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[1], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[2], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[3], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[4], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[5], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[5], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[5], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[5], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[6], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[6], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[6], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[6], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[7], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[7], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[7], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[7], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[8], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[8], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[8], Side = sides[0]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[8], Side = sides[1]},
+                    new SkeletonArea() { Orientation = orientations[0], Region = regionTypes[9], Side = sides[2]},
+                    new SkeletonArea() { Orientation = orientations[2], Region = regionTypes[10], Side = sides[2]}
                 };
 
-            hotspots.ForEach(u => _dbContext.SkeletonHotspots.Add(u));
+            areas.ForEach(u => _dbContext.SkeletonAreas.Add(u));
             _dbContext.SaveChanges();
 
-            return hotspots;
+            return areas;
         }
 
-        //HOW TO DO RELATIONSHIP DATA
-        //private List<ReferenceGenome> AddReferenceGenomes(WatsonDbContext context, List<Species> species, List<ReferenceProvider> provdiders)
-        //{
-        //    var refGenomes = new List<ReferenceGenome>()
-        //        {
-        //            new ReferenceGenome() {GenomeBuild = "HG19", Species = species[0], Provider = provdiders[1]},
-        //            new ReferenceGenome() {GenomeBuild = "37.1", Species = species[0], Provider = provdiders[0]}
-        //        };
+        private void AddComponentsToAreas(IList<SkeletonArea> areas, IList<AreaComponent> components)
+        {
+            var area = areas[18];
+            area.Components =  new [] { components[0], components[1],components[9],components[10]};
 
-        //    refGenomes.ForEach(p => context.ReferenceGenomes.Add(p));
-        //    context.SaveChanges();
+            area = areas[19];
+            area.Components = new[] { components[0], components[1], components[9], components[10]};
 
-        //    return refGenomes;
-        //}
+            _dbContext.SaveChanges();
+
+        }
 
     }
 }

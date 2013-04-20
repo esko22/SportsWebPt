@@ -1,8 +1,9 @@
 ﻿using System.Web;
+
 using AutoMapper;
+
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities;
-using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceImpl.Operations;
@@ -10,7 +11,6 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    [ApiResource("User CRUD endpoint", "user", "/operations?resource=user")]
     public class UserService : LoggingRestServiceBase<UserRequest, ApiResponse<UserDto>>
     {
 

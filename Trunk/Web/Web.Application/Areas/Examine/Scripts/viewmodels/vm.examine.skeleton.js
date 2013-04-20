@@ -1,42 +1,42 @@
 ﻿define('vm.examine.skeleton',
-    ['backbone', 'jquery', 'model.skeleton.hotspot.collection', 'knockback', 'underscore', 'vm.examine.container'],
-    function (bs,$, HotspotCollection, kb, _, container) {
+    ['backbone', 'jquery', 'model.skeleton.area.collection', 'knockback', 'underscore', 'vm.examine.container'],
+    function (bs,$, AreaCollection, kb, _, container) {
 
-        var hotspots = new HotspotCollection();
+        var areas = new AreaCollection();
         
-        hotspots.reset(JSON.parse($('#skeleton-hotspots').val()));
+        areas.reset(JSON.parse($('#skeleton-areas').val()));
 
-        var selectHotspot = function (item) {
-            if (container.selectedHotspots.indexOf(item) == -1) {
+        var selectArea = function (item) {
+            if (container.selectedAreas.indexOf(item) == -1) {
                 $('#' + item.name()).addClass('skeleton-selected');
-                container.selectedHotspots.push(item);
+                container.selectedAreas.push(item);
             } else {
                 $('#' + item.name()).removeClass('skeleton-selected');
-                container.selectedHotspots.remove(item);
+                container.selectedAreas.remove(item);
             }
         };
         
-        var hotspotMouseOver = function (item) {
-            if (container.selectedHotspots.indexOf(item) > -1) {
+        var areaMouseOver = function (item) {
+            if (container.selectedAreas.indexOf(item) > -1) {
                 $('#' + item.name()).removeClass('skeleton-selected');
             }
             
             $('#' + item.name()).addClass('skeleton-hover');
         };
 
-        var hotspotMouseOut = function (item) {
+        var areaMouseOut = function (item) {
             $('#' + item.name()).removeClass('skeleton-hover');
 
-            if (container.selectedHotspots.indexOf(item) > -1) {
+            if (container.selectedAreas.indexOf(item) > -1) {
                 $('#' + item.name()).addClass('skeleton-selected');
             }
         };
 
         return {
-            hotspots: new kb.CollectionObservable(hotspots),
-            selectHotspot: selectHotspot,
-            hotspotMouseOver: hotspotMouseOver,
-            hotspotMouseOut: hotspotMouseOut,
-            selectedHotspots: container.selectedHotspots
+            areas: new kb.CollectionObservable(areas),
+            selectArea: selectArea,
+            areaMouseOver: areaMouseOver,
+            areaMouseOut: areaMouseOut,
+            selectedAreas: container.selectedAreas
         };
     });

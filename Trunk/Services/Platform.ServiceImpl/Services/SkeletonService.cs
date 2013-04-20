@@ -3,14 +3,12 @@
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    [ApiResource("User CRUD endpoint", "Skeleton", "/operations?resource=Skeleton")]
-    public class SkeletonService : LoggingRestServiceBase<SkeletonHotspotListRequest, ListResponse<SkeletonHotspotDto, SkeletonSortBy>>
+    public class SkeletonService : LoggingRestServiceBase<SkeletonAreaListRequest, ListResponse<SkeletonAreaDto, SkeletonSortBy>>
     {
         #region Properties
 
@@ -20,15 +18,15 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(SkeletonHotspotListRequest request)
+        public override object OnGet(SkeletonAreaListRequest request)
         {
-            var SkeletonHotspots = SkeletonUnitOfWork.SkeletonHotspotRepo.GetAll();
-            var responseList = new List<SkeletonHotspotDto>();
+            var skeletonAreas = SkeletonUnitOfWork.SkeletonAreaRepo.GetAll();
+            var responseList = new List<SkeletonAreaDto>();
 
-            Mapper.Map(SkeletonHotspots, responseList);
+            Mapper.Map(skeletonAreas, responseList);
 
             return
-                Ok(new ListResponse<SkeletonHotspotDto, SkeletonSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ListResponse<SkeletonAreaDto, SkeletonSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 

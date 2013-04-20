@@ -238,7 +238,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
-    <Content Include="Scripts\models\model.skeleton.hotspot.js" />
+    <Content Include="Scripts\models\model.skeleton.area.js" />
     <Content Include="Scripts\models\model.user.js" />
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />

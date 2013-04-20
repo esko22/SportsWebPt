@@ -75,8 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AreaComponentDto.cs" />
+    <Compile Include="Models\AreaComponentSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
-    <Compile Include="Models\SkeletonHotspotDto.cs" />
+    <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

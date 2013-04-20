@@ -30,17 +30,16 @@
                         <th>Selected Regions</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: selectedHotspots">
+                <tbody data-bind="foreach: selectedAreas">
                     <tr>
                         <td data-bind="text: name"></td>
                     </tr>
                 </tbody>            
             </table>
-
             </div>
             <div class="span10">
-                <ul id="skeleton" data-bind="foreach: hotspots" class="img-rounded">
-                    <li data-bind="attr: { id: name }, click: $parent.selectHotspot, event: { mouseover: $parent.hotspotMouseOver, mouseout: $parent.hotspotMouseOut}" />
+                <ul id="skeleton" data-bind="foreach: areas" class="img-rounded">
+                    <li data-bind="attr: { id: name }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut}" />
                 </ul>
             </div>
         </div>
@@ -59,7 +58,7 @@
                         <th>Region</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: selectedHotspots">
+                <tbody data-bind="foreach: selectedAreas">
                     <tr>
                         <td data-bind="text: orientation"></td>
                         <td data-bind="text: side"></td>
@@ -75,7 +74,7 @@
 </div>
 
 
-<input type="hidden" id="skeleton-hotspots" value="@Html.Raw(Json.Encode(Model.SkeletonHotspots))" />
+<input type="hidden" id="skeleton-areas" value="@Html.Raw(Json.Encode(Model.SkeletonAreas))" />
 
 
 

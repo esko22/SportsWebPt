@@ -2,9 +2,9 @@
     ['ko'],
     function (ko) {
 
-        var selectedHotspots = ko.observableArray();
+        var selectedAreas = ko.observableArray();
 
         return {
-            selectedHotspots: selectedHotspots
+            selectedAreas: selectedAreas
         };
     });

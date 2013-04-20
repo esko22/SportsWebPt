@@ -46,8 +46,8 @@
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Side.cs" />
-    <Compile Include="Models\BodyPart.cs" />
-    <Compile Include="Models\SkeletonHotspot.cs" />
+    <Compile Include="Models\AreaComponent.cs" />
+    <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

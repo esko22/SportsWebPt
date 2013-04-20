@@ -52,10 +52,10 @@
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\OrientationConfiguration.cs" />
-    <Compile Include="EntityConfiguration\BodyPartConfiguration.cs" />
+    <Compile Include="EntityConfiguration\AreaComponentConfiguration.cs" />
     <Compile Include="EntityConfiguration\BodyRegionConfiguration.cs" />
     <Compile Include="EntityConfiguration\SideConfiguration.cs" />
-    <Compile Include="EntityConfiguration\SkeletonHotspotConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SkeletonAreaConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />

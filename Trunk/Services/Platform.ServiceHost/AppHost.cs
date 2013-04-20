@@ -97,7 +97,6 @@ namespace SportsWebPt.Platform.ServiceHost
             ConfigureContainer(container);
             BuildRoutes();
             BoostrapEf();
-            //Container.Resolve<ApiDocumentGenerator>().Generate();
 
         } 
 
@@ -107,13 +106,14 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<UserRequest>("users/{Id}")
                 .Add<UserRequest>("users")
                 .Add<AuthRequestDto>("auth")
-                .Add<SkeletonHotspotListRequest>("Skeleton");
+                .Add<SkeletonAreaListRequest>("areas")
+                .Add<AreaComponentListRequest>("areas/{Id}/components");
+
 
         }
 
         private void ConfigureContainer(Container container)
         {
-            //container.Register<ApiDocumentGenerator>(c => new SwaggerApiDocumentGenerator(_configuration.ApiDocumentAssemblies)).ReusedWithin(ReuseScope.Container);
             container.Register<IBaseApiConfig>(c => PlatformServiceConfiguration.Instance).ReusedWithin(ReuseScope.Container);
             container.Register<RepositoryFactory>(c => new PlatformRepositoryFactory())
                      .ReusedWithin(ReuseScope.Container);

@@ -13,10 +13,10 @@ namespace SportsWebPt.Platform.DataAccess
 
         public DbSet<User> Users { get; set; }
         public DbSet<Orientation> OrientationTypes { get; set; }
-        public DbSet<BodyPart> PartTypes { get; set; }
+        public DbSet<AreaComponent> PartTypes { get; set; }
         public DbSet<Side> SideTypes { get; set; }
         public DbSet<BodyRegion> RegionTypes { get; set; }
-        public DbSet<SkeletonHotspot> SkeletonHotspots { get; set; } 
+        public DbSet<SkeletonArea> SkeletonAreas { get; set; } 
 
         #endregion
 
@@ -43,10 +43,10 @@ namespace SportsWebPt.Platform.DataAccess
             //TODO: reflect over assembly and add dynamically
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new OrientationConfiguration());
-            modelBuilder.Configurations.Add(new BodyPartConfiguration());
+            modelBuilder.Configurations.Add(new AreaComponentConfiguration());
             modelBuilder.Configurations.Add(new SideConfiguration());
             modelBuilder.Configurations.Add(new BodyRegionConfiguration());
-            modelBuilder.Configurations.Add(new SkeletonHotspotConfiguration());
+            modelBuilder.Configurations.Add(new SkeletonAreaConfiguration());
 
 
             //modelBuilder.Entity<AnnotationCollection>()

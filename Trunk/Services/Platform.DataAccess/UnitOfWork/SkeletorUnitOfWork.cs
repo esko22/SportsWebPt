@@ -9,7 +9,8 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IRepository<SkeletonHotspot> SkeletonHotspotRepo { get { return GetRepo<IRepository<SkeletonHotspot>>(); } }
+        public IRepository<SkeletonArea> SkeletonAreaRepo { get { return GetRepo<IRepository<SkeletonArea>>(); } }
+        public IRepository<AreaComponent> AreaComponentRepo { get { return GetStandardRepo<AreaComponent>(); } } 
 
         #endregion
 
@@ -17,7 +18,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         public SkeletonUnitOfWork(IRepositoryProvider repositoryProvider)
             : base(repositoryProvider, new PlatformDbContext())
-        { }
+        {
+        }
 
         #endregion
     }

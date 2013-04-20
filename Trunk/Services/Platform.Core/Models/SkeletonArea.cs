@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class SkeletonHotspot
+    public class SkeletonArea
     {
         #region Properties
 
@@ -13,6 +14,8 @@ namespace SportsWebPt.Platform.Core.Models
         public Side Side { get; set; }
 
         public BodyRegion Region { get; set; }
+
+        public ICollection<AreaComponent> Components { get; set; }
 
         #endregion
     }

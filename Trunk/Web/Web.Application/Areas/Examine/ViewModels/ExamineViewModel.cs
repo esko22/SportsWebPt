@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.Web.Application
     {
         #region Properties
 
-        public IEnumerable<SkeletonHotspot> SkeletonHotspots { get; set; } 
+        public IEnumerable<SkeletonArea> SkeletonAreas { get; set; } 
 
         #endregion
     }

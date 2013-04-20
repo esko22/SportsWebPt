@@ -5,6 +5,6 @@
 
 
         return {
-            selectedHotspots: container.selectedHotspots
+            selectedAreas: container.selectedAreas
         };
     });

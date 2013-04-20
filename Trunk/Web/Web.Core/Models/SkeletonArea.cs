@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class SkeletonHotspot
+    public class SkeletonArea
     {
         #region Properties
 
