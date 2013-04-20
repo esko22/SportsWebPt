@@ -107,7 +107,7 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<UserRequest>("users/{Id}")
                 .Add<UserRequest>("users")
                 .Add<AuthRequestDto>("auth")
-                .Add<SkeletorHotspotListRequest>("skeletor");
+                .Add<SkeletonHotspotListRequest>("Skeleton");
 
         }
 
@@ -120,7 +120,7 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<IRepositoryProvider>(c => new PlatformRepositoryProvider(c.Resolve<RepositoryFactory>()))
                      .ReusedWithin(ReuseScope.Request);
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
-            container.Register<ISkeletorUnitOfWork>(c => new SkeletorUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
+            container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
 
         }
 

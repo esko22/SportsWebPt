@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public struct SkeletorSortBy
+    public struct SkeletonSortBy
     {
     }
 }

@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<UserDto, User>();
-            Mapper.CreateMap<SkeletorHotspotDto, SkeletonHotspot>();
+            Mapper.CreateMap<SkeletonHotspotDto, SkeletonHotspot>();
 
             //Mapper.CreateMap<ContentRequestItemEntity, UserRegionWorkRequestItem>()
             //   .ForMember(dest => dest.ContentRequestItemId, source => source.MapFrom(s => s.content_request_item_id))

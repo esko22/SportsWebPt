@@ -107,38 +107,46 @@ body {
     width: 250px;
 }
 
+.breadcrumb > li > a.active {
+    text-decoration: none;
+    color: #424947;
+    cursor: default;
+}
+
 
 /* Image map styles  */
 
-#skeletor {
+#skeleton {
     background: url(images/skeletor.jpg)no-repeat; 
-    width: 800px;
     height: 600px;
     margin-left: auto ;
     margin-right: auto ;
     position:relative;
 }
 
-ul#skeletor li a{
-	display: block;
-	height: 100%;
-	text-indent: -9000px;
-}
-
-ul#skeletor li {
-	/*border: 1px solid #000;*/	
+ul#skeleton li {
 	position: absolute;
+	display: block;
 }
 
-ul#skeletor li a:hover {
+.skeleton-hover {
 	display: block;
 	background: #47cb2a;
 	position: relative;
 	border: 2px solid #272b30;	
-	font: 11px Arial, Helvetica, sans-serif;
 	opacity: .75;
 	filter:alpha(opacity=75);
-	color: #FFF;
+    cursor: pointer;
+}
+
+.skeleton-selected {
+	display: block;
+	background: #3a87ad;
+	position: relative;
+	border: 2px solid #272b30;	
+	opacity: .75;
+	filter:alpha(opacity=75);
+    cursor: pointer;
 }
 
 #front-upperarm-left{

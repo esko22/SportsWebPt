@@ -1,30 +1,33 @@
-﻿define('router', ['backbone','jquery','presenter'],
-    function (backbone,$, presenter) {
+﻿define('router', ['backbone','jquery','presenter', 'vm.examine.container'],
+    function (backbone,$, presenter, container) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
                 routes: {
-                    '': 'main',
-                    'crap': 'defaultRoute'
+                    '': 'skeleton',
+                    'discomfort': 'discomfort'
                 }
             });
 
             var router = new mainRouter();
 
-            router.on('route:defaultRoute', function () {
+            router.on('route:discomfort', function () {
                 $('.view').hide();
+                $('.active').removeClass('active');
                 presenter.transitionTo(
-                    $('#page2'),
+                    $('#discomfort-detail'),
                     '',
                     '');
-                
+                $('#discomfort-nav').addClass('active');
             });
-            router.on('route:main', function() {
+            router.on('route:skeleton', function () {
                 $('.view').hide();
+                $('.active').removeClass('active');
                 presenter.transitionTo(
-                    $('#skeletor-container'),
+                    $('#skeleton-container'),
                     '',
                     '');
+                $('#skeleton-nav').addClass('active');
             });
 
             backbone.history.start();

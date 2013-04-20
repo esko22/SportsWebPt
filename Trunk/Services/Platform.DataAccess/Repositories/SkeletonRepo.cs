@@ -6,12 +6,12 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class SkeletorRepo: EFRepository<SkeletonHotspot>
+    public class SkeletonRepo: EFRepository<SkeletonHotspot>
     {
 
         #region Construction
 
-        public SkeletorRepo(DbContext context) : base(context) { }
+        public SkeletonRepo(DbContext context) : base(context) { }
 
         #endregion
 

@@ -11,7 +11,7 @@
 
         var apiUris = {
             users: $.format('{0}/{1}', hostUri, 'users'),
-            skeletonHotspots: $.format('{0}/{1}', hostUri, 'examine/skeletor')
+            skeletonHotspots: $.format('{0}/{1}', hostUri, 'examine/skeleton')
         };
 
 

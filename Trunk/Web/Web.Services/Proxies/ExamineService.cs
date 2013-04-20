@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Fields
 
-        private String _skeletorHotspotsUriPath = String.Empty;
+        private String _skeletonHotspotsUriPath = String.Empty;
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.Web.Services
         public ExamineService(BaseServiceStackClientSettings clientSettings)
             : base(clientSettings)
         {
-            _skeletorHotspotsUriPath = String.Format("/{0}/skeletor", _settings.Version);
+            _skeletonHotspotsUriPath = String.Format("/{0}/skeleton", _settings.Version);
         }
 
         #endregion
@@ -32,7 +32,7 @@ namespace SportsWebPt.Platform.Web.Services
         public IEnumerable<SkeletonHotspot> GetSkeletonHotspots()
         {
             var response =
-                GetSync<ListResponse<SkeletorHotspotDto, SkeletorSortBy>>(_skeletorHotspotsUriPath);
+                GetSync<ListResponse<SkeletonHotspotDto, SkeletonSortBy>>(_skeletonHotspotsUriPath);
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<SkeletonHotspot>>(response.Resource.Items);
         }

@@ -62,7 +62,7 @@
     <Compile Include="PlatformRepositoryFactory.cs" />
     <Compile Include="PlatformRepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\SkeletorRepo.cs" />
+    <Compile Include="Repositories\SkeletonRepo.cs" />
     <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IBaseUnitOfWork.cs" />

@@ -5,7 +5,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class SkeletorUnitOfWork : BaseUnitOfWork, ISkeletorUnitOfWork
+    public class SkeletonUnitOfWork : BaseUnitOfWork, ISkeletonUnitOfWork
     {
         #region Properties
 
@@ -15,7 +15,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Construction
 
-        public SkeletorUnitOfWork(IRepositoryProvider repositoryProvider)
+        public SkeletonUnitOfWork(IRepositoryProvider repositoryProvider)
             : base(repositoryProvider, new PlatformDbContext())
         { }
 

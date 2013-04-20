@@ -169,6 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.discomfort.js" />
     <Content Include="Scripts\app\presenter.js" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
@@ -219,8 +220,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Main\Views\Shared\_noAuthHeader.cshtml" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeletor.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.master.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\app\config.js" />

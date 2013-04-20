@@ -4,7 +4,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public interface ISkeletorUnitOfWork : IBaseUnitOfWork
+    public interface ISkeletonUnitOfWork : IBaseUnitOfWork
     {
         IRepository<SkeletonHotspot> SkeletonHotspotRepo { get; }
     }

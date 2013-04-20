@@ -76,8 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AuthRequestDto.cs" />
-    <Compile Include="Models\SkeletorHotspotDto.cs" />
-    <Compile Include="Models\SkeletorSortBy.cs" />
+    <Compile Include="Models\SkeletonHotspotDto.cs" />
+    <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
