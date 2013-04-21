@@ -3,7 +3,6 @@
     function (bs,$, AreaCollection, kb, _, container) {
 
         var areas = new AreaCollection();
-        
         areas.reset(JSON.parse($('#skeleton-areas').val()));
 
         var selectArea = function (item) {

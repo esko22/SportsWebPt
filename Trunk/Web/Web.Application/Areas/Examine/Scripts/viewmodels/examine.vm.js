@@ -1,17 +1,17 @@
 ﻿define('examine.vm',
-['vm.examine.container', 'vm.examine.skeleton', 'vm.examine.discomfort'],
-    function (container, skeleton, discomfort) {
+['vm.examine.container', 'vm.examine.skeleton', 'vm.examine.description'],
+    function (container, skeleton, description) {
 
         var viewIds = {
             skeleton: '#skeleton-container',
             container: '#examine-container',
-            discomfort: '#discomfort-detail'
+            description: '#description-detail'
         };
 
         return {
             container: container,
             skeleton: skeleton,
-            discomfort: discomfort,
+            description: description,
             viewIds : viewIds
         };
     });

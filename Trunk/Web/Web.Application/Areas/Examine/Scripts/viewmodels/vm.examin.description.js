@@ -1,4 +1,4 @@
-﻿define('vm.examine.discomfort',
+﻿define('vm.examine.description',
     ['vm.examine.container'],
     function (container) {
 

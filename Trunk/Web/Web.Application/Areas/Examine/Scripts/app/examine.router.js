@@ -5,20 +5,20 @@
             var mainRouter = backbone.Router.extend({
                 routes: {
                     '': 'skeleton',
-                    'discomfort': 'discomfort'
+                    'describe': 'description'
                 }
             });
 
             var router = new mainRouter();
 
-            router.on('route:discomfort', function () {
+            router.on('route:description', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
                 presenter.transitionTo(
-                    $('#discomfort-detail'),
+                    $('#description-detail'),
                     '',
                     '');
-                $('#discomfort-nav').addClass('active');
+                $('#description-nav').addClass('active');
             });
             router.on('route:skeleton', function () {
                 $('.view').hide();

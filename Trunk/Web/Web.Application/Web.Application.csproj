@@ -169,7 +169,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.discomfort.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.description.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.area.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.component.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.symptom.js" />
     <Content Include="Scripts\app\presenter.js" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
