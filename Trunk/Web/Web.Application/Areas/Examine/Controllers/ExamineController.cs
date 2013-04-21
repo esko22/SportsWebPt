@@ -35,5 +35,13 @@ namespace SportsWebPt.Platform.Web.Application
 
             return View(viewModel);
         }
+
+        [GET("Examine/areas/{id}/components", IsAbsoluteUrl = true)]
+        public ActionResult GetAreaComponents(int id)
+        {
+            var areaComponents = _examineService.GetAreaComponents(id);
+
+            return Json(areaComponents, JsonRequestBehavior.AllowGet);
+        }
     }
 }

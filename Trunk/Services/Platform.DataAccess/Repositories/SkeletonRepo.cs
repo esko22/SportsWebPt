@@ -19,6 +19,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         public override IQueryable<SkeletonArea> GetAll()
         {
+            //NOTE: this is set here to prevent adding a reference to Data.Entities in the service impls
             return base.GetAll()
                 .Include("Region")
                 .Include("Side")

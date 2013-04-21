@@ -1,24 +1,39 @@
-04-17-13@23:09:57 Info (7)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:10:00 Info (7)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:02.7718162 
-04-17-13@23:21:05 Info (22)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:21:05 Info (22)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0127073 
-04-17-13@23:24:24 Info (21)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:24:24 Info (21)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0049837 
-04-17-13@23:27:43 Info (20)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:27:43 Info (20)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0048625 
-04-17-13@23:31:20 Info (6)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:31:20 Info (6)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0117716 
-04-17-13@23:31:31 Info (33)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:31:31 Info (33)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0048684 
-04-17-13@23:36:08 Info (34)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:36:08 Info (34)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0050497 
-04-17-13@23:38:31 Info (33)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:38:31 Info (33)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0046459 
-04-17-13@23:43:24 Info (37)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:43:24 Info (37)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0122301 
-04-17-13@23:47:45 Info (49)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:47:45 Info (49)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0049775 
-04-17-13@23:49:54 Info (49)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:49:54 Info (49)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0047071 
-04-17-13@23:57:12 Info (57)  [Common] SkeletorHotspotListRequest request submitted 
-04-17-13@23:57:12 Info (57)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0119726 
+04-20-13@21:05:23 Info (26)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:05:40 Info (26)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:16.8885812 
+04-20-13@21:05:59 Info (27)  [Common] UserRequest request submitted 
+04-20-13@21:06:24 Error (27)  [Common] [UserService: 4/21/2013 4:06:24 AM]:
+[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.NotSupportedException LINQ to Entities does not recognize the method 'System.String UrlDecode(System.String)' method, and this method cannot be translated into a store expression. System.Data.Common.CommandTrees.DbExpression Translate(System.Data.Objects.ELinq.ExpressionConverter, System.Linq.Expressions.MethodCallExpression)
+04-20-13@21:09:03 Info (32)  [Common] UserRequest request submitted 
+04-20-13@21:09:18 Info (32)  [Common] UserRequest request completed with duration of 00:00:14.4312298 
+04-20-13@21:09:18 Info (28)  [Common] UserRequest request submitted 
+04-20-13@21:09:18 Info (28)  [Common] UserRequest request completed with duration of 00:00:00.1312302 
+04-20-13@21:09:18 Info (27)  [Common] UserRequest request submitted 
+04-20-13@21:09:18 Info (27)  [Common] UserRequest request completed with duration of 00:00:00.0705937 
+04-20-13@21:09:26 Info (28)  [Common] UserRequest request submitted 
+04-20-13@21:09:26 Info (28)  [Common] UserRequest request completed with duration of 00:00:00.0038590 
+04-20-13@21:09:37 Info (27)  [Common] UserRequest request submitted 
+04-20-13@21:09:37 Info (27)  [Common] UserRequest request completed with duration of 00:00:00.0043380 
+04-20-13@21:09:44 Info (28)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:09:45 Info (28)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.2014355 
+04-20-13@21:10:16 Info (27)  [Common] AreaComponentListRequest request submitted 
+04-20-13@21:10:16 Info (27)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0355013 
+04-20-13@21:24:11 Info (41)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:24:11 Info (41)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0133854 
+04-20-13@21:24:26 Info (41)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:24:26 Info (41)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0070812 
+04-20-13@21:24:36 Info (40)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:24:36 Info (40)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0065800 
+04-20-13@21:24:43 Info (38)  [Common] UserRequest request submitted 
+04-20-13@21:24:43 Info (38)  [Common] UserRequest request completed with duration of 00:00:00.0041129 
+04-20-13@21:24:43 Info (38)  [Common] UserRequest request submitted 
+04-20-13@21:24:43 Info (38)  [Common] UserRequest request completed with duration of 00:00:00.0040381 
+04-20-13@21:24:43 Info (40)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@21:24:43 Info (40)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0181670 
+04-20-13@21:25:04 Info (38)  [Common] UserRequest request submitted 
+04-20-13@21:25:04 Info (38)  [Common] UserRequest request completed with duration of 00:00:00.0036135 
+04-20-13@21:25:15 Info (28)  [Common] AreaComponentListRequest request submitted 
+04-20-13@21:25:15 Info (28)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0067536 
+04-20-13@21:25:29 Info (40)  [Common] AreaComponentListRequest request submitted 
+04-20-13@21:25:29 Info (40)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0050190 
+04-20-13@21:26:33 Info (40)  [Common] AreaComponentListRequest request submitted 
+04-20-13@21:26:48 Info (40)  [Common] AreaComponentListRequest request completed with duration of 00:00:14.7788419 

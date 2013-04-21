@@ -1,18 +1,12 @@
-04-18-13@00:01:14 Info (54)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:01:14 Info (54)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0118478 
-04-18-13@00:04:16 Info (46)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:04:16 Info (46)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0050479 
-04-18-13@00:04:20 Info (46)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:04:20 Info (46)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0057249 
-04-18-13@00:09:39 Info (38)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:09:39 Info (38)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0046484 
-04-18-13@00:10:40 Info (54)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:10:40 Info (54)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0048312 
-04-18-13@00:11:18 Info (38)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:11:18 Info (38)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0054852 
-04-18-13@00:12:19 Info (33)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:12:19 Info (33)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0056680 
-04-18-13@00:12:52 Info (33)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:12:52 Info (33)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0047112 
-04-18-13@00:16:41 Info (30)  [Common] SkeletorHotspotListRequest request submitted 
-04-18-13@00:16:41 Info (30)  [Common] SkeletorHotspotListRequest request completed with duration of 00:00:00.0118267 
+04-20-13@22:15:59 Info (5)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:16:13 Info (5)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:13.2329949 
+04-20-13@22:16:18 Info (8)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:16:18 Info (8)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0080307 
+04-20-13@22:16:57 Info (8)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:16:57 Info (8)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0063173 
+04-20-13@22:18:38 Info (8)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:18:38 Info (8)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0060849 
+04-20-13@22:20:03 Info (14)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:20:03 Info (14)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0060769 
+04-20-13@22:20:29 Info (11)  [Common] SkeletonAreaListRequest request submitted 
+04-20-13@22:20:29 Info (11)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0071348 
