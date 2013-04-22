@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
@@ -20,11 +21,19 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public override object OnGet(AreaComponentListRequest request)
         {
-            var skeltonArea = SkeletonUnitOfWork.SkeletonAreaRepo.GetAll().SingleOrDefault(p => p.Id == request.id);
-            var responseList = new List<AreaComponentDto>();
+            var areaComponents = new List<AreaComponent>();
 
-            if(skeltonArea != null)
-                Mapper.Map(skeltonArea.Components, responseList);
+            if (request.areaId == 0)
+                areaComponents.AddRange(SkeletonUnitOfWork.AreaComponentRepo.GetAll());
+            else
+            {
+                var skeltonArea = SkeletonUnitOfWork.SkeletonAreaRepo.GetAll().SingleOrDefault(p => p.Id == request.areaId);
+                if (skeltonArea != null)
+                    areaComponents = skeltonArea.Components.ToList();
+            }
+
+            var responseList = new List<AreaComponentDto>();
+            Mapper.Map(areaComponents, responseList);
 
             return
                 Ok(new ListResponse<AreaComponentDto, AreaComponentSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

@@ -1,5 +1,5 @@
-﻿define('config',['ko','jquery'],
-    function (ko, $) {
+﻿define('config',['ko','jquery','infuser'],
+    function (ko, $, infuser) {
 
         var viewIds = {
             header: '#master-header',
@@ -12,9 +12,21 @@
         var apiUris = {
             users: $.format('{0}/{1}', hostUri, 'users'),
             skeletonAreas: $.format('{0}/{1}', hostUri, 'examine/areas'),
-            areaComponents: $.format('{0}/{1}/{2}', hostUri, 'examine/areas', '.id/components')
+            areaComponents: $.format('{0}/{1}', hostUri, 'examine/components'),
+            componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId=')
         };
 
+        var configureExternalTemplates = function() {
+            infuser.defaults.templatePrefix = "_";
+            infuser.defaults.templateSuffix = ".tmpl.html";
+            infuser.defaults.templateUrl = "/Tmpl";
+        };
+
+        var init = function () {
+            configureExternalTemplates();
+        };
+
+        init();
 
         return {
             viewIds: viewIds,

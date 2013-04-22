@@ -4,11 +4,6 @@
 
         var selectedAreas = ko.observableArray();
 
-        var addSelectedArea = function(area) {
-
-        };
-
-
         return {
             selectedAreas: selectedAreas
         };

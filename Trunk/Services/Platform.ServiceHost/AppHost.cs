@@ -107,9 +107,7 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<UserRequest>("users")
                 .Add<AuthRequestDto>("auth")
                 .Add<SkeletonAreaListRequest>("areas")
-                .Add<AreaComponentListRequest>("areas/{Id}/components");
-
-
+                .Add<AreaComponentListRequest>("components");
         }
 
         private void ConfigureContainer(Container container)

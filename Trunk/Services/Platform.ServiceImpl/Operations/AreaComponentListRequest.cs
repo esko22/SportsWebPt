@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.ServiceImpl
     {
         #region Properties
 
-        public int id { get; set; }
+        public int areaId { get; set; }
 
         #endregion
     }

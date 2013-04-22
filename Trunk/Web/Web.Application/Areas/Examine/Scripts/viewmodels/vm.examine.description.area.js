@@ -1,10 +1,11 @@
 ﻿define('vm.examine.description.area',
-    ['ko'],
-    function (ko) {
+    ['knockback'],
+    function (kb) {
 
-        var areaComponents = ko.observableArray();
+        function DescriptionArea(skeletonArea, components) {
+            this.area = skeletonArea;
+            this.areaComponents = kb.collectionObservable(components);
+        }
 
-        return {
-            areaComponents: areaComponents
-        };
+        return DescriptionArea;
     });

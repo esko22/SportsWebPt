@@ -25,7 +25,7 @@ namespace SportsWebPt.Platform.Web.Services
             : base(clientSettings)
         {
             _skeletonAreasUriPath = String.Format("/{0}/areas", _settings.Version);
-            _areaComponentUriPath = String.Format("/{0}/areas/.id/components", _settings.Version);
+            _areaComponentUriPath = String.Format("/{0}/components", _settings.Version);
         }
 
         #endregion
@@ -42,10 +42,7 @@ namespace SportsWebPt.Platform.Web.Services
         public IEnumerable<AreaComponent> GetAreaComponents(int skeletionAreaId)
         {
             var response =
-                GetSync<ListResponse<AreaComponentDto,AreaComponentSortBy>>(_areaComponentUriPath.Replace(".id",
-                                                                                                           Convert
-                                                                                                               .ToString
-                                                                                                               (skeletionAreaId)));
+                GetSync<ListResponse<AreaComponentDto,AreaComponentSortBy>>(String.Format("{0}?areaId={1}",_areaComponentUriPath,skeletionAreaId));
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<AreaComponent>>(response.Resource.Items);
 

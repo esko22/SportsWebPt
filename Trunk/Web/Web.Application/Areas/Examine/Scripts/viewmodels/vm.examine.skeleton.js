@@ -1,6 +1,6 @@
 ﻿define('vm.examine.skeleton',
-    ['backbone', 'jquery', 'model.skeleton.area.collection', 'knockback', 'underscore', 'vm.examine.container'],
-    function (bs,$, AreaCollection, kb, _, container) {
+    ['jquery', 'model.skeleton.area.collection', 'knockback', 'underscore', 'vm.examine.container'],
+    function ($, AreaCollection, kb, _, container) {
 
         var areas = new AreaCollection();
         areas.reset(JSON.parse($('#skeleton-areas').val()));

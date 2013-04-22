@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
@@ -36,12 +37,23 @@ namespace SportsWebPt.Platform.Web.Application
             return View(viewModel);
         }
 
-        [GET("Examine/areas/{id}/components", IsAbsoluteUrl = true)]
-        public ActionResult GetAreaComponents(int id)
+        [GET("Examine/components", IsAbsoluteUrl = true)]
+        public ActionResult GetAreaComponents(String areaId)
         {
-            var areaComponents = _examineService.GetAreaComponents(id);
+            var skeletonAreaId = 0;
+            if (!String.IsNullOrEmpty(areaId))
+                int.TryParse(areaId, out skeletonAreaId);
+
+            var areaComponents = _examineService.GetAreaComponents(skeletonAreaId);
 
             return Json(areaComponents, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Examine/symptoms", IsAbsoluteUrl = true)]
+        public ActionResult GetComponentSymptoms(String componentId)
+        {
+            var symptoms = new[] { new { id = 1, symptom = "Swelling" }, new { id = 2, symptom = "Duration" }, new { id = 2, symptom = "Pain" } };
+            return Json(symptoms, JsonRequestBehavior.AllowGet);
         }
     }
 }
