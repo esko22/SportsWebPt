@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using SportsWebPt.Common.DataAccess;
+
 using SportsWebPt.Common.DataAccess.Ef;
-using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -14,7 +13,7 @@ namespace SportsWebPt.Platform.DataAccess
             return new Dictionary<Type, Func<DbContext, object>>
                 {
                    {typeof(IUserRepository), dbContext => new UserRepo(dbContext)},
-                   {typeof(IRepository<SkeletonArea>), dbContext => new SkeletonRepo(dbContext)}
+                   {typeof(ISkeletonRepo), dbContext => new SkeletonRepo(dbContext)}
                 };
         }
 

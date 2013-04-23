@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ISkeletonRepo.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\OrientationConfiguration.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="EntityConfiguration\BodyRegionConfiguration.cs" />
     <Compile Include="EntityConfiguration\SideConfiguration.cs" />
     <Compile Include="EntityConfiguration\SkeletonAreaConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SymptomConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />

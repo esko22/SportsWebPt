@@ -20,6 +20,13 @@ namespace SportsWebPt.Platform.DataAccess
                 .Map(mc => mc.ToTable("skeletonareacomponent")
                 .MapLeftKey("skeleton_area_id")
                 .MapRightKey("area_component_id"));
+
+            HasMany(p => p.Symptoms)
+                    .WithMany(p => p.Components)
+                    .Map(mc => mc.ToTable("areacomponentsymptom")
+                    .MapLeftKey("symptom_id")
+                    .MapRightKey("area_component_id"));
+
         }
         
         #endregion

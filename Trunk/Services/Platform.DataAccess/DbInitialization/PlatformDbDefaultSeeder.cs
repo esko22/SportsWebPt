@@ -27,13 +27,21 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext = dbContext as PlatformDbContext;
 
             var users = AddUsers();
-            var parts = AddParts();
+            var components = AddComponents();
             var regions = AddRegions();
             var orientations = AddOrientations();
             var sides = AddSides();
             var skeletonareas = AddSkeletonAreas(regions, sides, orientations);
+            var symptoms = AddSymptoms();
 
-            AddComponentsToAreas(skeletonareas,parts);
+            AddComponentsToAreas(skeletonareas,components);
+            AddSymptomsToComponents(symptoms, components);
+        }
+
+        private void AddSymptomsToComponents(IEnumerable<Symptom> symptoms, List<AreaComponent> components)
+        {
+            components.ForEach(c => c.Symptoms = new List<Symptom>(symptoms));
+            _dbContext.SaveChanges();
         }
 
         private List<User> AddUsers()
@@ -51,7 +59,7 @@ namespace SportsWebPt.Platform.DataAccess
             return users;
         }
 
-        private List<AreaComponent> AddParts()
+        private List<AreaComponent> AddComponents()
         {
             var parts = new List<AreaComponent>()
                 {
@@ -72,7 +80,7 @@ namespace SportsWebPt.Platform.DataAccess
                     new AreaComponent() {CommonName = "Tricep"}
                 };
 
-            parts.ForEach(u => _dbContext.PartTypes.Add(u));
+            parts.ForEach(u => _dbContext.AreaComponents.Add(u));
             _dbContext.SaveChanges();
 
             return parts;
@@ -177,6 +185,21 @@ namespace SportsWebPt.Platform.DataAccess
 
             _dbContext.SaveChanges();
 
+        }
+
+        private IEnumerable<Symptom> AddSymptoms()
+        {
+            var symptoms = new List<Symptom>()
+                {
+                    new Symptom() { Name = "Swelling", RenderType = SymptomRenderType.Slider, Description = "Puffy as shit"},
+                    new Symptom() { Name = "Pain", RenderType = SymptomRenderType.Slider, Description = "Hurts like shit"},
+                    new Symptom() { Name = "Bruising", RenderType = SymptomRenderType.Slider, Description = "Looks like shit"}
+                };
+
+            symptoms.ForEach(u => _dbContext.Symptoms.Add(u));
+            _dbContext.SaveChanges();
+
+            return symptoms;
         }
 
     }

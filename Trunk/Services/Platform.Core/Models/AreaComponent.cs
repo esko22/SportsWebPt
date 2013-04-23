@@ -15,6 +15,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<SkeletonArea> SkeletonAreas { get; set; }
 
+        public ICollection<Symptom> Symptoms { get; set; } 
+
         #endregion
     }
 }

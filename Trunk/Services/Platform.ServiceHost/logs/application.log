@@ -1,6 +1,4 @@
-04-21-13@21:05:19 Info (19)  [Common] AreaComponentListRequest request submitted 
-04-21-13@21:05:19 Info (19)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0100757 
-04-21-13@21:05:27 Info (23)  [Common] AreaComponentListRequest request submitted 
-04-21-13@21:05:27 Info (30)  [Common] AreaComponentListRequest request submitted 
-04-21-13@21:05:27 Info (23)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0048538 
-04-21-13@21:05:27 Info (30)  [Common] AreaComponentListRequest request completed with duration of 00:00:00.0041684 
+04-23-13@00:01:47 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+04-23-13@00:02:04 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:16.2908958 
+04-23-13@00:06:16 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+04-23-13@00:06:31 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:14.8339329 

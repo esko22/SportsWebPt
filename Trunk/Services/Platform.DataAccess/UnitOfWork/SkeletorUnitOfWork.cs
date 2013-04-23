@@ -9,9 +9,10 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IRepository<SkeletonArea> SkeletonAreaRepo { get { return GetRepo<IRepository<SkeletonArea>>(); } }
-        public IRepository<AreaComponent> AreaComponentRepo { get { return GetStandardRepo<AreaComponent>(); } } 
-
+        public ISkeletonRepo SkeletonAreaRepo { get { return GetRepo<ISkeletonRepo>(); } }
+        public IRepository<AreaComponent> AreaComponentRepo { get { return GetStandardRepo<AreaComponent>(); } }
+        public IRepository<Symptom> SymptomRepo { get { return GetStandardRepo<Symptom>(); } }
+        
         #endregion
 
         #region Construction

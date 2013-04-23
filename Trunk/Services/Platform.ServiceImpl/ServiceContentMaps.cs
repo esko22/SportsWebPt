@@ -16,6 +16,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side.Value));
             Mapper.CreateMap<AreaComponent, AreaComponentDto>();
+            Mapper.CreateMap<Symptom, SymptomDto>()
+                  .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.RenderType.ToString()));
 
         }
     }

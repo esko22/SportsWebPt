@@ -6,7 +6,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class SkeletonRepo: EFRepository<SkeletonArea>
+    public class SkeletonRepo: EFRepository<SkeletonArea>, ISkeletonRepo
     {
 
         #region Construction
@@ -25,6 +25,16 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include("Side")
                 .Include("Orientation")
                 .Include("Components");
+        }
+
+        public IQueryable<SkeletonArea> GetSymptonmaticRegions()
+        {
+            return base.GetAll()
+                .Include("Region")
+                .Include("Side")
+                .Include("Orientation")
+                .Include("Components")
+                .Include("Components.Symptoms");
         }
 
         #endregion

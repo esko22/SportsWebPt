@@ -13,10 +13,11 @@ namespace SportsWebPt.Platform.DataAccess
 
         public DbSet<User> Users { get; set; }
         public DbSet<Orientation> OrientationTypes { get; set; }
-        public DbSet<AreaComponent> PartTypes { get; set; }
+        public DbSet<AreaComponent> AreaComponents { get; set; }
         public DbSet<Side> SideTypes { get; set; }
         public DbSet<BodyRegion> RegionTypes { get; set; }
-        public DbSet<SkeletonArea> SkeletonAreas { get; set; } 
+        public DbSet<SkeletonArea> SkeletonAreas { get; set; }
+        public DbSet<Symptom> Symptoms { get; set; }
 
         #endregion
 
@@ -47,32 +48,8 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new SideConfiguration());
             modelBuilder.Configurations.Add(new BodyRegionConfiguration());
             modelBuilder.Configurations.Add(new SkeletonAreaConfiguration());
-
-
-            //modelBuilder.Entity<AnnotationCollection>()
-            //    .HasMany(p => p.AnnotationSources)
-            //    .WithMany(t => t.AnnotationCollections)
-            //    .Map(mc =>
-            //    {
-            //        mc.ToTable("CollectionSources");
-            //        mc.MapLeftKey("CollectionId");
-            //        mc.MapRightKey("SourceId");
-            //    });
-
-            //modelBuilder.Entity<AnnotationCollection>()
-            //    .HasMany(p => p.ReferenceGenomes)
-            //    .WithMany(t => t.AnnotationCollections)
-            //    .Map(mc =>
-            //    {
-            //        mc.ToTable("GenomeCollections");
-            //        mc.MapLeftKey("CollectionId");
-            //        mc.MapRightKey("ReferenceGenomeId");
-            //    });
-
-            //modelBuilder.Entity<AnnotationCollection>().HasRequired(p => p.AnnotatedGenome);
-            //modelBuilder.Entity<ReferenceGenome>().HasRequired(p => p.Provider);
-            //modelBuilder.Entity<ReferenceGenome>().HasRequired(p => p.Species);
-
+            modelBuilder.Configurations.Add(new SymptomConfiguration());
+          
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.CalculatedResults);

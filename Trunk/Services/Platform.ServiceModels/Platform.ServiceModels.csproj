@@ -78,8 +78,12 @@
     <Compile Include="Models\AreaComponentDto.cs" />
     <Compile Include="Models\AreaComponentSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
+    <Compile Include="Models\BasicSortBy.cs" />
+    <Compile Include="Models\ComponentSymptomDto.cs" />
     <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
+    <Compile Include="Models\SymptomaticRegionDto.cs" />
+    <Compile Include="Models\SymptomDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
