@@ -245,6 +245,9 @@
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\models\model.area.component.js" />
     <Content Include="Scripts\models\model.skeleton.area.js" />
+    <Content Include="Scripts\models\model.symptom.js" />
+    <Content Include="Scripts\models\model.symptomatic.component.js" />
+    <Content Include="Scripts\models\model.symptomatic.region.js" />
     <Content Include="Scripts\models\model.user.js" />
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />

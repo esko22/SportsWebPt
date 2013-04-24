@@ -3,6 +3,7 @@
     function (container, _, DescriptionArea, ko, config, ComponentCollection) {
 
         var areaTemplate = 'description.area';
+        var componentTemplate = 'description.components';
         var selectedAreas = ko.observableArray();
 
         container.selectedAreas.subscribe(function(newSelectedAreas) {
@@ -21,6 +22,7 @@
 
         return {
             selectedAreas: selectedAreas,
-            areaTemplate: areaTemplate
+            areaTemplate: areaTemplate,
+            componentTemplate: componentTemplate
         };
     });

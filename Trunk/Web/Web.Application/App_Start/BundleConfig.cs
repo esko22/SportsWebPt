@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/extentsions/knockout-extensions.js",
                         "~/Scripts/libs/underscore.js",
                         "~/Scripts/libs/backbone.js", // depends on underscore
-                        "~/Scripts/libs/backbone-relational.js", // depends on underscore
+                        "~/Scripts/libs/backbone.relational.js", // depends on underscore
                         "~/Scripts/libs/bootstrap.js", 
                         "~/Scripts/libs/knockback.js", // depends on backbone, knockout
                         "~/Scripts/libs/koExternalTemplateEngine.js"

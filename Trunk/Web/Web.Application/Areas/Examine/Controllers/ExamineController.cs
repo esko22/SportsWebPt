@@ -32,7 +32,7 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<ExamineViewModel>();
-            viewModel.SkeletonAreas = _examineService.GetSkeletonAreas();
+            viewModel.SymptomaticRegions = _examineService.GetSymptomaticRegions();
 
             return View(viewModel);
         }
@@ -49,11 +49,18 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Examine/symptoms", IsAbsoluteUrl = true)]
-        public ActionResult GetComponentSymptoms(String componentId)
+        [GET("Examine/symptomaticregions", IsAbsoluteUrl = true)]
+        public ActionResult GetSymptomaticRegions()
         {
-            var symptoms = new[] { new { id = 1, symptom = "Swelling" }, new { id = 2, symptom = "Duration" }, new { id = 2, symptom = "Pain" } };
-            return Json(symptoms, JsonRequestBehavior.AllowGet);
+            var symptomaticRegions = _examineService.GetSymptomaticRegions();
+
+            return Json(symptomaticRegions, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Examine/symptoms", IsAbsoluteUrl = true)]
+        public ActionResult GetSymptoms()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         private String _skeletonAreasUriPath = String.Empty;
         private String _areaComponentUriPath = String.Empty;
+        private String _symptomaticRegionUriPath = String.Empty;
 
         #endregion
 
@@ -26,6 +27,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             _skeletonAreasUriPath = String.Format("/{0}/areas", _settings.Version);
             _areaComponentUriPath = String.Format("/{0}/components", _settings.Version);
+            _symptomaticRegionUriPath = String.Format("/{0}/symptomaticregions", _settings.Version);
         }
 
         #endregion
@@ -46,6 +48,15 @@ namespace SportsWebPt.Platform.Web.Services
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<AreaComponent>>(response.Resource.Items);
 
+        }
+
+
+        public IEnumerable<SymptomaticRegion> GetSymptomaticRegions()
+        {
+            var response =
+                GetSync<ListResponse<SymptomaticRegionDto, BasicSortBy>>(_symptomaticRegionUriPath);
+
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<SymptomaticRegion>>(response.Resource.Items);
         }
     }
 }

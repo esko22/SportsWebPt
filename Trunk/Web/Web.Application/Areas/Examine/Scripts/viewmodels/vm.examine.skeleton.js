@@ -1,9 +1,9 @@
 ﻿define('vm.examine.skeleton',
-    ['jquery', 'model.skeleton.area.collection', 'knockback', 'underscore', 'vm.examine.container'],
-    function ($, AreaCollection, kb, _, container) {
+    ['jquery', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'vm.examine.container'],
+    function ($, SymptomaticRegionCollection, kb, _, container) {
 
-        var areas = new AreaCollection();
-        areas.reset(JSON.parse($('#skeleton-areas').val()));
+        var symptomaticRegions = new SymptomaticRegionCollection();
+        symptomaticRegions.reset(JSON.parse($('#skeleton-areas').val()));
 
         var selectArea = function (item) {
             if (container.selectedAreas.indexOf(item) == -1) {
@@ -32,7 +32,7 @@
         };
 
         return {
-            areas: new kb.CollectionObservable(areas),
+            symptomaticRegions: new kb.CollectionObservable(symptomaticRegions),
             selectArea: selectArea,
             areaMouseOver: areaMouseOver,
             areaMouseOut: areaMouseOut,

@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
+    <Compile Include="Models\Symptom.cs" />
+    <Compile Include="Models\SymptomaticComponent.cs" />
+    <Compile Include="Models\SymptomaticRegion.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebPlatformConfigSettings.cs" />

@@ -13,6 +13,9 @@
             users: $.format('{0}/{1}', hostUri, 'users'),
             skeletonAreas: $.format('{0}/{1}', hostUri, 'examine/areas'),
             areaComponents: $.format('{0}/{1}', hostUri, 'examine/components'),
+            symptoms: $.format('{0}/{1}', hostUri, 'examine/symptoms'),
+            symptomaticRegions: $.format('{0}/{1}', hostUri, 'examine/symptomaticregions'),
+            symptomaticComponents: $.format('{0}/{1}', hostUri, 'examine/symptomaticcomponents'),
             componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId=')
         };
 

@@ -1,8 +1,4 @@
 ﻿<div>
-    <b data-bind="text: area.name"></b>
-    <div>
-        <ul data-bind="foreach: areaComponents">
-            <li><span  data-bind="text: commonName"></span> </li>
-        </ul>
-    </div>
+    <b data-bind="text: area.name"> -- </b>
+    <section data-bind="template: { name: $parent.componentTemplate, foreach: area.components }"></section>
 </div>

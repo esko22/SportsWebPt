@@ -3,13 +3,10 @@ using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "ComponentSymptom", Namespace = "http://SportsWebPt.Platform")]
-    public class ComponentSymptomDto
+    [DataContract(Name = "SymptomaticComponent", Namespace = "http://SportsWebPt.Platform")]
+    public class SymptomaticComponentDto : AreaComponentDto
     {
         #region Properties
-
-        [DataMember]
-        public AreaComponentDto Component { get; set; }
 
         [DataMember]
         public SymptomDto[] Symptoms { get; set; }
