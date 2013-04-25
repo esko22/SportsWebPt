@@ -1,4 +1,13 @@
-﻿<div>
-    <b data-bind="text: name"> -- </b>
-    <section data-bind="template: { name: $parent.componentTemplate, foreach: components }"></section>
+﻿<div class="accordion-group">
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#differentialDiagnosis" data-bind="attr: { href: name, text : name }" />
+    </div>   
+    <div data-bind="attr: { id: name }" class="accordion-inner collapse in">
+        <div data-bind="foreach: components">
+            <span  data-bind="text: commonName"></span>
+            <ul data-bind="foreach: symptoms">
+                <li data-bind="text: description"></li>
+            </ul>
+        </div>
+    </div>
 </div>

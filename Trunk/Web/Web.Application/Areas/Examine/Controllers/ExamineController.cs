@@ -33,8 +33,7 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<ExamineViewModel>();
-            viewModel.SymptomaticRegions = new[] { _examineService.GetSymptomaticRegions().First(p => p.id == 19), _examineService.GetSymptomaticRegions().First(p => p.id == 20) };
-
+            viewModel.SymptomaticRegions = _examineService.GetSymptomaticRegions();
 
             return View(viewModel);
         }
