@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 
 using AttributeRouting;
@@ -32,7 +33,8 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<ExamineViewModel>();
-            viewModel.SymptomaticRegions = _examineService.GetSymptomaticRegions();
+            viewModel.SymptomaticRegions = new[] { _examineService.GetSymptomaticRegions().First(p => p.id == 19), _examineService.GetSymptomaticRegions().First(p => p.id == 20) };
+
 
             return View(viewModel);
         }

@@ -170,9 +170,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.description.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.area.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.component.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.description.symptom.js" />
     <Content Include="Scripts\app\presenter.js" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
@@ -245,7 +242,7 @@
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\models\model.area.component.js" />
     <Content Include="Scripts\models\model.skeleton.area.js" />
-    <Content Include="Scripts\models\model.symptom.js" />
+    <Content Include="Scripts\models\model.potential.symptom.js" />
     <Content Include="Scripts\models\model.symptomatic.component.js" />
     <Content Include="Scripts\models\model.symptomatic.region.js" />
     <Content Include="Scripts\models\model.user.js" />

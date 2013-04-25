@@ -1,6 +1,6 @@
 ﻿define('vm.examine.container',
-    ['ko', 'vm.examine.description.area'],
-    function (ko, description) {
+    ['ko'],
+    function (ko) {
 
         var selectedAreas = ko.observableArray();
 

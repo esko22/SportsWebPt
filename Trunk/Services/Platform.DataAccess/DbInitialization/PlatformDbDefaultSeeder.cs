@@ -183,6 +183,10 @@ namespace SportsWebPt.Platform.DataAccess
             area = areas[19];
             area.Components = new[] { components[0], components[1], components[9], components[10]};
 
+            area = areas[20];
+            area.Components = new[] { components[0], components[1], components[9], components[10] };
+
+
             _dbContext.SaveChanges();
 
         }

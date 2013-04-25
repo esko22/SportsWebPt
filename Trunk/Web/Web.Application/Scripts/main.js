@@ -10,6 +10,7 @@
         define('jquery', [], function () { return root.jQuery; });
         define('ko', [], function () { return root.ko; });
         define('backbone', [], function () { return root.Backbone; });
+        define('backbone-relational', [], function () { return root.Backbone.Relation; });
         define('infuser', [], function () { return root.infuser; });
         define('underscore', [], function () { return root._; });
         define('knockback', [], function () { return root.kb; });
