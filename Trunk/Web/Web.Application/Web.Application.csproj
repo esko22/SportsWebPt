@@ -170,6 +170,17 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.description.js" />
+    <Content Include="Content\images\editor.png" />
+    <Content Include="Content\images\imagebrowser.png" />
+    <Content Include="Content\images\loading-image.gif" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\slider-h.gif" />
+    <Content Include="Content\images\slider-v.gif" />
+    <Content Include="Content\images\sprite%402x.png" />
+    <Content Include="Content\images\sprite.png" />
+    <Content Include="Content\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo.common.min.css" />
+    <Content Include="Content\kendo.default.min.css" />
     <Content Include="Scripts\app\presenter.js" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
@@ -229,6 +240,7 @@
     <Content Include="Scripts\libs\backbone.js" />
     <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\libs\jquery.validate.js" />
+    <Content Include="Scripts\libs\kendo.web.min.js" />
     <Content Include="Scripts\libs\knockback.js" />
     <Content Include="Scripts\libs\infuser.js" />
     <Content Include="Scripts\libs\knockout-2.2.1.debug.js" />

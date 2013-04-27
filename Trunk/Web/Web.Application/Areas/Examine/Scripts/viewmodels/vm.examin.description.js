@@ -1,6 +1,6 @@
 ﻿define('vm.examine.description',
-    ['vm.examine.container', 'underscore', 'ko'],
-    function (container, _, ko) {
+    ['vm.examine.container', 'underscore', 'ko', 'jquery', 'kendo'],
+    function (container, _, ko, $, kendo) {
 
         var areaTemplate = 'description.area';
         var componentTemplate = 'description.components';
@@ -12,6 +12,7 @@
                 selectedAreas.push(area);
             });
         });
+
 
         return {
             selectedAreas: selectedAreas,

@@ -320,9 +320,65 @@ ul#skeleton li {
     left: 510px;
 }
 
+.examine-tab-pane {
+    background-color: #f5f5f5;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    padding-left: 40px;
+    padding-bottom: 37px;
+    padding-top: 40px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+}
 
+#examinee-tab-nav {
+    margin-right: 0;
+    border-right-width: 0;
+}
 
+.examine-symptoms-border {
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 1px 0 0 rgba(255,255,255,0.2);
+    margin-bottom: 50px;
+}
 
+.balSlider {
+            width: 240px;
+        }
+
+#wrapper {
+            width: 300px;
+            height: 255px;
+            padding: 45px 0 0 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+.balSlider .k-slider-selection {
+    width: 240px;
+    display: none;
+}
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus
+{
+    background-color: #f5f5f5;
+}
+
+/*.tabs-left > .nav-tabs > li > a:hover,
+.tabs-left > .nav-tabs > li > a:focus {
+    background-color: #eed3d7;
+}*/
+
+.main-breadcrumb {
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+}
 
 #footerTop {
     border-top-style: solid;

@@ -1,13 +1,16 @@
-﻿<div class="accordion-group">
-    <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#differentialDiagnosis" data-bind="attr: { href: name, text : name }" />
-    </div>   
-    <div data-bind="attr: { id: name }" class="accordion-inner collapse in">
-        <div data-bind="foreach: components">
-            <span  data-bind="text: commonName"></span>
-            <ul data-bind="foreach: symptoms">
-                <li data-bind="text: description"></li>
-            </ul>
+﻿<div data-bind="attr: { id: 'tab-' + name() }" class="tab-pane">
+    <div data-bind="foreach: components">
+        <div class="row-fluid">
+            <div class="span2"><h3  data-bind="text: commonName"></h3></div>
+            <div class="span10 examine-symptoms-border"  data-bind="foreach: symptoms">
+                <div class="row-fluid">
+                    <div class="span4">
+                        <h4 style="margin-left: 20px; vertical-align: text-top;" data-bind="text: description"></h4>
+                    </div>
+                    <div class="span8">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

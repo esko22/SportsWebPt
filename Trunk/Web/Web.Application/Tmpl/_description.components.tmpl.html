@@ -1,6 +1,20 @@
-﻿<div>
-    <span  data-bind="text: commonName"></span>
-    <ul data-bind="foreach: symptoms">
-        <li data-bind="text: descriptions"></li>
-    </ul>
+﻿<div data-bind="attr: { id: 'tab-' + name() }" class="tab-content">
+    <div data-bind="foreach: components">
+        <h3  data-bind="text: commonName"></h3>
+        <div data-bind="foreach: symptoms">
+            <h4  data-bind="text: description"></h4>
+            <label class="radio inline">
+                <input type="radio" databind="attr: {name: $parent.id}" value="Not Really" />
+                Not Really
+            </label>
+            <label class="radio inline">
+                <input type="radio" databind="attr: {name: $parent.id}" value="Kinda" />
+                Kinda
+            </label>
+            <label class="radio inline">
+                <input type="radio" databind="attr: {name: $parent.id}" value="Fuck yeah" />
+                Fuck yeah
+            </label>
+        </div>
+    </div>
 </div>

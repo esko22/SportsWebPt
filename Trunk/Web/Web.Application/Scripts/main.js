@@ -16,6 +16,7 @@
         define('knockback', [], function () { return root.kb; });
         define('logger', [], function () { return root.logger; });
         define('uri', [], function() { return root.Uri; });
+        define('kendo', [], function () { return root.kendo; });
     }
 
     function loadPluginsAndBoot() {
@@ -37,5 +38,15 @@
                 router.configure();
             });
     }
+    
+    $(document).ready(function () {
+        $("#slider").kendoSlider({
+            min: 10,
+            max: 50,
+            orientation: "vertical",
+            smallStep: 1,
+            largeStep: 10
+        });
+    });
     
 })();

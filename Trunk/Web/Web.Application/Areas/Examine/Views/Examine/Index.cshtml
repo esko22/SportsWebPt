@@ -8,7 +8,7 @@
     <h2><span aria-hidden="true" data-icon="&#xf0f1;" class="header-icon" /> Examine</h2>
 </div>
 <div id="examine-container">
-    <ul class="breadcrumb">
+    <ul class="breadcrumb main-breadcrumb">
         <li><a href="#" id="skeleton-nav">Select Region(s)</a> <span class="divider">\</span></li>
         <li><a href="#describe" id="description-nav">Describe Discomfort</a> <span class="divider">\</span></li>
         <li><a href="#injuries" id="injuries-nav">Potential Injuries</a></li>
@@ -49,34 +49,14 @@
     </div>
         
     <div id="description-detail" class="view container">
-        <div class="accordion" id="differentialDiagnosis">
-            <div class="accordion-group" data-bind="foreach: selectedAreas">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#differentialDiagnosis" data-bind="attr: { href: '#accord-' + name(), title: name }, text: name "></a>
-                </div>   
-                <div data-bind="attr: { id: 'accord-' + name() }" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <div data-bind="foreach: components">
-                            <h3  data-bind="text: commonName"></h3>
-                            <div data-bind="foreach: symptoms">
-                                <h4  data-bind="text: description"></h4>
-                                <label class="radio inline">
-                                    <input type="radio" databind="attr: {name: $parent.id}" value="Not Really" />
-                                    Not Really
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" databind="attr: {name: $parent.id}" value="Kinda" />
-                                    Kinda
-                                </label>
-                                <label class="radio inline">
-                                    <input type="radio" databind="attr: {name: $parent.id}" value="Fuck yeah" />
-                                    Fuck yeah
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div id="wrapper">
+            <input id="slider" class="balSlider" value="0" />
             </div>
+        <div class="tabbable tabs-left" id="differentialDiagnosis">
+            <ul id="examinee-tab-nav" class="nav nav-tabs" data-bind="foreach: selectedAreas">
+                <li><a data-bind="attr: { href: '#tab-' + name(), title: name }, text: name " data-toggle="tab"></a></li>
+            </ul>
+            <section data-bind="template: {name: areaTemplate, foreach: selectedAreas}" class="tab-content examine-tab-pane"></section>
         </div>
         <div>
             <a class="btn btn-inverse btn-large" href="javascript:history.back()" >&laquo; Back</a>
