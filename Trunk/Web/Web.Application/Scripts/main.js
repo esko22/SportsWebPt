@@ -39,14 +39,4 @@
             });
     }
     
-    $(document).ready(function () {
-        $("#slider").kendoSlider({
-            min: 10,
-            max: 50,
-            orientation: "vertical",
-            smallStep: 1,
-            largeStep: 10
-        });
-    });
-    
 })();

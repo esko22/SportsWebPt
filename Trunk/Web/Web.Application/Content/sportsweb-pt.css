@@ -349,14 +349,6 @@ ul#skeleton li {
             width: 240px;
         }
 
-#wrapper {
-            width: 300px;
-            height: 255px;
-            padding: 45px 0 0 0;
-            margin: 0 auto;
-            text-align: center;
-        }
-
 .balSlider .k-slider-selection {
     width: 240px;
     display: none;
