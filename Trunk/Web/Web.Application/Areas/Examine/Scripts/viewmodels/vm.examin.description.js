@@ -12,21 +12,7 @@
                 selectedAreas.push(area);
             });
         });
-        
-        $(document).ready(function () {
-            $(".balSlider").each(function (slider) {
-                slider.kendoSlider({
-                    min: 1,
-                    max: 5,
-                    orientation: "horizontal",
-                    smallStep: 1,
-                    largeStep: 2
-                });
-
-                alert();
-            });
-        });
-
+      
         return {
             selectedAreas: selectedAreas,
             areaTemplate: areaTemplate,

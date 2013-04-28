@@ -16,5 +16,20 @@
             frm.resetForm();
         }
     };
-    
+
+    ko.bindingHandlers.kendoUISlider = {
+        init: function(element, valueAccessor) {
+            $(document).ready(function () {
+                $(element).kendoSlider({
+                    min: 1,
+                    max: 5,
+                    orientation: "horizontal",
+                    smallStep: 1,
+                    largeStep: 2
+                });
+
+            });
+        }
+    };
+
 })(jQuery);

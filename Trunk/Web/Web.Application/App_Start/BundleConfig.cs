@@ -71,7 +71,7 @@ namespace SportsWebPt.Platform.Web
                          "~/Content/sportsweb-pt.css",
                          "~/Content/icon-fonts.css",
                          "~/Content/kendo/2013.1.319/kendo.common.min.css",
-                         "~/Content/kendo/2013.1.319/kendo.default.min.css",
+                         "~/Content/kendo/2013.1.319/kendo.metro.min.css",
                          "~/Content/knockback-navigators.css"));
 
 

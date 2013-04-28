@@ -1,50 +1,188 @@
-04-24-13@23:02:19 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:02:19 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080665 
-04-24-13@23:02:20 Info (49)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:02:20 Info (49)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078709 
-04-24-13@23:06:16 Info (49)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:06:16 Info (49)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0090656 
-04-24-13@23:06:16 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:06:16 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076251 
-04-24-13@23:07:34 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:07:34 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0096278 
-04-24-13@23:08:40 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:08:40 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081223 
-04-24-13@23:08:40 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:08:40 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081106 
-04-24-13@23:09:41 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:09:41 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0090755 
-04-24-13@23:09:41 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:09:41 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083536 
-04-24-13@23:10:18 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:10:18 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0079975 
-04-24-13@23:10:18 Info (52)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:10:18 Info (52)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0095683 
-04-24-13@23:11:53 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:11:53 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082934 
-04-24-13@23:11:53 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:11:53 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0073989 
-04-24-13@23:14:02 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:14:02 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0086676 
-04-24-13@23:14:02 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:14:02 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076729 
-04-24-13@23:51:17 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:51:34 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:17.2614721 
-04-24-13@23:51:35 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:51:35 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083379 
-04-24-13@23:51:57 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:51:57 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0094278 
-04-24-13@23:51:57 Info (11)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:51:57 Info (11)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077936 
-04-24-13@23:55:49 Info (14)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:55:49 Info (14)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084841 
-04-24-13@23:55:49 Info (16)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:55:49 Info (16)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078859 
-04-24-13@23:55:59 Info (14)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:55:59 Info (14)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0088314 
-04-24-13@23:55:59 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:55:59 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0074613 
-04-24-13@23:58:35 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:58:35 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0100717 
-04-24-13@23:58:35 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
-04-24-13@23:58:35 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0091616 
+04-25-13@00:00:00 Info (18)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:00:00 Info (18)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078720 
+04-25-13@00:00:00 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:00:00 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077969 
+04-25-13@00:00:18 Info (20)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:00:18 Info (20)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0115575 
+04-25-13@00:00:18 Info (20)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:00:18 Info (20)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0085702 
+04-25-13@00:01:05 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:01:05 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076276 
+04-25-13@00:01:05 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:01:05 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0079592 
+04-25-13@00:01:15 Info (21)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:01:15 Info (21)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078950 
+04-25-13@00:01:15 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:01:15 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078377 
+04-25-13@00:02:03 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:02:03 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084272 
+04-25-13@00:02:03 Info (22)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:02:03 Info (22)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0075328 
+04-25-13@00:02:36 Info (22)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:02:36 Info (22)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076915 
+04-25-13@00:02:36 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:02:36 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080376 
+04-25-13@00:04:56 Info (25)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:04:56 Info (25)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0086494 
+04-25-13@00:04:56 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:04:56 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0075893 
+04-25-13@00:05:21 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:05:21 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083554 
+04-25-13@00:05:21 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:05:21 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0088084 
+04-25-13@00:06:00 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:06:00 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0079858 
+04-25-13@00:06:00 Info (20)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:06:00 Info (20)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077801 
+04-25-13@00:11:03 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:03 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0142624 
+04-25-13@00:11:03 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:03 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076364 
+04-25-13@00:11:09 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:09 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0088792 
+04-25-13@00:11:09 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:09 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084382 
+04-25-13@00:11:27 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:27 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0093388 
+04-25-13@00:11:27 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:11:27 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081117 
+04-25-13@00:13:49 Info (36)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:13:49 Info (36)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0088872 
+04-25-13@00:13:49 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:13:50 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081205 
+04-25-13@00:14:21 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:14:21 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080318 
+04-25-13@00:14:21 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:14:21 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081059 
+04-25-13@00:14:58 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:14:58 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082952 
+04-25-13@00:14:58 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:14:58 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078115 
+04-25-13@00:15:29 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:15:29 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083751 
+04-25-13@00:15:30 Info (36)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:15:30 Info (36)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083215 
+04-25-13@00:16:54 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:16:54 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082810 
+04-25-13@00:16:54 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:16:54 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0092243 
+04-25-13@00:17:16 Info (36)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:17:16 Info (36)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0085392 
+04-25-13@00:17:16 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:17:16 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078250 
+04-25-13@00:20:29 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:20:29 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0079133 
+04-25-13@00:20:29 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:20:29 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0089128 
+04-25-13@00:23:02 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:23:02 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0086045 
+04-25-13@00:23:02 Info (40)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:23:02 Info (40)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080012 
+04-25-13@00:25:08 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:25:08 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081836 
+04-25-13@00:25:08 Info (46)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:25:08 Info (46)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0075474 
+04-25-13@00:25:46 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:25:46 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083572 
+04-25-13@00:25:46 Info (46)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:25:46 Info (46)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077746 
+04-25-13@00:30:07 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:30:07 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082886 
+04-25-13@00:30:07 Info (49)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:30:07 Info (49)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0089602 
+04-25-13@00:31:18 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:18 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080676 
+04-25-13@00:31:18 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:18 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077714 
+04-25-13@00:31:24 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:24 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0115936 
+04-25-13@00:31:24 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:24 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0093232 
+04-25-13@00:31:35 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:35 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084641 
+04-25-13@00:31:35 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:31:35 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078578 
+04-25-13@00:32:33 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:32:33 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0095770 
+04-25-13@00:32:34 Info (52)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:32:34 Info (52)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084258 
+04-25-13@00:34:20 Info (52)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:34:20 Info (52)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078407 
+04-25-13@00:34:20 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:34:20 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076842 
+04-25-13@00:38:15 Info (56)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:38:15 Info (56)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082222 
+04-25-13@00:38:15 Info (55)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:38:15 Info (55)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076513 
+04-25-13@00:39:05 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:39:05 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081485 
+04-25-13@00:39:05 Info (58)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:39:05 Info (58)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0072862 
+04-25-13@00:40:13 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:40:13 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083287 
+04-25-13@00:40:13 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:40:13 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0089040 
+04-25-13@00:41:55 Info (58)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:41:55 Info (58)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0079129 
+04-25-13@00:41:55 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:41:55 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0073475 
+04-25-13@00:42:48 Info (53)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:42:48 Info (53)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083707 
+04-25-13@00:42:49 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:42:49 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078841 
+04-25-13@00:44:27 Info (54)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:44:27 Info (54)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077994 
+04-25-13@00:48:23 Info (46)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:48:23 Info (46)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0156219 
+04-25-13@00:49:26 Info (47)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:49:26 Info (47)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0090339 
+04-25-13@00:50:05 Info (46)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:50:05 Info (46)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0074124 
+04-25-13@00:50:15 Info (45)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:50:15 Info (45)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076875 
+04-25-13@00:50:30 Info (23)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:50:30 Info (23)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076156 
+04-25-13@00:50:53 Info (23)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:50:53 Info (23)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0090058 
+04-25-13@00:51:15 Info (52)  [Common] SymptomaticRegionListRequest request submitted 
+04-25-13@00:51:15 Info (52)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081033 
+04-27-13@13:14:48 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:15:04 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:16.8781887 
+04-27-13@13:15:41 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:15:41 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0103438 
+04-27-13@13:16:14 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:16:14 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080763 
+04-27-13@13:16:23 Info (12)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:16:23 Info (12)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0101038 
+04-27-13@13:17:16 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:17:16 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0077626 
+04-27-13@13:17:56 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:17:56 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083656 
+04-27-13@13:19:52 Info (16)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:19:52 Info (16)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081172 
+04-27-13@13:22:43 Info (18)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:22:43 Info (18)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0084717 
+04-27-13@13:25:49 Info (21)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:25:49 Info (21)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080774 
+04-27-13@13:26:34 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:26:34 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080501 
+04-27-13@13:27:08 Info (21)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:27:08 Info (21)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0085020 
+04-27-13@13:27:27 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:27:27 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076236 
+04-27-13@13:32:43 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:32:43 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082945 
+04-27-13@13:33:26 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:33:26 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0086428 
+04-27-13@13:38:11 Info (31)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:38:11 Info (31)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0082401 
+04-27-13@13:39:27 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:39:27 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080650 
+04-27-13@13:41:08 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:41:08 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080074 
+04-27-13@13:43:48 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:43:48 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0088380 
+04-27-13@13:44:51 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:44:51 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0080121 
+04-27-13@13:45:36 Info (40)  [Common] SymptomaticRegionListRequest request submitted 
+04-27-13@13:45:36 Info (40)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0078323 
