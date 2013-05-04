@@ -27,6 +27,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<BodyPartMatrixItem, SymptomaticBodyPartDto>()
                   .ForMember(d => d.bodyPartMatrixId,
                              opt => opt.MapFrom(s => s.Id))
+                  .ForMember(d => d.potentialSymptoms,
+                             opt => opt.MapFrom(s => s.SymptomMatrixItems))
                    .ForMember(d => d.id, opt => opt.MapFrom(s => s.BodyPart.Id))
                    .ForMember(d => d.commonName, opt => opt.MapFrom(s => s.BodyPart.CommonName))
                    .ForMember(d => d.scientificName, opt => opt.MapFrom(s => s.BodyPart.ScientificName));

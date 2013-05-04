@@ -20,7 +20,8 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.region))
                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.side))
                   .ForMember(d => d.bodyParts, opt => opt.MapFrom(s => s.BodyParts));
-            Mapper.CreateMap<SymptomaticBodyPartDto, SymptomaticBodyPart>();
+            Mapper.CreateMap<SymptomaticBodyPartDto, SymptomaticBodyPart>()
+                  .ForMember(d => d.potentialSymptoms, opt => opt.MapFrom(s => s.potentialSymptoms));
             Mapper.CreateMap<PotentialSymptomDto, PotentialSymptom>();
 
 

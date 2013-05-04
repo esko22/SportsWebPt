@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
@@ -15,6 +16,8 @@ namespace SportsWebPt.Platform.Core.Models
         public virtual SkeletonArea SkeletonArea { get; set; }
 
         public virtual BodyPart BodyPart { get; set; }
+
+        public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
 
         public Boolean IsSecondary { get; set; }
 

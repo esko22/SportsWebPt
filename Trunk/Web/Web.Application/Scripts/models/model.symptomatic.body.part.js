@@ -1,52 +1,33 @@
-﻿define('model.symptomatic.body.part', ['backbone', 'config', 'model.body.part.matrix.item', 'model.symptom.matrix.item'],
-    function(backbone, config, BodyPartMatrixItem, SymptomMatrixItem) {
+﻿define('model.symptomatic.body.part', ['backbone', 'config', 'model.potential.symptom', 'model.potential.symptom.collection'],
+    function(backbone, config, PotentialSymptom, PotentialSymptomCollection) {
 
         var symptomaticBodyPart = backbone.RelationalModel.extend({
-            urlRoot: config.symptomaticComponents,
-            defaults: {
-                
-            },
+            urlRoot: config.apiUris.symptomaticComponents,
+            idAttribute: 'bodyPartMatrixId',
             relations: [{
-                    type: backbone.HasMany,
-                    key: 'potentialSymptoms',
-                    relatedModel: SymptomMatrixItem,
-                    reverseRelation: {
-                        key: 'bodyPartId',
-                        includeInJSON: 'id'
-                    }
-                },
-                {
-                    type: backbone.HasMany,
-                    key: 'regions',
-                    relatedModel: BodyPartMatrixItem,
-                    reverseRelation: {
-                        key: 'bodyPartId',
-                        includeInJSON: 'id'
-                    }
-                }
-            ]
+                type: backbone.HasMany,
+                key: 'potentialSymptoms',
+                relatedModel: PotentialSymptom,
+                collectionType: PotentialSymptomCollection,
+                        reverseRelation: {
+                            key: 'bodyPartId',
+                            includeInJSON: 'bodyPartMatrixId'
+                        }
+            }]
         });
 
         return symptomaticBodyPart;
     });
 
-define('model.symptom.matrix.item', ['backbone'],
-    function(backbone) {
-        var symptomMatrixItem = backbone.RelationalModel.extend({
-            
-        });
-
-        return symptomMatrixItem;
-    });
-
-define('model.symptomatic.body.part.collection', ['backbone', 'model.symptomatic.body.part'],
-    function (backbone, symptomaticBodyPart) {
+define('model.symptomatic.body.part.collection', ['backbone', 'model.symptomatic.body.part', 'config'],
+    function (backbone, symptomaticBodyPart, config) {
         var
             symptomaticBodyPartCollection = backbone.Collection.extend({
                 model: symptomaticBodyPart,
-                url: config.symptomaticComponents
+                url: config.apiUris.symptomaticComponents
             });
 
         return symptomaticBodyPartCollection;
 
     });
+

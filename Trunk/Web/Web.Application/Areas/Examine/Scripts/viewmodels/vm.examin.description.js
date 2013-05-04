@@ -10,8 +10,8 @@
             selectedAreas.removeAll();
             _.each(newSelectedAreas, function (area) {
                 var skeletonArea = kb.utils.wrappedModel(area);
-                _.each(skeletonArea.get('bodyParts'), function (bodyPart) {
-                    bodyPart.getRelations();
+                _.each(skeletonArea.get('bodyParts').models, function (bodyPart) {
+                    var something;
                 });
                 selectedAreas.push(area);
             });

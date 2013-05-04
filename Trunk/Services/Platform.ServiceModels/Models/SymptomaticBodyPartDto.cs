@@ -11,6 +11,10 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public int bodyPartMatrixId { get; set; }
 
+        [DataMember]
+        public PotentialSymptomDto[] potentialSymptoms { get; set; }
+
+
         #endregion
     }
 }

@@ -1,19 +1,15 @@
-﻿define('model.symptomatic.region', ['backbone', 'config', 'model.body.part.matrix.item', 'model.symptomatic.region.collection'],
-    function (backbone, config, BodyPartMatrixItem, RegionCollection) {
+﻿define('model.symptomatic.region', ['backbone', 'config', 'model.symptomatic.body.part', 'model.symptomatic.body.part.collection'],
+    function (backbone, config, BodyPart, BodyPartCollection) {
         var symptomaticRegion = backbone.RelationalModel.extend({
-                urlRoot: config.symptomaticRegions,
-                defaults: {
-                },
+            urlRoot: config.apiUris.symptomaticRegions,
+            idAttribute: 'id',
                 relations: [{
                     type: backbone.HasMany,
-                    //TODO: for some reason when the key is name components, it only maps once
-                    //thinking it may be some weird collision with the json dump from the api controller
-                    key: 'parts',
-                    relatedModel: BodyPartMatrixItem,
-                    collectionType: RegionCollection,
+                    key: 'bodyParts',
+                    relatedModel: BodyPart,
+                    collectionType: BodyPartCollection,
                     reverseRelation: {
-                        key: 'regionId',
-                        includeInJSON: 'id'
+                        key: 'region'
                     }
                 }]
             });
@@ -23,20 +19,11 @@
     });
 
 
-define('model.body.part.matrix.item', ['backbone'],
-    function(backbone) {
-        var bodyPartMatrixItem = backbone.RelationalModel.extend({
-            
-        });
-
-        return bodyPartMatrixItem;
-    });
-
 define('model.symptomatic.region.collection', ['backbone', 'model.symptomatic.region', 'config'],
     function (backbone, symptomaticRegion, config) {
         var symptomaticRegionCollection = backbone.Collection.extend({
                 model: symptomaticRegion,
-                url: config.symptomaticRegions
+                url: config.apiUris.symptomaticRegions
             });
 
         return symptomaticRegionCollection;

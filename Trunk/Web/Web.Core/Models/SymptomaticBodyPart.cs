@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public IEnumerable<Symptom> symptoms { get; set; }
+        public IEnumerable<PotentialSymptom> potentialSymptoms { get; set; }
 
         public int bodyPartMatrixId { get; set; }
 
