@@ -8,8 +8,10 @@ namespace SportsWebPt.Platform.Web.Services
     {
         IEnumerable<SkeletonArea> GetSkeletonAreas();
 
-        IEnumerable<AreaComponent> GetAreaComponents(int skeletionAreaId);
+        IEnumerable<BodyPart> GetBodyParts(int skeletionAreaId);
 
         IEnumerable<SymptomaticRegion> GetSymptomaticRegions();
+
+        IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId);
     }
 }

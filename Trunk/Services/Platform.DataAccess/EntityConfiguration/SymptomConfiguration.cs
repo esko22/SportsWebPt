@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Description).IsRequired().HasColumnName("description").HasMaxLength(500);
             Property(p => p.Name).HasColumnName("name").HasMaxLength(100);
             Property(p => p.RenderType).IsRequired().HasColumnName("render_type");
-
+            Property(p => p.Id).HasColumnName("symptom_id");
         }
     }
 }

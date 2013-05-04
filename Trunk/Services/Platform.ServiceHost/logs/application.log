@@ -1,22 +1,4 @@
-04-27-13@17:26:41 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
-04-27-13@17:26:59 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:18.2826111 
-04-27-13@17:28:06 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-04-27-13@17:28:06 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0096029 
-04-27-13@17:29:00 Info (6)  [Common] UserRequest request submitted 
-04-27-13@17:29:00 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.1046651 
-04-27-13@17:29:00 Info (12)  [Common] UserRequest request submitted 
-04-27-13@17:29:00 Info (12)  [Common] UserRequest request completed with duration of 00:00:00.0764307 
-04-27-13@17:29:01 Info (5)  [Common] UserRequest request submitted 
-04-27-13@17:29:01 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.0325640 
-04-27-13@17:29:01 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-04-27-13@17:29:01 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076265 
-04-27-13@17:29:05 Info (12)  [Common] UserRequest request submitted 
-04-27-13@17:29:05 Info (12)  [Common] UserRequest request completed with duration of 00:00:00.0041315 
-04-27-13@17:29:19 Info (14)  [Common] UserRequest request submitted 
-04-27-13@17:29:19 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0040090 
-04-27-13@17:33:19 Info (7)  [Common] UserRequest request submitted 
-04-27-13@17:33:19 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0109818 
-04-27-13@17:33:19 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
-04-27-13@17:33:19 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0081055 
-04-27-13@17:34:45 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-04-27-13@17:34:45 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0083466 
+05-04-13@02:00:59 Info (105)  [Common] SymptomaticRegionListRequest request submitted 
+05-04-13@02:00:59 Info (105)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0146859 
+05-04-13@02:01:20 Info (109)  [Common] SymptomaticRegionListRequest request submitted 
+05-04-13@02:01:20 Info (109)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0076481 

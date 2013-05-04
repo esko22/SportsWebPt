@@ -1,8 +1,8 @@
 ﻿<div data-bind="attr: { id: 'tab-' + name() }" class="tab-pane">
-    <div data-bind="foreach: components">
+    <div data-bind="foreach: parts">
         <div class="row-fluid">
             <div class="span2"><h3  data-bind="text: commonName"></h3></div>
-            <div class="span9 well"  data-bind="foreach: symptoms">
+<!--            <div class="span9 well"  data-bind="foreach: symptoms">
                 <div class="row-fluid">
                     <div class="span4">
                         <h4 style="margin-left: 20px; vertical-align: text-top;" data-bind="text: description"></h4>
@@ -11,7 +11,7 @@
                         <input data-bind="kendoUISlider: name" class="balSlider" value="0" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

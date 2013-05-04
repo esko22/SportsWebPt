@@ -14,9 +14,10 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Fields
 
-        private String _skeletonAreasUriPath = String.Empty;
-        private String _areaComponentUriPath = String.Empty;
-        private String _symptomaticRegionUriPath = String.Empty;
+        private readonly String _skeletonAreasUriPath = String.Empty;
+        private readonly String _bodyPartUriPath = String.Empty;
+        private readonly String _symptomaticRegionUriPath = String.Empty;
+        private readonly String _potentialSymptomUriPath = String.Empty;
 
         #endregion
 
@@ -26,8 +27,9 @@ namespace SportsWebPt.Platform.Web.Services
             : base(clientSettings)
         {
             _skeletonAreasUriPath = String.Format("/{0}/areas", _settings.Version);
-            _areaComponentUriPath = String.Format("/{0}/components", _settings.Version);
+            _bodyPartUriPath = String.Format("/{0}/bodyparts", _settings.Version);
             _symptomaticRegionUriPath = String.Format("/{0}/symptomaticregions", _settings.Version);
+            _potentialSymptomUriPath = String.Format("/{0}/potentialsymptoms", _settings.Version);
         }
 
         #endregion
@@ -41,13 +43,12 @@ namespace SportsWebPt.Platform.Web.Services
         }
 
 
-        public IEnumerable<AreaComponent> GetAreaComponents(int skeletionAreaId)
+        public IEnumerable<BodyPart> GetBodyParts(int skeletionAreaId)
         {
             var response =
-                GetSync<ListResponse<AreaComponentDto,AreaComponentSortBy>>(String.Format("{0}?areaId={1}",_areaComponentUriPath,skeletionAreaId));
+                GetSync<ListResponse<BodyPartDto,BodyPartSortBy>>(String.Format("{0}?areaId={1}",_bodyPartUriPath,skeletionAreaId));
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<AreaComponent>>(response.Resource.Items);
-
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyPart>>(response.Resource.Items);
         }
 
 
@@ -58,5 +59,15 @@ namespace SportsWebPt.Platform.Web.Services
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<SymptomaticRegion>>(response.Resource.Items);
         }
+
+        public IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId)
+        {
+            var response =
+                GetSync<ListResponse<PotentialSymptomDto, BasicSortBy>>(String.Format("{0}?bodyPartMatrixId={1}", _potentialSymptomUriPath, bodyPartMatrixId));
+
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<PotentialSymptom>>(response.Resource.Items);
+            
+        }
+
     }
 }

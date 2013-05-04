@@ -46,8 +46,10 @@
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Side.cs" />
-    <Compile Include="Models\AreaComponent.cs" />
+    <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
+    <Compile Include="Models\BodyPartMatrixItem.cs" />
+    <Compile Include="Models\SymptomMatrixItem.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />
     <Compile Include="Models\User.cs" />

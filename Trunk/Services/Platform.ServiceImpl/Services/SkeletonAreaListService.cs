@@ -9,7 +9,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class SkeletonService : LoggingRestServiceBase<SkeletonAreaListRequest, ListResponse<SkeletonAreaDto, SkeletonSortBy>>
+    public class SkeletonAreaListService : LoggingRestServiceBase<SkeletonAreaListRequest, ListResponse<SkeletonAreaDto, SkeletonSortBy>>
     {
         #region Properties
 

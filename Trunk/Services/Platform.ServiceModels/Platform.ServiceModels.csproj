@@ -75,11 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AreaComponentDto.cs" />
-    <Compile Include="Models\AreaComponentSortBy.cs" />
+    <Compile Include="Models\BodyPartDto.cs" />
+    <Compile Include="Models\BodyPartSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
-    <Compile Include="Models\ComponentSymptomDto.cs" />
+    <Compile Include="Models\PotentialSymptomDto.cs" />
+    <Compile Include="Models\SymptomaticBodyPartDto.cs" />
     <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\SymptomaticRegionDto.cs" />

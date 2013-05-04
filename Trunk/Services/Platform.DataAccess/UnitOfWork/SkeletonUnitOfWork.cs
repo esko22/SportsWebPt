@@ -10,8 +10,10 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public ISkeletonRepo SkeletonAreaRepo { get { return GetRepo<ISkeletonRepo>(); } }
-        public IRepository<AreaComponent> AreaComponentRepo { get { return GetStandardRepo<AreaComponent>(); } }
+        public IRepository<BodyPart> BodyPartRepo { get { return GetStandardRepo<BodyPart>(); } }
+        public IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get { return GetStandardRepo<BodyPartMatrixItem>(); } } 
         public IRepository<Symptom> SymptomRepo { get { return GetStandardRepo<Symptom>(); } }
+        public ISymptomMatrixRepo SymptomMatrixRepo { get { return GetRepo<ISymptomMatrixRepo>(); } }
         
         #endregion
 

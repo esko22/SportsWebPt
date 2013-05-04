@@ -50,12 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ISkeletonRepo.cs" />
+    <Compile Include="Contracts\ISymptomMatrixRepo.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
+    <Compile Include="EntityConfiguration\SymptomMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\OrientationConfiguration.cs" />
-    <Compile Include="EntityConfiguration\AreaComponentConfiguration.cs" />
+    <Compile Include="EntityConfiguration\BodyPartConfiguration.cs" />
     <Compile Include="EntityConfiguration\BodyRegionConfiguration.cs" />
     <Compile Include="EntityConfiguration\SideConfiguration.cs" />
+    <Compile Include="EntityConfiguration\BodyPartMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\SkeletonAreaConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
@@ -65,12 +68,13 @@
     <Compile Include="PlatformRepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\SkeletonRepo.cs" />
+    <Compile Include="Repositories\SymptomMatrixRepo.cs" />
     <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IBaseUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\ISkeletorUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ISkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IUserUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\SkeletorUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

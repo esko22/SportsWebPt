@@ -21,20 +21,18 @@ namespace SportsWebPt.Platform.DataAccess
         {
             //NOTE: this is set here to prevent adding a reference to Data.Entities in the service impls
             return base.GetAll()
-                .Include("Region")
-                .Include("Side")
-                .Include("Orientation")
-                .Include("Components");
+                       .Include("Region")
+                       .Include("Side")
+                       .Include("Orientation");
         }
 
         public IQueryable<SkeletonArea> GetSymptonmaticRegions()
         {
             return base.GetAll()
-                .Include("Region")
-                .Include("Side")
-                .Include("Orientation")
-                .Include("Components")
-                .Include("Components.Symptoms");
+                       .Include("Region")
+                       .Include("Side")
+                       .Include("Orientation")
+                       .Include("BodyPartMatrix.BodyPart");
         }
 
         #endregion

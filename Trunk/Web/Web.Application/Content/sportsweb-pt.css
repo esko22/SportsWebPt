@@ -469,13 +469,13 @@ a:focus {
 
 .navbar-inverse .navbar-inner {
   background-color: #1e2125;
-  background-image: -moz-linear-gradient(top, #272b30, #101214);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#272b30), to(#101214));
-  background-image: -webkit-linear-gradient(top, #272b30, #101214);
-  background-image: -o-linear-gradient(top, #272b30, #101214);
-  background-image: linear-gradient(to bottom, #272b30, #101214);
+  background-image: -moz-linear-gradient(top, #1e2125, #1e2125);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1e2125), to(#1e2125));
+  background-image: -webkit-linear-gradient(top, #1e2125, #1e2125);
+  background-image: -o-linear-gradient(top, #1e2125, #1e2125);
+  background-image: linear-gradient(to bottom, #1e2125, #1e2125);
   background-repeat: repeat-x;
-  border-color: #252525;
+  border-color: #1e2125;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff272b30', endColorstr='#ff101214', GradientType=0);
 }
 

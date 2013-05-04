@@ -1,19 +1,14 @@
-﻿define('model.potential.symptom', ['backbone', 'config', 'model.symptomatic.component.symptom'],
-    function (backbone, config, ComponentSymptom) {
+﻿define('model.potential.symptom', ['backbone', 'config', 'model.symptom.matrix.item'],
+    function (backbone, config, SymptomMatrixItem) {
         
             var potentialSymptom = backbone.RelationalModel.extend({
                 urlRoot: config.symptoms,
                 idAttribute: 'id',
                 relations: [{
-                    type: backbone.HasMany,
-                    key: 'components',
-                    relatedModel: ComponentSymptom,
-                    reverseRelation: {
-                        key: 'symptomId',
-                        includeInJSON: 'id'
-                    }
+                    type: backbone.HasOne,
+                    key: 'bodyPart',
+                    relatedModel: SymptomMatrixItem
                 }]
-
             });
 
             return potentialSymptom;

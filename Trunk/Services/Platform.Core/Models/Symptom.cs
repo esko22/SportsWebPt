@@ -15,7 +15,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public SymptomRenderType RenderType { get; set; }
 
-        public ICollection<AreaComponent> Components { get; set; }  
+        public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }  
 
         #endregion
     }

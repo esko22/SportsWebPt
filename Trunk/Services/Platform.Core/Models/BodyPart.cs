@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class AreaComponent
+    public class BodyPart
     {
         #region Properties
 
@@ -13,9 +13,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String ScientificName { get; set; }
 
-        public ICollection<SkeletonArea> SkeletonAreas { get; set; }
-
-        public ICollection<Symptom> Symptoms { get; set; } 
+        public ICollection<BodyPartMatrixItem> BodyPartMatrix { get; set; }
 
         #endregion
     }

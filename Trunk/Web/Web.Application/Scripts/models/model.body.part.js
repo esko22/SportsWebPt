@@ -1,4 +1,4 @@
-﻿define('model.area.component', ['backbone', 'config', 'jquery'],
+﻿define('model.body.part', ['backbone', 'config', 'jquery'],
     function (backbone, config, $) {
         var
             area = backbone.Model.extend({
@@ -11,7 +11,7 @@
 
     });
 
-define('model.area.component.collection', ['backbone', 'model.area.component'],
+define('model.body.part.collection', ['backbone', 'model.body.part'],
     function (backbone, component) {
         var
             componentCollection = backbone.Collection.extend({

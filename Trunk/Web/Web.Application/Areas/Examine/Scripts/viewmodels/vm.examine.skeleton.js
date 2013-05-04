@@ -2,8 +2,10 @@
     ['jquery', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'vm.examine.container'],
     function ($, SymptomaticRegionCollection, kb, _, container) {
 
-        var symptomaticRegions = new SymptomaticRegionCollection();
-        symptomaticRegions.reset(JSON.parse($('#skeleton-areas').val()));
+        var symptomaticRegions = SymptomaticRegionCollection;
+        //symptomaticRegions.url = 'examine/symptomaticregions';
+        symptomaticRegions.fetch();
+            //.reset(JSON.parse($('#skeleton-areas').val()));
 
         var selectArea = function (item) {
             if (container.selectedAreas.indexOf(item) == -1) {

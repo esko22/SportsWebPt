@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.DataAccess.EntityConfiguration
             HasRequired(f => f.Region).WithMany().Map(c => c.MapKey("region_id"));
             HasRequired(f => f.Orientation).WithMany().Map(c => c.MapKey("orientation_id"));
             
-            Property(p => p.Id).IsRequired();
+            Property(p => p.Id).IsRequired().HasColumnName("skeleton_area_id");
         }
 
         #endregion

@@ -33,14 +33,16 @@ namespace SportsWebPt.Platform.DataAccess
             var sides = AddSides();
             var skeletonareas = AddSkeletonAreas(regions, sides, orientations);
             var symptoms = AddSymptoms();
+            var bodyPartMartix = AddBodyPartsToAreas(skeletonareas,components);
 
-            AddComponentsToAreas(skeletonareas,components);
-            AddSymptomsToComponents(symptoms, components);
+            BuildSymptomMatrix(symptoms, bodyPartMartix);
         }
 
-        private void AddSymptomsToComponents(IEnumerable<Symptom> symptoms, List<AreaComponent> components)
+        private void BuildSymptomMatrix(IEnumerable<Symptom> symptoms, IEnumerable<BodyPartMatrixItem> bodyPartMartix)
         {
-            components.ForEach(c => c.Symptoms = new List<Symptom>(symptoms));
+            var symptomMatrixItems = new List<SymptomMatrixItem>();
+            bodyPartMartix.ForEach(c => symptoms.ForEach(s => symptomMatrixItems.Add(new SymptomMatrixItem {BodyPartMatrixItemId = c.Id, SymptomId = s.Id})));
+            symptomMatrixItems.ForEach(s => _dbContext.SymptomMatrix.Add(s));
             _dbContext.SaveChanges();
         }
 
@@ -59,28 +61,28 @@ namespace SportsWebPt.Platform.DataAccess
             return users;
         }
 
-        private List<AreaComponent> AddComponents()
+        private List<BodyPart> AddComponents()
         {
-            var parts = new List<AreaComponent>()
+            var parts = new List<BodyPart>()
                 {
-                    new AreaComponent() {CommonName = "Foot", ScientificName = "FancyFoot"},
-                    new AreaComponent() {CommonName = "Ankle"},
-                    new AreaComponent() {CommonName = "Wrist"},
-                    new AreaComponent() {CommonName = "Hamstring"},
-                    new AreaComponent() {CommonName = "Quad"},
-                    new AreaComponent() {CommonName = "Neck"},
-                    new AreaComponent() {CommonName = "Throat"},
-                    new AreaComponent() {CommonName = "Shoulder"},
-                    new AreaComponent() {CommonName = "Elbow"},
-                    new AreaComponent() {CommonName = "Knee"},
-                    new AreaComponent() {CommonName = "Shin"},
-                    new AreaComponent() {CommonName = "Calf"},
-                    new AreaComponent() {CommonName = "Hip"},
-                    new AreaComponent() {CommonName = "Bicep"},
-                    new AreaComponent() {CommonName = "Tricep"}
+                    new BodyPart() {CommonName = "Foot", ScientificName = "FancyFoot"},
+                    new BodyPart() {CommonName = "Ankle"},
+                    new BodyPart() {CommonName = "Wrist"},
+                    new BodyPart() {CommonName = "Hamstring"},
+                    new BodyPart() {CommonName = "Quad"},
+                    new BodyPart() {CommonName = "Neck"},
+                    new BodyPart() {CommonName = "Throat"},
+                    new BodyPart() {CommonName = "Shoulder"},
+                    new BodyPart() {CommonName = "Elbow"},
+                    new BodyPart() {CommonName = "Knee"},
+                    new BodyPart() {CommonName = "Shin"},
+                    new BodyPart() {CommonName = "Calf"},
+                    new BodyPart() {CommonName = "Hip"},
+                    new BodyPart() {CommonName = "Bicep"},
+                    new BodyPart() {CommonName = "Tricep"}
                 };
 
-            parts.ForEach(u => _dbContext.AreaComponents.Add(u));
+            parts.ForEach(u => _dbContext.BodyParts.Add(u));
             _dbContext.SaveChanges();
 
             return parts;
@@ -103,7 +105,7 @@ namespace SportsWebPt.Platform.DataAccess
                     new BodyRegion() { Name = "Butt"}
                 };
 
-            regions.ForEach(u => _dbContext.RegionTypes.Add(u));
+            regions.ForEach(u => _dbContext.BodyRegions.Add(u));
             _dbContext.SaveChanges();
 
             return regions;
@@ -118,7 +120,7 @@ namespace SportsWebPt.Platform.DataAccess
                     new Orientation() { Value = "Back"}
                 };
 
-            orientations.ForEach(u => _dbContext.OrientationTypes.Add(u));
+            orientations.ForEach(u => _dbContext.Orientations.Add(u));
             _dbContext.SaveChanges();
 
             return orientations;
@@ -133,7 +135,7 @@ namespace SportsWebPt.Platform.DataAccess
                     new Side() { Value = "Both"}
                 };
 
-            sides.ForEach(u => _dbContext.SideTypes.Add(u));
+            sides.ForEach(u => _dbContext.Sides.Add(u));
             _dbContext.SaveChanges();
 
             return sides;
@@ -175,20 +177,46 @@ namespace SportsWebPt.Platform.DataAccess
             return areas;
         }
 
-        private void AddComponentsToAreas(IList<SkeletonArea> areas, IList<AreaComponent> components)
+        private IEnumerable<BodyPartMatrixItem> AddBodyPartsToAreas(IList<SkeletonArea> areas, IList<BodyPart> bodyParts)
         {
-            var area = areas[18];
-            area.Components =  new [] { components[0], components[1],components[9],components[10]};
+            var bodyPartMatrixItems = new List<BodyPartMatrixItem>();
 
-            area = areas[19];
-            area.Components = new[] { components[0], components[1], components[9], components[10]};
+            foreach (var bodyPart in new [] { bodyParts[0], bodyParts[1],bodyParts[9],bodyParts[10]})
+            {
+                var matrixItem = new BodyPartMatrixItem
+                    {
+                        SkeletonArea = areas[18],
+                        BodyPart = bodyPart
+                    };
+                bodyPartMatrixItems.Add(matrixItem);
+            }
 
-            area = areas[20];
-            area.Components = new[] { components[0], components[1], components[9], components[10] };
+            foreach (var bodyPart in new[] { bodyParts[0], bodyParts[1], bodyParts[9], bodyParts[10] })
+            {
+                var matrixItem = new BodyPartMatrixItem
+                {
+                    SkeletonArea = areas[19],
+                    BodyPart = bodyPart
+                };
+                bodyPartMatrixItems.Add(matrixItem);
+            }
 
 
+            foreach (var bodyPart in new[] { bodyParts[0], bodyParts[1], bodyParts[9], bodyParts[10] })
+            {
+                var matrixItem = new BodyPartMatrixItem
+                {
+                    SkeletonArea = areas[20],
+                    BodyPart = bodyPart
+                };
+                bodyPartMatrixItems.Add(matrixItem);
+            }
+
+
+            bodyPartMatrixItems.ForEach(p => _dbContext.BodyPartMatrix.Add(p));
             _dbContext.SaveChanges();
 
+            return bodyPartMatrixItems;
         }
 
         private IEnumerable<Symptom> AddSymptoms()

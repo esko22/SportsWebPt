@@ -9,7 +9,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class SymptomService : LoggingRestServiceBase<SymptomListRequest, ListResponse<SymptomDto, BasicSortBy>>
+    public class SymptomListService : LoggingRestServiceBase<SymptomListRequest, ListResponse<SymptomDto, BasicSortBy>>
     {
         #region Properties
 
@@ -23,14 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var symptoms = new List<Symptom>();
 
-            if (request.componentId == 0)
                 symptoms.AddRange(SkeletonUnitOfWork.SymptomRepo.GetAll());
-            else
-            {
-                var component = SkeletonUnitOfWork.AreaComponentRepo.GetAll().SingleOrDefault(p => p.Id == request.componentId);
-                if (component != null)
-                    symptoms = component.Symptoms.ToList();
-            }
 
             var responseList = new List<SymptomDto>();
             Mapper.Map(symptoms, responseList);

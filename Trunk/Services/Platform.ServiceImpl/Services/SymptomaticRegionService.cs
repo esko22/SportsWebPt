@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 

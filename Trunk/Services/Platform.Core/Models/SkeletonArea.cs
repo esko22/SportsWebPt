@@ -15,7 +15,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public BodyRegion Region { get; set; }
 
-        public ICollection<AreaComponent> Components { get; set; }
+        public virtual ICollection<BodyPartMatrixItem> BodyPartMatrix { get; set; }
 
         #endregion
     }

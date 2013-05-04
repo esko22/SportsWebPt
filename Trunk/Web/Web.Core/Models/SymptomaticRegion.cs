@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public IEnumerable<SymptomaticComponent> components { get; set; } 
+        public IEnumerable<SymptomaticBodyPart> bodyParts { get; set; } 
 
         #endregion
     }

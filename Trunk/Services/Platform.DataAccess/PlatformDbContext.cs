@@ -12,12 +12,14 @@ namespace SportsWebPt.Platform.DataAccess
         #region Entities
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Orientation> OrientationTypes { get; set; }
-        public DbSet<AreaComponent> AreaComponents { get; set; }
-        public DbSet<Side> SideTypes { get; set; }
-        public DbSet<BodyRegion> RegionTypes { get; set; }
+        public DbSet<Orientation> Orientations { get; set; }
+        public DbSet<BodyPart> BodyParts { get; set; }
+        public DbSet<Side> Sides { get; set; }
+        public DbSet<BodyRegion> BodyRegions { get; set; }
         public DbSet<SkeletonArea> SkeletonAreas { get; set; }
+        public DbSet<BodyPartMatrixItem> BodyPartMatrix { get; set; }
         public DbSet<Symptom> Symptoms { get; set; }
+        public DbSet<SymptomMatrixItem> SymptomMatrix { get; set; }
 
         #endregion
 
@@ -44,12 +46,14 @@ namespace SportsWebPt.Platform.DataAccess
             //TODO: reflect over assembly and add dynamically
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new OrientationConfiguration());
-            modelBuilder.Configurations.Add(new AreaComponentConfiguration());
+            modelBuilder.Configurations.Add(new BodyPartConfiguration());
             modelBuilder.Configurations.Add(new SideConfiguration());
             modelBuilder.Configurations.Add(new BodyRegionConfiguration());
             modelBuilder.Configurations.Add(new SkeletonAreaConfiguration());
+            modelBuilder.Configurations.Add(new BodyPartMatrixConfiguration());
             modelBuilder.Configurations.Add(new SymptomConfiguration());
-          
+            modelBuilder.Configurations.Add(new SymptomMatrixConfiguration());
+
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.CalculatedResults);

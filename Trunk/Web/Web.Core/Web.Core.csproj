@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AreaComponent.cs" />
+    <Compile Include="Models\BodyPart.cs" />
+    <Compile Include="Models\PotentialSymptom.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\Symptom.cs" />
-    <Compile Include="Models\SymptomaticComponent.cs" />
+    <Compile Include="Models\SymptomaticBodyPart.cs" />
     <Compile Include="Models\SymptomaticRegion.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

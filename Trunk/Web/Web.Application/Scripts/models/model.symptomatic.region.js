@@ -1,5 +1,5 @@
-﻿define('model.symptomatic.region', ['backbone', 'config', 'model.symptomatic.region.component', 'model.symptomatic.region.collection'],
-    function (backbone, config, RegionComponent, RegionCollection) {
+﻿define('model.symptomatic.region', ['backbone', 'config', 'model.body.part.matrix.item', 'model.symptomatic.region.collection'],
+    function (backbone, config, BodyPartMatrixItem, RegionCollection) {
         var symptomaticRegion = backbone.RelationalModel.extend({
                 urlRoot: config.symptomaticRegions,
                 defaults: {
@@ -8,8 +8,8 @@
                     type: backbone.HasMany,
                     //TODO: for some reason when the key is name components, it only maps once
                     //thinking it may be some weird collision with the json dump from the api controller
-                    key: 'regionComponents',
-                    relatedModel: RegionComponent,
+                    key: 'parts',
+                    relatedModel: BodyPartMatrixItem,
                     collectionType: RegionCollection,
                     reverseRelation: {
                         key: 'regionId',
@@ -23,20 +23,20 @@
     });
 
 
-define('model.symptomatic.region.component', ['backbone'],
+define('model.body.part.matrix.item', ['backbone'],
     function(backbone) {
-        var regionComponent = backbone.RelationalModel.extend({
+        var bodyPartMatrixItem = backbone.RelationalModel.extend({
             
         });
 
-        return regionComponent;
+        return bodyPartMatrixItem;
     });
 
-define('model.symptomatic.region.collection', ['backbone', 'model.symptomatic.region'],
-    function (backbone, symptomaticRegion) {
-        var
-            symptomaticRegionCollection = backbone.Collection.extend({
-                model: symptomaticRegion
+define('model.symptomatic.region.collection', ['backbone', 'model.symptomatic.region', 'config'],
+    function (backbone, symptomaticRegion, config) {
+        var symptomaticRegionCollection = backbone.Collection.extend({
+                model: symptomaticRegion,
+                url: config.symptomaticRegions
             });
 
         return symptomaticRegionCollection;

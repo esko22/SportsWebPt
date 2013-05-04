@@ -107,10 +107,11 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<UserRequest>("users")
                 .Add<AuthRequestDto>("auth")
                 .Add<SkeletonAreaListRequest>("areas")
-                .Add<AreaComponentListRequest>("components")
+                .Add<BodyPartListRequest>("bodyparts")
                 .Add<SymptomListRequest>("symptoms")
-                .Add<SymptomaticRegionListRequest>("symptomaticregions");
-
+                .Add<SymptomaticRegionListRequest>("symptomaticregions")
+                .Add<PotentialSymptomListRequest>("potentialsymptoms")
+                .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}");
         }
 
         private void ConfigureContainer(Container container)

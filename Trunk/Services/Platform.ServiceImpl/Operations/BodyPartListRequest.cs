@@ -2,11 +2,11 @@
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class AreaComponentListRequest : ApiResourceListRequest
+    public class BodyPartListRequest : ApiResourceListRequest
     {
         #region Properties
 
-        public int areaId { get; set; }
+        public int skeletonAreaId { get; set; }
 
         #endregion
     }
