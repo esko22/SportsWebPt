@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    class DifferentialDiagnosis
+    public class DifferentialDiagnosis
     {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public DateTime SumbittedOn { get; set; }
+
+        public DateTime ReviewedOn { get; set; }
+
+        public int SubmittedBy { get; set; }
+
+        public int SubmittedFor { get; set; }
+
+        public ICollection<SymptomResponse> SymptomDiagnosisResults { get; set; } 
+
+        #endregion
     }
 }

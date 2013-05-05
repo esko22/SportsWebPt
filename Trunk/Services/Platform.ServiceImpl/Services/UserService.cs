@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System;
+using System.Linq;
+using System.Web;
 
 using AutoMapper;
 
@@ -24,9 +26,14 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public override object OnGet(UserRequest request)
         {
+            var userEmailAddress = HttpUtility.UrlDecode(Request.QueryString["email"]);
             var user = request.IdAsInt > 0
                            ? UserUnitOfWork.UserRepository.GetById((int) request.IdAsInt)
-                           : UserUnitOfWork.UserRepository.GetUserByEmailAddress(HttpUtility.UrlDecode(Request.QueryString["email"]));
+                           : UserUnitOfWork.UserRepository.GetAll()
+                                           .FirstOrDefault(
+                                               p =>
+                                               p.EmailAddress.Equals(userEmailAddress,
+                                                   StringComparison.OrdinalIgnoreCase));
             UserDto userDto = null;
 
             if (user != null)
@@ -43,11 +50,13 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var userToAdd = request.Resource;
             Check.Argument.IsNotNull(userToAdd,"UserToAdd");
 
-            var userId = UserUnitOfWork.UserRepository.Add(Mapper.Map<User>(userToAdd));
+            var userEntity = Mapper.Map<User>(userToAdd);
+            UserUnitOfWork.UserRepository.Add(userEntity);
+            UserUnitOfWork.Commit();
 
             return Ok(new ApiResponse<UserDto>()
                 {
-                    Resource = new UserDto() {id = userId}
+                    Resource = new UserDto() { id = userEntity.Id}
                 });
         }
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Web;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities.Security;
@@ -19,8 +21,12 @@ namespace SportsWebPt.Platform.ServiceImpl
         public override object OnPost(AuthRequestDto request)
         {
             UserDto userDto = null;
-            var user = UserUnitOfWork.UserRepository.GetUserByEmailAddress(request.emailAddress);
-
+            var user = UserUnitOfWork.UserRepository.GetAll()
+                                           .FirstOrDefault(
+                                               p =>
+                                               p.EmailAddress.Equals(request.emailAddress,
+                                                   StringComparison.OrdinalIgnoreCase));
+                
             if (user != null)
             {
                 if(PasswordHashHelper.ValidatePassword(request.hash,user.Hash))

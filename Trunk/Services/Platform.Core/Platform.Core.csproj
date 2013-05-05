@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DifferentialDiagnosis.cs" />
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Side.cs" />
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\BodyPartMatrixItem.cs" />
+    <Compile Include="Models\SymptomResponse.cs" />
     <Compile Include="Models\SymptomMatrixItem.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />

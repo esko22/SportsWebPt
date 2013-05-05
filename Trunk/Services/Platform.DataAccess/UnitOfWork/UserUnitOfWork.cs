@@ -1,4 +1,6 @@
-﻿using SportsWebPt.Common.DataAccess.Ef;
+﻿using SportsWebPt.Common.DataAccess;
+using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -6,7 +8,7 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IUserRepository UserRepository { get { return GetRepo<IUserRepository>(); } }
+        public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } }
 
         #endregion
 

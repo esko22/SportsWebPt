@@ -20,6 +20,8 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<BodyPartMatrixItem> BodyPartMatrix { get; set; }
         public DbSet<Symptom> Symptoms { get; set; }
         public DbSet<SymptomMatrixItem> SymptomMatrix { get; set; }
+        public DbSet<DifferentialDiagnosis> DifferentialDiagnoses { get; set; }
+        public DbSet<SymptomResponse> SymptomDiagnosisResults { get; set; } 
 
         #endregion
 
@@ -53,7 +55,11 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new BodyPartMatrixConfiguration());
             modelBuilder.Configurations.Add(new SymptomConfiguration());
             modelBuilder.Configurations.Add(new SymptomMatrixConfiguration());
+            modelBuilder.Configurations.Add(new DifferentialDiagnosisConfiguration());
+            modelBuilder.Configurations.Add(new SymptomResponseConfiguration());
 
+            
+            
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.CalculatedResults);

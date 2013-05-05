@@ -111,7 +111,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<SymptomListRequest>("symptoms")
                 .Add<SymptomaticRegionListRequest>("symptomaticregions")
                 .Add<PotentialSymptomListRequest>("potentialsymptoms")
-                .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}");
+                .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
+                .Add<DifferentialDiagnosisRequest>("differentialDiagnosis");
         }
 
         private void ConfigureContainer(Container container)
@@ -123,7 +124,7 @@ namespace SportsWebPt.Platform.ServiceHost
                      .ReusedWithin(ReuseScope.Request);
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
-
+            container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
         }
 
         private void BoostrapEf()

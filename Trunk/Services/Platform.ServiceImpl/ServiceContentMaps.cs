@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using System.Linq;
+﻿using System;
+using AutoMapper;
 
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.ServiceModels;
@@ -38,7 +38,14 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.name, opt => opt.MapFrom(s => s.Symptom.Name))
                    .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.Symptom.RenderType))
                    .ForMember(d => d.id, opt => opt.MapFrom(s => s.Symptom.Id));
-            ;
+            Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
+                   .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now));
+            Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
+                   .ForMember(d => d.differentialDiagnosisId, opt => opt.MapFrom(s => s.Id))
+                   .ForMember(d => d.reviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))
+                   .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
+            Mapper.CreateMap<SymptomResponse, SymptomResponseDto>();
+            Mapper.CreateMap<SymptomResponseDto, SymptomResponse>();
 
         }
     }

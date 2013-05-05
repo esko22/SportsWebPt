@@ -79,12 +79,16 @@
     <Compile Include="Models\BodyPartSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
+    <Compile Include="Models\DifferentialDiagnosisDto.cs" />
+    <Compile Include="Models\DifferentialDiagnosisReportDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />
     <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\SymptomaticRegionDto.cs" />
     <Compile Include="Models\SymptomDto.cs" />
+    <Compile Include="Models\SymptomResponseDto.cs" />
+    <Compile Include="Models\SymptomResponseDetailDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,48 +1,28 @@
-05-04-13@13:02:02 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:02:02 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0127456 
-05-04-13@13:07:35 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:07:35 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0188703 
-05-04-13@13:11:35 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:21:06 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:09:30.7521821 
-05-04-13@13:21:43 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:21:43 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123210 
-05-04-13@13:21:49 Info (40)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:21:49 Info (40)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0116406 
-05-04-13@13:23:24 Info (46)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:23:25 Info (46)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0117224 
-05-04-13@13:23:51 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:23:51 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0120915 
-05-04-13@13:24:47 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:24:47 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123815 
-05-04-13@13:26:38 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:26:38 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0126019 
-05-04-13@13:27:56 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:27:56 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0116002 
-05-04-13@13:28:16 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:28:16 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0122159 
-05-04-13@13:28:29 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:28:30 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0128014 
-05-04-13@13:34:54 Info (55)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:34:54 Info (55)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0185417 
-05-04-13@13:36:48 Info (54)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:36:48 Info (54)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0119824 
-05-04-13@13:38:10 Info (47)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:38:10 Info (47)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0137053 
-05-04-13@13:40:46 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:40:46 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123677 
-05-04-13@13:40:58 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:40:58 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0132909 
-05-04-13@13:44:09 Info (40)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:44:09 Info (40)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0118719 
-05-04-13@13:49:25 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:49:25 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0178716 
-05-04-13@13:50:51 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:50:51 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0114648 
-05-04-13@13:55:11 Info (31)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:55:11 Info (31)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0247773 
-05-04-13@13:56:30 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:56:30 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0118041 
-05-04-13@13:57:47 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:57:47 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0129940 
-05-04-13@13:58:29 Info (31)  [Common] SymptomaticRegionListRequest request submitted 
-05-04-13@13:58:29 Info (31)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0120992 
+05-04-13@23:40:19 Info (19)  [Common] DifferentialDiagnosisRequest request submitted 
+05-04-13@23:41:31 Info (19)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:01:11.7096243 
+05-04-13@23:42:38 Info (20)  [Common] DifferentialDiagnosisRequest request submitted 
+05-04-13@23:42:57 Info (20)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:19.0931357 
+05-04-13@23:53:47 Info (5)  [Common] UserRequest request submitted 
+05-04-13@23:53:49 Error (5)  [Common] [UserService: 5/5/2013 6:53:49 AM]:
+[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.NotSupportedException LINQ to Entities does not recognize the method 'System.String UrlDecode(System.String)' method, and this method cannot be translated into a store expression. System.Data.Common.CommandTrees.DbExpression Translate(System.Data.Objects.ELinq.ExpressionConverter, System.Linq.Expressions.MethodCallExpression)
+05-04-13@23:54:34 Info (6)  [Common] UserRequest request submitted 
+05-04-13@23:54:51 Error (6)  [Common] [UserService: 5/5/2013 6:54:51 AM]:
+[REQUEST: {IsIdCurrent:False}] EXCEPTION OCCURRED:System.NotSupportedException LINQ to Entities does not recognize the method 'System.String UrlDecode(System.String)' method, and this method cannot be translated into a store expression. System.Data.Common.CommandTrees.DbExpression Translate(System.Data.Objects.ELinq.ExpressionConverter, System.Linq.Expressions.MethodCallExpression)
+05-04-13@23:56:06 Info (6)  [Common] UserRequest request submitted 
+05-04-13@23:56:09 Info (6)  [Common] UserRequest request completed with duration of 00:00:02.4324087 
+05-04-13@23:56:09 Info (5)  [Common] UserRequest request submitted 
+05-04-13@23:56:09 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.2310085 
+05-04-13@23:56:09 Info (20)  [Common] UserRequest request submitted 
+05-04-13@23:56:09 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0321814 
+05-04-13@23:56:18 Info (20)  [Common] UserRequest request submitted 
+05-04-13@23:56:18 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0038565 
+05-04-13@23:56:25 Info (6)  [Common] UserRequest request submitted 
+05-04-13@23:56:25 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0034224 
+05-04-13@23:56:25 Info (8)  [Common] UserRequest request submitted 
+05-04-13@23:56:25 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0034388 
+05-04-13@23:56:38 Info (20)  [Common] UserRequest request submitted 
+05-04-13@23:56:38 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0047057 
+05-04-13@23:56:52 Info (8)  [Common] UserRequest request submitted 
+05-04-13@23:56:52 Info (8)  [Common] UserRequest request completed with duration of 00:00:00.0219987 
+05-04-13@23:56:52 Info (15)  [Common] UserRequest request submitted 
+05-04-13@23:56:52 Info (15)  [Common] UserRequest request completed with duration of 00:00:00.0033972 
