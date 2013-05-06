@@ -9,7 +9,10 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int symptomMatrixId { get; set; }
+        public int symptomMatrixItemId { get; set; }
+
+        [DataMember]
+        public int givenResponse { get; set; }
 
         #endregion
     }

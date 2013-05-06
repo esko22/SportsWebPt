@@ -50,7 +50,7 @@
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\BodyPartMatrixItem.cs" />
-    <Compile Include="Models\SymptomResponse.cs" />
+    <Compile Include="Models\SymptomDetail.cs" />
     <Compile Include="Models\SymptomMatrixItem.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />

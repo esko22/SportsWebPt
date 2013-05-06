@@ -6,6 +6,7 @@ using AutoMapper;
 using SportsWebPt.Common.ServiceStackClient;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
+using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -18,6 +19,7 @@ namespace SportsWebPt.Platform.Web.Services
         private readonly String _bodyPartUriPath = String.Empty;
         private readonly String _symptomaticRegionUriPath = String.Empty;
         private readonly String _potentialSymptomUriPath = String.Empty;
+        private readonly String _diffDiagUriPath = String.Empty;
 
         #endregion
 
@@ -30,6 +32,7 @@ namespace SportsWebPt.Platform.Web.Services
             _bodyPartUriPath = String.Format("/{0}/bodyparts", _settings.Version);
             _symptomaticRegionUriPath = String.Format("/{0}/symptomaticregions", _settings.Version);
             _potentialSymptomUriPath = String.Format("/{0}/potentialsymptoms", _settings.Version);
+            _diffDiagUriPath = String.Format("/{0}/differentialdiagnosis", _settings.Version);
         }
 
         #endregion
@@ -68,6 +71,20 @@ namespace SportsWebPt.Platform.Web.Services
             return response.Resource == null ? null : Mapper.Map<IEnumerable<PotentialSymptom>>(response.Resource.Items);
             
         }
+
+        public int SubmitDifferentialDiagnosis(DifferentialDiagnosisSubmission differentialDiagnosis)
+        {
+            var resuest = new ApiResourceRequest<DifferentialDiagnosisDto>
+            {
+                Resource = Mapper.Map<DifferentialDiagnosisDto>(differentialDiagnosis)
+            };
+
+            var response =
+                PostSync<ApiResponse<DifferentialDiagnosisDto>>(_diffDiagUriPath, resuest);
+
+            return response.Resource.differentialDiagnosisId;
+        }
+
 
     }
 }

@@ -87,8 +87,6 @@
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\SymptomaticRegionDto.cs" />
     <Compile Include="Models\SymptomDto.cs" />
-    <Compile Include="Models\SymptomResponseDto.cs" />
-    <Compile Include="Models\SymptomResponseDetailDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

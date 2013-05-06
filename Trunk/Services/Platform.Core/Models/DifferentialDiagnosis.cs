@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int SubmittedFor { get; set; }
 
-        public ICollection<SymptomResponse> SymptomDiagnosisResults { get; set; } 
+        public ICollection<SymptomDetail> SymptomDetails { get; set; } 
 
         #endregion
     }

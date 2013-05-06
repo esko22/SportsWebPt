@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class SymptomResponse
+    public class SymptomDetail
     {
         #region Properties
 

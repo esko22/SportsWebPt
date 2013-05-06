@@ -1,33 +1,45 @@
-﻿define('router', ['backbone','jquery','presenter', 'vm.examine.container'],
-    function (backbone,$, presenter, container) {
+﻿define('router', ['backbone','jquery','presenter', 'vm.examine.container', 'vm.examine.detail'],
+    function (backbone,$, presenter, container, detail) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
                 routes: {
                     '': 'skeleton',
-                    'describe': 'description'
+                    'detail': 'detail',
+                    'injuries/:id' : 'injuries'
                 }
             });
 
             var router = new mainRouter();
 
-            router.on('route:description', function () {
+            router.on('route:detail', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                detail.bindSelectedAreas(container.selectedAreas());
                 presenter.transitionTo(
-                    $('#description-detail'),
+                    $('#examine-detail'),
                     '',
                     '');
-                $('#description-nav').addClass('active');
+                $('#detail-nav').addClass('active');
             });
             router.on('route:skeleton', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
                 presenter.transitionTo(
-                    $('#skeleton-container'),
+                    $('#examine-skeleton'),
                     '',
                     '');
                 $('#skeleton-nav').addClass('active');
+            });
+            router.on('route:injuries', function (id) {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                alert(id);
+                presenter.transitionTo(
+                    $('#examine-injuries'),
+                    '',
+                    '');
+                $('#injuries-nav').addClass('active');
             });
 
             backbone.history.start();

@@ -7,8 +7,6 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        [DataMember]
-        public SymptomResponseDetailDto[] SymptomResponseDetails { get; set; }
 
         #endregion
     }

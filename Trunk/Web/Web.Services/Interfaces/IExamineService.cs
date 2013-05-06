@@ -13,5 +13,7 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<SymptomaticRegion> GetSymptomaticRegions();
 
         IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId);
+
+        int SubmitDifferentialDiagnosis(DifferentialDiagnosisSubmission symptomResponse);
     }
 }

@@ -7,7 +7,7 @@
 
                 kb.applyBindings(vm.container, $(ids.container).get(0));
                 kb.applyBindings(vm.skeleton, $(ids.skeleton).get(0));
-                kb.applyBindings(vm.description, $(ids.description).get(0));
+                kb.applyBindings(vm.detail, $(ids.detail).get(0));
             };
 
 

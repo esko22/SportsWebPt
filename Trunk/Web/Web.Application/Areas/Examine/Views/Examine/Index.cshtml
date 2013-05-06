@@ -10,7 +10,7 @@
 <div id="examine-container">
     <ul class="breadcrumb main-breadcrumb">
         <li><a href="#" id="skeleton-nav">Select Region(s)</a> <span class="divider">\</span></li>
-        <li><a href="#describe" id="description-nav">Describe Discomfort</a> <span class="divider">\</span></li>
+        <li><a href="#detail" id="detail-nav">Describe Discomfort</a> <span class="divider">\</span></li>
         <li><a href="#injuries" id="injuries-nav">Potential Injuries</a></li>
     </ul>
 </div>
@@ -18,7 +18,7 @@
 
 
 <div class="container">
-<div id="skeleton-container" class="view">
+<div id="examine-skeleton" class="view">
     <div>
         <h3><strong>Please select region(s) of discomfort</strong></h3>
     </div>
@@ -43,22 +43,36 @@
             </ul>
         </div>
     </div>
-    <div class="pull-right">
-        <a class="btn btn-inverse btn-large" href="#describe" >Next &raquo;</a>
+    <div class="row examine-bottom-nav">
+        <div class="span2 pull-right">
+            <a class="btn btn-inverse btn-large" href="#detail" >Next &raquo;</a>
+        </div>
     </div>
 </div>
         
-    <div id="description-detail" class="view container">
+    <div id="examine-detail" class="view container">
         <div class="tabbable tabs-left" id="differentialDiagnosis">
-            <ul id="examinee-tab-nav" class="nav nav-tabs" data-bind="foreach: selectedAreas">
+            <ul id="examine-detail-tab-nav" class="nav nav-tabs" data-bind="foreach: selectedAreas">
                 <li><a data-bind="attr: { href: '#tab-' + name(), title: name }, text: name " data-toggle="tab"></a></li>
             </ul>
-            <section data-bind="template: {name: areaTemplate, foreach: selectedAreas}" class="tab-content examine-tab-pane"></section>
+            <section id="examine-detail-container" data-bind="template: { name: areaTemplate, afterRender: postTabRender, foreach: selectedAreas }" class="tab-content examine-tab-pane"></section>
         </div>
+        <div class="row examine-bottom-nav">
+            <div class="span2 pull-left">
+                <a class="btn btn-inverse btn-large" href="javascript:history.back()" >&laquo; Back</a>
+            </div>
+            <div class="span2 pull-right">
+                <button class="btn btn-inverse btn-large" data-bind="click: submitDiscomfortDetail" >Next &raquo;</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="examine-injuries" class="view container">
         <div>
-            <a class="btn btn-inverse btn-large" href="javascript:history.back()" >&laquo; Back</a>
+            <h3><strong>Potential Injuries</strong></h3>
         </div>
-     </div>
+    </div>
 </div>
 
 

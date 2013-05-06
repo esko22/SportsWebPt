@@ -33,7 +33,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.commonName, opt => opt.MapFrom(s => s.BodyPart.CommonName))
                    .ForMember(d => d.scientificName, opt => opt.MapFrom(s => s.BodyPart.ScientificName));
             Mapper.CreateMap<SymptomMatrixItem, PotentialSymptomDto>()
-                    .ForMember(d => d.symptomMatrixId, opt => opt.MapFrom(s => s.Id))
+                    .ForMember(d => d.symptomMatrixItemId, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.description, opt => opt.MapFrom(s => s.Symptom.Description))
                    .ForMember(d => d.name, opt => opt.MapFrom(s => s.Symptom.Name))
                    .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.Symptom.RenderType))
@@ -44,8 +44,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.differentialDiagnosisId, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.reviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))
                    .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
-            Mapper.CreateMap<SymptomResponse, SymptomResponseDto>();
-            Mapper.CreateMap<SymptomResponseDto, SymptomResponse>();
+            Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>();
+            Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
 
         }
     }

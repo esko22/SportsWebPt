@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application
@@ -74,6 +75,13 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult GetSymptoms()
         {
             throw new NotImplementedException();
+        }
+
+        [POST("examine/diffdiag", IsAbsoluteUrl = true)]
+        public ActionResult SubmitDifferentialDiagnosis(DifferentialDiagnosisSubmission details)
+        {
+            var diffDiagId = _examineService.SubmitDifferentialDiagnosis(details);
+            return Json(diffDiagId, JsonRequestBehavior.DenyGet);
         }
     }
 }

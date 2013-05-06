@@ -1,60 +1,41 @@
-05-05-13@00:09:20 Info (29)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:09:21 Info (29)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.3920874 
-05-05-13@00:10:21 Info (29)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:10:21 Info (29)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0139246 
-05-05-13@00:10:27 Info (17)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:10:27 Info (17)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0126661 
-05-05-13@00:10:53 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:10:53 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0119992 
-05-05-13@00:11:48 Info (31)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:11:48 Info (31)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0120886 
-05-05-13@00:19:38 Info (35)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:19:41 Info (35)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:02.6301651 
-05-05-13@00:20:22 Info (27)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:20:50 Info (27)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:27.9748053 
-05-05-13@00:26:38 Info (19)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:27:27 Info (19)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:48.9593055 
-05-05-13@00:28:53 Info (19)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:28:58 Info (19)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:04.7555308 
-05-05-13@00:46:36 Info (39)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:46:50 Error (39)  [Common] [DifferentialDiagnosisService: 5/5/2013 7:46:50 AM]:
-[REQUEST: {Resource:{differentialDiagnosisId:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:22,submittedFor:22},IsIdCurrent:False}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. System.Object OnPost(SportsWebPt.Platform.ServiceImpl.Operations.DifferentialDiagnosisRequest)
-05-05-13@00:47:29 Info (41)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:47:34 Info (7)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:47:37 Info (7)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:03.0325699 
-05-05-13@00:48:46 Info (9)  [Common] SymptomaticRegionListRequest request submitted 
-05-05-13@00:48:47 Info (9)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.4729613 
-05-05-13@00:50:22 Info (19)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:50:26 Info (19)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:04.6364592 
-05-05-13@00:51:08 Info (12)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:51:40 Info (12)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:31.5501504 
-05-05-13@00:53:21 Info (15)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:53:30 Error (15)  [Common] [DifferentialDiagnosisService: 5/5/2013 7:53:30 AM]:
-[REQUEST: {symptomResponses:[{differentialDiagnosisId:0,symptomMatrixItemId:1,givenResponse:2}],Resource:{differentialDiagnosisId:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:22,submittedFor:22},IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
-
-Mapping types:
-SymptomResponseDto -> SymptomResponse
-SportsWebPt.Platform.ServiceModels.SymptomResponseDto -> SportsWebPt.Platform.Core.Models.SymptomResponse
-
-Destination path:
-SymptomResponse
-
-Source value:
-SportsWebPt.Platform.ServiceModels.SymptomResponseDto System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-05-05-13@00:54:25 Info (23)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:54:48 Error (23)  [Common] [DifferentialDiagnosisService: 5/5/2013 7:54:48 AM]:
-[REQUEST: {symptomResponses:[{differentialDiagnosisId:0,symptomMatrixItemId:1,givenResponse:2}],Resource:{differentialDiagnosisId:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:22,submittedFor:22},IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
-
-Mapping types:
-SymptomResponseDto -> SymptomResponse
-SportsWebPt.Platform.ServiceModels.SymptomResponseDto -> SportsWebPt.Platform.Core.Models.SymptomResponse
-
-Destination path:
-SymptomResponse
-
-Source value:
-SportsWebPt.Platform.ServiceModels.SymptomResponseDto System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-05-05-13@00:55:15 Info (32)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:55:21 Info (32)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:05.4141734 
-05-05-13@00:56:02 Info (32)  [Common] DifferentialDiagnosisRequest request submitted 
-05-05-13@00:56:02 Info (32)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.2745198 
+05-05-13@19:00:09 Info (6)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:00:12 Info (6)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:00:16 Info (6)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:03.2482610 
+05-05-13@19:00:54 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:00:54 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.4374088 
+05-05-13@19:02:56 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:02:56 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0133730 
+05-05-13@19:03:18 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:03:18 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0126205 
+05-05-13@19:07:13 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:07:13 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123593 
+05-05-13@19:07:42 Info (15)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:07:42 Error (15)  [Common] [DifferentialDiagnosisService: 5/6/2013 2:07:42 AM]:
+[REQUEST: {Resource:{differentialDiagnosisId:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:0,submittedFor:0,symptomDetails:[{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0}]},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Int32 SaveChanges()
+UpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Void DiagnoseKeyCollision(System.Data.Mapping.Update.Internal.UpdateCompiler, System.Data.Mapping.Update.Internal.PropagatorResult, System.Data.Mapping.Update.Internal.CompositeKey, System.Data.Mapping.Update.Internal.PropagatorResult)
+05-05-13@19:09:08 Info (19)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:09:08 Error (19)  [Common] [DifferentialDiagnosisService: 5/6/2013 2:09:08 AM]:
+[REQUEST: {Resource:{differentialDiagnosisId:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:0,submittedFor:0,symptomDetails:[{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0},{symptomMatrixItemId:0,givenResponse:0,id:0}]},IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Int32 SaveChanges()
+UpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Void DiagnoseKeyCollision(System.Data.Mapping.Update.Internal.UpdateCompiler, System.Data.Mapping.Update.Internal.PropagatorResult, System.Data.Mapping.Update.Internal.CompositeKey, System.Data.Mapping.Update.Internal.PropagatorResult)
+05-05-13@19:09:39 Info (22)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:09:39 Info (22)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0131709 
+05-05-13@19:10:05 Info (22)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:10:05 Info (22)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.2905230 
+05-05-13@19:23:58 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:23:58 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0188970 
+05-05-13@19:24:15 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:24:15 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0127934 
+05-05-13@19:25:45 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:25:45 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0127324 
+05-05-13@19:38:34 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:38:34 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0194193 
+05-05-13@19:38:52 Info (38)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:38:52 Info (38)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4063535 
+05-05-13@19:39:00 Info (43)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:39:00 Info (43)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.0346076 
+05-05-13@19:44:38 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
+05-05-13@19:44:38 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0264798 
+05-05-13@19:44:47 Info (48)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:44:47 Info (48)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.3685708 
+05-05-13@19:52:29 Info (57)  [Common] DifferentialDiagnosisRequest request submitted 
+05-05-13@19:52:29 Info (57)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.3095962 

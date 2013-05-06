@@ -169,7 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examin.description.js" />
+    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Content\images\logoHeader.png" />
     <Content Include="Content\kendo\2013.1.319\Black\editor.png" />
     <Content Include="Content\kendo\2013.1.319\Black\imagebrowser.png" />
@@ -325,6 +325,7 @@
     <Content Include="Content\sportsweb-pt.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\auth.form.bootstrapper.js" />
+    <Content Include="Scripts\app\services.js" />
     <Content Include="Scripts\auth.form.main.js" />
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Areas\Examine\Views\Web.config" />
@@ -346,6 +347,7 @@
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.am-ET.min.js" />
@@ -776,7 +778,7 @@
     <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
-    <Content Include="Tmpl\_description.components.tmpl.html" />
+    <Content Include="Tmpl\_examine.detail.components.tmpl.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -788,7 +790,7 @@
     <Content Include="Areas\Main\Views\Shared\_masterHeader.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_masterFooter.cshtml" />
     <Content Include="Areas\Main\Views\Index\index.cshtml" />
-    <Content Include="Tmpl\_description.area.tmpl.html" />
+    <Content Include="Tmpl\_examine.detail.area.tmpl.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

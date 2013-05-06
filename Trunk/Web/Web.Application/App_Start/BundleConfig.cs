@@ -40,7 +40,8 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/bootstrap.js", 
                         "~/Scripts/libs/knockback.js", // depends on backbone, knockout
                         "~/Scripts/libs/koExternalTemplateEngine.js",
-                        "~/Scripts/libs/kendo/2013.1.319/kendo.web.min.js"
+                        "~/Scripts/libs/kendo/2013.1.319/kendo.web.min.js",
+                        "~/Scripts/libs/extentsions/knockout-kendo.min.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/utils")

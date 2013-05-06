@@ -20,24 +20,9 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public override object OnPost(DifferentialDiagnosisRequest request)
         {
-            var differentialDiagnosisDto = request.Resource;
-            var differentialDiagEntity = Mapper.Map<DifferentialDiagnosis>(differentialDiagnosisDto);
-
+            var differentialDiagEntity = Mapper.Map<DifferentialDiagnosis>(request.Resource);
             DiffDiagUnitOfWork.DiffDiagRepo.Add(differentialDiagEntity);
             DiffDiagUnitOfWork.Commit();
-
-            if (request.symptomResponses != null)
-            {
-                foreach (var symptomResponseDto in request.symptomResponses)
-                {
-                    var symptomResponse = Mapper.Map<SymptomResponse>(symptomResponseDto);
-                    symptomResponse.DifferentialDiagnosisId = differentialDiagEntity.Id;
-
-                    DiffDiagUnitOfWork.SymptomResponseRepo.Add(symptomResponse);
-                }
-
-                DiffDiagUnitOfWork.Commit();
-            }
 
             return Ok(new ApiResponse<DifferentialDiagnosisDto>()
             {

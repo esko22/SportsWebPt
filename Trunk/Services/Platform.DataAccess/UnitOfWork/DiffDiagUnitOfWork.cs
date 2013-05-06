@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public IRepository<DifferentialDiagnosis> DiffDiagRepo { get { return GetStandardRepo<DifferentialDiagnosis>(); } }
-        public IRepository<SymptomResponse> SymptomResponseRepo { get { return GetStandardRepo<SymptomResponse>(); } }
+        public IRepository<SymptomDetail> SymptomResponseRepo { get { return GetStandardRepo<SymptomDetail>(); } }
 
         #endregion
 

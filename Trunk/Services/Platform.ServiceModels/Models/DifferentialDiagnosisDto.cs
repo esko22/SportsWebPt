@@ -23,6 +23,9 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public int submittedFor { get; set; }
 
+        [DataMember]
+        public PotentialSymptomDto[] symptomDetails { get; set; }
+
         #endregion
 
     }
