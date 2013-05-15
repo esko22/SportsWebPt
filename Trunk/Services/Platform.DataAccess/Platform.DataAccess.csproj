@@ -53,6 +53,8 @@
     <Compile Include="Contracts\ISymptomMatrixRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\DifferentialDiagnosisConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjuryConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjurySymptomMatrixItemConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomDetailConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\OrientationConfiguration.cs" />

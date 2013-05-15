@@ -112,7 +112,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<SymptomaticRegionListRequest>("symptomaticregions")
                 .Add<PotentialSymptomListRequest>("potentialsymptoms")
                 .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
-                .Add<DifferentialDiagnosisRequest>("differentialDiagnosis");
+                .Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
+                .Add<DiagnosisReportRequest>("diagnosisReport/{Id}");
         }
 
         private void ConfigureContainer(Container container)

@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DifferentialDiagnosis.cs" />
+    <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\Injury.cs" />
+    <Compile Include="Models\InjurySymptomMatrixItem.cs" />
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Side.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Workout.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

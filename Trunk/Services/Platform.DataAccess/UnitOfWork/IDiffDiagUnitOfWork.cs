@@ -8,6 +8,8 @@ namespace SportsWebPt.Platform.DataAccess
     {
         IRepository<DifferentialDiagnosis> DiffDiagRepo { get; }
 
-        IRepository<SymptomDetail> SymptomResponseRepo { get; } 
+        IRepository<SymptomDetail> SymptomResponseRepo { get; }
+
+        IRepository<Injury> InjuryRepo { get; } 
     }
 }

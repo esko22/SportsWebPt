@@ -34,10 +34,9 @@
             "~/bundles/baseapplib",
             "~/bundles/sharedapplib",
             "~/bundles/utils",
-            "~/bundles/models",
-            "~/Scripts/main.js"               
-             )
+            "~/bundles/models")
         @Scripts.Render(Model.AreaBundles.ToArray())
+        @Scripts.Render("~/Scripts/main.js");
     </body>
 </html>
 

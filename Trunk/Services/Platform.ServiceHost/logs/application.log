@@ -1,2 +1,124 @@
-05-09-13@22:47:46 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-05-09-13@22:47:49 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.2924523 
+05-15-13@01:06:38 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+05-15-13@01:06:41 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.4646533 
+05-15-13@01:06:58 Info (8)  [Common] DifferentialDiagnosisRequest request submitted 
+05-15-13@01:06:58 Info (8)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.6511714 
+05-15-13@01:13:57 Info (24)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:14:00 Info (24)  [Common] DiagnosisReportRequest request completed with duration of 00:00:02.6363293 
+05-15-13@01:14:21 Info (24)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:14:21 Info (24)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0044241 
+05-15-13@01:27:16 Info (41)  [Common] SymptomaticRegionListRequest request submitted 
+05-15-13@01:27:45 Info (41)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:28.8229459 
+05-15-13@01:28:10 Info (45)  [Common] DifferentialDiagnosisRequest request submitted 
+05-15-13@01:28:10 Info (45)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.1839700 
+05-15-13@01:35:32 Info (36)  [Common] SymptomaticRegionListRequest request submitted 
+05-15-13@01:35:35 Info (36)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:02.9395308 
+05-15-13@01:35:51 Info (38)  [Common] DifferentialDiagnosisRequest request submitted 
+05-15-13@01:35:52 Info (38)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4859699 
+05-15-13@01:36:00 Info (38)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:36:31 Info (38)  [Common] DiagnosisReportRequest request completed with duration of 00:00:31.4662496 
+05-15-13@01:41:32 Info (38)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:41:57 Error (38)  [Common] [DiagnosisReportService: 5/15/2013 8:41:57 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:
+05-15-13@01:42:54 Info (10)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:43:18 Error (10)  [Common] [DiagnosisReportService: 5/15/2013 8:43:18 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+InjuryDto[][0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:44:05 Info (21)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:44:13 Error (21)  [Common] [DiagnosisReportService: 5/15/2013 8:44:13 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+InjuryDto[][0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:45:48 Info (23)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:46:45 Error (23)  [Common] [DiagnosisReportService: 5/15/2013 8:46:45 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+List`1[0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:47:58 Info (18)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:48:40 Error (18)  [Common] [DiagnosisReportService: 5/15/2013 8:48:40 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+List`1[0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:50:30 Info (27)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:52:30 Error (27)  [Common] [DiagnosisReportService: 5/15/2013 8:52:30 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+List`1[0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:52:47 Info (18)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:52:51 Info (5)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:52:54 Error (5)  [Common] [DiagnosisReportService: 5/15/2013 8:52:54 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+List`1[0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:53:03 Info (5)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:53:34 Error (5)  [Common] [DiagnosisReportService: 5/15/2013 8:53:34 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+IEnumerable`1 -> InjuryDto
+System.Collections.Generic.IEnumerable`1[[SportsWebPt.Platform.Core.Models.Injury, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> SportsWebPt.Platform.ServiceModels.InjuryDto
+
+Destination path:
+List`1[0]
+
+Source value:
+System.Collections.Generic.List`1[SportsWebPt.Platform.Core.Models.Injury] System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+05-15-13@01:56:34 Info (6)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:57:00 Error (6)  [Common] [DiagnosisReportService: 5/15/2013 8:57:00 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:
+05-15-13@01:57:24 Info (10)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:57:35 Error (10)  [Common] [DiagnosisReportService: 5/15/2013 8:57:35 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:System.ArgumentException The 'Distinct' operation cannot be applied to the collection ResultType of the specified argument.
+Parameter name: argument System.Data.Metadata.Edm.TypeUsage ValidateDistinct(System.Data.Common.CommandTrees.DbExpression)
+05-15-13@01:57:56 Info (18)  [Common] DiagnosisReportRequest request submitted 
+05-15-13@01:58:15 Error (18)  [Common] [DiagnosisReportService: 5/15/2013 8:58:15 AM]:
+[REQUEST: {Id:2,IdAsLong:2,IdAsInt:2,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.EntityCommandCompilationException An error occurred while preparing the command definition. See the inner exception for details. Void .ctor(System.Data.Common.DbProviderFactory, System.Data.Common.CommandTrees.DbCommandTree)
+NotSupportedException Specified method is not supported. MySql.Data.Entity.SqlFragment Visit(System.Data.Common.CommandTrees.DbApplyExpression)

@@ -2,19 +2,21 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class SymptomDetail
+    public class InjurySymptomMatrixItem
     {
         #region Properties
 
+        public int Id { get; set; }
+
+        public int InjuryId { get; set; }
+
         public int SymptomMatrixItemId { get; set; }
 
-        public int GivenResponse { get; set; }
+        public int ThresholdValue { get; set; }
 
-        public int DifferentialDiagnosisId { get; set; }
+        public virtual Injury Injury { get; set; }
 
         public virtual SymptomMatrixItem SymptomMatrixItem { get; set; }
-
-        public virtual DifferentialDiagnosis DifferentialDiagnosis { get; set; }
 
         #endregion
     }

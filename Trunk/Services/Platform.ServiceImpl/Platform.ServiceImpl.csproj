@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Operations\BodyPartListRequest.cs" />
+    <Compile Include="Operations\DiagnosisReportRequest.cs" />
     <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="ServiceContentMaps.cs" />
     <Compile Include="Services\BodyPartListService.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\DiagnosisReportService.cs" />
     <Compile Include="Services\DifferentialDiagnosisService.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
     <Compile Include="Services\SkeletonAreaListService.cs" />

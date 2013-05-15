@@ -27,16 +27,16 @@ namespace SportsWebPt.Common.ServiceStack.Infrastructure
             }
         }
 
-        public int? IdAsInt
+        public int IdAsInt
         {
             get
             {
                 if (Id == null)
                 {
-                    return null;
+                    return 0;
                 }
                 int ret;
-                return int.TryParse(Id, out ret) ? ret : (int?)null;
+                return int.TryParse(Id, out ret) ? ret : 0;
             }
         }
 
