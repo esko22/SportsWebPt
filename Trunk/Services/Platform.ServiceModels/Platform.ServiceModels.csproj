@@ -80,7 +80,7 @@
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
     <Compile Include="Models\DifferentialDiagnosisDto.cs" />
-    <Compile Include="Models\DifferentialDiagnosisReportDto.cs" />
+    <Compile Include="Models\DiagnosisReportDto.cs" />
     <Compile Include="Models\InjuryDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />

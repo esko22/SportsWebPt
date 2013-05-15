@@ -41,11 +41,11 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
                    .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now));
             Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
-                   .ForMember(d => d.differentialDiagnosisId, opt => opt.MapFrom(s => s.Id))
+                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.reviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))
                    .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
-            Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisReportDto>()
-                   .ForMember(d => d.differentialDiagnosisId, opt => opt.MapFrom(s => s.Id))
+            Mapper.CreateMap<DifferentialDiagnosis, DiagnosisReportDto>()
+                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.reviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))
                    .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
             Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>();

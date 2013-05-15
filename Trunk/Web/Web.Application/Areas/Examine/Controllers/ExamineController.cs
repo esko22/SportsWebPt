@@ -71,6 +71,18 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(potentialSymptoms, JsonRequestBehavior.AllowGet);
         }
 
+        [GET("Examine/diagnosisreport/{diffDiagId}", IsAbsoluteUrl = true)]
+        public ActionResult GetDiagnosisReport(string diffDiagId)
+        {
+            var differentialDiagnosisId = 0;
+            if (!String.IsNullOrEmpty(diffDiagId))
+                int.TryParse(diffDiagId, out differentialDiagnosisId);
+
+            var diagnosisReport = _examineService.GetDiagnosisReport(differentialDiagnosisId);
+
+            return Json(diagnosisReport, JsonRequestBehavior.AllowGet);
+        }
+
         [GET("Examine/symptoms", IsAbsoluteUrl = true)]
         public ActionResult GetSymptoms()
         {
@@ -78,7 +90,7 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [POST("examine/diffdiag", IsAbsoluteUrl = true)]
-        public ActionResult SubmitDifferentialDiagnosis(DifferentialDiagnosisSubmission details)
+        public ActionResult SubmitDifferentialDiagnosis(DifferentialDiagnosis details)
         {
             var diffDiagId = _examineService.SubmitDifferentialDiagnosis(details);
             return Json(diffDiagId, JsonRequestBehavior.DenyGet);

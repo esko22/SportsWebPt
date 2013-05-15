@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int differentialDiagnosisId { get; set; }
+        public int id { get; set; }
 
         [DataMember]
         public DateTime submittedOn { get; set; }

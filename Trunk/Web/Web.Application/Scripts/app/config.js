@@ -16,8 +16,10 @@
             symptoms: $.format('{0}/{1}', hostUri, 'examine/symptoms'),
             symptomaticRegions: $.format('{0}/{1}', hostUri, 'examine/symptomaticregions'),
             symptomaticComponents: $.format('{0}/{1}', hostUri, 'examine/symptomaticcomponents'),
-            componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId=')
-        };
+            componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId='),
+            injuries: $.format('{0}/{1}', hostUri, 'examine/injuries'),
+            diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport')
+            };
 
         var configureExternalTemplates = function() {
             infuser.defaults.templatePrefix = "_";

@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId);
 
-        int SubmitDifferentialDiagnosis(DifferentialDiagnosisSubmission symptomResponse);
+        int SubmitDifferentialDiagnosis(DifferentialDiagnosis symptomResponse);
+
+        DiagnosisReport GetDiagnosisReport(int differntialDiagnosisId);
     }
 }

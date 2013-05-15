@@ -3,7 +3,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class DiagnosisReportRequest : ApiResourceRequest<DifferentialDiagnosisReportDto>
+    public class DiagnosisReportRequest : ApiResourceRequest<DiagnosisReportDto>
     {
     }
 }

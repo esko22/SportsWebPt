@@ -769,6 +769,8 @@
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\models\model.body.part.js" />
+    <Content Include="Scripts\models\model.diagnosis.report.js" />
+    <Content Include="Scripts\models\model.injury.js" />
     <Content Include="Scripts\models\model.skeleton.area.js" />
     <Content Include="Scripts\models\model.potential.symptom.js" />
     <Content Include="Scripts\models\model.symptomatic.body.part.js" />

@@ -12,7 +12,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class DiagnosisReportService : LoggingRestServiceBase<DiagnosisReportRequest, ApiResponse<DifferentialDiagnosisReportDto>>
+    public class DiagnosisReportService : LoggingRestServiceBase<DiagnosisReportRequest, ApiResponse<DiagnosisReportDto>>
     {
         #region Properties
 
@@ -25,17 +25,25 @@ namespace SportsWebPt.Platform.ServiceImpl
         public override object OnGet(DiagnosisReportRequest request)
         {
             var differentialDiagEntity = DiffDiagUnitOfWork.DiffDiagRepo.GetById(request.IdAsInt);
-            var diagnosisReportDto = Mapper.Map<DifferentialDiagnosisReportDto>(differentialDiagEntity);
+            var diagnosisReportDto = Mapper.Map<DiagnosisReportDto>(differentialDiagEntity);
 
 
-
+            //TODO: come back and look at this sql, not sure if it will gen diff if I use one repo and go direct at the context
+            var potentialInjuries =
+                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll()
+                                  .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0)
+                                  .Join(DiffDiagUnitOfWork.InjurySymptomMatrixItemRepo.GetAll(),
+                                        sd => sd.SymptomMatrixItemId, ismi => ismi.SymptomMatrixItemId,
+                                        (detail, item) => new {detail, item}).Where(isimisd => isimisd.detail.GivenResponse > isimisd.item.ThresholdValue)
+                                  .Join(DiffDiagUnitOfWork.InjuryRepo.GetAll(), ismisd => ismisd.item.InjuryId,
+                                        injury => injury.Id, (ismisd, injury) => injury).Distinct();
 
             var potentialInjuryDtos = new List<InjuryDto>();
-            //Mapper.Map(potentialInjuries, potentialInjuryDtos);
+            Mapper.Map(potentialInjuries, potentialInjuryDtos);
 
             diagnosisReportDto.PotentialInjuries = potentialInjuryDtos.ToArray();
 
-            return Ok(new ApiResponse<DifferentialDiagnosisDto>()
+            return Ok(new ApiResponse<DiagnosisReportDto>()
             {
                 Resource = diagnosisReportDto
             });
