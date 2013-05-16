@@ -1,12 +1,12 @@
-﻿define('router', ['backbone','jquery','presenter', 'vm.examine.container', 'vm.examine.detail'],
-    function (backbone,$, presenter, container, detail) {
+﻿define('router', ['backbone','jquery','presenter', 'vm.examine.container', 'vm.examine.detail', 'model.diagnosis.report', 'vm.examine.report'],
+    function (backbone,$, presenter, container, detail, DiagnosisReport, report) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
                 routes: {
                     '': 'skeleton',
                     'detail': 'detail',
-                    'injuries/:id' : 'injuries'
+                    'report/:id' : 'report'
                 }
             });
 
@@ -31,15 +31,19 @@
                     '');
                 $('#skeleton-nav').addClass('active');
             });
-            router.on('route:injuries', function (id) {
+            router.on('route:report', function (id) {
                 $('.view').hide();
                 $('.active').removeClass('active');
-                alert(id);
-                presenter.transitionTo(
-                    $('#examine-injuries'),
-                    '',
-                    '');
-                $('#injuries-nav').addClass('active');
+
+                var diagnosisReport = new DiagnosisReport({ diffDiagId: id });
+                diagnosisReport.fetch({
+                    success: function() {
+                        report.bindReport(diagnosisReport);
+                        presenter.transitionTo($('#examine-report'),'','');
+                        $('#report-nav').addClass('active');
+                    }
+                });
+
             });
 
             backbone.history.start();

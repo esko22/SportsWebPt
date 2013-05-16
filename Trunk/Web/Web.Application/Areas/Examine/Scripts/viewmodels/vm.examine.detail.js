@@ -36,7 +36,7 @@
             };
 
             var successSub = function(data) {
-                window.location.hash = 'injuries/' + data;
+                window.location.hash = 'report/' + data;
             };
 
             services.submitSymptomDetails(diffDiagSubmission,successSub);

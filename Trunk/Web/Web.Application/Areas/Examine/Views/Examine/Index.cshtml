@@ -11,7 +11,7 @@
     <ul class="breadcrumb main-breadcrumb">
         <li><a href="#" id="skeleton-nav">Select Region(s)</a> <span class="divider">\</span></li>
         <li><a href="#detail" id="detail-nav">Describe Discomfort</a> <span class="divider">\</span></li>
-        <li><a href="#injuries" id="injuries-nav">Potential Injuries</a></li>
+        <li><a href="#report" id="report-nav">Potential Injuries</a></li>
     </ul>
 </div>
 
@@ -68,9 +68,18 @@
     </div>
     
     
-    <div id="examine-injuries" class="view container">
+    <div id="examine-report" class="view container">
         <div>
             <h3><strong>Potential Injuries</strong></h3>
+        </div>
+        <div>
+            <ul data-bind="foreach: injuries">
+                <li>
+                    <div>Common Name: <span data-bind="text: commonName"></span></div>
+                    <div>Medical Name: <span data-bind="text: medicalName"></span></div>
+                    <div><span data-bind="text: openingStatement"></span></div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

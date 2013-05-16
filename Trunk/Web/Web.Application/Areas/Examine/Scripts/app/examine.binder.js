@@ -8,8 +8,8 @@
                 kb.applyBindings(vm.container, $(ids.container).get(0));
                 kb.applyBindings(vm.skeleton, $(ids.skeleton).get(0));
                 kb.applyBindings(vm.detail, $(ids.detail).get(0));
+                kb.applyBindings(vm.report, $(ids.report).get(0));
             };
-
 
         return {
             bind: bind

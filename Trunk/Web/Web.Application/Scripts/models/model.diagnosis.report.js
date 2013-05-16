@@ -3,18 +3,11 @@
         var
             diagnosisReport = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.diagnosisReport,
-                defaults: {
-                },
-                idAttribute: 'differenetialDiagnosisId',
+                idAttribute: 'diffDiagId',
                 relations: [{
                     type: backbone.HasMany,
                     key: 'potentialInjuries',
-                    relatedModel: Injury,
-                    collectionType: InjuryCollection,
-                    reverseRelation: {
-                        key: 'diagnosisReportId',
-                        includeInJSON: 'differenetialDiagnosisId'
-                    }
+                    relatedModel: Injury
                 }]
             });
 
