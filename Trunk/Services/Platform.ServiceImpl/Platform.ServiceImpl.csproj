@@ -91,6 +91,7 @@
     <Compile Include="Services\SymptomaticRegionService.cs" />
     <Compile Include="Services\SymptomListService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\WorkoutService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.DataAccess\Common.DataAccess.csproj">

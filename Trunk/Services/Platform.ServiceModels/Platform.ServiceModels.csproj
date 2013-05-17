@@ -79,16 +79,22 @@
     <Compile Include="Models\BodyPartSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
+    <Compile Include="Models\CauseDto.cs" />
     <Compile Include="Models\DifferentialDiagnosisDto.cs" />
     <Compile Include="Models\DiagnosisReportDto.cs" />
+    <Compile Include="Models\EquipmentDto.cs" />
+    <Compile Include="Models\ExerciseDto.cs" />
     <Compile Include="Models\InjuryDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
+    <Compile Include="Models\SignDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />
     <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\SymptomaticRegionDto.cs" />
     <Compile Include="Models\SymptomDto.cs" />
     <Compile Include="Models\UserDto.cs" />
+    <Compile Include="Models\VideoDto.cs" />
+    <Compile Include="Models\WorkoutDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
