@@ -6,5 +6,20 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public class EquipementConfiguration : EntityTypeConfiguration<Equipment>
     {
+
+        #region Construction
+
+        public EquipementConfiguration()
+        {
+            ToTable("Equipment");
+            Property(p => p.CommonName).IsRequired().HasColumnName("common_name").HasMaxLength(500);
+            Property(p => p.PriceRange).HasColumnName("price_range").HasMaxLength(50);
+            Property(p => p.RecommendedVendor).HasColumnName("recommended_vendor").HasMaxLength(100);
+            Property(p => p.TechnicalName).IsRequired().HasColumnName("technical_name").HasMaxLength(100);
+            Property(p => p.Id).IsRequired().HasColumnName("equipment_id");
+        }
+
+        #endregion
+
     }
 }
