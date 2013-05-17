@@ -37,7 +37,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             var potentialInjuryDtos = new List<InjuryDto>();
             Mapper.Map(potentialInjuries, potentialInjuryDtos);
 
-            diagnosisReportDto.potentialInjuries = potentialInjuryDtos.ToArray();
+            if (potentialInjuryDtos.Count > 0)
+                diagnosisReportDto.potentialInjuries = potentialInjuryDtos.ToArray();
 
             return Ok(new ApiResponse<DiagnosisReportDto>()
             {

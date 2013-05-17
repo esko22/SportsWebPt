@@ -37,8 +37,278 @@ namespace SportsWebPt.Platform.DataAccess
             var bodyPartMartix = AddBodyPartsToAreas(skeletonareas,components);
             var symptomMatrixItems = BuildSymptomMatrix(symptoms, bodyPartMartix);
             var injuries = AddInjuries();
+            var equipment = AddEquipment();
+            var videos = AddVideos();
+            var exercises = AddExercises();
+            var causes = AddCauses();
+            var signs = AddSigns();
+            var workouts = AddWorkouts();
 
             BuildInjurySymptomMatrix(symptomMatrixItems,injuries);
+            AssociateInjuryCause(causes, injuries);
+            AssociateInjurySigns(signs, injuries);
+            AssociateInjuryWorkouts(injuries, workouts);
+            AssociateWorkoutExercise(workouts, exercises);
+            AssociateExerciseVideos(exercises, videos);
+            AssociateExerciseEquipment(exercises, equipment);
+        }
+
+        private void AssociateInjuryCause(IList<Cause> causes, IList<Injury> injuries)
+        {
+            var injuryCauses = new List<InjuryCauseMatrixItem>()
+                {
+                    new InjuryCauseMatrixItem() {Cause = causes[0], Injury = injuries[0]},
+                    new InjuryCauseMatrixItem() {Cause = causes[0], Injury = injuries[1]},
+                    new InjuryCauseMatrixItem() {Cause = causes[0], Injury = injuries[2]},
+                    new InjuryCauseMatrixItem() {Cause = causes[0], Injury = injuries[3]},
+                    new InjuryCauseMatrixItem() {Cause = causes[1], Injury = injuries[3]},
+                    new InjuryCauseMatrixItem() {Cause = causes[2], Injury = injuries[1]},
+                    new InjuryCauseMatrixItem() {Cause = causes[3], Injury = injuries[0]},
+                    new InjuryCauseMatrixItem() {Cause = causes[4], Injury = injuries[2]},
+                    new InjuryCauseMatrixItem() {Cause = causes[5], Injury = injuries[2]}
+                };
+
+            injuryCauses.ForEach(p => _dbContext.InjuryCauseMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+        }
+
+        private List<Cause> AddCauses()
+        {
+            var causes = new List<Cause>()
+                {
+                    new Cause() {Description = "Repetitive stress"},
+                    new Cause() {Description = "Accelerating"},
+                    new Cause() {Description = "Sudden increase in training volume"},
+                    new Cause() {Description = "Speed Workouts"},
+                    new Cause() {Description = "Running"},
+                    new Cause() {Description = "Overweight"}
+                };
+
+            causes.ForEach(p => _dbContext.Causes.Add(p));
+            _dbContext.SaveChanges();
+
+            return causes;
+        }
+
+        private void AssociateInjurySigns(IList<Sign> signs, IList<Injury> injuries)
+        {
+            var injurySigns = new List<InjurySignMatrixItem>()
+                {
+                    new InjurySignMatrixItem() {Injury = injuries[3], Sign = signs[0]},
+                    new InjurySignMatrixItem() {Injury = injuries[2], Sign = signs[1]},
+                    new InjurySignMatrixItem() {Injury = injuries[2], Sign = signs[0]},
+                    new InjurySignMatrixItem() {Injury = injuries[0], Sign = signs[3]},
+                    new InjurySignMatrixItem() {Injury = injuries[0], Sign = signs[4]},
+                    new InjurySignMatrixItem() {Injury = injuries[1], Sign = signs[3]},
+                    new InjurySignMatrixItem() {Injury = injuries[2], Sign = signs[2]}
+                };
+
+            injurySigns.ForEach(p => _dbContext.InjurySignMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+        }
+
+        private List<Sign> AddSigns()
+        {
+            var signs = new List<Sign>()
+                {
+                    new Sign() { Category = SignCategory.Functional, Description = "Painful to jump"},
+                    new Sign() { Category = SignCategory.Visual, Description = "Love Handles"},
+                    new Sign() { Category = SignCategory.Functional, Description = "Limited push-off"},
+                    new Sign() { Category = SignCategory.Subjective, Description = "Throbing"},
+                    new Sign() { Category = SignCategory.Subjective, Description = "Stiffness"},
+                };
+
+            signs.ForEach(p => _dbContext.Signs.Add(p));
+            _dbContext.SaveChanges();
+
+            return signs;
+        }
+
+        private void AssociateInjuryWorkouts(IList<Injury> injuries, IList<Workout> workouts)
+        {
+            var injuryWorkouts = new List<InjuryWorkoutMatrixItem>()
+                {
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[2], Workout = workouts[0]},
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[2], Workout = workouts[3]},
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[0], Workout = workouts[1]},
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[1], Workout = workouts[2]},
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[3], Workout = workouts[3]},
+                    new InjuryWorkoutMatrixItem() {Injury = injuries[3], Workout = workouts[4]}
+                };
+            injuryWorkouts.ForEach(p => _dbContext.InjuryWorkoutMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+        }
+
+        private List<Workout> AddWorkouts()
+        {
+            var workouts = new List<Workout>()
+                {
+                    new Workout()
+                        {
+                            RoutineName = "Plantar Fascia Rehab 1",
+                            Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
+                            Duration = 5,
+                            MusclesInvolved = "Plantar Fascia, Gastroc/Soleus",
+                            Category = WorkoutCategory.Rehabilitation
+                        },
+                     new Workout()
+                        {
+                            RoutineName = "Sprained Ankle Stretching",
+                            Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
+                            Duration = 5,
+                            MusclesInvolved = "Ankle Joint/Ligaments, Soleus",
+                            Category = WorkoutCategory.Stretch
+                        },
+                     new Workout()
+                        {
+                            RoutineName = "General Shin Splint Stretching",
+                            Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
+                            Duration = 5,
+                            MusclesInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
+                            Category = WorkoutCategory.Stretch
+                        },
+                     new Workout()
+                        {
+                            RoutineName = "Soleus Stretching",
+                            Description = "This program is designed for athletes to stretch their soleus muscle.",
+                            Duration = 5,
+                            MusclesInvolved = "Soleus",
+                            Category = WorkoutCategory.Stretch
+                        },
+                     new Workout()
+                        {
+                            RoutineName = "Calf Strain Rehab",
+                            Description = "This program is designed to be used for athletes with an acute calf muscle.",
+                            Duration = 5,
+                            MusclesInvolved = "Gastrocnemius, Soleus, Hamstrings",
+                            Category = WorkoutCategory.Rehabilitation
+                        }
+                };
+
+            workouts.ForEach(p => _dbContext.Workouts.Add(p));
+            _dbContext.SaveChanges();
+
+            return workouts;
+
+        }
+
+        private void AssociateWorkoutExercise(IList<Workout> workouts, IList<Exercise> exercises)
+        {
+            var workoutExercises = new List<WorkoutExceriseMatrixItem>()
+                {
+                    new WorkoutExceriseMatrixItem() {Workout = workouts[0], Exercise = exercises[0]},
+                    new WorkoutExceriseMatrixItem() {Workout = workouts[0], Exercise = exercises[1]},
+                    new WorkoutExceriseMatrixItem() {Workout = workouts[1], Exercise = exercises[0]},
+                    new WorkoutExceriseMatrixItem() {Workout = workouts[2], Exercise = exercises[3]},
+                    new WorkoutExceriseMatrixItem() {Workout = workouts[3], Exercise = exercises[2]},
+                    new WorkoutExceriseMatrixItem() { Workout = workouts[3], Exercise = exercises[3]},
+                    new WorkoutExceriseMatrixItem() { Workout = workouts[3], Exercise = exercises[4]},
+                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[4]},
+                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[5]},
+                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[6]}
+                };
+
+            workoutExercises.ForEach(p => _dbContext.WorkoutExceriseMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
+        private List<Exercise> AddExercises()
+        {
+            var exercises = new List<Exercise>()
+                {
+                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10},
+                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3},
+                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7},
+                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5}
+                };
+
+            exercises.ForEach(p => _dbContext.Exercises.Add(p));
+            _dbContext.SaveChanges();
+
+            return exercises;
+        }
+
+        private List<Video> AddVideos()
+        {
+            var videos = new List<Video>()
+                {
+                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself"}
+                };
+
+            videos.ForEach(p => _dbContext.Videos.Add(p));
+            _dbContext.SaveChanges();
+
+            return videos;
+        }
+
+        private void AssociateExerciseVideos(IList<Exercise> exercises, IList<Video> videos)
+        {
+            var exerciseVideos = new List<ExerciseVideoMatrixItem>()
+                {
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[0], Video = videos[4]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[1], Video = videos[3]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[2], Video = videos[0]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[3], Video = videos[1]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[4], Video = videos[2]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[5], Video = videos[0]},
+                    new ExerciseVideoMatrixItem() {Exercise = exercises[6], Video = videos[4]}
+                };
+
+            exerciseVideos.ForEach(p => _dbContext.ExerciseVideoMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
+        private void AssociateExerciseEquipment(IList<Exercise> exercises, IList<Equipment> equipment)
+        {
+            var exerciseEquipment = new List<ExerciseEquipmentMatrixItem>()
+                {
+                    new ExerciseEquipmentMatrixItem() {Exercise = exercises[0], Equipment = equipment[2]},
+                    new ExerciseEquipmentMatrixItem() {Exercise = exercises[2], Equipment = equipment[0]},
+                    new ExerciseEquipmentMatrixItem() {Exercise = exercises[2], Equipment = equipment[3]},
+                    new ExerciseEquipmentMatrixItem() {Exercise = exercises[3], Equipment = equipment[0]},
+                    new ExerciseEquipmentMatrixItem() {Exercise = exercises[3], Equipment = equipment[3]}
+                };
+
+            exerciseEquipment.ForEach(p => _dbContext.ExerciseEquipmentMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
+        private List<Equipment> AddEquipment()
+        {
+            var equipmentList = new List<Equipment>()
+                {
+                    new Equipment()
+                        {
+                            CommonName = "Foam Roller",
+                            TechnicalName = "Roller de Foame",
+                            PriceRange = "10 - 50",
+                            RecommendedVendor = "Foam House"
+                        },
+                    new Equipment()
+                        {
+                            CommonName = "Theracane",
+                            TechnicalName = "Theracane",
+                            PriceRange = "20 - 60",
+                            RecommendedVendor = "ActiveLife"
+                        },
+                    new Equipment() {CommonName = "Baseball", TechnicalName = "Baseball", PriceRange = "2 - 7"},
+                    new Equipment() {CommonName = "Wall", TechnicalName = "Wall", PriceRange = "0"}
+                };
+
+            equipmentList.ForEach(p => _dbContext.Equipment.Add(p));
+            _dbContext.SaveChanges();
+
+            return equipmentList;
         }
 
         private List<SymptomMatrixItem> BuildSymptomMatrix(IEnumerable<Symptom> symptoms, IEnumerable<BodyPartMatrixItem> bodyPartMartix)

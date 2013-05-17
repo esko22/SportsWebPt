@@ -13,7 +13,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Name { get; set; }
 
-        public String Url { get; set; }
+        public String Description { get; set; }
+
+        public String Filename { get; set; }
 
         public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }  
 

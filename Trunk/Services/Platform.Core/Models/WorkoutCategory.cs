@@ -6,6 +6,7 @@ namespace SportsWebPt.Platform.Core.Models
     {
         Rehabilitation,
         Preventative,
-        Stretch
+        Stretch,
+        Strength
     }
 }

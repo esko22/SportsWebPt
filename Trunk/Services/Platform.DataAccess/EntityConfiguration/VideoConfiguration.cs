@@ -11,7 +11,8 @@ namespace SportsWebPt.Platform.DataAccess
         public VideoConfiguration()
         {
             ToTable("Video");
-            Property(p => p.Url).IsRequired().HasColumnName("url").HasMaxLength(500);
+            Property(p => p.Filename).IsRequired().HasColumnName("filename").HasMaxLength(100);
+            Property(p => p.Description).HasColumnName("description").HasMaxLength(500);
             Property(p => p.CreationDate).HasColumnName("created_on").IsRequired();
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(100);
             Property(p => p.Id).IsRequired().HasColumnName("video_id");
