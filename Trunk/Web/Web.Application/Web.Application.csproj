@@ -172,6 +172,7 @@
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Content\images\logoFooter.png" />
+    <Content Include="Content\images\logoFooterDark.png" />
     <Content Include="Content\images\logoHeader.png" />
     <Content Include="Content\kendo\2013.1.319\Black\editor.png" />
     <Content Include="Content\kendo\2013.1.319\Black\imagebrowser.png" />

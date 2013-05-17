@@ -44,13 +44,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DifferentialDiagnosis.cs" />
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\ExerciseVideoMatrixItem.cs" />
     <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\ExerciseDifficulty.cs" />
+    <Compile Include="Models\ExerciseEquipmentMatrixItem.cs" />
     <Compile Include="Models\Injury.cs" />
+    <Compile Include="Models\InjuryCauseMatrixItem.cs" />
+    <Compile Include="Models\InjurySignMatrixItem.cs" />
     <Compile Include="Models\InjurySymptomMatrixItem.cs" />
+    <Compile Include="Models\InjuryWorkoutMatrixItem.cs" />
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
+    <Compile Include="Models\Cause.cs" />
     <Compile Include="Models\Side.cs" />
     <Compile Include="Models\BodyPart.cs" />
+    <Compile Include="Models\Sign.cs" />
+    <Compile Include="Models\SignCategory.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\BodyPartMatrixItem.cs" />
     <Compile Include="Models\SymptomDetail.cs" />
@@ -58,7 +68,10 @@
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Workout.cs" />
+    <Compile Include="Models\WorkoutCategory.cs" />
+    <Compile Include="Models\WorkoutExceriseMatrixItem.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

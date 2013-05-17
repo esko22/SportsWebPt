@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class Exercise
+    public class Equipment
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public String Name { get; set; }
+        public String CommonName { get; set; }
 
-        public String Description { get; set; }
+        public String TechnicalName { get; set; }
 
-        public int Duration { get; set; }
+        public String PriceRange { get; set; }
 
-        public ExerciseDifficulty Difficulty { get; set; }
+        public String RecommendedVendor { get; set; }
 
         public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }  
 

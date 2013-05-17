@@ -1,12 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    class Workout
+    public class Workout
     {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public WorkoutCategory Category { get; set; }
+
+        public String RoutineName { get; set; }
+
+        public String Description { get; set; }
+
+        public String MusclesInvolved { get; set; }
+
+        public int Duration { get; set; }
+
+        public ICollection<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
+
+        public ICollection<WorkoutExceriseMatrixItem> WorkoutExerciseMatrixItems { get; set; }
+
+        #endregion
     }
 }
