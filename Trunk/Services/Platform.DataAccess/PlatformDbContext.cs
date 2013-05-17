@@ -23,7 +23,19 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<DifferentialDiagnosis> DifferentialDiagnoses { get; set; }
         public DbSet<SymptomDetail> SymptomDiagnosisResults { get; set; }
         public DbSet<Injury> Injuries { get; set; }
-        public DbSet<InjurySymptomMatrixItem> InjurySymptomMatrix { get; set; } 
+        public DbSet<InjurySymptomMatrixItem> InjurySymptomMatrix { get; set; }
+        public DbSet<Cause> Causes { get; set; }
+        public DbSet<Equipment> Equipment { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }
+        public DbSet<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }
+        public DbSet<InjuryCauseMatrixItem> InjuryCauseMatrixItems { get; set; }
+        public DbSet<InjurySignMatrixItem> InjurySignMatrixItems { get; set; }
+        public DbSet<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
+        public DbSet<Sign> Signs { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<WorkoutExceriseMatrixItem> WorkoutExceriseMatrixItems { get; set; } 
 
         #endregion
 
@@ -60,8 +72,20 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new DifferentialDiagnosisConfiguration());
             modelBuilder.Configurations.Add(new SymptomDetailConfiguration());
             modelBuilder.Configurations.Add(new InjuryConfiguration());
-            modelBuilder.Configurations.Add(new InjurySymptomMatrixItemConfiguration());
-            
+            modelBuilder.Configurations.Add(new InjurySymptomMatrixConfiguration());
+            modelBuilder.Configurations.Add(new CauseConfiguration());
+            modelBuilder.Configurations.Add(new EquipmentConfiguration());
+            modelBuilder.Configurations.Add(new ExerciseConfiguration());
+            modelBuilder.Configurations.Add(new ExerciseEquipmentMatrixConfiguration());
+            modelBuilder.Configurations.Add(new ExerciseVideoMatrixConfiguration());
+            modelBuilder.Configurations.Add(new InjuryCauseMatrixConfiguration());
+            modelBuilder.Configurations.Add(new InjurySignMatrixConfiguration());
+            modelBuilder.Configurations.Add(new InjuryWorkoutMatrixConfiguration());
+            modelBuilder.Configurations.Add(new SignConfiguration());
+            modelBuilder.Configurations.Add(new VideoConfiguration());
+            modelBuilder.Configurations.Add(new WorkoutConfiguration());
+            modelBuilder.Configurations.Add(new WorkoutExerciseMatrixConfiguration());
+
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.CalculatedResults);

@@ -54,13 +54,13 @@
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\DifferentialDiagnosisConfiguration.cs" />
-    <Compile Include="EntityConfiguration\EquipementConfiguration.cs" />
+    <Compile Include="EntityConfiguration\EquipmentConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseEquipmentMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryCauseMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjurySignMatrixConfiguration.cs" />
-    <Compile Include="EntityConfiguration\InjurySymptomMatrixItemConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjurySymptomMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryWorkoutMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\SignConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomDetailConfiguration.cs" />
@@ -76,7 +76,7 @@
     <Compile Include="EntityConfiguration\VideoConfiguration.cs" />
     <Compile Include="EntityConfiguration\WorkoutConfiguration.cs" />
     <Compile Include="EntityConfiguration\WorkoutExerciseMatrixConfiguration.cs" />
-    <Compile Include="EntityConfiguration\WorkoutVideoMatrixConfiguration.cs" />
+    <Compile Include="EntityConfiguration\ExerciseVideoMatrixConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
     <Compile Include="PlatformRepositoryFactory.cs" />

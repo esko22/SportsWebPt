@@ -4,11 +4,11 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class InjurySymptomMatrixItemConfiguration : EntityTypeConfiguration<InjurySymptomMatrixItem>
+    public class InjurySymptomMatrixConfiguration : EntityTypeConfiguration<InjurySymptomMatrixItem>
     {
         #region Construction
 
-        public InjurySymptomMatrixItemConfiguration()
+        public InjurySymptomMatrixConfiguration()
         {
             ToTable("InjurySymptomMatrixItem");
             Property(p => p.InjuryId).IsRequired().HasColumnName("injury_id");

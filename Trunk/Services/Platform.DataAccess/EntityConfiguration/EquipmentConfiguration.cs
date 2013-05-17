@@ -4,12 +4,12 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class EquipementConfiguration : EntityTypeConfiguration<Equipment>
+    public class EquipmentConfiguration : EntityTypeConfiguration<Equipment>
     {
 
         #region Construction
 
-        public EquipementConfiguration()
+        public EquipmentConfiguration()
         {
             ToTable("Equipment");
             Property(p => p.CommonName).IsRequired().HasColumnName("common_name").HasMaxLength(500);
