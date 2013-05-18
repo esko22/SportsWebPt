@@ -17,7 +17,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ExerciseDifficulty Difficulty { get; set; }
 
-        public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }  
+        public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }
+
+        public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; } 
 
         #endregion
     }

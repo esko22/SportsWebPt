@@ -194,18 +194,18 @@ namespace SportsWebPt.Platform.DataAccess
 
         private void AssociateWorkoutExercise(IList<Workout> workouts, IList<Exercise> exercises)
         {
-            var workoutExercises = new List<WorkoutExceriseMatrixItem>()
+            var workoutExercises = new List<WorkoutExerciseMatrixItem>()
                 {
-                    new WorkoutExceriseMatrixItem() {Workout = workouts[0], Exercise = exercises[0]},
-                    new WorkoutExceriseMatrixItem() {Workout = workouts[0], Exercise = exercises[1]},
-                    new WorkoutExceriseMatrixItem() {Workout = workouts[1], Exercise = exercises[0]},
-                    new WorkoutExceriseMatrixItem() {Workout = workouts[2], Exercise = exercises[3]},
-                    new WorkoutExceriseMatrixItem() {Workout = workouts[3], Exercise = exercises[2]},
-                    new WorkoutExceriseMatrixItem() { Workout = workouts[3], Exercise = exercises[3]},
-                    new WorkoutExceriseMatrixItem() { Workout = workouts[3], Exercise = exercises[4]},
-                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[4]},
-                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[5]},
-                    new WorkoutExceriseMatrixItem() { Workout = workouts[4], Exercise = exercises[6]}
+                    new WorkoutExerciseMatrixItem() {Workout = workouts[0], Exercise = exercises[0]},
+                    new WorkoutExerciseMatrixItem() {Workout = workouts[0], Exercise = exercises[1]},
+                    new WorkoutExerciseMatrixItem() {Workout = workouts[1], Exercise = exercises[0]},
+                    new WorkoutExerciseMatrixItem() {Workout = workouts[2], Exercise = exercises[3]},
+                    new WorkoutExerciseMatrixItem() {Workout = workouts[3], Exercise = exercises[2]},
+                    new WorkoutExerciseMatrixItem() { Workout = workouts[3], Exercise = exercises[3]},
+                    new WorkoutExerciseMatrixItem() { Workout = workouts[3], Exercise = exercises[4]},
+                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[4]},
+                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[5]},
+                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[6]}
                 };
 
             workoutExercises.ForEach(p => _dbContext.WorkoutExceriseMatrixItems.Add(p));

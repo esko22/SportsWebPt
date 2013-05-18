@@ -35,7 +35,7 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<Sign> Signs { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Workout> Workouts { get; set; }
-        public DbSet<WorkoutExceriseMatrixItem> WorkoutExceriseMatrixItems { get; set; } 
+        public DbSet<WorkoutExerciseMatrixItem> WorkoutExceriseMatrixItems { get; set; } 
 
         #endregion
 

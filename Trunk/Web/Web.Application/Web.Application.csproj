@@ -296,6 +296,7 @@
     <Content Include="Content\kendo\2013.1.319\Uniform\slider-v.gif" />
     <Content Include="Content\kendo\2013.1.319\Uniform\sprite%402x.png" />
     <Content Include="Content\kendo\2013.1.319\Uniform\sprite.png" />
+    <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>

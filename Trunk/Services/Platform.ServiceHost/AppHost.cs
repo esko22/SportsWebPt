@@ -16,6 +16,7 @@ using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
+using SportsWebPt.Platform.DataAccess.UnitOfWork;
 using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceImpl.Services;
@@ -113,7 +114,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<PotentialSymptomListRequest>("potentialsymptoms")
                 .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
                 .Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
-                .Add<DiagnosisReportRequest>("diagnosisReport/{Id}");
+                .Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
+                .Add<WorkoutRequest>("workouts/{Id}");
         }
 
         private void ConfigureContainer(Container container)
@@ -126,6 +128,7 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
+            container.Register<IWorkoutUnitOfWork>(c => new WorkoutUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
         }
 
         private void BoostrapEf()

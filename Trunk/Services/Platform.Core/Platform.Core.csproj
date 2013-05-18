@@ -71,7 +71,7 @@
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="Models\WorkoutCategory.cs" />
-    <Compile Include="Models\WorkoutExceriseMatrixItem.cs" />
+    <Compile Include="Models\WorkoutExerciseMatrixItem.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

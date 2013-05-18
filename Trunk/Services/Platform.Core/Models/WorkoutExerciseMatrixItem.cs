@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class WorkoutExceriseMatrixItem
+    public class WorkoutExerciseMatrixItem
     {
         #region Properties
 

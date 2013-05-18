@@ -80,6 +80,7 @@
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
     <Compile Include="Operations\SymptomListRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
+    <Compile Include="Operations\WorkoutRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContentMaps.cs" />
     <Compile Include="Services\BodyPartListService.cs" />

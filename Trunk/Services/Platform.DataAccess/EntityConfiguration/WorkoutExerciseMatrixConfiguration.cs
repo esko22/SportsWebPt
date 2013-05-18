@@ -4,7 +4,7 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class WorkoutExerciseMatrixConfiguration : EntityTypeConfiguration<WorkoutExceriseMatrixItem>
+    public class WorkoutExerciseMatrixConfiguration : EntityTypeConfiguration<WorkoutExerciseMatrixItem>
     {
         #region Construction
 

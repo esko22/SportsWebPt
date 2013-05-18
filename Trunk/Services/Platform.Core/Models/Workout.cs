@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
 
-        public ICollection<WorkoutExceriseMatrixItem> WorkoutExerciseMatrixItems { get; set; }
+        public ICollection<WorkoutExerciseMatrixItem> WorkoutExerciseMatrixItems { get; set; }
 
         #endregion
     }

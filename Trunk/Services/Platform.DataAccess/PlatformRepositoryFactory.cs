@@ -13,7 +13,9 @@ namespace SportsWebPt.Platform.DataAccess
             return new Dictionary<Type, Func<DbContext, object>>
                 {
                    {typeof(ISkeletonRepo), dbContext => new SkeletonRepo(dbContext)},
-                   {typeof(ISymptomMatrixRepo), dbContext => new SymptomMatrixRepo(dbContext)}
+                   {typeof(ISymptomMatrixRepo), dbContext => new SymptomMatrixRepo(dbContext)},
+                   {typeof(IWorkoutRepo), dbContext => new WorkoutRepo(dbContext)},
+                   {typeof(IExerciseRepo), dbContext => new ExerciseRepo(dbContext)}
                 };
         }
 

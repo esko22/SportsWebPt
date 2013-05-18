@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
 
 using SportsWebPt.Platform.Core.Models;
@@ -50,6 +51,12 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
             Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>();
             Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
+            Mapper.CreateMap<Workout, WorkoutDto>();
+            Mapper.CreateMap<Exercise, ExerciseDto>()
+                  .ForMember(d => d.videos, opt => opt.MapFrom(s => s.ExerciseVideoMatrixItems.Select(p => p.Video)))
+                  .ForMember(d => d.equipment, opt => opt.MapFrom(s => s.ExerciseEquipmentMatrixItems.Select(p => p.Equipment)));
+            Mapper.CreateMap<Video, VideoDto>();
+            Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<Injury, InjuryDto>();
 
         }
