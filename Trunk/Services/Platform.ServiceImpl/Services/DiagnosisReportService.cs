@@ -2,7 +2,7 @@
 using System.Linq;
 
 using AutoMapper;
-
+using ServiceStack.ServiceInterface.ServiceModel;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -24,7 +24,6 @@ namespace SportsWebPt.Platform.ServiceImpl
             var differentialDiagEntity = DiffDiagUnitOfWork.DiffDiagRepo.GetById(request.IdAsInt);
             var diagnosisReportDto = Mapper.Map<DiagnosisReportDto>(differentialDiagEntity);
 
-            //TODO: come back and look at this sql, not sure if it will gen diff if I use one repo and go direct at the context
             var potentialInjuries =
                 DiffDiagUnitOfWork.SymptomResponseRepo.GetAll()
                                   .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0)
@@ -36,6 +35,12 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var potentialInjuryDtos = new List<InjuryDto>();
             Mapper.Map(potentialInjuries, potentialInjuryDtos);
+
+            //foreach (var potentialInjuryDto in potentialInjuryDtos)
+            //{
+            //    potentialInjuryDto.workoutDtos = 
+            //}
+            
 
             if (potentialInjuryDtos.Count > 0)
                 diagnosisReportDto.potentialInjuries = potentialInjuryDtos.ToArray();

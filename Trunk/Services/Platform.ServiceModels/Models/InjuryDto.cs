@@ -23,6 +23,9 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String description { get; set; }
 
+        [DataMember]
+        public WorkoutDto[] workoutDtos { get; set; }
+
         #endregion
     }
 }

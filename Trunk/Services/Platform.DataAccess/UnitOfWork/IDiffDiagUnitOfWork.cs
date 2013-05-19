@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get; }
 
+        IRepository<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItemRepo { get; } 
+        
         IRepository<Injury> InjuryRepo { get; } 
     }
 }

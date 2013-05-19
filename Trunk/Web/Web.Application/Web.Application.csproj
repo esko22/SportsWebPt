@@ -165,6 +165,8 @@
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
     <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
     <Compile Include="Areas\Main\ViewModels\AuthFormViewModel.cs" />
+    <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
+    <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -350,6 +352,7 @@
     <Content Include="Areas\Main\Views\Shared\_noAuthHeader.cshtml" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
+    <Content Include="Areas\Research\Views\Web.config" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -773,6 +776,8 @@
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\models\model.body.part.js" />
     <Content Include="Scripts\models\model.diagnosis.report.js" />
+    <Content Include="Scripts\models\model.equipment.js" />
+    <Content Include="Scripts\models\model.exercise.js" />
     <Content Include="Scripts\models\model.injury.js" />
     <Content Include="Scripts\models\model.skeleton.area.js" />
     <Content Include="Scripts\models\model.potential.symptom.js" />
@@ -782,6 +787,8 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\models\model.video.js" />
+    <Content Include="Scripts\models\model.workout.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
     <Content Include="Tmpl\_examine.detail.components.tmpl.html" />
@@ -804,6 +811,8 @@
     <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Examine\Models\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
+    <Folder Include="Areas\Research\Models\" />
+    <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

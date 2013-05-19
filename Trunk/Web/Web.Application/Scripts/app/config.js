@@ -18,7 +18,11 @@
             symptomaticComponents: $.format('{0}/{1}', hostUri, 'examine/symptomaticcomponents'),
             componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId='),
             injuries: $.format('{0}/{1}', hostUri, 'examine/injuries'),
-            diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport')
+            diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport'),
+            workouts: $.format('{0}/{1}', hostUri, 'research/workouts'),
+            exercises: $.format('{0}/{1}', hostUri, 'research/exercises'),
+            equipment: $.format('{0}/{1}', hostUri, 'research/equipment'),
+            videos: $.format('{0}/{1}', hostUri, 'research/videos')
             };
 
         var configureExternalTemplates = function() {

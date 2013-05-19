@@ -6,7 +6,6 @@ using AutoMapper;
 using SportsWebPt.Common.ServiceStackClient;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -21,7 +20,6 @@ namespace SportsWebPt.Platform.Web.Services
         private readonly String _potentialSymptomUriPath = String.Empty;
         private readonly String _diffDiagUriPath = String.Empty;
         private readonly String _diagnosisReport = String.Empty;
-        private readonly String _workoutPath = String.Empty;
 
         #endregion
 
@@ -36,7 +34,6 @@ namespace SportsWebPt.Platform.Web.Services
             _potentialSymptomUriPath = String.Format("/{0}/potentialsymptoms", _settings.Version);
             _diffDiagUriPath = String.Format("/{0}/differentialdiagnosis", _settings.Version);
             _diagnosisReport = String.Format("/{0}/diagnosisreports", _settings.Version);
-            _workoutPath = String.Format("/{0}/workouts", _settings.Version);
         }
 
         #endregion
@@ -99,18 +96,5 @@ namespace SportsWebPt.Platform.Web.Services
 
             return diagReport;
         }
-
-        public Workout GetWorkout(int workoutId)
-        {
-            var response =
-                GetSync<ApiResourceRequest<WorkoutDto>>(String.Format("{0}/{1}", _workoutPath, workoutId));
-
-            var diagReport = Mapper.Map<DiagnosisReport>(response.Resource);
-
-            return diagReport;
-            
-        }
-
-
     }
 }

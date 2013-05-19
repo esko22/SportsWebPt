@@ -28,8 +28,10 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.submittedFor, opt => opt.MapFrom(s => s.submittedFor));
             Mapper.CreateMap<DiagnosisReportDto, DiagnosisReport>();
             Mapper.CreateMap<InjuryDto, Injury>();
-
-
+            Mapper.CreateMap<WorkoutDto, Workout>();
+            Mapper.CreateMap<ExerciseDto, Exercise>();
+            Mapper.CreateMap<EquipmentDto, Equipment>();
+            Mapper.CreateMap<VideoDto, Video>();
 
 
             //Mapper.CreateMap<ContentRequestItemEntity, UserRegionWorkRequestItem>()

@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IExamineService.cs" />
+    <Compile Include="Interfaces\IResearchService.cs" />
     <Compile Include="Proxies\ExamineService.cs" />
     <Compile Include="Proxies\UserResourceResponse.cs" />
+    <Compile Include="Proxies\ResearchService.cs" />
     <Compile Include="ServicesContentMaps.cs" />
     <Compile Include="Interfaces\IUserManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
