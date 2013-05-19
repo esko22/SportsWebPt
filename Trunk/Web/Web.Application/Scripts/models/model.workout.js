@@ -3,7 +3,7 @@
         var
             workout = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.workouts,
-                idAttribute: 'workoutId',
+                idAttribute: 'id',
                 relations: [{
                     type: backbone.HasMany,
                     key: 'exercises',

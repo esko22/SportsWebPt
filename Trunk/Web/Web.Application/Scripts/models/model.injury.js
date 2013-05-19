@@ -1,10 +1,13 @@
-﻿define('model.injury', ['backbone', 'config', 'jquery'],
-    function (backbone, config, $) {
+﻿define('model.injury', ['backbone', 'config', 'model.workout'],
+    function (backbone, config, Workout) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.injuries,
-                defaults: {
-                }
+                relations: [{
+                    type: backbone.HasMany,
+                    key: 'workouts',
+                    relatedModel: Workout
+                }]
             });
 
         return injury;

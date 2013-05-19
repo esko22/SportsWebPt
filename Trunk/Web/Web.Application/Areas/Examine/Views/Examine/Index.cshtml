@@ -84,6 +84,40 @@
                 </li>
             </ul>
         </div>
+        <div>
+            <ul data-bind="foreach: workouts">
+                <li>
+                    <div>Routine Name: <span data-bind="text: routineName"></span></div>
+                    <div>Category: <span data-bind="text: category"></span></div>
+                    <div><span data-bind="text: description"></span></div>
+                    <div>
+                        <ul data-bind="foreach: exercises">
+                            <li>
+                                <div>Description: <span data-bind="text: description"></span></div>
+                                <div>Name: <span data-bind="text: name"></span></div>
+                                <div>Difficulty: <span data-bind="text: difficulty"></span></div>
+                                <div>
+                                    <ul data-bind="foreach: videos">
+                                        <li>
+                                            <div>Description: <span data-bind="text: description"></span></div>
+                                            <div>FileName: <span data-bind="text: filename"></span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul data-bind="foreach: equipment">
+                                        <li>
+                                            <div>CommonName: <span data-bind="text: commonName"></span></div>
+                                            <div>Price Range: <span data-bind="text: priceRange"></span></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 

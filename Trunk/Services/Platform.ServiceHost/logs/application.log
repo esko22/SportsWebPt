@@ -1,26 +1,130 @@
-05-15-13@18:00:34 Info (32)  [Common] DifferentialDiagnosisRequest request submitted 
-05-15-13@18:00:34 Info (32)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.0373770 
-05-15-13@18:00:34 Info (31)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:00:34 Info (31)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0074635 
-05-15-13@18:00:50 Info (32)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:00:50 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0086538 
-05-15-13@18:01:24 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
-05-15-13@18:01:24 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0120065 
-05-15-13@18:01:25 Info (46)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:01:25 Info (46)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0085086 
-05-15-13@18:01:50 Info (11)  [Common] SymptomaticRegionListRequest request submitted 
-05-15-13@18:01:50 Info (11)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123841 
-05-15-13@18:01:52 Info (11)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:01:52 Info (11)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0076298 
-05-15-13@18:02:06 Info (11)  [Common] DifferentialDiagnosisRequest request submitted 
-05-15-13@18:02:07 Info (11)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.3845258 
-05-15-13@18:02:07 Info (32)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:02:07 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0110818 
-05-15-13@18:02:20 Info (47)  [Common] DifferentialDiagnosisRequest request submitted 
-05-15-13@18:02:20 Info (47)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.1661028 
-05-15-13@18:02:20 Info (11)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:02:20 Info (11)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0106532 
-05-15-13@18:02:40 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
-05-15-13@18:02:40 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0141445 
-05-15-13@18:02:42 Info (31)  [Common] DiagnosisReportRequest request submitted 
-05-15-13@18:02:42 Info (31)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0079523 
+05-18-13@20:00:58 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:01:34 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:01:51 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:17.5324750 
+05-18-13@20:01:51 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:52.9699755 
+05-18-13@20:02:08 Info (13)  [Common] DifferentialDiagnosisRequest request submitted 
+05-18-13@20:02:08 Info (13)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4345555 
+05-18-13@20:02:08 Info (14)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:02:27 Info (14)  [Common] DiagnosisReportRequest request completed with duration of 00:00:18.5959537 
+05-18-13@20:03:31 Info (13)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:03:34 Info (13)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.1725040 
+05-18-13@20:03:35 Info (8)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:03:35 Info (8)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.2608491 
+05-18-13@20:03:45 Info (13)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:03:45 Info (13)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0132603 
+05-18-13@20:03:45 Info (9)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:03:56 Info (9)  [Common] DiagnosisReportRequest request completed with duration of 00:00:10.5841649 
+05-18-13@20:16:12 Info (30)  [Common] WorkoutRequest request submitted 
+05-18-13@20:16:13 Info (30)  [Common] WorkoutRequest request completed with duration of 00:00:00.4282461 
+05-18-13@20:17:02 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:17:02 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0176115 
+05-18-13@20:17:06 Info (17)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:17:06 Info (17)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0148084 
+05-18-13@20:17:11 Info (32)  [Common] DifferentialDiagnosisRequest request submitted 
+05-18-13@20:17:11 Info (32)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4840971 
+05-18-13@20:17:11 Info (30)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:17:11 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0105901 
+05-18-13@20:17:29 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:17:29 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0130480 
+05-18-13@20:17:31 Info (27)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:17:31 Info (27)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0136050 
+05-18-13@20:17:47 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:17:47 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0126920 
+05-18-13@20:17:49 Info (17)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:17:50 Info (17)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0117709 
+05-18-13@20:17:59 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:17:59 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0135350 
+05-18-13@20:18:01 Info (17)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:18:01 Info (17)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0112988 
+05-18-13@20:18:08 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:18:08 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0142405 
+05-18-13@20:18:10 Info (24)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:18:10 Info (24)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0127098 
+05-18-13@20:19:13 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:19:13 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0135207 
+05-18-13@20:19:15 Info (30)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:19:15 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0112583 
+05-18-13@20:19:30 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:19:30 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0145710 
+05-18-13@20:19:32 Info (32)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:19:32 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0123224 
+05-18-13@20:20:04 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:20:04 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123148 
+05-18-13@20:20:06 Info (34)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:20:06 Info (34)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0123677 
+05-18-13@20:20:13 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:20:13 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0125778 
+05-18-13@20:20:15 Info (24)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:20:15 Info (24)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0114984 
+05-18-13@20:21:29 Info (34)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:21:29 Info (34)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0154570 
+05-18-13@20:24:43 Info (32)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:24:43 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0175484 
+05-18-13@20:25:04 Info (32)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:25:04 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0168753 
+05-18-13@20:25:46 Info (27)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:25:49 Info (27)  [Common] DiagnosisReportRequest request completed with duration of 00:00:02.9389541 
+05-18-13@20:25:55 Info (37)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:25:55 Info (37)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0132264 
+05-18-13@20:27:09 Info (30)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:27:09 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0113302 
+05-18-13@20:27:18 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:27:18 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.3311951 
+05-18-13@20:27:24 Info (32)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:27:24 Info (32)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0115509 
+05-18-13@20:31:32 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:31:32 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0127667 
+05-18-13@20:31:34 Info (42)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:31:34 Info (42)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0125876 
+05-18-13@20:31:41 Info (40)  [Common] WorkoutRequest request submitted 
+05-18-13@20:31:41 Info (40)  [Common] WorkoutRequest request completed with duration of 00:00:00.3774092 
+05-18-13@20:35:51 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:35:51 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0317046 
+05-18-13@20:35:53 Info (36)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:35:53 Info (36)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0119241 
+05-18-13@20:35:55 Info (33)  [Common] WorkoutRequest request submitted 
+05-18-13@20:35:55 Info (33)  [Common] WorkoutRequest request completed with duration of 00:00:00.0290056 
+05-18-13@20:35:56 Info (35)  [Common] WorkoutRequest request submitted 
+05-18-13@20:35:56 Info (35)  [Common] WorkoutRequest request completed with duration of 00:00:00.0448975 
+05-18-13@20:36:16 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:36:16 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0144641 
+05-18-13@20:36:18 Info (35)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:36:18 Info (35)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0103037 
+05-18-13@20:36:18 Info (36)  [Common] WorkoutRequest request submitted 
+05-18-13@20:36:18 Info (35)  [Common] WorkoutRequest request submitted 
+05-18-13@20:36:18 Info (36)  [Common] WorkoutRequest request completed with duration of 00:00:00.0255313 
+05-18-13@20:36:19 Info (35)  [Common] WorkoutRequest request completed with duration of 00:00:00.0588217 
+05-18-13@20:37:45 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:37:45 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123257 
+05-18-13@20:37:47 Info (29)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:37:47 Info (29)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0127138 
+05-18-13@20:37:47 Info (29)  [Common] WorkoutRequest request submitted 
+05-18-13@20:37:47 Info (38)  [Common] WorkoutRequest request submitted 
+05-18-13@20:37:47 Info (29)  [Common] WorkoutRequest request completed with duration of 00:00:00.0242765 
+05-18-13@20:37:47 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0244530 
+05-18-13@20:39:51 Info (38)  [Common] WorkoutRequest request submitted 
+05-18-13@20:39:51 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0234316 
+05-18-13@20:40:36 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:40:36 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0123345 
+05-18-13@20:40:38 Info (28)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:40:38 Info (28)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0104901 
+05-18-13@20:40:38 Info (28)  [Common] WorkoutRequest request submitted 
+05-18-13@20:40:38 Info (33)  [Common] WorkoutRequest request submitted 
+05-18-13@20:40:38 Info (28)  [Common] WorkoutRequest request completed with duration of 00:00:00.0235294 
+05-18-13@20:40:38 Info (33)  [Common] WorkoutRequest request completed with duration of 00:00:00.0242232 
+05-18-13@20:42:13 Info (25)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:42:13 Info (25)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0125329 
+05-18-13@20:42:15 Info (33)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:42:15 Info (33)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0100232 
+05-18-13@20:42:15 Info (38)  [Common] WorkoutRequest request submitted 
+05-18-13@20:42:15 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0256710 
+05-18-13@20:42:15 Info (25)  [Common] WorkoutRequest request submitted 
+05-18-13@20:42:15 Info (25)  [Common] WorkoutRequest request completed with duration of 00:00:00.0266293 
+05-18-13@20:43:52 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+05-18-13@20:43:52 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0128050 
+05-18-13@20:43:54 Info (25)  [Common] DiagnosisReportRequest request submitted 
+05-18-13@20:43:54 Info (25)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0117778 
+05-18-13@20:43:54 Info (38)  [Common] WorkoutRequest request submitted 
+05-18-13@20:43:54 Info (25)  [Common] WorkoutRequest request submitted 
+05-18-13@20:43:55 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0249604 
+05-18-13@20:43:55 Info (25)  [Common] WorkoutRequest request completed with duration of 00:00:00.0262970 

@@ -27,7 +27,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
                   .ForMember(d => d.submittedFor, opt => opt.MapFrom(s => s.submittedFor));
             Mapper.CreateMap<DiagnosisReportDto, DiagnosisReport>();
-            Mapper.CreateMap<InjuryDto, Injury>();
+            Mapper.CreateMap<InjuryDto, Injury>()
+                  .ForMember(d => d.workouts, opt => opt.MapFrom(s =>s.workouts));
             Mapper.CreateMap<WorkoutDto, Workout>();
             Mapper.CreateMap<ExerciseDto, Exercise>();
             Mapper.CreateMap<EquipmentDto, Equipment>();

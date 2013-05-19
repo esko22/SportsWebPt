@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
@@ -14,7 +15,9 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String openingStatement { get; set; }
 
-        public String description { get; set; } 
+        public String description { get; set; }
+
+        public IEnumerable<Workout> workouts { get; set; } 
 
         #endregion
 
