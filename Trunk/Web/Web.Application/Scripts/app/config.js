@@ -22,7 +22,9 @@
             workouts: $.format('{0}/{1}', hostUri, 'research/workouts'),
             exercises: $.format('{0}/{1}', hostUri, 'research/exercises'),
             equipment: $.format('{0}/{1}', hostUri, 'research/equipment'),
-            videos: $.format('{0}/{1}', hostUri, 'research/videos')
+            videos: $.format('{0}/{1}', hostUri, 'research/videos'),
+            signs: $.format('{0}/{1}', hostUri, 'research/signs'),
+            causes: $.format('{0}/{1}', hostUri, 'research/causes')
             };
 
         var configureExternalTemplates = function() {

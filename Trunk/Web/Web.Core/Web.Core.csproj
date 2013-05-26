@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BodyPart.cs" />
+    <Compile Include="Models\Cause.cs" />
     <Compile Include="Models\DiagnosisReport.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Injury.cs" />
     <Compile Include="Models\PotentialSymptom.cs" />
+    <Compile Include="Models\Sign.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomaticBodyPart.cs" />
