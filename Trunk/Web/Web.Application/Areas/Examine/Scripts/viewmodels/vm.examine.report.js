@@ -3,7 +3,8 @@
     function (ko, _, kb) {
         var injuries = kb.collectionObservable(),
         injuryTemplate = 'examine.report.injury',
-        recoveryPlanTemplate = 'research.recovery.plans';
+        recoveryPlanTemplate = 'research.recovery.plans',
+        researchWorkoutPlanTemplate = 'research.workout.plan';
 
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
@@ -28,6 +29,7 @@
             injuries: injuries,
             postTabRender: postTabRender,
             injuryTemplate: injuryTemplate,
-            recoveryPlanTemplate: recoveryPlanTemplate
+            recoveryPlanTemplate: recoveryPlanTemplate,
+            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate
         };
     });

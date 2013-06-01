@@ -1,30 +1,36 @@
-﻿                <li>
-                    <div>Routine Name: <span data-bind="text: routineName"></span></div>
-                    <div>Category: <span data-bind="text: category"></span></div>
-                    <div><span data-bind="text: description"></span></div>
-                    <div>
-                        <ul data-bind="foreach: exercises">
-                            <li>
-                                <div>Description: <span data-bind="text: description"></span></div>
-                                <div>Name: <span data-bind="text: name"></span></div>
-                                <div>Difficulty: <span data-bind="text: difficulty"></span></div>
-                                <div>
-                                    <ul data-bind="foreach: videos">
-                                        <li>
-                                            <div>Description: <span data-bind="text: description"></span></div>
-                                            <div>FileName: <span data-bind="text: filename"></span></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <ul data-bind="foreach: equipment">
-                                        <li>
-                                            <div>CommonName: <span data-bind="text: commonName"></span></div>
-                                            <div>Price Range: <span data-bind="text: priceRange"></span></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+﻿<div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[1].id() }" >
+          <span data-bind="text: routineName" /> | <span data-bind="text: category" />
+      </a>
+    </div>
+    <div data-bind="attr: { id: 'workout-plan-' + id() + '-' + $parents[1].id() }" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <div><span data-bind="text: description"></span></div>
+            <div>
+                <ul data-bind="foreach: exercises">
+                    <li>
+                        <div>Name: <span data-bind="text: name"></span></div>
+                        <div>Difficulty: <span data-bind="text: difficulty"></span></div>
+                        <div>
+                            <ul data-bind="foreach: videos">
+                                <li>
+                                    <div>Description: <span data-bind="text: description"></span></div>
+                                    <div>FileName: <span data-bind="text: filename"></span></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul data-bind="foreach: equipment">
+                                <li>
+                                    <div>CommonName: <span data-bind="text: commonName"></span></div>
+                                    <div>Price Range: <span data-bind="text: priceRange"></span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   </div>
+</div>
