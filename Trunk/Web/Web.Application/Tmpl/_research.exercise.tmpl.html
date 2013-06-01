@@ -1,0 +1,25 @@
+﻿<div class="tab-pane" data-bind="attr: { id: 'exercise-' + $parent.id() + '-' + $parents[2].id() + '-' + id() }">
+    <div>Name: <span data-bind="text: name"></span></div>
+    <div>Difficulty: <span data-bind="text: difficulty"></span></div>
+    <h3>Equipment</h3>
+    <div class="row">
+        <div class="span2">
+            <ul data-bind="foreach: equipment">
+                <li>
+                    <div data-bind="text: commonName"></div>
+                    <div>Price: <span data-bind="text: priceRange"></span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="span7">
+            <ul data-bind="foreach: videos">
+                <li>
+                    <div>Description: <span data-bind="text: description"></span></div>
+                    <video width="320" height="240" controls>
+                        <source data-bind="attr: { src: '/content/videos/' + filename()}" type="video/mp4">
+                    </video>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

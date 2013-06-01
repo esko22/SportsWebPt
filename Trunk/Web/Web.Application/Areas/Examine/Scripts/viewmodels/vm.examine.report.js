@@ -2,9 +2,10 @@
     ['ko', 'underscore', 'knockback'],
     function (ko, _, kb) {
         var injuries = kb.collectionObservable(),
-        injuryTemplate = 'examine.report.injury',
-        recoveryPlanTemplate = 'research.recovery.plans',
-        researchWorkoutPlanTemplate = 'research.workout.plan';
+            injuryTemplate = 'examine.report.injury',
+            recoveryPlanTemplate = 'research.recovery.plans',
+            researchWorkoutPlanTemplate = 'research.workout.plan',
+            researchExerciseTemplate = 'research.exercise';
 
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
@@ -30,6 +31,7 @@
             postTabRender: postTabRender,
             injuryTemplate: injuryTemplate,
             recoveryPlanTemplate: recoveryPlanTemplate,
-            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate
+            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
+            researchExerciseTemplate: researchExerciseTemplate
         };
     });
