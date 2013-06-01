@@ -339,6 +339,11 @@ ul#skeleton li {
     border-right-width: 0;
 }
 
+#examine-report-tab-nav {
+    margin-right: 0;
+    border-right-width: 0;
+}
+
 .examine-symptoms-border {
     border-left: 1px solid rgba(0,0,0,0.1);
     box-shadow: 1px 0 0 rgba(255,255,255,0.2);

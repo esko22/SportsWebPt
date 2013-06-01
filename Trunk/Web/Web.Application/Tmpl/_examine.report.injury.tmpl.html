@@ -1,0 +1,44 @@
+﻿<div data-bind="attr: { id: 'tab-' + id() }" class="tab-pane">
+    <h3>Description</h3>
+    <div><strong>Common Name: </strong><span data-bind="text: commonName"></span></div>
+    <div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
+    <div><span>&nbsp;</span></div>
+    <div><p data-bind="text: openingStatement"></p></div>
+    <div class="row">
+        <div class="span3">
+            <h3>Causes</h3>
+            <div>
+                <ul data-bind="foreach: causes">
+                    <li>
+                        <div data-bind="text: description"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="span3">
+            <h3>Signs</h3>
+            <div>
+                <ul data-bind="foreach: signs">
+                    <li>
+                        <div data-bind="text: description"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="span3">
+            <h3>Your Symptoms</h3>
+            <div>
+                <ul data-bind="foreach: signs">
+                    <li>
+                        <div data-bind="text: description"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Recovery Plans</h3>
+        <section id="recovery-plan-container" data-bind="template: { name: $parent.recoveryPlanTemplate, data: workouts }"></section>
+    </div>
+</div>
+
