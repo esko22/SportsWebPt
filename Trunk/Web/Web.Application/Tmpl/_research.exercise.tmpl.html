@@ -15,9 +15,9 @@
             <ul data-bind="foreach: videos">
                 <li>
                     <div>Description: <span data-bind="text: description"></span></div>
-                    <video width="320" height="240" controls>
-                        <source data-bind="attr: { src: '/content/videos/' + filename()}" type="video/mp4">
-                    </video>
+                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                            src="https://www.youtube.com/embed/pys0Nz3KSqI"
+                            frameborder="0" allowfullscreen />
                 </li>
             </ul>
         </div>
