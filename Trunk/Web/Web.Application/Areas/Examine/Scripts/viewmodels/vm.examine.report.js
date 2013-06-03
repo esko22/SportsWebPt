@@ -23,7 +23,12 @@
         var postTabRender = function (elements) {
             $('#examine-report-tab-nav > :first-child').addClass('active');
             $('#examine-report-container > :first-child').addClass('active');
+            sublime.load();
         };
+        
+        var postExerciseRender = function (elements) {
+        };
+
 
         return {
             bindReport: bindReport,
@@ -32,6 +37,7 @@
             injuryTemplate: injuryTemplate,
             recoveryPlanTemplate: recoveryPlanTemplate,
             researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
-            researchExerciseTemplate: researchExerciseTemplate
+            researchExerciseTemplate: researchExerciseTemplate,
+            postExerciseRender: postExerciseRender
         };
     });

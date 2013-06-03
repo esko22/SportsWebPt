@@ -50,6 +50,6 @@
             componentTemplate: componentTemplate,
             bindSelectedAreas: bindSelectedAreas,
             postTabRender: postTabRender,
-            submitDiscomfortDetail : submitDiscomfortDetail 
+            submitDiscomfortDetail: submitDiscomfortDetail
         };
     });

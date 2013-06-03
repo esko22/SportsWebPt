@@ -1,36 +1,140 @@
-06-01-13@13:55:14 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-06-01-13@13:55:17 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.3035579 
-06-01-13@13:55:23 Info (12)  [Common] DiagnosisReportRequest request submitted 
-06-01-13@13:55:24 Info (12)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.4785374 
-06-01-13@13:55:24 Info (12)  [Common] WorkoutRequest request submitted 
-06-01-13@13:55:24 Info (7)  [Common] WorkoutRequest request submitted 
-06-01-13@13:55:24 Info (8)  [Common] WorkoutRequest request submitted 
-06-01-13@13:55:24 Info (5)  [Common] WorkoutRequest request submitted 
-06-01-13@13:55:24 Info (8)  [Common] WorkoutRequest request completed with duration of 00:00:00.4549018 
-06-01-13@13:55:24 Info (12)  [Common] WorkoutRequest request completed with duration of 00:00:00.4560294 
-06-01-13@13:55:24 Info (7)  [Common] WorkoutRequest request completed with duration of 00:00:00.4563825 
-06-01-13@13:55:24 Info (5)  [Common] WorkoutRequest request completed with duration of 00:00:00.4561647 
-06-01-13@13:59:16 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-06-01-13@13:59:16 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0140522 
-06-01-13@13:59:21 Info (8)  [Common] DiagnosisReportRequest request submitted 
-06-01-13@13:59:21 Info (8)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0518875 
-06-01-13@13:59:21 Info (8)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:21 Info (11)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:21 Info (14)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:21 Info (5)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:21 Info (8)  [Common] WorkoutRequest request completed with duration of 00:00:00.0284241 
-06-01-13@13:59:21 Info (11)  [Common] WorkoutRequest request completed with duration of 00:00:00.0308970 
-06-01-13@13:59:21 Info (5)  [Common] WorkoutRequest request completed with duration of 00:00:00.0283511 
-06-01-13@13:59:21 Info (14)  [Common] WorkoutRequest request completed with duration of 00:00:00.0399729 
-06-01-13@13:59:47 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-06-01-13@13:59:47 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0138016 
-06-01-13@13:59:49 Info (11)  [Common] DiagnosisReportRequest request submitted 
-06-01-13@13:59:49 Info (11)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0878229 
-06-01-13@13:59:49 Info (5)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:49 Info (7)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:49 Info (14)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:49 Info (8)  [Common] WorkoutRequest request submitted 
-06-01-13@13:59:49 Info (5)  [Common] WorkoutRequest request completed with duration of 00:00:00.0238540 
-06-01-13@13:59:49 Info (7)  [Common] WorkoutRequest request completed with duration of 00:00:00.0250761 
-06-01-13@13:59:49 Info (14)  [Common] WorkoutRequest request completed with duration of 00:00:00.0258644 
-06-01-13@13:59:49 Info (8)  [Common] WorkoutRequest request completed with duration of 00:00:00.0290643 
+06-02-13@19:03:58 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:04:01 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.3624803 
+06-02-13@19:04:08 Info (6)  [Common] DifferentialDiagnosisRequest request submitted 
+06-02-13@19:04:08 Info (6)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.3938063 
+06-02-13@19:04:08 Info (8)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:04:09 Info (8)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.5243341 
+06-02-13@19:04:09 Info (8)  [Common] WorkoutRequest request submitted 
+06-02-13@19:04:09 Info (5)  [Common] WorkoutRequest request submitted 
+06-02-13@19:04:10 Info (5)  [Common] WorkoutRequest request completed with duration of 00:00:00.3886402 
+06-02-13@19:04:10 Info (8)  [Common] WorkoutRequest request completed with duration of 00:00:00.3935962 
+06-02-13@19:04:47 Info (13)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:04:47 Info (13)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0134555 
+06-02-13@19:04:48 Info (13)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:04:48 Info (13)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0471219 
+06-02-13@19:04:48 Info (7)  [Common] WorkoutRequest request submitted 
+06-02-13@19:04:48 Info (6)  [Common] WorkoutRequest request submitted 
+06-02-13@19:04:48 Info (7)  [Common] WorkoutRequest request completed with duration of 00:00:00.0252165 
+06-02-13@19:04:48 Info (6)  [Common] WorkoutRequest request completed with duration of 00:00:00.0277956 
+06-02-13@19:06:35 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:06:35 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0183917 
+06-02-13@19:06:36 Info (14)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:06:36 Info (14)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0467903 
+06-02-13@19:06:36 Info (11)  [Common] WorkoutRequest request submitted 
+06-02-13@19:06:36 Info (15)  [Common] WorkoutRequest request submitted 
+06-02-13@19:06:36 Info (11)  [Common] WorkoutRequest request completed with duration of 00:00:00.0256667 
+06-02-13@19:06:36 Info (15)  [Common] WorkoutRequest request completed with duration of 00:00:00.0255291 
+06-02-13@19:10:02 Info (13)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:10:02 Info (13)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0464449 
+06-02-13@19:10:03 Info (20)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:10:04 Info (20)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0482283 
+06-02-13@19:10:04 Info (20)  [Common] WorkoutRequest request submitted 
+06-02-13@19:10:04 Info (16)  [Common] WorkoutRequest request submitted 
+06-02-13@19:10:04 Info (20)  [Common] WorkoutRequest request completed with duration of 00:00:00.0252767 
+06-02-13@19:10:04 Info (16)  [Common] WorkoutRequest request completed with duration of 00:00:00.0589111 
+06-02-13@19:10:20 Info (16)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:10:20 Info (16)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0150459 
+06-02-13@19:10:22 Info (13)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:10:22 Info (13)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0432578 
+06-02-13@19:10:22 Info (20)  [Common] WorkoutRequest request submitted 
+06-02-13@19:10:22 Info (19)  [Common] WorkoutRequest request submitted 
+06-02-13@19:10:22 Info (20)  [Common] WorkoutRequest request completed with duration of 00:00:00.0243826 
+06-02-13@19:10:22 Info (19)  [Common] WorkoutRequest request completed with duration of 00:00:00.0257608 
+06-02-13@19:14:29 Info (16)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:14:29 Info (16)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0124720 
+06-02-13@19:14:30 Info (16)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:14:30 Info (16)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0477578 
+06-02-13@19:14:31 Info (26)  [Common] WorkoutRequest request submitted 
+06-02-13@19:14:31 Info (22)  [Common] WorkoutRequest request submitted 
+06-02-13@19:14:31 Info (26)  [Common] WorkoutRequest request completed with duration of 00:00:00.0270357 
+06-02-13@19:14:31 Info (22)  [Common] WorkoutRequest request completed with duration of 00:00:00.0277985 
+06-02-13@19:16:12 Info (22)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:16:12 Info (22)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0128736 
+06-02-13@19:16:19 Info (22)  [Common] DifferentialDiagnosisRequest request submitted 
+06-02-13@19:16:19 Info (22)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.3719378 
+06-02-13@19:16:19 Info (29)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:16:19 Info (29)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0410103 
+06-02-13@19:16:19 Info (16)  [Common] WorkoutRequest request submitted 
+06-02-13@19:16:19 Info (29)  [Common] WorkoutRequest request submitted 
+06-02-13@19:16:19 Info (16)  [Common] WorkoutRequest request completed with duration of 00:00:00.0249298 
+06-02-13@19:16:19 Info (29)  [Common] WorkoutRequest request completed with duration of 00:00:00.0246154 
+06-02-13@19:18:20 Info (26)  [Common] DifferentialDiagnosisRequest request submitted 
+06-02-13@19:18:20 Info (26)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.0506476 
+06-02-13@19:18:20 Info (29)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:18:20 Info (29)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0453553 
+06-02-13@19:18:20 Info (31)  [Common] WorkoutRequest request submitted 
+06-02-13@19:18:20 Info (31)  [Common] WorkoutRequest request completed with duration of 00:00:00.0265670 
+06-02-13@19:24:46 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:24:46 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0503580 
+06-02-13@19:24:48 Info (40)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:24:48 Info (40)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0509602 
+06-02-13@19:24:48 Info (40)  [Common] WorkoutRequest request submitted 
+06-02-13@19:24:48 Info (40)  [Common] WorkoutRequest request completed with duration of 00:00:00.0244600 
+06-02-13@19:25:42 Info (34)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:25:42 Info (34)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0133865 
+06-02-13@19:25:44 Info (38)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:25:44 Info (38)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0437247 
+06-02-13@19:25:44 Info (40)  [Common] WorkoutRequest request submitted 
+06-02-13@19:25:44 Info (30)  [Common] WorkoutRequest request submitted 
+06-02-13@19:25:44 Info (40)  [Common] WorkoutRequest request completed with duration of 00:00:00.0260585 
+06-02-13@19:25:44 Info (30)  [Common] WorkoutRequest request completed with duration of 00:00:00.0379771 
+06-02-13@19:26:11 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:26:11 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0137422 
+06-02-13@19:26:20 Info (30)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:26:20 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0575260 
+06-02-13@19:26:21 Info (21)  [Common] WorkoutRequest request submitted 
+06-02-13@19:26:21 Info (38)  [Common] WorkoutRequest request submitted 
+06-02-13@19:26:21 Info (21)  [Common] WorkoutRequest request completed with duration of 00:00:00.0249433 
+06-02-13@19:26:21 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0264750 
+06-02-13@19:30:48 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:30:49 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0136710 
+06-02-13@19:30:59 Info (47)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:30:59 Info (47)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0448376 
+06-02-13@19:31:00 Info (45)  [Common] WorkoutRequest request submitted 
+06-02-13@19:31:00 Info (38)  [Common] WorkoutRequest request submitted 
+06-02-13@19:31:00 Info (45)  [Common] WorkoutRequest request completed with duration of 00:00:00.0267585 
+06-02-13@19:31:00 Info (38)  [Common] WorkoutRequest request completed with duration of 00:00:00.0605231 
+06-02-13@19:33:25 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:33:25 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0135062 
+06-02-13@19:33:35 Info (49)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:33:35 Info (49)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0439071 
+06-02-13@19:33:36 Info (42)  [Common] WorkoutRequest request submitted 
+06-02-13@19:33:36 Info (45)  [Common] WorkoutRequest request submitted 
+06-02-13@19:33:36 Info (42)  [Common] WorkoutRequest request completed with duration of 00:00:00.1617458 
+06-02-13@19:33:36 Info (45)  [Common] WorkoutRequest request completed with duration of 00:00:00.1635602 
+06-02-13@19:36:24 Info (44)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:36:24 Info (44)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0125982 
+06-02-13@19:36:26 Info (54)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:36:26 Info (54)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0475170 
+06-02-13@19:36:26 Info (44)  [Common] WorkoutRequest request submitted 
+06-02-13@19:36:26 Info (44)  [Common] WorkoutRequest request completed with duration of 00:00:00.0238694 
+06-02-13@19:42:10 Info (44)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:42:10 Info (44)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0198268 
+06-02-13@19:42:12 Info (49)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:42:12 Info (49)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0461793 
+06-02-13@19:42:12 Info (44)  [Common] WorkoutRequest request submitted 
+06-02-13@19:42:12 Info (44)  [Common] WorkoutRequest request completed with duration of 00:00:00.0240321 
+06-02-13@19:55:14 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:55:14 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0208289 
+06-02-13@19:55:15 Info (30)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:55:16 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0513126 
+06-02-13@19:55:16 Info (26)  [Common] WorkoutRequest request submitted 
+06-02-13@19:55:16 Info (26)  [Common] WorkoutRequest request completed with duration of 00:00:00.0233437 
+06-02-13@19:56:31 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:56:31 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0137622 
+06-02-13@19:56:33 Info (24)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:56:33 Info (24)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0471285 
+06-02-13@19:56:33 Info (24)  [Common] WorkoutRequest request submitted 
+06-02-13@19:56:33 Info (24)  [Common] WorkoutRequest request completed with duration of 00:00:00.0232853 
+06-02-13@19:56:46 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:56:46 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0132450 
+06-02-13@19:56:48 Info (35)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:56:48 Info (35)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0413134 
+06-02-13@19:56:48 Info (24)  [Common] WorkoutRequest request submitted 
+06-02-13@19:56:48 Info (24)  [Common] WorkoutRequest request completed with duration of 00:00:00.0238022 
+06-02-13@19:59:27 Info (24)  [Common] SymptomaticRegionListRequest request submitted 
+06-02-13@19:59:27 Info (24)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0131888 
+06-02-13@19:59:28 Info (22)  [Common] DiagnosisReportRequest request submitted 
+06-02-13@19:59:28 Info (22)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0480160 
+06-02-13@19:59:28 Info (35)  [Common] WorkoutRequest request submitted 
+06-02-13@19:59:29 Info (35)  [Common] WorkoutRequest request completed with duration of 00:00:00.0263594 
