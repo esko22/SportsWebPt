@@ -6,7 +6,7 @@
             footer: '#master-footer',
             login: '#login-dialog'
         },
-        hostUri = 'http://localhost:8022/',
+        hostUri = 'http://localhost',
         currentUser = ko.observable();
 
         var apiUris = {
