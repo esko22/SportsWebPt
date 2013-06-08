@@ -1,24 +1,20 @@
 ﻿<div class="tab-pane" data-bind="attr: { id: 'exercise-' + $parent.id() + '-' + $parents[2].id() + '-' + id() }">
-    <div>Name: <span data-bind="text: name"></span></div>
-    <div>Difficulty: <span data-bind="text: difficulty"></span></div>
-    <h3>Equipment</h3>
+    <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
+    <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
     <div class="row">
         <div class="span2">
-            <ul data-bind="foreach: equipment">
-                <li>
-                    <div data-bind="text: commonName"></div>
-                    <div>Price: <span data-bind="text: priceRange"></span></div>
-                </li>
-            </ul>
+            <h3>Equipment</h3>
+            <table class="table table-striped">
+                <tbody data-bind="foreach: equipment">
+                    <tr>
+                        <td data-bind="text: commonName"></td>
+                    </tr>
+                </tbody>            
+            </table>
         </div>
         <div class="span7">
-            <ul data-bind="foreach: videos">
-                <li>
-                    <div>Description: <span data-bind="text: description"></span></div>
-                    <video data-bind="attr: { id: 'video-' + $parents[1].id() + '-' + $parents[3].id() + '-' + $parent.id() + '-' + id() }" class="sublime" width="640" height="360" data-uid="pys0Nz3KSqI" data-youtube-id="pys0Nz3KSqI" preload="none">
-                    </video>        
-                </li>
-            </ul>
+            <h3>Video</h3>
+            <div data-bind="template: { name: $root.researchVideoTemplate, foreach: videos }"></div>
         </div>
     </div>
 </div>

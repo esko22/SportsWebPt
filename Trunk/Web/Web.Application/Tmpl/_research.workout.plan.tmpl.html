@@ -1,17 +1,17 @@
-﻿<div class="accordion-group">
-    <div class="accordion-heading">
+﻿<div class="accordion-group examine-report-workout-accord">
+    <div class="accordion-heading examine-report-workout">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[1].id() }" >
-            <span data-bind="text: routineName" /> | <span data-bind="text: category" />
+            <span data-bind="text: routineName" /> | <span data-bind="text: category" />         <i class="icon-chevron-down pull-right icon-white"></i>
         </a>
     </div>
     <div data-bind="attr: { id: 'workout-plan-' + id() + '-' + $parents[1].id() }" class="accordion-body collapse">
         <div class="accordion-inner">
-            <div><span data-bind="text: description"></span></div>
-            <div class="tabbable">
-                <ul class="nav nav-tabs" data-bind="foreach: exercises">
-                    <li><a data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + $parents[2].id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
+            <div><strong>Purpose: </strong><span data-bind="text: description"></span></div>
+            <div class="tabbable" data-bind="attr: { id: 'workout-plan-exercises-' + id() + '-' + $parents[1].id()}">
+                <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
+                    <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + $parents[2].id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
                 </ul>
-                <section class="tab-content" data-bind="template: { name: $root.researchExerciseTemplate, foreach: exercises }" />
+                <div class="tab-content exercise-tab-pane" data-bind="template: { name: $root.researchExerciseTemplate, foreach: exercises, afterRender: $root.postExerciseRender }, attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[1].id()}" />
             </div>
         </div>
     </div>

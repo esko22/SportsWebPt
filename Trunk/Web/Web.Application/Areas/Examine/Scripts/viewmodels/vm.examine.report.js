@@ -5,7 +5,8 @@
             injuryTemplate = 'examine.report.injury',
             recoveryPlanTemplate = 'research.recovery.plans',
             researchWorkoutPlanTemplate = 'research.workout.plan',
-            researchExerciseTemplate = 'research.exercise';
+            researchExerciseTemplate = 'research.exercise',
+            researchVideoTemplate = 'research.video';
 
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
@@ -23,12 +24,18 @@
         var postTabRender = function (elements) {
             $('#examine-report-tab-nav > :first-child').addClass('active');
             $('#examine-report-container > :first-child').addClass('active');
-            sublime.load();
         };
         
         var postExerciseRender = function (elements) {
+            // TODO: cannot figure out why this will not work... still pulling back the infuser template
+            //$(elements[0]).next().addClass('active');
+            $('div[id^="workout-plan-exercise-panes-"] > div:first-child').addClass('active');
         };
 
+        var postRecoveryPlanRender = function (elements) {
+            $(elements[0]).find('div[id^="workout-plan-exercises-"] > ul > :first-child').addClass('active');
+        };
+        
 
         return {
             bindReport: bindReport,
@@ -38,6 +45,8 @@
             recoveryPlanTemplate: recoveryPlanTemplate,
             researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
             researchExerciseTemplate: researchExerciseTemplate,
-            postExerciseRender: postExerciseRender
+            postExerciseRender: postExerciseRender,
+            researchVideoTemplate: researchVideoTemplate,
+            postRecoveryPlanRender : postRecoveryPlanRender 
         };
     });

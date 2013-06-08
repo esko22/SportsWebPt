@@ -1,3 +1,3 @@
 ﻿<div class="accordion" id="recover-plan-accordion">
-    <div data-bind="template: { name: $root.researchWorkoutPlanTemplate, foreach: $data }"></div>
+    <div data-bind="template: { name: $root.researchWorkoutPlanTemplate, foreach: $data, afterRender: $root.postRecoveryPlanRender }"></div>
 </div>

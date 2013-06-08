@@ -41,6 +41,9 @@
                         report.bindReport(diagnosisReport);
                         presenter.transitionTo($('#examine-report'),'','');
                         $('#report-nav').addClass('active');
+                        setTimeout(function() {
+                             sublime.load();
+                        }, 3000);
                     }
                 });
 

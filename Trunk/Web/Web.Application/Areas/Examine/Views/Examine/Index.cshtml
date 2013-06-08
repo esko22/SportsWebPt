@@ -55,7 +55,7 @@
             <ul id="examine-detail-tab-nav" class="nav nav-tabs" data-bind="foreach: selectedAreas">
                 <li><a data-bind="attr: { href: '#tab-' + id(), title: name }, text: name " data-toggle="tab"></a></li>
             </ul>
-            <section id="examine-detail-container" data-bind="template: { name: areaTemplate, afterRender: postTabRender, foreach: selectedAreas }" class="tab-content examine-tab-pane"></section>
+            <section id="examine-detail-container" data-bind="template: { name: areaTemplate, afterRender: postTabRender, foreach: selectedAreas }" class="tab-content examine-tab-pane examine-symptom-tab-pane"></section>
         </div>
         <div class="row examine-bottom-nav">
             <div class="span2 pull-left">
@@ -76,7 +76,7 @@
             <ul id="examine-report-tab-nav" class="nav nav-tabs" data-bind="foreach: injuries">
                 <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName " data-toggle="tab"></a></li>
             </ul>
-            <section id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane"></section>
+            <section id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane examine-report-tab-pane"></section>
         </div>
     </div>
 </div>

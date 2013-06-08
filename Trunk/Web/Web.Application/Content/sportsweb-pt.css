@@ -327,11 +327,27 @@ ul#skeleton li {
     border-color: #ddd;
     padding-left: 40px;
     padding-bottom: 37px;
-    padding-top: 40px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     border-top-left-radius: 0;
+}
+
+.examine-symptom-tab-pane {
+    padding-top: 40px;
+}
+
+.examine-report-tab-pane {
+    padding-top: 10px;
+}
+
+.examine-report-hr {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-top-style: solid;
+    border-top-width: 4px;
+    border-top-color: #333333;
+
 }
 
 #examine-detail-tab-nav {
@@ -354,6 +370,27 @@ ul#skeleton li {
     padding-top: 20px;
 }
 
+.exercise-tab-nav {
+    padding-top: 20px;
+    border-color: #333333;
+}
+
+.exercise-tab-item {
+    border-color: #333333;
+}
+
+.exercise-tab-pane {
+    margin-left: 20px;
+    height: 500px;
+}
+
+.examine-report-workout-accord {
+    margin-right: 20px;
+}
+.examine-report-workout {
+    background-color: #333333;
+}
+
 .balSlider {
             width: 240px;
         }
@@ -368,6 +405,14 @@ ul#skeleton li {
 .nav-tabs > .active > a:focus
 {
     background-color: #f5f5f5;
+}
+
+.exercise-tab-nav > .active > a,
+.exercise-tab-nav > .active > a:hover,
+.exercise-tab-nav > .active > a:focus
+{
+    background-color: #333333;
+    color: #cccccc;
 }
 
 /*.tabs-left > .nav-tabs > li > a:hover,
