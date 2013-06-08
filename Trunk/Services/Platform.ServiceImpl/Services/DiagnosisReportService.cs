@@ -3,6 +3,7 @@ using System.Linq;
 
 using AutoMapper;
 using ServiceStack.ServiceInterface.ServiceModel;
+using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -33,7 +34,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                                   .Join(DiffDiagUnitOfWork.InjuryRepo.GetAll(), ismisd => ismisd.item.InjuryId,
                                         injury => injury.Id, (ismisd, injury) => injury).Distinct();
 
-            var potentialInjuryDtos = new List<InjuryDto>();
+            var potentialInjuryDtos = new List<PotentialInjuryDto>();
             //TODO: this is tuurible... have to go back to get inlcudes cuz I cant figure out how to cleanly get it above yet 
             var potentialInjuries =
                 DiffDiagUnitOfWork.InjuryRepo.GetAll(new[] { "InjuryWorkoutMatrixItems", "InjuryWorkoutMatrixItems.Workout", "InjurySignMatrixItems", 
@@ -41,6 +42,26 @@ namespace SportsWebPt.Platform.ServiceImpl
                                   .Where(p => distinctPotentialInjuries.Contains(p));
             
             Mapper.Map(potentialInjuries, potentialInjuryDtos);
+
+            var givenSymptoms =
+                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[] { "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems" })
+                                  .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0);
+
+            foreach (var symptomDetail in givenSymptoms)
+            {
+                potentialInjuryDtos.ForEach(p =>
+                    {
+                        foreach (var injuryId in symptomDetail.SymptomMatrixItem.InjurySymptomMatrixItems.Select(x => x.InjuryId))
+                        {
+                            if (p.id == injuryId)
+                            {'
+                                'if(p.)
+                            }
+                        }
+                    }) 
+
+
+            }
 
 
             if (potentialInjuryDtos.Count > 0)

@@ -85,6 +85,7 @@
     <Compile Include="Models\EquipmentDto.cs" />
     <Compile Include="Models\ExerciseDto.cs" />
     <Compile Include="Models\InjuryDto.cs" />
+    <Compile Include="Models\PotentialInjuryDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\SignDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />

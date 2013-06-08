@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public InjuryDto[] potentialInjuries { get; set; }
+        public PotentialInjuryDto[] potentialInjuries { get; set; }
 
         #endregion
     }
