@@ -49,7 +49,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.id, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.reviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))
                    .ForMember(d => d.submittedOn, opt => opt.MapFrom(s => s.SumbittedOn));
-            Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>();
+            Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>()
+                  .ForMember(d => d.name, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Name))
+                  .ForMember(d => d.bodyPart, opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.BodyPart.CommonName));
             Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
             Mapper.CreateMap<Workout, WorkoutDto>();
             Mapper.CreateMap<Exercise, ExerciseDto>()
@@ -60,6 +62,10 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<Cause, CauseDto>();
             Mapper.CreateMap<Sign, SignDto>();
             Mapper.CreateMap<Injury, InjuryDto>()
+                   .ForMember(d => d.workouts, opt => opt.MapFrom(s => s.InjuryWorkoutMatrixItems.Select(p => p.Workout)))
+                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
+                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)));
+            Mapper.CreateMap<Injury, PotentialInjuryDto>()
                    .ForMember(d => d.workouts, opt => opt.MapFrom(s => s.InjuryWorkoutMatrixItems.Select(p => p.Workout)))
                    .ForMember(d => d.causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
                    .ForMember(d => d.signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)));

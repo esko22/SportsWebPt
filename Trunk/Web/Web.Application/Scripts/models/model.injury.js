@@ -1,5 +1,5 @@
-﻿define('model.injury', ['backbone', 'config', 'model.workout', 'model.cause', 'model.sign'],
-    function (backbone, config, Workout, Cause, Sign) {
+﻿define('model.injury', ['backbone', 'config', 'model.workout', 'model.cause', 'model.sign', 'model.potential.symptom'],
+    function (backbone, config, Workout, Cause, Sign, Symptom) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.injuries,
@@ -17,6 +17,11 @@
                     type: backbone.HasMany,
                     key: 'signs',
                     relatedModel: Sign
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'givenSymptoms',
+                    relatedModel: Symptom
                 }]
             });
 

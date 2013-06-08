@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public PotentialSymptomDto[] GivenSymptoms { get; set; }
+        public PotentialSymptomDto[] givenSymptoms { get; set; }
 
         #endregion
     }

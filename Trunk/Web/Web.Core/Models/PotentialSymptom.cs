@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String givenResponse { get; set; }
 
+        public String bodyPart { get; set; }
+
         #endregion
     }
 }

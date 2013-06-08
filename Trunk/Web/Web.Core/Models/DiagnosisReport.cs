@@ -7,7 +7,7 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public IEnumerable<Injury> potentialInjuries { get; set; } 
+        public IEnumerable<PotentialInjury> potentialInjuries { get; set; } 
 
         #endregion
     }

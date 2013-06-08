@@ -29,9 +29,11 @@
         <div class="span3">
             <h3>Your Symptoms</h3>
             <table class="table table-striped">
-                <tbody data-bind="foreach: signs">
+                <tbody data-bind="foreach: givenSymptoms">
                     <tr>
-                        <td data-bind="text: description"></td>
+                        <td data-bind="text: bodyPart"></td>
+                        <td data-bind="text: name"></td>
+                        <td data-bind="text: givenResponse"></td>
                     </tr>
                 </tbody>            
             </table>

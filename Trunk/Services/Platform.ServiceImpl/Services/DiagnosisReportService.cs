@@ -35,7 +35,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                                         injury => injury.Id, (ismisd, injury) => injury).Distinct();
 
             var potentialInjuryDtos = new List<PotentialInjuryDto>();
-            //TODO: this is tuurible... have to go back to get inlcudes cuz I cant figure out how to cleanly get it above yet 
+            //TODO: this is tuurible... have to go back to get inlcudes cuz I cant figure out how to cleanly get it above yet
             var potentialInjuries =
                 DiffDiagUnitOfWork.InjuryRepo.GetAll(new[] { "InjuryWorkoutMatrixItems", "InjuryWorkoutMatrixItems.Workout", "InjurySignMatrixItems", 
                                                              "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause" })
@@ -44,24 +44,22 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(potentialInjuries, potentialInjuryDtos);
 
             var givenSymptoms =
-                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[] { "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems" })
+                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[] { "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems", "SymptomMatrixItem.Symptom", "SymptomMatrixItem.BodyPartMatrixItem", "SymptomMatrixItem.BodyPartMatrixItem.BodyPart" })
                                   .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0);
 
-            foreach (var symptomDetail in givenSymptoms)
+            //TODO: this whole service is a fucking mess... gotta be a better way
+            foreach (var potentialInjuryDto in potentialInjuryDtos)
             {
-                potentialInjuryDtos.ForEach(p =>
-                    {
-                        foreach (var injuryId in symptomDetail.SymptomMatrixItem.InjurySymptomMatrixItems.Select(x => x.InjuryId))
-                        {
-                            if (p.id == injuryId)
-                            {'
-                                'if(p.)
-                            }
-                        }
-                    }) 
+                var givenSymptomDtos = new List<PotentialSymptomDto>();
 
+                givenSymptoms.ForEach(
+                    p =>
+                    p.SymptomMatrixItem.InjurySymptomMatrixItems.Where(i => i.InjuryId == potentialInjuryDto.id)
+                     .ForEach(i => givenSymptomDtos.Add(Mapper.Map<PotentialSymptomDto>(p))));
 
+                potentialInjuryDto.givenSymptoms = givenSymptomDtos.ToArray();
             }
+
 
 
             if (potentialInjuryDtos.Count > 0)
