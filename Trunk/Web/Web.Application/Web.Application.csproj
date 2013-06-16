@@ -155,7 +155,7 @@
     <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="Areas\Examine\Controllers\ExamineController.cs" />
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
-    <Compile Include="Areas\Examine\ViewModels\ExamineViewModel.cs" />
+    <Compile Include="Areas\Examine\Models\ExamineViewModel.cs" />
     <Compile Include="Areas\Main\Commands\LoginCommand.cs" />
     <Compile Include="Areas\Main\Controllers\AuthController.cs" />
     <Compile Include="Areas\Main\Controllers\BaseController.cs" />
@@ -163,9 +163,10 @@
     <Compile Include="Areas\Main\Controllers\UserController.cs" />
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
-    <Compile Include="Areas\Main\ViewModels\IndexViewModel.cs" />
-    <Compile Include="Areas\Main\ViewModels\AuthFormViewModel.cs" />
+    <Compile Include="Areas\Main\Models\IndexViewModel.cs" />
+    <Compile Include="Areas\Main\Models\AuthFormViewModel.cs" />
     <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
+    <Compile Include="Areas\Research\Models\ResearchViewModel.cs" />
     <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -354,6 +355,7 @@
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
     <Content Include="Areas\Research\Views\Web.config" />
+    <Content Include="Areas\Research\Views\Research\Index.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -816,9 +818,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
-    <Folder Include="Areas\Examine\Models\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
-    <Folder Include="Areas\Research\Models\" />
+    <Folder Include="Areas\Research\Scripts\app\" />
+    <Folder Include="Areas\Research\Scripts\viewmodels\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
@@ -868,7 +870,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51782</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost</IISUrl>
+          <IISUrl>http://localhost:8022</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

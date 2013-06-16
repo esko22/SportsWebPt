@@ -42,11 +42,9 @@
                         presenter.transitionTo($('#examine-report'),'','');
                         $('#report-nav').addClass('active');
                         setTimeout(function() {
-                            alert('firstTime');
                             sublime.load();
                         }, 3000);
                         setTimeout(function () {
-                            alert('secondTime');
                             sublime.load();
                         }, 12000);
 

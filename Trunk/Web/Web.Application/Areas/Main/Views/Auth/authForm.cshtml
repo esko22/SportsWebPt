@@ -29,6 +29,9 @@
             @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
         </div>
 
+        @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterFooter.cshtml"); }
+        @Html.AntiForgeryToken()
+
         @Scripts.Render(
         
             "~/bundles/jquery",

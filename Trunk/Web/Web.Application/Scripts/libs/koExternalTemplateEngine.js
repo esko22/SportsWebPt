@@ -18,11 +18,14 @@
         self.options.templateId = templateId;
         if (self.options && self.options.afterRender) {
             origAfterRender = self.options.afterRender;
-            self.options.afterRender = function () {
+            self.options.afterRender = function() {
                 if (self.loaded) {
+                    console.log('I am loaded');
                     origAfterRender.apply(self.options, arguments);
+                } else {
+                    console.log('I was not loaded');
                 }
-            }
+            };
         }
     };
 

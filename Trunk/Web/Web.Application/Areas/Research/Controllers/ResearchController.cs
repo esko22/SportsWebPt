@@ -13,6 +13,7 @@ using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Research
 {
+    [RouteArea("Research")]
     public class ResearchController : BaseController
     {
 
@@ -47,6 +48,13 @@ namespace SportsWebPt.Platform.Web.Research
         }
 
 
+        [GET("Research", IsAbsoluteUrl = true)]
+        public ActionResult Index()
+        {
+            var viewModel = CreateViewModel<ResearchViewModel>();
+
+            return View(viewModel);
+        }
         #endregion
 
     }

@@ -44,7 +44,11 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(potentialInjuries, potentialInjuryDtos);
 
             var givenSymptoms =
-                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[] { "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems", "SymptomMatrixItem.Symptom", "SymptomMatrixItem.BodyPartMatrixItem", "SymptomMatrixItem.BodyPartMatrixItem.BodyPart" })
+                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[]
+                    {
+                        "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems", "SymptomMatrixItem.Symptom",
+                        "SymptomMatrixItem.BodyPartMatrixItem", "SymptomMatrixItem.BodyPartMatrixItem.BodyPart"
+                    })
                                   .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0);
 
             //TODO: this whole service is a fucking mess... gotta be a better way

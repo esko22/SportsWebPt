@@ -25,9 +25,9 @@
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
-[class*="icon-"]:before {
+[class*="iconmoon-"] {
 */
-.iconmoon-city-building:before, .iconmoon-untitled:before, .iconmoon-untitled-2:before, .iconmoon-untitled-3:before, .iconmoon-untitled-4:before, .iconmoon-untitled-5:before, .iconmoon-untitled-6:before, .iconmoon-untitled-7:before, .iconmoon-calendar-plan:before, .iconmoon-untitled-9:before, .iconmoon-untitled-10:before, .iconmoon-untitled-11:before, .iconmoon-untitled-12:before, .iconmoon-untitled-13:before, .iconmoon-untitled-14:before, .iconmoon-single-user:before, .iconmoon-untitled-16:before, .iconmoon-untitled-17:before, .iconmoon-untitled-18:before, .iconmoon-untitled-19:before, .iconmoon-untitled-20:before, .iconmoon-untitled-21:before, .iconmoon-untitled-22:before, .iconmoon-untitled-23:before, .iconmoon-untitled-24:before, .iconmoon-untitled-25:before, .iconmoon-untitled-26:before, .iconmoon-untitled-27:before, .iconmoon-untitled-28:before, .iconmoon-untitled-29:before, .iconmoon-search:before, .iconmoon-google-plus:before, .iconmoon-google-plus-sign:before, .iconmoon-facebook-sign:before, .iconmoon-twitter-sign:before, .iconmoon-github-sign:before, .iconmoon-camera-retro:before, .iconmoon-cogs:before, .iconmoon-target:before, .iconmoon-target-2:before, .iconmoon-magnifier:before, .iconmoon-user-md:before, .iconmoon-stethoscope:before, .iconmoon-building:before, .iconmoon-refresh:before, .iconmoon-repeat:before, .iconmoon-facebook:before, .iconmoon-twitter:before, .iconmoon-google:before, .iconmoon-google-plus-2:before, .iconmoon-google-plus-3:before, .iconmoon-google-plus-4:before, .iconmoon-untitled-30:before, .iconmoon-untitled-31:before, .iconmoon-untitled-32:before, .iconmoon-untitled-33:before, .iconmoon-untitled-34:before, .iconmoon-untitled-35:before, .iconmoon-untitled-36:before, .iconmoon-untitled-37:before, .iconmoon-untitled-38:before, .iconmoon-untitled-39:before, .iconmoon-untitled-40:before, .iconmoon-untitled-41:before, .iconmoon-untitled-42:before, .iconmoon-untitled-43:before, .iconmoon-untitled-44:before, .iconmoon-untitled-45:before, .iconmoon-untitled-46:before, .iconmoon-untitled-47:before, .iconmoon-untitled-48:before, .iconmoon-untitled-49:before, .iconmoon-untitled-50:before, .iconmoon-untitled-51:before, .iconmoon-untitled-52:before, .iconmoon-untitled-53:before, .iconmoon-untitled-54:before, .iconmoon-untitled-55:before, .iconmoon-untitled-56:before, .iconmoon-untitled-57:before, .iconmoon-untitled-58:before, .iconmoon-untitled-59:before, .iconmoon-untitled-60:before, .iconmoon-untitled-61:before, .iconmoon-untitled-62:before, .iconmoon-untitled-63:before, .iconmoon-untitled-64:before, .iconmoon-untitled-65:before, .iconmoon-untitled-66:before, .iconmoon-untitled-67:before, .iconmoon-untitled-68:before, .iconmoon-untitled-69:before, .iconmoon-untitled-70:before, .iconmoon-untitled-71:before, .iconmoon-untitled-72:before, .iconmoon-untitled-73:before, .iconmoon-untitled-74:before, .iconmoon-untitled-75:before, .iconmoon-untitled-76:before, .iconmoon-untitled-77:before, .iconmoon-untitled-78:before, .iconmoon-untitled-79:before, .iconmoon-untitled-80:before, .iconmoon-locked:before, .iconmoon-unlocked:before, .iconmoon-suitcase:before, .iconmoon-suitcase-2:before, .iconmoon-chat:before, .iconmoon-envelope:before, .iconmoon-download:before, .iconmoon-download-2:before, .iconmoon-cloud:before, .iconmoon-suitcase-3:before, .iconmoon-envelope-2:before {
+.iconmoon-city-building, .iconmoon-untitled, .iconmoon-untitled-2, .iconmoon-untitled-3, .iconmoon-untitled-4, .iconmoon-untitled-5, .iconmoon-untitled-6, .iconmoon-untitled-7, .iconmoon-untitled-8, .iconmoon-untitled-9, .iconmoon-untitled-10, .iconmoon-untitled-11, .iconmoon-untitled-12, .iconmoon-untitled-13, .iconmoon-untitled-14, .iconmoon-untitled-15, .iconmoon-untitled-16, .iconmoon-untitled-17, .iconmoon-untitled-18, .iconmoon-untitled-19, .iconmoon-untitled-20, .iconmoon-untitled-21, .iconmoon-untitled-22, .iconmoon-untitled-23, .iconmoon-untitled-24, .iconmoon-untitled-25, .iconmoon-untitled-26, .iconmoon-untitled-27, .iconmoon-untitled-28, .iconmoon-untitled-29, .iconmoon-search, .iconmoon-google-plus, .iconmoon-google-plus-sign, .iconmoon-facebook-sign, .iconmoon-twitter-sign, .iconmoon-github-sign, .iconmoon-camera-retro, .iconmoon-cogs, .iconmoon-target, .iconmoon-target-2, .iconmoon-magnifier, .iconmoon-user-md, .iconmoon-stethoscope, .iconmoon-building, .iconmoon-refresh, .iconmoon-repeat, .iconmoon-facebook, .iconmoon-twitter, .iconmoon-google, .iconmoon-google-plus-2, .iconmoon-google-plus-3, .iconmoon-google-plus-4, .iconmoon-untitled-30, .iconmoon-untitled-31, .iconmoon-untitled-32, .iconmoon-untitled-33, .iconmoon-untitled-34, .iconmoon-untitled-35, .iconmoon-untitled-36, .iconmoon-untitled-37, .iconmoon-untitled-38, .iconmoon-untitled-39, .iconmoon-untitled-40, .iconmoon-untitled-41, .iconmoon-untitled-42, .iconmoon-untitled-43, .iconmoon-untitled-44, .iconmoon-untitled-45, .iconmoon-untitled-46, .iconmoon-untitled-47, .iconmoon-untitled-48, .iconmoon-untitled-49, .iconmoon-untitled-50, .iconmoon-untitled-51, .iconmoon-untitled-52, .iconmoon-untitled-53, .iconmoon-untitled-54, .iconmoon-untitled-55, .iconmoon-untitled-56, .iconmoon-untitled-57, .iconmoon-untitled-58, .iconmoon-untitled-59, .iconmoon-untitled-60, .iconmoon-untitled-61, .iconmoon-untitled-62, .iconmoon-untitled-63, .iconmoon-untitled-64, .iconmoon-untitled-65, .iconmoon-untitled-66, .iconmoon-untitled-67, .iconmoon-untitled-68, .iconmoon-untitled-69, .iconmoon-untitled-70, .iconmoon-untitled-71, .iconmoon-untitled-72, .iconmoon-untitled-73, .iconmoon-untitled-74, .iconmoon-untitled-75, .iconmoon-untitled-76, .iconmoon-untitled-77, .iconmoon-untitled-78, .iconmoon-untitled-79, .iconmoon-untitled-80, .iconmoon-locked, .iconmoon-unlocked, .iconmoon-suitcase, .iconmoon-suitcase-2, .iconmoon-chat, .iconmoon-envelope, .iconmoon-download, .iconmoon-download-2, .iconmoon-cloud, .iconmoon-suitcase-3, .iconmoon-envelope-2, .iconmoon-heart, .iconmoon-soccer, .iconmoon-caret-down, .iconmoon-caret-up, .iconmoon-caret-left, .iconmoon-caret-right, .iconmoon-circle-arrow-up, .iconmoon-circle-arrow-down, .iconmoon-chevron-up, .iconmoon-chevron-down, .iconmoon-chevron-right, .iconmoon-chevron-left, .iconmoon-thumbs-up, .iconmoon-thumbs-down, .iconmoon-heart-2, .iconmoon-star, .iconmoon-star-empty, .iconmoon-lock, .iconmoon-user, .iconmoon-shopping-cart {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -61,7 +61,7 @@ you can use the generic selector below, but it's slower:
 .iconmoon-untitled-7:before {
 	content: "\e007";
 }
-.iconmoon-calendar-plan:before {
+.iconmoon-untitled-8:before {
 	content: "\e008";
 }
 .iconmoon-untitled-9:before {
@@ -82,7 +82,7 @@ you can use the generic selector below, but it's slower:
 .iconmoon-untitled-14:before {
 	content: "\e00e";
 }
-.iconmoon-single-user:before {
+.iconmoon-untitled-15:before {
 	content: "\e00f";
 }
 .iconmoon-untitled-16:before {
@@ -378,4 +378,64 @@ you can use the generic selector below, but it's slower:
 }
 .iconmoon-envelope-2:before {
 	content: "\f003";
+}
+.iconmoon-heart:before {
+	content: "\e063";
+}
+.iconmoon-soccer:before {
+	content: "\e064";
+}
+.iconmoon-caret-down:before {
+	content: "\f0d7";
+}
+.iconmoon-caret-up:before {
+	content: "\f0d8";
+}
+.iconmoon-caret-left:before {
+	content: "\f0d9";
+}
+.iconmoon-caret-right:before {
+	content: "\f0da";
+}
+.iconmoon-circle-arrow-up:before {
+	content: "\f0aa";
+}
+.iconmoon-circle-arrow-down:before {
+	content: "\f0ab";
+}
+.iconmoon-chevron-up:before {
+	content: "\f077";
+}
+.iconmoon-chevron-down:before {
+	content: "\f078";
+}
+.iconmoon-chevron-right:before {
+	content: "\f054";
+}
+.iconmoon-chevron-left:before {
+	content: "\f053";
+}
+.iconmoon-thumbs-up:before {
+	content: "\f087";
+}
+.iconmoon-thumbs-down:before {
+	content: "\f088";
+}
+.iconmoon-heart-2:before {
+	content: "\f004";
+}
+.iconmoon-star:before {
+	content: "\f005";
+}
+.iconmoon-star-empty:before {
+	content: "\f006";
+}
+.iconmoon-lock:before {
+	content: "\f023";
+}
+.iconmoon-user:before {
+	content: "\f007";
+}
+.iconmoon-shopping-cart:before {
+	content: "\f07a";
 }

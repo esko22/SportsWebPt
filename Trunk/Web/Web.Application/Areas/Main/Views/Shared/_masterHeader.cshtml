@@ -6,17 +6,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a href="/"><img src="../../../../Content/images/logoHeader.png" /></a>
+            <a href="/"><img class="header-icon" src="../../../../Content/images/logoHeader.png" /></a>
             <div class="nav nav-collapse collapse pull-right" style="display: none;" data-bind="visible: true">
-                <ul class="nav">
-                    <li><a href="#about">Store</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li class="divider-vertical"></li>
+                <ul class="nav">        
+                    <li><a href="#about"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
+                    <li><a href="/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
+                    <li><a href="#about"><span aria-hidden="true" data-icon="&#x62;" class="nav-icon"></span> Locate</a></li>
+                    <li><a data-bind="visible: isAuthenticated() == false" data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a></li>
                 </ul>
                 <li class="dropdown" id="accountMenu" data-bind="visible: isAuthenticated">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu"><span data-bind="text: name"></span><b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
+                        <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
+                        <span data-bind="text: name"></span><b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="#about">Edit Profile</a></li>
                         <li><a href="/dashboard">My Dashboard</a></li>
@@ -24,10 +26,6 @@
                         <li><a href="/logout">Log Out</a></li>
                     </ul>
                 </li>
-                <div class="btn-group pull-right" data-bind="visible: isAuthenticated() == false">
-                    <button type="submit" class="btn btn-inverse" data-bind="click: toggleSignUp.bind($data, 'login')" data-toggle="modal" data-target="#login-dialog">Log In</button>
-                    <button type="submit" class="btn btn-inverse" data-bind="click: toggleSignUp.bind($data, 'signup')" data-toggle="modal" data-target="#login-dialog">Sign Up</button>
-                </div>
             </div>
         </div>
     </div>
