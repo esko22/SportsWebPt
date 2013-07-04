@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStackClient;
@@ -12,6 +13,8 @@ namespace SportsWebPt.Platform.Web.Services
         #region Fields
 
         private readonly String _workoutPath = String.Empty;
+        private readonly String _equipmentPath = String.Empty;
+        private readonly String _videoPath = String.Empty;
 
         #endregion
 
@@ -21,6 +24,8 @@ namespace SportsWebPt.Platform.Web.Services
             :base(clientSettings)
         {
             _workoutPath = String.Format("/{0}/workouts", _settings.Version);
+            _equipmentPath = String.Format("/{0}/equipment", _settings.Version);
+            _videoPath = String.Format("/{0}/videos", _settings.Version);
         }
 
         #endregion
@@ -33,6 +38,21 @@ namespace SportsWebPt.Platform.Web.Services
             var workout = Mapper.Map<Workout>(response.Resource);
 
             return workout;
+        }
+
+
+        public IEnumerable<Equipment> GetEquipment()
+        {
+            var response = GetSync<ListResponse<EquipmentDto,BasicSortBy>>(_equipmentPath);
+            
+            return Mapper.Map<IEnumerable<Equipment>>(response.Resource.Items);
+        }
+
+        public IEnumerable<Video> GetVideos()
+        {
+            var response = GetSync<ListResponse<VideoDto, BasicSortBy>>(_videoPath);
+
+            return Mapper.Map<IEnumerable<Video>>(response.Resource.Items);
         }
     }
 }

@@ -1,18 +1,42 @@
-06-23-13@21:03:53 Info (19)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:03:53 Info (19)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0535464 
-06-23-13@21:10:33 Info (18)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:10:33 Info (18)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0780600 
-06-23-13@21:15:39 Info (31)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:15:39 Info (31)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0772155 
-06-23-13@21:16:18 Info (34)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:16:18 Info (34)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0653053 
-06-23-13@21:27:36 Info (43)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:27:36 Info (43)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0764072 
-06-23-13@21:35:35 Info (43)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:35:35 Info (43)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0704561 
-06-23-13@21:41:14 Info (57)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:41:14 Info (57)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0683855 
-06-23-13@21:42:37 Info (57)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:42:37 Info (57)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0609519 
-06-23-13@21:49:53 Info (33)  [Common] DiagnosisReportRequest request submitted 
-06-23-13@21:49:53 Info (33)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0685271 
+07-04-13@01:11:09 Info (23)  [Common] VideoListRequest request submitted 
+07-04-13@01:11:12 Info (23)  [Common] VideoListRequest request completed with duration of 00:00:02.7191638 
+07-04-13@01:15:49 Info (26)  [Common] EquipmentListRequest request submitted 
+07-04-13@01:15:52 Info (26)  [Common] EquipmentListRequest request completed with duration of 00:00:02.7972992 
+07-04-13@01:15:57 Info (23)  [Common] VideoListRequest request submitted 
+07-04-13@01:15:57 Info (23)  [Common] VideoListRequest request completed with duration of 00:00:00.0497623 
+07-04-13@01:20:06 Info (19)  [Common] ExecerciseListRequest request submitted 
+07-04-13@01:20:58 Error (19)  [Common] [ExerciseListService: 7/4/2013 8:20:58 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+Exercise -> VideoDto[]
+SportsWebPt.Platform.Core.Models.Exercise -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.Exercise Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-04-13@01:33:39 Info (17)  [Common] ExecerciseListRequest request submitted 
+07-04-13@01:33:55 Error (17)  [Common] [ExerciseListService: 7/4/2013 8:33:55 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+Exercise -> ExerciseDto
+SportsWebPt.Platform.Core.Models.Exercise -> SportsWebPt.Platform.ServiceModels.ExerciseDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.Exercise System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-04-13@01:35:08 Info (16)  [Common] ExecerciseListRequest request submitted 
+07-04-13@01:35:13 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:05.0955954 
+07-04-13@01:55:00 Info (21)  [Common] EquipmentListRequest request submitted 
+07-04-13@01:55:00 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0429718 
+07-04-13@01:55:07 Info (21)  [Common] VideoListRequest request submitted 
+07-04-13@01:55:07 Info (21)  [Common] VideoListRequest request completed with duration of 00:00:00.0522475 

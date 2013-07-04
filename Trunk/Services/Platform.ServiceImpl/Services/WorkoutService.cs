@@ -4,7 +4,7 @@ using System.Linq;
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.DataAccess;
+using SportsWebPt.Platform.DataAccess.UnitOfWork;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl

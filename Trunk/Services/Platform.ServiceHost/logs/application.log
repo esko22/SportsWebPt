@@ -1,10 +1,6 @@
-06-25-13@22:33:52 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
-06-25-13@22:33:55 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.4698636 
-06-25-13@22:51:52 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
-06-25-13@22:51:52 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0320536 
-06-25-13@22:52:00 Info (27)  [Common] DifferentialDiagnosisRequest request submitted 
-06-25-13@22:52:00 Info (27)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4568075 
-06-25-13@22:52:00 Info (25)  [Common] DiagnosisReportRequest request submitted 
-06-25-13@22:52:01 Info (25)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.6731530 
-06-25-13@22:52:01 Info (27)  [Common] WorkoutRequest request submitted 
-06-25-13@22:52:02 Info (27)  [Common] WorkoutRequest request completed with duration of 00:00:00.4512610 
+07-04-13@02:02:42 Info (27)  [Common] EquipmentListRequest request submitted 
+07-04-13@02:02:42 Info (27)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0132151 
+07-04-13@02:05:17 Info (47)  [Common] EquipmentListRequest request submitted 
+07-04-13@02:05:17 Info (47)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038576 
+07-04-13@02:06:29 Info (43)  [Common] EquipmentListRequest request submitted 
+07-04-13@02:06:29 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038306 

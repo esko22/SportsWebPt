@@ -21,4 +21,9 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
         
     }
+
+    public interface IUserUnitOfWork : IBaseUnitOfWork
+    {
+        IRepository<User> UserRepository { get; }
+    }
 }

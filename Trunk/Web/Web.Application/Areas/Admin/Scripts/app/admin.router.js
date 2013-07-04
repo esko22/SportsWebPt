@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter'],
-    function (backbone, $, presenter) {
+﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment'],
+    function (backbone, $, presenter, Equipment) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -7,6 +7,7 @@
                     '': 'nav',
                     'videos': 'videos',
                     'exercises': 'exercises',
+                    'equipment': 'equipment',
                     '*actions': 'defaultRoute'
                 }
             });
@@ -32,6 +33,13 @@
                 $('.view').hide();
                 $('.active').removeClass('active');
                 presenter.transitionTo($('#admin-exercise-panel'), '', '');
+            });
+
+            router.on('route:equipment', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                kb.applyBindings(Equipment, $('#admin-equipment-panel').get(0));
+                presenter.transitionTo($('#admin-equipment-panel'), '', '');
             });
 
  

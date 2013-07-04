@@ -90,11 +90,7 @@
     <Compile Include="Repositories\WorkoutRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IBaseUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IDiffDiagUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\ISkeletonUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IUserUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\IWorkoutUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
     <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
     <Compile Include="UnitOfWork\WorkoutUnitOfWork.cs" />

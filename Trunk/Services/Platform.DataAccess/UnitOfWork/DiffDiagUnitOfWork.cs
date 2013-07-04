@@ -24,4 +24,17 @@ namespace SportsWebPt.Platform.DataAccess
 
         #endregion
     }
+
+    public interface IDiffDiagUnitOfWork : IBaseUnitOfWork
+    {
+        IRepository<DifferentialDiagnosis> DiffDiagRepo { get; }
+
+        IRepository<SymptomDetail> SymptomResponseRepo { get; }
+
+        IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get; }
+
+        IRepository<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItemRepo { get; }
+
+        IRepository<Injury> InjuryRepo { get; }
+    }
 }

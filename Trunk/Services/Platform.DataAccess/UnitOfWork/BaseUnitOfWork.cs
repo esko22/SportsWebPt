@@ -71,4 +71,9 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
     }
+
+    public interface IBaseUnitOfWork
+    {
+        void Commit();
+    }
 }

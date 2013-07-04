@@ -11,11 +11,12 @@
 
     });
 
-define('model.equipment.collection', ['backbone', 'model.equipment'],
-    function (backbone, component) {
+define('model.equipment.collection', ['backbone', 'model.equipment', 'config'],
+    function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({
-                model: component
+                model: component,
+                url: config.apiUris.equipment
             });
 
         return componentCollection;

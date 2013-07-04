@@ -55,8 +55,16 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
             Mapper.CreateMap<Workout, WorkoutDto>();
             Mapper.CreateMap<Exercise, ExerciseDto>()
-                  .ForMember(d => d.videos, opt => opt.MapFrom(s => s.ExerciseVideoMatrixItems.Select(p => p.Video)))
-                  .ForMember(d => d.equipment, opt => opt.MapFrom(s => s.ExerciseEquipmentMatrixItems.Select(p => p.Equipment)));
+                  .ForMember(d => d.videos, opt =>
+                      {
+                          opt.Condition(s => s.ExerciseVideoMatrixItems != null);
+                          opt.MapFrom(s => s.ExerciseVideoMatrixItems.Select(p => p.Video));
+                      })
+                  .ForMember(d => d.equipment, opt =>
+                      {
+                          opt.Condition(s => s.ExerciseEquipmentMatrixItems != null);
+                          opt.MapFrom(s => s.ExerciseEquipmentMatrixItems.Select(p => p.Equipment));
+                      });
             Mapper.CreateMap<Video, VideoDto>();
             Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<Cause, CauseDto>();

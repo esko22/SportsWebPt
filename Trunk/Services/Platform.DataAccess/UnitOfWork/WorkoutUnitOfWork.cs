@@ -25,4 +25,15 @@ namespace SportsWebPt.Platform.DataAccess.UnitOfWork
 
         #endregion
     }
+
+    public interface IWorkoutUnitOfWork
+    {
+        #region Properties
+
+        IWorkoutRepo WorkoutRepo { get; }
+
+        IExerciseRepo ExerciseRepo { get; }
+
+        #endregion
+    }
 }

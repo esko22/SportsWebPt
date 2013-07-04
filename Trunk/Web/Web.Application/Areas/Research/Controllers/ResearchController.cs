@@ -55,6 +55,24 @@ namespace SportsWebPt.Platform.Web.Research
 
             return View(viewModel);
         }
+
+
+        [GET("Research/equipment", IsAbsoluteUrl = true)]
+        public ActionResult GetEquipment()
+        {
+            var equipment = _researchService.GetEquipment();
+
+            return Json(equipment, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Research/videos", IsAbsoluteUrl = true)]
+        public ActionResult GetVideos()
+        {
+            var videos = _researchService.GetVideos();
+
+            return Json(videos, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
     }

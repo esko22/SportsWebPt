@@ -75,11 +75,14 @@
     <Compile Include="Operations\BodyPartListRequest.cs" />
     <Compile Include="Operations\DiagnosisReportRequest.cs" />
     <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
+    <Compile Include="Operations\EquipmentRequests.cs" />
+    <Compile Include="Operations\ExecerciseRequests.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
     <Compile Include="Operations\SymptomListRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
+    <Compile Include="Operations\VideoRequests.cs" />
     <Compile Include="Operations\WorkoutRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContentMaps.cs" />
@@ -87,11 +90,14 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
     <Compile Include="Services\DifferentialDiagnosisService.cs" />
+    <Compile Include="Services\EquipmentServices.cs" />
+    <Compile Include="Services\ExerciseServices.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
     <Compile Include="Services\SkeletonAreaListService.cs" />
     <Compile Include="Services\SymptomaticRegionService.cs" />
     <Compile Include="Services\SymptomListService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VideoServices.cs" />
     <Compile Include="Services\WorkoutService.cs" />
   </ItemGroup>
   <ItemGroup>
