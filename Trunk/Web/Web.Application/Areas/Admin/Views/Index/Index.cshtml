@@ -1,0 +1,41 @@
+﻿@model SportsWebPt.Platform.Web.Admin.AdminIndexViewModel
+@{
+    Model.AreaBundles.Add("~/bundles/adminapplib");
+    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
+}
+
+<div>
+    <h2>Admin</h2>
+</div>
+
+<div class="container content-container-panel" id="admin-main-panel">
+    
+    <div class="view container" id="admin-nav-panel">
+        <div class="row">
+            <div class="span3">
+                <a href="#videos">Videos</a>
+            </div>
+            <div class="span3">
+                <a href="#exercises">Exercises</a>
+            </div>
+            <div class="span3">
+            </div>
+            <div class="span3">
+            </div>
+        </div>
+    </div>
+
+    <div class="view container" id="admin-video-panel">
+        <div class="container">
+            <h2> Videos</h2>
+            <hr class="examine-report-hr"/>
+        </div>
+    </div>
+    
+        <div class="view container" id="admin-exercise-panel">
+        <div class="container">
+            <h2> Exercises</h2>
+            <hr class="examine-report-hr"/>
+        </div>
+    </div>
+</div>

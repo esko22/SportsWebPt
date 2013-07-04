@@ -150,6 +150,9 @@
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminIndexViewModel.cs" />
     <Compile Include="Areas\Dashboard\Controllers\UserDashboardController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
@@ -172,11 +175,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Areas\Admin\Scripts\app\admin.area.bootstrapper.js" />
+    <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
+    <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.binder.js" />
     <Content Include="Areas\Research\Scripts\app\research.router.js" />
+    <Content Include="Content\fonts\SWPT.dev.svg" />
+    <Content Include="Content\fonts\SWPT.svg" />
     <Content Include="Content\images\logoFooter.png" />
     <Content Include="Content\images\logoFooterDark.png" />
     <Content Include="Content\images\logoHeader.png" />
@@ -326,8 +334,6 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\fonts\icomoon.dev.svg" />
-    <Content Include="Content\fonts\icomoon.svg" />
     <Content Include="Content\icon-fonts.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -344,9 +350,6 @@
     <Content Include="Areas\Main\Views\Web.config" />
     <Content Include="Areas\Main\Scripts\shared\vm.master.footer.js" />
     <Content Include="Areas\Main\Scripts\shared\shared.vm.js" />
-    <Content Include="Content\fonts\icomoon.eot" />
-    <Content Include="Content\fonts\icomoon.ttf" />
-    <Content Include="Content\fonts\icomoon.woff" />
     <Content Include="Areas\Main\Views\Auth\authForm.cshtml" />
     <Content Include="Areas\Main\Views\Shared\_authDialogs.cshtml" />
     <Content Include="Areas\Dashboard\Views\Web.config" />
@@ -359,6 +362,11 @@
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
     <Content Include="Areas\Research\Views\Web.config" />
     <Content Include="Areas\Research\Views\Research\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
+    <Content Include="Content\fonts\SWPT.eot" />
+    <Content Include="Content\fonts\SWPT.ttf" />
+    <Content Include="Content\fonts\SWPT.woff" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -819,6 +827,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Scripts\viewmodels\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
