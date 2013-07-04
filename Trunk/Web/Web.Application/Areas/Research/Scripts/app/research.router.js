@@ -1,10 +1,13 @@
-﻿define('router', ['backbone'],
-    function (backbone) {
+﻿define('router', ['backbone', 'jquery', 'presenter'],
+    function (backbone, $, presenter) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
                 routes: {
-                    '': 'main',
+                    '': 'nav',
+                    'injuries': 'injuries',
+                    'plan': 'plan',
+                    'exercises': 'exercises',
                     '*actions': 'defaultRoute'
                 }
             });
@@ -14,8 +17,27 @@
             router.on('route:defaultRoute', function () {
             });
 
-            router.on('route:main', function () {
+            router.on('route:nav', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                presenter.transitionTo($('#research-nav-panel'),'','');
             });
+            
+            router.on('route:plans', function () {
+            });
+
+            router.on('route:injuries', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                presenter.transitionTo($('#research-injury-panel'), '', '');
+            });
+
+            router.on('route:exercises', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                presenter.transitionTo($('#research-exercise-panel'), '', '');
+            });
+
 
             backbone.history.start();
         };
