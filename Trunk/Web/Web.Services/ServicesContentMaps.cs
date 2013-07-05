@@ -38,7 +38,9 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.givenSymptoms, opt => opt.MapFrom(s => s.givenSymptoms));
             Mapper.CreateMap<WorkoutDto, Workout>();
             Mapper.CreateMap<ExerciseDto, Exercise>();
+            Mapper.CreateMap<Exercise, ExerciseDto>();
             Mapper.CreateMap<EquipmentDto, Equipment>();
+            Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<VideoDto, Video>();
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();

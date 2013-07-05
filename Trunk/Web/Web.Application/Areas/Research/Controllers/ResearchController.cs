@@ -8,6 +8,7 @@ using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Application;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 
@@ -63,6 +64,15 @@ namespace SportsWebPt.Platform.Web.Research
             var equipment = _researchService.GetEquipment();
 
             return Json(equipment, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("Research/equipment", IsAbsoluteUrl = true)]
+        public ActionResult AddEquipment(Equipment equipment)
+        {
+            var response = _researchService.AddEquipment(equipment);
+            equipment.id = response;
+
+            return Json(equipment, JsonRequestBehavior.DenyGet);
         }
 
         [GET("Research/videos", IsAbsoluteUrl = true)]

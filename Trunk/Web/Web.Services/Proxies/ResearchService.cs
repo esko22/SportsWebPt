@@ -5,6 +5,7 @@ using AutoMapper;
 using SportsWebPt.Common.ServiceStackClient;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
+using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -21,7 +22,7 @@ namespace SportsWebPt.Platform.Web.Services
         #region Construction
 
         public ResearchService(BaseServiceStackClientSettings clientSettings)
-            :base(clientSettings)
+            : base(clientSettings)
         {
             _workoutPath = String.Format("/{0}/workouts", _settings.Version);
             _equipmentPath = String.Format("/{0}/equipment", _settings.Version);
@@ -43,8 +44,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         public IEnumerable<Equipment> GetEquipment()
         {
-            var response = GetSync<ListResponse<EquipmentDto,BasicSortBy>>(_equipmentPath);
-            
+            var response = GetSync<ListResponse<EquipmentDto, BasicSortBy>>(_equipmentPath);
+
             return Mapper.Map<IEnumerable<Equipment>>(response.Resource.Items);
         }
 
@@ -53,6 +54,20 @@ namespace SportsWebPt.Platform.Web.Services
             var response = GetSync<ListResponse<VideoDto, BasicSortBy>>(_videoPath);
 
             return Mapper.Map<IEnumerable<Video>>(response.Resource.Items);
+        }
+
+
+        public int AddEquipment(Equipment equipment)
+        {
+            var equipmentResuest = new ApiResourceRequest<EquipmentDto>
+                {
+                    Resource = Mapper.Map<EquipmentDto>(equipment)
+                };
+
+            var response =
+                PostSync<UserResourceResponse>(_equipmentPath, equipmentResuest);
+
+            return response.Resource.id;
         }
     }
 }

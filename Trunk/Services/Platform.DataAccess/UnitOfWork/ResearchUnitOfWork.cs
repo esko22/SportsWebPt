@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.DataAccess.UnitOfWork
         #endregion
     }
 
-    public interface IResearchUnitOfWork
+    public interface IResearchUnitOfWork : IBaseUnitOfWork
     {
         IRepository<Equipment> EquipmentRepo { get; }
         IRepository<Video> VideoRepo { get; }

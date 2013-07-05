@@ -18,11 +18,10 @@
         <input type="hidden" id="username" value="@Model.User.userName"/>
         <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
 
+        @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterHeader.cshtml"); }
         <div class="container">
-            @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterHeader.cshtml"); }
             @RenderBody()
         </div>
-
         @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterFooter.cshtml"); }
         @Html.AntiForgeryToken()
 

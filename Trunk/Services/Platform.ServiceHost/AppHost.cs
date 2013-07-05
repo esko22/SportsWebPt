@@ -117,8 +117,9 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
                 .Add<WorkoutRequest>("workouts/{Id}")
                 .Add<VideoListRequest>("videos")
-                .Add<EquipmentListRequest>("equipment")
-                .Add<ExecerciseListRequest>("exercises");
+                //.Add<EquipmentListRequest>("equipment")
+                .Add<ExecerciseListRequest>("exercises")
+                .Add<EquipmentRequest>("equipment");
         }
 
         private void ConfigureContainer(Container container)

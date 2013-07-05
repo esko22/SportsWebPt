@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<Equipment> GetEquipment();
 
+        int AddEquipment(Equipment equipment);
+
         IEnumerable<Video> GetVideos();
 
     }

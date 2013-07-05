@@ -808,6 +808,7 @@
     <Content Include="Scripts\models\model.workout.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
+    <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />
     <Content Include="Tmpl\_research.exercise.tmpl.html" />
     <Content Include="Tmpl\_research.recovery.plans.tmpl.html" />
