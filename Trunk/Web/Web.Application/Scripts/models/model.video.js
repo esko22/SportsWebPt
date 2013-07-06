@@ -4,6 +4,11 @@
             video = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.videos,
                 defaults: {
+                    'name': '',
+                    'description': '',
+                    'filename': '',
+                    'youtubeVideoId': '',
+                    'creationDate' : ''
                 }
             });
 
@@ -11,11 +16,12 @@
 
     });
 
-define('model.video.collection', ['backbone', 'model.video'],
-    function (backbone, component) {
+define('model.video.collection', ['backbone', 'model.video', 'config'],
+    function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({
-                model: component
+                model: component,
+                url: config.apiUris.videos
             });
 
         return componentCollection;

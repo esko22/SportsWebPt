@@ -23,6 +23,9 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String filename { get; set; }
 
+        [DataMember]
+        public String youtubeVideoId { get; set; }
+
         #endregion
     }
 }

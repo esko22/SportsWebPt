@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment'],
-    function (backbone, $, presenter, Equipment) {
+﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment', 'vm.admin.videos'],
+    function (backbone, $, presenter, EquipmentVM, VideoVM) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -26,6 +26,7 @@
             router.on('route:videos', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                kb.applyBindings(VideoVM, $('#admin-video-panel').get(0));
                 presenter.transitionTo($('#admin-video-panel'), '', '');
             });
 
@@ -38,7 +39,7 @@
             router.on('route:equipment', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
-                kb.applyBindings(Equipment, $('#admin-equipment-panel').get(0));
+                kb.applyBindings(EquipmentVM, $('#admin-equipment-panel').get(0));
                 presenter.transitionTo($('#admin-equipment-panel'), '', '');
             });
 

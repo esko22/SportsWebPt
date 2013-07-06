@@ -66,6 +66,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.MapFrom(s => s.ExerciseEquipmentMatrixItems.Select(p => p.Equipment));
                       });
             Mapper.CreateMap<Video, VideoDto>();
+            Mapper.CreateMap<VideoDto, Video>();
             Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<EquipmentDto, Equipment>();
             Mapper.CreateMap<Cause, CauseDto>();

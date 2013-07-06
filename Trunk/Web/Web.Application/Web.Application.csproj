@@ -179,6 +179,7 @@
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.equipment.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />
@@ -810,6 +811,7 @@
     <Content Include="Scripts\utils\error.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
     <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
+    <Content Include="Tmpl\_admin.video.list.tmpl.html" />
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />
     <Content Include="Tmpl\_research.exercise.tmpl.html" />
     <Content Include="Tmpl\_research.recovery.plans.tmpl.html" />

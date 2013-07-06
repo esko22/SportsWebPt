@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Filename { get; set; }
 
+        public String YoutubeVideoId { get; set; }
+
         public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }  
 
         #endregion

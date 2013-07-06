@@ -59,25 +59,48 @@ namespace SportsWebPt.Platform.Web.Services
 
         public int AddEquipment(Equipment equipment)
         {
-            var equipmentResuest = new ApiResourceRequest<EquipmentDto>
+            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
                 {
                     Resource = Mapper.Map<EquipmentDto>(equipment)
                 };
 
             var response =
-                PostSync<UserResourceResponse>(_equipmentPath, equipmentResuest);
+                PostSync<EquipmentResourceResponse>(_equipmentPath, equipmentRequest);
 
             return response.Resource.id;
         }
 
         public void UpdateEquipment(Equipment equipment)
         {
-            var equipmentResuest = new ApiResourceRequest<EquipmentDto>
+            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
             {
                 Resource = Mapper.Map<EquipmentDto>(equipment)
             };
 
-            PutSync<UserResourceResponse>(String.Format("{0}/{1}", _equipmentPath, equipment.id), equipmentResuest);
+            PutSync<EquipmentResourceResponse>(String.Format("{0}/{1}", _equipmentPath, equipment.id), equipmentRequest);
+        }
+
+        public int AddVideo(Video video)
+        {
+            var request = new ApiResourceRequest<VideoDto>
+            {
+                Resource = Mapper.Map<VideoDto>(video)
+            };
+
+            var response =
+                PostSync<VideoResourceResponse>(_videoPath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateVideo(Video video)
+        {
+            var request = new ApiResourceRequest<VideoDto>
+            {
+                Resource = Mapper.Map<VideoDto>(video)
+            };
+
+            PutSync<VideoResourceResponse>(String.Format("{0}/{1}", _videoPath, video.id), request);
         }
     }
 }

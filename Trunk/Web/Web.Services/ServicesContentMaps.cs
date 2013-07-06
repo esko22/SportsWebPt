@@ -42,6 +42,7 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<EquipmentDto, Equipment>();
             Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<VideoDto, Video>();
+            Mapper.CreateMap<Video, VideoDto>();
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();
 

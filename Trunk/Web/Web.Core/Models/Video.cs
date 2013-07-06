@@ -16,6 +16,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String filename { get; set; }
 
+        public String youtubeVideoId { get; set; }
+
         #endregion
     }
 }

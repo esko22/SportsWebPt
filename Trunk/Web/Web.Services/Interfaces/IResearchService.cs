@@ -16,5 +16,9 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<Video> GetVideos();
 
+        int AddVideo(Video video);
+
+        void UpdateVideo(Video video);
+
     }
 }

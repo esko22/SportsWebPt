@@ -91,6 +91,24 @@ namespace SportsWebPt.Platform.Web.Research
             return Json(videos, JsonRequestBehavior.AllowGet);
         }
 
+        [POST("Research/videos", IsAbsoluteUrl = true)]
+        public ActionResult AddVideo(Video video)
+        {
+            var response = _researchService.AddVideo(video);
+            video.id = response;
+
+            return Json(video, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("Research/videos/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateVideo(Video video)
+        {
+            _researchService.UpdateVideo(video);
+
+            return Json(video, JsonRequestBehavior.DenyGet);
+        }
+
+
         #endregion
 
     }

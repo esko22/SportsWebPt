@@ -117,6 +117,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
                 .Add<WorkoutRequest>("workouts/{Id}")
                 .Add<VideoListRequest>("videos")
+                .Add<VideoRequest>("videos/{id}")
+                .Add<VideoRequest>("videos","POST")
                 .Add<EquipmentListRequest>("equipment")
                 .Add<ExecerciseListRequest>("exercises")
                 .Add<EquipmentRequest>("equipment/{id}")
