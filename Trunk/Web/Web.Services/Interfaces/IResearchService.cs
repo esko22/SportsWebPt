@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         int AddEquipment(Equipment equipment);
 
+        void UpdateEquipment(Equipment equipment);
+
         IEnumerable<Video> GetVideos();
 
     }

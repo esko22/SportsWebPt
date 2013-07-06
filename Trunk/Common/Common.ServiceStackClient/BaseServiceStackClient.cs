@@ -83,6 +83,11 @@ namespace SportsWebPt.Common.ServiceStackClient
             return _serviceClientBase.Post<TResponse>(uri, request);
         }
 
+        protected TResponse PutSync<TResponse>(string uri, object request)
+        {
+            return _serviceClientBase.Put<TResponse>(uri, request);
+        }
+
         #endregion
 
         #region IDisposable

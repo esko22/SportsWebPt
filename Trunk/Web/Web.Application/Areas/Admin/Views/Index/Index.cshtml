@@ -50,40 +50,33 @@
                 </table>
             </div>
             <div class="span5 well">
-                <form class="form-horizontal">
+                <form class="form-horizontal" data-bind="validateForm: equipmentValidationOptions" id="admin-equipment-form">
                     <div class="control-group">
                         <label class="control-label" for="inputCommonName">Common Name</label>
                         <div class="controls">
-                            <input type="text" id="inputCommonName" data-bind="value: selectedEquipment.commonName" placeholder="Common Name">
+                            <input type="text" id="inputCommonName" name="commonName" data-bind="value: selectedEquipment.commonName" placeholder="Common Name">
                         </div>
                    </div>
                     <div class="control-group">
                         <label class="control-label" for="inputTechnicalName">Technical Name</label>
                         <div class="controls">
-                            <input type="text" id="inputTechnicalName" data-bind="value: selectedEquipment.technicalName" placeholder="Tech Name">
+                            <input type="text" id="inputTechnicalName" name="technicalName" data-bind="value: selectedEquipment.technicalName" placeholder="Tech Name">
                         </div>
                    </div>
                     <div class="control-group">
                         <label class="control-label" for="inputVendorName">Vendor</label>
                         <div class="controls">
-                            <input type="text" id="inputVendorName" data-bind="value: selectedEquipment.recommendedVendor" placeholder="Vendor">
-                        </div>
-                   </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputVendorLink">Vendor Link</label>
-                        <div class="controls">
-                            <input type="text" id="inputVendorLink" placeholder="Vendor URL">
+                            <input type="text" id="inputVendorName" name="recommendedVendor" data-bind="value: selectedEquipment.recommendedVendor" placeholder="Vendor">
                         </div>
                    </div>
                     <div class="control-group">
                         <label class="control-label" for="inputPriceRange">Price Range</label>
                         <div class="controls">
-                            <input type="text" id="inputPriceRange" data-bind="value: selectedEquipment.priceRange" placeholder="Price Range">
+                            <input type="text" id="inputPriceRange" name="priceRange" data-bind="value: selectedEquipment.priceRange" placeholder="Price Range">
                         </div>
                    </div>
                     <div class="form-actions">
-                      <button type="submit" data-bind="click: saveChanges" class="btn btn-primary">Save changes</button>
-                      <button type="button" class="btn">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                  </form>
             </div>

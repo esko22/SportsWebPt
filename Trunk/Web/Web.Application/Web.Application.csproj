@@ -807,6 +807,7 @@
     <Content Include="Scripts\models\model.video.js" />
     <Content Include="Scripts\models\model.workout.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
+    <Content Include="Scripts\utils\error.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
     <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />

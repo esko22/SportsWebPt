@@ -1,42 +1,136 @@
-07-04-13@01:11:09 Info (23)  [Common] VideoListRequest request submitted 
-07-04-13@01:11:12 Info (23)  [Common] VideoListRequest request completed with duration of 00:00:02.7191638 
-07-04-13@01:15:49 Info (26)  [Common] EquipmentListRequest request submitted 
-07-04-13@01:15:52 Info (26)  [Common] EquipmentListRequest request completed with duration of 00:00:02.7972992 
-07-04-13@01:15:57 Info (23)  [Common] VideoListRequest request submitted 
-07-04-13@01:15:57 Info (23)  [Common] VideoListRequest request completed with duration of 00:00:00.0497623 
-07-04-13@01:20:06 Info (19)  [Common] ExecerciseListRequest request submitted 
-07-04-13@01:20:58 Error (19)  [Common] [ExerciseListService: 7/4/2013 8:20:58 AM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-Exercise -> VideoDto[]
-SportsWebPt.Platform.Core.Models.Exercise -> SportsWebPt.Platform.ServiceModels.VideoDto[]
-
-Destination path:
-List`1[0].videos.videos
-
-Source value:
-SportsWebPt.Platform.Core.Models.Exercise Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
-ArgumentNullException Value cannot be null.
-Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
-07-04-13@01:33:39 Info (17)  [Common] ExecerciseListRequest request submitted 
-07-04-13@01:33:55 Error (17)  [Common] [ExerciseListService: 7/4/2013 8:33:55 AM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-Exercise -> ExerciseDto
-SportsWebPt.Platform.Core.Models.Exercise -> SportsWebPt.Platform.ServiceModels.ExerciseDto
-
-Destination path:
-List`1[0]
-
-Source value:
-SportsWebPt.Platform.Core.Models.Exercise System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentNullException Value cannot be null.
-Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
-07-04-13@01:35:08 Info (16)  [Common] ExecerciseListRequest request submitted 
-07-04-13@01:35:13 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:05.0955954 
-07-04-13@01:55:00 Info (21)  [Common] EquipmentListRequest request submitted 
-07-04-13@01:55:00 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0429718 
-07-04-13@01:55:07 Info (21)  [Common] VideoListRequest request submitted 
-07-04-13@01:55:07 Info (21)  [Common] VideoListRequest request completed with duration of 00:00:00.0522475 
+07-06-13@01:01:08 Info (18)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:01:11 Info (18)  [Common] EquipmentListRequest request completed with duration of 00:00:02.7860215 
+07-06-13@01:01:22 Info (35)  [Common] EquipmentRequest request submitted 
+07-06-13@01:01:22 Info (35)  [Common] EquipmentRequest request completed with duration of 00:00:00.1597686 
+07-06-13@01:01:37 Info (24)  [Common] EquipmentRequest request submitted 
+07-06-13@01:01:37 Info (24)  [Common] EquipmentRequest request completed with duration of 00:00:00.0508781 
+07-06-13@01:01:43 Info (21)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:01:43 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045054 
+07-06-13@01:01:58 Info (24)  [Common] EquipmentRequest request submitted 
+07-06-13@01:01:58 Info (24)  [Common] EquipmentRequest request completed with duration of 00:00:00.1474757 
+07-06-13@01:02:21 Info (11)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:02:21 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044792 
+07-06-13@01:04:20 Info (20)  [Common] EquipmentRequest request submitted 
+07-06-13@01:04:20 Info (20)  [Common] EquipmentRequest request completed with duration of 00:00:00.0499177 
+07-06-13@01:04:40 Info (11)  [Common] EquipmentRequest request submitted 
+07-06-13@01:04:40 Error (11)  [Common] [EquipmentService: 7/6/2013 8:04:40 AM]:
+[REQUEST: {Id:0,Resource:{id:0,commonName:32443,technicalName:dsadsa,priceRange:45ert,recommendedVendor:erte},IdAsLong:0,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 SaveChanges()
+OptimisticConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+07-06-13@01:04:46 Info (35)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:04:46 Info (35)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044587 
+07-06-13@01:04:56 Info (27)  [Common] EquipmentRequest request submitted 
+07-06-13@01:04:56 Info (27)  [Common] EquipmentRequest request completed with duration of 00:00:00.0284245 
+07-06-13@01:05:19 Info (35)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:05:19 Info (35)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041009 
+07-06-13@01:05:26 Info (25)  [Common] EquipmentRequest request submitted 
+07-06-13@01:05:26 Info (25)  [Common] EquipmentRequest request completed with duration of 00:00:00.0465412 
+07-06-13@01:09:45 Info (20)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:09:45 Info (20)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044310 
+07-06-13@01:09:49 Info (20)  [Common] EquipmentRequest request submitted 
+07-06-13@01:09:49 Info (20)  [Common] EquipmentRequest request completed with duration of 00:00:00.0309940 
+07-06-13@01:10:49 Info (25)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:10:49 Info (25)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041534 
+07-06-13@01:10:52 Info (9)  [Common] EquipmentRequest request submitted 
+07-06-13@01:10:52 Info (9)  [Common] EquipmentRequest request completed with duration of 00:00:00.0250031 
+07-06-13@01:14:50 Info (23)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:14:50 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0048494 
+07-06-13@01:14:53 Info (11)  [Common] EquipmentRequest request submitted 
+07-06-13@01:14:53 Info (11)  [Common] EquipmentRequest request completed with duration of 00:00:00.0358172 
+07-06-13@01:16:51 Info (20)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:16:51 Info (20)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0049457 
+07-06-13@01:16:53 Info (40)  [Common] EquipmentRequest request submitted 
+07-06-13@01:16:53 Info (40)  [Common] EquipmentRequest request completed with duration of 00:00:00.0477778 
+07-06-13@01:20:12 Info (11)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:20:12 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0042971 
+07-06-13@01:20:17 Info (11)  [Common] EquipmentRequest request submitted 
+07-06-13@01:20:17 Info (11)  [Common] EquipmentRequest request completed with duration of 00:00:00.0289074 
+07-06-13@01:20:22 Info (7)  [Common] EquipmentRequest request submitted 
+07-06-13@01:20:22 Info (7)  [Common] EquipmentRequest request completed with duration of 00:00:00.1881001 
+07-06-13@01:20:32 Info (11)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:20:32 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038725 
+07-06-13@01:20:36 Info (11)  [Common] EquipmentRequest request submitted 
+07-06-13@01:20:36 Info (11)  [Common] EquipmentRequest request completed with duration of 00:00:00.0459240 
+07-06-13@01:20:55 Info (11)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:20:55 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039097 
+07-06-13@01:21:19 Info (11)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:21:19 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046389 
+07-06-13@01:21:22 Info (7)  [Common] EquipmentRequest request submitted 
+07-06-13@01:21:22 Info (7)  [Common] EquipmentRequest request completed with duration of 00:00:00.0270135 
+07-06-13@01:27:58 Info (43)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:27:58 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0223362 
+07-06-13@01:28:01 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:28:01 Info (43)  [Common] EquipmentRequest request completed with duration of 00:00:00.0297318 
+07-06-13@01:30:52 Info (7)  [Common] EquipmentRequest request submitted 
+07-06-13@01:30:52 Info (7)  [Common] EquipmentRequest request completed with duration of 00:00:00.0276015 
+07-06-13@01:33:43 Info (22)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:33:43 Info (22)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045043 
+07-06-13@01:33:45 Info (23)  [Common] EquipmentRequest request submitted 
+07-06-13@01:33:46 Info (23)  [Common] EquipmentRequest request completed with duration of 00:00:00.0687370 
+07-06-13@01:34:10 Info (27)  [Common] EquipmentRequest request submitted 
+07-06-13@01:34:10 Info (27)  [Common] EquipmentRequest request completed with duration of 00:00:00.0221268 
+07-06-13@01:34:22 Info (23)  [Common] EquipmentRequest request submitted 
+07-06-13@01:34:22 Info (23)  [Common] EquipmentRequest request completed with duration of 00:00:00.0399849 
+07-06-13@01:35:06 Info (28)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:35:06 Info (28)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038929 
+07-06-13@01:35:21 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:35:21 Info (43)  [Common] EquipmentRequest request completed with duration of 00:00:00.0391944 
+07-06-13@01:40:00 Info (43)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:40:00 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039550 
+07-06-13@01:40:10 Info (23)  [Common] EquipmentRequest request submitted 
+07-06-13@01:40:10 Info (23)  [Common] EquipmentRequest request completed with duration of 00:00:00.0606394 
+07-06-13@01:40:22 Info (43)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:40:22 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040297 
+07-06-13@01:40:29 Info (28)  [Common] EquipmentRequest request submitted 
+07-06-13@01:40:29 Info (28)  [Common] EquipmentRequest request completed with duration of 00:00:00.0437841 
+07-06-13@01:40:36 Info (23)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:40:36 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044314 
+07-06-13@01:41:42 Info (43)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:41:42 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0043570 
+07-06-13@01:41:49 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:41:49 Info (43)  [Common] EquipmentRequest request completed with duration of 00:00:00.0386060 
+07-06-13@01:42:08 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:42:08 Error (43)  [Common] [EquipmentService: 7/6/2013 8:42:08 AM]:
+[REQUEST: {Id:0,Resource:{id:0,commonName:231tttt332,technicalName:43324234},IdAsLong:0,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 SaveChanges()
+OptimisticConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+07-06-13@01:42:15 Info (9)  [Common] EquipmentRequest request submitted 
+07-06-13@01:42:15 Info (9)  [Common] EquipmentRequest request completed with duration of 00:00:00.0234086 
+07-06-13@01:42:27 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:42:27 Error (43)  [Common] [EquipmentService: 7/6/2013 8:42:27 AM]:
+[REQUEST: {Id:0,Resource:{id:0,commonName:231tttt332t,technicalName:43324234},IdAsLong:0,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 SaveChanges()
+OptimisticConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+07-06-13@01:46:01 Info (41)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:46:01 Info (41)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045368 
+07-06-13@01:46:05 Info (23)  [Common] EquipmentRequest request submitted 
+07-06-13@01:46:05 Info (23)  [Common] EquipmentRequest request completed with duration of 00:00:00.0279506 
+07-06-13@01:46:13 Info (6)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:46:13 Info (6)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0050048 
+07-06-13@01:49:14 Info (23)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:49:14 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0055812 
+07-06-13@01:49:17 Info (23)  [Common] EquipmentRequest request submitted 
+07-06-13@01:49:17 Info (23)  [Common] EquipmentRequest request completed with duration of 00:00:00.0258600 
+07-06-13@01:49:47 Info (24)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:49:47 Info (24)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038919 
+07-06-13@01:49:50 Info (43)  [Common] EquipmentRequest request submitted 
+07-06-13@01:49:50 Info (43)  [Common] EquipmentRequest request completed with duration of 00:00:00.0294028 
+07-06-13@01:52:54 Info (21)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:52:54 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044540 
+07-06-13@01:53:05 Info (24)  [Common] EquipmentRequest request submitted 
+07-06-13@01:53:05 Info (24)  [Common] EquipmentRequest request completed with duration of 00:00:00.0299026 
+07-06-13@01:53:31 Info (24)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:53:31 Info (24)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039086 
+07-06-13@01:53:33 Info (24)  [Common] EquipmentRequest request submitted 
+07-06-13@01:53:33 Info (24)  [Common] EquipmentRequest request completed with duration of 00:00:00.0245734 
+07-06-13@01:57:32 Info (30)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:57:32 Info (30)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044204 
+07-06-13@01:57:35 Info (24)  [Common] EquipmentRequest request submitted 
+07-06-13@01:57:35 Info (24)  [Common] EquipmentRequest request completed with duration of 00:00:00.0311979 
+07-06-13@01:57:53 Info (29)  [Common] EquipmentRequest request submitted 
+07-06-13@01:57:53 Info (29)  [Common] EquipmentRequest request completed with duration of 00:00:00.0239401 
+07-06-13@01:59:22 Info (17)  [Common] EquipmentListRequest request submitted 
+07-06-13@01:59:22 Info (17)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041479 
+07-06-13@01:59:33 Info (38)  [Common] EquipmentRequest request submitted 
+07-06-13@01:59:33 Info (38)  [Common] EquipmentRequest request completed with duration of 00:00:00.0404609 
+07-06-13@01:59:48 Info (16)  [Common] EquipmentRequest request submitted 
+07-06-13@01:59:48 Error (16)  [Common] [EquipmentService: 7/6/2013 8:59:48 AM]:
+[REQUEST: {Id:0,Resource:{id:0,commonName:343242,technicalName:234234},IdAsLong:0,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 SaveChanges()
+OptimisticConcurrencyException Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. Refresh ObjectStateManager entries. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)

@@ -75,6 +75,14 @@ namespace SportsWebPt.Platform.Web.Research
             return Json(equipment, JsonRequestBehavior.DenyGet);
         }
 
+        [PUT("Research/equipment/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateEquipment(Equipment equipment)
+        {
+            _researchService.UpdateEquipment(equipment);
+
+            return Json(equipment, JsonRequestBehavior.DenyGet);
+        }
+
         [GET("Research/videos", IsAbsoluteUrl = true)]
         public ActionResult GetVideos()
         {

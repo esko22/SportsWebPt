@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
@@ -55,6 +56,18 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return Ok(new ApiResponse<EquipmentDto>(request.Resource));
 
+        }
+
+        public override object OnPut(EquipmentRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "EquipmentDto");
+
+            var equipment = Mapper.Map<Equipment>(request.Resource);
+
+            ResearchUnitOfWork.EquipmentRepo.Update(equipment);
+            ResearchUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<EquipmentDto>(request.Resource));
         }
 
         #endregion

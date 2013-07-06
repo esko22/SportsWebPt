@@ -69,5 +69,15 @@ namespace SportsWebPt.Platform.Web.Services
 
             return response.Resource.id;
         }
+
+        public void UpdateEquipment(Equipment equipment)
+        {
+            var equipmentResuest = new ApiResourceRequest<EquipmentDto>
+            {
+                Resource = Mapper.Map<EquipmentDto>(equipment)
+            };
+
+            PutSync<UserResourceResponse>(String.Format("{0}/{1}", _equipmentPath, equipment.id), equipmentResuest);
+        }
     }
 }
