@@ -15,7 +15,7 @@
         };
 
         var saveChanges = function () {
-            equipmentModel.save();
+            selectedEquipment.model().save();
             equipmentCollection.push(selectedEquipment);
         };
 

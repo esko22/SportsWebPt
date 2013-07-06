@@ -4,6 +4,7 @@
             equipment = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.equipment,
                 defaults: {
+                    "commonName": "caesar salad"
                 }
             });
 
