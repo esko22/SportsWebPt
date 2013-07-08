@@ -2,7 +2,7 @@
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Platform.Core.Models;
 
-namespace SportsWebPt.Platform.DataAccess.UnitOfWork
+namespace SportsWebPt.Platform.DataAccess
 {
     public class ResearchUnitOfWork : BaseUnitOfWork, IResearchUnitOfWork
     {

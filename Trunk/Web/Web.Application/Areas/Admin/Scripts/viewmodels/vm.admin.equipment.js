@@ -1,6 +1,6 @@
 ﻿define('vm.admin.equipment',
-    ['ko', 'underscore', 'knockback', 'model.equipment.collection', 'model.equipment', 'error.helper', 'bootstrap.helper'],
-    function(ko, _, kb, EquipmentCollection, EquipmentModel, err, bh) {
+    ['ko', 'underscore', 'knockback', 'model.admin.equipment.collection', 'model.admin.equipment', 'error.helper', 'bootstrap.helper', 'config'],
+    function(ko, _, kb, EquipmentCollection, EquipmentModel, err, bh, config) {
 
         var equipmentListTemplate = 'admin.equipment.list',
             equipmentCollection = new EquipmentCollection(),

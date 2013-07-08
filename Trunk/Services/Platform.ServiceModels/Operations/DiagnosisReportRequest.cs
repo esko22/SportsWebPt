@@ -1,7 +1,6 @@
 ﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.ServiceModels;
 
-namespace SportsWebPt.Platform.ServiceImpl
+namespace SportsWebPt.Platform.ServiceModels
 {
     public class DiagnosisReportRequest : ApiResourceRequest<DiagnosisReportDto>
     {

@@ -1,26 +1,30 @@
-﻿define('vm.admin.videos',
-    ['ko', 'underscore', 'knockback', 'model.admin.video.collection', 'model.admin.video', 'error.helper', 'bootstrap.helper'],
-    function (ko, _, kb, VideoCollection, VideoModel, err, bh) {
+﻿define('vm.admin.exercises',
+    ['ko', 'underscore', 'knockback', 'model.admin.exercise.collection', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection'],
+    function (ko, _, kb, ExerciseCollection, ExerciseModel, err, bh, VideoCollection, EquipmentCollection) {
 
-        var videoListTemplate = 'admin.video.list',
+        var exerciseListTemplate = 'admin.exercise.list',
+            exerciseCollection = new ExerciseCollection(),
             videoCollection = new VideoCollection(),
+            equipmentCollection = new EquipmentCollection(),
+            exercises = kb.collectionObservable(exerciseCollection),
             videos = kb.collectionObservable(videoCollection),
-            selectedVideo = kb.viewModel(new VideoModel()),
-            bindSelectedVideo = function (data, event) {
-                selectedVideo.model(data.model());
+            equipment = kb.collectionObservable(equipmentCollection),
+            selectedExercise = kb.viewModel(new ExerciseModel()),
+            bindSelectedExercise = function (data, event) {
+                selectedExercise.model(data.model());
             },
             onSuccessfulChange = function () {
-                selectedVideo.model(new VideoModel());
-                videoCollection.fetch();
+                selectedExercise.model(new ExerciseModel());
+                exerciseCollection.fetch();
             },
             saveChanges = function () {
-                selectedVideo.model().save({}, {
+                selectedExercise.model().save({}, {
                     success: onSuccessfulChange, error: err.onError
                 });
             };
 
 
-        var videoValidationOptions = ko.observable({
+        var exerciseValidationOptions = ko.observable({
             debug: true,
             rules: {
                 name:
@@ -76,14 +80,18 @@
         });
 
 
+        exerciseCollection.fetch();
         videoCollection.fetch();
-
+        equipmentCollection.fetch();
+        
         return {
-            videos: videos,
-            videoListTemplate: videoListTemplate,
-            selectedVideo: selectedVideo,
+            exercises: exercises,
+            exerciseListTemplate: exerciseListTemplate,
+            selectedExercise: selectedExercise,
             saveChanges: saveChanges,
-            bindSelectedVideo: bindSelectedVideo,
-            videoValidationOptions: videoValidationOptions
+            bindSelectedExercise: bindSelectedExercise,
+            exerciseValidationOptions: exerciseValidationOptions,
+            videos: videos,
+            equipment: equipment
         };
     });

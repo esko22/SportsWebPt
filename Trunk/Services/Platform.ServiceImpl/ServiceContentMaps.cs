@@ -18,6 +18,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side.Value));
             Mapper.CreateMap<BodyPart, BodyPartDto>();
+            Mapper.CreateMap<BodyPartDto, BodyPart>();
+            Mapper.CreateMap<BodyRegionDto, BodyRegion>();
+            Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<Symptom, SymptomDto>()
                   .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.RenderType.ToString()));
             Mapper.CreateMap<SkeletonArea, SymptomaticRegionDto>()
@@ -65,10 +68,27 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.Condition(s => s.ExerciseEquipmentMatrixItems != null);
                           opt.MapFrom(s => s.ExerciseEquipmentMatrixItems.Select(p => p.Equipment));
                       });
+            Mapper.CreateMap<ExerciseDto, Exercise>()
+                      .ForMember(d => d.ExerciseVideoMatrixItems, opt =>
+                      {
+                          opt.Condition(s => s.videos != null);
+                          opt.MapFrom(s => s.videos);
+                      })
+                      .ForMember(d => d.ExerciseEquipmentMatrixItems, opt =>
+                      {
+                          opt.Condition(s => s.equipment != null);
+                          opt.MapFrom(s => s.equipment);
+                      });
+            Mapper.CreateMap<ExerciseVideoMatrixItem, VideoDto>()
+                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.VideoId));
+            Mapper.CreateMap<ExerciseEquipmentMatrixItem, VideoDto>()
+                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.EquipmentId));
             Mapper.CreateMap<Video, VideoDto>();
             Mapper.CreateMap<VideoDto, Video>();
             Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<EquipmentDto, Equipment>();
+            Mapper.CreateMap<BodyRegion, BodyRegionDto>();
+            Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<Cause, CauseDto>();
             Mapper.CreateMap<Sign, SignDto>();
             Mapper.CreateMap<Injury, InjuryDto>()

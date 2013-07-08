@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+
 using AutoMapper;
+
 using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -38,5 +41,43 @@ namespace SportsWebPt.Platform.ServiceImpl
         }
 
         #endregion
+    }
+
+    public class BodyPartService : LoggingRestServiceBase<BodyPartRequest, ApiResponse<BodyPartDto>>
+    {
+        #region Properties
+
+        public ISkeletonUnitOfWork SkeletonUnitOfWork { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public override object OnPost(BodyPartRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
+
+            var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+
+            SkeletonUnitOfWork.BodyPartRepo.Add(bodyPart);
+            SkeletonUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<BodyPartDto>(request.Resource));
+        }
+
+        public override object OnPut(BodyPartRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
+
+            var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+
+            SkeletonUnitOfWork.BodyPartRepo.Update(bodyPart);
+            SkeletonUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<BodyPartDto>(request.Resource));
+        }
+
+        #endregion
+
     }
 }

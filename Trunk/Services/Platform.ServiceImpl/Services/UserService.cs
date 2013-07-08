@@ -8,7 +8,6 @@ using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
-using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services

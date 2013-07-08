@@ -62,6 +62,11 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
                   .To<ResearchService>().InRequestScope()
                   .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
+            kernel.Bind<IAdminService>()
+                  .To<AdminService>().InRequestScope()
+                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+
+
             kernel.Bind<Func<OAuthProvider, String, AuthWebServerClient>>().ToConstant(
                 new Func<OAuthProvider, String, AuthWebServerClient>((oauthProvider, uri) =>
                     {

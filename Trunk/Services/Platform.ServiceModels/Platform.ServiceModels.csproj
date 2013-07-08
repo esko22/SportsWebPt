@@ -79,6 +79,7 @@
     <Compile Include="Models\BodyPartSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
+    <Compile Include="Models\BodyRegionDto.cs" />
     <Compile Include="Models\CauseDto.cs" />
     <Compile Include="Models\DifferentialDiagnosisDto.cs" />
     <Compile Include="Models\DiagnosisReportDto.cs" />
@@ -96,6 +97,19 @@
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\VideoDto.cs" />
     <Compile Include="Models\WorkoutDto.cs" />
+    <Compile Include="Operations\BodyPartRequests.cs" />
+    <Compile Include="Operations\BodyRegionRequests.cs" />
+    <Compile Include="Operations\DiagnosisReportRequest.cs" />
+    <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
+    <Compile Include="Operations\EquipmentRequests.cs" />
+    <Compile Include="Operations\ExecerciseRequests.cs" />
+    <Compile Include="Operations\PotentialSymptomListRequest.cs" />
+    <Compile Include="Operations\SkeletorAreaListRequest.cs" />
+    <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
+    <Compile Include="Operations\SymptomListRequest.cs" />
+    <Compile Include="Operations\UserRequest.cs" />
+    <Compile Include="Operations\VideoRequests.cs" />
+    <Compile Include="Operations\WorkoutRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

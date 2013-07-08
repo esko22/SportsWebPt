@@ -13,20 +13,16 @@ namespace SportsWebPt.Platform.Web.Services
     {
         #region Fields
 
-        private readonly String _workoutPath = String.Empty;
-        private readonly String _equipmentPath = String.Empty;
-        private readonly String _videoPath = String.Empty;
+        private readonly SportsWebPtClientSettings _sportsWebPtClientSettings;
 
         #endregion
 
         #region Construction
 
-        public ResearchService(BaseServiceStackClientSettings clientSettings)
+        public ResearchService(SportsWebPtClientSettings clientSettings)
             : base(clientSettings)
         {
-            _workoutPath = String.Format("/{0}/workouts", _settings.Version);
-            _equipmentPath = String.Format("/{0}/equipment", _settings.Version);
-            _videoPath = String.Format("/{0}/videos", _settings.Version);
+            _sportsWebPtClientSettings = clientSettings;
         }
 
         #endregion
@@ -34,73 +30,28 @@ namespace SportsWebPt.Platform.Web.Services
         public Workout GetWorkout(int workoutId)
         {
             var response =
-                GetSync<ApiResourceRequest<WorkoutDto>>(String.Format("{0}/{1}", _workoutPath, workoutId));
+                GetSync<ApiResourceRequest<WorkoutDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.WorkoutPath,
+                                                                      workoutId));
 
             var workout = Mapper.Map<Workout>(response.Resource);
 
             return workout;
         }
 
-
-        public IEnumerable<Equipment> GetEquipment()
+        public IEnumerable<BodyPart> GetBodyParts()
         {
-            var response = GetSync<ListResponse<EquipmentDto, BasicSortBy>>(_equipmentPath);
-
-            return Mapper.Map<IEnumerable<Equipment>>(response.Resource.Items);
-        }
-
-        public IEnumerable<Video> GetVideos()
-        {
-            var response = GetSync<ListResponse<VideoDto, BasicSortBy>>(_videoPath);
-
-            return Mapper.Map<IEnumerable<Video>>(response.Resource.Items);
-        }
-
-
-        public int AddEquipment(Equipment equipment)
-        {
-            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
-                {
-                    Resource = Mapper.Map<EquipmentDto>(equipment)
-                };
-
             var response =
-                PostSync<EquipmentResourceResponse>(_equipmentPath, equipmentRequest);
+                GetSync<ListResponse<BodyPartDto, BodyPartSortBy>>(_sportsWebPtClientSettings.BodyPartUriPath);
 
-            return response.Resource.id;
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyPart>>(response.Resource.Items);
         }
 
-        public void UpdateEquipment(Equipment equipment)
+        public IEnumerable<BodyRegion> GetBodyRegions()
         {
-            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
-            {
-                Resource = Mapper.Map<EquipmentDto>(equipment)
-            };
-
-            PutSync<EquipmentResourceResponse>(String.Format("{0}/{1}", _equipmentPath, equipment.id), equipmentRequest);
-        }
-
-        public int AddVideo(Video video)
-        {
-            var request = new ApiResourceRequest<VideoDto>
-            {
-                Resource = Mapper.Map<VideoDto>(video)
-            };
-
             var response =
-                PostSync<VideoResourceResponse>(_videoPath, request);
+                GetSync<ListResponse<BodyRegionDto, BasicSortBy>>(_sportsWebPtClientSettings.BodyRegionUriPath);
 
-            return response.Resource.id;
-        }
-
-        public void UpdateVideo(Video video)
-        {
-            var request = new ApiResourceRequest<VideoDto>
-            {
-                Resource = Mapper.Map<VideoDto>(video)
-            };
-
-            PutSync<VideoResourceResponse>(String.Format("{0}/{1}", _videoPath, video.id), request);
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
         }
     }
 }

@@ -10,113 +10,46 @@
 
 <div class="row-fluid content-container-panel" id="admin-main-panel">
     
-    <div class="view container" id="admin-nav-panel">
-        <div class="row">
+    <div class="container" id="admin-nav-panel">
+        <div class="row-fluid" >
             <div class="span1">
                 <a href="#videos">Videos</a>
+            </div>
+            <div class="span1">
+                <a href="#equipment">Equipment</a>
             </div>
             <div class="span1">
                 <a href="#exercises">Exercises</a>
             </div>
             <div class="span1">
-                <a href="#equipment">Equipment</a>
+                <a href="#plans">Plans</a>
             </div>
-
-        </div>
-    </div>
-
-    <div class="view container" id="admin-video-panel">
-            <h2> Videos</h2>
-            <hr class="examine-report-hr"/>
-            <div class="row-fluid">
-                <div class="span7">
-                    <table class="table table-striped">
-                        <tbody data-bind="template: { name: videoListTemplate, foreach: videos }">
-                        </tbody>            
-                    </table>
-                </div>
-                <div class="span5 well">
-                    <form class="form-horizontal" data-bind="validateForm: videoValidationOptions" id="admin-video-form">
-                        <div class="control-group">
-                            <label class="control-label" for="inputName">Name</label>
-                            <div class="controls">
-                                <input type="text" id="inputName" name="name" data-bind="value: selectedVideo.name" placeholder="Name">
-                            </div>
-                       </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputDescription">Description</label>
-                            <div class="controls">
-                                <input type="text" id="inputDescription" name="description" data-bind="value: selectedVideo.description" placeholder="Description">
-                            </div>
-                       </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputFileName">FileName</label>
-                            <div class="controls">
-                                <input type="text" id="inputFileName" name="fileName" data-bind="value: selectedVideo.filename" placeholder="File Name">
-                            </div>
-                       </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputYoutubeId">Youtube Video Id</label>
-                            <div class="controls">
-                                <input type="text" id="inputYoutubeId" name="youtubeId" data-bind="value: selectedVideo.youtubeVideoId" placeholder="Youtube Video Id">
-                            </div>
-                       </div>
-                        <div class="form-actions">
-                          <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                     </form>
-                </div>
+            <div class="span1">
+                <a href="#injuries">Injuries</a>
             </div>
-    </div>
-    
-    <div class="view container" id="admin-exercise-panel">
-        <div class="container">
-            <h2> Exercises</h2>
-            <hr class="examine-report-hr"/>
+            <div class="span1">
+                <a href="#causes">Causes</a>
+            </div>
+            <div class="span1">
+                <a href="#signs">Signs</a>
+            </div>
+            <div class="span1">
+                <a href="#tags">Tags</a>
+            </div>
+            <div class="span1">
+                <a href="#symptoms">Symptoms</a>
+            </div>
+            <div class="span1">
+                <a href="#bodypart">Body Part</a>
+            </div>
+            <div class="span2">
+                <a href="#bodyregion">Body Region</a>
+            </div>
         </div>
     </div>
     
-    <div class="view container" id="admin-equipment-panel">
-            <h2> Equipment</h2>
-            <hr class="examine-report-hr"/>
-        <div class="row-fluid">
-            <div class="span7">
-                <table class="table table-striped">
-                    <tbody data-bind="template: { name: equipmentListTemplate, foreach: equipment}">
-                    </tbody>            
-                </table>
-            </div>
-            <div class="span5 well">
-                <form class="form-horizontal" data-bind="validateForm: equipmentValidationOptions" id="admin-equipment-form">
-                    <div class="control-group">
-                        <label class="control-label" for="inputCommonName">Common Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputCommonName" name="commonName" data-bind="value: selectedEquipment.commonName" placeholder="Common Name">
-                        </div>
-                   </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputTechnicalName">Technical Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputTechnicalName" name="technicalName" data-bind="value: selectedEquipment.technicalName" placeholder="Tech Name">
-                        </div>
-                   </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputVendorName">Vendor</label>
-                        <div class="controls">
-                            <input type="text" id="inputVendorName" name="recommendedVendor" data-bind="value: selectedEquipment.recommendedVendor" placeholder="Vendor">
-                        </div>
-                   </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPriceRange">Price Range</label>
-                        <div class="controls">
-                            <input type="text" id="inputPriceRange" name="priceRange" data-bind="value: selectedEquipment.priceRange" placeholder="Price Range">
-                        </div>
-                   </div>
-                    <div class="form-actions">
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                 </form>
-            </div>
-            </div>
-    </div>
+    @{Html.RenderPartial("~/Areas/Admin/Views/Index/_adminVideos.cshtml"); }
+    @{Html.RenderPartial("~/Areas/Admin/Views/Index/_adminExercises.cshtml"); }
+    @{Html.RenderPartial("~/Areas/Admin/Views/Index/_adminEquipment.cshtml"); }
+
 </div>

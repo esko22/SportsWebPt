@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services
@@ -8,17 +7,9 @@ namespace SportsWebPt.Platform.Web.Services
     {
         Workout GetWorkout(int workoutId);
 
-        IEnumerable<Equipment> GetEquipment();
+        IEnumerable<BodyPart> GetBodyParts();
 
-        int AddEquipment(Equipment equipment);
-
-        void UpdateEquipment(Equipment equipment);
-
-        IEnumerable<Video> GetVideos();
-
-        int AddVideo(Video video);
-
-        void UpdateVideo(Video video);
+        IEnumerable<BodyRegion> GetBodyRegions();
 
     }
 }

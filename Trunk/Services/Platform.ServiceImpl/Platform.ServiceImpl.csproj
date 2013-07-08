@@ -72,22 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Operations\BodyPartListRequest.cs" />
-    <Compile Include="Operations\DiagnosisReportRequest.cs" />
-    <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
-    <Compile Include="Operations\EquipmentRequests.cs" />
-    <Compile Include="Operations\ExecerciseRequests.cs" />
-    <Compile Include="Operations\PotentialSymptomListRequest.cs" />
-    <Compile Include="Operations\SkeletorAreaListRequest.cs" />
-    <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
-    <Compile Include="Operations\SymptomListRequest.cs" />
-    <Compile Include="Operations\UserRequest.cs" />
-    <Compile Include="Operations\VideoRequests.cs" />
-    <Compile Include="Operations\WorkoutRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContentMaps.cs" />
-    <Compile Include="Services\BodyPartListService.cs" />
+    <Compile Include="Services\BodyPartServices.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\BodyRegionServices.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
     <Compile Include="Services\DifferentialDiagnosisService.cs" />
     <Compile Include="Services\EquipmentServices.cs" />

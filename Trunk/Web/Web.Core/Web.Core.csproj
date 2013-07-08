@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BodyPart.cs" />
+    <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Cause.cs" />
     <Compile Include="Models\DiagnosisReport.cs" />
     <Compile Include="Models\Equipment.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Workout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SportsWebPtClientSettings.cs" />
     <Compile Include="WebPlatformConfigSettings.cs" />
   </ItemGroup>
   <ItemGroup>

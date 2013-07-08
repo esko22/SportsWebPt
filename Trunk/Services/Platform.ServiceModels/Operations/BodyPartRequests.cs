@@ -1,6 +1,6 @@
 ﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
 
-namespace SportsWebPt.Platform.ServiceImpl
+namespace SportsWebPt.Platform.ServiceModels
 {
     public class BodyPartListRequest : ApiResourceListRequest
     {
@@ -10,4 +10,9 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #endregion
     }
+
+    public class BodyPartRequest : ApiResourceRequest<BodyPartDto>
+    {
+    }
+
 }

@@ -12,20 +12,26 @@
         var apiUris = {
             users: $.format('{0}/{1}', hostUri, 'users'),
             skeletonAreas: $.format('{0}/{1}', hostUri, 'examine/areas'),
-            areaComponents: $.format('{0}/{1}', hostUri, 'examine/components'),
-            symptoms: $.format('{0}/{1}', hostUri, 'examine/symptoms'),
             symptomaticRegions: $.format('{0}/{1}', hostUri, 'examine/symptomaticregions'),
             symptomaticComponents: $.format('{0}/{1}', hostUri, 'examine/symptomaticcomponents'),
             componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId='),
-            injuries: $.format('{0}/{1}', hostUri, 'examine/injuries'),
             diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport'),
+            injuries: $.format('{0}/{1}', hostUri, 'research/injuries'),
             workouts: $.format('{0}/{1}', hostUri, 'research/workouts'),
             exercises: $.format('{0}/{1}', hostUri, 'research/exercises'),
+            adminExercises: $.format('{0}/{1}', hostUri, 'admin/exercises'),
             equipment: $.format('{0}/{1}', hostUri, 'research/equipment'),
+            adminEquipment: $.format('{0}/{1}', hostUri, 'admin/equipment'),
             videos: $.format('{0}/{1}', hostUri, 'research/videos'),
+            adminVideos: $.format('{0}/{1}', hostUri, 'admin/videos'),
             signs: $.format('{0}/{1}', hostUri, 'research/signs'),
-            causes: $.format('{0}/{1}', hostUri, 'research/causes')
-            };
+            causes: $.format('{0}/{1}', hostUri, 'research/causes'),
+            symptoms: $.format('{0}/{1}', hostUri, 'research/symptoms'),
+            bodyParts: $.format('{0}/{1}', hostUri, 'research/bodyparts'),
+            bodyRegion: $.format('{0}/{1}', hostUri, 'research/bodyregions'),
+            adminBodyRegion: $.format('{0}/{1}', hostUri, 'admin/bodyregions'),
+            adminBodyParts: $.format('{0}/{1}', hostUri, 'admin/bodyparts')
+        };
 
         var configureExternalTemplates = function() {
             infuser.defaults.templatePrefix = "_";

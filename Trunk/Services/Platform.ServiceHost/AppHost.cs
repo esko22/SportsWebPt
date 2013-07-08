@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using ServiceStack.Common;
 using ServiceStack.Common.Web;
 using ServiceStack.ServiceHost;
@@ -18,7 +14,6 @@ using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.DataAccess.UnitOfWork;
 using SportsWebPt.Platform.ServiceImpl;
-using SportsWebPt.Platform.ServiceImpl.Operations;
 using SportsWebPt.Platform.ServiceImpl.Services;
 using SportsWebPt.Platform.ServiceModels;
 
@@ -109,6 +104,11 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<AuthRequestDto>("auth")
                 .Add<SkeletonAreaListRequest>("areas")
                 .Add<BodyPartListRequest>("bodyparts")
+                .Add<BodyPartRequest>("bodyparts/{id}")
+                .Add<BodyPartRequest>("bodyparts", "POST")
+                .Add<BodyRegionListRequest>("bodyregions")
+                .Add<BodyRegionRequest>("bodyregions/{id}")
+                .Add<BodyRegionRequest>("bodyregions", "POST")
                 .Add<SymptomListRequest>("symptoms")
                 .Add<SymptomaticRegionListRequest>("symptomaticregions")
                 .Add<PotentialSymptomListRequest>("potentialsymptoms")
@@ -118,11 +118,14 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<WorkoutRequest>("workouts/{Id}")
                 .Add<VideoListRequest>("videos")
                 .Add<VideoRequest>("videos/{id}")
-                .Add<VideoRequest>("videos","POST")
+                .Add<VideoRequest>("videos", "POST")
                 .Add<EquipmentListRequest>("equipment")
-                .Add<ExecerciseListRequest>("exercises")
                 .Add<EquipmentRequest>("equipment/{id}")
-                .Add<EquipmentRequest>("equipment","POST");
+                .Add<EquipmentRequest>("equipment", "POST")
+                .Add<ExecerciseListRequest>("exercises")
+                .Add<ExecerciseRequest>("exercises/{id}")
+                .Add<ExecerciseRequest>("exercises", "POST");
+
         }
 
         private void ConfigureContainer(Container container)

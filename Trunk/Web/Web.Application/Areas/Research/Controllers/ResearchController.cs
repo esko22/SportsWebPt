@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Application;
-using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 
@@ -57,57 +53,27 @@ namespace SportsWebPt.Platform.Web.Research
             return View(viewModel);
         }
 
-
-        [GET("Research/equipment", IsAbsoluteUrl = true)]
-        public ActionResult GetEquipment()
+        [GET("Research/bodyparts", IsAbsoluteUrl = true)]
+        public ActionResult GetBodyParts()
         {
-            var equipment = _researchService.GetEquipment();
+            var areaComponents = _researchService.GetBodyParts();
 
-            return Json(equipment, JsonRequestBehavior.AllowGet);
+            return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("Research/equipment", IsAbsoluteUrl = true)]
-        public ActionResult AddEquipment(Equipment equipment)
+        [GET("Research/bodyregions", IsAbsoluteUrl = true)]
+        public ActionResult GetBodyRegions()
         {
-            var response = _researchService.AddEquipment(equipment);
-            equipment.id = response;
+            var areaComponents = _researchService.GetBodyRegions();
 
-            return Json(equipment, JsonRequestBehavior.DenyGet);
+            return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
-        [PUT("Research/equipment/{Id}", IsAbsoluteUrl = true)]
-        public ActionResult UpdateEquipment(Equipment equipment)
+        [GET("Research/symptoms", IsAbsoluteUrl = true)]
+        public ActionResult GetSymptoms()
         {
-            _researchService.UpdateEquipment(equipment);
-
-            return Json(equipment, JsonRequestBehavior.DenyGet);
+            throw new NotImplementedException();
         }
-
-        [GET("Research/videos", IsAbsoluteUrl = true)]
-        public ActionResult GetVideos()
-        {
-            var videos = _researchService.GetVideos();
-
-            return Json(videos, JsonRequestBehavior.AllowGet);
-        }
-
-        [POST("Research/videos", IsAbsoluteUrl = true)]
-        public ActionResult AddVideo(Video video)
-        {
-            var response = _researchService.AddVideo(video);
-            video.id = response;
-
-            return Json(video, JsonRequestBehavior.DenyGet);
-        }
-
-        [PUT("Research/videos/{Id}", IsAbsoluteUrl = true)]
-        public ActionResult UpdateVideo(Video video)
-        {
-            _researchService.UpdateVideo(video);
-
-            return Json(video, JsonRequestBehavior.DenyGet);
-        }
-
 
         #endregion
 

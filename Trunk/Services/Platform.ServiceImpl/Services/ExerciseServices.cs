@@ -2,8 +2,9 @@
 
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.DataAccess.UnitOfWork;
-using SportsWebPt.Platform.ServiceImpl.Operations;
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core.Models;
+using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
@@ -21,12 +22,50 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public override object OnGet(ExecerciseListRequest request)
         {
             var responseList = new List<ExerciseDto>();
-            Mapper.Map(ResearchUnitOfWork.ExerciseRepo.GetAll(), responseList);
+            Mapper.Map(ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video" }), responseList);
 
             return
                 Ok(new ListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
 
+        }
+
+        #endregion
+    }
+
+    public class ExerciseService : LoggingRestServiceBase<ExecerciseRequest, ApiResponse<ExerciseDto>>
+    {
+        #region Properties
+
+        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public override object OnPost(ExecerciseRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "ExerciseDto");
+
+            var exercise = Mapper.Map<Exercise>(request.Resource);
+
+            ResearchUnitOfWork.ExerciseRepo.Add(exercise);
+            ResearchUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<ExerciseDto>(request.Resource));
+
+        }
+
+        public override object OnPut(ExecerciseRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "ExerciseDto");
+
+            var exercise = Mapper.Map<Exercise>(request.Resource);
+
+            ResearchUnitOfWork.ExerciseRepo.Update(exercise);
+            ResearchUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<ExerciseDto>(request.Resource));
         }
 
         #endregion

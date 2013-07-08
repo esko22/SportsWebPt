@@ -14,24 +14,23 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Fields
 
-        private String _userUriPath = String.Empty;
-        private String _authUriPath = String.Empty;
+        private readonly SportsWebPtClientSettings _sportsWebPtClientSettings;
 
         #endregion
+       
 
         #region Methods
 
-        public UserManagementService(BaseServiceStackClientSettings clientSettings) 
+        public UserManagementService(SportsWebPtClientSettings clientSettings) 
             : base(clientSettings)
         {
-            _userUriPath = String.Format("/{0}/users", _settings.Version);
-            _authUriPath = String.Format("/{0}/auth", _settings.Version);
+            _sportsWebPtClientSettings = clientSettings;
         }
 
         public User GetUser(String emailAddress)
         {
             var response =
-                GetSync<UserResourceResponse>(String.Format("{0}?email={1}", _userUriPath, HttpUtility.UrlEncode(emailAddress)));
+                GetSync<UserResourceResponse>(String.Format("{0}?email={1}", _sportsWebPtClientSettings.UserUriPath, HttpUtility.UrlEncode(emailAddress)));
 
             return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }
@@ -39,7 +38,7 @@ namespace SportsWebPt.Platform.Web.Services
         public User GetUser(int id)
         {
             var response =
-                GetSync<UserResourceResponse>(String.Format("{0}/{1}", _userUriPath, id));
+                GetSync<UserResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.UserUriPath, id));
 
             return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }
@@ -52,7 +51,7 @@ namespace SportsWebPt.Platform.Web.Services
                 };
 
             var response =
-                PostSync<UserResourceResponse>(_userUriPath, userResuest);
+                PostSync<UserResourceResponse>(_sportsWebPtClientSettings.UserUriPath, userResuest);
 
             return response.Resource.id;
         }
@@ -60,7 +59,7 @@ namespace SportsWebPt.Platform.Web.Services
         public User Auth(string emailAddress, string hash)
         {
             var response =
-                PostSync<UserResourceResponse>(_authUriPath, new AuthRequestDto() { emailAddress = emailAddress, hash = hash} );
+                PostSync<UserResourceResponse>(_sportsWebPtClientSettings.AuthUriPath, new AuthRequestDto() { emailAddress = emailAddress, hash = hash });
 
             return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
         }

@@ -34,7 +34,7 @@ namespace SportsWebPt.Platform.Web.Core
             }
         }
 
-        public BaseServiceStackClientSettings ServiceStackClientSettings { get; private set; }
+        public SportsWebPtClientSettings ServiceStackClientSettings { get; private set; }
         public String FacebookClientKey { get; private set; }
         public String FacebookClientSecret { get; private set; }
         public String GoogleClientKey { get; private set; }
@@ -62,7 +62,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         private void BindConfigValues()
         {
-            ServiceStackClientSettings = new BaseServiceStackClientSettings()
+            ServiceStackClientSettings = new SportsWebPtClientSettings()
             {
                 BaseUri = ConfigurationManager.AppSettings["platofrmServiceUri"]
             };

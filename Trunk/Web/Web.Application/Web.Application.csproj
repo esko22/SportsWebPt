@@ -179,6 +179,7 @@
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.equipment.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercises.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
@@ -369,6 +370,9 @@
     <Content Include="Content\fonts\SWPT.eot" />
     <Content Include="Content\fonts\SWPT.ttf" />
     <Content Include="Content\fonts\SWPT.woff" />
+    <Content Include="Areas\Admin\Views\Index\_adminEquipment.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\_adminVideos.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\_adminExercises.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -791,6 +795,7 @@
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\TrafficCop.js" />
     <Content Include="Scripts\models\model.body.part.js" />
+    <Content Include="Scripts\models\model.body.region.js" />
     <Content Include="Scripts\models\model.cause.js" />
     <Content Include="Scripts\models\model.diagnosis.report.js" />
     <Content Include="Scripts\models\model.equipment.js" />
@@ -810,6 +815,7 @@
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\error.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
+    <Content Include="Tmpl\_admin.exercise.list.tmpl.html" />
     <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
     <Content Include="Tmpl\_admin.video.list.tmpl.html" />
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />

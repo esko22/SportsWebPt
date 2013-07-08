@@ -39,17 +39,6 @@ namespace SportsWebPt.Platform.Web.Application
             return View(viewModel);
         }
 
-        [GET("Examine/bodyparts", IsAbsoluteUrl = true)]
-        public ActionResult GetBodyParts(String areaId)
-        {
-            var skeletonAreaId = 0;
-            if (!String.IsNullOrEmpty(areaId))
-                int.TryParse(areaId, out skeletonAreaId);
-
-            var areaComponents = _examineService.GetBodyParts(skeletonAreaId);
-
-            return Json(areaComponents, JsonRequestBehavior.AllowGet);
-        }
 
         [GET("Examine/symptomaticregions", IsAbsoluteUrl = true)]
         public ActionResult GetSymptomaticRegions()
@@ -81,12 +70,6 @@ namespace SportsWebPt.Platform.Web.Application
             var diagnosisReport = _examineService.GetDiagnosisReport(differentialDiagnosisId);
 
             return Json(diagnosisReport, JsonRequestBehavior.AllowGet);
-        }
-
-        [GET("Examine/symptoms", IsAbsoluteUrl = true)]
-        public ActionResult GetSymptoms()
-        {
-            throw new NotImplementedException();
         }
 
         [POST("examine/diffdiag", IsAbsoluteUrl = true)]

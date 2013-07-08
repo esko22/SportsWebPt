@@ -11,6 +11,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         public ISkeletonRepo SkeletonAreaRepo { get { return GetRepo<ISkeletonRepo>(); } }
         public IRepository<BodyPart> BodyPartRepo { get { return GetStandardRepo<BodyPart>(); } }
+        public IRepository<BodyRegion> BodyRegionRepo { get { return GetStandardRepo<BodyRegion>(); } }
         public IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get { return GetStandardRepo<BodyPartMatrixItem>(); } } 
         public IRepository<Symptom> SymptomRepo { get { return GetStandardRepo<Symptom>(); } }
         public ISymptomMatrixRepo SymptomMatrixRepo { get { return GetRepo<ISymptomMatrixRepo>(); } }
@@ -32,6 +33,7 @@ namespace SportsWebPt.Platform.DataAccess
         ISkeletonRepo SkeletonAreaRepo { get; }
         IRepository<BodyPart> BodyPartRepo { get; }
         IRepository<Symptom> SymptomRepo { get; }
+        IRepository<BodyRegion> BodyRegionRepo { get; } 
         ISymptomMatrixRepo SymptomMatrixRepo { get; }
         IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get; }
     }

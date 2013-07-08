@@ -4,11 +4,6 @@
             video = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.videos,
                 defaults: {
-                    'name': '',
-                    'description': '',
-                    'filename': '',
-                    'youtubeVideoId': '',
-                    'creationDate' : ''
                 }
             });
 
@@ -22,6 +17,38 @@ define('model.video.collection', ['backbone', 'model.video', 'config'],
             componentCollection = backbone.Collection.extend({
                 model: component,
                 url: config.apiUris.videos
+            });
+
+        return componentCollection;
+
+    });
+
+
+
+define('model.admin.video', ['backbone', 'config', 'jquery'],
+    function (backbone, config, $) {
+        var
+            video = backbone.RelationalModel.extend({
+                urlRoot: config.apiUris.adminVideos,
+                defaults: {
+                    'name': '',
+                    'description': '',
+                    'filename': '',
+                    'youtubeVideoId': '',
+                    'creationDate': ''
+                }
+            });
+
+        return video;
+
+    });
+
+define('model.admin.video.collection', ['backbone', 'model.admin.video', 'config'],
+    function (backbone, component, config) {
+        var
+            componentCollection = backbone.Collection.extend({
+                model: component,
+                url: config.apiUris.adminVideos
             });
 
         return componentCollection;
