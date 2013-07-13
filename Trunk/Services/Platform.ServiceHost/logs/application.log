@@ -1,16 +1,126 @@
-07-06-13@14:02:20 Info (9)  [Common] EquipmentListRequest request submitted 
-07-06-13@14:02:20 Info (12)  [Common] VideoListRequest request submitted 
-07-06-13@14:02:23 Info (9)  [Common] EquipmentListRequest request completed with duration of 00:00:02.7278771 
-07-06-13@14:02:23 Info (12)  [Common] VideoListRequest request completed with duration of 00:00:02.7278414 
-07-06-13@14:05:05 Info (12)  [Common] VideoRequest request submitted 
-07-06-13@14:05:05 Info (12)  [Common] VideoRequest request completed with duration of 00:00:00.1446267 
-07-06-13@14:05:06 Info (9)  [Common] VideoListRequest request submitted 
-07-06-13@14:05:06 Info (9)  [Common] VideoListRequest request completed with duration of 00:00:00.0042712 
-07-06-13@14:05:30 Info (9)  [Common] VideoRequest request submitted 
-07-06-13@14:05:30 Info (9)  [Common] VideoRequest request completed with duration of 00:00:00.0499928 
-07-06-13@14:05:30 Info (24)  [Common] VideoListRequest request submitted 
-07-06-13@14:05:30 Info (24)  [Common] VideoListRequest request completed with duration of 00:00:00.0040057 
-07-06-13@14:05:45 Info (19)  [Common] EquipmentListRequest request submitted 
-07-06-13@14:05:45 Info (9)  [Common] VideoListRequest request submitted 
-07-06-13@14:05:45 Info (19)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039550 
-07-06-13@14:05:45 Info (9)  [Common] VideoListRequest request completed with duration of 00:00:00.0054418 
+07-13-13@00:07:24 Info (41)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:07:24 Info (38)  [Common] VideoListRequest request submitted 
+07-13-13@00:07:24 Info (41)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0126445 
+07-13-13@00:07:24 Info (30)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:07:24 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0075988 
+07-13-13@00:07:24 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0248747 
+07-13-13@00:08:54 Info (29)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:08:54 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0054126 
+07-13-13@00:08:54 Info (38)  [Common] VideoListRequest request submitted 
+07-13-13@00:08:54 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0055640 
+07-13-13@00:08:54 Info (30)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:08:54 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0089897 
+07-13-13@00:10:02 Info (30)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:10:02 Info (30)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046951 
+07-13-13@00:10:02 Info (40)  [Common] VideoListRequest request submitted 
+07-13-13@00:10:02 Info (40)  [Common] VideoListRequest request completed with duration of 00:00:00.0047086 
+07-13-13@00:10:02 Info (44)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:10:02 Info (44)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0091462 
+07-13-13@00:11:13 Info (44)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:11:13 Info (44)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040651 
+07-13-13@00:11:13 Info (30)  [Common] VideoListRequest request submitted 
+07-13-13@00:11:13 Info (30)  [Common] VideoListRequest request completed with duration of 00:00:00.0049917 
+07-13-13@00:11:13 Info (29)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:11:13 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0074022 
+07-13-13@00:14:36 Info (37)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:14:36 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046998 
+07-13-13@00:14:36 Info (47)  [Common] VideoListRequest request submitted 
+07-13-13@00:14:36 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0042723 
+07-13-13@00:14:36 Info (46)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:14:36 Info (46)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076072 
+07-13-13@00:15:22 Info (49)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:15:22 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0054436 
+07-13-13@00:15:22 Info (46)  [Common] VideoListRequest request submitted 
+07-13-13@00:15:22 Info (46)  [Common] VideoListRequest request completed with duration of 00:00:00.0044857 
+07-13-13@00:15:22 Info (37)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:15:22 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076371 
+07-13-13@00:16:44 Info (46)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:16:44 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039703 
+07-13-13@00:16:44 Info (47)  [Common] VideoListRequest request submitted 
+07-13-13@00:16:44 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0041067 
+07-13-13@00:16:48 Info (47)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:16:48 Info (47)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0091995 
+07-13-13@00:17:09 Info (46)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:17:09 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041968 
+07-13-13@00:17:09 Info (48)  [Common] VideoListRequest request submitted 
+07-13-13@00:17:09 Info (48)  [Common] VideoListRequest request completed with duration of 00:00:00.0060751 
+07-13-13@00:17:09 Info (47)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:17:09 Info (47)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0079304 
+07-13-13@00:18:59 Info (37)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:18:59 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040786 
+07-13-13@00:18:59 Info (47)  [Common] VideoListRequest request submitted 
+07-13-13@00:18:59 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0056618 
+07-13-13@00:18:59 Info (46)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:18:59 Info (46)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0078272 
+07-13-13@00:19:19 Info (46)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:19:19 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040655 
+07-13-13@00:19:19 Info (47)  [Common] VideoListRequest request submitted 
+07-13-13@00:19:19 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0039695 
+07-13-13@00:19:19 Info (52)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:19:19 Info (52)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076583 
+07-13-13@00:20:35 Info (37)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:20:35 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040024 
+07-13-13@00:20:35 Info (46)  [Common] VideoListRequest request submitted 
+07-13-13@00:20:35 Info (46)  [Common] VideoListRequest request completed with duration of 00:00:00.0051868 
+07-13-13@00:20:35 Info (37)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:20:35 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0075868 
+07-13-13@00:21:48 Info (55)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:21:48 Info (55)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045634 
+07-13-13@00:21:48 Info (47)  [Common] VideoListRequest request submitted 
+07-13-13@00:21:48 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0044007 
+07-13-13@00:21:48 Info (55)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:21:48 Info (55)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0078122 
+07-13-13@00:23:35 Info (47)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:23:35 Info (47)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041709 
+07-13-13@00:23:35 Info (53)  [Common] VideoListRequest request submitted 
+07-13-13@00:23:35 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0038838 
+07-13-13@00:23:35 Info (51)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:23:35 Info (51)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0087982 
+07-13-13@00:27:10 Info (37)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:27:10 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0047320 
+07-13-13@00:27:10 Info (53)  [Common] VideoListRequest request submitted 
+07-13-13@00:27:10 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0038076 
+07-13-13@00:27:10 Info (37)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:27:10 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0070877 
+07-13-13@00:27:40 Info (53)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:27:40 Info (53)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0048512 
+07-13-13@00:27:40 Info (53)  [Common] VideoListRequest request submitted 
+07-13-13@00:27:40 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0050446 
+07-13-13@00:27:40 Info (37)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:27:40 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0086549 
+07-13-13@00:29:50 Info (50)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:29:50 Info (50)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041581 
+07-13-13@00:29:50 Info (37)  [Common] VideoListRequest request submitted 
+07-13-13@00:29:50 Info (37)  [Common] VideoListRequest request completed with duration of 00:00:00.0038266 
+07-13-13@00:29:50 Info (48)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:29:50 Info (48)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0086603 
+07-13-13@00:32:08 Info (50)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:32:08 Info (50)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0043398 
+07-13-13@00:32:08 Info (44)  [Common] VideoListRequest request submitted 
+07-13-13@00:32:08 Info (44)  [Common] VideoListRequest request completed with duration of 00:00:00.0040173 
+07-13-13@00:32:08 Info (54)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:32:08 Info (54)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0074128 
+07-13-13@00:35:48 Info (49)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:35:48 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0037675 
+07-13-13@00:35:48 Info (39)  [Common] VideoListRequest request submitted 
+07-13-13@00:35:48 Info (39)  [Common] VideoListRequest request completed with duration of 00:00:00.0038525 
+07-13-13@00:35:48 Info (39)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:35:48 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0082434 
+07-13-13@00:36:29 Info (49)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:36:29 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0037171 
+07-13-13@00:36:29 Info (49)  [Common] VideoListRequest request submitted 
+07-13-13@00:36:29 Info (49)  [Common] VideoListRequest request completed with duration of 00:00:00.0046273 
+07-13-13@00:36:29 Info (39)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:36:29 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0070206 
+07-13-13@00:37:08 Info (39)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:37:08 Info (39)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044011 
+07-13-13@00:37:08 Info (41)  [Common] VideoListRequest request submitted 
+07-13-13@00:37:08 Info (41)  [Common] VideoListRequest request completed with duration of 00:00:00.0035738 
+07-13-13@00:37:08 Info (45)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:37:08 Info (45)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076947 
+07-13-13@00:43:01 Info (33)  [Common] EquipmentListRequest request submitted 
+07-13-13@00:43:01 Info (30)  [Common] VideoListRequest request submitted 
+07-13-13@00:43:01 Info (33)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0130418 
+07-13-13@00:43:01 Info (30)  [Common] VideoListRequest request completed with duration of 00:00:00.0147274 
+07-13-13@00:43:01 Info (45)  [Common] ExecerciseListRequest request submitted 
+07-13-13@00:43:01 Info (45)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0083309 

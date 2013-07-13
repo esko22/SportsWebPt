@@ -9,28 +9,25 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputName">Name</label>
                                     <div class="controls">
-                                        <input type="text" id="inputName" name="name" data-bind="value: selectedExercise.name" placeholder="Name">
+                                        <input type="text" id="inputName" name="name" data-bind="value: name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputDescription">Description</label>
                                     <div class="controls">
-                                        <input type="text" id="inputDescription" name="description" data-bind="value: selectedExercise.description" placeholder="Description">
+                                        <input type="text" id="inputDescription" name="description" data-bind="value: description" placeholder="Description">
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputDuration">Duration</label>
                                     <div class="controls">
-                                        <input type="text" id="inputDuration" name="duration" data-bind="value: selectedExercise.duration" placeholder="Duration">
+                                        <input type="text" id="inputDuration" name="duration" data-bind="value: duration" placeholder="Duration">
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputDifficulty">Difficulty</label>
                                     <div class="controls">
-                                        <select id="inputDifficulty" name="difficulty" data-bind="value: selectedExercise.difficulty" >
-                                            <option>Beginnner</option>
-                                            <option>Intermediate</option>
-                                            <option>Advanced</option>
+                                        <select id="inputDifficulty" name="difficulty" data-bind="options: availableDifficulties, value: difficulty" >
                                         </select>
                                     </div>
                                 </div>
@@ -39,14 +36,14 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputExerciseVideos">Videos</label>
                                     <div class="controls">
-                                        <select id="inputExerciseVideos" name="exerciseVideos" multiple="multiple" data-bind="options: videos, optionsText: 'name'" >
+                                        <select id="inputExerciseVideos" name="exerciseVideos" multiple="multiple" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputExerciseEquipment">Equipment</label>
                                     <div class="controls">
-                                        <select id="inputExerciseEquipment" name="exerciseEquipment" multiple="multiple" data-bind="options: equipment, optionsText: 'commonName'" >
+                                        <select id="inputExerciseEquipment" name="exerciseEquipment" multiple="multiple" data-bind="options: availableEquipment, optionsText: 'commonName', selectedOptions: equipment" >
                                             </select>
                                     </div>
                                 </div>
@@ -58,7 +55,7 @@
                     </form>
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" id="admin-exercise-list">
                 <table class="table table-striped">
                     <tbody data-bind="template: { name: exerciseListTemplate, foreach: exercises }">
                     </tbody>            

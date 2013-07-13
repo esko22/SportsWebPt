@@ -1,4 +1,4 @@
-﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercises'],
+﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page'],
     function (backbone, $, presenter, EquipmentVM, VideoVM, ExerciseVM) {
 
         var configure = function () {
@@ -32,7 +32,7 @@
             router.on('route:exercises', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
-                kb.applyBindings(ExerciseVM, $('#admin-exercise-panel').get(0));
+                ExerciseVM.bindViewModels();
                 presenter.transitionTo($('#admin-exercise-panel'), '', '');
             });
 

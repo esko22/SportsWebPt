@@ -179,6 +179,8 @@
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.equipment.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.form.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercises.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
