@@ -98,6 +98,27 @@ namespace SportsWebPt.Platform.Web.Services
             return Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
         }
 
+        public int AddExercise(Exercise exercise)
+        {
+            var request = new ApiResourceRequest<ExerciseDto>
+                {
+                    Resource = Mapper.Map<ExerciseDto>(exercise)
+                };
+
+            var response = PostSync<ApiResourceRequest<ExerciseDto>>(_sportsWebPtClientSettings.ExercisePath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateExercise(Exercise exercise)
+        {
+            var request = new ApiResourceRequest<ExerciseDto>
+            {
+                Resource = Mapper.Map<ExerciseDto>(exercise)
+            };
+
+            PutSync<ApiResourceRequest<ExerciseDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.ExercisePath, exercise.id), request);
+        }
 
 	    #endregion
     }

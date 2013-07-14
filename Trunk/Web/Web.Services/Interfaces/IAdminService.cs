@@ -20,5 +20,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<Exercise> GetExercises();
 
+        int AddExercise(Exercise exercise);
+
+        void UpdateExercise(Exercise exercise);
     }
 }

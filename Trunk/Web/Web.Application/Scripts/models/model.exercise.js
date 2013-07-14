@@ -46,7 +46,9 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                     'name' : '',
                     'difficulty' : '',
                     'description' : '',
-                    'duration': ''
+                    'duration': '',
+                    'tags': '',
+                    'pageName' : ''
                 },
                 relations: [
                     {

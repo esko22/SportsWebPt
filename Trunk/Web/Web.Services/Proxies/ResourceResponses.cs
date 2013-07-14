@@ -9,4 +9,5 @@ namespace SportsWebPt.Platform.Web.Services.Proxies
 
     internal class EquipmentResourceResponse : ApiResourceRequest<EquipmentDto> { }
 
+
 }

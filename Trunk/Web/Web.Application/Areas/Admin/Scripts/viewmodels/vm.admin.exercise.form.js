@@ -11,19 +11,27 @@
             difficulty = kb.observable(selectedExercise, 'difficulty'),
             description = kb.observable(selectedExercise, 'description'),
             duration = kb.observable(selectedExercise, 'duration'),
+            tags = kb.observable(selectedExercise, 'tags'),
+            pageName = kb.observable(selectedExercise, 'pageName'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             availableDifficulties = ko.observableArray(['Beginner', 'Intermediate', 'Advanced']),
-
-       
-        onSuccessfulChange = function () {
-            alert('need to refresh other guy');
-        },
+            callback = function() {
+                alert('test');
+            },
+           onSuccessfulChange = function() {
+             if (callback) {
+                 callback();
+             }  
+           },
         saveChanges = function () {
             selectedExercise.save({}, {
                 success: onSuccessfulChange, error: err.onError
             });
-        };
+        },
+        suscribe = function(passedCallback) {
+            callback = passedCallback;
+        },
         bindSelectedExercise = function (data, event) {
 
             selectedExercise.get('equipment').reset();
@@ -46,10 +54,13 @@
                 });
             });
 
+            selectedExercise.id = data.model().get('id');
             selectedExercise.set('name', data.model().get('name'));
             selectedExercise.set('description', data.model().get('description'));
             selectedExercise.set('duration', data.model().get('duration'));
             selectedExercise.set('difficulty', data.model().get('difficulty'));
+            selectedExercise.set('tags', data.model().get('tags'));
+            selectedExercise.set('pageName', data.model().get('pageName'));
 
         },
         exerciseValidationOptions = ko.observable({
@@ -76,6 +87,16 @@
                 difficulty:
                 {
                     required: false
+                },
+                tags :
+                {
+                    minlength: 1,
+                    maxlength: 1000
+                },
+                pageName :
+                {
+                    minlength: 4,
+                    maxlength: 50
                 }
             },
             messages: {
@@ -97,13 +118,21 @@
                 },
                 difficulty: {
                     required: "difficulty must be set"
+                },
+                tags: {
+                    minlength: "must be between 1 and 1000 characters",
+                    maxlength: "must be between 1 and 1000 characters"
+                },
+                pageName: {
+                    remote: "page name must be unique",
+                    minlength: "must be between 1 and 1000 characters",
+                    maxlength: "must be between 1 and 1000 characters"
                 }
             },
             submitHandler: saveChanges,
             errorPlacement: bh.popoverErrorPlacement('login-popover'),
             unhighlight: bh.popoverUnhighlight
         });
-
 
         videoCollection.fetch();
         equipmentCollection.fetch();
@@ -120,6 +149,9 @@
             duration : duration,
             videos : videos,
             equipment : equipment,
-            bindSelectedExercise: bindSelectedExercise
+            bindSelectedExercise: bindSelectedExercise,
+            tags: tags,
+            pageName: pageName,
+            suscribe: suscribe
         };
     });

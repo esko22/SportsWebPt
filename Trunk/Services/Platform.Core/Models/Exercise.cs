@@ -13,6 +13,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Description { get; set; }
 
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
         public int Duration { get; set; }
 
         public ExerciseDifficulty Difficulty { get; set; }

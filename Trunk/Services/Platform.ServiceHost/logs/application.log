@@ -1,126 +1,28 @@
-07-13-13@00:07:24 Info (41)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:07:24 Info (38)  [Common] VideoListRequest request submitted 
-07-13-13@00:07:24 Info (41)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0126445 
-07-13-13@00:07:24 Info (30)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:07:24 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0075988 
-07-13-13@00:07:24 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0248747 
-07-13-13@00:08:54 Info (29)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:08:54 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0054126 
-07-13-13@00:08:54 Info (38)  [Common] VideoListRequest request submitted 
-07-13-13@00:08:54 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0055640 
-07-13-13@00:08:54 Info (30)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:08:54 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0089897 
-07-13-13@00:10:02 Info (30)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:10:02 Info (30)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046951 
-07-13-13@00:10:02 Info (40)  [Common] VideoListRequest request submitted 
-07-13-13@00:10:02 Info (40)  [Common] VideoListRequest request completed with duration of 00:00:00.0047086 
-07-13-13@00:10:02 Info (44)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:10:02 Info (44)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0091462 
-07-13-13@00:11:13 Info (44)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:11:13 Info (44)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040651 
-07-13-13@00:11:13 Info (30)  [Common] VideoListRequest request submitted 
-07-13-13@00:11:13 Info (30)  [Common] VideoListRequest request completed with duration of 00:00:00.0049917 
-07-13-13@00:11:13 Info (29)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:11:13 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0074022 
-07-13-13@00:14:36 Info (37)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:14:36 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046998 
-07-13-13@00:14:36 Info (47)  [Common] VideoListRequest request submitted 
-07-13-13@00:14:36 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0042723 
-07-13-13@00:14:36 Info (46)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:14:36 Info (46)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076072 
-07-13-13@00:15:22 Info (49)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:15:22 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0054436 
-07-13-13@00:15:22 Info (46)  [Common] VideoListRequest request submitted 
-07-13-13@00:15:22 Info (46)  [Common] VideoListRequest request completed with duration of 00:00:00.0044857 
-07-13-13@00:15:22 Info (37)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:15:22 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076371 
-07-13-13@00:16:44 Info (46)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:16:44 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039703 
-07-13-13@00:16:44 Info (47)  [Common] VideoListRequest request submitted 
-07-13-13@00:16:44 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0041067 
-07-13-13@00:16:48 Info (47)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:16:48 Info (47)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0091995 
-07-13-13@00:17:09 Info (46)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:17:09 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041968 
-07-13-13@00:17:09 Info (48)  [Common] VideoListRequest request submitted 
-07-13-13@00:17:09 Info (48)  [Common] VideoListRequest request completed with duration of 00:00:00.0060751 
-07-13-13@00:17:09 Info (47)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:17:09 Info (47)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0079304 
-07-13-13@00:18:59 Info (37)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:18:59 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040786 
-07-13-13@00:18:59 Info (47)  [Common] VideoListRequest request submitted 
-07-13-13@00:18:59 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0056618 
-07-13-13@00:18:59 Info (46)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:18:59 Info (46)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0078272 
-07-13-13@00:19:19 Info (46)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:19:19 Info (46)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040655 
-07-13-13@00:19:19 Info (47)  [Common] VideoListRequest request submitted 
-07-13-13@00:19:19 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0039695 
-07-13-13@00:19:19 Info (52)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:19:19 Info (52)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076583 
-07-13-13@00:20:35 Info (37)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:20:35 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040024 
-07-13-13@00:20:35 Info (46)  [Common] VideoListRequest request submitted 
-07-13-13@00:20:35 Info (46)  [Common] VideoListRequest request completed with duration of 00:00:00.0051868 
-07-13-13@00:20:35 Info (37)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:20:35 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0075868 
-07-13-13@00:21:48 Info (55)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:21:48 Info (55)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045634 
-07-13-13@00:21:48 Info (47)  [Common] VideoListRequest request submitted 
-07-13-13@00:21:48 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:00.0044007 
-07-13-13@00:21:48 Info (55)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:21:48 Info (55)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0078122 
-07-13-13@00:23:35 Info (47)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:23:35 Info (47)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041709 
-07-13-13@00:23:35 Info (53)  [Common] VideoListRequest request submitted 
-07-13-13@00:23:35 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0038838 
-07-13-13@00:23:35 Info (51)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:23:35 Info (51)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0087982 
-07-13-13@00:27:10 Info (37)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:27:10 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0047320 
-07-13-13@00:27:10 Info (53)  [Common] VideoListRequest request submitted 
-07-13-13@00:27:10 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0038076 
-07-13-13@00:27:10 Info (37)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:27:10 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0070877 
-07-13-13@00:27:40 Info (53)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:27:40 Info (53)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0048512 
-07-13-13@00:27:40 Info (53)  [Common] VideoListRequest request submitted 
-07-13-13@00:27:40 Info (53)  [Common] VideoListRequest request completed with duration of 00:00:00.0050446 
-07-13-13@00:27:40 Info (37)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:27:40 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0086549 
-07-13-13@00:29:50 Info (50)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:29:50 Info (50)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041581 
-07-13-13@00:29:50 Info (37)  [Common] VideoListRequest request submitted 
-07-13-13@00:29:50 Info (37)  [Common] VideoListRequest request completed with duration of 00:00:00.0038266 
-07-13-13@00:29:50 Info (48)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:29:50 Info (48)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0086603 
-07-13-13@00:32:08 Info (50)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:32:08 Info (50)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0043398 
-07-13-13@00:32:08 Info (44)  [Common] VideoListRequest request submitted 
-07-13-13@00:32:08 Info (44)  [Common] VideoListRequest request completed with duration of 00:00:00.0040173 
-07-13-13@00:32:08 Info (54)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:32:08 Info (54)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0074128 
-07-13-13@00:35:48 Info (49)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:35:48 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0037675 
-07-13-13@00:35:48 Info (39)  [Common] VideoListRequest request submitted 
-07-13-13@00:35:48 Info (39)  [Common] VideoListRequest request completed with duration of 00:00:00.0038525 
-07-13-13@00:35:48 Info (39)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:35:48 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0082434 
-07-13-13@00:36:29 Info (49)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:36:29 Info (49)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0037171 
-07-13-13@00:36:29 Info (49)  [Common] VideoListRequest request submitted 
-07-13-13@00:36:29 Info (49)  [Common] VideoListRequest request completed with duration of 00:00:00.0046273 
-07-13-13@00:36:29 Info (39)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:36:29 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0070206 
-07-13-13@00:37:08 Info (39)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:37:08 Info (39)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044011 
-07-13-13@00:37:08 Info (41)  [Common] VideoListRequest request submitted 
-07-13-13@00:37:08 Info (41)  [Common] VideoListRequest request completed with duration of 00:00:00.0035738 
-07-13-13@00:37:08 Info (45)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:37:08 Info (45)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0076947 
-07-13-13@00:43:01 Info (33)  [Common] EquipmentListRequest request submitted 
-07-13-13@00:43:01 Info (30)  [Common] VideoListRequest request submitted 
-07-13-13@00:43:01 Info (33)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0130418 
-07-13-13@00:43:01 Info (30)  [Common] VideoListRequest request completed with duration of 00:00:00.0147274 
-07-13-13@00:43:01 Info (45)  [Common] ExecerciseListRequest request submitted 
-07-13-13@00:43:01 Info (45)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0083309 
+07-13-13@22:30:59 Info (10)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:31:13 Error (10)  [Common] [ExerciseService: 7/14/2013 5:31:13 AM]:
+[REQUEST: {Id:1,Resource:{id:1,equipment:[{id:1,commonName:Foam Roller,technicalName:Roller de Foame,priceRange:10 - 50,recommendedVendor:Foam House},{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key. Void VerifyRootForAdd(Boolean, System.String, System.Data.Objects.Internal.IEntityWrapper, System.Data.Objects.EntityEntry, System.Data.Metadata.Edm.EntitySet ByRef, Boolean ByRef)
+07-13-13@22:31:37 Info (10)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:32:03 Info (10)  [Common] ExecerciseRequest request completed with duration of 00:00:26.0779673 
+07-13-13@22:32:04 Info (6)  [Common] ExecerciseListRequest request submitted 
+07-13-13@22:32:04 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3779488 
+07-13-13@22:32:44 Info (19)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:33:28 Error (19)  [Common] [ExerciseService: 7/14/2013 5:33:28 AM]:
+[REQUEST: {Id:1,Resource:{id:1,equipment:[{id:1,commonName:Foam Roller,technicalName:Roller de Foame,priceRange:10 - 50,recommendedVendor:Foam House},{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Cannot add or update a child row: a foreign key constraint fails (`sportswebptdb`.`exerciseequipmentmatrix`, CONSTRAINT `ExerciseEquipmentMatrixItem_Exercise` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`exercise_id`) ON DELETE NO ACTION ON UPDATE NO ) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+07-13-13@22:34:08 Info (19)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:34:35 Info (19)  [Common] ExecerciseRequest request completed with duration of 00:00:26.6795124 
+07-13-13@22:34:35 Info (12)  [Common] ExecerciseListRequest request submitted 
+07-13-13@22:34:35 Info (12)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3385334 
+07-13-13@22:51:37 Info (33)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:51:41 Info (33)  [Common] ExecerciseRequest request completed with duration of 00:00:04.0941642 
+07-13-13@22:51:42 Info (20)  [Common] ExecerciseListRequest request submitted 
+07-13-13@22:51:42 Info (20)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3732453 
+07-13-13@22:51:55 Info (27)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:51:55 Info (27)  [Common] ExecerciseRequest request completed with duration of 00:00:00.4282801 
+07-13-13@22:51:55 Info (20)  [Common] ExecerciseListRequest request submitted 
+07-13-13@22:51:55 Info (20)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0212720 
+07-13-13@22:52:01 Info (20)  [Common] ExecerciseRequest request submitted 
+07-13-13@22:52:01 Info (20)  [Common] ExecerciseRequest request completed with duration of 00:00:00.3823711 
+07-13-13@22:52:01 Info (32)  [Common] ExecerciseListRequest request submitted 
+07-13-13@22:52:01 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0192920 

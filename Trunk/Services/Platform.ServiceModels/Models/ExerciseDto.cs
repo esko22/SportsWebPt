@@ -24,6 +24,12 @@ namespace SportsWebPt.Platform.ServiceModels
         public String description { get; set; }
 
         [DataMember]
+        public String pageName { get; set; }
+
+        [DataMember]
+        public String tags { get; set; }
+
+        [DataMember]
         public int duration { get; set; }
 
         [DataMember]

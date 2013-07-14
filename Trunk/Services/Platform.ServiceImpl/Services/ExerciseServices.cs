@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
@@ -60,10 +61,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             Check.Argument.IsNotNull(request.Resource, "ExerciseDto");
 
-            var exercise = Mapper.Map<Exercise>(request.Resource);
-
-            ResearchUnitOfWork.ExerciseRepo.Update(exercise);
-            ResearchUnitOfWork.Commit();
+            ResearchUnitOfWork.UpdateExercise(Mapper.Map<Exercise>(request.Resource));
 
             return Ok(new ApiResponse<ExerciseDto>(request.Resource));
         }

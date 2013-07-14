@@ -98,9 +98,25 @@ namespace SportsWebPt.Platform.Web.Admin
         }
 
         [GET("admin/exercises", IsAbsoluteUrl = true)]
-        public ActionResult Getexercises()
+        public ActionResult GetExercises()
         {
             return Json(_adminService.GetExercises(), JsonRequestBehavior.AllowGet);
+        }
+
+
+        [POST("admin/exercises", IsAbsoluteUrl = true)]
+        public ActionResult AddExercise(Exercise exercise)
+        {
+            var result = _adminService.AddExercise(exercise);
+            exercise.id = result;
+            return Json(exercise, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/exercises/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateExercise(Exercise exercise)
+        {
+            _adminService.UpdateExercise(exercise);
+            return Json(exercise, JsonRequestBehavior.DenyGet);
         }
 
 
