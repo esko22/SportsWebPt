@@ -1,0 +1,9 @@
+Logo Design
+Trebuchet MS Bold
+
+
+Colors
+BabyBlue - #33ccff
+Charcoal - #333333
+Offwhite - #F5F5F5
+DarkerBorder - #DDD
