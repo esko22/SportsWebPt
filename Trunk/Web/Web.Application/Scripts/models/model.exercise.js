@@ -1,5 +1,5 @@
-﻿define('model.exercise', ['backbone', 'config', 'model.equipment', 'model.video', 'model.equipment.collection', 'model.video.collection'],
-    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection) {
+﻿define('model.exercise', ['backbone', 'config', 'model.equipment', 'model.video', 'model.equipment.collection', 'model.video.collection','model.body.region', 'model.body.region.collection'],
+    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection) {
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
@@ -10,6 +10,12 @@
                         key: 'equipment',
                         relatedModel: Equipment,
                         collectionType: EquipmentCollection
+                    },
+                    {
+                        type: backbone.HasMany,
+                        key: 'bodyRegions',
+                        relatedModel: BodyRegion,
+                        collectionType: BodyRegionCollection
                     },
                     {
                         type: backbone.HasMany,
@@ -36,8 +42,8 @@ define('model.exercise.collection', ['backbone', 'model.exercise'],
     });
 
 
-define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', 'model.admin.video', 'model.admin.equipment.collection', 'model.admin.video.collection'],
-    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection) {
+define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', 'model.admin.video', 'model.admin.equipment.collection', 'model.admin.video.collection', 'model.admin.body.region' , 'model.admin.body.region.collection'],
+    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection) {
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminExercises,
@@ -56,6 +62,12 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                         key: 'equipment',
                         relatedModel: Equipment,
                         collectionType: EquipmentCollection
+                    },
+                    {
+                        type: backbone.HasMany,
+                        key: 'bodyRegions',
+                        relatedModel: BodyRegion,
+                        collectionType: BodyRegionCollection
                     },
                     {
                         type: backbone.HasMany,

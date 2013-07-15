@@ -119,6 +119,12 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(exercise, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("admin/bodyregions", IsAbsoluteUrl = true)]
+        public ActionResult GetBodyRegions()
+        {
+            return Json(_researchService.GetBodyRegions(), JsonRequestBehavior.AllowGet);
+        }
+
 
         #endregion
 

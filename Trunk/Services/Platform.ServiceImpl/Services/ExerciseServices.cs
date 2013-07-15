@@ -23,7 +23,12 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public override object OnGet(ExecerciseListRequest request)
         {
             var responseList = new List<ExerciseDto>();
-            Mapper.Map(ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video" }), responseList);
+            Mapper.Map(
+                ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
+                    {
+                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
+                        "ExerciseBodyRegionMatrixItems.BodyRegion"
+                    }), responseList);
 
             return
                 Ok(new ListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

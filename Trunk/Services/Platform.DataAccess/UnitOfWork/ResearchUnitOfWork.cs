@@ -16,8 +16,9 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<Video> VideoRepo { get { return GetStandardRepo<Video>(); } }
         public IRepository<Exercise> ExerciseRepo { get { return GetStandardRepo<Exercise>(); } }
         public IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get { return GetStandardRepo<ExerciseEquipmentMatrixItem>(); } }
-        public IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get { return GetStandardRepo<ExerciseVideoMatrixItem>(); } } 
-	    
+        public IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get { return GetStandardRepo<ExerciseVideoMatrixItem>(); } }
+        public IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get { return GetStandardRepo<ExerciseBodyRegionMatrixItem>(); } } 
+
         #endregion
 
         #region Construction
@@ -32,7 +33,10 @@ namespace SportsWebPt.Platform.DataAccess
 
         public void UpdateExercise(Exercise exercise)
         {
-            var execiseInDb = ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems" }).SingleOrDefault(p => p.Id == exercise.Id);
+            var execiseInDb =
+                ExerciseRepo.GetAll(new[]
+                    {"ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems", "ExerciseBodyRegionMatrixItems"})
+                            .SingleOrDefault(p => p.Id == exercise.Id);
 
             if(execiseInDb == null)
                 throw new ArgumentNullException("exercise id", "exercise does not exist");
@@ -63,6 +67,19 @@ namespace SportsWebPt.Platform.DataAccess
                 ExerciseVideoRepo.Add(e);
             });
 
+            var deletedBodyRegions = execiseInDb.ExerciseBodyRegionMatrixItems.Except(
+                exercise.ExerciseBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            var addedBodyRegions = exercise.ExerciseBodyRegionMatrixItems.Except(
+                execiseInDb.ExerciseBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            deletedBodyRegions.ForEach(e => ExerciseBodyRegionRepo.Delete(e));
+            addedBodyRegions.ForEach(e =>
+            {
+                e.ExerciseId = exercise.Id;
+                ExerciseBodyRegionRepo.Add(e);
+            });
+
             var exerciseEntry = _context.Entry(execiseInDb);
             exerciseEntry.CurrentValues.SetValues(exercise);
 
@@ -79,6 +96,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Exercise> ExerciseRepo { get; }
         IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get; }
         IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get; }
+        IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get; } 
 
         void UpdateExercise(Exercise exercise);
     }

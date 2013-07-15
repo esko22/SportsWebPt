@@ -51,6 +51,8 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateWorkoutExercise(workouts, exercises);
             AssociateExerciseVideos(exercises, videos);
             AssociateExerciseEquipment(exercises, equipment);
+            AssociateExerciseBodyRegion(exercises, regions);
+
         }
 
         private void AssociateInjuryCause(IList<Cause> causes, IList<Injury> injuries)
@@ -282,6 +284,27 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext.SaveChanges();
 
         }
+
+        private void AssociateExerciseBodyRegion(IList<Exercise> exercises, IList<BodyRegion> bodyRegions)
+        {
+            var exerciseBodyRegions = new List<ExerciseBodyRegionMatrixItem>()
+                {
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[0], BodyRegion = bodyRegions[0]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[0], BodyRegion = bodyRegions[7]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[1], BodyRegion = bodyRegions[1]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[2], BodyRegion = bodyRegions[2]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[3], BodyRegion = bodyRegions[3]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[4], BodyRegion = bodyRegions[4]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[4], BodyRegion = bodyRegions[8]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[5], BodyRegion = bodyRegions[5]},
+                    new ExerciseBodyRegionMatrixItem() {Exercise = exercises[6], BodyRegion = bodyRegions[6]}
+                };
+
+            exerciseBodyRegions.ForEach(p => _dbContext.ExerciseBodyPartMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
 
         private List<Equipment> AddEquipment()
         {

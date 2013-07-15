@@ -57,6 +57,7 @@
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\DifferentialDiagnosisConfiguration.cs" />
     <Compile Include="EntityConfiguration\EquipmentConfiguration.cs" />
+    <Compile Include="EntityConfiguration\ExerciseBodyRegionMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseEquipmentMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryCauseMatrixConfiguration.cs" />

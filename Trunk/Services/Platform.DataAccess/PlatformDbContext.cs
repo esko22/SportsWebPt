@@ -35,7 +35,8 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<Sign> Signs { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Workout> Workouts { get; set; }
-        public DbSet<WorkoutExerciseMatrixItem> WorkoutExceriseMatrixItems { get; set; } 
+        public DbSet<WorkoutExerciseMatrixItem> WorkoutExceriseMatrixItems { get; set; }
+        public DbSet<ExerciseBodyRegionMatrixItem> ExerciseBodyPartMatrixItems { get; set; }  
 
         #endregion
 
@@ -85,6 +86,7 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new VideoConfiguration());
             modelBuilder.Configurations.Add(new WorkoutConfiguration());
             modelBuilder.Configurations.Add(new WorkoutExerciseMatrixConfiguration());
+            modelBuilder.Configurations.Add(new ExerciseBodyRegionMatrixConfiguration());
 
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);

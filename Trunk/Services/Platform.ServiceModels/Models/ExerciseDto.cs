@@ -18,6 +18,9 @@ namespace SportsWebPt.Platform.ServiceModels
         public VideoDto[] videos { get; set; }
 
         [DataMember]
+        public BodyRegionDto[] bodyRegions { get; set; }
+
+        [DataMember]
         public String name { get; set; }
 
         [DataMember]

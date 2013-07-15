@@ -13,6 +13,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Video> videos { get; set; }
 
+        public IEnumerable<BodyRegion> bodyRegions { get; set; }
+
         public String name { get; set; }
 
         public String description { get; set; }

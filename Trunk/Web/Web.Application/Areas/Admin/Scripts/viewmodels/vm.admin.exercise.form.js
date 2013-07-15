@@ -1,11 +1,13 @@
 ﻿define('vm.admin.exercise.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection'],
-    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection) {
+    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection'],
+    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection) {
 
         var videoCollection = new VideoCollection(),
             equipmentCollection = new EquipmentCollection(),
+            bodyRegionCollection = new BodyRegionCollection(),
             availableVideos = kb.collectionObservable(videoCollection),
             availableEquipment = kb.collectionObservable(equipmentCollection),
+            availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
             selectedExercise = new ExerciseModel(),
             name = kb.observable(selectedExercise, 'name'),
             difficulty = kb.observable(selectedExercise, 'difficulty'),
@@ -15,6 +17,7 @@
             pageName = kb.observable(selectedExercise, 'pageName'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
+            bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
             availableDifficulties = ko.observableArray(['Beginner', 'Intermediate', 'Advanced']),
             callback = function() {
                 alert('test');
@@ -22,7 +25,8 @@
            onSuccessfulChange = function() {
              if (callback) {
                  callback();
-             }  
+             }
+             bindSelectedExercise(kb.viewModel(new ExerciseModel()), null);
            },
         saveChanges = function () {
             selectedExercise.save({}, {
@@ -36,6 +40,7 @@
 
             selectedExercise.get('equipment').reset();
             selectedExercise.get('videos').reset();
+            selectedExercise.get('bodyRegions').reset();
 
             //have to get items from available collection
             _.each(data.equipment(), function (viewModel) {
@@ -50,6 +55,14 @@
                 _.each(videoCollection.models, function (videoModel) {
                     if (viewModel.id() === videoModel.get('id')) {
                         selectedExercise.get('videos').add(videoModel);
+                    }
+                });
+            });
+
+            _.each(data.bodyRegions(), function (viewModel) {
+                _.each(bodyRegionCollection.models, function (bodyRegionModel) {
+                    if (viewModel.id() === bodyRegionModel.get('id')) {
+                        selectedExercise.get('bodyRegions').add(bodyRegionModel);
                     }
                 });
             });
@@ -136,19 +149,22 @@
 
         videoCollection.fetch();
         equipmentCollection.fetch();
+        bodyRegionCollection.fetch();
         
         return {
             saveChanges: saveChanges,
             exerciseValidationOptions: exerciseValidationOptions,
             availableVideos: availableVideos,
             availableEquipment: availableEquipment,
+            availableBodyRegions : availableBodyRegions,
             availableDifficulties: availableDifficulties,
             name : name,
             difficulty : difficulty,
             description : description,
             duration : duration,
             videos : videos,
-            equipment : equipment,
+            equipment: equipment,
+            bodyRegions : bodyRegions,
             bindSelectedExercise: bindSelectedExercise,
             tags: tags,
             pageName: pageName,

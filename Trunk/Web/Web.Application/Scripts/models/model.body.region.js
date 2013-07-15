@@ -1,8 +1,32 @@
-﻿define('model.admin.body.part', ['backbone', 'config', 'jquery'],
+﻿define('model.body.region', ['backbone', 'config', 'jquery'],
     function (backbone, config, $) {
         var
-            area = backbone.Model.extend({
-                urlRoot: config.apiUris.areaComponents,
+            bodyRegion = backbone.RelationalModel.extend({
+                urlRoot: config.apiUris.bodyRegion,
+                defaults: {
+                }
+            });
+
+        return bodyRegion;
+
+    });
+
+define('model.body.region.collection', ['backbone', 'model.body.region', 'config'],
+    function (backbone, bodyRegion, config) {
+        var
+            bodyRegionCollection = backbone.Collection.extend({
+                model: bodyRegion,
+                url: config.apiUris.bodyRegion
+            });
+
+        return bodyRegionCollection;
+    });
+
+define('model.admin.body.region', ['backbone', 'config', 'jquery'],
+    function (backbone, config, $) {
+        var
+            area = backbone.RelationalModel.extend({
+                urlRoot: config.apiUris.adminBodyRegion,
                 defaults: {
                 }
             });
@@ -11,12 +35,12 @@
 
     });
 
-define('model.admin.body.region.collection', ['backbone', 'model.admin.body.part', 'config'],
-    function (backbone, component) {
+define('model.admin.body.region.collection', ['backbone', 'model.admin.body.region', 'config'],
+    function (backbone, component,config) {
         var
             componentCollection = backbone.Collection.extend({
                 model: component,
-                url: config.apiUris.adminEquipment
+                url: config.apiUris.adminBodyRegion
             });
 
         return componentCollection;

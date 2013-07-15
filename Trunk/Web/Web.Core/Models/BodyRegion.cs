@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int id { get; set; }
 
-        public String Name { get; set; }
+        public String name { get; set; }
 
         #endregion
     }
