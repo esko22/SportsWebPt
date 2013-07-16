@@ -61,19 +61,24 @@
     
     
     <div class="view container" id="research-exercise-panel">
-        <div class="container">
+        <div class="container-fluid">
             <span aria-hidden="true" data-icon="&#xe007;" class="research-nav-icon"> Exercises</span>
             <hr class="examine-report-hr"/>
-        </div>
-            
-            <div class="row">
-            <div class="span3">
-                <span class="screen-reader-text">Injuries</span>
-                <h3>Injuries</h3>
-                <p>Use our self examination wizard designed by professionals to pin point your injury.</p>
-                <p><a class="btn" href="#">Learn more &raquo;</a></p>
+            <div class="row-fluid">
+                <div class="span3" style="border-right-width: 2px; border-right-color: #333333; border-right-style: solid;">
+                    <h3>Body Regions</h3>
+                    <ul style="list-style-type: none" data-bind="foreach: bodyRegions">
+                        <li>
+                            <span class="label label-info" data-bind="text: name"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span9">
+                    <div class="accordion" id="recover-plan-accordion">
+                        <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

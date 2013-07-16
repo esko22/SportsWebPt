@@ -1,28 +1,68 @@
-07-13-13@22:30:59 Info (10)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:31:13 Error (10)  [Common] [ExerciseService: 7/14/2013 5:31:13 AM]:
-[REQUEST: {Id:1,Resource:{id:1,equipment:[{id:1,commonName:Foam Roller,technicalName:Roller de Foame,priceRange:10 - 50,recommendedVendor:Foam House},{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key. Void VerifyRootForAdd(Boolean, System.String, System.Data.Objects.Internal.IEntityWrapper, System.Data.Objects.EntityEntry, System.Data.Metadata.Edm.EntitySet ByRef, Boolean ByRef)
-07-13-13@22:31:37 Info (10)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:32:03 Info (10)  [Common] ExecerciseRequest request completed with duration of 00:00:26.0779673 
-07-13-13@22:32:04 Info (6)  [Common] ExecerciseListRequest request submitted 
-07-13-13@22:32:04 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3779488 
-07-13-13@22:32:44 Info (19)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:33:28 Error (19)  [Common] [ExerciseService: 7/14/2013 5:33:28 AM]:
-[REQUEST: {Id:1,Resource:{id:1,equipment:[{id:1,commonName:Foam Roller,technicalName:Roller de Foame,priceRange:10 - 50,recommendedVendor:Foam House},{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot add or update a child row: a foreign key constraint fails (`sportswebptdb`.`exerciseequipmentmatrix`, CONSTRAINT `ExerciseEquipmentMatrixItem_Exercise` FOREIGN KEY (`exercise_id`) REFERENCES `exercise` (`exercise_id`) ON DELETE NO ACTION ON UPDATE NO ) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-07-13-13@22:34:08 Info (19)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:34:35 Info (19)  [Common] ExecerciseRequest request completed with duration of 00:00:26.6795124 
-07-13-13@22:34:35 Info (12)  [Common] ExecerciseListRequest request submitted 
-07-13-13@22:34:35 Info (12)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3385334 
-07-13-13@22:51:37 Info (33)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:51:41 Info (33)  [Common] ExecerciseRequest request completed with duration of 00:00:04.0941642 
-07-13-13@22:51:42 Info (20)  [Common] ExecerciseListRequest request submitted 
-07-13-13@22:51:42 Info (20)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3732453 
-07-13-13@22:51:55 Info (27)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:51:55 Info (27)  [Common] ExecerciseRequest request completed with duration of 00:00:00.4282801 
-07-13-13@22:51:55 Info (20)  [Common] ExecerciseListRequest request submitted 
-07-13-13@22:51:55 Info (20)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0212720 
-07-13-13@22:52:01 Info (20)  [Common] ExecerciseRequest request submitted 
-07-13-13@22:52:01 Info (20)  [Common] ExecerciseRequest request completed with duration of 00:00:00.3823711 
-07-13-13@22:52:01 Info (32)  [Common] ExecerciseListRequest request submitted 
-07-13-13@22:52:01 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0192920 
+07-15-13@23:02:29 Info (49)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:02:29 Info (45)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:02:29 Info (45)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0111007 
+07-15-13@23:02:29 Info (49)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0453829 
+07-15-13@23:02:31 Info (56)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:02:31 Info (49)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:02:31 Info (56)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0035639 
+07-15-13@23:02:31 Info (49)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0389955 
+07-15-13@23:04:13 Info (56)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:04:13 Info (41)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:04:13 Info (56)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0035391 
+07-15-13@23:04:13 Info (41)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0342857 
+07-15-13@23:04:49 Info (35)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:04:49 Info (56)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:04:49 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0034942 
+07-15-13@23:04:49 Info (56)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0370636 
+07-15-13@23:05:19 Info (35)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:05:19 Info (56)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:05:19 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037733 
+07-15-13@23:05:19 Info (56)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0379296 
+07-15-13@23:05:54 Info (35)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:05:54 Info (56)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:05:54 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0036675 
+07-15-13@23:05:54 Info (56)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0360199 
+07-15-13@23:06:24 Info (41)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:06:24 Info (56)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:06:24 Info (41)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038134 
+07-15-13@23:06:24 Info (56)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0391509 
+07-15-13@23:07:05 Info (40)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:07:05 Info (42)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:07:05 Info (40)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0036708 
+07-15-13@23:07:05 Info (42)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0382393 
+07-15-13@23:07:19 Info (40)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:07:19 Info (41)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:07:19 Info (40)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0033946 
+07-15-13@23:07:19 Info (41)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0407366 
+07-15-13@23:07:40 Info (40)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:07:40 Info (42)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:07:40 Info (40)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0035340 
+07-15-13@23:07:40 Info (42)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0367947 
+07-15-13@23:07:57 Info (39)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:07:57 Info (41)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:07:57 Info (39)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040217 
+07-15-13@23:07:57 Info (41)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0375083 
+07-15-13@23:08:22 Info (39)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:08:22 Info (40)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:08:22 Info (39)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0036547 
+07-15-13@23:08:22 Info (40)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0374452 
+07-15-13@23:08:32 Info (40)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:08:32 Info (39)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:08:32 Info (40)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037131 
+07-15-13@23:08:32 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0374565 
+07-15-13@23:08:51 Info (42)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:08:51 Info (38)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:08:51 Info (42)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0035887 
+07-15-13@23:08:51 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0368079 
+07-15-13@23:09:04 Info (37)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:09:04 Info (40)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:09:04 Info (37)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039925 
+07-15-13@23:09:04 Info (40)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0372365 
+07-15-13@23:09:19 Info (42)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:09:19 Info (38)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:09:19 Info (42)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040483 
+07-15-13@23:09:19 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0378979 
+07-15-13@23:13:14 Info (42)  [Common] BodyRegionListRequest request submitted 
+07-15-13@23:13:14 Info (37)  [Common] ExecerciseListRequest request submitted 
+07-15-13@23:13:14 Info (42)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037109 
+07-15-13@23:13:14 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0555735 

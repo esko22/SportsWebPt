@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter'],
-    function (backbone, $, presenter) {
+﻿define('router', ['backbone', 'jquery', 'presenter', 'knockback', 'vm.research.exercises'],
+    function (backbone, $, presenter, kb, exerciseVm) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -35,6 +35,7 @@
             router.on('route:exercises', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                kb.applyBindings(exerciseVm, $('#research-exercise-panel').get(0));
                 presenter.transitionTo($('#research-exercise-panel'), '', '');
             });
 

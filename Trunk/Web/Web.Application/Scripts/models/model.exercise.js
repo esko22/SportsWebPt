@@ -30,11 +30,12 @@
 
     });
 
-define('model.exercise.collection', ['backbone', 'model.exercise'],
-    function (backbone, component) {
+define('model.exercise.collection', ['backbone', 'model.exercise', 'config'],
+    function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({
-                model: component
+                model: component,
+                url: config.apiUris.exercises
             });
 
         return componentCollection;
