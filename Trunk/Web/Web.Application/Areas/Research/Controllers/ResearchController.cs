@@ -75,6 +75,15 @@ namespace SportsWebPt.Platform.Web.Research
             throw new NotImplementedException();
         }
 
+        [GET("Research/exercises", IsAbsoluteUrl = true)]
+        public ActionResult GetExercises()
+        {
+            var exercises = _researchService.GetExercises();
+
+            return Json(exercises, JsonRequestBehavior.AllowGet);
+        }
+
+
         #endregion
 
     }

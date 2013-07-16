@@ -53,5 +53,13 @@ namespace SportsWebPt.Platform.Web.Services
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
         }
+
+        public IEnumerable<Exercise> GetExercises()
+        {
+            var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
+
+            return Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+        }
+
     }
 }
