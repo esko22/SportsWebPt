@@ -24,6 +24,10 @@ namespace SportsWebPt.Platform.Web.Application
 
         public String GoogleAnalyticsKey { get; set; }
 
+        public String Title { get; set; }
+
+        public String Tags { get; set; }
+
         #endregion
     }
 }

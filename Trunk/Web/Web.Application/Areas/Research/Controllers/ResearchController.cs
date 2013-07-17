@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 
 using AttributeRouting;
@@ -49,6 +50,23 @@ namespace SportsWebPt.Platform.Web.Research
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<ResearchViewModel>();
+
+            return View(viewModel);
+        }
+
+        [GET("Research/exercise/{pageName}", IsAbsoluteUrl = true)]
+        public ActionResult Exercise(String pageName)
+        {
+            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
+
+            var viewModel = CreateViewModel<ResearchExerciseViewModel>();
+            var exercise = _researchService.GetExercises().FirstOrDefault();
+            //TODO: throw page not found
+            Check.Argument.IsNotNull(exercise, "Exercise");
+
+            viewModel.Tags = exercise.tags;
+            viewModel.Title = exercise.name;
+            viewModel.Exercise = exercise;
 
             return View(viewModel);
         }

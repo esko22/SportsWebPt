@@ -62,14 +62,15 @@
     
     <div class="view container" id="research-exercise-panel">
         <div class="container-fluid">
-            <span aria-hidden="true" data-icon="&#xe007;" class="research-nav-icon"> Exercises</span>
+            <span aria-hidden="true" data-icon="&#xe007;" class="research-header-icon"> Exercises</span>
             <hr class="examine-report-hr"/>
             <div class="row-fluid">
-                <div class="span3" style="border-right-width: 2px; border-right-color: #333333; border-right-style: solid;">
+                <div class="span3 research-vertical-splitter" >
                     <h3>Body Regions</h3>
-                    <ul style="list-style-type: none" data-bind="foreach: bodyRegions">
+                    <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset">Show All</span></a>
+                    <ul class="list-no-style" data-bind="foreach: bodyRegions">
                         <li>
-                            <span class="label label-info" data-bind="text: name"></span>
+                            <a><span class="label label-info" data-bind="text: name, click: $parent.onFilterSelect"></span></a>
                         </li>
                     </ul>
                 </div>
