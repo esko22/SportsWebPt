@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using AutoMapper;
@@ -48,6 +49,19 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         #endregion
 
         #region Methods
+
+        public override object OnGet(ExecerciseRequest request)
+        {
+            var exercise = request.IdAsInt > 0
+                               ? ResearchUnitOfWork.ExerciseRepo.GetById(request.IdAsInt)
+                               : ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
+                    {
+                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
+                        "ExerciseBodyRegionMatrixItems.BodyRegion"
+                    }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+            return Ok(new ApiResponse<ExerciseDto>() {Resource = Mapper.Map<ExerciseDto>(exercise)});
+
+        }
 
         public override object OnPost(ExecerciseRequest request)
         {

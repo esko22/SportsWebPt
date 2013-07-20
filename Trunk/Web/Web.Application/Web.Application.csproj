@@ -188,7 +188,9 @@
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.binder.js" />
+    <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.router.js" />
+    <Content Include="Areas\Research\Scripts\exercise\vm.research.exercise.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercises.js" />
     <Content Include="Content\fonts\SWPT.dev.svg" />
     <Content Include="Content\fonts\SWPT.svg" />

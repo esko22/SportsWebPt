@@ -35,7 +35,9 @@
                 bs.run();
                 sbs.run();
                 abs.run();
-                router.configure();
+                
+                if(typeof (router) !== "undefined")
+                    router.configure();
             });
     }
     

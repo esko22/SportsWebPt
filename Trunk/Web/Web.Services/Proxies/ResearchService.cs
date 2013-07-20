@@ -58,7 +58,17 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
 
-            return Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+        }
+
+        public Exercise GetExerciseByPageName(string pageName)
+        {
+            var response =
+                 GetSync<ApiResourceRequest<ExerciseDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.ExercisePath,pageName));
+
+            var exercise = Mapper.Map<Exercise>(response.Resource);
+
+            return exercise;
         }
 
     }

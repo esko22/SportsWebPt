@@ -13,5 +13,6 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<Exercise> GetExercises();
 
+        Exercise GetExerciseByPageName(string pageName);
     }
 }

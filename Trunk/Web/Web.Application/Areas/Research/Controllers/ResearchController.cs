@@ -60,7 +60,8 @@ namespace SportsWebPt.Platform.Web.Research
             Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
 
             var viewModel = CreateViewModel<ResearchExerciseViewModel>();
-            var exercise = _researchService.GetExercises().FirstOrDefault();
+            var exercise = _researchService.GetExerciseByPageName(pageName);
+
             //TODO: throw page not found
             Check.Argument.IsNotNull(exercise, "Exercise");
 

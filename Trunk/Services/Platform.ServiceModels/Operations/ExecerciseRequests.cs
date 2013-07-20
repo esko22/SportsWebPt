@@ -9,6 +9,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
     public class ExecerciseRequest : ApiResourceRequest<ExerciseDto>
     {
+        #region Properties
 
+        public string PageName { get; set; }
+
+        #endregion
     }
 }
