@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
-        public IEnumerable<Workout> workouts { get; set; }
+        public IEnumerable<Plan> plans { get; set; }
 
         public IEnumerable<Cause> causes { get; set; }
 

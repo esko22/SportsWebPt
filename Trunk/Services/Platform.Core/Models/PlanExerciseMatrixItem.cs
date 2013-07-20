@@ -2,17 +2,17 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class WorkoutExerciseMatrixItem
+    public class PlanExerciseMatrixItem
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public int WorkoutId { get; set; }
+        public int PlanId { get; set; }
 
         public int ExerciseId { get; set; }
 
-        public virtual Workout Workout { get; set; }
+        public virtual Plan Plan { get; set; }
 
         public virtual Exercise Exercise { get; set; }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Workout
+    public class Plan
     {
         #region Properties
 

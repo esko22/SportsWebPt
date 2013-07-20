@@ -4,8 +4,8 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public interface IWorkoutRepo : IRepository<Workout>
+    public interface IPlanRepo : IRepository<Plan>
     {
-        Workout GetFullWorkoutGraphById(int workoutId);
+        Plan GetFullPlanGraphById(int planId);
     }
 }

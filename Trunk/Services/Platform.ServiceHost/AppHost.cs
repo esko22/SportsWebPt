@@ -115,7 +115,9 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
                 .Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
                 .Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
-                .Add<WorkoutRequest>("workouts/{Id}")
+                .Add<PlanRequest>("plans/{Id}")
+                .Add<PlanRequest>("plans", "POST")
+                .Add<PlanListRequest>("plans")
                 .Add<VideoListRequest>("videos")
                 .Add<VideoRequest>("videos/{id}")
                 .Add<VideoRequest>("videos", "POST")
@@ -138,7 +140,7 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
-            container.Register<IWorkoutUnitOfWork>(c => new WorkoutUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
+            container.Register<IPlanUnitOfWork>(c => new PlanUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IResearchUnitOfWork>(c => new ResearchUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
         }
 

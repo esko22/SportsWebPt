@@ -11,8 +11,8 @@
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
             _.each(report.get('potentialInjuries').models, function (injury) {
-                _.each(injury.get('workouts').models, function (workout) {
-                    workout.fetch({
+                _.each(injury.get('plans').models, function (plan) {
+                    plan.fetch({
                         success: function (data) {
                             //workouts.push(kb.viewModel(data));
                         }

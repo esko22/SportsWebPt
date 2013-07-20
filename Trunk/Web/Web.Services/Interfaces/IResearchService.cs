@@ -5,7 +5,7 @@ namespace SportsWebPt.Platform.Web.Services
 {
     public interface IResearchService
     {
-        Workout GetWorkout(int workoutId);
+        Plan GetPlan(int planId);
 
         IEnumerable<BodyPart> GetBodyParts();
 

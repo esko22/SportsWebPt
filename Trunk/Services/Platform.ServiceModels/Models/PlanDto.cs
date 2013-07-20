@@ -3,8 +3,8 @@ using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "Workout", Namespace = "http://SportsWebPt.Platform")]
-    public class WorkoutDto
+    [DataContract(Name = "Plan", Namespace = "http://SportsWebPt.Platform")]
+    public class PlanDto
     {
         #region Properties
 

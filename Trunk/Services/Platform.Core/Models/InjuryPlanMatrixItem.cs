@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class InjuryWorkoutMatrixItem
+    public class InjuryPlanMatrixItem
     {
         #region Propeties
 
@@ -10,11 +10,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int InjuryId { get; set; }
 
-        public int WorkoutId { get; set; }
+        public int PlanId { get; set; }
 
         public virtual Injury Injury { get; set; }
 
-        public virtual Workout Workout { get; set; }
+        public virtual Plan Plan { get; set; }
 
         #endregion
     }

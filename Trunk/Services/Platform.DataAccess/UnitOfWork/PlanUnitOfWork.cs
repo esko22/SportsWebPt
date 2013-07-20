@@ -1,15 +1,13 @@
-﻿using SportsWebPt.Common.DataAccess;
-using SportsWebPt.Common.DataAccess.Ef;
-using SportsWebPt.Platform.Core.Models;
+﻿using SportsWebPt.Common.DataAccess.Ef;
 
 namespace SportsWebPt.Platform.DataAccess.UnitOfWork
 {
-    public class WorkoutUnitOfWork : BaseUnitOfWork, IWorkoutUnitOfWork
+    public class PlanUnitOfWork : BaseUnitOfWork, IPlanUnitOfWork
     {
 
         #region Properties
 
-        public IWorkoutRepo WorkoutRepo { get { return GetRepo<IWorkoutRepo>(); } }
+        public IPlanRepo PlanRepo { get { return GetRepo<IPlanRepo>(); } }
 
         public IExerciseRepo ExerciseRepo { get { return GetRepo<IExerciseRepo>(); } } 
 
@@ -17,7 +15,7 @@ namespace SportsWebPt.Platform.DataAccess.UnitOfWork
 
         #region Construction
 
-        public WorkoutUnitOfWork(IRepositoryProvider repositoryProvider)
+        public PlanUnitOfWork(IRepositoryProvider repositoryProvider)
             : base(repositoryProvider, new PlatformDbContext())
         {
             
@@ -26,11 +24,11 @@ namespace SportsWebPt.Platform.DataAccess.UnitOfWork
         #endregion
     }
 
-    public interface IWorkoutUnitOfWork
+    public interface IPlanUnitOfWork
     {
         #region Properties
 
-        IWorkoutRepo WorkoutRepo { get; }
+        IPlanRepo PlanRepo { get; }
 
         IExerciseRepo ExerciseRepo { get; }
 

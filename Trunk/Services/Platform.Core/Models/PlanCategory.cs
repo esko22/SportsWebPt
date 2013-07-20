@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public enum WorkoutCategory
+    public enum PlanCategory
     {
         Rehabilitation,
         Preventative,

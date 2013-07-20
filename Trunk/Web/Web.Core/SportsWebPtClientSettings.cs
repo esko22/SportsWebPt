@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         #region Properties
         
-        public String WorkoutPath { get; private set; }
+        public String PlanPath { get; private set; }
         public String EquipmentPath { get; private set; }
         public String VideoPath { get; private set; }
         public String SkeletonAreasUriPath { get; private set; }
@@ -28,7 +28,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public SportsWebPtClientSettings()
         {
-            WorkoutPath = String.Format("/{0}/workouts", Version);
+            PlanPath = String.Format("/{0}/plans", Version);
             EquipmentPath = String.Format("/{0}/equipment", Version);
             VideoPath = String.Format("/{0}/videos", Version);
 

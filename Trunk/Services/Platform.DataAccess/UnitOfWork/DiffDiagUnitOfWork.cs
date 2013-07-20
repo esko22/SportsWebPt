@@ -11,7 +11,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<DifferentialDiagnosis> DiffDiagRepo { get { return GetStandardRepo<DifferentialDiagnosis>(); } }
         public IRepository<SymptomDetail> SymptomResponseRepo { get { return GetStandardRepo<SymptomDetail>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
-        public IRepository<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItemRepo { get { return GetStandardRepo<InjuryWorkoutMatrixItem>(); } }
+        public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixItemRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
         public IRepository<Injury> InjuryRepo { get { return GetStandardRepo<Injury>(); } } 
 
         #endregion
@@ -33,7 +33,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get; }
 
-        IRepository<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItemRepo { get; }
+        IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixItemRepo { get; }
 
         IRepository<Injury> InjuryRepo { get; }
     }

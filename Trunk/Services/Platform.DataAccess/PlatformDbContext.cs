@@ -31,11 +31,11 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }
         public DbSet<InjuryCauseMatrixItem> InjuryCauseMatrixItems { get; set; }
         public DbSet<InjurySignMatrixItem> InjurySignMatrixItems { get; set; }
-        public DbSet<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
+        public DbSet<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
         public DbSet<Sign> Signs { get; set; }
         public DbSet<Video> Videos { get; set; }
-        public DbSet<Workout> Workouts { get; set; }
-        public DbSet<WorkoutExerciseMatrixItem> WorkoutExceriseMatrixItems { get; set; }
+        public DbSet<Plan> Plans { get; set; }
+        public DbSet<PlanExerciseMatrixItem> PlansExceriseMatrixItems { get; set; }
         public DbSet<ExerciseBodyRegionMatrixItem> ExerciseBodyPartMatrixItems { get; set; }  
 
         #endregion
@@ -81,11 +81,11 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ExerciseVideoMatrixConfiguration());
             modelBuilder.Configurations.Add(new InjuryCauseMatrixConfiguration());
             modelBuilder.Configurations.Add(new InjurySignMatrixConfiguration());
-            modelBuilder.Configurations.Add(new InjuryWorkoutMatrixConfiguration());
+            modelBuilder.Configurations.Add(new InjuryPlanMatrixConfiguration());
             modelBuilder.Configurations.Add(new SignConfiguration());
             modelBuilder.Configurations.Add(new VideoConfiguration());
-            modelBuilder.Configurations.Add(new WorkoutConfiguration());
-            modelBuilder.Configurations.Add(new WorkoutExerciseMatrixConfiguration());
+            modelBuilder.Configurations.Add(new PlanConfiguration());
+            modelBuilder.Configurations.Add(new PlanExerciseMatrixConfiguration());
             modelBuilder.Configurations.Add(new ExerciseBodyRegionMatrixConfiguration());
 
             //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);

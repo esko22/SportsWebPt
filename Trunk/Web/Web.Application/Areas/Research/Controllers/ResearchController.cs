@@ -33,16 +33,16 @@ namespace SportsWebPt.Platform.Web.Research
 
         #region Methods
 
-        [GET("Research/workouts/{Id}", IsAbsoluteUrl = true)]
-        public ActionResult GetWorkout(string Id)
+        [GET("Research/plans/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult GetPlan(string Id)
         {
-            var workoutId = 0;
+            var planId = 0;
             if (!String.IsNullOrEmpty(Id))
-                int.TryParse(Id, out workoutId);
+                int.TryParse(Id, out planId);
 
-            var workout = _researchService.GetWorkout(workoutId);
+            var plan = _researchService.GetPlan(planId);
 
-            return Json(workout, JsonRequestBehavior.AllowGet);
+            return Json(plan, JsonRequestBehavior.AllowGet);
         }
 
 

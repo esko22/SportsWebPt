@@ -87,7 +87,7 @@
     <Compile Include="Services\SymptomListService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\VideoServices.cs" />
-    <Compile Include="Services\WorkoutService.cs" />
+    <Compile Include="Services\PlanServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.DataAccess\Common.DataAccess.csproj">

@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
                 {
                    {typeof(ISkeletonRepo), dbContext => new SkeletonRepo(dbContext)},
                    {typeof(ISymptomMatrixRepo), dbContext => new SymptomMatrixRepo(dbContext)},
-                   {typeof(IWorkoutRepo), dbContext => new WorkoutRepo(dbContext)},
+                   {typeof(IPlanRepo), dbContext => new PlanRepo(dbContext)},
                    {typeof(IExerciseRepo), dbContext => new ExerciseRepo(dbContext)}
                 };
         }

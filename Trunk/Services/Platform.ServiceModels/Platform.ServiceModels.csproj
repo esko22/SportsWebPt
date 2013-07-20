@@ -96,7 +96,7 @@
     <Compile Include="Models\SymptomDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\VideoDto.cs" />
-    <Compile Include="Models\WorkoutDto.cs" />
+    <Compile Include="Models\PlanDto.cs" />
     <Compile Include="Operations\BodyPartRequests.cs" />
     <Compile Include="Operations\BodyRegionRequests.cs" />
     <Compile Include="Operations\DiagnosisReportRequest.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Operations\SymptomListRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
     <Compile Include="Operations\VideoRequests.cs" />
-    <Compile Include="Operations\WorkoutRequest.cs" />
+    <Compile Include="Operations\PlanRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

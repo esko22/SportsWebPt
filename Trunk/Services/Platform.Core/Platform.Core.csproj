@@ -54,7 +54,7 @@
     <Compile Include="Models\InjuryCauseMatrixItem.cs" />
     <Compile Include="Models\InjurySignMatrixItem.cs" />
     <Compile Include="Models\InjurySymptomMatrixItem.cs" />
-    <Compile Include="Models\InjuryWorkoutMatrixItem.cs" />
+    <Compile Include="Models\InjuryPlanMatrixItem.cs" />
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Cause.cs" />
@@ -70,9 +70,9 @@
     <Compile Include="Models\SymptomRenderType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Video.cs" />
-    <Compile Include="Models\Workout.cs" />
-    <Compile Include="Models\WorkoutCategory.cs" />
-    <Compile Include="Models\WorkoutExerciseMatrixItem.cs" />
+    <Compile Include="Models\Plan.cs" />
+    <Compile Include="Models\PlanCategory.cs" />
+    <Compile Include="Models\PlanExerciseMatrixItem.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

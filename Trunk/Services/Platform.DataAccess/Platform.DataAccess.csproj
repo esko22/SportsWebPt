@@ -52,7 +52,7 @@
     <Compile Include="Contracts\IExerciseRepo.cs" />
     <Compile Include="Contracts\ISkeletonRepo.cs" />
     <Compile Include="Contracts\ISymptomMatrixRepo.cs" />
-    <Compile Include="Contracts\IWorkoutRepo.cs" />
+    <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\DifferentialDiagnosisConfiguration.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="EntityConfiguration\InjuryConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjurySignMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjurySymptomMatrixConfiguration.cs" />
-    <Compile Include="EntityConfiguration\InjuryWorkoutMatrixConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjuryPlanMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\SignConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomDetailConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomMatrixConfiguration.cs" />
@@ -77,8 +77,8 @@
     <Compile Include="EntityConfiguration\SymptomConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoConfiguration.cs" />
-    <Compile Include="EntityConfiguration\WorkoutConfiguration.cs" />
-    <Compile Include="EntityConfiguration\WorkoutExerciseMatrixConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PlanConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PlanExerciseMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseVideoMatrixConfiguration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -88,13 +88,13 @@
     <Compile Include="Repositories\ExerciseRepo.cs" />
     <Compile Include="Repositories\SkeletonRepo.cs" />
     <Compile Include="Repositories\SymptomMatrixRepo.cs" />
-    <Compile Include="Repositories\WorkoutRepo.cs" />
+    <Compile Include="Repositories\PlanRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
     <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\WorkoutUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

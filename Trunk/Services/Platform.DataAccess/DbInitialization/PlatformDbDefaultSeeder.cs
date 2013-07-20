@@ -42,13 +42,13 @@ namespace SportsWebPt.Platform.DataAccess
             var exercises = AddExercises();
             var causes = AddCauses();
             var signs = AddSigns();
-            var workouts = AddWorkouts();
+            var plans = AddPlans();
 
             BuildInjurySymptomMatrix(symptomMatrixItems,injuries);
             AssociateInjuryCause(causes, injuries);
             AssociateInjurySigns(signs, injuries);
-            AssociateInjuryWorkouts(injuries, workouts);
-            AssociateWorkoutExercise(workouts, exercises);
+            AssociateInjuryPlans(injuries, plans);
+            AssociatePlanExercise(plans, exercises);
             AssociateExerciseVideos(exercises, videos);
             AssociateExerciseEquipment(exercises, equipment);
             AssociateExerciseBodyRegion(exercises, regions);
@@ -126,91 +126,91 @@ namespace SportsWebPt.Platform.DataAccess
             return signs;
         }
 
-        private void AssociateInjuryWorkouts(IList<Injury> injuries, IList<Workout> workouts)
+        private void AssociateInjuryPlans(IList<Injury> injuries, IList<Plan> plans)
         {
-            var injuryWorkouts = new List<InjuryWorkoutMatrixItem>()
+            var injuryPlans = new List<InjuryPlanMatrixItem>()
                 {
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[2], Workout = workouts[0]},
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[2], Workout = workouts[3]},
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[0], Workout = workouts[1]},
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[1], Workout = workouts[2]},
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[3], Workout = workouts[3]},
-                    new InjuryWorkoutMatrixItem() {Injury = injuries[3], Workout = workouts[4]}
+                    new InjuryPlanMatrixItem() {Injury = injuries[2], Plan = plans[0]},
+                    new InjuryPlanMatrixItem() {Injury = injuries[2], Plan = plans[3]},
+                    new InjuryPlanMatrixItem() {Injury = injuries[0], Plan = plans[1]},
+                    new InjuryPlanMatrixItem() {Injury = injuries[1], Plan = plans[2]},
+                    new InjuryPlanMatrixItem() {Injury = injuries[3], Plan = plans[3]},
+                    new InjuryPlanMatrixItem() {Injury = injuries[3], Plan = plans[4]}
                 };
-            injuryWorkouts.ForEach(p => _dbContext.InjuryWorkoutMatrixItems.Add(p));
+            injuryPlans.ForEach(p => _dbContext.InjuryPlanMatrixItems.Add(p));
             _dbContext.SaveChanges();
         }
 
-        private List<Workout> AddWorkouts()
+        private List<Plan> AddPlans()
         {
-            var workouts = new List<Workout>()
+            var plans = new List<Plan>()
                 {
-                    new Workout()
+                    new Plan()
                         {
                             RoutineName = "Plantar Fascia Rehab 1",
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
                             MusclesInvolved = "Plantar Fascia, Gastroc/Soleus",
-                            Category = WorkoutCategory.Rehabilitation
+                            Category = PlanCategory.Rehabilitation
                         },
-                     new Workout()
+                     new Plan()
                         {
                             RoutineName = "Sprained Ankle Stretching",
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
                             MusclesInvolved = "Ankle Joint/Ligaments, Soleus",
-                            Category = WorkoutCategory.Stretch
+                            Category = PlanCategory.Stretch
                         },
-                     new Workout()
+                     new Plan()
                         {
                             RoutineName = "General Shin Splint Stretching",
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
                             MusclesInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
-                            Category = WorkoutCategory.Stretch
+                            Category = PlanCategory.Stretch
                         },
-                     new Workout()
+                     new Plan()
                         {
                             RoutineName = "Soleus Stretching",
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
                             MusclesInvolved = "Soleus",
-                            Category = WorkoutCategory.Stretch
+                            Category = PlanCategory.Stretch
                         },
-                     new Workout()
+                     new Plan()
                         {
                             RoutineName = "Calf Strain Rehab",
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
                             MusclesInvolved = "Gastrocnemius, Soleus, Hamstrings",
-                            Category = WorkoutCategory.Rehabilitation
+                            Category = PlanCategory.Rehabilitation
                         }
                 };
 
-            workouts.ForEach(p => _dbContext.Workouts.Add(p));
+            plans.ForEach(p => _dbContext.Plans.Add(p));
             _dbContext.SaveChanges();
 
-            return workouts;
+            return plans;
 
         }
 
-        private void AssociateWorkoutExercise(IList<Workout> workouts, IList<Exercise> exercises)
+        private void AssociatePlanExercise(IList<Plan> plans, IList<Exercise> exercises)
         {
-            var workoutExercises = new List<WorkoutExerciseMatrixItem>()
+            var planExercises = new List<PlanExerciseMatrixItem>()
                 {
-                    new WorkoutExerciseMatrixItem() {Workout = workouts[0], Exercise = exercises[0]},
-                    new WorkoutExerciseMatrixItem() {Workout = workouts[0], Exercise = exercises[1]},
-                    new WorkoutExerciseMatrixItem() {Workout = workouts[1], Exercise = exercises[0]},
-                    new WorkoutExerciseMatrixItem() {Workout = workouts[2], Exercise = exercises[3]},
-                    new WorkoutExerciseMatrixItem() {Workout = workouts[3], Exercise = exercises[2]},
-                    new WorkoutExerciseMatrixItem() { Workout = workouts[3], Exercise = exercises[3]},
-                    new WorkoutExerciseMatrixItem() { Workout = workouts[3], Exercise = exercises[4]},
-                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[4]},
-                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[5]},
-                    new WorkoutExerciseMatrixItem() { Workout = workouts[4], Exercise = exercises[6]}
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[0]},
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[1]},
+                    new PlanExerciseMatrixItem() {Plan = plans[1], Exercise = exercises[0]},
+                    new PlanExerciseMatrixItem() {Plan = plans[2], Exercise = exercises[3]},
+                    new PlanExerciseMatrixItem() {Plan = plans[3], Exercise = exercises[2]},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[3]},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[4]},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[4]},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[5]},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[6]}
                 };
 
-            workoutExercises.ForEach(p => _dbContext.WorkoutExceriseMatrixItems.Add(p));
+            planExercises.ForEach(p => _dbContext.PlansExceriseMatrixItems.Add(p));
             _dbContext.SaveChanges();
 
         }

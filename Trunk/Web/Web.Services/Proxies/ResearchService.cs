@@ -27,15 +27,15 @@ namespace SportsWebPt.Platform.Web.Services
 
         #endregion
 
-        public Workout GetWorkout(int workoutId)
+        public Plan GetPlan(int planId)
         {
             var response =
-                GetSync<ApiResourceRequest<WorkoutDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.WorkoutPath,
-                                                                      workoutId));
+                GetSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath,
+                                                                      planId));
 
-            var workout = Mapper.Map<Workout>(response.Resource);
+            var plan = Mapper.Map<Plan>(response.Resource);
 
-            return workout;
+            return plan;
         }
 
         public IEnumerable<BodyPart> GetBodyParts()

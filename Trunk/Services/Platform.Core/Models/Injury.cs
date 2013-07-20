@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
 
-        public ICollection<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
+        public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 
         public ICollection<InjuryCauseMatrixItem> InjuryCauseMatrixItems { get; set; }
 

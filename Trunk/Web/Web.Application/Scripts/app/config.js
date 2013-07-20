@@ -17,7 +17,7 @@
             componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId='),
             diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport'),
             injuries: $.format('{0}/{1}', hostUri, 'research/injuries'),
-            workouts: $.format('{0}/{1}', hostUri, 'research/workouts'),
+            plans: $.format('{0}/{1}', hostUri, 'research/plans'),
             exercises: $.format('{0}/{1}', hostUri, 'research/exercises'),
             adminExercises: $.format('{0}/{1}', hostUri, 'admin/exercises'),
             equipment: $.format('{0}/{1}', hostUri, 'research/equipment'),

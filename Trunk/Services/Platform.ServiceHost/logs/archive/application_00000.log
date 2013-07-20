@@ -1,34 +1,10 @@
-07-16-13@22:02:33 Info (12)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:02:33 Info (18)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:02:33 Info (12)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0036438 
-07-16-13@22:02:33 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0365653 
-07-16-13@22:04:05 Info (32)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:04:05 Info (18)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:04:05 Info (32)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0051755 
-07-16-13@22:04:05 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0413075 
-07-16-13@22:05:01 Info (18)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:05:01 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0428666 
-07-16-13@22:07:30 Info (18)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:07:30 Info (21)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:07:30 Info (18)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040385 
-07-16-13@22:07:30 Info (21)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0368775 
-07-16-13@22:07:39 Info (12)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:07:39 Info (21)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:07:39 Info (21)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039962 
-07-16-13@22:07:39 Info (12)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0483650 
-07-16-13@22:08:00 Info (18)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:08:00 Info (15)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:08:00 Info (18)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0043310 
-07-16-13@22:08:00 Info (15)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0398170 
-07-16-13@22:08:21 Info (23)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:08:21 Info (18)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:08:21 Info (23)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0042515 
-07-16-13@22:08:21 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0391673 
-07-16-13@22:08:45 Info (18)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:08:45 Info (17)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:08:45 Info (18)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037109 
-07-16-13@22:08:45 Info (17)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0371096 
-07-16-13@22:14:38 Info (23)  [Common] BodyRegionListRequest request submitted 
-07-16-13@22:14:38 Info (26)  [Common] ExecerciseListRequest request submitted 
-07-16-13@22:14:38 Info (23)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0259522 
-07-16-13@22:14:38 Info (26)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0595198 
+07-20-13@00:12:59 Info (8)  [Common] EquipmentListRequest request submitted 
+07-20-13@00:12:59 Info (7)  [Common] BodyRegionListRequest request submitted 
+07-20-13@00:12:59 Info (10)  [Common] ExecerciseListRequest request submitted 
+07-20-13@00:12:59 Info (9)  [Common] VideoListRequest request submitted 
+07-20-13@00:12:59 Info (6)  [Common] ExecerciseListRequest request submitted 
+07-20-13@00:13:03 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:04.0421571 
+07-20-13@00:13:03 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:04.0421940 
+07-20-13@00:13:03 Info (9)  [Common] VideoListRequest request completed with duration of 00:00:04.0459042 
+07-20-13@00:13:04 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:04.8606398 
+07-20-13@00:13:04 Info (10)  [Common] ExecerciseListRequest request completed with duration of 00:00:04.8607901 

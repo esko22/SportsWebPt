@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class Workout
+    public class Plan
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public WorkoutCategory Category { get; set; }
+        public PlanCategory Category { get; set; }
 
         public String RoutineName { get; set; }
 
@@ -19,9 +19,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Duration { get; set; }
 
-        public ICollection<InjuryWorkoutMatrixItem> InjuryWorkoutMatrixItems { get; set; }
+        public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 
-        public ICollection<WorkoutExerciseMatrixItem> WorkoutExerciseMatrixItems { get; set; }
+        public ICollection<PlanExerciseMatrixItem> PlanExerciseMatrixItems { get; set; }
 
         #endregion
     }
