@@ -60,11 +60,13 @@
     <Compile Include="EntityConfiguration\ExerciseBodyRegionMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseEquipmentMatrixConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjuryBodyRegionConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryCauseMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjurySignMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjurySymptomMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryPlanMatrixConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PlanBodyRegionConfiguration.cs" />
     <Compile Include="EntityConfiguration\SignConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomDetailConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomMatrixConfiguration.cs" />
@@ -94,7 +96,6 @@
     <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
     <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

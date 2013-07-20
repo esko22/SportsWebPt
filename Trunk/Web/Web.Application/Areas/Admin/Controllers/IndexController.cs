@@ -125,6 +125,19 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(_researchService.GetBodyRegions(), JsonRequestBehavior.AllowGet);
         }
 
+        [GET("admin/plans", IsAbsoluteUrl = true)]
+        public ActionResult GetPlans()
+        {
+            return Json(_adminService.GetPlans(), JsonRequestBehavior.AllowGet);
+        }
+
+        [PUT("admin/plans/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdatePlan(Plan plan)
+        {
+            _adminService.UpdatePlan(plan);
+            return Json(plan, JsonRequestBehavior.DenyGet);
+        }
+
 
         #endregion
 

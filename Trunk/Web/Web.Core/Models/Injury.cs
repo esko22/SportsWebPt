@@ -21,7 +21,13 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Cause> causes { get; set; }
 
-        public IEnumerable<Sign> signs { get; set; } 
+        public IEnumerable<Sign> signs { get; set; }
+
+        public IEnumerable<BodyRegion> bodyRegions { get; set; }
+
+        public String tags { get; set; }
+
+        public String pageName { get; set; }
 
         #endregion
 

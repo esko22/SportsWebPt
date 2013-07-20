@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Construction
 
-        protected BaseUnitOfWork(IRepositoryProvider repositoryProvider, DbContext context)
+        protected BaseUnitOfWork(IRepositoryProvider repositoryProvider, DbContext context, Boolean enableLazyLoading)
         {
             _context = context;
             _repositoryProvider = repositoryProvider;
@@ -27,12 +27,16 @@ namespace SportsWebPt.Platform.DataAccess
             _context.Configuration.ProxyCreationEnabled = false;
 
             // Load navigation properties explicitly (avoid serialization trouble)
-            _context.Configuration.LazyLoadingEnabled = false;
+            _context.Configuration.LazyLoadingEnabled = enableLazyLoading;
 
             // Because Web API will perform validation, we don't need/want EF to do so
             _context.Configuration.ValidateOnSaveEnabled = false;
 
         }
+
+        protected BaseUnitOfWork(IRepositoryProvider repositoryProvider, DbContext context)
+            :this(repositoryProvider,context,false)
+        {}
 
         #endregion
 

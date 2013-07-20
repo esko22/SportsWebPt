@@ -23,5 +23,17 @@ namespace SportsWebPt.Platform.Web.Services
         int AddExercise(Exercise exercise);
 
         void UpdateExercise(Exercise exercise);
+
+        IEnumerable<Plan> GetPlans();
+
+        int AddPlan(Plan plan);
+
+        void UpdatePlan(Plan plan);
+
+        IEnumerable<Injury> GetInjuries();
+
+        int AddInjury(Injury injury);
+
+        void UpdateInjury(Injury injury);
     }
 }

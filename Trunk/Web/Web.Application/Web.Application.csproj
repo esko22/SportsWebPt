@@ -183,6 +183,9 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.form.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercises.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plan.form.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plans.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plan.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
@@ -380,6 +383,7 @@
     <Content Include="Areas\Admin\Views\Index\_adminVideos.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminExercises.cshtml" />
     <Content Include="Areas\Research\Views\Research\Exercise.cshtml" />
+    <Content Include="Areas\Admin\Views\Index\_adminPlans.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -818,10 +822,11 @@
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Scripts\models\model.video.js" />
-    <Content Include="Scripts\models\model.workout.js" />
+    <Content Include="Scripts\models\model.plan.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />
     <Content Include="Scripts\utils\error.helper.js" />
     <Content Include="Scripts\utils\logger.js" />
+    <Content Include="Tmpl\_admin.plan.list.tmpl.html" />
     <Content Include="Tmpl\_admin.exercise.list.tmpl.html" />
     <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
     <Content Include="Tmpl\_admin.video.list.tmpl.html" />

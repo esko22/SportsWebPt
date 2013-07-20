@@ -19,9 +19,15 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Duration { get; set; }
 
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 
         public ICollection<PlanExerciseMatrixItem> PlanExerciseMatrixItems { get; set; }
+
+        public ICollection<PlanBodyRegionMatrixItem> PlanBodyRegionMatrixItems { get; set; } 
 
         #endregion
     }

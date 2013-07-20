@@ -52,6 +52,8 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateExerciseVideos(exercises, videos);
             AssociateExerciseEquipment(exercises, equipment);
             AssociateExerciseBodyRegion(exercises, regions);
+            AssociatePlanBodyRegion(plans, regions);
+            AssociateInjuryBodyRegion(injuries, regions);
 
         }
 
@@ -151,7 +153,9 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
                             MusclesInvolved = "Plantar Fascia, Gastroc/Soleus",
-                            Category = PlanCategory.Rehabilitation
+                            Category = PlanCategory.Rehabilitation,
+                            Tags = "Pain, Swelling",
+                            PageName = "Plantar-Fascia-Rehab-1"
                         },
                      new Plan()
                         {
@@ -159,7 +163,9 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
                             MusclesInvolved = "Ankle Joint/Ligaments, Soleus",
-                            Category = PlanCategory.Stretch
+                            Category = PlanCategory.Stretch,
+                            Tags = "Pain, Weakness",
+                            PageName = "Sprained-Ankle-Stretching"
                         },
                      new Plan()
                         {
@@ -167,7 +173,9 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
                             MusclesInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
-                            Category = PlanCategory.Stretch
+                            Category = PlanCategory.Stretch,
+                            Tags = "Pain, Weakness",
+                            PageName = "General-Shin-Splint-Stretching"
                         },
                      new Plan()
                         {
@@ -175,7 +183,9 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
                             MusclesInvolved = "Soleus",
-                            Category = PlanCategory.Stretch
+                            Category = PlanCategory.Stretch,
+                            Tags = "Pain, Weakness",
+                            PageName = "Soleus-Stretching"
                         },
                      new Plan()
                         {
@@ -183,7 +193,9 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
                             MusclesInvolved = "Gastrocnemius, Soleus, Hamstrings",
-                            Category = PlanCategory.Rehabilitation
+                            Category = PlanCategory.Rehabilitation,
+                            Tags = "Pain, Tingle",
+                            PageName = "Calf-Strain-Rehab"
                         }
                 };
 
@@ -198,16 +210,16 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var planExercises = new List<PlanExerciseMatrixItem>()
                 {
-                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[0]},
-                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[1]},
-                    new PlanExerciseMatrixItem() {Plan = plans[1], Exercise = exercises[0]},
-                    new PlanExerciseMatrixItem() {Plan = plans[2], Exercise = exercises[3]},
-                    new PlanExerciseMatrixItem() {Plan = plans[3], Exercise = exercises[2]},
-                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[3]},
-                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[4]},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[4]},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[5]},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[6]}
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[0], Repititions = 3, Sets = 2},
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[1], Repititions = 2, Sets = 7},
+                    new PlanExerciseMatrixItem() {Plan = plans[1], Exercise = exercises[0], Repititions = 4, Sets = 9},
+                    new PlanExerciseMatrixItem() {Plan = plans[2], Exercise = exercises[3], Repititions = 7, Sets = 2},
+                    new PlanExerciseMatrixItem() {Plan = plans[3], Exercise = exercises[2], Repititions = 2, Sets = 1},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[3], Repititions = 3, Sets = 1},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[4], Repititions = 5, Sets = 2},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[4], Repititions = 3, Sets = 2},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[5], Repititions = 2, Sets = 8},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[6], Repititions = 30, Sets = 2}
                 };
 
             planExercises.ForEach(p => _dbContext.PlansExceriseMatrixItems.Add(p));
@@ -300,10 +312,52 @@ namespace SportsWebPt.Platform.DataAccess
                     new ExerciseBodyRegionMatrixItem() {Exercise = exercises[6], BodyRegion = bodyRegions[6]}
                 };
 
-            exerciseBodyRegions.ForEach(p => _dbContext.ExerciseBodyPartMatrixItems.Add(p));
+            exerciseBodyRegions.ForEach(p => _dbContext.ExerciseBodyRegionMatrixItems.Add(p));
             _dbContext.SaveChanges();
 
         }
+
+        private void AssociatePlanBodyRegion(IList<Plan> plans, IList<BodyRegion> bodyRegions)
+        {
+            var planBodyRegions = new List<PlanBodyRegionMatrixItem>()
+                {
+                    new PlanBodyRegionMatrixItem() {Plan = plans[0], BodyRegion = bodyRegions[0]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[0], BodyRegion = bodyRegions[7]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[1], BodyRegion = bodyRegions[1]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[2], BodyRegion = bodyRegions[2]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[3], BodyRegion = bodyRegions[3]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[4], BodyRegion = bodyRegions[4]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[4], BodyRegion = bodyRegions[8]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[2], BodyRegion = bodyRegions[5]},
+                    new PlanBodyRegionMatrixItem() {Plan = plans[1], BodyRegion = bodyRegions[6]}
+                };
+
+            planBodyRegions.ForEach(p => _dbContext.PlanBodyRegionMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
+
+        private void AssociateInjuryBodyRegion(IList<Injury> injuries, IList<BodyRegion> bodyRegions)
+        {
+            var injuryBodyRegions = new List<InjuryBodyRegionMatrixItem>()
+                {
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[0], BodyRegion = bodyRegions[0]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[0], BodyRegion = bodyRegions[7]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[1], BodyRegion = bodyRegions[1]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[2], BodyRegion = bodyRegions[2]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[3], BodyRegion = bodyRegions[3]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[2], BodyRegion = bodyRegions[4]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[1], BodyRegion = bodyRegions[8]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[3], BodyRegion = bodyRegions[5]},
+                    new InjuryBodyRegionMatrixItem() {Injury = injuries[3], BodyRegion = bodyRegions[6]}
+                };
+
+            injuryBodyRegions.ForEach(p => _dbContext.InjuryBodyRegionMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+
+        }
+
 
 
         private List<Equipment> AddEquipment()
@@ -392,10 +446,50 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var injuries = new List<Injury>()
                 {
-                    new Injury() { CommonName = "Sprained Ankle", Description = "An Ankle strain/sprain is easily one of the most common and easily identified injuries in any sport.  An athlete knows they sprained their ankle the instant they do it and the next couple days are predictable with rehabilitation. This is a bad sentence.  I understand what you’re trying to say, but can you rephrase?  The timetable for return to activity is heavily dependent on severity of the strain or sprain.  It is very important to ICE the ankle within the first 48-72 hours of the sprain.  Consistent icing can have a significant impact in expediting the rehabilitation time. There has to be more information for you to add!!!  What about adding a recommendation to have an X-ray for severe injuries to asure there is not a break????  Also, is there any way to strengthen the tendons and muscles to HELP prevent the injury???  ", MedicalName = "Ankle Sprain", OpeningStatement = "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe."},
-                    new Injury() { CommonName = "Shin Splints", Description = "Shin splints can manifest in two different forms, one coming from the muscles in the front of the shin (ankle/toe extensors) and the other coming from the back of the shin (deep toe flexors).  Here we will focus on the anterior shin splints.  The muscles on the front of your shin (anterior tibialis, extensor hallucis and digitorum longus) are responsible for controlling the foot and ankle during the landing phase of running or walking.  With continued use, the muscles continue to experience stress and begin to shorten and form pockets of scar tissue.  If not take care of properly, this process will continue and eventually the athlete will begin to experience pain and tightness in the front of the shin.  As symptoms progress, they can eventually lead to difficulty with walking and running activities.  Anterior shin splints can be prevented with regular self -massage, stretching, and minor activity modification.", MedicalName = "Anterior Tbialis", OpeningStatement = "Suffering from shin splints?  Many athletes have suffered from some form of shin splints at some point in there training.  Shin splints can be very painful and can sideline the most veteran and toughest athletes."},
-                    new Injury() { CommonName = "Plantar Faciitis", Description = "Plantar Fasciitis is the name given to describe the inflammatory condition of the Plantar Fascia, the thick band of ligament that runs along the bottom of the foot and connects the heel bone to the toes. This tissue provides support to the arch of the foot.  With each step, the plantar fascia undergoes a moderate stretching tension as the arch compresses. Plantar Fasciitis occurs when a repeatedly excessive stretch causes small tears in the plantar fascia.  There are a variety of causes for plantar fasciitis.  As we age, our bodies adapt to our lifestyles, and asymmetries arise between the left and right sides of our body.  Many people notice they are stronger on one side or more flexible on the other side.  This natural adaptation to your lifestyle may contribute to this injury affecting only one of your feet.  Commonly experienced by men and women in their middle ages, the condition may also affect young people, especially recreational athletes, such as runners. ", MedicalName = "Plantar Faciitis", OpeningStatement = "Plantar fasciitis is the most common cause of heel pain.  Those affected by this condition most often describe a stiffness or sharp pain in their heel or along the bottom of their foot."},
-                    new Injury() { CommonName = "Calf Strain", Description = "The calf is constructed of three main structures: Gastrocnemius, Soleus, and Achilles tendon.  This unit is vital in pushing off to running, jumping, pedaling, and any exercise that involves pushing off with the legs.  A calf strain occurs when a portion of the muscle is contracted to forcefully during activity and goes into spasm or 'freaks out'.  This is known as the 'oh crap' moment.  When this event occurs, the athlete will experience sharp pain each time the muscle is contracted, usually with pushing off during running and walking.  The injured area needs to go through the healing process, which is usually between 2-4 weeks (although can be much longer with severe strains).  Light stretching and light soft tissue work can dramatically increase the healing process and get the athlete back to training sooner.", MedicalName = "Gastrocnemius/Soleus Strain", OpeningStatement = "Suffering from calf strain?  A calf strain will make it hard for any person to walk, run, or complete any exercise that involves pushing off with the legs.  Some athletes may be able to push thorough the pain and continue exercise.  Others may not be able to fight through the pain.  Calf strains typically happen to athletes during high intensity workouts or races. "},
+                    new Injury()
+                        {
+                            Tags = "Pain, Tingle",
+                            PageName = "Sprained-Ankle",
+                            CommonName = "Sprained Ankle",
+                            Description =
+                                "An Ankle strain/sprain is easily one of the most common and easily identified injuries in any sport.  An athlete knows they sprained their ankle the instant they do it and the next couple days are predictable with rehabilitation. This is a bad sentence.  I understand what you’re trying to say, but can you rephrase?  The timetable for return to activity is heavily dependent on severity of the strain or sprain.  It is very important to ICE the ankle within the first 48-72 hours of the sprain.  Consistent icing can have a significant impact in expediting the rehabilitation time. There has to be more information for you to add!!!  What about adding a recommendation to have an X-ray for severe injuries to asure there is not a break????  Also, is there any way to strengthen the tendons and muscles to HELP prevent the injury???  ",
+                            MedicalName = "Ankle Sprain",
+                            OpeningStatement =
+                                "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe."
+                        },
+                    new Injury()
+                        {                            
+                            Tags = "Pain, Bruise",
+                            PageName = "Shin-Splints",
+                            CommonName = "Shin Splints",
+                            Description =
+                                "Shin splints can manifest in two different forms, one coming from the muscles in the front of the shin (ankle/toe extensors) and the other coming from the back of the shin (deep toe flexors).  Here we will focus on the anterior shin splints.  The muscles on the front of your shin (anterior tibialis, extensor hallucis and digitorum longus) are responsible for controlling the foot and ankle during the landing phase of running or walking.  With continued use, the muscles continue to experience stress and begin to shorten and form pockets of scar tissue.  If not take care of properly, this process will continue and eventually the athlete will begin to experience pain and tightness in the front of the shin.  As symptoms progress, they can eventually lead to difficulty with walking and running activities.  Anterior shin splints can be prevented with regular self -massage, stretching, and minor activity modification.",
+                            MedicalName = "Anterior Tbialis",
+                            OpeningStatement =
+                                "Suffering from shin splints?  Many athletes have suffered from some form of shin splints at some point in there training.  Shin splints can be very painful and can sideline the most veteran and toughest athletes."
+                        },
+                    new Injury()
+                        {
+                            Tags = "Pain, Pressure",
+                            PageName = "Plantar-Faciitis",
+                            CommonName = "Plantar Faciitis",
+                            Description =
+                                "Plantar Fasciitis is the name given to describe the inflammatory condition of the Plantar Fascia, the thick band of ligament that runs along the bottom of the foot and connects the heel bone to the toes. This tissue provides support to the arch of the foot.  With each step, the plantar fascia undergoes a moderate stretching tension as the arch compresses. Plantar Fasciitis occurs when a repeatedly excessive stretch causes small tears in the plantar fascia.  There are a variety of causes for plantar fasciitis.  As we age, our bodies adapt to our lifestyles, and asymmetries arise between the left and right sides of our body.  Many people notice they are stronger on one side or more flexible on the other side.  This natural adaptation to your lifestyle may contribute to this injury affecting only one of your feet.  Commonly experienced by men and women in their middle ages, the condition may also affect young people, especially recreational athletes, such as runners. ",
+                            MedicalName = "Plantar Faciitis",
+                            OpeningStatement =
+                                "Plantar fasciitis is the most common cause of heel pain.  Those affected by this condition most often describe a stiffness or sharp pain in their heel or along the bottom of their foot."
+                        },
+                    new Injury()
+                        {
+                            Tags = "Pain, Pinch",
+                            PageName = "Calf-Strain",
+                            CommonName = "Calf Strain",
+                            Description =
+                                "The calf is constructed of three main structures: Gastrocnemius, Soleus, and Achilles tendon.  This unit is vital in pushing off to running, jumping, pedaling, and any exercise that involves pushing off with the legs.  A calf strain occurs when a portion of the muscle is contracted to forcefully during activity and goes into spasm or 'freaks out'.  This is known as the 'oh crap' moment.  When this event occurs, the athlete will experience sharp pain each time the muscle is contracted, usually with pushing off during running and walking.  The injured area needs to go through the healing process, which is usually between 2-4 weeks (although can be much longer with severe strains).  Light stretching and light soft tissue work can dramatically increase the healing process and get the athlete back to training sooner.",
+                            MedicalName = "Gastrocnemius/Soleus Strain",
+                            OpeningStatement =
+                                "Suffering from calf strain?  A calf strain will make it hard for any person to walk, run, or complete any exercise that involves pushing off with the legs.  Some athletes may be able to push thorough the pain and continue exercise.  Others may not be able to fight through the pain.  Calf strains typically happen to athletes during high intensity workouts or races. "
+                        },
                 };
 
             injuries.ForEach(p => _dbContext.Injuries.Add(p));

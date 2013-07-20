@@ -17,13 +17,19 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Description { get; set; }
 
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
         public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 
         public ICollection<InjuryCauseMatrixItem> InjuryCauseMatrixItems { get; set; }
 
-        public ICollection<InjurySignMatrixItem> InjurySignMatrixItems { get; set; } 
+        public ICollection<InjurySignMatrixItem> InjurySignMatrixItems { get; set; }
+
+        public ICollection<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; } 
 
         #endregion
     }

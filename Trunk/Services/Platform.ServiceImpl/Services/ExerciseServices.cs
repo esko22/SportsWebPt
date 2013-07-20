@@ -72,6 +72,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             ResearchUnitOfWork.ExerciseRepo.Add(exercise);
             ResearchUnitOfWork.Commit();
 
+            request.Resource.id = exercise.Id;
+
             return Ok(new ApiResponse<ExerciseDto>(request.Resource));
 
         }

@@ -17,7 +17,10 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<Exercise> ExerciseRepo { get { return GetStandardRepo<Exercise>(); } }
         public IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get { return GetStandardRepo<ExerciseEquipmentMatrixItem>(); } }
         public IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get { return GetStandardRepo<ExerciseVideoMatrixItem>(); } }
-        public IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get { return GetStandardRepo<ExerciseBodyRegionMatrixItem>(); } } 
+        public IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get { return GetStandardRepo<ExerciseBodyRegionMatrixItem>(); } }
+        public IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get { return GetStandardRepo<PlanBodyRegionMatrixItem>(); } }
+        public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
+        public IPlanRepo PlanRepo { get { return GetRepo<IPlanRepo>(); } }
 
         #endregion
 
@@ -86,6 +89,50 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
+        public void UpdatePlan(Plan plan)
+        {
+            var planInDb =
+                PlanRepo.GetAll(new[] { "PlanExerciseMatrixItems", "PlanBodyRegionMatrixItems" })
+                            .SingleOrDefault(p => p.Id == plan.Id);
+
+            if (planInDb == null)
+                throw new ArgumentNullException("plan id", "plan does not exist");
+
+            var deletedExercises = planInDb.PlanExerciseMatrixItems.Except(
+                plan.PlanExerciseMatrixItems, (item, matrixItem) => item.ExerciseId == matrixItem.ExerciseId).ToList();
+
+            var addedExercises = plan.PlanExerciseMatrixItems.Except(
+                planInDb.PlanExerciseMatrixItems, (item, matrixItem) => item.ExerciseId == matrixItem.ExerciseId).ToList();
+
+            deletedExercises.ForEach(e => PlanExerciseMatrixRepo.Delete(e));
+            addedExercises.ForEach(e =>
+            {
+                e.PlanId = plan.Id;
+                PlanExerciseMatrixRepo.Add(e);
+            });
+
+            var deletedBodyRegions = planInDb.PlanBodyRegionMatrixItems.Except(
+                plan.PlanBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            var addedBodyRegions = plan.PlanBodyRegionMatrixItems.Except(
+                planInDb.PlanBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            deletedBodyRegions.ForEach(e => PlanBodyRegionRepo.Delete(e));
+            addedBodyRegions.ForEach(e =>
+            {
+                e.PlanId = plan.Id;
+                PlanBodyRegionRepo.Add(e);
+            });
+
+            var planEntry = _context.Entry(planInDb);
+            planEntry.CurrentValues.SetValues(plan);
+
+            Commit();
+        }
+        
+        public void UpdateInjury(Injury injury) {}
+
+
         #endregion
     }
 
@@ -96,8 +143,14 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Exercise> ExerciseRepo { get; }
         IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get; }
         IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get; }
-        IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get; } 
+        IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get; }
+        IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get; }
+        IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get; }
+
+        IPlanRepo PlanRepo { get; } 
 
         void UpdateExercise(Exercise exercise);
+        void UpdatePlan(Plan exercise);
+        void UpdateInjury(Injury injury);
     }
 }

@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter','vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page'],
-    function (backbone, $, presenter, EquipmentVM, VideoVM, ExerciseVM) {
+﻿define('router', ['backbone', 'jquery', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page'],
+    function (backbone, $, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -8,6 +8,7 @@
                     'videos': 'videos',
                     'exercises': 'exercises',
                     'equipment': 'equipment',
+                    'plans': 'plans',
                     '*actions': 'defaultRoute'
                 }
             });
@@ -34,6 +35,13 @@
                 $('.active').removeClass('active');
                 ExerciseVM.bindViewModels();
                 presenter.transitionTo($('#admin-exercise-panel'), '', '');
+            });
+
+            router.on('route:plans', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                PlanVM.bindViewModels();
+                presenter.transitionTo($('#admin-plan-panel'), '', '');
             });
 
             router.on('route:equipment', function () {

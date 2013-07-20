@@ -32,6 +32,12 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public CauseDto[] causes { get; set; }
 
+        [DataMember]
+        public String PageName { get; set; }
+
+        [DataMember]
+        public String Tags { get; set; }
+
         #endregion
     }
 }

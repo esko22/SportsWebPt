@@ -38,6 +38,12 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String difficulty { get; set; }
 
+        [DataMember]
+        public int Sets { get; set; }
+
+        [DataMember]
+        public int Repititions { get; set; }
+
         #endregion
     }
 }

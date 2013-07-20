@@ -120,7 +120,52 @@ namespace SportsWebPt.Platform.Web.Services
             PutSync<ApiResourceRequest<ExerciseDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.ExercisePath, exercise.id), request);
         }
 
-	    #endregion
+        public IEnumerable<Plan> GetPlans()
+        {
+            var response = GetSync<ListResponse<PlanDto, BasicSortBy>>(_sportsWebPtClientSettings.PlanPath);
+
+            return Mapper.Map<IEnumerable<Plan>>(response.Resource.Items);
+        }
+
+        public int AddPlan(Plan plan)
+        {
+            var request = new ApiResourceRequest<PlanDto>
+            {
+                Resource = Mapper.Map<PlanDto>(plan)
+            };
+
+            var response = PostSync<ApiResourceRequest<PlanDto>>(_sportsWebPtClientSettings.PlanPath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdatePlan(Plan plan)
+        {
+            var request = new ApiResourceRequest<PlanDto>
+            {
+                Resource = Mapper.Map<PlanDto>(plan)
+            };
+
+            PutSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath, plan.id), request);
+        }
+
+        public IEnumerable<Injury> GetInjuries()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int AddInjury(Injury injury)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateInjury(Injury injury)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
     }
     
 }

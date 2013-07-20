@@ -1,32 +1,146 @@
-07-20-13@01:14:26 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-07-20-13@01:14:58 Info (8)  [Common] SymptomaticRegionListRequest request submitted 
-07-20-13@01:15:20 Info (8)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:21.6208914 
-07-20-13@01:15:20 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:54.2474413 
-07-20-13@01:15:29 Info (5)  [Common] DifferentialDiagnosisRequest request submitted 
-07-20-13@01:15:30 Info (5)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.4429004 
-07-20-13@01:15:30 Info (8)  [Common] DiagnosisReportRequest request submitted 
-07-20-13@01:15:31 Info (8)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.8233985 
-07-20-13@01:16:00 Info (13)  [Common] SymptomaticRegionListRequest request submitted 
-07-20-13@01:16:00 Info (13)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0134912 
-07-20-13@01:16:03 Info (8)  [Common] DiagnosisReportRequest request submitted 
-07-20-13@01:16:03 Info (8)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0762507 
-07-20-13@01:16:03 Info (6)  [Common] PlanRequest request submitted 
-07-20-13@01:16:03 Info (8)  [Common] PlanRequest request submitted 
-07-20-13@01:16:03 Info (13)  [Common] PlanRequest request submitted 
-07-20-13@01:16:03 Info (8)  [Common] PlanRequest request completed with duration of 00:00:00.4525151 
-07-20-13@01:16:03 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.4562742 
-07-20-13@01:16:03 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.4719483 
-07-20-13@01:17:05 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
-07-20-13@01:17:06 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0129761 
-07-20-13@01:17:07 Info (6)  [Common] DiagnosisReportRequest request submitted 
-07-20-13@01:17:07 Info (6)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0625093 
-07-20-13@01:17:08 Info (6)  [Common] PlanRequest request submitted 
-07-20-13@01:17:08 Info (8)  [Common] PlanRequest request submitted 
-07-20-13@01:17:08 Info (15)  [Common] PlanRequest request submitted 
-07-20-13@01:17:08 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0486310 
-07-20-13@01:17:08 Info (15)  [Common] PlanRequest request completed with duration of 00:00:00.0550264 
-07-20-13@01:17:08 Info (8)  [Common] PlanRequest request completed with duration of 00:00:00.0587925 
-07-20-13@01:17:28 Info (13)  [Common] BodyRegionListRequest request submitted 
-07-20-13@01:17:28 Info (8)  [Common] ExecerciseListRequest request submitted 
-07-20-13@01:17:28 Info (13)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0279283 
-07-20-13@01:17:28 Info (8)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3512378 
+07-20-13@16:21:27 Info (6)  [Common] PlanRequest request submitted 
+07-20-13@16:21:53 Error (6)  [Common] [PlanService: 7/20/2013 11:21:53 PM]:
+[REQUEST: {Id:1,Resource:{id:1,exercises:[{id:1,equipment:[{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],bodyRegions:[{id:8,Name:UpperLeg},{id:1,Name:AboveShoulder}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner,Sets:0,Repititions:0},{id:2,equipment:[],videos:[{id:4,creationDate:0001-01-01,name:Toe Stretch,description:How to strech your toes,filename:SWPT_Template.m4v}],bodyRegions:[{id:2,Name:Chest}],name:Seated Plantar Fascis Stretch,description:Strech yo self,pageName:seated-plantar-fascis-strech,tags:"pain, tightness",duration:10,difficulty:Advanced,Sets:0,Repititions:0}],category:Rehabilitation,routineName:Plantar Fascia Rehb 1,description:"Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",musclesInvolved:"Plantar Fascia, Gastroc/Soleus",duration:5,PageName:Plantar-Fascia-Rehab-1,Tags:"Pain, Swelling",bodyRegions:[{id:1,Name:AboveShoulder},{id:6,Name:UpperArm},{id:7,Name:LowerArm},{id:8,Name:UpperLeg}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ExerciseDto -> PlanExerciseMatrixItem
+SportsWebPt.Platform.ServiceModels.ExerciseDto -> SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem
+
+Destination path:
+Plan.PlanExerciseMatrixItems.PlanExerciseMatrixItems.PlanExerciseMatrixItems0[0]
+
+Source value:
+SportsWebPt.Platform.ServiceModels.ExerciseDto System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+07-20-13@16:22:31 Info (8)  [Common] EquipmentListRequest request submitted 
+07-20-13@16:22:31 Info (6)  [Common] VideoListRequest request submitted 
+07-20-13@16:22:31 Info (5)  [Common] BodyRegionListRequest request submitted 
+07-20-13@16:22:31 Info (14)  [Common] ExecerciseListRequest request submitted 
+07-20-13@16:22:32 Info (7)  [Common] PlanListRequest request submitted 
+07-20-13@16:22:34 Info (6)  [Common] VideoListRequest request completed with duration of 00:00:03.3337981 
+07-20-13@16:22:34 Info (5)  [Common] BodyRegionListRequest request completed with duration of 00:00:03.3150456 
+07-20-13@16:22:34 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:03.3377017 
+07-20-13@16:22:34 Error (7)  [Common] [PlanListService: 7/20/2013 11:22:34 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:22:34 Info (14)  [Common] ExecerciseListRequest request completed with duration of 00:00:03.6754556 
+07-20-13@16:22:42 Info (14)  [Common] PlanListRequest request submitted 
+07-20-13@16:22:43 Error (14)  [Common] [PlanListService: 7/20/2013 11:22:43 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:22:55 Info (14)  [Common] PlanListRequest request submitted 
+07-20-13@16:24:21 Error (14)  [Common] [PlanListService: 7/20/2013 11:24:21 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:26:11 Info (6)  [Common] PlanListRequest request submitted 
+07-20-13@16:26:33 Error (6)  [Common] [PlanListService: 7/20/2013 11:26:33 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:27:15 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@16:27:43 Error (16)  [Common] [PlanListService: 7/20/2013 11:27:43 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:27:57 Info (22)  [Common] PlanListRequest request submitted 
+07-20-13@16:28:22 Error (22)  [Common] [PlanListService: 7/20/2013 11:28:22 PM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
+
+Mapping types:
+PlanExerciseMatrixItem -> VideoDto[]
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem -> SportsWebPt.Platform.ServiceModels.VideoDto[]
+
+Destination path:
+List`1[0].exercises.exercises.exercises0[0].videos.videos
+
+Source value:
+SportsWebPt.Platform.Core.Models.PlanExerciseMatrixItem Void MapPropertyValue(AutoMapper.ResolutionContext, AutoMapper.IMappingEngineRunner, System.Object, AutoMapper.PropertyMap)
+ArgumentNullException Value cannot be null.
+Parameter name: source System.Collections.Generic.IEnumerable`1[TResult] Select[TSource,TResult](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,TResult])
+07-20-13@16:30:57 Info (15)  [Common] PlanListRequest request submitted 
+07-20-13@16:31:05 Info (15)  [Common] PlanListRequest request completed with duration of 00:00:08.7426200 
+07-20-13@16:31:11 Info (8)  [Common] EquipmentListRequest request submitted 
+07-20-13@16:31:11 Info (15)  [Common] VideoListRequest request submitted 
+07-20-13@16:31:11 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0396485 
+07-20-13@16:31:11 Info (15)  [Common] VideoListRequest request completed with duration of 00:00:00.0489604 
+07-20-13@16:31:11 Info (8)  [Common] BodyRegionListRequest request submitted 
+07-20-13@16:31:11 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@16:31:11 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0280658 
+07-20-13@16:31:11 Info (15)  [Common] ExecerciseListRequest request submitted 
+07-20-13@16:31:11 Info (16)  [Common] PlanListRequest request completed with duration of 00:00:00.0499085 
+07-20-13@16:31:11 Info (15)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3554806 
+07-20-13@16:31:25 Info (20)  [Common] PlanRequest request submitted 
+07-20-13@16:31:51 Error (20)  [Common] [PlanService: 7/20/2013 11:31:51 PM]:
+[REQUEST: {Id:1,Resource:{id:1,exercises:[{id:1,equipment:[{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],bodyRegions:[{id:8,Name:UpperLeg},{id:1,Name:AboveShoulder}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner,Sets:0,Repititions:0},{id:2,equipment:[],videos:[{id:4,creationDate:0001-01-01,name:Toe Stretch,description:How to strech your toes,filename:SWPT_Template.m4v}],bodyRegions:[{id:2,Name:Chest}],name:Seated Plantar Fascis Stretch,description:Strech yo self,pageName:seated-plantar-fascis-strech,tags:"pain, tightness",duration:10,difficulty:Advanced,Sets:0,Repititions:0}],category:Preventative,routineName:Plantar Fascia Rehab 1,description:"Plantar facciitis s an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",musclesInvolved:"Plantar Fascia, Gastroc/Soleus",duration:5,PageName:Plantar-Fascia-Rehab-1,Tags:"Pain, Swelling",bodyRegions:[{id:1,Name:AboveShoulder},{id:5,Name:LowerBack},{id:6,Name:UpperArm},{id:8,Name:UpperLeg}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Cannot add or update a child row: a foreign key constraint fails (`sportswebptdb`.`planexercisematrix`, CONSTRAINT `PlanExerciseMatrixItem_Plan` FOREIGN KEY (`plan_id`) REFERENCES `plan` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+07-20-13@16:32:36 Info (22)  [Common] PlanRequest request submitted 
+07-20-13@16:33:22 Error (22)  [Common] [PlanService: 7/20/2013 11:33:22 PM]:
+[REQUEST: {Id:1,Resource:{id:1,exercises:[{id:1,equipment:[{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],bodyRegions:[{id:8,Name:UpperLeg},{id:1,Name:AboveShoulder}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner,Sets:0,Repititions:0},{id:2,equipment:[],videos:[{id:4,creationDate:0001-01-01,name:Toe Stretch,description:How to strech your toes,filename:SWPT_Template.m4v}],bodyRegions:[{id:2,Name:Chest}],name:Seated Plantar Fascis Stretch,description:Strech yo self,pageName:seated-plantar-fascis-strech,tags:"pain, tightness",duration:10,difficulty:Advanced,Sets:0,Repititions:0}],category:Preventative,routineName:Plantar Fascia Rehab 1,description:"Plantar facciitis s an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",musclesInvolved:"Plantar Fascia, Gastroc/Soleus",duration:5,PageName:Plantar-Fascia-Rehab-1,Tags:"Pain, Swelling",bodyRegions:[{id:1,Name:AboveShoulder},{id:5,Name:LowerBack},{id:6,Name:UpperArm},{id:8,Name:UpperLeg}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Cannot add or update a child row: a foreign key constraint fails (`sportswebptdb`.`planexercisematrix`, CONSTRAINT `PlanExerciseMatrixItem_Plan` FOREIGN KEY (`plan_id`) REFERENCES `plan` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+07-20-13@16:34:00 Info (22)  [Common] PlanRequest request submitted 
+07-20-13@16:35:16 Error (22)  [Common] [PlanService: 7/20/2013 11:35:16 PM]:
+[REQUEST: {Id:1,Resource:{id:1,exercises:[{id:1,equipment:[{id:3,commonName:Baseball,technicalName:Baseball,priceRange:2 - 7}],videos:[{id:5,creationDate:0001-01-01,name:Heel self message,description:How to touch yourself,filename:SWPT_Template.m4v}],bodyRegions:[{id:8,Name:UpperLeg},{id:1,Name:AboveShoulder}],name:Heel Self Massage,description:Touch yo self,pageName:heel-self-massage,tags:"pain, tightness",duration:5,difficulty:Beginner,Sets:0,Repititions:0},{id:2,equipment:[],videos:[{id:4,creationDate:0001-01-01,name:Toe Stretch,description:How to strech your toes,filename:SWPT_Template.m4v}],bodyRegions:[{id:2,Name:Chest}],name:Seated Plantar Fascis Stretch,description:Strech yo self,pageName:seated-plantar-fascis-strech,tags:"pain, tightness",duration:10,difficulty:Advanced,Sets:0,Repititions:0}],category:Preventative,routineName:Plantar Fascia Rehab 1,description:"Plantar facciitis s an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",musclesInvolved:"Plantar Fascia, Gastroc/Soleus",duration:5,PageName:Plantar-Fascia-Rehab-1,Tags:"Pain, Swelling",bodyRegions:[{id:1,Name:AboveShoulder},{id:5,Name:LowerBack},{id:6,Name:UpperArm},{id:8,Name:UpperLeg}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Cannot add or update a child row: a foreign key constraint fails (`sportswebptdb`.`planexercisematrix`, CONSTRAINT `PlanExerciseMatrixItem_Plan` FOREIGN KEY (`plan_id`) REFERENCES `plan` (`plan_id`) ON DELETE NO ACTION ON UPDATE NO ACTION) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+07-20-13@16:37:42 Info (24)  [Common] PlanRequest request submitted 
+07-20-13@16:37:50 Info (24)  [Common] PlanRequest request completed with duration of 00:00:07.9015443 
+07-20-13@16:37:51 Info (26)  [Common] PlanListRequest request submitted 
+07-20-13@16:37:51 Info (26)  [Common] PlanListRequest request completed with duration of 00:00:00.5236475 
+07-20-13@16:39:41 Info (14)  [Common] PlanRequest request submitted 
+07-20-13@16:39:47 Info (14)  [Common] PlanRequest request completed with duration of 00:00:06.9039523 
+07-20-13@16:39:48 Info (24)  [Common] PlanListRequest request submitted 
+07-20-13@16:39:48 Info (24)  [Common] PlanListRequest request completed with duration of 00:00:00.5227535 

@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class PlanExerciseMatrixItem
+    public class PlanBodyRegionMatrixItem
     {
         #region Properties
 
@@ -10,15 +14,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int PlanId { get; set; }
 
-        public int ExerciseId { get; set; }
-
-        public int Sets { get; set; }
-
-        public int Repititions { get; set; } 
+        public int BodyRegionId { get; set; }
 
         public virtual Plan Plan { get; set; }
 
-        public virtual Exercise Exercise { get; set; }
+        public virtual BodyRegion BodyRegion { get; set; }
 
         #endregion
 

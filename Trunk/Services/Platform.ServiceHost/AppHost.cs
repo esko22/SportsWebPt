@@ -12,7 +12,6 @@ using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
-using SportsWebPt.Platform.DataAccess.UnitOfWork;
 using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Services;
 using SportsWebPt.Platform.ServiceModels;
@@ -140,7 +139,6 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
-            container.Register<IPlanUnitOfWork>(c => new PlanUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IResearchUnitOfWork>(c => new ResearchUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
         }
 
