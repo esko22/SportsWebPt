@@ -198,6 +198,30 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(cause, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("admin/injuries", IsAbsoluteUrl = true)]
+        public ActionResult GetInjuries()
+        {
+            var injuries = _adminService.GetInjuries();
+
+            return Json(injuries, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/injuries", IsAbsoluteUrl = true)]
+        public ActionResult AddInjury(Injury injury)
+        {
+            var response = _adminService.AddInjury(injury);
+            injury.id = response;
+
+            return Json(injury, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/injuries/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateInjury(Injury injury)
+        {
+            _adminService.UpdateInjury(injury);
+
+            return Json(injury, JsonRequestBehavior.DenyGet);
+        }
 
 
         #endregion

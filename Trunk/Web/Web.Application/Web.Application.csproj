@@ -184,6 +184,9 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.form.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercises.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.injuries.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.injury.form.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.injury.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plan.form.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plans.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plan.page.js" />
@@ -327,6 +330,7 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Tmpl\_admin.injury.list.tmpl.html" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

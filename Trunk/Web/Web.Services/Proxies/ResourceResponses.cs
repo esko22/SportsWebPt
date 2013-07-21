@@ -13,4 +13,6 @@ namespace SportsWebPt.Platform.Web.Services.Proxies
 
     internal class CauseResourceResponse : ApiResourceRequest<CauseDto> { }
 
+    internal class InjuryResourceResponse : ApiResourceRequest<InjuryDto> { }
+
 }

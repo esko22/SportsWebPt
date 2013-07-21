@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page', 'vm.admin.signs', 'vm.admin.causes'],
-    function (backbone, $, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM) {
+﻿define('router', ['backbone', 'jquery', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page', 'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page'],
+    function (backbone, $, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -60,6 +60,14 @@
                 PlanVM.bindViewModels();
                 presenter.transitionTo($('#admin-plan-panel'), '', '');
             });
+
+            router.on('route:injuries', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                InjuryVM.bindViewModels();
+                presenter.transitionTo($('#admin-injury-panel'), '', '');
+            });
+
 
             router.on('route:equipment', function () {
                 $('.view').hide();

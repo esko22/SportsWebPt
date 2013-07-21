@@ -151,17 +151,32 @@ namespace SportsWebPt.Platform.Web.Services
 
         public IEnumerable<Injury> GetInjuries()
         {
-            throw new NotImplementedException();
+            var response = GetSync<ListResponse<InjuryDto, BasicSortBy>>(_sportsWebPtClientSettings.InjuryPath);
+
+            return Mapper.Map<IEnumerable<Injury>>(response.Resource.Items);
         }
 
         public int AddInjury(Injury injury)
         {
-            throw new NotImplementedException();
+            var request = new ApiResourceRequest<InjuryDto>
+            {
+                Resource = Mapper.Map<InjuryDto>(injury)
+            };
+
+            var response =
+                PostSync<InjuryResourceResponse>(_sportsWebPtClientSettings.InjuryPath, request);
+
+            return response.Resource.id;
         }
 
         public void UpdateInjury(Injury injury)
         {
-            throw new NotImplementedException();
+            var request = new ApiResourceRequest<InjuryDto>
+            {
+                Resource = Mapper.Map<InjuryDto>(injury)
+            };
+
+            PutSync<ApiResourceRequest<InjuryDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.InjuryPath, injury.id), request);
         }
 
         public IEnumerable<Sign> GetSigns()

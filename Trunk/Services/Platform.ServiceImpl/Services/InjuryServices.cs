@@ -1,0 +1,80 @@
+﻿using System.Collections.Generic;
+
+using AutoMapper;
+
+using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core.Models;
+using SportsWebPt.Platform.DataAccess;
+using SportsWebPt.Platform.ServiceModels;
+
+namespace SportsWebPt.Platform.ServiceImpl.Services
+{
+    public class InjuryListService : LoggingRestServiceBase<InjuryListRequest, ListResponse<InjuryDto, BasicSortBy>>
+    {
+        #region Properties
+
+        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public override object OnGet(InjuryListRequest request)
+        {
+            var responseList = new List<InjuryDto>();
+            Mapper.Map(ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+                {
+                    "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
+                    "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
+                    "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
+                }), responseList);
+
+            return
+                Ok(new ListResponse<InjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+
+        }
+
+        #endregion
+    }
+
+    public class InjuryService : LoggingRestServiceBase<InjuryRequest, ApiResponse<InjuryDto>>
+    {
+        #region Properties
+
+        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public override object OnPost(InjuryRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "InjuryDto");
+
+            var injury = Mapper.Map<Injury>(request.Resource);
+
+            ResearchUnitOfWork.InjuryRepo.Add(injury);
+            ResearchUnitOfWork.Commit();
+
+            request.Resource.id = injury.Id;
+
+            return Ok(new ApiResponse<InjuryDto>(request.Resource));
+
+        }
+
+        public override object OnPut(InjuryRequest request)
+        {
+            Check.Argument.IsNotNull(request.Resource, "InjuryDto");
+            var injury = Mapper.Map<Injury>(request.Resource);
+
+            ResearchUnitOfWork.UpdateInjury(injury);
+            ResearchUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<InjuryDto>(request.Resource));
+        }
+
+        #endregion
+    }
+}

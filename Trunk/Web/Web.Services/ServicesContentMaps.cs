@@ -31,6 +31,11 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.plans, opt => opt.MapFrom(s =>s.plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s =>s.causes))                  
                   .ForMember(d => d.signs, opt => opt.MapFrom(s =>s.signs));
+            Mapper.CreateMap<Injury, InjuryDto>()
+                  .ForMember(d => d.plans, opt => opt.MapFrom(s => s.plans))
+                  .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => s.bodyRegions))
+                  .ForMember(d => d.causes, opt => opt.MapFrom(s => s.causes))
+                  .ForMember(d => d.signs, opt => opt.MapFrom(s => s.signs));
             Mapper.CreateMap<PotentialInjuryDto, PotentialInjury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.causes))

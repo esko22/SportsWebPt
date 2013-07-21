@@ -104,6 +104,7 @@
     <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
     <Compile Include="Operations\EquipmentRequests.cs" />
     <Compile Include="Operations\ExecerciseRequests.cs" />
+    <Compile Include="Operations\InjuryRequests.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
     <Compile Include="Operations\SignRequests.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />

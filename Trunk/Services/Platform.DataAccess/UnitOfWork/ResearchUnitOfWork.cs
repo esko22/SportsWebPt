@@ -22,7 +22,12 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
         public IRepository<Sign> SignRepo { get { return GetStandardRepo<Sign>(); } }
         public IRepository<Cause> CauseRepo { get { return GetStandardRepo<Cause>(); } }
+        public IRepository<Injury> InjuryRepo { get { return GetStandardRepo<Injury>(); } }
         public IPlanRepo PlanRepo { get { return GetRepo<IPlanRepo>(); } }
+        public IRepository<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixRepo { get { return GetStandardRepo<InjuryBodyRegionMatrixItem>(); } }
+        public IRepository<InjuryCauseMatrixItem> InjuryCauseMatrixRepo { get { return GetStandardRepo<InjuryCauseMatrixItem>(); } }
+        public IRepository<InjurySignMatrixItem> InjurySignMatrixRepo { get { return GetStandardRepo<InjurySignMatrixItem>(); } }
+        public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
 
         #endregion
 
@@ -132,8 +137,77 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
         
-        public void UpdateInjury(Injury injury) {}
+        public void UpdateInjury(Injury injury)
+        {
+            var injuryInDb =
+                        InjuryRepo.GetAll(new[]
+                {
+                    "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
+                    "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
+                    "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
+                })
+                .SingleOrDefault(p => p.Id == injury.Id);
 
+            if (injuryInDb == null)
+                throw new ArgumentNullException("injury id", "injury does not exist");
+
+            var deletedPlans = injuryInDb.InjuryPlanMatrixItems.Except(
+                injury.InjuryPlanMatrixItems, (item, matrixItem) => item.PlanId == matrixItem.PlanId).ToList();
+
+            var addedPlans = injury.InjuryPlanMatrixItems.Except(
+                injuryInDb.InjuryPlanMatrixItems, (item, matrixItem) => item.PlanId == matrixItem.PlanId).ToList();
+
+            deletedPlans.ForEach(e => InjuryPlanMatrixRepo.Delete(e));
+            addedPlans.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjuryPlanMatrixRepo.Add(e);
+            });
+
+            var deletedSigns = injuryInDb.InjurySignMatrixItems.Except(
+                injury.InjurySignMatrixItems, (item, matrixItem) => item.SignId == matrixItem.SignId).ToList();
+
+            var addedSigns = injury.InjurySignMatrixItems.Except(
+                injuryInDb.InjurySignMatrixItems, (item, matrixItem) => item.SignId == matrixItem.SignId).ToList();
+
+            deletedSigns.ForEach(e => InjurySignMatrixRepo.Delete(e));
+            addedSigns.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjurySignMatrixRepo.Add(e);
+            });
+
+            var deletedBodyRegions = injuryInDb.InjuryBodyRegionMatrixItems.Except(
+                injury.InjuryBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            var addedBodyRegions = injury.InjuryBodyRegionMatrixItems.Except(
+                injuryInDb.InjuryBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
+
+            deletedBodyRegions.ForEach(e => InjuryBodyRegionMatrixRepo.Delete(e));
+            addedBodyRegions.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjuryBodyRegionMatrixRepo.Add(e);
+            });
+
+            var deletedCauses = injuryInDb.InjuryCauseMatrixItems.Except(
+                injury.InjuryCauseMatrixItems, (item, matrixItem) => item.CauseId == matrixItem.CauseId).ToList();
+
+            var addedCauses = injury.InjuryCauseMatrixItems.Except(
+                injuryInDb.InjuryCauseMatrixItems, (item, matrixItem) => item.CauseId == matrixItem.CauseId).ToList();
+
+            deletedCauses.ForEach(e => InjuryCauseMatrixRepo.Delete(e));
+            addedCauses.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjuryCauseMatrixRepo.Add(e);
+            });
+
+            var injuryEntry = _context.Entry(injuryInDb);
+            injuryEntry.CurrentValues.SetValues(injury);
+
+            Commit();
+        }
 
         #endregion
     }
@@ -148,8 +222,13 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get; }
         IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get; }
         IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get; }
+        IRepository<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixRepo { get; }
+        IRepository<InjuryCauseMatrixItem> InjuryCauseMatrixRepo { get; }
+        IRepository<InjurySignMatrixItem> InjurySignMatrixRepo { get; }
+        IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get; }
         IRepository<Sign> SignRepo { get; }
         IRepository<Cause> CauseRepo { get; }
+        IRepository<Injury> InjuryRepo { get; } 
         IPlanRepo PlanRepo { get; } 
 
         void UpdateExercise(Exercise exercise);
