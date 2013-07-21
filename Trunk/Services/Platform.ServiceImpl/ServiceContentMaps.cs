@@ -108,6 +108,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.Repititions, opt => opt.MapFrom(s => s.Repititions))
                   .ForMember(d => d.Sets, opt => opt.MapFrom(s => s.Sets))
                   .ForMember(d => d.name, opt => opt.MapFrom(s => s.Exercise.Name))
+                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.Exercise.Id))
                   .ForMember(d => d.difficulty, opt => opt.MapFrom(s => s.Exercise.Difficulty))
                   .ForMember(d => d.duration, opt => opt.MapFrom(s => s.Exercise.Duration));
             Mapper.CreateMap<ExerciseDto, Exercise>()

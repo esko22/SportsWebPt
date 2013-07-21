@@ -13,7 +13,7 @@
                tags = kb.observable(selectedPlan, 'tags'),
                pageName = kb.observable(selectedPlan, 'pageName'),
                musclesInvolved = kb.observable(selectedPlan, 'musclesInvolved'),
-               exercises = kb.collectionObservable(selectedPlan.get('exercises'), availableExercises.shareOptions()),
+               exercises = kb.collectionObservable(selectedPlan.get('exercises')),
                bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
                availableCategories = ko.observableArray(['Rehabilitation', 'Streching', 'Preventative']),
                callback = function () {
@@ -38,14 +38,9 @@
                selectedPlan.get('exercises').reset();
                selectedPlan.get('bodyRegions').reset();
 
-               //have to get items from available collection
                _.each(data.exercises(), function (viewModel) {
-                   _.each(exerciseCollection.models, function (exerciseModel) {
-                       if (viewModel.id() === exerciseModel.get('id')) {
-                           selectedPlan.get('exercises').add(exerciseModel);
-                       }
+                   selectedPlan.get('exercises').add(viewModel.model());
                    });
-               });
 
                _.each(data.bodyRegions(), function (viewModel) {
                    _.each(bodyRegionCollection.models, function (bodyRegionModel) {
@@ -55,7 +50,7 @@
                    });
                });
 
-               selectedPlan.id = data.model().get('id');
+               selectedPlan.set('id', data.model().get('id'));
                selectedPlan.set('routineName', data.model().get('routineName'));
                selectedPlan.set('description', data.model().get('description'));
                selectedPlan.set('duration', data.model().get('duration'));
