@@ -99,11 +99,13 @@
     <Compile Include="Models\PlanDto.cs" />
     <Compile Include="Operations\BodyPartRequests.cs" />
     <Compile Include="Operations\BodyRegionRequests.cs" />
+    <Compile Include="Operations\CauseRequests.cs" />
     <Compile Include="Operations\DiagnosisReportRequest.cs" />
     <Compile Include="Operations\DifferentialDiagnosisRequest.cs" />
     <Compile Include="Operations\EquipmentRequests.cs" />
     <Compile Include="Operations\ExecerciseRequests.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
+    <Compile Include="Operations\SignRequests.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
     <Compile Include="Operations\SymptomListRequest.cs" />

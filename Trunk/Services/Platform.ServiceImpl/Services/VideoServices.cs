@@ -53,8 +53,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             ResearchUnitOfWork.VideoRepo.Add(video);
             ResearchUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<VideoDto>(request.Resource));
+            request.Resource.id = video.Id;
 
+            return Ok(new ApiResponse<VideoDto>(request.Resource));
         }
 
         public override object OnPut(VideoRequest request)

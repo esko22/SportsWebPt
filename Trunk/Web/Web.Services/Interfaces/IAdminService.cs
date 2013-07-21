@@ -35,5 +35,18 @@ namespace SportsWebPt.Platform.Web.Services
         int AddInjury(Injury injury);
 
         void UpdateInjury(Injury injury);
+
+        IEnumerable<Sign> GetSigns();
+
+        int AddSign(Sign sign);
+
+        void UpdateSign(Sign sign);
+
+        IEnumerable<Cause> GetCauses();
+
+        int AddCause(Cause cause);
+
+        void UpdateCause(Cause cause);
+
     }
 }

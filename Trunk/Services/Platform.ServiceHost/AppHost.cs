@@ -125,8 +125,13 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<EquipmentRequest>("equipment", "POST")
                 .Add<ExecerciseListRequest>("exercises")
                 .Add<ExecerciseRequest>("exercises/{id}")
-                .Add<ExecerciseRequest>("exercises", "POST");
-
+                .Add<ExecerciseRequest>("exercises", "POST")
+                .Add<SignListRequest>("signs")
+                .Add<SignRequest>("signs/{id}")
+                .Add<SignRequest>("signs", "POST")
+                .Add<CauseListRequest>("causes")
+                .Add<CauseRequest>("causes/{id}")
+                .Add<CauseRequest>("causes", "POST");
         }
 
         private void ConfigureContainer(Container container)

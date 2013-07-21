@@ -77,11 +77,13 @@
     <Compile Include="Services\BodyPartServices.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\BodyRegionServices.cs" />
+    <Compile Include="Services\CauseServices.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
     <Compile Include="Services\DifferentialDiagnosisService.cs" />
     <Compile Include="Services\EquipmentServices.cs" />
     <Compile Include="Services\ExerciseServices.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
+    <Compile Include="Services\SignServices.cs" />
     <Compile Include="Services\SkeletonAreaListService.cs" />
     <Compile Include="Services\SymptomaticRegionService.cs" />
     <Compile Include="Services\SymptomListService.cs" />

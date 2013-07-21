@@ -21,6 +21,8 @@ namespace SportsWebPt.Platform.Web.Core
         public String UserUriPath { get; private set; }
         public String AuthUriPath { get; private set; }
         public String ExercisePath { get; private set; }
+        public String SignPath { get; private set; }
+        public String CausePath { get; private set; }
 
         #endregion        
         
@@ -31,6 +33,8 @@ namespace SportsWebPt.Platform.Web.Core
             PlanPath = String.Format("/{0}/plans", Version);
             EquipmentPath = String.Format("/{0}/equipment", Version);
             VideoPath = String.Format("/{0}/videos", Version);
+            SignPath = String.Format("/{0}/signs", Version);
+            CausePath = String.Format("/{0}/causes", Version);
 
             SkeletonAreasUriPath = String.Format("/{0}/areas", Version);
             BodyPartUriPath = String.Format("/{0}/bodyparts", Version);

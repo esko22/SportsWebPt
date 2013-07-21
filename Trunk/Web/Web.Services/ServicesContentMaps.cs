@@ -46,6 +46,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Video, VideoDto>();
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();
+            Mapper.CreateMap<Cause, CauseDto>();
+            Mapper.CreateMap<Sign, SignDto>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
 

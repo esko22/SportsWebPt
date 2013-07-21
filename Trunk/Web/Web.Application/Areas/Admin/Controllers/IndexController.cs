@@ -140,13 +140,64 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
 
-
         [PUT("admin/plans/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdatePlan(Plan plan)
         {
             _adminService.UpdatePlan(plan);
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
+
+        [GET("admin/signs", IsAbsoluteUrl = true)]
+        public ActionResult GetSigns()
+        {
+            var signs = _adminService.GetSigns();
+
+            return Json(signs, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/signs", IsAbsoluteUrl = true)]
+        public ActionResult AddSign(Sign sign)
+        {
+            var response = _adminService.AddSign(sign);
+            sign.id = response;
+
+            return Json(sign, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/signs/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateSign(Sign sign)
+        {
+            _adminService.UpdateSign(sign);
+
+            return Json(sign, JsonRequestBehavior.DenyGet);
+        }
+
+
+        [GET("admin/causes", IsAbsoluteUrl = true)]
+        public ActionResult GetCauses()
+        {
+            var causes = _adminService.GetCauses();
+
+            return Json(causes, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/causes", IsAbsoluteUrl = true)]
+        public ActionResult AddCause(Cause cause)
+        {
+            var response = _adminService.AddCause(cause);
+            cause.id = response;
+
+            return Json(cause, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/causes/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateCause(Cause cause)
+        {
+            _adminService.UpdateCause(cause);
+
+            return Json(cause, JsonRequestBehavior.DenyGet);
+        }
+
 
 
         #endregion

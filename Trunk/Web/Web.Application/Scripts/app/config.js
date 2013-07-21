@@ -28,6 +28,8 @@
             adminVideos: $.format('{0}/{1}', hostUri, 'admin/videos'),
             signs: $.format('{0}/{1}', hostUri, 'research/signs'),
             causes: $.format('{0}/{1}', hostUri, 'research/causes'),
+            adminSigns: $.format('{0}/{1}', hostUri, 'admin/signs'),
+            adminCauses: $.format('{0}/{1}', hostUri, 'admin/causes'),
             symptoms: $.format('{0}/{1}', hostUri, 'research/symptoms'),
             bodyParts: $.format('{0}/{1}', hostUri, 'research/bodyparts'),
             bodyRegion: $.format('{0}/{1}', hostUri, 'research/bodyregions'),

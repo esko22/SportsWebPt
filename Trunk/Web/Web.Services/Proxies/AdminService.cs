@@ -164,6 +164,67 @@ namespace SportsWebPt.Platform.Web.Services
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Sign> GetSigns()
+        {
+            var response = GetSync<ListResponse<SignDto, BasicSortBy>>(_sportsWebPtClientSettings.SignPath);
+
+            return Mapper.Map<IEnumerable<Sign>>(response.Resource.Items);
+        }
+
+        public int AddSign(Sign sign)
+        {
+            var request = new ApiResourceRequest<SignDto>
+            {
+                Resource = Mapper.Map<SignDto>(sign)
+            };
+
+            var response =
+                PostSync<SignResourceResponse>(_sportsWebPtClientSettings.SignPath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateSign(Sign sign)
+        {
+            var request = new ApiResourceRequest<SignDto>
+            {
+                Resource = Mapper.Map<SignDto>(sign)
+            };
+
+            PutSync<SignResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.SignPath, sign.id), request);
+        }
+
+        public IEnumerable<Cause> GetCauses()
+        {
+            var response = GetSync<ListResponse<CauseDto, BasicSortBy>>(_sportsWebPtClientSettings.CausePath);
+
+            return Mapper.Map<IEnumerable<Cause>>(response.Resource.Items);
+        }
+
+        public int AddCause(Cause cause)
+        {
+            var request = new ApiResourceRequest<CauseDto>
+            {
+                Resource = Mapper.Map<CauseDto>(cause)
+            };
+
+            var response =
+                PostSync<CauseResourceResponse>(_sportsWebPtClientSettings.CausePath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateCause(Cause cause)
+        {
+            var request = new ApiResourceRequest<CauseDto>
+            {
+                Resource = Mapper.Map<CauseDto>(cause)
+            };
+
+            PutSync<CauseResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.CausePath, cause.id), request);
+        }
+
+
         #endregion
 
     }

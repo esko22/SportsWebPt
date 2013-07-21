@@ -145,6 +145,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<Cause, CauseDto>();
             Mapper.CreateMap<Sign, SignDto>();
+            Mapper.CreateMap<CauseDto, Cause>();
+            Mapper.CreateMap<SignDto, Sign>();
             Mapper.CreateMap<Injury, InjuryDto>()
                    .ForMember(d => d.plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
                    .ForMember(d => d.causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
