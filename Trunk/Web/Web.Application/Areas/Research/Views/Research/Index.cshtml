@@ -45,16 +45,34 @@
 
     <div class="view container" id="research-injury-panel">
         <div class="container">
-            <span aria-hidden="true" data-icon="&#xf0fa;" class="research-nav-icon"> Injuries</span>
+            <span aria-hidden="true" data-icon="&#xf0fa;" class="research-header-icon"> Injuries</span>
             <hr class="examine-report-hr"/>
-        </div>
-            
-        <div class="row">
-            <div class="span3">
-                <span class="screen-reader-text">Injuries</span>
-                <h3>Injuries</h3>
-                <p>Use our self examination wizard designed by professionals to pin point your injury.</p>
-                <p><a class="btn" href="#">Learn more &raquo;</a></p>
+            <div class="row-fluid">
+                <div class="span3 research-vertical-splitter" >
+                    <div class="container-fluid">
+                        <h3>Body Regions</h3>
+                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
+                        <ul class="list-no-style" data-bind="foreach: bodyRegions">
+                            <li>
+                                <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container-fluid">
+                        <h3>Signs</h3>
+                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
+                        <ul class="list-no-style" data-bind="foreach: signs">
+                            <li>
+                                <a><span class="label label-info" data-bind="text: description, click: $parent.onSignFilter"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span9">
+                    <div class="accordion" id="recover-injury-accordion">
+                        <section data-bind="template: { name: briefInjuryTemplate, foreach: filteredInjuries }"></section>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -75,8 +93,43 @@
                     </ul>
                 </div>
                 <div class="span9">
-                    <div class="accordion" id="recover-plan-accordion">
+                    <div class="accordion" id="recover-exercise-accordion">
                         <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="view container" id="research-plan-panel">
+        <div class="container-fluid">
+            <span aria-hidden="true" data-icon="&#xe001;" class="research-header-icon"> Plans</span>
+            <hr class="examine-report-hr"/>
+            <div class="row-fluid">
+                <div class="span3 research-vertical-splitter" >
+                    <div class="container-fluid">
+                        <h3>Body Regions</h3>
+                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
+                        <ul class="list-no-style" data-bind="foreach: bodyRegions">
+                            <li>
+                                <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container-fluid">
+                        <h3>Categories</h3>
+                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
+                            <ul class="list-no-style" data-bind="foreach: categories">
+                                <li>
+                                    <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
+                                </li>
+                            </ul>
+                    </div>
+
+                </div>
+                <div class="span9">
+                    <div class="accordion" id="recover-plan-accordion">
+                        <section data-bind="template: { name: briefPlanTemplate, foreach: filteredPlans }"></section>
                     </div>
                 </div>
             </div>

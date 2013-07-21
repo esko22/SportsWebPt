@@ -11,11 +11,12 @@
 
     });
 
-define('model.sign.collection', ['backbone', 'model.sign'],
-    function (backbone, component) {
+define('model.sign.collection', ['backbone', 'model.sign', 'config'],
+    function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({
-                model: component
+                model: component,
+                url: config.apiUris.signs
             });
 
         return componentCollection;

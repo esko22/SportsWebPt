@@ -54,11 +54,33 @@ namespace SportsWebPt.Platform.Web.Services
             return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
         }
 
+        public IEnumerable<Sign> GetSigns()
+        {
+            var response =
+                GetSync<ListResponse<SignDto, BasicSortBy>>(_sportsWebPtClientSettings.SignPath);
+
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<Sign>>(response.Resource.Items);
+        }
+
         public IEnumerable<Exercise> GetExercises()
         {
             var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
 
             return response.Resource == null ? null : Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+        }
+
+        public IEnumerable<Plan> GetPlans()
+        {
+            var response = GetSync<ListResponse<PlanDto, BasicSortBy>>(_sportsWebPtClientSettings.PlanPath);
+
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<Plan>>(response.Resource.Items);
+        }
+
+        public IEnumerable<Injury> GetInjuries()
+        {
+            var response = GetSync<ListResponse<InjuryDto, BasicSortBy>>(_sportsWebPtClientSettings.InjuryPath);
+
+            return response.Resource == null ? null : Mapper.Map<IEnumerable<Injury>>(response.Resource.Items);
         }
 
         public Exercise GetExerciseByPageName(string pageName)

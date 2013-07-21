@@ -199,7 +199,9 @@
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.router.js" />
     <Content Include="Areas\Research\Scripts\exercise\vm.research.exercise.js" />
-    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercises.js" />
+    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.injury.listing.js" />
+    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.plan.listing.js" />
+    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercise.listing.js" />
     <Content Include="Content\fonts\SWPT.dev.svg" />
     <Content Include="Content\fonts\SWPT.svg" />
     <Content Include="Content\images\logoFooter.png" />
@@ -330,6 +332,8 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Tmpl\_research.brief.injury.tmpl.html" />
+    <Content Include="Tmpl\_research.brief.plan.tmpl.html" />
     <Content Include="Tmpl\_admin.injury.list.tmpl.html" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
@@ -864,6 +868,8 @@
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
+    <Folder Include="Areas\Research\Scripts\injury\" />
+    <Folder Include="Areas\Research\Scripts\plan\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

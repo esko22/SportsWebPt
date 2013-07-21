@@ -88,6 +88,14 @@ namespace SportsWebPt.Platform.Web.Research
             return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
+        [GET("Research/signs", IsAbsoluteUrl = true)]
+        public ActionResult GetSigns()
+        {
+            var signs = _researchService.GetSigns();
+
+            return Json(signs, JsonRequestBehavior.AllowGet);
+        }
+
         [GET("Research/symptoms", IsAbsoluteUrl = true)]
         public ActionResult GetSymptoms()
         {
@@ -102,6 +110,21 @@ namespace SportsWebPt.Platform.Web.Research
             return Json(exercises, JsonRequestBehavior.AllowGet);
         }
 
+        [GET("Research/plans", IsAbsoluteUrl = true)]
+        public ActionResult GetPlans()
+        {
+            var plans = _researchService.GetPlans();
+
+            return Json(plans, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Research/injuries", IsAbsoluteUrl = true)]
+        public ActionResult GetInjuries()
+        {
+            var injuries = _researchService.GetInjuries();
+
+            return Json(injuries, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion
 

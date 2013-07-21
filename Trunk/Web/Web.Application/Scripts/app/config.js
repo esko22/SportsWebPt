@@ -43,6 +43,8 @@
             infuser.defaults.templateUrl = "/Tmpl";
         };
 
+        var planCategories = ko.observableArray([ 'Rehabilitation', 'Stretching', 'Preventative' ]);
+
         var init = function () {
             configureExternalTemplates();
         };
@@ -53,7 +55,8 @@
             viewIds: viewIds,
             currentUser: currentUser,
             hostUri: hostUri,
-            apiUris: apiUris
+            apiUris: apiUris,
+            planCategories: planCategories
         };
 
     });

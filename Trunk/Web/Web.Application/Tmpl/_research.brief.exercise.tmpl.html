@@ -1,7 +1,7 @@
 ﻿<div class="accordion-group examine-report-workout-accord">
     <div class="accordion-heading examine-report-workout">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#brief-exercise-accordion" data-bind="attr: { href: '#brief-exercise-' + id() }" >
-            <i class="iconmoon-barbell icon-white research-accordian-icon"></i><span data-bind="text: name" /><i class="icon-chevron-down pull-right icon-white"></i>
+        <a class="accordion-toggle href-no-underline" data-toggle="collapse" data-parent="#brief-exercise-accordion" data-bind="attr: { href: '#brief-exercise-' + id() }" >
+            <span data-bind="text: ' ' + name()" class="research-accordian-icon" data-icon="&#xe007;" /><i class="icon-chevron-down pull-right icon-white"></i>
         </a>
     </div>
     <div data-bind="attr: { id: 'brief-exercise-' + id() }" class="accordion-body collapse">

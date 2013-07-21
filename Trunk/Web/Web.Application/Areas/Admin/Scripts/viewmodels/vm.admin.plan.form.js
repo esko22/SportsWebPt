@@ -1,6 +1,6 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.admin.body.region.collection', 'model.admin.exercise'],
-    function (ko, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
+    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.admin.body.region.collection', 'model.admin.exercise'],
+    function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
             var exerciseCollection = new ExerciseCollection(),
                bodyRegionCollection = new BodyRegionCollection(),
                availableExercises = kb.collectionObservable(exerciseCollection),
@@ -15,7 +15,7 @@
                musclesInvolved = kb.observable(selectedPlan, 'musclesInvolved'),
                exercises = kb.collectionObservable(selectedPlan.get('exercises')),
                bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
-               availableCategories = ko.observableArray(['Rehabilitation', 'Streching', 'Preventative']),
+               availableCategories = config.planCategories,
                callback = function () {
                    alert('test');
                },
@@ -26,7 +26,8 @@
                   bindSelectedPlan(kb.viewModel(new PlanModel()), null);
               },
            saveChanges = function () {
-               selectedPlan.save({}, {
+               var plan = PlanModel.findOrCreate(selectedPlan);
+               plan.save({}, {
                    success: onSuccessfulChange, error: err.onError
                });
            },
@@ -60,7 +61,6 @@
                    });
                });
 
-               selectedPlan.set('id', data.model().get('id'));
                selectedPlan.set('routineName', data.model().get('routineName'));
                selectedPlan.set('description', data.model().get('description'));
                selectedPlan.set('duration', data.model().get('duration'));
@@ -68,6 +68,11 @@
                selectedPlan.set('tags', data.model().get('tags'));
                selectedPlan.set('pageName', data.model().get('pageName'));
                selectedPlan.set('musclesInvolved', data.model().get('musclesInvolved'));
+
+
+               ////TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
+               // think I got it with putting the findOrCreate in the save method which merges the 2
+               selectedPlan.id = data.model().get('id');
 
            },
            planValidationOptions = ko.observable({

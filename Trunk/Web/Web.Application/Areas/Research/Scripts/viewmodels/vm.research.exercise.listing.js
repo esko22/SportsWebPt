@@ -1,4 +1,4 @@
-﻿define('vm.research.exercises',
+﻿define('vm.research.exercise.listing',
     ['jquery', 'knockback', 'model.body.region.collection', 'model.exercise.collection', 'underscore'],
     function ($, kb, BodyRegionCollection, ExerciseCollection, _) {
 

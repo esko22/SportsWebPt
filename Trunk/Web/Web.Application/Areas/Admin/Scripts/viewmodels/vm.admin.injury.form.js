@@ -30,7 +30,8 @@
               bindSelectedInjury(kb.viewModel(new InjuryModel()), null);
           },
        saveChanges = function () {
-           selectedInjury.save({}, {
+           var injury = InjuryModel.findOrCreate(selectedInjury);
+           injury.save({}, {
                success: onSuccessfulChange, error: err.onError
            });
        },
@@ -92,13 +93,9 @@
            selectedInjury.set('tags', data.model().get('tags'));
            selectedInjury.set('pageName', data.model().get('pageName'));
 
-           var id = data.model().get('id');
-           data.model().destroy();
-
-
            //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
-           selectedInjury.set('id', id);
-           
+           selectedInjury.id = data.model().get('id');
+
        },
        injuryValidationOptions = ko.observable({
            debug: true,

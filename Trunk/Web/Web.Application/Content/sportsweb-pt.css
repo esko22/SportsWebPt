@@ -530,8 +530,12 @@ ul#skeleton li {
 }
 
 .research-accordian-icon {
-    font-size: 30px; 
+    font-size: 18px; 
     margin-right: 30px;
+}
+
+.href-no-underline {
+    text-decoration: none;
 }
 
 .list-no-style {
