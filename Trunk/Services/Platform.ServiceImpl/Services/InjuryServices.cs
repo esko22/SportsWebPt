@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
@@ -12,6 +13,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 {
     public class InjuryListService : LoggingRestServiceBase<InjuryListRequest, ListResponse<InjuryDto, BasicSortBy>>
     {
+
         #region Properties
 
         public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
@@ -48,6 +50,20 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         #endregion
 
         #region Methods
+
+        public override object OnGet(InjuryRequest request)
+        {
+            var injury = request.IdAsInt > 0
+                   ? ResearchUnitOfWork.InjuryRepo.GetById(request.IdAsInt)
+                   : ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+                    {
+                        "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
+                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
+                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
+                    }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+
+            return Ok(new ApiResponse<InjuryDto>() { Resource = Mapper.Map<InjuryDto>(injury) });
+        }
 
         public override object OnPost(InjuryRequest request)
         {

@@ -72,6 +72,43 @@ namespace SportsWebPt.Platform.Web.Research
             return View(viewModel);
         }
 
+        [GET("Research/plan/{pageName}", IsAbsoluteUrl = true)]
+        public ActionResult Plan(String pageName)
+        {
+            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
+
+            var viewModel = CreateViewModel<ResearchPlanViewModel>();
+            var plan = _researchService.GetPlanByPageName(pageName);
+
+            //TODO: throw page not found
+            Check.Argument.IsNotNull(plan, "Plan");
+
+            viewModel.Tags = plan.tags;
+            viewModel.Title = plan.routineName;
+            viewModel.Plan = plan;
+
+            return View(viewModel);
+        }
+
+        [GET("Research/injury/{pageName}", IsAbsoluteUrl = true)]
+        public ActionResult Injury(String pageName)
+        {
+            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
+
+            var viewModel = CreateViewModel<ResearchInjuryViewModel>();
+            var injury = _researchService.GetInjuryByPageName(pageName);
+
+            //TODO: throw page not found
+            Check.Argument.IsNotNull(injury, "Injury");
+
+            viewModel.Tags = injury.tags;
+            viewModel.Title = injury.commonName;
+            viewModel.Injury = injury;
+
+            return View(viewModel);
+        }
+
+
         [GET("Research/bodyparts", IsAbsoluteUrl = true)]
         public ActionResult GetBodyParts()
         {

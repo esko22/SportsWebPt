@@ -20,5 +20,10 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<Sign> GetSigns();
         
         Exercise GetExerciseByPageName(string pageName);
+
+        Injury GetInjuryByPageName(string pageName);
+
+        Plan GetPlanByPageName(string pageName);
+
     }
 }

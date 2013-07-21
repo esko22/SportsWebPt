@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using AutoMapper;
@@ -36,6 +37,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                      "PlanBodyRegionMatrixItems.BodyRegion",
                     });
 
+
+
             var exerciseIds = plans.SelectMany(p => p.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 
@@ -68,7 +71,19 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public override object OnGet(PlanRequest request)
         {
-            var planEntity = ResearchUnitOfWork.PlanRepo.GetFullPlanGraphById(request.IdAsInt);
+            var planEntity = request.IdAsInt > 0
+                    ? ResearchUnitOfWork.PlanRepo.GetFullPlanGraphById(request.IdAsInt)
+                    : ResearchUnitOfWork.PlanRepo.GetAll(new[]
+                                {
+                                    "PlanExerciseMatrixItems",
+                                    "PlanExerciseMatrixItems.Exercise",
+                                    "PlanBodyRegionMatrixItems",
+                                    "PlanBodyRegionMatrixItems.BodyRegion",
+                                }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+
+            if (planEntity == null)
+                return NotFound("Plan Not Found");
+
             var exerciseIds = planEntity.PlanExerciseMatrixItems.Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 

@@ -93,5 +93,27 @@ namespace SportsWebPt.Platform.Web.Services
             return exercise;
         }
 
+        public Injury GetInjuryByPageName(string pageName)
+        {
+            var response =
+                 GetSync<ApiResourceRequest<InjuryDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.InjuryPath, pageName));
+
+            var injury = Mapper.Map<Injury>(response.Resource);
+
+            return injury;
+        }
+
+        public Plan GetPlanByPageName(string pageName)
+        {
+            var response =
+                 GetSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath, pageName));
+
+            var plan = Mapper.Map<Plan>(response.Resource);
+
+            return plan;
+            
+        }
+
+
     }
 }

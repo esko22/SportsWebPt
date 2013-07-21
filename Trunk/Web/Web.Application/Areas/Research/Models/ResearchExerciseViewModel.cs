@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using SportsWebPt.Common.Utilities;
-using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Platform.Web.Services;
+﻿using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Application
 {

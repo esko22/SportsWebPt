@@ -170,6 +170,8 @@
     <Compile Include="Areas\Main\Models\AuthFormViewModel.cs" />
     <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
     <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />
+    <Compile Include="Areas\Research\Models\ResearchInjuryViewModel.cs" />
+    <Compile Include="Areas\Research\Models\ResearchPlanViewModel.cs" />
     <Compile Include="Areas\Research\Models\ResearchViewModel.cs" />
     <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +201,10 @@
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.router.js" />
     <Content Include="Areas\Research\Scripts\exercise\vm.research.exercise.js" />
+    <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
+    <Content Include="Areas\Research\Scripts\injury\vm.research.injury.js" />
+    <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
+    <Content Include="Areas\Research\Scripts\plan\vm.research.plan.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.injury.listing.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.plan.listing.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercise.listing.js" />
@@ -397,6 +403,8 @@
     <Content Include="Areas\Admin\Views\Index\_adminSigns.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminInjuries.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminCauses.cshtml" />
+    <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
+    <Content Include="Areas\Research\Views\Research\Injury.cshtml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\kendo\2013.1.319\cultures\kendo.culture.af-ZA.min.js" />
@@ -868,8 +876,6 @@
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Examine\Views\Shared\" />
-    <Folder Include="Areas\Research\Scripts\injury\" />
-    <Folder Include="Areas\Research\Scripts\plan\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
