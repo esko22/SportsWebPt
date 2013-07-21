@@ -1,252 +1,226 @@
-07-20-13@17:08:20 Info (11)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:08:20 Info (48)  [Common] VideoListRequest request submitted 
-07-20-13@17:08:20 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0132909 
-07-20-13@17:08:20 Info (48)  [Common] VideoListRequest request completed with duration of 00:00:00.0084772 
-07-20-13@17:08:20 Info (48)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:08:20 Info (16)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:08:20 Info (48)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039827 
-07-20-13@17:08:20 Info (11)  [Common] PlanListRequest request submitted 
-07-20-13@17:08:20 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0479007 
-07-20-13@17:08:20 Info (11)  [Common] PlanListRequest request completed with duration of 00:00:00.0543505 
-07-20-13@17:13:06 Info (54)  [Common] PlanListRequest request submitted 
-07-20-13@17:13:06 Info (54)  [Common] PlanListRequest request completed with duration of 00:00:00.0634219 
-07-20-13@17:13:24 Info (48)  [Common] PlanListRequest request submitted 
-07-20-13@17:13:24 Info (48)  [Common] PlanListRequest request completed with duration of 00:00:00.0621824 
-07-20-13@17:14:29 Info (52)  [Common] PlanListRequest request submitted 
-07-20-13@17:14:33 Info (52)  [Common] PlanListRequest request completed with duration of 00:00:03.3142062 
-07-20-13@17:14:50 Info (48)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:14:50 Info (51)  [Common] VideoListRequest request submitted 
-07-20-13@17:14:50 Info (52)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:14:50 Info (48)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0327216 
-07-20-13@17:14:50 Info (51)  [Common] VideoListRequest request completed with duration of 00:00:00.0488623 
-07-20-13@17:14:50 Info (52)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0496487 
-07-20-13@17:14:50 Info (48)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:14:50 Info (53)  [Common] PlanListRequest request submitted 
-07-20-13@17:14:50 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0503411 
-07-20-13@17:14:50 Info (48)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3943008 
-07-20-13@17:16:52 Info (53)  [Common] PlanListRequest request submitted 
-07-20-13@17:16:52 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0570404 
-07-20-13@17:17:05 Info (53)  [Common] PlanListRequest request submitted 
-07-20-13@17:17:05 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0453206 
-07-20-13@17:20:07 Info (60)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:20:07 Info (60)  [Common] EquipmentListRequest request completed with duration of 00:00:00.1012488 
-07-20-13@17:20:07 Info (61)  [Common] VideoListRequest request submitted 
-07-20-13@17:20:07 Info (61)  [Common] VideoListRequest request completed with duration of 00:00:00.0051442 
-07-20-13@17:20:07 Info (61)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:20:07 Info (61)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041705 
-07-20-13@17:20:07 Info (61)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:20:07 Info (61)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0410008 
-07-20-13@17:20:07 Info (54)  [Common] PlanListRequest request submitted 
-07-20-13@17:20:07 Info (54)  [Common] PlanListRequest request completed with duration of 00:00:00.0530318 
-07-20-13@17:20:42 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:20:42 Info (58)  [Common] VideoListRequest request submitted 
-07-20-13@17:20:42 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0056953 
-07-20-13@17:20:42 Info (58)  [Common] VideoListRequest request completed with duration of 00:00:00.0041746 
-07-20-13@17:20:42 Info (54)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:20:42 Info (61)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:20:42 Info (54)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038846 
-07-20-13@17:20:42 Info (59)  [Common] PlanListRequest request submitted 
-07-20-13@17:20:42 Info (61)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0387059 
-07-20-13@17:20:42 Info (59)  [Common] PlanListRequest request completed with duration of 00:00:00.0517262 
-07-20-13@17:21:21 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:21:21 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0053948 
-07-20-13@17:21:21 Info (54)  [Common] VideoListRequest request submitted 
-07-20-13@17:21:21 Info (54)  [Common] VideoListRequest request completed with duration of 00:00:00.0054783 
-07-20-13@17:21:21 Info (61)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:21:21 Info (61)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0048549 
-07-20-13@17:21:21 Info (58)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:21:21 Info (60)  [Common] PlanListRequest request submitted 
-07-20-13@17:21:21 Info (58)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0435152 
-07-20-13@17:21:21 Info (60)  [Common] PlanListRequest request completed with duration of 00:00:00.0576685 
-07-20-13@17:26:09 Info (52)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:26:09 Info (52)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0047462 
-07-20-13@17:26:09 Info (56)  [Common] VideoListRequest request submitted 
-07-20-13@17:26:09 Info (56)  [Common] VideoListRequest request completed with duration of 00:00:00.0048534 
-07-20-13@17:26:09 Info (54)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:26:09 Info (54)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0045207 
-07-20-13@17:26:09 Info (54)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:26:09 Info (52)  [Common] PlanListRequest request submitted 
-07-20-13@17:26:09 Info (54)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0394792 
-07-20-13@17:26:09 Info (52)  [Common] PlanListRequest request completed with duration of 00:00:00.0582591 
-07-20-13@17:26:26 Info (57)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:26:26 Info (57)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041581 
-07-20-13@17:26:26 Info (56)  [Common] VideoListRequest request submitted 
-07-20-13@17:26:26 Info (56)  [Common] VideoListRequest request completed with duration of 00:00:00.0038028 
-07-20-13@17:26:26 Info (54)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:26:26 Info (54)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041060 
-07-20-13@17:26:26 Info (56)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:26:26 Info (54)  [Common] PlanListRequest request submitted 
-07-20-13@17:26:26 Info (56)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0408676 
-07-20-13@17:26:27 Info (54)  [Common] PlanListRequest request completed with duration of 00:00:00.0515000 
-07-20-13@17:28:01 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:28:01 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041523 
-07-20-13@17:28:01 Info (57)  [Common] VideoListRequest request submitted 
-07-20-13@17:28:01 Info (57)  [Common] VideoListRequest request completed with duration of 00:00:00.0038718 
-07-20-13@17:28:01 Info (56)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:28:01 Info (57)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:28:01 Info (56)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0046645 
-07-20-13@17:28:01 Info (52)  [Common] PlanListRequest request submitted 
-07-20-13@17:28:01 Info (57)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0420477 
-07-20-13@17:28:01 Info (52)  [Common] PlanListRequest request completed with duration of 00:00:00.0508492 
-07-20-13@17:29:09 Info (48)  [Common] PlanRequest request submitted 
-07-20-13@17:29:10 Info (48)  [Common] PlanRequest request completed with duration of 00:00:00.9618722 
-07-20-13@17:29:10 Info (48)  [Common] PlanListRequest request submitted 
-07-20-13@17:29:10 Info (48)  [Common] PlanListRequest request completed with duration of 00:00:00.0686924 
-07-20-13@17:29:49 Info (48)  [Common] PlanRequest request submitted 
-07-20-13@17:29:50 Info (48)  [Common] PlanRequest request completed with duration of 00:00:00.7505183 
-07-20-13@17:29:50 Info (48)  [Common] PlanListRequest request submitted 
-07-20-13@17:29:50 Info (48)  [Common] PlanListRequest request completed with duration of 00:00:00.0474830 
-07-20-13@17:31:47 Info (47)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:31:47 Info (47)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041899 
-07-20-13@17:31:47 Info (57)  [Common] VideoListRequest request submitted 
-07-20-13@17:31:47 Info (57)  [Common] VideoListRequest request completed with duration of 00:00:00.0045871 
-07-20-13@17:31:47 Info (48)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:31:47 Info (48)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039699 
-07-20-13@17:31:47 Info (47)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:31:47 Info (52)  [Common] PlanListRequest request submitted 
-07-20-13@17:31:47 Info (47)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0506789 
-07-20-13@17:31:47 Info (52)  [Common] PlanListRequest request completed with duration of 00:00:00.0593458 
-07-20-13@17:32:16 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:32:16 Info (57)  [Common] VideoListRequest request submitted 
-07-20-13@17:32:16 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0068765 
-07-20-13@17:32:16 Info (57)  [Common] VideoListRequest request completed with duration of 00:00:00.0045058 
-07-20-13@17:32:16 Info (52)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:32:16 Info (52)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0049373 
-07-20-13@17:32:16 Info (57)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:32:16 Info (47)  [Common] PlanListRequest request submitted 
-07-20-13@17:32:16 Info (57)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0389766 
-07-20-13@17:32:16 Info (47)  [Common] PlanListRequest request completed with duration of 00:00:00.0527304 
-07-20-13@17:33:41 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:33:41 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045798 
-07-20-13@17:33:41 Info (57)  [Common] VideoListRequest request submitted 
-07-20-13@17:33:41 Info (57)  [Common] VideoListRequest request completed with duration of 00:00:00.0045970 
-07-20-13@17:33:41 Info (54)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:33:41 Info (54)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040126 
-07-20-13@17:33:41 Info (52)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:33:41 Info (57)  [Common] PlanListRequest request submitted 
-07-20-13@17:33:41 Info (52)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0396427 
-07-20-13@17:33:41 Info (57)  [Common] PlanListRequest request completed with duration of 00:00:00.0519629 
-07-20-13@17:37:34 Info (43)  [Common] VideoListRequest request submitted 
-07-20-13@17:37:34 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:37:34 Info (43)  [Common] VideoListRequest request completed with duration of 00:00:00.0044536 
-07-20-13@17:37:34 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0043683 
-07-20-13@17:37:34 Info (57)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:37:34 Info (57)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0048863 
-07-20-13@17:37:34 Info (41)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:37:34 Info (57)  [Common] PlanListRequest request submitted 
-07-20-13@17:37:34 Info (41)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0369859 
-07-20-13@17:37:34 Info (57)  [Common] PlanListRequest request completed with duration of 00:00:00.0570211 
-07-20-13@17:41:37 Info (39)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:41:37 Info (39)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0147278 
-07-20-13@17:41:37 Info (37)  [Common] VideoListRequest request submitted 
-07-20-13@17:41:37 Info (37)  [Common] VideoListRequest request completed with duration of 00:00:00.0060671 
-07-20-13@17:41:37 Info (39)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:41:37 Info (39)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040275 
-07-20-13@17:41:37 Info (54)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:41:37 Info (38)  [Common] PlanListRequest request submitted 
-07-20-13@17:41:37 Info (54)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0584915 
-07-20-13@17:41:37 Info (38)  [Common] PlanListRequest request completed with duration of 00:00:00.0577364 
-07-20-13@17:41:53 Info (54)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:41:53 Info (54)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044467 
-07-20-13@17:41:53 Info (19)  [Common] VideoListRequest request submitted 
-07-20-13@17:41:53 Info (19)  [Common] VideoListRequest request completed with duration of 00:00:00.0038638 
-07-20-13@17:41:53 Info (38)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:41:53 Info (39)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:41:53 Info (38)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039345 
-07-20-13@17:41:53 Info (54)  [Common] PlanListRequest request submitted 
-07-20-13@17:41:53 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0396270 
-07-20-13@17:41:53 Info (54)  [Common] PlanListRequest request completed with duration of 00:00:00.0579596 
-07-20-13@17:42:09 Info (37)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:42:09 Info (37)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0053255 
-07-20-13@17:42:09 Info (54)  [Common] VideoListRequest request submitted 
-07-20-13@17:42:09 Info (54)  [Common] VideoListRequest request completed with duration of 00:00:00.0035285 
-07-20-13@17:42:09 Info (19)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:42:09 Info (54)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:42:09 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0074751 
-07-20-13@17:42:09 Info (37)  [Common] PlanListRequest request submitted 
-07-20-13@17:42:09 Info (54)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0372055 
-07-20-13@17:42:09 Info (37)  [Common] PlanListRequest request completed with duration of 00:00:00.0451320 
-07-20-13@17:45:24 Info (19)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:45:24 Info (19)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045488 
-07-20-13@17:45:24 Info (19)  [Common] VideoListRequest request submitted 
-07-20-13@17:45:24 Info (19)  [Common] VideoListRequest request completed with duration of 00:00:00.0050902 
-07-20-13@17:45:24 Info (34)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:45:24 Info (38)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:45:24 Info (34)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0057125 
-07-20-13@17:45:24 Info (19)  [Common] PlanListRequest request submitted 
-07-20-13@17:45:24 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1049801 
-07-20-13@17:45:24 Info (19)  [Common] PlanListRequest request completed with duration of 00:00:00.1020444 
-07-20-13@17:46:34 Info (38)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:46:34 Info (19)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:46:34 Info (37)  [Common] VideoListRequest request submitted 
-07-20-13@17:46:34 Info (33)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:46:34 Info (38)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046867 
-07-20-13@17:46:34 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0049665 
-07-20-13@17:46:34 Info (37)  [Common] VideoListRequest request completed with duration of 00:00:00.0123064 
-07-20-13@17:46:34 Info (38)  [Common] PlanListRequest request submitted 
-07-20-13@17:46:34 Info (33)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0428597 
-07-20-13@17:46:34 Info (38)  [Common] PlanListRequest request completed with duration of 00:00:00.0551574 
-07-20-13@17:48:44 Info (34)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:48:44 Info (34)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046491 
-07-20-13@17:48:44 Info (38)  [Common] VideoListRequest request submitted 
-07-20-13@17:48:44 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0054539 
-07-20-13@17:48:44 Info (37)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:48:44 Info (37)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0044894 
-07-20-13@17:48:44 Info (37)  [Common] PlanListRequest request submitted 
-07-20-13@17:48:44 Info (38)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:48:45 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0475129 
-07-20-13@17:48:45 Info (37)  [Common] PlanListRequest request completed with duration of 00:00:00.0595366 
-07-20-13@17:50:57 Info (38)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:50:57 Info (38)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046404 
-07-20-13@17:50:57 Info (32)  [Common] VideoListRequest request submitted 
-07-20-13@17:50:57 Info (32)  [Common] VideoListRequest request completed with duration of 00:00:00.0057264 
-07-20-13@17:50:57 Info (30)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:50:57 Info (30)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0048450 
-07-20-13@17:50:57 Info (38)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:50:57 Info (19)  [Common] PlanListRequest request submitted 
-07-20-13@17:50:57 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0406721 
-07-20-13@17:50:57 Info (19)  [Common] PlanListRequest request completed with duration of 00:00:00.0451677 
-07-20-13@17:51:56 Info (34)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:51:56 Info (34)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0041921 
-07-20-13@17:51:56 Info (30)  [Common] VideoListRequest request submitted 
-07-20-13@17:51:56 Info (30)  [Common] VideoListRequest request completed with duration of 00:00:00.0047575 
-07-20-13@17:51:56 Info (38)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:51:56 Info (34)  [Common] PlanListRequest request submitted 
-07-20-13@17:51:56 Info (30)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:51:56 Info (30)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0202824 
-07-20-13@17:51:56 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0495488 
-07-20-13@17:51:56 Info (34)  [Common] PlanListRequest request completed with duration of 00:00:00.0622368 
-07-20-13@17:52:47 Info (28)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:52:47 Info (28)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0056815 
-07-20-13@17:52:47 Info (38)  [Common] VideoListRequest request submitted 
-07-20-13@17:52:47 Info (38)  [Common] VideoListRequest request completed with duration of 00:00:00.0045109 
-07-20-13@17:52:47 Info (34)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:52:47 Info (32)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:52:47 Info (34)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039725 
-07-20-13@17:52:47 Info (38)  [Common] PlanListRequest request submitted 
-07-20-13@17:52:47 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0545438 
-07-20-13@17:52:47 Info (38)  [Common] PlanListRequest request completed with duration of 00:00:00.0706695 
-07-20-13@17:53:14 Info (28)  [Common] PlanRequest request submitted 
-07-20-13@17:53:15 Info (28)  [Common] PlanRequest request completed with duration of 00:00:00.4088944 
-07-20-13@17:53:15 Info (38)  [Common] PlanListRequest request submitted 
-07-20-13@17:53:15 Info (38)  [Common] PlanListRequest request completed with duration of 00:00:00.0455996 
-07-20-13@17:53:20 Info (30)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:53:20 Info (30)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0043059 
-07-20-13@17:53:20 Info (32)  [Common] VideoListRequest request submitted 
-07-20-13@17:53:20 Info (32)  [Common] VideoListRequest request completed with duration of 00:00:00.0045521 
-07-20-13@17:53:20 Info (28)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:53:20 Info (30)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:53:20 Info (28)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037368 
-07-20-13@17:53:20 Info (32)  [Common] PlanListRequest request submitted 
-07-20-13@17:53:20 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0560321 
-07-20-13@17:53:20 Info (32)  [Common] PlanListRequest request completed with duration of 00:00:00.0756992 
-07-20-13@17:53:44 Info (28)  [Common] EquipmentListRequest request submitted 
-07-20-13@17:53:44 Info (28)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0038929 
-07-20-13@17:53:44 Info (34)  [Common] VideoListRequest request submitted 
-07-20-13@17:53:44 Info (34)  [Common] VideoListRequest request completed with duration of 00:00:00.0039353 
-07-20-13@17:53:44 Info (38)  [Common] BodyRegionListRequest request submitted 
-07-20-13@17:53:44 Info (28)  [Common] ExecerciseListRequest request submitted 
-07-20-13@17:53:44 Info (38)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040046 
-07-20-13@17:53:44 Info (32)  [Common] PlanListRequest request submitted 
-07-20-13@17:53:45 Info (28)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0445297 
-07-20-13@17:53:45 Info (32)  [Common] PlanListRequest request completed with duration of 00:00:00.0632213 
+07-20-13@18:20:29 Info (7)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:20:29 Info (6)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:20:29 Info (8)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:20:29 Info (5)  [Common] PlanListRequest request submitted 
+07-20-13@18:20:30 Info (11)  [Common] VideoListRequest request submitted 
+07-20-13@18:20:33 Info (6)  [Common] EquipmentListRequest request completed with duration of 00:00:03.1984258 
+07-20-13@18:20:33 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:02.7976388 
+07-20-13@18:20:33 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:03.2118011 
+07-20-13@18:20:33 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:03.5294870 
+07-20-13@18:20:33 Info (5)  [Common] PlanListRequest request completed with duration of 00:00:03.7318526 
+07-20-13@18:20:50 Info (6)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:20:50 Info (6)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0056406 
+07-20-13@18:20:50 Info (11)  [Common] VideoListRequest request submitted 
+07-20-13@18:20:50 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.0041935 
+07-20-13@18:20:50 Info (8)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:20:50 Info (13)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:20:50 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0047947 
+07-20-13@18:20:50 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:20:50 Info (13)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0527370 
+07-20-13@18:20:50 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0715855 
+07-20-13@18:21:16 Info (11)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:21:16 Info (11)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0047473 
+07-20-13@18:21:16 Info (6)  [Common] VideoListRequest request submitted 
+07-20-13@18:21:16 Info (6)  [Common] VideoListRequest request completed with duration of 00:00:00.0043540 
+07-20-13@18:21:16 Info (8)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:21:16 Info (11)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:21:16 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040308 
+07-20-13@18:21:16 Info (6)  [Common] PlanListRequest request submitted 
+07-20-13@18:21:16 Info (11)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0480189 
+07-20-13@18:21:16 Info (6)  [Common] PlanListRequest request completed with duration of 00:00:00.0588395 
+07-20-13@18:22:21 Info (17)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:22:21 Info (17)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046750 
+07-20-13@18:22:21 Info (13)  [Common] VideoListRequest request submitted 
+07-20-13@18:22:21 Info (13)  [Common] VideoListRequest request completed with duration of 00:00:00.0047465 
+07-20-13@18:22:21 Info (8)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:22:21 Info (17)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:22:21 Info (17)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0044106 
+07-20-13@18:22:21 Info (6)  [Common] PlanListRequest request submitted 
+07-20-13@18:22:21 Info (8)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0393355 
+07-20-13@18:22:21 Info (6)  [Common] PlanListRequest request completed with duration of 00:00:00.0504688 
+07-20-13@18:23:47 Info (16)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:23:47 Info (16)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0053167 
+07-20-13@18:23:47 Info (8)  [Common] VideoListRequest request submitted 
+07-20-13@18:23:47 Info (8)  [Common] VideoListRequest request completed with duration of 00:00:00.0046645 
+07-20-13@18:23:47 Info (17)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:23:47 Info (16)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:23:47 Info (17)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0055830 
+07-20-13@18:23:47 Info (6)  [Common] PlanListRequest request submitted 
+07-20-13@18:23:47 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0525240 
+07-20-13@18:23:47 Info (6)  [Common] PlanListRequest request completed with duration of 00:00:00.0638188 
+07-20-13@18:24:13 Info (17)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:24:13 Info (16)  [Common] VideoListRequest request submitted 
+07-20-13@18:24:13 Info (17)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046349 
+07-20-13@18:24:13 Info (16)  [Common] VideoListRequest request completed with duration of 00:00:00.0043062 
+07-20-13@18:24:13 Info (16)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:24:13 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0043697 
+07-20-13@18:24:13 Info (16)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:24:13 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:24:13 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0408165 
+07-20-13@18:24:13 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0488641 
+07-20-13@18:24:28 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:24:29 Info (16)  [Common] PlanRequest request completed with duration of 00:00:01.1590932 
+07-20-13@18:24:29 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:24:29 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0466560 
+07-20-13@18:24:35 Info (6)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:24:35 Info (6)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0045941 
+07-20-13@18:24:35 Info (17)  [Common] VideoListRequest request submitted 
+07-20-13@18:24:35 Info (17)  [Common] VideoListRequest request completed with duration of 00:00:00.0043281 
+07-20-13@18:24:35 Info (8)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:24:35 Info (6)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:24:35 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0046721 
+07-20-13@18:24:35 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:24:35 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0419054 
+07-20-13@18:24:35 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0571936 
+07-20-13@18:27:26 Info (18)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:27:26 Info (18)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044346 
+07-20-13@18:27:26 Info (16)  [Common] VideoListRequest request submitted 
+07-20-13@18:27:26 Info (16)  [Common] VideoListRequest request completed with duration of 00:00:00.0056669 
+07-20-13@18:27:26 Info (19)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:27:26 Info (8)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:27:26 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040290 
+07-20-13@18:27:26 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@18:27:26 Info (8)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0473878 
+07-20-13@18:27:26 Info (16)  [Common] PlanListRequest request completed with duration of 00:00:00.0647943 
+07-20-13@18:27:48 Info (18)  [Common] PlanRequest request submitted 
+07-20-13@18:27:49 Info (18)  [Common] PlanRequest request completed with duration of 00:00:00.3396814 
+07-20-13@18:27:49 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:27:49 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0470788 
+07-20-13@18:28:18 Info (8)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:28:18 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0049315 
+07-20-13@18:28:18 Info (18)  [Common] VideoListRequest request submitted 
+07-20-13@18:28:18 Info (18)  [Common] VideoListRequest request completed with duration of 00:00:00.0040141 
+07-20-13@18:28:18 Info (16)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:28:18 Info (8)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:28:18 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0042420 
+07-20-13@18:28:18 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:28:18 Info (8)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0430461 
+07-20-13@18:28:18 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0578152 
+07-20-13@18:28:33 Info (22)  [Common] PlanRequest request submitted 
+07-20-13@18:28:33 Info (22)  [Common] PlanRequest request completed with duration of 00:00:00.6070372 
+07-20-13@18:28:33 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@18:28:34 Info (16)  [Common] PlanListRequest request completed with duration of 00:00:00.0730519 
+07-20-13@18:28:55 Info (8)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:28:55 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0047031 
+07-20-13@18:28:55 Info (19)  [Common] VideoListRequest request submitted 
+07-20-13@18:28:55 Info (19)  [Common] VideoListRequest request completed with duration of 00:00:00.0042636 
+07-20-13@18:28:55 Info (16)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:28:55 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041253 
+07-20-13@18:28:55 Info (18)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:28:55 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:28:55 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0390284 
+07-20-13@18:28:55 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0494040 
+07-20-13@18:29:32 Info (18)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:29:32 Info (18)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0046185 
+07-20-13@18:29:32 Info (8)  [Common] VideoListRequest request submitted 
+07-20-13@18:29:32 Info (8)  [Common] VideoListRequest request completed with duration of 00:00:00.0045364 
+07-20-13@18:29:32 Info (19)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:29:32 Info (18)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:29:32 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037357 
+07-20-13@18:29:32 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:29:33 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0588052 
+07-20-13@18:29:33 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0630108 
+07-20-13@18:29:49 Info (19)  [Common] PlanRequest request submitted 
+07-20-13@18:29:50 Info (19)  [Common] PlanRequest request completed with duration of 00:00:00.7084757 
+07-20-13@18:29:50 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:29:50 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0453552 
+07-20-13@18:30:41 Info (18)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:30:41 Info (18)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0044489 
+07-20-13@18:30:41 Info (8)  [Common] VideoListRequest request submitted 
+07-20-13@18:30:41 Info (8)  [Common] VideoListRequest request completed with duration of 00:00:00.0042212 
+07-20-13@18:30:41 Info (19)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:30:41 Info (18)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:30:41 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0044303 
+07-20-13@18:30:41 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@18:30:41 Info (18)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0541943 
+07-20-13@18:30:41 Info (16)  [Common] PlanListRequest request completed with duration of 00:00:00.0577109 
+07-20-13@18:30:54 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:30:54 Info (16)  [Common] PlanRequest request completed with duration of 00:00:00.3499034 
+07-20-13@18:30:54 Info (25)  [Common] PlanListRequest request submitted 
+07-20-13@18:30:54 Info (25)  [Common] PlanListRequest request completed with duration of 00:00:00.0592156 
+07-20-13@18:31:12 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:31:12 Info (16)  [Common] PlanRequest request completed with duration of 00:00:00.6174952 
+07-20-13@18:31:13 Info (25)  [Common] PlanListRequest request submitted 
+07-20-13@18:31:13 Info (25)  [Common] PlanListRequest request completed with duration of 00:00:00.0481823 
+07-20-13@18:32:16 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:32:16 Info (16)  [Common] PlanRequest request completed with duration of 00:00:00.3688737 
+07-20-13@18:32:16 Info (16)  [Common] PlanListRequest request submitted 
+07-20-13@18:32:16 Info (16)  [Common] PlanListRequest request completed with duration of 00:00:00.0512217 
+07-20-13@18:32:46 Info (8)  [Common] PlanRequest request submitted 
+07-20-13@18:32:46 Info (8)  [Common] PlanRequest request completed with duration of 00:00:00.6282531 
+07-20-13@18:32:46 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:32:46 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0456204 
+07-20-13@18:33:10 Info (26)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:33:10 Info (26)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0039411 
+07-20-13@18:33:10 Info (18)  [Common] VideoListRequest request submitted 
+07-20-13@18:33:10 Info (18)  [Common] VideoListRequest request completed with duration of 00:00:00.0039925 
+07-20-13@18:33:10 Info (16)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:33:10 Info (26)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:33:10 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:33:10 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0514223 
+07-20-13@18:33:10 Info (26)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0613157 
+07-20-13@18:33:10 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0692505 
+07-20-13@18:34:05 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:34:05 Info (16)  [Common] PlanRequest request completed with duration of 00:00:00.3605121 
+07-20-13@18:34:05 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:34:05 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0487539 
+07-20-13@18:34:28 Info (8)  [Common] PlanRequest request submitted 
+07-20-13@18:34:28 Info (8)  [Common] PlanRequest request completed with duration of 00:00:00.0496225 
+07-20-13@18:34:28 Info (8)  [Common] PlanListRequest request submitted 
+07-20-13@18:34:28 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0473342 
+07-20-13@18:37:27 Info (18)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:37:27 Info (18)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0042333 
+07-20-13@18:37:27 Info (27)  [Common] VideoListRequest request submitted 
+07-20-13@18:37:27 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0038320 
+07-20-13@18:37:27 Info (16)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:37:27 Info (24)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:37:27 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038565 
+07-20-13@18:37:27 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:37:27 Info (24)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0510342 
+07-20-13@18:37:27 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0713185 
+07-20-13@18:38:19 Info (24)  [Common] PlanRequest request submitted 
+07-20-13@18:38:20 Info (24)  [Common] PlanRequest request completed with duration of 00:00:00.4404016 
+07-20-13@18:38:20 Info (18)  [Common] PlanListRequest request submitted 
+07-20-13@18:38:20 Info (18)  [Common] PlanListRequest request completed with duration of 00:00:00.0468950 
+07-20-13@18:38:36 Info (16)  [Common] PlanRequest request submitted 
+07-20-13@18:38:36 Info (16)  [Common] PlanRequest request completed with duration of 00:00:00.0640523 
+07-20-13@18:38:36 Info (27)  [Common] PlanListRequest request submitted 
+07-20-13@18:38:36 Info (27)  [Common] PlanListRequest request completed with duration of 00:00:00.0529077 
+07-20-13@18:39:15 Info (24)  [Common] PlanRequest request submitted 
+07-20-13@18:39:15 Info (24)  [Common] PlanRequest request completed with duration of 00:00:00.3128708 
+07-20-13@18:39:15 Info (27)  [Common] PlanListRequest request submitted 
+07-20-13@18:39:15 Info (27)  [Common] PlanListRequest request completed with duration of 00:00:00.0465484 
+07-20-13@18:39:52 Info (24)  [Common] PlanRequest request submitted 
+07-20-13@18:39:52 Info (24)  [Common] PlanRequest request completed with duration of 00:00:00.2997574 
+07-20-13@18:39:52 Info (24)  [Common] PlanListRequest request submitted 
+07-20-13@18:39:52 Info (24)  [Common] PlanListRequest request completed with duration of 00:00:00.0628076 
+07-20-13@18:40:20 Info (22)  [Common] PlanRequest request submitted 
+07-20-13@18:40:20 Info (22)  [Common] PlanRequest request completed with duration of 00:00:00.0450466 
+07-20-13@18:40:20 Info (27)  [Common] PlanListRequest request submitted 
+07-20-13@18:40:20 Info (27)  [Common] PlanListRequest request completed with duration of 00:00:00.0463157 
+07-20-13@18:41:45 Info (24)  [Common] EquipmentListRequest request submitted 
+07-20-13@18:41:45 Info (24)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0040254 
+07-20-13@18:41:45 Info (27)  [Common] VideoListRequest request submitted 
+07-20-13@18:41:45 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0039320 
+07-20-13@18:41:45 Info (22)  [Common] BodyRegionListRequest request submitted 
+07-20-13@18:41:45 Info (24)  [Common] ExecerciseListRequest request submitted 
+07-20-13@18:41:45 Info (22)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0048272 
+07-20-13@18:41:45 Info (21)  [Common] PlanListRequest request submitted 
+07-20-13@18:41:45 Info (24)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0444436 
+07-20-13@18:41:46 Info (21)  [Common] PlanListRequest request completed with duration of 00:00:00.0625942 
+07-20-13@18:41:56 Info (27)  [Common] PlanRequest request submitted 
+07-20-13@18:41:56 Info (27)  [Common] PlanRequest request completed with duration of 00:00:00.3199392 
+07-20-13@18:41:56 Info (24)  [Common] PlanListRequest request submitted 
+07-20-13@18:41:56 Info (24)  [Common] PlanListRequest request completed with duration of 00:00:00.0514814 
+07-20-13@18:42:01 Info (24)  [Common] PlanRequest request submitted 
+07-20-13@18:42:01 Info (24)  [Common] PlanRequest request completed with duration of 00:00:00.0478135 
+07-20-13@18:42:01 Info (15)  [Common] PlanListRequest request submitted 
+07-20-13@18:42:01 Info (15)  [Common] PlanListRequest request completed with duration of 00:00:00.0589646 
+07-20-13@18:42:16 Info (27)  [Common] PlanRequest request submitted 
+07-20-13@18:42:16 Info (27)  [Common] PlanRequest request completed with duration of 00:00:00.0704094 
+07-20-13@18:42:16 Info (22)  [Common] PlanListRequest request submitted 
+07-20-13@18:42:16 Info (22)  [Common] PlanListRequest request completed with duration of 00:00:00.0490866 
+07-20-13@18:42:46 Info (15)  [Common] PlanRequest request submitted 
+07-20-13@18:42:46 Info (15)  [Common] PlanRequest request completed with duration of 00:00:00.6638803 
+07-20-13@18:42:46 Info (24)  [Common] PlanListRequest request submitted 
+07-20-13@18:42:46 Info (24)  [Common] PlanListRequest request completed with duration of 00:00:00.0865125 

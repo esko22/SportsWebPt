@@ -71,7 +71,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             var planEntity = ResearchUnitOfWork.PlanRepo.GetFullPlanGraphById(request.IdAsInt);
             var exerciseIds = planEntity.PlanExerciseMatrixItems.Select(s => s.ExerciseId);
             var exerciseEntities =
-                ResearchUnitOfWork.ExerciseRepo.GetAll()
+                ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 
+                                                               "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
             var planDto = Mapper.Map<PlanDto>(planEntity);

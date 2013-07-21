@@ -1,6 +1,6 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.admin.body.region.collection'],
-    function (ko, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection) {
+    ['ko', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.admin.body.region.collection', 'model.admin.exercise'],
+    function (ko, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
             var exerciseCollection = new ExerciseCollection(),
                bodyRegionCollection = new BodyRegionCollection(),
                availableExercises = kb.collectionObservable(exerciseCollection),
@@ -33,6 +33,16 @@
            suscribe = function (passedCallback) {
                callback = passedCallback;
            },
+           addNewExercise = function() {
+               var exercise = new Exercise();
+               exercise.set('id', 1);
+               exercise.set('sets', 1);
+               exercise.set('repititions', 1);
+               selectedPlan.get('exercises').add(exercise);
+           },
+           removeExercise = function(data, event) {
+               selectedPlan.get('exercises').remove(data.model());
+           },     
            bindSelectedPlan = function (data, event) {
 
                selectedPlan.get('exercises').reset();
@@ -128,7 +138,7 @@
 
                 exerciseCollection.fetch();
                 bodyRegionCollection.fetch();
-
+        
                 return {
                     saveChanges: saveChanges,
                     planValidationOptions: planValidationOptions,
@@ -145,7 +155,9 @@
                     tags: tags,
                     pageName: pageName,
                     suscribe: suscribe,
-                    musclesInvolved: musclesInvolved
+                    musclesInvolved: musclesInvolved,
+                    addNewExercise: addNewExercise,
+                    removeExercise: removeExercise
                 };
 
     });

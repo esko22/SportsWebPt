@@ -58,16 +58,22 @@
                                             </select>
                                     </div>
                                 </div>
-                                <div data-bind="foreach:exercises">
-                                    <div class="control-group">
-                                        <div class="controls">
-                                        <select id="inputPlanExercise" name="planBodyRegions" data-bind="options: $parent.availableExercises, optionsText: 'name', optionsValue: 'id', value: id" ></select>
-                                            <input type="text" id="inputSets" name="sets" data-bind="value: sets" placeholder="sets">
-                                            <input type="text" id="inputReps" name="reps" data-bind="value: repititions" placeholder="reps">
-                                        </div>
-                                    </div>                                    
+                                <div class="control-group">
+                                    <label>Exercises</label>
+                                    <div>
+                                        <button class="btn btn-primary" data-bind="click: addNewExercise">Add</button>
+                                    </div>
+                                    <div data-bind="foreach:exercises">
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <select id="inputPlanExercise" name="planBodyRegions" data-bind="options: $parent.availableExercises, optionsText: 'name', optionsValue: 'id', value: id" ></select>
+                                                <input type="text" id="inputSets" name="sets" data-bind="value: sets" placeholder="sets">
+                                                <input type="text" id="inputReps" name="reps" data-bind="value: repititions" placeholder="reps">
+                                                <button class="btn btn-primary" data-bind="click: $parent.removeExercise">Remove</button>
+                                            </div>
+                                        </div>                                    
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="form-actions">
