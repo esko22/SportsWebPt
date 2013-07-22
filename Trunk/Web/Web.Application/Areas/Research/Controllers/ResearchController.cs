@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -6,6 +7,7 @@ using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Application;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 
@@ -97,6 +99,9 @@ namespace SportsWebPt.Platform.Web.Research
 
             var viewModel = CreateViewModel<ResearchInjuryViewModel>();
             var injury = _researchService.GetInjuryByPageName(pageName);
+
+            var fullPlans = injury.plans.Select(plan => _researchService.GetPlan(plan.id)).ToList();
+            injury.plans = fullPlans;
 
             //TODO: throw page not found
             Check.Argument.IsNotNull(injury, "Injury");

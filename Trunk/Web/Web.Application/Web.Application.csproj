@@ -338,6 +338,9 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Tmpl\_research.injury.video.tmpl.html" />
+    <Content Include="Tmpl\_research.injury.exercise.tmpl.html" />
+    <Content Include="Tmpl\_research.injury.plan.tmpl.html" />
     <Content Include="Tmpl\_research.brief.injury.tmpl.html" />
     <Content Include="Tmpl\_research.brief.plan.tmpl.html" />
     <Content Include="Tmpl\_admin.injury.list.tmpl.html" />

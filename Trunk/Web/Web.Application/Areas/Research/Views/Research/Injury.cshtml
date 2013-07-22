@@ -10,41 +10,37 @@
 </div>
 
    <div class="container-fluid well" id="research-injury-page">
-        @*<h3 data-bind="text: exercise.name"></h3>
+        <h3 data-bind="text: injury.commonName"></h3>
         <hr class="examine-report-hr"/>
-         <div class="row-fluid">
-            <div class="span10">
-                <label><strong>Description: </strong><span data-bind="text: exercise.description"></span></label>
+        <div><strong>Medical Name: </strong><span data-bind="text: injury.medicalName"></span></div>
+        <div><span>&nbsp;</span></div>
+        <div><p data-bind="text: injury.openingStatement"></p></div>
+        <div class="row">
+            <div class="span3">
+                <h3>Causes</h3>
+                <table class="table table-striped">
+                    <tbody data-bind="foreach: injury.causes">
+                        <tr>
+                            <td data-bind="text: description"></td>
+                        </tr>
+                    </tbody>            
+                </table>
+            </div>
+            <div class="span3">
+                <h3>Signs</h3>
+                <table class="table table-striped">
+                    <tbody data-bind="foreach: injury.signs">
+                        <tr>
+                            <td data-bind="text: description"></td>
+                        </tr>
+                    </tbody>            
+                </table>
             </div>
         </div>
-        <div class="row-fluid">
-            <div class="span5">
-                <label><strong>Duration: </strong><span data-bind="text: exercise.duration"></span> minutes</label>
-            </div>
-            <div class="span5">
-                <label><strong>Difficulty: </strong><span data-bind="text: exercise.difficulty"></span></label>
-            </div>
-        </div>
-       <div class="row-fluid">
-        <div class="span2">
-            <h3>Equipment</h3>
-            <table class="table table-striped">
-                <tbody data-bind="foreach: exercise.equipment">
-                    <tr>
-                        <td data-bind="text: commonName"></td>
-                    </tr>
-                </tbody>            
-            </table>
-        </div>
-        <div class="span7">
-            <h3>Video</h3>
-            <div data-bind="foreach:exercise.videos">
-                <video data-bind="attr: { id: 'video-' + id() }" 
-                        class="sublime" width="640" height="360" data-uid="pys0Nz3KSqI" data-youtube-id="pys0Nz3KSqI" preload="none">
-                </video>        
-            </div>
-        </div>
-    </div>*@    
-</div>
+       <div>
+        <h3>Recovery Plans</h3>
+        <section id="recovery-plan-container" data-bind="template: { name: recoveryPlanTemplate, data: injury.plans }"></section>
+       </div>
+   </div>
 
 

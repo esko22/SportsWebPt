@@ -3,9 +3,23 @@
     function($, kb, Injury, _) {
 
         var injuryModel = new Injury(JSON.parse($('#selected-injury').val())),
-        injury = kb.viewModel(injuryModel);
-        
+            injury = kb.viewModel(injuryModel),
+            injuryTemplate = 'examine.report.injury',
+            recoveryPlanTemplate = 'research.recovery.plans',
+            researchWorkoutPlanTemplate = 'research.injury.plan',
+            researchExerciseTemplate = 'research.injury.exercise',
+            researchVideoTemplate = 'research.injury.video',
+            postExerciseRender = function() {
+                sublime.load();
+            };
+
         return {
-            injury : injury
+            recoveryPlanTemplate: recoveryPlanTemplate,
+            injuryTemplate: injuryTemplate,
+            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
+            researchExerciseTemplate: researchExerciseTemplate,
+            researchVideoTemplate: researchVideoTemplate,
+            injury: injury,
+            postExerciseRender: postExerciseRender
         };
     });
