@@ -3,7 +3,6 @@
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
-                idAttribute: 'exerciseId',
                 relations: [
                     {
                         type: backbone.HasMany,
@@ -48,7 +47,6 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminExercises,
-                idAttribute: 'exerciseId',
                 defaults : {
                     'name' : '',
                     'difficulty' : '',

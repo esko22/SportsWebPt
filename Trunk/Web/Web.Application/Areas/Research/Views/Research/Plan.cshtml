@@ -34,39 +34,32 @@
         <ul data-bind="foreach: plan.exercises" class="nav nav-tabs exercise-tab-nav">
             <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
         </ul>
-        <div class="tab-content exercise-tab-pane">
-            <section data-bind="foreach: plan.exercises">
-                <div class="container-fluid">
-                    <div class="tab-pane" data-bind="attr: { id: 'exercise-' + id()  }">
-                        <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
-                        <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
-                        <div><strong>Sets: </strong><span data-bind="text: sets"></span></div>
-                        <div><strong>Reps: </strong><span data-bind="text: repititions"></span></div>
-                        <div class="row-fluid">
-                            <div class="span2">
-                                <h3>Equipment</h3>
-                                <table class="table table-striped">
-                                    <tbody data-bind="foreach: equipment">
-                                        <tr>
-                                            <td data-bind="text: commonName"></td>
-                                        </tr>
-                                    </tbody>            
-                                </table>
-                            </div>
-                            <div class="span7">
-                                <h3>Video</h3>
-@*                                <div data-bind="template: { name: $root.researchVideoTemplate, foreach: videos }"></div>*@
-                            </div>
+        <div class="tab-content exercise-tab-pane" data-bind="foreach: plan.exercises">
+                <div class="tab-pane" data-bind="attr: { id: 'exercise-' + id() }">
+                    <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
+                    <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
+                    <div><strong>Sets: </strong><span data-bind="text: sets"></span></div>
+                    <div><strong>Reps: </strong><span data-bind="text: repititions"></span></div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <h3>Equipment</h3>
+                            <table class="table table-striped">
+                                <tbody data-bind="foreach: equipment">
+                                    <tr>
+                                        <td data-bind="text: commonName"></td>
+                                    </tr>
+                                </tbody>            
+                            </table>
                         </div>
+                        <div class="span7">
+                            <h3>Video</h3>
+                            <div data-bind="foreach: videos">
+                                <video data-bind="attr: { id: 'video-' + id() }" class="sublime" width="640" height="360" data-uid="pys0Nz3KSqI" data-youtube-id="pys0Nz3KSqI" preload="none">
+                                </video>        
+                                </div>
+                            </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </div>   
 </div>
-
-@*category: "Rehabilitation",
-routineName: "Plantar Fascia Rehab 1",
-description: "Plantar facciitis is an extremely common injury. When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
-musclesInvolved: "Plantar Fascia, Gastroc/Soleus",
-duration: 5,*@

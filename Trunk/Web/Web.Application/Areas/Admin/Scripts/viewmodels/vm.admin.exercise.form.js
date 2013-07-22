@@ -29,7 +29,8 @@
              bindSelectedExercise(kb.viewModel(new ExerciseModel()), null);
            },
         saveChanges = function () {
-            selectedExercise.save({}, {
+            var exercise = ExerciseModel.findOrCreate(selectedExercise);
+            exercise.save({}, {
                 success: onSuccessfulChange, error: err.onError
             });
         },
@@ -67,7 +68,6 @@
                 });
             });
 
-            selectedExercise.id = data.model().get('id');
             selectedExercise.set('name', data.model().get('name'));
             selectedExercise.set('description', data.model().get('description'));
             selectedExercise.set('duration', data.model().get('duration'));
@@ -75,6 +75,8 @@
             selectedExercise.set('tags', data.model().get('tags'));
             selectedExercise.set('pageName', data.model().get('pageName'));
 
+            //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
+            selectedExercise.id = data.model().get('id');
         },
         exerciseValidationOptions = ko.observable({
             debug: true,

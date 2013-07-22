@@ -90,12 +90,10 @@ namespace SportsWebPt.Platform.ServiceImpl
                                                                "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
-            var planDto = Mapper.Map<PlanDto>(planEntity);
-            var exerciseDtos = new List<ExerciseDto>();
-            Mapper.Map(exerciseEntities, exerciseDtos);
+            foreach (var planExercise in planEntity.PlanExerciseMatrixItems)
+                planExercise.Exercise = exerciseEntities.Single(p => p.Id == planExercise.ExerciseId);
 
-            if(exerciseEntities.Any())
-                planDto.exercises = exerciseDtos.ToArray();
+            var planDto = Mapper.Map<PlanDto>(planEntity);
 
             return Ok(new ApiResponse<PlanDto>()
             {
