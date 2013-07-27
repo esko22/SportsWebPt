@@ -48,6 +48,7 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.id))
                   .ForMember(d => d.id, opt =>
                       {
+                          //This is in place to get around weirdness in the admin section when adding exercises to plans 
                           opt.Condition(s => s.refExercise > 0 );
                           opt.MapFrom(s => s.refExercise);
                       }); 
