@@ -38,12 +38,25 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String difficulty { get; set; }
 
+        #endregion
+    }
+
+    [DataContract(Name = "PlanExercise", Namespace = "http://SportsWebPt.Platform")]
+    public class PlanExerciseDto : ExerciseDto
+    {
         [DataMember]
         public int Sets { get; set; }
 
         [DataMember]
         public int Repititions { get; set; }
 
-        #endregion
+        [DataMember]
+        public int PerWeek { get; set; }
+
+        [DataMember]
+        public int PerDay { get; set; }
+
+        [DataMember]
+        public int ExerciseId { get; set; }
     }
 }

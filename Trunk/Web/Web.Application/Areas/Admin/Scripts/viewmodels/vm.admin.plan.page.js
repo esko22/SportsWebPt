@@ -4,6 +4,8 @@
 
 
         var bindViewModels = function () {
+            plans.editPlan = form.editPlan;
+            plans.addPlan = form.addPlan;
             plans.bindSelectedPlan = form.bindSelectedPlan;
             form.suscribe(plans.onSuccessfulChangeCallback);
             kb.applyBindings(form, $('#admin-plan-form').get(0));

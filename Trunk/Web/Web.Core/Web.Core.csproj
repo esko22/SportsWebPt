@@ -47,6 +47,7 @@
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Injury.cs" />
+    <Compile Include="Models\PlanExercise.cs" />
     <Compile Include="Models\PotentialInjury.cs" />
     <Compile Include="Models\PotentialSymptom.cs" />
     <Compile Include="Models\Sign.cs" />

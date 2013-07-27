@@ -2,8 +2,23 @@
         <div class="container">
             <h2> Injuries</h2>
             <hr class="examine-report-hr"/>
-            <div class="container-fluid well">
-                    <form class="form-horizontal" data-bind="validateForm: injuryValidationOptions" id="admin-injury-form">
+            <div class="container-fluid" id="admin-injury-list">
+                <a data-bind="click: addInjury"><span aria-hidden="true" class="action-link-icon" data-icon="&#xe04b;"/> Add Injury </a>
+                <table class="table table-striped">
+                    <tbody data-bind="template: { name: injuryListTemplate, foreach: injuries }">
+                    </tbody>            
+                </table>
+            </div>
+        </div>
+    </div>
+
+<div class="modal hide fade edit-modal" id="admin-injury-form-dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Add /Edit Injury</h3>
+    </div>
+    <div class="modal-body well edit-modal-body">
+                            <form class="form-horizontal" data-bind="validateForm: injuryValidationOptions" id="admin-injury-form">
                         <div class="row-fluid">
                             <div class="span6">
                                 <div class="control-group">
@@ -21,13 +36,15 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputDescription">Description</label>
                                     <div class="controls">
-                                        <input type="text" id="inputDescription" name="description" data-bind="value: description" placeholder="Description">
+                                        <textarea rows="5 "id="inputDescription" name="description" data-bind="value: description" placeholder="Description">
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputOpeningStatement">Opening Statement</label>
                                     <div class="controls">
-                                        <input type="text" id="inputOpeningStatement" name="openingStatement" data-bind="value: openingStatement" placeholder="Opening Statement">
+                                        <textarea id="inputOpeningStatement" name="openingStatement" rows="5" data-bind="value: openingStatement" placeholder="Opening Statement">
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -47,28 +64,28 @@
                                 <div class="control-group">
                                     <label class="control-label" for="inputCauses">Causes</label>
                                     <div class="controls">
-                                        <select id="inputCauses" name="causes" multiple="multiple" data-bind="options: availableCauses, optionsText: 'description', selectedOptions: causes" >
+                                        <select id="inputCauses" name="causes" multiple="multiple" size="6" data-bind="options: availableCauses, optionsText: 'description', selectedOptions: causes" >
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputExerciseEquipment">Signs</label>
+                                    <label class="control-label" for="inputSigns">Signs</label>
                                     <div class="controls">
-                                        <select id="inputSigns" name="signs" multiple="multiple" data-bind="options: availableSigns, optionsText: 'description', selectedOptions: signs" >
+                                        <select id="inputSigns" name="signs" multiple="multiple" size="6" data-bind="options: availableSigns, optionsText: 'description', selectedOptions: signs" >
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputPlans">Plans</label>
                                     <div class="controls">
-                                        <select id="inputPlans" name="plans" multiple="multiple" data-bind="options: availablePlans, optionsText: 'routineName', selectedOptions: plans" >
+                                        <select id="inputPlans" name="plans" multiple="multiple" size="6" data-bind="options: availablePlans, optionsText: 'routineName', selectedOptions: plans" >
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="inputBodyRegions">BodyRegions</label>
                                     <div class="controls">
-                                        <select id="inputBodyRegions" name="bodyRegions" multiple="multiple" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
+                                        <select id="inputBodyRegions" name="bodyRegions" multiple="multiple" size="6" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
                                             </select>
                                     </div>
                                 </div>
@@ -78,13 +95,9 @@
                             <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
-            </div>
 
-            <div class="container-fluid" id="admin-injury-list">
-                <table class="table table-striped">
-                    <tbody data-bind="template: { name: injuryListTemplate, foreach: injuries }">
-                    </tbody>            
-                </table>
-            </div>
-        </div>
     </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>

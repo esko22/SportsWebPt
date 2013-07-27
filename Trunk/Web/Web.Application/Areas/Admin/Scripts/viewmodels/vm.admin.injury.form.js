@@ -14,6 +14,7 @@
            medicalName = kb.observable(selectedInjury, 'medicalName'),
            description = kb.observable(selectedInjury, 'description'),
            openingStatement = kb.observable(selectedInjury, 'openingStatement'),
+           modalDialogId = '#admin-injury-form-dialog',
            tags = kb.observable(selectedInjury, 'tags'),
            pageName = kb.observable(selectedInjury, 'pageName'),
            plans = kb.collectionObservable(selectedInjury.get('plans'), availablePlans.shareOptions()),
@@ -28,6 +29,7 @@
                   callback();
               }
               bindSelectedInjury(kb.viewModel(new InjuryModel()), null);
+              $(modalDialogId).modal('hide');
           },
        saveChanges = function () {
            var injury = InjuryModel.findOrCreate(selectedInjury);
@@ -35,19 +37,16 @@
                success: onSuccessfulChange, error: err.onError
            });
        },
+        addInjury = function (data, event) {
+            $(modalDialogId).modal('show');
+        },
+        editInjury = function (data, event) {
+            bindSelectedInjury(data);
+            $(modalDialogId).modal('show');
+        },
        suscribe = function (passedCallback) {
            callback = passedCallback;
        },
-       //addNewExercise = function () {
-       //    var exercise = new Exercise();
-       //    exercise.set('id', 1);
-       //    exercise.set('sets', 1);
-       //    exercise.set('repititions', 1);
-       //    selectedPlan.get('exercises').add(exercise);
-       //},
-       //removeExercise = function (data, event) {
-       //    selectedPlan.get('exercises').remove(data.model());
-       //},
        bindSelectedInjury = function (data, event) {
            selectedInjury.get('plans').reset();
            selectedInjury.get('bodyRegions').reset();
@@ -197,9 +196,9 @@
             bindSelectedInjury: bindSelectedInjury,
             tags: tags,
             pageName: pageName,
-            suscribe: suscribe
-            //addNewExercise: addNewExercise,
-            //removeExercise: removeExercise
+            suscribe: suscribe,
+            addInjury: addInjury,
+            editInjury: editInjury
         };
 
     });

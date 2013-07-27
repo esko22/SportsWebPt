@@ -8,7 +8,6 @@
             editExercise = function (data, event) {
             },
             addExercise = function (data, event) {
-                alert(data);
             },
             onSuccessfulChangeCallback = function () {
                 exerciseCollection.fetch();

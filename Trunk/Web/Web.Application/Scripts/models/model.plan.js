@@ -34,7 +34,7 @@ define('model.plan.collection', ['backbone', 'model.plan', 'config'],
 
     });
 
-define('model.admin.plan', ['backbone', 'config', 'model.exercise', 'model.exercise.collection', 'model.admin.body.region', 'model.admin.body.region.collection'],
+define('model.admin.plan', ['backbone', 'config', 'model.admin.plan.exercise', 'model.admin.plan.exercise.collection', 'model.admin.body.region', 'model.admin.body.region.collection'],
     function (backbone, config, Exercise, ExerciseCollection, BodyRegion, BodyRegionCollection) {
         var
             plan = backbone.RelationalModel.extend({

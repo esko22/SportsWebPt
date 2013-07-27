@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.ServiceModels
         public int id { get; set; }
         
         [DataMember]
-        public ExerciseDto[] exercises { get; set; }
+        public PlanExerciseDto[] exercises { get; set; }
 
         [DataMember]
         public String category { get; set; }

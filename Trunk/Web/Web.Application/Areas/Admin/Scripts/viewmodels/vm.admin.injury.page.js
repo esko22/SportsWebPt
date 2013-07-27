@@ -4,6 +4,8 @@
 
 
         var bindViewModels = function () {
+            injuries.editInjury = form.editInjury;
+            injuries.addInjury = form.addInjury;
             injuries.bindSelectedInjury = form.bindSelectedInjury;
             form.suscribe(injuries.onSuccessfulChangeCallback);
             kb.applyBindings(form, $('#admin-injury-form').get(0));

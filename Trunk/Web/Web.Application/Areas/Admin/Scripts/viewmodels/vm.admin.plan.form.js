@@ -1,5 +1,5 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.admin.body.region.collection', 'model.admin.exercise'],
+    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.plan.exercise.collection', 'model.admin.body.region.collection', 'model.admin.plan.exercise'],
     function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
             var exerciseCollection = new ExerciseCollection(),
                bodyRegionCollection = new BodyRegionCollection(),
@@ -13,9 +13,10 @@
                tags = kb.observable(selectedPlan, 'tags'),
                pageName = kb.observable(selectedPlan, 'pageName'),
                musclesInvolved = kb.observable(selectedPlan, 'musclesInvolved'),
-               exercises = kb.collectionObservable(selectedPlan.get('exercises'), availableExercises.shareOptions()),
+               exercises = kb.collectionObservable(selectedPlan.get('exercises')),
                bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
                availableCategories = config.planCategories,
+               modalDialogId = '#admin-plan-form-dialog',
                callback = function () {
                    alert('test');
                },
@@ -24,6 +25,7 @@
                       callback();
                   }
                   bindSelectedPlan(kb.viewModel(new PlanModel()), null);
+                  $(modalDialogId).modal('hide');
               },
            saveChanges = function () {
                var plan = PlanModel.findOrCreate(selectedPlan);
@@ -34,11 +36,20 @@
            suscribe = function (passedCallback) {
                callback = passedCallback;
            },
+            addPlan = function (data, event) {
+                $(modalDialogId).modal('show');
+            },
+            editPlan = function (data, event) {
+                bindSelectedPlan(data);
+                $(modalDialogId).modal('show');
+            },
            addNewExercise = function() {
                var exercise = new Exercise();
                exercise.set('sets', 1);
                exercise.set('repititions', 1);
                exercise.set('refExercise', 2);
+               exercise.set('perWeek', 1);
+               exercise.set('perDay', 1);
                selectedPlan.get('exercises').add(exercise);
            },
            removeExercise = function(data, event) {
@@ -51,7 +62,7 @@
 
                _.each(data.exercises(), function (viewModel) {
                    var exercise = viewModel.model();
-                   exercise.set('refExercise', exercise.get('id'));
+                   exercise.set('refExercise', exercise.get('exerciseId'));
                    selectedPlan.get('exercises').push(exercise);
                    });
 
@@ -164,7 +175,9 @@
                     suscribe: suscribe,
                     musclesInvolved: musclesInvolved,
                     addNewExercise: addNewExercise,
-                    removeExercise: removeExercise
+                    removeExercise: removeExercise,
+                    addPlan: addPlan,
+                    editPlan: editPlan
                 };
 
     });

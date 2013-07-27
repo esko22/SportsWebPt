@@ -210,16 +210,16 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var planExercises = new List<PlanExerciseMatrixItem>()
                 {
-                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[0], Repititions = 3, Sets = 2},
-                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[1], Repititions = 2, Sets = 7},
-                    new PlanExerciseMatrixItem() {Plan = plans[1], Exercise = exercises[0], Repititions = 4, Sets = 9},
-                    new PlanExerciseMatrixItem() {Plan = plans[2], Exercise = exercises[3], Repititions = 7, Sets = 2},
-                    new PlanExerciseMatrixItem() {Plan = plans[3], Exercise = exercises[2], Repititions = 2, Sets = 1},
-                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[3], Repititions = 3, Sets = 1},
-                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[4], Repititions = 5, Sets = 2},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[4], Repititions = 3, Sets = 2},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[5], Repititions = 2, Sets = 8},
-                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[6], Repititions = 30, Sets = 2}
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[0], Repititions = 3, Sets = 2, PerDay = 1, PerWeek = 3},
+                    new PlanExerciseMatrixItem() {Plan = plans[0], Exercise = exercises[1], Repititions = 2, Sets = 7, PerDay = 2, PerWeek = 1},
+                    new PlanExerciseMatrixItem() {Plan = plans[1], Exercise = exercises[0], Repititions = 4, Sets = 9, PerDay = 1, PerWeek = 3},
+                    new PlanExerciseMatrixItem() {Plan = plans[2], Exercise = exercises[3], Repititions = 7, Sets = 2, PerDay = 5, PerWeek = 3},
+                    new PlanExerciseMatrixItem() {Plan = plans[3], Exercise = exercises[2], Repititions = 2, Sets = 1, PerDay = 6, PerWeek = 2},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[3], Repititions = 3, Sets = 1, PerDay = 1, PerWeek = 7},
+                    new PlanExerciseMatrixItem() { Plan = plans[3], Exercise = exercises[4], Repititions = 5, Sets = 2, PerDay = 8, PerWeek = 6},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[4], Repititions = 3, Sets = 2, PerDay = 4, PerWeek = 3},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[5], Repititions = 2, Sets = 8, PerDay = 6, PerWeek = 2},
+                    new PlanExerciseMatrixItem() { Plan = plans[4], Exercise = exercises[6], Repititions = 30, Sets = 2, PerDay = 4, PerWeek = 5}
                 };
 
             planExercises.ForEach(p => _dbContext.PlansExceriseMatrixItems.Add(p));

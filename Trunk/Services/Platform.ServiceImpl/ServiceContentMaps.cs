@@ -80,10 +80,13 @@ namespace SportsWebPt.Platform.ServiceImpl
                       });
             Mapper.CreateMap<BodyRegionDto, PlanBodyRegionMatrixItem>()
                   .ForMember(d => d.BodyRegionId, opt => opt.MapFrom(s => s.id));
-            Mapper.CreateMap<ExerciseDto, PlanExerciseMatrixItem>()
-                  .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.id))
+            Mapper.CreateMap<PlanExerciseDto, PlanExerciseMatrixItem>()
+                  .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.ExerciseId))
                   .ForMember(d => d.Repititions, opt => opt.MapFrom(s => s.Repititions))
-                  .ForMember(d => d.Sets, opt => opt.MapFrom(s => s.Sets));
+                  .ForMember(d => d.Sets, opt => opt.MapFrom(s => s.Sets))
+                  .ForMember(d => d.PerWeek, opt => opt.MapFrom(s => s.PerWeek))
+                  .ForMember(d => d.PerDay, opt => opt.MapFrom(s => s.PerDay));
+
             Mapper.CreateMap<Exercise, ExerciseDto>()
                   .ForMember(d => d.videos, opt =>
                       {
@@ -100,17 +103,20 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.Condition(s => s.ExerciseBodyRegionMatrixItems != null);
                           opt.MapFrom(s => s.ExerciseBodyRegionMatrixItems.Select(p => p.BodyRegion));
                       });
-            Mapper.CreateMap<PlanExerciseMatrixItem, ExerciseDto>()
+            Mapper.CreateMap<PlanExerciseMatrixItem, PlanExerciseDto>()
                   .ForMember(d => d.videos,
                              opt => opt.MapFrom(s => s.Exercise.ExerciseVideoMatrixItems.Select(p => p.Video)))
                   .ForMember(d => d.equipment,
                              opt => opt.MapFrom(s => s.Exercise.ExerciseEquipmentMatrixItems.Select(p => p.Equipment)))
                   .ForMember(d => d.Repititions, opt => opt.MapFrom(s => s.Repititions))
                   .ForMember(d => d.Sets, opt => opt.MapFrom(s => s.Sets))
+                  .ForMember(d => d.PerDay, opt => opt.MapFrom(s => s.PerDay))
+                  .ForMember(d => d.PerWeek, opt => opt.MapFrom(s => s.PerWeek))
                   .ForMember(d => d.name, opt => opt.MapFrom(s => s.Exercise.Name))
-                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.Exercise.Id))
+                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.Id))
                   .ForMember(d => d.difficulty, opt => opt.MapFrom(s => s.Exercise.Difficulty))
-                  .ForMember(d => d.duration, opt => opt.MapFrom(s => s.Exercise.Duration));
+                  .ForMember(d => d.duration, opt => opt.MapFrom(s => s.Exercise.Duration))
+                  .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.ExerciseId));
             Mapper.CreateMap<ExerciseDto, Exercise>()
                       .ForMember(d => d.ExerciseVideoMatrixItems, opt =>
                       {

@@ -14,7 +14,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Sets { get; set; }
 
-        public int Repititions { get; set; } 
+        public int Repititions { get; set; }
+
+        public int PerWeek { get; set; }
+
+        public int PerDay { get; set; } 
 
         public virtual Plan Plan { get; set; }
 

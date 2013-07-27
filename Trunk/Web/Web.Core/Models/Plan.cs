@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int id { get; set; }
 
-        public IEnumerable<Exercise> exercises { get; set; }
+        public IEnumerable<PlanExercise> exercises { get; set; }
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 

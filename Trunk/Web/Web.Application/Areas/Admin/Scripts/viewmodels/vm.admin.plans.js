@@ -7,6 +7,10 @@
             plans = kb.collectionObservable(planCollection),
             bindSelectedPlan = function (data, event) {
             },
+            editPlan = function (data, event) {
+            },
+            addPlan = function (data, event) {
+            },
         onSuccessfulChangeCallback = function () {
             planCollection.fetch();
         };
@@ -17,6 +21,8 @@
             plans: plans,
             planListTemplate: planListTemplate,
             bindSelectedPlan: bindSelectedPlan,
-            onSuccessfulChangeCallback: onSuccessfulChangeCallback
+            onSuccessfulChangeCallback: onSuccessfulChangeCallback,
+            addPlan: addPlan,
+            editPlan : editPlan
         };
     });

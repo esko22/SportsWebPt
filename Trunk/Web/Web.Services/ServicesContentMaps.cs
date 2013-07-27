@@ -44,9 +44,11 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<PlanDto, Plan>();
             Mapper.CreateMap<Plan, PlanDto>();
             Mapper.CreateMap<ExerciseDto, Exercise>();
-            Mapper.CreateMap<Exercise, ExerciseDto>()
-                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.id))
-                  .ForMember(d => d.id, opt =>
+            Mapper.CreateMap<PlanExerciseDto, PlanExercise>();
+            Mapper.CreateMap<Exercise, ExerciseDto>();
+            Mapper.CreateMap<PlanExercise, PlanExerciseDto>()
+                  .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.exerciseId))
+                  .ForMember(d => d.ExerciseId, opt =>
                       {
                           //This is in place to get around weirdness in the admin section when adding exercises to plans 
                           opt.Condition(s => s.refExercise > 0 );

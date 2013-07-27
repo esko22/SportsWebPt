@@ -9,7 +9,7 @@
             </div>
 
             <div class="span3 pull-right">
-                <button class="btn-danger" data-bind="click: $parent.bindSelectedPlan">Edit</button>
+                <button class="btn-danger" data-bind="click: $parent.editPlan">Edit</button>
             </div>
         </div>
         <div class="row-fluid">
@@ -42,12 +42,16 @@
                             <th>Name</th>
                             <th>Sets</th>
                             <th>Reps</th>
+                            <th>Per Day</th>
+                            <th>Per Week</th>
                         </thead>
                         <tbody data-bind="foreach: exercises">
                             <tr>
                                 <td data-bind="text: name"></td>
                                 <td data-bind="text: sets"></td>
                                 <td data-bind="text: repititions"></td>
+                                <td data-bind="text: perDay"></td>
+                                <td data-bind="text: perWeek"></td>
                             </tr>
                         </tbody>            
                     </table>

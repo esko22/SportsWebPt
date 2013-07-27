@@ -5,6 +5,10 @@
         var injuryListTemplate = 'admin.injury.list',
             injuryCollection = new InjuryCollection(),
             injuries = kb.collectionObservable(injuryCollection),
+            editInjury = function (data, event) {
+            },
+            addInjury = function (data, event) {
+            },
             bindSelectedInjury = function (data, event) {
             },
         onSuccessfulChangeCallback = function () {
@@ -17,6 +21,8 @@
             injuries: injuries,
             injuryListTemplate: injuryListTemplate,
             bindSelectedInjury: bindSelectedInjury,
-            onSuccessfulChangeCallback: onSuccessfulChangeCallback
+            onSuccessfulChangeCallback: onSuccessfulChangeCallback,
+            addInjury: addInjury,
+            editInjury : editInjury
         };
     });

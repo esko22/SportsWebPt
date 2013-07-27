@@ -27,12 +27,6 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String difficulty { get; set; }
 
-        public int sets { get; set; }
-
-        public int repititions { get; set; }
-
-        public int refExercise { get; set; }
-
         #endregion
     }
 }
