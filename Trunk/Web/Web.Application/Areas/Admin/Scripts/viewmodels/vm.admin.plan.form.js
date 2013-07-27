@@ -36,9 +36,9 @@
            },
            addNewExercise = function() {
                var exercise = new Exercise();
-               exercise.set('id', 1);
                exercise.set('sets', 1);
                exercise.set('repititions', 1);
+               exercise = Exercise.findOrCreate(exercise);
                selectedPlan.get('exercises').add(exercise);
            },
            removeExercise = function(data, event) {
@@ -50,7 +50,7 @@
                selectedPlan.get('bodyRegions').reset();
 
                _.each(data.exercises(), function (viewModel) {
-                   selectedPlan.get('exercises').add(viewModel.model());
+                   selectedPlan.get('exercises').push(viewModel.model());
                    });
 
                _.each(data.bodyRegions(), function (viewModel) {

@@ -19,6 +19,7 @@
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
             availableDifficulties = ko.observableArray(['Beginner', 'Intermediate', 'Advanced']),
+            modalDialogId = '#admin-exercise-form-dialog',
             callback = function() {
                 alert('test');
             },
@@ -27,6 +28,7 @@
                  callback();
              }
              bindSelectedExercise(kb.viewModel(new ExerciseModel()), null);
+             $(modalDialogId).modal('hide');
            },
         saveChanges = function () {
             var exercise = ExerciseModel.findOrCreate(selectedExercise);
@@ -37,14 +39,22 @@
         suscribe = function(passedCallback) {
             callback = passedCallback;
         },
-        bindSelectedExercise = function (data, event) {
+        addExercise = function(data, event) {
+            
+            $(modalDialogId).modal('show');
+        },
+        editExercise = function(data, event) {
+            bindSelectedExercise(data);
+            $(modalDialogId).modal('show');
+        },    
+        bindSelectedExercise = function (exercise) {
 
             selectedExercise.get('equipment').reset();
             selectedExercise.get('videos').reset();
             selectedExercise.get('bodyRegions').reset();
 
             //have to get items from available collection
-            _.each(data.equipment(), function (viewModel) {
+            _.each(exercise.equipment(), function (viewModel) {
                 _.each(equipmentCollection.models, function (equipmentModel) {
                     if (viewModel.id() === equipmentModel.get('id')) {
                         selectedExercise.get('equipment').add(equipmentModel);
@@ -52,7 +62,7 @@
                 });
             });
             
-            _.each(data.videos(), function (viewModel) {
+            _.each(exercise.videos(), function (viewModel) {
                 _.each(videoCollection.models, function (videoModel) {
                     if (viewModel.id() === videoModel.get('id')) {
                         selectedExercise.get('videos').add(videoModel);
@@ -60,7 +70,7 @@
                 });
             });
 
-            _.each(data.bodyRegions(), function (viewModel) {
+            _.each(exercise.bodyRegions(), function (viewModel) {
                 _.each(bodyRegionCollection.models, function (bodyRegionModel) {
                     if (viewModel.id() === bodyRegionModel.get('id')) {
                         selectedExercise.get('bodyRegions').add(bodyRegionModel);
@@ -68,15 +78,15 @@
                 });
             });
 
-            selectedExercise.set('name', data.model().get('name'));
-            selectedExercise.set('description', data.model().get('description'));
-            selectedExercise.set('duration', data.model().get('duration'));
-            selectedExercise.set('difficulty', data.model().get('difficulty'));
-            selectedExercise.set('tags', data.model().get('tags'));
-            selectedExercise.set('pageName', data.model().get('pageName'));
+            selectedExercise.set('name', exercise.model().get('name'));
+            selectedExercise.set('description', exercise.model().get('description'));
+            selectedExercise.set('duration', exercise.model().get('duration'));
+            selectedExercise.set('difficulty', exercise.model().get('difficulty'));
+            selectedExercise.set('tags', exercise.model().get('tags'));
+            selectedExercise.set('pageName', exercise.model().get('pageName'));
 
             //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
-            selectedExercise.id = data.model().get('id');
+            selectedExercise.id = exercise.model().get('id');
         },
         exerciseValidationOptions = ko.observable({
             debug: true,
@@ -167,9 +177,10 @@
             videos : videos,
             equipment: equipment,
             bodyRegions : bodyRegions,
-            bindSelectedExercise: bindSelectedExercise,
+            editExercise: editExercise,
             tags: tags,
             pageName: pageName,
-            suscribe: suscribe
+            suscribe: suscribe,
+            addExercise: addExercise
         };
     });

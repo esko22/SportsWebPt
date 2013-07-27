@@ -28,6 +28,15 @@ body {
     height: 620px;
 }
 
+.edit-modal {
+    width: 900px;
+    margin-left:  -350px !important; 
+}
+
+.edit-modal-body {
+    max-height: 750px;
+}
+
 .login-container {
     width: 400px;
     display: block;
@@ -529,6 +538,7 @@ ul#skeleton li {
     height: 100%;
 }
 
+
 .research-accordian-icon {
     font-size: 18px; 
     margin-right: 30px;
@@ -554,6 +564,13 @@ ul#skeleton li {
     color: #424947;
 }
 
+.action-link-icon {
+    display: block;
+    font-size: 30px;
+    padding-bottom: 10px;
+    width: 100%;
+    color: #424947;
+}
 
 .icon-alone {
   display: inline-block; /* Chrome 19 was weird with clickability without this */

@@ -4,7 +4,8 @@
 
 
         var bindViewModels = function () {
-            exercises.bindSelectedExercise = form.bindSelectedExercise;
+            exercises.editExercise = form.editExercise;
+            exercises.addExercise = form.addExercise;
             form.suscribe(exercises.onSuccessfulChangeCallback);
             kb.applyBindings(form, $('#admin-exercise-form').get(0));
             kb.applyBindings(exercises, $('#admin-exercise-list').get(0));

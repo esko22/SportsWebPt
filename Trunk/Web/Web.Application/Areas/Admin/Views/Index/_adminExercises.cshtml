@@ -2,76 +2,8 @@
         <div class="container">
             <h2> Exercises</h2>
             <hr class="examine-report-hr"/>
-            <div class="container-fluid well">
-                    <form class="form-horizontal" data-bind="validateForm: exerciseValidationOptions" id="admin-exercise-form">
-                        <div class="row-fluid">
-                            <div class="span6">
-                                <div class="control-group">
-                                    <label class="control-label" for="inputName">Name</label>
-                                    <div class="controls">
-                                        <input type="text" id="inputName" name="name" data-bind="value: name" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputDescription">Description</label>
-                                    <div class="controls">
-                                        <input type="text" id="inputDescription" name="description" data-bind="value: description" placeholder="Description">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputDuration">Duration</label>
-                                    <div class="controls">
-                                        <input type="text" id="inputDuration" name="duration" data-bind="value: duration" placeholder="Duration">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputDifficulty">Difficulty</label>
-0                                 </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputPageName">Page Name</label>
-                                    <div class="controls">
-                                        <input type="text" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputTags">Tags</label>
-                                    <div class="controls">
-                                        <input type="text" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="span6">
-                                <div class="control-group">
-                                    <label class="control-label" for="inputExerciseVideos">Videos</label>
-                                    <div class="controls">
-                                        <select id="inputExerciseVideos" name="exerciseVideos" multiple="multiple" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputExerciseEquipment">Equipment</label>
-                                    <div class="controls">
-                                        <select id="inputExerciseEquipment" name="exerciseEquipment" multiple="multiple" data-bind="options: availableEquipment, optionsText: 'commonName', selectedOptions: equipment" >
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="inputExerciseEquipment">BodyRegions</label>
-                                    <div class="controls">
-                                        <select id="inputExerciseBodyRegions" name="exerciseBodyRegions" multiple="multiple" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
-                                            </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
-            </div>
-
             <div class="container-fluid" id="admin-exercise-list">
+            <a data-bind="click: addExercise"><span aria-hidden="true" class="action-link-icon" data-icon="&#xe04b;"/> Add Exercise </a>
                 <table class="table table-striped">
                     <tbody data-bind="template: { name: exerciseListTemplate, foreach: exercises }">
                     </tbody>            
@@ -79,3 +11,86 @@
             </div>
         </div>
     </div>
+
+
+<div class="modal hide fade edit-modal" id="admin-exercise-form-dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Add /Edit Exercise</h3>
+    </div>
+    <div class="modal-body well edit-modal-body">
+        <form class="form-horizontal" data-bind="validateForm: exerciseValidationOptions" id="admin-exercise-form">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="inputName">Name</label>
+                        <div class="controls">
+                            <input type="text" id="inputName" name="name" data-bind="value: name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDescription">Description</label>
+                        <div class="controls">
+                            <textarea id="inputDescription" rows="5" form="admin-exercise-form" cols="60" name="description" data-bind="value: description" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDuration">Duration</label>
+                        <div class="controls">
+                            <input type="text" id="inputDuration" name="duration" data-bind="value: duration" placeholder="Duration">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDifficulty">Difficulty</label>
+                        <div class="controls">
+                            <select id="inputDifficulty" name="difficulty" data-bind="options: availableDifficulties, value: difficulty" >
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPageName">Page Name</label>
+                        <div class="controls">
+                            <input type="text" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputTags">Tags</label>
+                        <div class="controls">
+                            <input type="text" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="inputExerciseVideos">Videos</label>
+                        <div class="controls">
+                            <select id="inputExerciseVideos" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputExerciseEquipment">Equipment</label>
+                        <div class="controls">
+                            <select id="inputExerciseEquipment" name="exerciseEquipment" multiple="multiple" size="8" data-bind="options: availableEquipment, optionsText: 'commonName', selectedOptions: equipment" >
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputExerciseEquipment">BodyRegions</label>
+                        <div class="controls">
+                            <select id="inputExerciseBodyRegions" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
