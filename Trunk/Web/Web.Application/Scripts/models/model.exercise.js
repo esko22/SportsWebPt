@@ -55,7 +55,8 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                     'tags': '',
                     'pageName': '',
                     'sets': '',
-                    'repititions' : ''
+                    'repititions': '',
+                    'refExercise' : ''
                 },
                 relations: [
                     {

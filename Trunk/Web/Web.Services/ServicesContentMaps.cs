@@ -44,7 +44,13 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<PlanDto, Plan>();
             Mapper.CreateMap<Plan, PlanDto>();
             Mapper.CreateMap<ExerciseDto, Exercise>();
-            Mapper.CreateMap<Exercise, ExerciseDto>();
+            Mapper.CreateMap<Exercise, ExerciseDto>()
+                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.id))
+                  .ForMember(d => d.id, opt =>
+                      {
+                          opt.Condition(s => s.refExercise > 0 );
+                          opt.MapFrom(s => s.refExercise);
+                      }); 
             Mapper.CreateMap<EquipmentDto, Equipment>();
             Mapper.CreateMap<Equipment, EquipmentDto>();
             Mapper.CreateMap<VideoDto, Video>();

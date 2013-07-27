@@ -13,7 +13,7 @@
                tags = kb.observable(selectedPlan, 'tags'),
                pageName = kb.observable(selectedPlan, 'pageName'),
                musclesInvolved = kb.observable(selectedPlan, 'musclesInvolved'),
-               exercises = kb.collectionObservable(selectedPlan.get('exercises')),
+               exercises = kb.collectionObservable(selectedPlan.get('exercises'), availableExercises.shareOptions()),
                bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
                availableCategories = config.planCategories,
                callback = function () {
@@ -38,7 +38,7 @@
                var exercise = new Exercise();
                exercise.set('sets', 1);
                exercise.set('repititions', 1);
-               exercise = Exercise.findOrCreate(exercise);
+               exercise.set('refExercise', 2);
                selectedPlan.get('exercises').add(exercise);
            },
            removeExercise = function(data, event) {
@@ -50,7 +50,9 @@
                selectedPlan.get('bodyRegions').reset();
 
                _.each(data.exercises(), function (viewModel) {
-                   selectedPlan.get('exercises').push(viewModel.model());
+                   var exercise = viewModel.model();
+                   exercise.set('refExercise', exercise.get('id'));
+                   selectedPlan.get('exercises').push(exercise);
                    });
 
                _.each(data.bodyRegions(), function (viewModel) {

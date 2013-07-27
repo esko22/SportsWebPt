@@ -94,8 +94,14 @@ namespace SportsWebPt.Platform.Web.Services
         public IEnumerable<Exercise> GetExercises()
         {
             var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
+            var exercises = Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
 
-            return Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+            foreach (var exercise in exercises)
+            {
+                exercise.refExercise = exercise.id;
+            }
+
+            return exercises;
         }
 
         public int AddExercise(Exercise exercise)

@@ -31,6 +31,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int repititions { get; set; }
 
+        public int refExercise { get; set; }
+
         #endregion
     }
 }
