@@ -1,40 +1,40 @@
 ﻿define('vm.research.exercise.listing',
-    ['jquery', 'knockback', 'model.body.region.collection', 'model.exercise.collection', 'underscore'],
-    function ($, kb, BodyRegionCollection, ExerciseCollection, _) {
+    ['jquery', 'knockback', 'model.exercise.collection', 'underscore'],
+    function ($, kb, ExerciseCollection, _) {
 
-        var bodyRegionCollection = new BodyRegionCollection(),
-            bodyRegions = kb.collectionObservable(bodyRegionCollection),
-            exerciseCollection = new ExerciseCollection(),
-            filteredExerciseCollection = new ExerciseCollection(),
-            filteredExercises = kb.collectionObservable(filteredExerciseCollection),
+        //var bodyRegionCollection = new BodyRegionCollection(),
+        //    bodyRegions = kb.collectionObservable(bodyRegionCollection),
+            var exerciseCollection = new ExerciseCollection(),
+            //filteredExerciseCollection = new ExerciseCollection(),
+            //filteredExercises = kb.collectionObservable(filteredExerciseCollection),
             briefExerciseTemplate = 'research.brief.exercise';
 
-        var onFilterSelect = function(data, event) {
-            filteredExerciseCollection.reset();
+        var onFilterSelect = function (data, event) {
 
             _.each(exerciseCollection.models, function(exercise) {
-                _.each(exercise.get('bodyRegions').models, function(bodyRegion) {
-                    if (bodyRegion.get('id') === data.id())
-                        filteredExerciseCollection.add(exercise);
-                });
+                alert(exercise.get('bodyRegions').length);
             });
 
-            filteredExercises.collection(filteredExerciseCollection);
+
+            //filteredExerciseCollection.reset(_.filter(exerciseCollection.models, function (exercise) {
+            //    return _.some(exercise.get('bodyRegions').models, function (bodyRegion) {
+            //        return bodyRegion.get('id') === data.id();
+            //    });
+            //}));
         };
 
-        var onReset = function() {
-            filteredExercises.collection(exerciseCollection);
+        var onReset = function () {
+            //filteredExerciseCollection.reset(exerciseCollection.models);
         };
-            
 
-        bodyRegionCollection.fetch();
-        exerciseCollection.fetch();
-        filteredExercises.collection(exerciseCollection);
-
+        //bodyRegionCollection.fetch();
+        exerciseCollection.fetch({
+            success: onReset
+        });
 
         return {
-            bodyRegions: bodyRegions,
-            filteredExercises: filteredExercises,
+            //bodyRegions: bodyRegions,
+            //filteredExercises: filteredExercises,
             onFilterSelect: onFilterSelect,
             briefExerciseTemplate: briefExerciseTemplate,
             onReset : onReset

@@ -86,15 +86,16 @@
                 <div class="span3 research-vertical-splitter" >
                     <h3>Body Regions</h3>
                     <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset">Show All</span></a>
-                    <ul class="list-no-style" data-bind="foreach: bodyRegions">
+                    @*<ul class="list-no-style" data-bind="foreach: bodyRegions">
                         <li>
                             <a><span class="label label-info" data-bind="text: name, click: $parent.onFilterSelect"></span></a>
                         </li>
-                    </ul>
+                    </ul>*@
+                            <a><span class="label label-info" data-bind="click: onFilterSelect">blah</span></a>
                 </div>
                 <div class="span9">
                     <div class="accordion" id="recover-exercise-accordion">
-                        <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
+@*                        <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>*@
                     </div>
                 </div>
             </div>
