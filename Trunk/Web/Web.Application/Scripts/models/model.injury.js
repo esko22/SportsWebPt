@@ -6,7 +6,7 @@
                 relations: [{
                     type: backbone.HasMany,
                     key: 'plans',
-                    relatedModel: Plan
+                    relatedModel: Plan,
                 },
                 {
                     type: backbone.HasMany,

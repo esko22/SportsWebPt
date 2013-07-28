@@ -1,278 +1,66 @@
-07-27-13@15:02:33 Info (81)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:02:33 Info (97)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:02:33 Info (81)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0076851 
-07-27-13@15:02:33 Info (83)  [Common] PlanListRequest request submitted 
-07-27-13@15:02:33 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:02:33 Info (77)  [Common] InjuryListRequest request submitted 
-07-27-13@15:02:33 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0073161 
-07-27-13@15:02:33 Info (97)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0200938 
-07-27-13@15:02:33 Info (83)  [Common] PlanListRequest request completed with duration of 00:00:00.0367978 
-07-27-13@15:02:33 Info (77)  [Common] InjuryListRequest request completed with duration of 00:00:00.0320322 
-07-27-13@15:03:46 Info (82)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:03:46 Info (92)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:03:46 Info (90)  [Common] PlanListRequest request submitted 
-07-27-13@15:03:46 Info (92)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0035045 
-07-27-13@15:03:46 Info (97)  [Common] InjuryListRequest request submitted 
-07-27-13@15:03:46 Info (77)  [Common] SignListRequest request submitted 
-07-27-13@15:03:46 Info (77)  [Common] SignListRequest request completed with duration of 00:00:00.0046539 
-07-27-13@15:03:46 Info (82)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0175089 
-07-27-13@15:03:46 Info (90)  [Common] PlanListRequest request completed with duration of 00:00:00.0265559 
-07-27-13@15:03:46 Info (97)  [Common] InjuryListRequest request completed with duration of 00:00:00.0269186 
-07-27-13@15:04:11 Info (92)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:04:11 Info (82)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:04:11 Info (92)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028901 
-07-27-13@15:04:11 Info (96)  [Common] PlanListRequest request submitted 
-07-27-13@15:04:11 Info (80)  [Common] SignListRequest request submitted 
-07-27-13@15:04:11 Info (80)  [Common] SignListRequest request completed with duration of 00:00:00.0052612 
-07-27-13@15:04:11 Info (80)  [Common] InjuryListRequest request submitted 
-07-27-13@15:04:11 Info (82)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0180127 
-07-27-13@15:04:11 Info (96)  [Common] PlanListRequest request completed with duration of 00:00:00.0293313 
-07-27-13@15:04:11 Info (80)  [Common] InjuryListRequest request completed with duration of 00:00:00.0261445 
-07-27-13@15:09:21 Info (81)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:09:21 Info (80)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:09:21 Info (99)  [Common] PlanListRequest request submitted 
-07-27-13@15:09:21 Info (81)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0097551 
-07-27-13@15:09:21 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:09:21 Info (93)  [Common] InjuryListRequest request submitted 
-07-27-13@15:09:21 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0039226 
-07-27-13@15:09:21 Info (80)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0208836 
-07-27-13@15:09:21 Info (99)  [Common] PlanListRequest request completed with duration of 00:00:00.0283349 
-07-27-13@15:09:21 Info (93)  [Common] InjuryListRequest request completed with duration of 00:00:00.0253301 
-07-27-13@15:11:29 Info (80)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:11:29 Info (96)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:11:29 Info (87)  [Common] PlanListRequest request submitted 
-07-27-13@15:11:29 Info (80)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038405 
-07-27-13@15:11:29 Info (97)  [Common] InjuryListRequest request submitted 
-07-27-13@15:11:29 Info (93)  [Common] SignListRequest request submitted 
-07-27-13@15:11:29 Info (93)  [Common] SignListRequest request completed with duration of 00:00:00.0097167 
-07-27-13@15:11:29 Info (96)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0227671 
-07-27-13@15:11:29 Info (97)  [Common] InjuryListRequest request completed with duration of 00:00:00.0255809 
-07-27-13@15:11:29 Info (87)  [Common] PlanListRequest request completed with duration of 00:00:00.0315860 
-07-27-13@15:11:53 Info (86)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:11:53 Info (96)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:11:53 Info (86)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0026817 
-07-27-13@15:11:53 Info (90)  [Common] PlanListRequest request submitted 
-07-27-13@15:11:53 Info (92)  [Common] InjuryListRequest request submitted 
-07-27-13@15:11:53 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:11:53 Info (96)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0185820 
-07-27-13@15:11:53 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0061943 
-07-27-13@15:11:53 Info (90)  [Common] PlanListRequest request completed with duration of 00:00:00.0266447 
-07-27-13@15:11:53 Info (92)  [Common] InjuryListRequest request completed with duration of 00:00:00.0261846 
-07-27-13@15:13:42 Info (97)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:13:42 Info (83)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:13:42 Info (97)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0033541 
-07-27-13@15:13:42 Info (94)  [Common] PlanListRequest request submitted 
-07-27-13@15:13:42 Info (71)  [Common] InjuryListRequest request submitted 
-07-27-13@15:13:42 Info (88)  [Common] SignListRequest request submitted 
-07-27-13@15:13:42 Info (88)  [Common] SignListRequest request completed with duration of 00:00:00.0028142 
-07-27-13@15:13:42 Info (83)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0220763 
-07-27-13@15:13:42 Info (94)  [Common] PlanListRequest request completed with duration of 00:00:00.0289730 
-07-27-13@15:13:42 Info (71)  [Common] InjuryListRequest request completed with duration of 00:00:00.0287838 
-07-27-13@15:13:47 Info (96)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:13:47 Info (83)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:13:47 Info (96)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0025496 
-07-27-13@15:13:47 Info (97)  [Common] PlanListRequest request submitted 
-07-27-13@15:13:47 Info (92)  [Common] InjuryListRequest request submitted 
-07-27-13@15:13:47 Info (88)  [Common] SignListRequest request submitted 
-07-27-13@15:13:47 Info (88)  [Common] SignListRequest request completed with duration of 00:00:00.0032296 
-07-27-13@15:13:47 Info (83)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0209746 
-07-27-13@15:13:47 Info (97)  [Common] PlanListRequest request completed with duration of 00:00:00.0293625 
-07-27-13@15:13:47 Info (92)  [Common] InjuryListRequest request completed with duration of 00:00:00.0274028 
-07-27-13@15:14:30 Info (94)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:14:30 Info (96)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:14:30 Info (94)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0026781 
-07-27-13@15:14:30 Info (97)  [Common] PlanListRequest request submitted 
-07-27-13@15:14:30 Info (90)  [Common] InjuryListRequest request submitted 
-07-27-13@15:14:30 Info (96)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0150873 
-07-27-13@15:14:30 Info (75)  [Common] SignListRequest request submitted 
-07-27-13@15:14:30 Info (75)  [Common] SignListRequest request completed with duration of 00:00:00.0023716 
-07-27-13@15:14:30 Info (97)  [Common] PlanListRequest request completed with duration of 00:00:00.0219862 
-07-27-13@15:14:30 Info (90)  [Common] InjuryListRequest request completed with duration of 00:00:00.0248835 
-07-27-13@15:14:44 Info (68)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:14:44 Info (79)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:14:44 Info (68)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0025045 
-07-27-13@15:14:44 Info (72)  [Common] PlanListRequest request submitted 
-07-27-13@15:14:44 Info (88)  [Common] InjuryListRequest request submitted 
-07-27-13@15:14:44 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:14:44 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0021605 
-07-27-13@15:14:44 Info (79)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0182603 
-07-27-13@15:14:45 Info (72)  [Common] PlanListRequest request completed with duration of 00:00:00.0280534 
-07-27-13@15:14:45 Info (88)  [Common] InjuryListRequest request completed with duration of 00:00:00.0250660 
-07-27-13@15:18:23 Info (75)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:18:23 Info (78)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:18:23 Info (75)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0029909 
-07-27-13@15:18:23 Info (79)  [Common] PlanListRequest request submitted 
-07-27-13@15:18:23 Info (72)  [Common] InjuryListRequest request submitted 
-07-27-13@15:18:23 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:18:23 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0037602 
-07-27-13@15:18:23 Info (78)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0159315 
-07-27-13@15:18:23 Info (79)  [Common] PlanListRequest request completed with duration of 00:00:00.0292358 
-07-27-13@15:18:23 Info (72)  [Common] InjuryListRequest request completed with duration of 00:00:00.0277986 
-07-27-13@15:19:55 Info (96)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:19:55 Info (75)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:19:55 Info (96)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0027865 
-07-27-13@15:19:56 Info (63)  [Common] SignListRequest request submitted 
-07-27-13@15:19:56 Info (71)  [Common] InjuryListRequest request submitted 
-07-27-13@15:19:56 Info (63)  [Common] SignListRequest request completed with duration of 00:00:00.0025719 
-07-27-13@15:19:56 Info (63)  [Common] PlanListRequest request submitted 
-07-27-13@15:19:56 Info (75)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0144064 
-07-27-13@15:19:56 Info (63)  [Common] PlanListRequest request completed with duration of 00:00:00.0209822 
-07-27-13@15:19:56 Info (71)  [Common] InjuryListRequest request completed with duration of 00:00:00.0260896 
-07-27-13@15:22:12 Info (70)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:22:12 Info (70)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0160801 
-07-27-13@15:24:20 Info (64)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:24:20 Info (92)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:24:20 Info (71)  [Common] SignListRequest request submitted 
-07-27-13@15:24:20 Info (69)  [Common] PlanListRequest request submitted 
-07-27-13@15:24:20 Info (94)  [Common] InjuryListRequest request submitted 
-07-27-13@15:24:20 Info (64)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0098800 
-07-27-13@15:24:20 Info (71)  [Common] SignListRequest request completed with duration of 00:00:00.0035237 
-07-27-13@15:24:20 Info (92)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0196949 
-07-27-13@15:24:20 Info (94)  [Common] InjuryListRequest request completed with duration of 00:00:00.0333869 
-07-27-13@15:24:20 Info (69)  [Common] PlanListRequest request completed with duration of 00:00:00.0348585 
-07-27-13@15:26:22 Info (71)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:26:22 Info (69)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:26:22 Info (71)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028334 
-07-27-13@15:26:22 Info (78)  [Common] PlanListRequest request submitted 
-07-27-13@15:26:22 Info (64)  [Common] InjuryListRequest request submitted 
-07-27-13@15:26:22 Info (69)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0184629 
-07-27-13@15:26:22 Info (72)  [Common] SignListRequest request submitted 
-07-27-13@15:26:22 Info (72)  [Common] SignListRequest request completed with duration of 00:00:00.0040676 
-07-27-13@15:26:22 Info (78)  [Common] PlanListRequest request completed with duration of 00:00:00.0240053 
-07-27-13@15:26:22 Info (64)  [Common] InjuryListRequest request completed with duration of 00:00:00.0264064 
-07-27-13@15:27:20 Info (75)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:27:20 Info (72)  [Common] PlanListRequest request submitted 
-07-27-13@15:27:20 Info (64)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:27:20 Info (75)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041238 
-07-27-13@15:27:20 Info (94)  [Common] SignListRequest request submitted 
-07-27-13@15:27:20 Info (71)  [Common] InjuryListRequest request submitted 
-07-27-13@15:27:20 Info (94)  [Common] SignListRequest request completed with duration of 00:00:00.0024773 
-07-27-13@15:27:20 Info (64)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0166151 
-07-27-13@15:27:20 Info (72)  [Common] PlanListRequest request completed with duration of 00:00:00.0314517 
-07-27-13@15:27:20 Info (71)  [Common] InjuryListRequest request completed with duration of 00:00:00.0264456 
-07-27-13@15:27:53 Info (71)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:27:53 Info (98)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:27:53 Info (71)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0025916 
-07-27-13@15:27:53 Info (64)  [Common] PlanListRequest request submitted 
-07-27-13@15:27:53 Info (78)  [Common] SignListRequest request submitted 
-07-27-13@15:27:53 Info (72)  [Common] InjuryListRequest request submitted 
-07-27-13@15:27:53 Info (78)  [Common] SignListRequest request completed with duration of 00:00:00.0033979 
-07-27-13@15:27:53 Info (98)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0165710 
-07-27-13@15:27:53 Info (64)  [Common] PlanListRequest request completed with duration of 00:00:00.0269583 
-07-27-13@15:27:53 Info (72)  [Common] InjuryListRequest request completed with duration of 00:00:00.0283327 
-07-27-13@15:28:44 Info (98)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:28:44 Info (60)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:28:44 Info (60)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0025295 
-07-27-13@15:28:44 Info (94)  [Common] PlanListRequest request submitted 
-07-27-13@15:28:44 Info (71)  [Common] InjuryListRequest request submitted 
-07-27-13@15:28:44 Info (78)  [Common] SignListRequest request submitted 
-07-27-13@15:28:44 Info (78)  [Common] SignListRequest request completed with duration of 00:00:00.0023122 
-07-27-13@15:28:44 Info (98)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0180916 
-07-27-13@15:28:44 Info (94)  [Common] PlanListRequest request completed with duration of 00:00:00.0231789 
-07-27-13@15:28:44 Info (71)  [Common] InjuryListRequest request completed with duration of 00:00:00.0293920 
-07-27-13@15:30:48 Info (60)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:30:48 Info (94)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:30:48 Info (60)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039869 
-07-27-13@15:30:48 Info (78)  [Common] PlanListRequest request submitted 
-07-27-13@15:30:48 Info (54)  [Common] InjuryListRequest request submitted 
-07-27-13@15:30:48 Info (69)  [Common] SignListRequest request submitted 
-07-27-13@15:30:48 Info (69)  [Common] SignListRequest request completed with duration of 00:00:00.0042367 
-07-27-13@15:30:48 Info (94)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0212294 
-07-27-13@15:30:48 Info (54)  [Common] InjuryListRequest request completed with duration of 00:00:00.0245269 
-07-27-13@15:30:48 Info (78)  [Common] PlanListRequest request completed with duration of 00:00:00.0289966 
-07-27-13@15:35:11 Info (40)  [Common] PlanListRequest request submitted 
-07-27-13@15:35:11 Info (69)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:35:11 Info (50)  [Common] SignListRequest request submitted 
-07-27-13@15:35:11 Info (52)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:35:11 Info (50)  [Common] SignListRequest request completed with duration of 00:00:00.0028120 
-07-27-13@15:35:11 Info (60)  [Common] InjuryListRequest request submitted 
-07-27-13@15:35:11 Info (69)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040145 
-07-27-13@15:35:11 Info (52)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0258981 
-07-27-13@15:35:11 Info (40)  [Common] PlanListRequest request completed with duration of 00:00:00.0320130 
-07-27-13@15:35:11 Info (60)  [Common] InjuryListRequest request completed with duration of 00:00:00.0259267 
-07-27-13@15:39:45 Info (71)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:39:45 Info (40)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:39:45 Info (53)  [Common] PlanListRequest request submitted 
-07-27-13@15:39:45 Info (71)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0092098 
-07-27-13@15:39:45 Info (71)  [Common] InjuryListRequest request submitted 
-07-27-13@15:39:45 Info (64)  [Common] SignListRequest request submitted 
-07-27-13@15:39:45 Info (64)  [Common] SignListRequest request completed with duration of 00:00:00.0103793 
-07-27-13@15:39:45 Info (40)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0267665 
-07-27-13@15:39:45 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0352414 
-07-27-13@15:39:45 Info (71)  [Common] InjuryListRequest request completed with duration of 00:00:00.0294451 
-07-27-13@15:42:42 Info (71)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:42:42 Info (94)  [Common] PlanListRequest request submitted 
-07-27-13@15:42:42 Info (78)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:42:42 Info (78)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038249 
-07-27-13@15:42:42 Info (56)  [Common] InjuryListRequest request submitted 
-07-27-13@15:42:42 Info (55)  [Common] SignListRequest request submitted 
-07-27-13@15:42:42 Info (55)  [Common] SignListRequest request completed with duration of 00:00:00.0047048 
-07-27-13@15:42:42 Info (71)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0192094 
-07-27-13@15:42:42 Info (94)  [Common] PlanListRequest request completed with duration of 00:00:00.0290926 
-07-27-13@15:42:42 Info (56)  [Common] InjuryListRequest request completed with duration of 00:00:00.0266750 
-07-27-13@15:43:00 Info (51)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:43:00 Info (72)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:43:00 Info (60)  [Common] PlanListRequest request submitted 
-07-27-13@15:43:00 Info (72)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0046249 
-07-27-13@15:43:00 Info (69)  [Common] InjuryListRequest request submitted 
-07-27-13@15:43:00 Info (56)  [Common] SignListRequest request submitted 
-07-27-13@15:43:00 Info (56)  [Common] SignListRequest request completed with duration of 00:00:00.0044799 
-07-27-13@15:43:00 Info (51)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0265808 
-07-27-13@15:43:00 Info (60)  [Common] PlanListRequest request completed with duration of 00:00:00.0251191 
-07-27-13@15:43:00 Info (69)  [Common] InjuryListRequest request completed with duration of 00:00:00.0290729 
-07-27-13@15:49:10 Info (98)  [Common] EquipmentListRequest request submitted 
-07-27-13@15:49:10 Info (98)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0077355 
-07-27-13@15:49:10 Info (52)  [Common] VideoListRequest request submitted 
-07-27-13@15:49:10 Info (69)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:49:10 Info (52)  [Common] VideoListRequest request completed with duration of 00:00:00.0024590 
-07-27-13@15:49:10 Info (55)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:49:10 Info (69)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0024675 
-07-27-13@15:49:10 Info (60)  [Common] PlanListRequest request submitted 
-07-27-13@15:49:10 Info (55)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0138798 
-07-27-13@15:49:10 Info (54)  [Common] SignListRequest request submitted 
-07-27-13@15:49:10 Info (55)  [Common] CauseListRequest request submitted 
-07-27-13@15:49:10 Info (54)  [Common] SignListRequest request completed with duration of 00:00:00.0023577 
-07-27-13@15:49:10 Info (55)  [Common] CauseListRequest request completed with duration of 00:00:00.0020905 
-07-27-13@15:49:10 Info (94)  [Common] InjuryListRequest request submitted 
-07-27-13@15:49:10 Info (94)  [Common] InjuryListRequest request completed with duration of 00:00:00.0203968 
-07-27-13@15:49:10 Info (60)  [Common] PlanListRequest request completed with duration of 00:00:00.0320135 
-07-27-13@15:49:14 Info (98)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:49:14 Info (64)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:49:14 Info (53)  [Common] PlanListRequest request submitted 
-07-27-13@15:49:14 Info (60)  [Common] SignListRequest request submitted 
-07-27-13@15:49:14 Info (64)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0086761 
-07-27-13@15:49:14 Info (60)  [Common] SignListRequest request completed with duration of 00:00:00.0033938 
-07-27-13@15:49:14 Info (50)  [Common] InjuryListRequest request submitted 
-07-27-13@15:49:14 Info (98)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0175049 
-07-27-13@15:49:14 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0290413 
-07-27-13@15:49:14 Info (50)  [Common] InjuryListRequest request completed with duration of 00:00:00.0279672 
-07-27-13@15:50:33 Info (64)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:50:33 Info (98)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:50:33 Info (98)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0046401 
-07-27-13@15:50:33 Info (71)  [Common] PlanListRequest request submitted 
-07-27-13@15:50:33 Info (50)  [Common] InjuryListRequest request submitted 
-07-27-13@15:50:34 Info (64)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0154465 
-07-27-13@15:50:34 Info (69)  [Common] SignListRequest request submitted 
-07-27-13@15:50:34 Info (69)  [Common] SignListRequest request completed with duration of 00:00:00.0038758 
-07-27-13@15:50:34 Info (71)  [Common] PlanListRequest request completed with duration of 00:00:00.0216399 
-07-27-13@15:50:34 Info (50)  [Common] InjuryListRequest request completed with duration of 00:00:00.0328501 
-07-27-13@15:51:50 Info (78)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:51:50 Info (53)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:51:50 Info (53)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0030378 
-07-27-13@15:51:50 Info (53)  [Common] PlanListRequest request submitted 
-07-27-13@15:51:50 Info (40)  [Common] InjuryListRequest request submitted 
-07-27-13@15:51:50 Info (52)  [Common] SignListRequest request submitted 
-07-27-13@15:51:50 Info (78)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0198296 
-07-27-13@15:51:50 Info (52)  [Common] SignListRequest request completed with duration of 00:00:00.0062652 
-07-27-13@15:51:50 Info (40)  [Common] InjuryListRequest request completed with duration of 00:00:00.0253257 
-07-27-13@15:51:50 Info (53)  [Common] PlanListRequest request completed with duration of 00:00:00.0309948 
-07-27-13@15:52:22 Info (51)  [Common] ExecerciseListRequest request submitted 
-07-27-13@15:52:22 Info (53)  [Common] BodyRegionListRequest request submitted 
-07-27-13@15:52:22 Info (72)  [Common] PlanListRequest request submitted 
-07-27-13@15:52:22 Info (53)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0024541 
-07-27-13@15:52:22 Info (69)  [Common] InjuryListRequest request submitted 
-07-27-13@15:52:22 Info (40)  [Common] SignListRequest request submitted 
-07-27-13@15:52:22 Info (51)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0222173 
-07-27-13@15:52:22 Info (40)  [Common] SignListRequest request completed with duration of 00:00:00.0025608 
-07-27-13@15:52:22 Info (72)  [Common] PlanListRequest request completed with duration of 00:00:00.0350714 
-07-27-13@15:52:22 Info (69)  [Common] InjuryListRequest request completed with duration of 00:00:00.0299087 
+07-27-13@19:00:16 Info (179)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:00:16 Info (176)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:00:16 Info (179)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040266 
+07-27-13@19:00:16 Info (187)  [Common] PlanListRequest request submitted 
+07-27-13@19:00:16 Info (186)  [Common] InjuryListRequest request submitted 
+07-27-13@19:00:16 Info (180)  [Common] SignListRequest request submitted 
+07-27-13@19:00:16 Info (180)  [Common] SignListRequest request completed with duration of 00:00:00.0036045 
+07-27-13@19:00:16 Info (176)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0188167 
+07-27-13@19:00:16 Info (187)  [Common] PlanListRequest request completed with duration of 00:00:00.0269052 
+07-27-13@19:00:16 Info (186)  [Common] InjuryListRequest request completed with duration of 00:00:00.0260583 
+07-27-13@19:00:43 Info (171)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:00:43 Info (187)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:00:43 Info (171)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0029320 
+07-27-13@19:00:43 Info (171)  [Common] PlanListRequest request submitted 
+07-27-13@19:00:43 Info (187)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0185459 
+07-27-13@19:00:43 Info (171)  [Common] PlanListRequest request completed with duration of 00:00:00.0230294 
+07-27-13@19:00:59 Info (187)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:00:59 Info (168)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:00:59 Info (187)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0027531 
+07-27-13@19:00:59 Info (177)  [Common] PlanListRequest request submitted 
+07-27-13@19:00:59 Info (182)  [Common] SignListRequest request submitted 
+07-27-13@19:00:59 Info (172)  [Common] InjuryListRequest request submitted 
+07-27-13@19:00:59 Info (182)  [Common] SignListRequest request completed with duration of 00:00:00.0036665 
+07-27-13@19:00:59 Info (168)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0162582 
+07-27-13@19:00:59 Info (177)  [Common] PlanListRequest request completed with duration of 00:00:00.0258455 
+07-27-13@19:00:59 Info (172)  [Common] InjuryListRequest request completed with duration of 00:00:00.0276531 
+07-27-13@19:02:56 Info (168)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:02:56 Info (167)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:02:56 Info (168)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028923 
+07-27-13@19:02:56 Info (188)  [Common] PlanListRequest request submitted 
+07-27-13@19:02:56 Info (159)  [Common] InjuryListRequest request submitted 
+07-27-13@19:02:56 Info (178)  [Common] SignListRequest request submitted 
+07-27-13@19:02:56 Info (178)  [Common] SignListRequest request completed with duration of 00:00:00.0036571 
+07-27-13@19:02:56 Info (167)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0183384 
+07-27-13@19:02:56 Info (188)  [Common] PlanListRequest request completed with duration of 00:00:00.0243766 
+07-27-13@19:02:56 Info (159)  [Common] InjuryListRequest request completed with duration of 00:00:00.0271971 
+07-27-13@19:03:00 Info (181)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:03:00 Info (158)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:03:00 Info (158)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0034353 
+07-27-13@19:03:00 Info (169)  [Common] PlanListRequest request submitted 
+07-27-13@19:03:00 Info (187)  [Common] InjuryListRequest request submitted 
+07-27-13@19:03:00 Info (173)  [Common] SignListRequest request submitted 
+07-27-13@19:03:00 Info (181)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0195878 
+07-27-13@19:03:00 Info (173)  [Common] SignListRequest request completed with duration of 00:00:00.0041859 
+07-27-13@19:03:00 Info (169)  [Common] PlanListRequest request completed with duration of 00:00:00.0272412 
+07-27-13@19:03:00 Info (187)  [Common] InjuryListRequest request completed with duration of 00:00:00.0255144 
+07-27-13@19:07:27 Info (168)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:07:27 Info (178)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:07:27 Info (171)  [Common] PlanListRequest request submitted 
+07-27-13@19:07:27 Info (167)  [Common] SignListRequest request submitted 
+07-27-13@19:07:27 Info (178)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0075481 
+07-27-13@19:07:27 Info (177)  [Common] InjuryListRequest request submitted 
+07-27-13@19:07:27 Info (167)  [Common] SignListRequest request completed with duration of 00:00:00.0076556 
+07-27-13@19:07:27 Info (168)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0279601 
+07-27-13@19:07:27 Info (171)  [Common] PlanListRequest request completed with duration of 00:00:00.0360923 
+07-27-13@19:07:27 Info (177)  [Common] InjuryListRequest request completed with duration of 00:00:00.0283648 
+07-27-13@19:07:30 Info (180)  [Common] BodyRegionListRequest request submitted 
+07-27-13@19:07:30 Info (183)  [Common] ExecerciseListRequest request submitted 
+07-27-13@19:07:30 Info (180)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0024599 
+07-27-13@19:07:30 Info (181)  [Common] PlanListRequest request submitted 
+07-27-13@19:07:30 Info (186)  [Common] SignListRequest request submitted 
+07-27-13@19:07:30 Info (170)  [Common] InjuryListRequest request submitted 
+07-27-13@19:07:30 Info (186)  [Common] SignListRequest request completed with duration of 00:00:00.0050587 
+07-27-13@19:07:30 Info (183)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0174719 
+07-27-13@19:07:30 Info (181)  [Common] PlanListRequest request completed with duration of 00:00:00.0274920 
+07-27-13@19:07:30 Info (170)  [Common] InjuryListRequest request completed with duration of 00:00:00.0285326 
