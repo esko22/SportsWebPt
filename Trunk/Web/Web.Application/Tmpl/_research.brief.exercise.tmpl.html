@@ -23,6 +23,17 @@
                         <label><strong>Description: </strong><span data-bind="text: description"></span></label>
                     </div>
                 </div>
+                        <div class="row-fluid">
+            <h3>body Regions</h3>
+            <table class="table table-striped">
+                <tbody data-bind="foreach: bodyRegions">
+                    <tr>
+                        <td data-bind="text: id"></td>
+                    </tr>
+                </tbody>            
+            </table>
+        </div>
+
                 <div>
                     <a class="btn btn-primary" data-bind="attr: { href: '/research/exercise/' + pageName() }">Learn / Watch More >></a>
                 </div>

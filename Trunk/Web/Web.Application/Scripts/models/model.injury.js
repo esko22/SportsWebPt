@@ -1,4 +1,4 @@
-﻿define('model.injury', ['backbone', 'config', 'model.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region'],
+﻿define('model.injury', ['backbone', 'config', 'model.injury.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region'],
     function (backbone, config, Plan, Cause, Sign, Symptom, BodyRegion) {
         var
             injury = backbone.RelationalModel.extend({

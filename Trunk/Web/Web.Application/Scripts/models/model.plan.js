@@ -1,4 +1,4 @@
-﻿define('model.plan3', ['backbone', 'config', 'model.exercise', 'model.exercise.collection','model.body.region', 'model.body.region.collection'],
+﻿define('model.plan', ['backbone', 'config', 'model.plan.exercise', 'model.exercise.collection', 'model.body.region', 'model.body.region.collection'],
     function (backbone, config, Exercise, ExerciseCollection, BodyRegion, BodyRegionCollection) {
         var
             plan = backbone.RelationalModel.extend({
@@ -22,8 +22,8 @@
 
     });
 
-define('model.plan', ['backbone', 'config', 'model.exercise', 'model.exercise.collection', 'model.body.region', 'model.body.region.collection'],
-    function (backbone, config, Exercise, ExerciseCollection, BodyRegion, BodyRegionCollection) {
+define('model.injury.plan', ['backbone', 'config', 'model.plan.exercise', 'model.exercise.collection'],
+    function (backbone, config, Exercise, ExerciseCollection) {
         var
             plan = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.plans,
@@ -33,18 +33,13 @@ define('model.plan', ['backbone', 'config', 'model.exercise', 'model.exercise.co
                     key: 'exercises',
                     relatedModel: Exercise,
                     collectionType: ExerciseCollection
-                },
-                {
-                    type: backbone.HasMany,
-                    key: 'bodyRegions',
-                    relatedModel: BodyRegion,
-                    collectionType: BodyRegionCollection
                 }]
             });
 
         return plan;
 
     });
+
 
 define('model.plan.collection', ['backbone', 'model.plan', 'config'],
     function (backbone, component, config) {
