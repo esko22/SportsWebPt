@@ -5,21 +5,24 @@
         var exerciseListTemplate = 'admin.exercise.list',
             exerciseCollection = new ExerciseCollection(),
             exercises = kb.collectionObservable(exerciseCollection),
-            editExercise = function (data, event) {
+            editExercise = function(data, event) {
             },
-            addExercise = function (data, event) {
+            addExercise = function(data, event) {
             },
-            onSuccessfulChangeCallback = function () {
+            onSuccessfulChangeCallback = function() {
+                exerciseCollection.fetch();
+            },
+            init = function() {
                 exerciseCollection.fetch();
             };
 
-        exerciseCollection.fetch();
         
         return {
             exercises: exercises,
             exerciseListTemplate: exerciseListTemplate,
             editExercise: editExercise,
             addExercise: addExercise,
-            onSuccessfulChangeCallback: onSuccessfulChangeCallback
+            onSuccessfulChangeCallback: onSuccessfulChangeCallback,
+            init : init
         };
     });

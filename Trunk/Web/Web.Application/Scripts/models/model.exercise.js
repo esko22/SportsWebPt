@@ -120,8 +120,8 @@ define('model.admin.exercise.collection', ['backbone', 'model.admin.exercise', '
 
 
 
-define('model.admin.plan.exercise', ['backbone', 'config', 'model.admin.equipment', 'model.admin.video', 'model.admin.equipment.collection', 'model.admin.video.collection', 'model.admin.body.region', 'model.admin.body.region.collection'],
-    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection) {
+define('model.admin.plan.exercise', ['backbone', 'config'],
+    function (backbone, config) {
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminExercises,
@@ -130,35 +130,13 @@ define('model.admin.plan.exercise', ['backbone', 'config', 'model.admin.equipmen
                     'difficulty': '',
                     'description': '',
                     'duration': '',
-                    'tags': '',
-                    'pageName': '',
                     'sets': '',
                     'repititions': '',
                     'refExercise': '',
                     'perDay': '',
                     'perWeek': '',
                     'exerciseId' : ''
-                },
-                relations: [
-                    {
-                        type: backbone.HasMany,
-                        key: 'equipment',
-                        relatedModel: Equipment,
-                        collectionType: EquipmentCollection
-                    },
-                    {
-                        type: backbone.HasMany,
-                        key: 'bodyRegions',
-                        relatedModel: BodyRegion,
-                        collectionType: BodyRegionCollection
-                    },
-                    {
-                        type: backbone.HasMany,
-                        key: 'videos',
-                        relatedModel: Video,
-                        collectionType: VideoCollection
-                    }
-                ]
+                }
             });
 
         return exercise;

@@ -63,11 +63,12 @@
             
             performFilter();
         };
-            
 
-        bodyRegionCollection.fetch();
-        planCollection.fetch();
-        filteredPlans.collection(planCollection);
+        var init = function() {
+            bodyRegionCollection.fetch();
+            planCollection.fetch();
+            filteredPlans.collection(planCollection);
+        };
 
         return {
             bodyRegions: bodyRegions,
@@ -76,6 +77,7 @@
             onBodyRegionFilter: onBodyRegionFilter,
             briefPlanTemplate: briefPlanTemplate,
             onReset: onReset,
-            categories : categories
+            categories: categories,
+            init : init
         };
     });

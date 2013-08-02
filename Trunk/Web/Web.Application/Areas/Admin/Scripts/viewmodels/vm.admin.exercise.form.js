@@ -159,9 +159,11 @@
             unhighlight: bh.popoverUnhighlight
         });
 
-        videoCollection.fetch();
-        equipmentCollection.fetch();
-        bodyRegionCollection.fetch();
+        var init = function() {
+            videoCollection.fetch();
+            equipmentCollection.fetch();
+            bodyRegionCollection.fetch();
+        };
         
         return {
             saveChanges: saveChanges,
@@ -181,6 +183,7 @@
             tags: tags,
             pageName: pageName,
             suscribe: suscribe,
-            addExercise: addExercise
+            addExercise: addExercise,
+            init : init
         };
     });

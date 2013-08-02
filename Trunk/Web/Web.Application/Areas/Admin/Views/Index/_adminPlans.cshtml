@@ -21,7 +21,7 @@
     <div class="modal-body well edit-modal-body">
               <form class="form-horizontal" data-bind="validateForm: planValidationOptions" id="admin-plan-form">
                     <div class="row-fluid">
-                        <div class="span6">
+                        <div class="span5">
                             <div class="control-group">
                                 <label class="control-label" for="inputName">Name</label>
                                 <div class="controls">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="span6">
+                        <div class="span7">
                             <div class="control-group">
                                 <label class="control-label" for="inputBodyRegion">BodyRegions</label>
                                 <div class="controls">
@@ -78,19 +78,29 @@
                             <div class="control-group">
                                 <label>Exercises</label>
                                 <div>
-                                    <button class="btn btn-primary" data-bind="click: addNewExercise">Add</button>
+                                    <button class="btn btn-primary" id="btn-admin-add-plan-exercise"data-bind="click: addNewExercise">Add</button>
                                 </div>
-                                <div data-bind="foreach:exercises">
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <select id="inputPlanExercise" name="planBodyRegions" data-bind="options: $parent.availableExercises, optionsText: 'name', value: refExercise, optionsValue:'id'" ></select>
-                                            <input type="text" id="inputSets" name="sets" data-bind="value: sets" placeholder="sets">
-                                            <input type="text" id="inputReps" name="perday" data-bind="value: repititions" placeholder="reps">
-                                            <input type="text" id="inputWeek" name="perweek" data-bind="value: perWeek" placeholder="weeks">
-                                            <input type="text" id="inputDay" name="perday" data-bind="value: perDay" placeholder="days">
-                                            <button class="btn btn-primary" data-bind="click: $parent.removeExercise">Remove</button>
-                                        </div>
-                                    </div>                                    
+                                <div>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th>Name</th>
+                                            <th>Sets</th>
+                                            <th>Reps</th>
+                                            <th>Per Day</th>
+                                            <th>Per Week</th>
+                                            <th>Action</th>
+                                        </thead>
+                                        <tbody data-bind="foreach: exercises">
+                                            <tr>
+                                                <td><select id="inputPlanExercise" name="adminPlanExercises" data-bind="options: $parent.availableExercises, optionsText: 'name', value: refExercise, optionsValue: 'id'" ></select></td>
+                                                <td><input type="text" class="input-mini" id="inputSets" name="sets" data-bind="value: sets" placeholder="sets"></td>
+                                                <td><input type="text" class="input-mini" id="inputReps" name="perday" data-bind="value: repititions" placeholder="reps"></td>
+                                                <td><input type="text" class="input-mini" id="inputWeek" name="perweek" data-bind="value: perWeek" placeholder="weeks"></td>
+                                                <td><input type="text" class="input-mini" id="inputDay" name="perday" data-bind="value: perDay" placeholder="days"></td>
+                                                <td><button class="btn btn-primary" data-bind="click: $parent.removeExercise">Remove</button></td>
+                                            </tr>
+                                        </tbody>            
+                                    </table>
                                 </div>
                             </div>
                         </div>

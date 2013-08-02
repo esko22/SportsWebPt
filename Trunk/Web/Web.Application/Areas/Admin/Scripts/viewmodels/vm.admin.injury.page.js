@@ -12,8 +12,14 @@
             kb.applyBindings(injuries, $('#admin-injury-list').get(0));
         };
 
+        var init = function() {
+            injuries.init();
+            form.init();
+        };
+        
         return {
             bindViewModels: bindViewModels,
+            init : init
         };
 
     })

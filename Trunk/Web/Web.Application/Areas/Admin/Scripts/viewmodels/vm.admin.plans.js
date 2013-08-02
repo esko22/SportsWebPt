@@ -5,17 +5,18 @@
         var planListTemplate = 'admin.plan.list',
             planCollection = new PlanCollection(),
             plans = kb.collectionObservable(planCollection),
-            bindSelectedPlan = function (data, event) {
+            bindSelectedPlan = function(data, event) {
             },
-            editPlan = function (data, event) {
+            editPlan = function(data, event) {
             },
-            addPlan = function (data, event) {
+            addPlan = function(data, event) {
             },
-        onSuccessfulChangeCallback = function () {
-            planCollection.fetch();
-        };
-
-        planCollection.fetch();
+            onSuccessfulChangeCallback = function() {
+                planCollection.fetch();
+            },
+            init = function() {
+                planCollection.fetch();
+            };
 
         return {
             plans: plans,
@@ -23,6 +24,7 @@
             bindSelectedPlan: bindSelectedPlan,
             onSuccessfulChangeCallback: onSuccessfulChangeCallback,
             addPlan: addPlan,
-            editPlan : editPlan
+            editPlan: editPlan,
+            init : init
         };
     });

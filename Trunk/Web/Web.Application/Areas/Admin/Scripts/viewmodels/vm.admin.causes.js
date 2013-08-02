@@ -41,14 +41,16 @@
             unhighlight: bh.popoverUnhighlight
         });
 
-
-        causeCollection.fetch();
-
+        var init = function() {
+            causeCollection.fetch();
+        };
+        
         return {
             causes: causes,
             selectedCause: selectedCause,
             saveChanges: saveChanges,
             bindSelectedCause: bindSelectedCause,
-            causeValidationOptions: causeValidationOptions
+            causeValidationOptions: causeValidationOptions,
+            init : init
         };
     });

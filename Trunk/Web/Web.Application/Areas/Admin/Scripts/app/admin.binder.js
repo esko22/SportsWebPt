@@ -1,9 +1,17 @@
 ﻿define('admin.binder',
-    ['jquery', 'knockback', 'logger'],
-    function ($, kb, logger) {
-        var bind = function () {
-                logger.log('admin binding bound');
-            };
+    ['jquery', 'knockback', 'logger', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page', 'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page'],
+    function ($, kb, logger, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM) {
+        var bind = function() {
+            logger.log('admin binding bound');
+
+            ExerciseVM.bindViewModels();
+            PlanVM.bindViewModels();
+            InjuryVM.bindViewModels();
+            kb.applyBindings(VideoVM, $('#admin-video-panel').get(0));
+            kb.applyBindings(SignVM, $('#admin-sign-panel').get(0));
+            kb.applyBindings(CauseVM, $('#admin-cause-panel').get(0));
+            kb.applyBindings(EquipmentVM, $('#admin-equipment-panel').get(0));
+        };
 
         return {
             bind: bind

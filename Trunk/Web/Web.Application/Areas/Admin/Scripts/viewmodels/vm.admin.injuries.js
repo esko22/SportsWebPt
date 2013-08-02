@@ -5,17 +5,20 @@
         var injuryListTemplate = 'admin.injury.list',
             injuryCollection = new InjuryCollection(),
             injuries = kb.collectionObservable(injuryCollection),
-            editInjury = function (data, event) {
+            editInjury = function(data, event) {
             },
-            addInjury = function (data, event) {
+            addInjury = function(data, event) {
             },
-            bindSelectedInjury = function (data, event) {
+            bindSelectedInjury = function(data, event) {
             },
-        onSuccessfulChangeCallback = function () {
-            injuryCollection.fetch();
-        };
+            onSuccessfulChangeCallback = function() {
+                injuryCollection.fetch();
+            },
+            init = function() {
+                injuryCollection.fetch();
+            };
 
-        injuryCollection.fetch();
+
 
         return {
             injuries: injuries,
@@ -23,6 +26,7 @@
             bindSelectedInjury: bindSelectedInjury,
             onSuccessfulChangeCallback: onSuccessfulChangeCallback,
             addInjury: addInjury,
-            editInjury : editInjury
+            editInjury: editInjury,
+            init : init
         };
     });

@@ -26,6 +26,7 @@
             router.on('route:plans', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                planVm.init();
                 kb.applyBindings(planVm, $('#research-plan-panel').get(0));
                 presenter.transitionTo($('#research-plan-panel'), '', '');
             });
@@ -33,6 +34,7 @@
             router.on('route:injuries', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                injuryVm.init();
                 kb.applyBindings(injuryVm, $('#research-injury-panel').get(0));
                 presenter.transitionTo($('#research-injury-panel'), '', '');
             });
@@ -40,6 +42,7 @@
             router.on('route:exercises', function () {
                 $('.view').hide();
                 $('.active').removeClass('active');
+                exerciseVm.init();
                 kb.applyBindings(exerciseVm, $('#research-exercise-panel').get(0));
                 presenter.transitionTo($('#research-exercise-panel'), '', '');
             });

@@ -21,16 +21,19 @@
             filteredExerciseCollection.reset(exerciseCollection.models);
         };
 
-        bodyRegionCollection.fetch();
-        exerciseCollection.fetch({
-            success: onReset
-        });
+        var init = function() {
+            bodyRegionCollection.fetch();
+            exerciseCollection.fetch({
+                success: onReset
+            });
+        };
 
         return {
             bodyRegions: bodyRegions,
             filteredExercises: filteredExercises,
             onFilterSelect: onFilterSelect,
             briefExerciseTemplate: briefExerciseTemplate,
-            onReset : onReset
+            onReset: onReset,
+            init: init
         };
     });

@@ -1,5 +1,5 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.plan.exercise.collection', 'model.admin.body.region.collection', 'model.admin.plan.exercise'],
+    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.exercise.collection', 'model.body.region.collection', 'model.admin.plan.exercise'],
     function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
             var exerciseCollection = new ExerciseCollection(),
                bodyRegionCollection = new BodyRegionCollection(),
@@ -154,8 +154,13 @@
                unhighlight: bh.popoverUnhighlight
            });
 
+
+
+
+            var init = function () {
                 exerciseCollection.fetch();
                 bodyRegionCollection.fetch();
+            };
         
                 return {
                     saveChanges: saveChanges,
@@ -177,7 +182,8 @@
                     addNewExercise: addNewExercise,
                     removeExercise: removeExercise,
                     addPlan: addPlan,
-                    editPlan: editPlan
+                    editPlan: editPlan,
+                    init : init
                 };
 
     });

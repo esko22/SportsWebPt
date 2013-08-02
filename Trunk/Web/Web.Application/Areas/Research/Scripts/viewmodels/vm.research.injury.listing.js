@@ -68,13 +68,15 @@
             
             performFilter();
         };
-            
 
-        bodyRegionCollection.fetch();
-        injuryCollection.fetch();
-        signCollection.fetch();
-        filteredInjuries.collection(injuryCollection);
 
+        var init = function() {
+            bodyRegionCollection.fetch();
+            injuryCollection.fetch();
+            signCollection.fetch();
+            filteredInjuries.collection(injuryCollection);
+        };
+        
         return {
             bodyRegions: bodyRegions,
             filteredInjuries: filteredInjuries,
@@ -82,6 +84,7 @@
             onBodyRegionFilter: onBodyRegionFilter,
             briefInjuryTemplate: briefInjuryTemplate,
             onReset: onReset,
-            signs : signs
+            signs: signs,
+            init: init
         };
     });

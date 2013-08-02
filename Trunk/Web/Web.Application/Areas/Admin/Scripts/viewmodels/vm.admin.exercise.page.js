@@ -11,8 +11,14 @@
             kb.applyBindings(exercises, $('#admin-exercise-list').get(0));
         };
 
+        var init = function() {
+            exercises.init();
+            form.init();
+        };
+
         return {
             bindViewModels: bindViewModels,
+            init : init
         };
 
     })

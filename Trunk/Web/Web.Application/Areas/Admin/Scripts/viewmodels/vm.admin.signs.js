@@ -51,15 +51,17 @@
             unhighlight: bh.popoverUnhighlight
         });
 
-
-        signCollection.fetch();
-
+        var init = function() {
+            signCollection.fetch();
+        };
+        
         return {
             signs: signs,
             selectedSign: selectedSign,
             saveChanges: saveChanges,
             bindSelectedSign: bindSelectedSign,
             signValidationOptions: signValidationOptions,
-            availableCategories: availableCategories
+            availableCategories: availableCategories,
+            init : init
         };
     });

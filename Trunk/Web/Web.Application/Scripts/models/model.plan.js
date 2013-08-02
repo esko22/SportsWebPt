@@ -22,8 +22,8 @@
 
     });
 
-define('model.injury.plan', ['backbone', 'config', 'model.plan.exercise', 'model.exercise.collection'],
-    function (backbone, config, Exercise, ExerciseCollection) {
+define('model.injury.plan', ['backbone', 'config', 'model.plan.exercise'],
+    function (backbone, config, Exercise) {
         var
             plan = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.plans,
@@ -31,8 +31,7 @@ define('model.injury.plan', ['backbone', 'config', 'model.plan.exercise', 'model
                 relations: [{
                     type: backbone.HasMany,
                     key: 'exercises',
-                    relatedModel: Exercise,
-                    collectionType: ExerciseCollection
+                    relatedModel: Exercise
                 }]
             });
 
@@ -53,8 +52,8 @@ define('model.plan.collection', ['backbone', 'model.plan', 'config'],
 
     });
 
-define('model.admin.plan', ['backbone', 'config', 'model.admin.plan.exercise', 'model.admin.plan.exercise.collection', 'model.admin.body.region', 'model.admin.body.region.collection'],
-    function (backbone, config, Exercise, ExerciseCollection, BodyRegion, BodyRegionCollection) {
+define('model.admin.plan', ['backbone', 'config', 'model.admin.plan.exercise', 'model.admin.body.region'],
+    function (backbone, config, Exercise, BodyRegion) {
         var
             plan = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminPlans,
@@ -62,14 +61,12 @@ define('model.admin.plan', ['backbone', 'config', 'model.admin.plan.exercise', '
                 relations: [{
                     type: backbone.HasMany,
                     key: 'exercises',
-                    relatedModel: Exercise,
-                    collectionType: ExerciseCollection
+                    relatedModel: Exercise
                 },
                 {
                     type: backbone.HasMany,
                     key: 'bodyRegions',
-                    relatedModel: BodyRegion,
-                    collectionType: BodyRegionCollection
+                    relatedModel: BodyRegion
                 }]
             });
 
@@ -78,6 +75,31 @@ define('model.admin.plan', ['backbone', 'config', 'model.admin.plan.exercise', '
     });
 
 define('model.admin.plan.collection', ['backbone', 'model.admin.plan', 'config'],
+    function (backbone, component, config) {
+        var
+            componentCollection = backbone.Collection.extend({
+                model: component,
+                url: config.apiUris.adminPlans
+            });
+
+        return componentCollection;
+
+    });
+
+
+define('model.admin.injury.plan', ['backbone', 'config'],
+    function (backbone, config) {
+        var
+            plan = backbone.RelationalModel.extend({
+                urlRoot: config.apiUris.adminPlans,
+                idAttribute: 'id',
+            });
+
+        return plan;
+
+    });
+
+define('model.admin.injury.plan.collection', ['backbone', 'model.admin.injury.plan', 'config'],
     function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({

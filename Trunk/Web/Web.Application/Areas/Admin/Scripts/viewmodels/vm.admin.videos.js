@@ -75,15 +75,17 @@
             unhighlight: bh.popoverUnhighlight
         });
 
-
-        videoCollection.fetch();
-
+        var init = function() {
+            videoCollection.fetch();
+        };
+        
         return {
             videos: videos,
             videoListTemplate: videoListTemplate,
             selectedVideo: selectedVideo,
             saveChanges: saveChanges,
             bindSelectedVideo: bindSelectedVideo,
-            videoValidationOptions: videoValidationOptions
+            videoValidationOptions: videoValidationOptions,
+            init : init
         };
     });

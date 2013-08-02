@@ -75,15 +75,17 @@
             unhighlight: bh.popoverUnhighlight
         });
 
-
-        equipmentCollection.fetch();
-
+        var init = function() {
+            equipmentCollection.fetch();
+        };
+        
         return {
             equipment: equipment,
             equipmentListTemplate: equipmentListTemplate,
             selectedEquipment: selectedEquipment,
             saveChanges: saveChanges,
             bindSelectedEquipment: bindSelectedEquipment,
-            equipmentValidationOptions: equipmentValidationOptions
+            equipmentValidationOptions: equipmentValidationOptions,
+            init : init
         };
     });
