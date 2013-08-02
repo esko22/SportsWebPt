@@ -132,7 +132,6 @@ define('model.admin.plan.exercise', ['backbone', 'config'],
                     'duration': '',
                     'sets': '',
                     'repititions': '',
-                    'refExercise': '',
                     'perDay': '',
                     'perWeek': '',
                     'exerciseId' : ''

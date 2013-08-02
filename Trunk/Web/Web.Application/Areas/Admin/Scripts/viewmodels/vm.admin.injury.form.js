@@ -1,5 +1,5 @@
 ﻿define('vm.admin.injury.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.injury.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection'],
+    ['ko', 'underscore', 'knockback', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection'],
     function (ko, _, kb, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection) {
         var planCollection = new PlanCollection(),
            bodyRegionCollection = new BodyRegionCollection(),

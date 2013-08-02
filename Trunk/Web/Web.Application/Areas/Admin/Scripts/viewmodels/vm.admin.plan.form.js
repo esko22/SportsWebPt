@@ -1,5 +1,5 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.exercise.collection', 'model.body.region.collection', 'model.admin.plan.exercise'],
+    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.body.region.collection', 'model.admin.plan.exercise'],
     function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
             var exerciseCollection = new ExerciseCollection(),
                bodyRegionCollection = new BodyRegionCollection(),
@@ -47,7 +47,7 @@
                var exercise = new Exercise();
                exercise.set('sets', 1);
                exercise.set('repititions', 1);
-               exercise.set('refExercise', 2);
+               exercise.set('exerciseId', 2);
                exercise.set('perWeek', 1);
                exercise.set('perDay', 1);
                selectedPlan.get('exercises').add(exercise);
@@ -62,7 +62,6 @@
 
                _.each(data.exercises(), function (viewModel) {
                    var exercise = viewModel.model();
-                   exercise.set('refExercise', exercise.get('exerciseId'));
                    selectedPlan.get('exercises').push(exercise);
                    });
 
@@ -155,11 +154,9 @@
            });
 
 
-
-
             var init = function () {
-                exerciseCollection.fetch();
                 bodyRegionCollection.fetch();
+                exerciseCollection.fetch();
             };
         
                 return {

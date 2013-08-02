@@ -50,9 +50,9 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.exerciseId))
                   .ForMember(d => d.ExerciseId, opt =>
                       {
-                          //This is in place to get around weirdness in the admin section when adding exercises to plans 
-                          opt.Condition(s => s.refExercise > 0 );
-                          opt.MapFrom(s => s.refExercise);
+                          //This is in place to use planexercise id as id in the admin section when adding exercises to plans 
+                          opt.Condition(s => s.exerciseId > 0 );
+                          opt.MapFrom(s => s.exerciseId);
                       }); 
             Mapper.CreateMap<EquipmentDto, Equipment>();
             Mapper.CreateMap<Equipment, EquipmentDto>();

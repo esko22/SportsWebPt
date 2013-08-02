@@ -92,7 +92,7 @@
                                         </thead>
                                         <tbody data-bind="foreach: exercises">
                                             <tr>
-                                                <td><select id="inputPlanExercise" name="adminPlanExercises" data-bind="options: $parent.availableExercises, optionsText: 'name', value: refExercise, optionsValue: 'id'" ></select></td>
+                                                <td><select id="inputPlanExercise" name="adminPlanExercises" data-bind="options: $parent.availableExercises, optionsText: 'name', value: exerciseId, optionsValue: 'id'" ></select></td>
                                                 <td><input type="text" class="input-mini" id="inputSets" name="sets" data-bind="value: sets" placeholder="sets"></td>
                                                 <td><input type="text" class="input-mini" id="inputReps" name="perday" data-bind="value: repititions" placeholder="reps"></td>
                                                 <td><input type="text" class="input-mini" id="inputWeek" name="perweek" data-bind="value: perWeek" placeholder="weeks"></td>

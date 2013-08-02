@@ -18,8 +18,6 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int perDay { get; set; }
 
-        public int refExercise { get; set; }
-
         public int exerciseId { get; set; }
 
         #endregion
