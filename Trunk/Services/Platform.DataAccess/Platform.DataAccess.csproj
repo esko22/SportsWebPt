@@ -77,6 +77,7 @@
     <Compile Include="EntityConfiguration\BodyPartMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\SkeletonAreaConfiguration.cs" />
     <Compile Include="EntityConfiguration\SymptomConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SymptomRenderTypeConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoConfiguration.cs" />
     <Compile Include="EntityConfiguration\PlanConfiguration.cs" />

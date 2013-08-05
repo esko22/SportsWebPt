@@ -13,7 +13,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Description { get; set; }
 
-        public SymptomRenderType RenderType { get; set; }
+        public int RenderTypeId { get; set; }
+
+        public String RenderOptions { get; set; }
+
+        public virtual SymptomRenderType RenderType { get; set; }
 
         public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }  
 

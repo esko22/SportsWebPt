@@ -20,6 +20,12 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String renderType { get; set; }
 
+        [DataMember]
+        public String renderOptions { get; set; }
+
+        [DataMember]
+        public String renderTemplate { get; set; }
+
         #endregion
     }
 }

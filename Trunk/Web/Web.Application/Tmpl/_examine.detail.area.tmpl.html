@@ -7,9 +7,7 @@
                     <div class="span4">
                         <h4 style="margin-left: 20px; vertical-align: text-top;" data-bind="text: description"></h4>
                     </div>
-                    <div class="span8">
-                        <input data-bind="kendoSlider: givenResponse" class="balSlider" />
-                    </div>
+                    <div class="span8" data-bind="template: { name: renderTemplate(), data: $data }" ></div>
                 </div>
             </div>
         </div>

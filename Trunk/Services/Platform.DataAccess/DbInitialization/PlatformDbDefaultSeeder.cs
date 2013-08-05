@@ -33,7 +33,8 @@ namespace SportsWebPt.Platform.DataAccess
             var orientations = AddOrientations();
             var sides = AddSides();
             var skeletonareas = AddSkeletonAreas(regions, sides, orientations);
-            var symptoms = AddSymptoms();
+            var renderTypes = AddRenderTypes();
+            var symptoms = AddSymptoms(renderTypes);
             var bodyPartMartix = AddBodyPartsToAreas(skeletonareas,components);
             var symptomMatrixItems = BuildSymptomMatrix(symptoms, bodyPartMartix);
             var injuries = AddInjuries();
@@ -671,13 +672,30 @@ namespace SportsWebPt.Platform.DataAccess
             return bodyPartMatrixItems;
         }
 
-        private IEnumerable<Symptom> AddSymptoms()
+        private IList<SymptomRenderType> AddRenderTypes()
+        {
+            var renderTypes = new List<SymptomRenderType>
+                {
+                    new SymptomRenderType() {DefaultTemplate = "examine.radio.bool", RenderType = "RadioBoolean"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.slider.five", RenderType = "FiveScaleSlider"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.slider.ten", RenderType = "TenScaleSlider"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.dropdown", RenderType = "Dropdown"}
+                };
+
+            renderTypes.ForEach(p => _dbContext.SymptomRenderTypes.Add(p));
+            _dbContext.SaveChanges();
+
+            return renderTypes;
+        } 
+
+        private IEnumerable<Symptom> AddSymptoms(IList<SymptomRenderType> renderTypes)
         {
             var symptoms = new List<Symptom>()
                 {
-                    new Symptom() { Name = "Swelling", RenderType = SymptomRenderType.Slider, Description = "Puffy as shit"},
-                    new Symptom() { Name = "Pain", RenderType = SymptomRenderType.Slider, Description = "Hurts like shit"},
-                    new Symptom() { Name = "Bruising", RenderType = SymptomRenderType.Boolean, Description = "Is there visible brusing?"}
+                    new Symptom() { Name = "Swelling", RenderType = renderTypes[1], Description = "Rate level of swelling"},
+                    new Symptom() { Name = "Pain", RenderType = renderTypes[2], Description = "Rate level of pain"},
+                    new Symptom() { Name = "Bruising", RenderType = renderTypes[0], Description = "Visible Brusing"},
+                    new Symptom() { Name = "Duration", RenderType = renderTypes[3], Description = "Started"}
                 };
 
             symptoms.ForEach(u => _dbContext.Symptoms.Add(u));

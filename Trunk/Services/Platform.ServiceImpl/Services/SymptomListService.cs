@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-
+using ServiceStack.ServiceInterface.ServiceModel;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -23,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var symptoms = new List<Symptom>();
 
-                symptoms.AddRange(SkeletonUnitOfWork.SymptomRepo.GetAll());
+            symptoms.AddRange(SkeletonUnitOfWork.SymptomRepo.GetAll(new [] { "RenderType" }));
 
             var responseList = new List<SymptomDto>();
             Mapper.Map(symptoms, responseList);

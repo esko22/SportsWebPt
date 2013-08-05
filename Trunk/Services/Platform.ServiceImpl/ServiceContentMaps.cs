@@ -22,7 +22,9 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<Symptom, SymptomDto>()
-                  .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.RenderType.ToString()));
+                  .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.RenderType.RenderType))
+                  .ForMember(d => d.renderOptions, opt => opt.MapFrom(s => s.RenderOptions))
+                  .ForMember(d => d.renderTemplate, opt => opt.MapFrom(s => s.RenderType.DefaultTemplate));
             Mapper.CreateMap<SkeletonArea, SymptomaticRegionDto>()
                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.Orientation.Value))
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
@@ -40,7 +42,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                     .ForMember(d => d.symptomMatrixItemId, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.description, opt => opt.MapFrom(s => s.Symptom.Description))
                    .ForMember(d => d.name, opt => opt.MapFrom(s => s.Symptom.Name))
-                   .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.Symptom.RenderType))
+                  .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.Symptom.RenderType.RenderType))
+                  .ForMember(d => d.renderOptions, opt => opt.MapFrom(s => s.Symptom.RenderOptions))
+                  .ForMember(d => d.renderTemplate, opt => opt.MapFrom(s => s.Symptom.RenderType.DefaultTemplate))
                    .ForMember(d => d.id, opt => opt.MapFrom(s => s.Symptom.Id));
             Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
                    .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now));

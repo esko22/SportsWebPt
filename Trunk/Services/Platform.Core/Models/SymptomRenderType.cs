@@ -2,11 +2,16 @@
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public enum SymptomRenderType
+    public class SymptomRenderType
     {
-        RadioButtons,
-        Slider,
-        Dropdown,
-        Boolean
+        #region Properties
+
+        public int Id { get; set; }
+
+        public String RenderType { get; set; }
+
+        public String DefaultTemplate { get; set; }
+
+        #endregion
     }
 }

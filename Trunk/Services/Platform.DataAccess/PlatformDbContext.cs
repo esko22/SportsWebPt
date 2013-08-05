@@ -38,7 +38,8 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<PlanExerciseMatrixItem> PlansExceriseMatrixItems { get; set; }
         public DbSet<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionMatrixItems { get; set; }
         public DbSet<PlanBodyRegionMatrixItem> PlanBodyRegionMatrixItems { get; set; }
-        public DbSet<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; } 
+        public DbSet<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; }
+        public DbSet<SymptomRenderType> SymptomRenderTypes { get; set; }
 
         #endregion
 
@@ -91,12 +92,7 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ExerciseBodyRegionMatrixConfiguration());
             modelBuilder.Configurations.Add(new InjuryBodyRegionMatrixConfiguration());
             modelBuilder.Configurations.Add(new PlanBodyRegionMatrixConfiguration());
-
-            //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.ImmediateResults);
-            //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.PendingVariants);
-            //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.CalculatedResults);
-            //modelBuilder.Entity<AnnotationJob>().Ignore(p => p.QueriedVariants);
-
+            modelBuilder.Configurations.Add(new SymptomRenderTypeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
