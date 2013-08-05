@@ -677,7 +677,7 @@ namespace SportsWebPt.Platform.DataAccess
                 {
                     new Symptom() { Name = "Swelling", RenderType = SymptomRenderType.Slider, Description = "Puffy as shit"},
                     new Symptom() { Name = "Pain", RenderType = SymptomRenderType.Slider, Description = "Hurts like shit"},
-                    new Symptom() { Name = "Bruising", RenderType = SymptomRenderType.Slider, Description = "Looks like shit"}
+                    new Symptom() { Name = "Bruising", RenderType = SymptomRenderType.Boolean, Description = "Is there visible brusing?"}
                 };
 
             symptoms.ForEach(u => _dbContext.Symptoms.Add(u));

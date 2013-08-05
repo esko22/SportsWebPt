@@ -7,7 +7,6 @@ namespace SportsWebPt.Platform.Core.Models
         RadioButtons,
         Slider,
         Dropdown,
-        Boolean,
-        Listbox
+        Boolean
     }
 }
