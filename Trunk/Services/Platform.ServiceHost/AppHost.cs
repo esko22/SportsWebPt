@@ -134,7 +134,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<CauseRequest>("causes", "POST")
                 .Add<InjuryListRequest>("injuries")
                 .Add<InjuryRequest>("injuries/{id}")
-                .Add<InjuryRequest>("injuries", "POST");
+                .Add<InjuryRequest>("injuries", "POST")
+                .Add<BodyPartMatrixListRequest>("bodypartmatrix");
         }
 
         private void ConfigureContainer(Container container)

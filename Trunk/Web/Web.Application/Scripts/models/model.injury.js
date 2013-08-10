@@ -46,8 +46,8 @@ define('model.injury.collection', ['backbone', 'model.injury', 'config'],
 
     });
 
-define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region'],
-    function (backbone, config, Plan, Cause, Sign, BodyRegion) {
+define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region','model.injury.symptom'],
+    function (backbone, config, Plan, Cause, Sign, BodyRegion, InjurySymptom) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminInjuries,
@@ -70,6 +70,11 @@ define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.a
                     type: backbone.HasMany,
                     key: 'bodyRegions',
                     relatedModel: BodyRegion
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'injurySymptoms',
+                    relatedModel: InjurySymptom
                 }]
             });
 

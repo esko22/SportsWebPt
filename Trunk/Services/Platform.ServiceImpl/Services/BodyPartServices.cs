@@ -80,4 +80,37 @@ namespace SportsWebPt.Platform.ServiceImpl
         #endregion
 
     }
+
+    public class BodyPartMatrixItemService : LoggingRestServiceBase<BodyPartMatrixListRequest, ListResponse<BodyPartMatrixItemDto, BodyPartSortBy>>
+    {
+        #region Properties
+
+        public ISkeletonUnitOfWork SkeletonUnitOfWork { get; set; }
+
+        #endregion
+
+        #region Methods
+
+        public override object OnGet(BodyPartMatrixListRequest request)
+        {
+            var bodyPartMatrixItems = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll(new []
+                {
+                    "BodyPart",
+                    "SkeletonArea",
+                    "SkeletonArea.Region",
+                    "SkeletonArea.Side",
+                    "SkeletonArea.Orientation"
+                });
+
+            var responseList = new List<BodyPartMatrixItemDto>();
+
+            Mapper.Map(bodyPartMatrixItems, responseList);
+
+            return
+                Ok(new ListResponse<BodyPartMatrixItemDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
+        #endregion
+    }
 }

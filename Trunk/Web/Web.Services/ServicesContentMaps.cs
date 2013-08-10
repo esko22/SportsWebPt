@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<UserDto, User>();
             Mapper.CreateMap<SkeletonAreaDto, SkeletonArea>();
             Mapper.CreateMap<BodyPartDto, BodyPart>();
+            Mapper.CreateMap<BodyPartMatrixItemDto, BodyPartMatrixItem>();
+            Mapper.CreateMap<BodyPartMatrixItem, BodyPartMatrixItemDto>();
             Mapper.CreateMap<SymptomDto, Symptom>();
             Mapper.CreateMap<SymptomaticRegionDto, SymptomaticRegion>()
                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.orientation))
@@ -30,12 +32,17 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<InjuryDto, Injury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s =>s.plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s =>s.causes))                  
-                  .ForMember(d => d.signs, opt => opt.MapFrom(s =>s.signs));
+                  .ForMember(d => d.signs, opt => opt.MapFrom(s =>s.signs))
+                  .ForMember(d => d.injurySymptoms, opt => opt.MapFrom(s => s.InjurySymptoms));
+            Mapper.CreateMap<InjurySymptomDto, InjurySymptom>()
+                  .ForMember(d => d.bodyPartMatrixItem, opt => opt.MapFrom(s => s.BodyPartMatrixItem))
+                  .ForMember(d => d.thresholdValue, opt => opt.MapFrom(s => s.ThresholdValue));
             Mapper.CreateMap<Injury, InjuryDto>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.plans))
                   .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => s.bodyRegions))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.causes))
-                  .ForMember(d => d.signs, opt => opt.MapFrom(s => s.signs));
+                  .ForMember(d => d.signs, opt => opt.MapFrom(s => s.signs))
+                  .ForMember(d => d.InjurySymptoms, opt => opt.MapFrom(s => s.injurySymptoms));
             Mapper.CreateMap<PotentialInjuryDto, PotentialInjury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.causes))

@@ -1,7 +1,7 @@
 ﻿define('model.body.part', ['backbone', 'config', 'jquery'],
     function (backbone, config, $) {
         var
-            area = backbone.Model.extend({
+            area = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.areaComponents,
                 defaults: {
                 }

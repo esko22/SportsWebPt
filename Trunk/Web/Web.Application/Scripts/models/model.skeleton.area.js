@@ -1,7 +1,7 @@
 ﻿define('model.skeleton.area', ['backbone', 'config','jquery'],
     function (backbone, config, $) {
         var
-            area = backbone.Model.extend({
+            area = backbone.RelationalModel.extend({
                 urlRoot: config.skeletonAreas,
                 defaults: {
                     }

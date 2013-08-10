@@ -338,6 +338,7 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\models\model.body.part.matrix.item.js" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
     <Content Include="Tmpl\_examine.dropdown.tmpl.html" />
@@ -843,7 +844,7 @@
     <Content Include="Scripts\models\model.injury.js" />
     <Content Include="Scripts\models\model.sign.js" />
     <Content Include="Scripts\models\model.skeleton.area.js" />
-    <Content Include="Scripts\models\model.potential.symptom.js" />
+    <Content Include="Scripts\models\model.symptom.js" />
     <Content Include="Scripts\models\model.symptomatic.body.part.js" />
     <Content Include="Scripts\models\model.symptomatic.region.js" />
     <Content Include="Scripts\models\model.user.js" />

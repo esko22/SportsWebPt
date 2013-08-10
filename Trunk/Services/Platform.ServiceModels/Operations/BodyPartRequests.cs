@@ -15,4 +15,8 @@ namespace SportsWebPt.Platform.ServiceModels
     {
     }
 
+    public class BodyPartMatrixListRequest : ApiResourceListRequest
+    {
+    }
+
 }
