@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\BodyPartDto.cs" />
+    <Compile Include="Models\BodyPartMatrixItemDto.cs" />
     <Compile Include="Models\BodyPartSortBy.cs" />
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BasicSortBy.cs" />
@@ -87,7 +88,7 @@
     <Compile Include="Models\ExerciseDto.cs" />
     <Compile Include="Models\InjuryDto.cs" />
     <Compile Include="Models\PotentialInjuryDto.cs" />
-    <Compile Include="Models\PotentialInjurySymptomDto.cs" />
+    <Compile Include="Models\InjurySymptomDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\SignDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />

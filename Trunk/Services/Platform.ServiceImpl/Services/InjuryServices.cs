@@ -29,15 +29,23 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var results =
                 ResearchUnitOfWork.InjuryRepo.GetAll(new[]
                     {
-                        "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
-                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
+                        "InjuryPlanMatrixItems", 
+                        "InjuryPlanMatrixItems.Plan", 
+                        "InjurySignMatrixItems",
+                        "InjurySignMatrixItems.Sign", 
+                        "InjuryCauseMatrixItems", 
+                        "InjuryCauseMatrixItems.Cause",
+                        "InjuryBodyRegionMatrixItems", 
+                        "InjuryBodyRegionMatrixItems.BodyRegion",
                         "InjurySymptomMatrixItems",
                         "InjurySymptomMatrixItems.SymptomMatrixItem",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.Symptom",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.Symptom.RenderType",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea"
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Side",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Orientation"
                     });
 
             Mapper.Map(results, responseList);
