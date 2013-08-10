@@ -13,7 +13,7 @@
             users: $.format('{0}/{1}', hostUri, 'users'),
             skeletonAreas: $.format('{0}/{1}', hostUri, 'examine/areas'),
             symptomaticRegions: $.format('{0}/{1}', hostUri, 'examine/symptomaticregions'),
-            symptomaticComponents: $.format('{0}/{1}', hostUri, 'examine/symptomaticcomponents'),
+            potentialSymptoms: $.format('{0}/{1}', hostUri, 'examine/potentialSymptoms'),
             componentsByArea: $.format('{0}/{1}', hostUri, 'examine/components?areaId='),
             diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport'),
             injuries: $.format('{0}/{1}', hostUri, 'research/injuries'),

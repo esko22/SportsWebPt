@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.DataAccess
         
         public IQueryable<SymptomMatrixItem> GetPotentialSymptoms(int bodyPartMatrixId)
         {
-            return DbSet.Where(p => p.BodyPartMatrixItemId == bodyPartMatrixId).Include("symptom");
+            return DbSet.Where(p => p.BodyPartMatrixItemId == bodyPartMatrixId).Include("symptom").Include("symptom.renderType");
         } 
 
         #endregion

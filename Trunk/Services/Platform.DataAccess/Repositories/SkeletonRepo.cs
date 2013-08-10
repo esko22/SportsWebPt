@@ -32,10 +32,7 @@ namespace SportsWebPt.Platform.DataAccess
                        .Include("Region")
                        .Include("Side")
                        .Include("Orientation")
-                       .Include("BodyPartMatrix.BodyPart")
-                       .Include("BodyPartMatrix.SymptomMatrixItems")
-                       .Include("BodyPartMatrix.SymptomMatrixItems.Symptom")
-                       .Include("BodyPartMatrix.SymptomMatrixItems.Symptom.RenderType");
+                       .Include("BodyPartMatrix.BodyPart");
 
         }
 

@@ -1,6 +1,6 @@
 ﻿<label class="radio inline">
-  <input type="radio" name="bruisingOptions" id="bruisingOptions1" value="0" data-bind="checked: givenResponse">No
+  <input type="radio" id="option1" value="0" data-bind="checked: givenResponse, attr: { name: 'bruisingOptions-' + symptomMatrixItemId() }">No
 </label>
 <label class="radio inline">
-  <input type="radio" name="bruisingOptions" id="bruisingOptions2" value="1" data-bind="checked: givenResponse">Yes
+  <input type="radio" id="option2" value="1" data-bind="checked: givenResponse, attr: { name: 'bruisingOptions-' + symptomMatrixItemId() }">Yes
 </label>

@@ -1,238 +1,30 @@
-08-10-13@10:05:31 Info (5)  [Common] SignListRequest request submitted 
-08-10-13@10:05:31 Info (7)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:05:31 Info (8)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:05:31 Info (6)  [Common] CauseListRequest request submitted 
-08-10-13@10:05:32 Info (9)  [Common] PlanListRequest request submitted 
-08-10-13@10:05:33 Info (12)  [Common] InjuryListRequest request submitted 
-08-10-13@10:05:35 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:03.1918001 
-08-10-13@10:05:35 Info (6)  [Common] CauseListRequest request completed with duration of 00:00:03.1923965 
-08-10-13@10:05:35 Info (5)  [Common] SignListRequest request completed with duration of 00:00:03.1997936 
-08-10-13@10:05:35 Info (8)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:03.3689296 
-08-10-13@10:05:35 Info (9)  [Common] PlanListRequest request completed with duration of 00:00:03.6527503 
-08-10-13@10:05:35 Info (8)  [Common] SymptomListRequest request submitted 
-08-10-13@10:05:35 Info (8)  [Common] SymptomListRequest request completed with duration of 00:00:00.0774167 
-08-10-13@10:05:36 Info (12)  [Common] InjuryListRequest request completed with duration of 00:00:03.0847492 
-08-10-13@10:06:15 Info (12)  [Common] InjuryListRequest request submitted 
-08-10-13@10:06:15 Info (6)  [Common] PlanListRequest request submitted 
-08-10-13@10:06:15 Info (7)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:06:15 Info (9)  [Common] SignListRequest request submitted 
-08-10-13@10:06:15 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0051453 
-08-10-13@10:06:15 Info (9)  [Common] SignListRequest request completed with duration of 00:00:00.0057847 
-08-10-13@10:06:15 Info (7)  [Common] CauseListRequest request submitted 
-08-10-13@10:06:15 Info (7)  [Common] CauseListRequest request completed with duration of 00:00:00.0080862 
-08-10-13@10:06:15 Info (7)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:06:15 Info (8)  [Common] SymptomListRequest request submitted 
-08-10-13@10:06:15 Info (8)  [Common] SymptomListRequest request completed with duration of 00:00:00.0098616 
-08-10-13@10:06:15 Info (6)  [Common] PlanListRequest request completed with duration of 00:00:00.0621591 
-08-10-13@10:06:15 Info (7)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0457069 
-08-10-13@10:06:15 Info (12)  [Common] InjuryListRequest request completed with duration of 00:00:00.1508262 
-08-10-13@10:09:31 Info (10)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:09:31 Info (9)  [Common] InjuryListRequest request submitted 
-08-10-13@10:09:31 Info (8)  [Common] PlanListRequest request submitted 
-08-10-13@10:09:31 Info (10)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0052036 
-08-10-13@10:09:31 Info (10)  [Common] CauseListRequest request submitted 
-08-10-13@10:09:31 Info (10)  [Common] CauseListRequest request completed with duration of 00:00:00.0045346 
-08-10-13@10:09:31 Info (10)  [Common] SignListRequest request submitted 
-08-10-13@10:09:31 Info (10)  [Common] SignListRequest request completed with duration of 00:00:00.0049734 
-08-10-13@10:09:31 Info (8)  [Common] PlanListRequest request completed with duration of 00:00:00.0550235 
-08-10-13@10:09:31 Info (9)  [Common] InjuryListRequest request completed with duration of 00:00:00.1889409 
-08-10-13@10:09:31 Info (6)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:09:31 Info (6)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0057304 
-08-10-13@10:09:31 Info (6)  [Common] SymptomListRequest request submitted 
-08-10-13@10:09:31 Info (6)  [Common] SymptomListRequest request completed with duration of 00:00:00.0050679 
-08-10-13@10:10:59 Info (18)  [Common] InjuryListRequest request submitted 
-08-10-13@10:10:59 Info (12)  [Common] PlanListRequest request submitted 
-08-10-13@10:10:59 Info (6)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:10:59 Info (8)  [Common] SignListRequest request submitted 
-08-10-13@10:10:59 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0077265 
-08-10-13@10:10:59 Info (8)  [Common] SignListRequest request completed with duration of 00:00:00.0067726 
-08-10-13@10:10:59 Info (6)  [Common] CauseListRequest request submitted 
-08-10-13@10:10:59 Info (8)  [Common] SymptomListRequest request submitted 
-08-10-13@10:10:59 Info (6)  [Common] CauseListRequest request completed with duration of 00:00:00.0045663 
-08-10-13@10:10:59 Info (6)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:10:59 Info (8)  [Common] SymptomListRequest request completed with duration of 00:00:00.0056450 
-08-10-13@10:10:59 Info (6)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0115764 
-08-10-13@10:11:00 Info (12)  [Common] PlanListRequest request completed with duration of 00:00:00.0755107 
-08-10-13@10:11:00 Info (18)  [Common] InjuryListRequest request completed with duration of 00:00:00.1631877 
-08-10-13@10:11:59 Info (18)  [Common] InjuryListRequest request submitted 
-08-10-13@10:11:59 Info (19)  [Common] PlanListRequest request submitted 
-08-10-13@10:11:59 Info (10)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:11:59 Info (10)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041833 
-08-10-13@10:11:59 Info (8)  [Common] CauseListRequest request submitted 
-08-10-13@10:11:59 Info (8)  [Common] CauseListRequest request completed with duration of 00:00:00.0046802 
-08-10-13@10:11:59 Info (8)  [Common] SignListRequest request submitted 
-08-10-13@10:11:59 Info (10)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:11:59 Info (8)  [Common] SignListRequest request completed with duration of 00:00:00.0038156 
-08-10-13@10:11:59 Info (10)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0166451 
-08-10-13@10:11:59 Info (10)  [Common] SymptomListRequest request submitted 
-08-10-13@10:11:59 Info (10)  [Common] SymptomListRequest request completed with duration of 00:00:00.0042924 
-08-10-13@10:11:59 Info (19)  [Common] PlanListRequest request completed with duration of 00:00:00.0891912 
-08-10-13@10:11:59 Info (18)  [Common] InjuryListRequest request completed with duration of 00:00:00.1564545 
-08-10-13@10:13:03 Info (18)  [Common] InjuryListRequest request submitted 
-08-10-13@10:13:03 Info (20)  [Common] PlanListRequest request submitted 
-08-10-13@10:13:03 Info (19)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:13:03 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0075474 
-08-10-13@10:13:03 Info (22)  [Common] SignListRequest request submitted 
-08-10-13@10:13:03 Info (22)  [Common] SignListRequest request completed with duration of 00:00:00.0091688 
-08-10-13@10:13:03 Info (22)  [Common] CauseListRequest request submitted 
-08-10-13@10:13:03 Info (22)  [Common] CauseListRequest request completed with duration of 00:00:00.0038247 
-08-10-13@10:13:03 Info (22)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:13:04 Info (22)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0127481 
-08-10-13@10:13:04 Info (20)  [Common] PlanListRequest request completed with duration of 00:00:00.0851071 
-08-10-13@10:13:04 Info (22)  [Common] SymptomListRequest request submitted 
-08-10-13@10:13:04 Info (22)  [Common] SymptomListRequest request completed with duration of 00:00:00.0045981 
-08-10-13@10:13:04 Info (18)  [Common] InjuryListRequest request completed with duration of 00:00:00.1344397 
-08-10-13@10:15:30 Info (21)  [Common] InjuryListRequest request submitted 
-08-10-13@10:15:30 Info (25)  [Common] PlanListRequest request submitted 
-08-10-13@10:15:30 Info (22)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:15:30 Info (22)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0052908 
-08-10-13@10:15:30 Info (22)  [Common] CauseListRequest request submitted 
-08-10-13@10:15:30 Info (18)  [Common] SignListRequest request submitted 
-08-10-13@10:15:30 Info (22)  [Common] CauseListRequest request completed with duration of 00:00:00.0060237 
-08-10-13@10:15:30 Info (18)  [Common] SignListRequest request completed with duration of 00:00:00.0089000 
-08-10-13@10:15:30 Info (18)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:15:30 Info (23)  [Common] SymptomListRequest request submitted 
-08-10-13@10:15:30 Info (18)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0069911 
-08-10-13@10:15:30 Info (23)  [Common] SymptomListRequest request completed with duration of 00:00:00.0073533 
-08-10-13@10:15:30 Info (25)  [Common] PlanListRequest request completed with duration of 00:00:00.0684061 
-08-10-13@10:15:30 Info (21)  [Common] InjuryListRequest request completed with duration of 00:00:00.1350204 
-08-10-13@10:17:02 Info (22)  [Common] CauseListRequest request submitted 
-08-10-13@10:17:02 Info (27)  [Common] InjuryListRequest request submitted 
-08-10-13@10:17:02 Info (26)  [Common] SignListRequest request submitted 
-08-10-13@10:17:02 Info (25)  [Common] PlanListRequest request submitted 
-08-10-13@10:17:02 Info (22)  [Common] CauseListRequest request completed with duration of 00:00:00.0044215 
-08-10-13@10:17:02 Info (26)  [Common] SignListRequest request completed with duration of 00:00:00.0046378 
-08-10-13@10:17:02 Info (22)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:17:02 Info (22)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040297 
-08-10-13@10:17:02 Info (25)  [Common] PlanListRequest request completed with duration of 00:00:00.0655494 
-08-10-13@10:17:02 Info (27)  [Common] InjuryListRequest request completed with duration of 00:00:00.1342667 
-08-10-13@10:17:02 Info (27)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:17:02 Info (22)  [Common] SymptomListRequest request submitted 
-08-10-13@10:17:02 Info (27)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0072245 
-08-10-13@10:17:02 Info (22)  [Common] SymptomListRequest request completed with duration of 00:00:00.0061528 
-08-10-13@10:17:30 Info (22)  [Common] InjuryListRequest request submitted 
-08-10-13@10:17:30 Info (25)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:17:30 Info (27)  [Common] PlanListRequest request submitted 
-08-10-13@10:17:30 Info (25)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0060266 
-08-10-13@10:17:30 Info (26)  [Common] SignListRequest request submitted 
-08-10-13@10:17:30 Info (25)  [Common] CauseListRequest request submitted 
-08-10-13@10:17:30 Info (26)  [Common] SignListRequest request completed with duration of 00:00:00.0077600 
-08-10-13@10:17:30 Info (25)  [Common] CauseListRequest request completed with duration of 00:00:00.0047433 
-08-10-13@10:17:30 Info (26)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:17:30 Info (25)  [Common] SymptomListRequest request submitted 
-08-10-13@10:17:30 Info (26)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0090178 
-08-10-13@10:17:30 Info (25)  [Common] SymptomListRequest request completed with duration of 00:00:00.0237158 
-08-10-13@10:17:30 Info (27)  [Common] PlanListRequest request completed with duration of 00:00:00.0691926 
-08-10-13@10:17:30 Info (22)  [Common] InjuryListRequest request completed with duration of 00:00:00.1491354 
-08-10-13@10:20:54 Info (31)  [Common] InjuryListRequest request submitted 
-08-10-13@10:20:54 Info (26)  [Common] PlanListRequest request submitted 
-08-10-13@10:20:54 Info (30)  [Common] CauseListRequest request submitted 
-08-10-13@10:20:54 Info (29)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:20:54 Info (30)  [Common] CauseListRequest request completed with duration of 00:00:00.0156617 
-08-10-13@10:20:54 Info (29)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0292441 
-08-10-13@10:20:54 Info (29)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:20:54 Info (29)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0051380 
-08-10-13@10:20:54 Info (30)  [Common] SignListRequest request submitted 
-08-10-13@10:20:54 Info (30)  [Common] SignListRequest request completed with duration of 00:00:00.0067233 
-08-10-13@10:20:54 Info (29)  [Common] SymptomListRequest request submitted 
-08-10-13@10:20:54 Info (29)  [Common] SymptomListRequest request completed with duration of 00:00:00.0059606 
-08-10-13@10:20:54 Info (26)  [Common] PlanListRequest request completed with duration of 00:00:00.1053655 
-08-10-13@10:20:55 Info (31)  [Common] InjuryListRequest request completed with duration of 00:00:00.1805056 
-08-10-13@10:35:39 Info (35)  [Common] InjuryListRequest request submitted 
-08-10-13@10:35:43 Info (35)  [Common] InjuryListRequest request completed with duration of 00:00:04.0816967 
-08-10-13@10:36:21 Info (41)  [Common] InjuryListRequest request submitted 
-08-10-13@10:36:25 Info (41)  [Common] InjuryListRequest request completed with duration of 00:00:03.7822716 
-08-10-13@10:40:55 Info (41)  [Common] InjuryRequest request submitted 
-08-10-13@10:41:31 Info (41)  [Common] InjuryRequest request completed with duration of 00:00:35.2147779 
-08-10-13@10:42:05 Info (21)  [Common] PlanListRequest request submitted 
-08-10-13@10:42:05 Info (27)  [Common] CauseListRequest request submitted 
-08-10-13@10:42:05 Info (23)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:42:05 Info (38)  [Common] SignListRequest request submitted 
-08-10-13@10:42:05 Info (28)  [Common] InjuryListRequest request submitted 
-08-10-13@10:42:05 Info (26)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:42:05 Info (38)  [Common] SignListRequest request completed with duration of 00:00:00.0801548 
-08-10-13@10:42:05 Info (27)  [Common] CauseListRequest request completed with duration of 00:00:00.0991751 
-08-10-13@10:42:07 Info (25)  [Common] SymptomListRequest request submitted 
-08-10-13@10:42:07 Info (23)  [Common] BodyRegionListRequest request completed with duration of 00:00:01.3086589 
-08-10-13@10:42:07 Info (25)  [Common] SymptomListRequest request completed with duration of 00:00:00.1727506 
-08-10-13@10:42:07 Info (26)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:01.7007678 
-08-10-13@10:42:07 Info (28)  [Common] InjuryListRequest request completed with duration of 00:00:01.9916106 
-08-10-13@10:42:08 Info (21)  [Common] PlanListRequest request completed with duration of 00:00:02.3001930 
-08-10-13@10:42:30 Info (25)  [Common] InjuryListRequest request submitted 
-08-10-13@10:42:30 Info (38)  [Common] PlanListRequest request submitted 
-08-10-13@10:42:30 Info (41)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:42:30 Info (31)  [Common] SignListRequest request submitted 
-08-10-13@10:42:30 Info (41)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0042935 
-08-10-13@10:42:30 Info (31)  [Common] SignListRequest request completed with duration of 00:00:00.0076506 
-08-10-13@10:42:30 Info (16)  [Common] CauseListRequest request submitted 
-08-10-13@10:42:30 Info (16)  [Common] CauseListRequest request completed with duration of 00:00:00.0070531 
-08-10-13@10:42:30 Info (23)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:42:30 Info (26)  [Common] SymptomListRequest request submitted 
-08-10-13@10:42:30 Info (26)  [Common] SymptomListRequest request completed with duration of 00:00:00.0051347 
-08-10-13@10:42:30 Info (23)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0099856 
-08-10-13@10:42:30 Info (38)  [Common] PlanListRequest request completed with duration of 00:00:00.0762012 
-08-10-13@10:42:31 Info (25)  [Common] InjuryListRequest request completed with duration of 00:00:00.7420517 
-08-10-13@10:42:46 Info (28)  [Common] InjuryListRequest request submitted 
-08-10-13@10:42:47 Info (28)  [Common] InjuryListRequest request completed with duration of 00:00:00.7199581 
-08-10-13@10:42:55 Info (21)  [Common] InjuryListRequest request submitted 
-08-10-13@10:42:56 Info (21)  [Common] InjuryListRequest request completed with duration of 00:00:00.6646802 
-08-10-13@10:55:58 Info (7)  [Common] InjuryListRequest request submitted 
-08-10-13@10:55:58 Info (7)  [Common] InjuryListRequest request completed with duration of 00:00:00.6876483 
-08-10-13@10:57:51 Info (7)  [Common] InjuryListRequest request submitted 
-08-10-13@10:57:52 Info (7)  [Common] InjuryListRequest request completed with duration of 00:00:00.7366036 
-08-10-13@10:58:13 Info (46)  [Common] InjuryListRequest request submitted 
-08-10-13@10:58:13 Info (49)  [Common] PlanListRequest request submitted 
-08-10-13@10:58:13 Info (7)  [Common] SignListRequest request submitted 
-08-10-13@10:58:13 Info (48)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:58:13 Info (7)  [Common] SignListRequest request completed with duration of 00:00:00.0294914 
-08-10-13@10:58:13 Info (7)  [Common] CauseListRequest request submitted 
-08-10-13@10:58:13 Info (7)  [Common] CauseListRequest request completed with duration of 00:00:00.0065978 
-08-10-13@10:58:13 Info (48)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0355217 
-08-10-13@10:58:13 Info (7)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:58:13 Info (7)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0059777 
-08-10-13@10:58:14 Info (49)  [Common] PlanListRequest request completed with duration of 00:00:00.0988187 
-08-10-13@10:58:14 Info (49)  [Common] SymptomListRequest request submitted 
-08-10-13@10:58:14 Info (49)  [Common] SymptomListRequest request completed with duration of 00:00:00.0058956 
-08-10-13@10:58:14 Info (46)  [Common] InjuryListRequest request completed with duration of 00:00:00.7756792 
-08-10-13@10:59:12 Info (46)  [Common] InjuryListRequest request submitted 
-08-10-13@10:59:12 Info (49)  [Common] PlanListRequest request submitted 
-08-10-13@10:59:12 Info (17)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:59:12 Info (17)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0053966 
-08-10-13@10:59:12 Info (17)  [Common] SignListRequest request submitted 
-08-10-13@10:59:12 Info (48)  [Common] CauseListRequest request submitted 
-08-10-13@10:59:12 Info (17)  [Common] SignListRequest request completed with duration of 00:00:00.0052266 
-08-10-13@10:59:12 Info (48)  [Common] CauseListRequest request completed with duration of 00:00:00.0044730 
-08-10-13@10:59:12 Info (17)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:59:12 Info (48)  [Common] SymptomListRequest request submitted 
-08-10-13@10:59:12 Info (17)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0069418 
-08-10-13@10:59:12 Info (48)  [Common] SymptomListRequest request completed with duration of 00:00:00.0074438 
-08-10-13@10:59:12 Info (49)  [Common] PlanListRequest request completed with duration of 00:00:00.0699444 
-08-10-13@10:59:14 Info (46)  [Common] InjuryListRequest request completed with duration of 00:00:01.7376641 
-08-10-13@10:59:36 Info (17)  [Common] InjuryListRequest request submitted 
-08-10-13@10:59:36 Info (49)  [Common] PlanListRequest request submitted 
-08-10-13@10:59:36 Info (46)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:59:36 Info (48)  [Common] SignListRequest request submitted 
-08-10-13@10:59:36 Info (46)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0088730 
-08-10-13@10:59:36 Info (48)  [Common] SignListRequest request completed with duration of 00:00:00.0228283 
-08-10-13@10:59:36 Info (48)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:59:36 Info (48)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0142977 
-08-10-13@10:59:36 Info (49)  [Common] PlanListRequest request completed with duration of 00:00:00.0603688 
-08-10-13@10:59:36 Info (48)  [Common] SymptomListRequest request submitted 
-08-10-13@10:59:36 Info (48)  [Common] SymptomListRequest request completed with duration of 00:00:00.0044077 
-08-10-13@10:59:36 Info (50)  [Common] CauseListRequest request submitted 
-08-10-13@10:59:36 Info (50)  [Common] CauseListRequest request completed with duration of 00:00:00.0038878 
-08-10-13@10:59:37 Info (17)  [Common] InjuryListRequest request completed with duration of 00:00:00.7991185 
-08-10-13@10:59:48 Info (48)  [Common] InjuryListRequest request submitted 
-08-10-13@10:59:48 Info (17)  [Common] PlanListRequest request submitted 
-08-10-13@10:59:48 Info (49)  [Common] BodyRegionListRequest request submitted 
-08-10-13@10:59:48 Info (46)  [Common] SignListRequest request submitted 
-08-10-13@10:59:48 Info (49)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0052022 
-08-10-13@10:59:48 Info (49)  [Common] CauseListRequest request submitted 
-08-10-13@10:59:48 Info (46)  [Common] SignListRequest request completed with duration of 00:00:00.0083674 
-08-10-13@10:59:48 Info (49)  [Common] CauseListRequest request completed with duration of 00:00:00.0061907 
-08-10-13@10:59:48 Info (49)  [Common] BodyPartMatrixListRequest request submitted 
-08-10-13@10:59:48 Info (46)  [Common] SymptomListRequest request submitted 
-08-10-13@10:59:48 Info (49)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0069451 
-08-10-13@10:59:48 Info (46)  [Common] SymptomListRequest request completed with duration of 00:00:00.0092776 
-08-10-13@10:59:48 Info (17)  [Common] PlanListRequest request completed with duration of 00:00:00.0707509 
-08-10-13@10:59:48 Info (48)  [Common] InjuryListRequest request completed with duration of 00:00:00.7393136 
+08-10-13@13:04:21 Info (54)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:04:21 Info (54)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0192129 
+08-10-13@13:05:10 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:05:10 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0065491 
+08-10-13@13:05:43 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:05:43 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0160630 
+08-10-13@13:30:39 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:30:41 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:02.0506563 
+08-10-13@13:31:07 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:31:07 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0152714 
+08-10-13@13:42:41 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:42:41 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0188456 
+08-10-13@13:43:38 Info (10)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:43:38 Info (10)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0145276 
+08-10-13@13:44:15 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:44:15 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0138386 
+08-10-13@13:45:22 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:45:22 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0166043 
+08-10-13@13:45:51 Info (10)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:45:51 Info (10)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0158908 
+08-10-13@13:53:27 Info (39)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:53:27 Info (39)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0277384 
+08-10-13@13:53:51 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:53:51 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0156043 
+08-10-13@13:53:52 Info (14)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:53:52 Info (14)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0069592 
+08-10-13@13:57:16 Info (47)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:57:16 Info (47)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0173437 
+08-10-13@13:59:08 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@13:59:08 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0170005 

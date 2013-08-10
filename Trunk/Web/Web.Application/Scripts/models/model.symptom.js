@@ -2,7 +2,7 @@
     function(backbone, config) {
 
         var potentialSymptom = backbone.RelationalModel.extend({
-            urlRoot: config.apiUris.symptoms,
+            urlRoot: config.apiUris.potentialSymptoms,
             idAttribute: 'symptomMatrixId'
         });
 
@@ -14,7 +14,7 @@ define('model.potential.symptom.collection', ['backbone', 'model.potential.sympt
         var
             potentialSymptomCollection = backbone.Collection.extend({
                 model: potentialSymptom,
-                url: config.apiUris.symptomaticComponents
+                url: config.apiUris.potentialSymptoms
             });
 
         return potentialSymptomCollection;

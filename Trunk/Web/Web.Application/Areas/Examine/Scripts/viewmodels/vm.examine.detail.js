@@ -1,6 +1,6 @@
 ﻿define('vm.examine.detail',
-    ['underscore', 'ko', 'jquery', 'knockback', 'services'],
-    function (_, ko, $, kb, services) {
+    ['underscore', 'ko', 'jquery', 'knockback', 'services', 'config'],
+    function (_, ko, $, kb, services,config) {
 
         var areaTemplate = 'examine.detail.area';
         var componentTemplate = 'examine.detail.components';
@@ -9,6 +9,11 @@
         var bindSelectedAreas = function(newSelectedAreas) {
             selectedAreas.removeAll();
             _.each(newSelectedAreas, function (area) {
+                _.each(area.model().get('bodyParts').models, function(bodyPart) {
+                    var potentialSymptoms = bodyPart.get('potentialSymptoms');
+                    potentialSymptoms.url = $.validator.format("{0}/{1}", config.apiUris.potentialSymptoms, bodyPart.id);
+                    potentialSymptoms.fetch();
+                });
                 selectedAreas.push(area);
             });
         };

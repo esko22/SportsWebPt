@@ -39,15 +39,6 @@ namespace SportsWebPt.Platform.Web.Application
             return View(viewModel);
         }
 
-
-        [GET("Examine/symptomaticregions", IsAbsoluteUrl = true)]
-        public ActionResult GetSymptomaticRegions()
-        {
-            var symptomaticRegions = _examineService.GetSymptomaticRegions();
-
-            return Json(symptomaticRegions, JsonRequestBehavior.AllowGet);
-        }
-
         [GET("Examine/potentialsymptoms/{bodyPartMatrixId}", IsAbsoluteUrl = true)]
         public ActionResult GetPotentialSymptoms(string bodyPartMatrixId)
         {

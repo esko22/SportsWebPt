@@ -1,7 +1,7 @@
 ﻿define('model.symptomatic.region', ['backbone', 'config', 'model.symptomatic.body.part', 'model.symptomatic.body.part.collection'],
     function (backbone, config, BodyPart, BodyPartCollection) {
         var symptomaticRegion = backbone.RelationalModel.extend({
-            urlRoot: config.apiUris.symptomaticRegions,
+            urlRoot: config.apiUris.potentialSymptoms,
             idAttribute: 'id',
                 relations: [{
                     type: backbone.HasMany,
