@@ -41,6 +41,9 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String Tags { get; set; }
 
+        [DataMember]
+        public PotentialInjurySymptomDto[] InjurySymptoms { get; set; }
+
         #endregion
     }
 }

@@ -25,13 +25,23 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public override object OnGet(InjuryListRequest request)
         {
             var responseList = new List<InjuryDto>();
-            Mapper.Map(ResearchUnitOfWork.InjuryRepo.GetAll(new[]
-                {
-                    "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
-                    "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                    "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
-                }), responseList);
 
+            var results =
+                ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+                    {
+                        "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
+                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
+                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
+                        "InjurySymptomMatrixItems",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.Symptom",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart",
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea"
+                    });
+
+            Mapper.Map(results, responseList);
+            
             return
                 Ok(new ListResponse<InjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));

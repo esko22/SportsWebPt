@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Tags { get; set; }
 
-        public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
+        public ICollection<InjurySymptomMatrixItem> InjurySymptomMatrixItems { get; set; }
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 

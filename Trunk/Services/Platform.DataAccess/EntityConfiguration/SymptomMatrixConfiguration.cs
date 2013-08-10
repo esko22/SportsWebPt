@@ -11,7 +11,7 @@ namespace SportsWebPt.Platform.DataAccess.EntityConfiguration
         public SymptomMatrixConfiguration()
         {
             ToTable("SymptomMatrix");
-            Property(p => p.Decom).HasColumnName("decom");
+            //Property(p => p.Decom).HasColumnName("decom");
             Property(p => p.BodyPartMatrixItemId).HasColumnName("body_part_matrix_id");
             Property(p => p.SymptomId).HasColumnName("symptom_id");
             Property(p => p.Id).HasColumnName("symptom_matrix_id");

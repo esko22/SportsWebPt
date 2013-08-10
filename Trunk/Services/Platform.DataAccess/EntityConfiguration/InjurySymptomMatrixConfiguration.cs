@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         public InjurySymptomMatrixConfiguration()
         {
-            ToTable("InjurySymptomMatrixItem");
+            ToTable("InjurySymptomMatrix");
             Property(p => p.InjuryId).IsRequired().HasColumnName("injury_id");
             Property(p => p.SymptomMatrixItemId).HasColumnName("symptom_matrix_item_id");
             Property(p => p.ThresholdValue).IsRequired().HasColumnName("threshold_value");

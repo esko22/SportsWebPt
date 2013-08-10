@@ -160,10 +160,28 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();
             Mapper.CreateMap<Injury, InjuryDto>()
-                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
-                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
-                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)))
-                   .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => s.InjuryBodyRegionMatrixItems.Select(p => p.BodyRegion)));
+                  .ForMember(d => d.plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
+                  .ForMember(d => d.causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
+                  .ForMember(d => d.signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)))
+                  .ForMember(d => d.bodyRegions,
+                             opt => opt.MapFrom(s => s.InjuryBodyRegionMatrixItems.Select(p => p.BodyRegion)))
+                  .ForMember(d => d.InjurySymptoms, opt =>
+                      {
+                          opt.Condition(s => s.InjurySymptomMatrixItems != null);
+                          opt.MapFrom(s => s.InjurySymptomMatrixItems);
+                      });
+            Mapper.CreateMap<InjurySymptomMatrixItem, PotentialInjurySymptomDto>()
+                  .ForMember(d => d.InjurySymptomMatrixId, opt => opt.MapFrom(s => s.Id))
+                  .ForMember(d => d.ThresholdValue, opt => opt.MapFrom(s => s.ThresholdValue))
+                  .ForMember(d => d.symptomMatrixItemId, opt => opt.MapFrom(s => s.SymptomMatrixItemId))
+                  .ForMember(d => d.name, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Name))
+                  .ForMember(d => d.description, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Description))
+                  .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderType))
+                  .ForMember(d => d.renderOptions, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderOptions))
+                  .ForMember(d => d.SkeletonArea, opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Id))
+                  .ForMember(d => d.bodyPaartMatrixItemId, opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.Id))
+                  .ForMember(d => d.bodyPart,
+                             opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.BodyPart.CommonName));
             Mapper.CreateMap<InjuryDto, Injury>()
                   .ForMember(d => d.InjuryPlanMatrixItems, opt =>
                       {

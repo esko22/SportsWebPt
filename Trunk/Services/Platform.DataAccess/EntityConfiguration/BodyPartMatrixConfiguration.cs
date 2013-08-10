@@ -14,9 +14,9 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("BodyPartMatrix");
             Property(p => p.SkeletonAreaId).HasColumnName("skeleton_area_id");
             Property(p => p.BodyPartId).HasColumnName("body_part_id");
-            Property(p => p.IsSecondary).HasColumnName("is_secondary");
+            Property(p => p.IsSecondary).HasColumnName("is_secondary").HasColumnType("bit");
             Property(p => p.Id).HasColumnName("body_part_matrix_id");
-            Property(p => p.Decom).HasColumnName("decom");
+            Property(p => p.Decom).HasColumnName("decom").HasColumnType("bit");
         }
 
         #endregion
