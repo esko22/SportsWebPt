@@ -1,30 +1,292 @@
-08-10-13@13:04:21 Info (54)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:04:21 Info (54)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0192129 
-08-10-13@13:05:10 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:05:10 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0065491 
-08-10-13@13:05:43 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:05:43 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0160630 
-08-10-13@13:30:39 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:30:41 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:02.0506563 
-08-10-13@13:31:07 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:31:07 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0152714 
-08-10-13@13:42:41 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:42:41 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0188456 
-08-10-13@13:43:38 Info (10)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:43:38 Info (10)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0145276 
-08-10-13@13:44:15 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:44:15 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0138386 
-08-10-13@13:45:22 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:45:22 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0166043 
-08-10-13@13:45:51 Info (10)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:45:51 Info (10)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0158908 
-08-10-13@13:53:27 Info (39)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:53:27 Info (39)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0277384 
-08-10-13@13:53:51 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:53:51 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0156043 
-08-10-13@13:53:52 Info (14)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:53:52 Info (14)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0069592 
-08-10-13@13:57:16 Info (47)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:57:16 Info (47)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0173437 
-08-10-13@13:59:08 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
-08-10-13@13:59:08 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0170005 
+08-10-13@15:05:24 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:05:24 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0145320 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0060306 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0056875 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (13)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (11)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0053390 
+08-10-13@15:05:29 Info (13)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0056406 
+08-10-13@15:05:29 Info (46)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (59)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (27)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:05:29 Info (46)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0050369 
+08-10-13@15:05:29 Info (27)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0039718 
+08-10-13@15:05:29 Info (59)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0088235 
+08-10-13@15:06:31 Info (28)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:06:33 Info (28)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:01.8239989 
+08-10-13@15:06:39 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (27)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (13)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (8)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (24)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (15)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (8)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0628501 
+08-10-13@15:06:39 Info (15)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0572367 
+08-10-13@15:06:39 Info (11)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0649197 
+08-10-13@15:06:39 Info (24)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0604651 
+08-10-13@15:06:39 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:06:39 Info (13)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0765665 
+08-10-13@15:06:39 Info (11)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0043051 
+08-10-13@15:06:39 Info (27)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0844070 
+08-10-13@15:13:47 Info (12)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:13:49 Info (12)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:01.8360518 
+08-10-13@15:13:54 Info (57)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Info (8)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Info (58)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Info (12)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Info (42)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Error (42)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:9,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Error (11)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:3,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Error (57)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Error (8)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:1,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Error (58)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:10,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Error (12)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:4,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:13:54 Info (58)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:13:54 Error (58)  [Common] [PotentialSymptomListService: 8/10/2013 10:13:54 PM]:
+[REQUEST: {BodyPartMatrixId:11,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:14:06 Info (11)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:14:06 Error (11)  [Common] [PotentialSymptomListService: 8/10/2013 10:14:06 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:14:39 Info (19)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:15:28 Error (19)  [Common] [PotentialSymptomListService: 8/10/2013 10:15:28 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:
+08-10-13@15:18:26 Info (55)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:27 Info (55)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:01.6563717 
+08-10-13@15:18:38 Info (10)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:38 Info (10)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0047214 
+08-10-13@15:18:43 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:18:43 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.2540458 
+08-10-13@15:18:47 Info (38)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (19)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (38)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0122152 
+08-10-13@15:18:47 Info (48)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (39)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (12)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (31)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (48)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0065737 
+08-10-13@15:18:47 Info (49)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:18:47 Info (31)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0070159 
+08-10-13@15:18:47 Info (49)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0086517 
+08-10-13@15:18:47 Info (19)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0191781 
+08-10-13@15:18:47 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0154151 
+08-10-13@15:18:47 Info (39)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0203440 
+08-10-13@15:19:39 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:41 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:01.6523834 
+08-10-13@15:19:46 Info (31)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:19:46 Info (31)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.2630064 
+08-10-13@15:19:50 Info (31)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (38)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (33)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (37)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (31)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0093523 
+08-10-13@15:19:50 Info (29)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (49)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (38)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0061837 
+08-10-13@15:19:50 Info (6)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:19:50 Info (37)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0079159 
+08-10-13@15:19:50 Info (49)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0057236 
+08-10-13@15:19:50 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0080707 
+08-10-13@15:19:50 Info (29)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0179875 
+08-10-13@15:19:50 Info (33)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0220017 
+08-10-13@15:20:02 Info (31)  [Common] DifferentialDiagnosisRequest request submitted 
+08-10-13@15:20:11 Error (31)  [Common] [DifferentialDiagnosisService: 8/10/2013 10:20:11 PM]:
+[REQUEST: {Resource:{id:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:0,submittedFor:0,symptomDetails:[{symptomMatrixItemId:0,givenResponse:4,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:0,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown}]},IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Int32 SaveChanges()
+UpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Void DiagnoseKeyCollision(System.Data.Mapping.Update.Internal.UpdateCompiler, System.Data.Mapping.Update.Internal.PropagatorResult, System.Data.Mapping.Update.Internal.CompositeKey, System.Data.Mapping.Update.Internal.PropagatorResult)
+08-10-13@15:23:47 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:23:47 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0178465 
+08-10-13@15:23:52 Info (33)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (33)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0056884 
+08-10-13@15:23:52 Info (22)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (33)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (33)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0051056 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0056460 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (12)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0052221 
+08-10-13@15:23:52 Info (22)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0115566 
+08-10-13@15:23:52 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0087004 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:23:52 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0045496 
+08-10-13@15:24:04 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:24:04 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0135539 
+08-10-13@15:24:10 Info (33)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (29)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (22)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (33)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0167564 
+08-10-13@15:24:10 Info (32)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (29)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0091198 
+08-10-13@15:24:10 Info (32)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0048646 
+08-10-13@15:24:10 Info (22)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0066794 
+08-10-13@15:24:10 Info (12)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (48)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (33)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:24:10 Info (48)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0047593 
+08-10-13@15:24:10 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0066134 
+08-10-13@15:24:10 Info (33)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0062073 
+08-10-13@15:26:59 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:26:59 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0170335 
+08-10-13@15:27:04 Info (12)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (58)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (29)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (32)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0141599 
+08-10-13@15:27:04 Info (58)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0101448 
+08-10-13@15:27:04 Info (32)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0052529 
+08-10-13@15:27:04 Info (57)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (18)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (29)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0119234 
+08-10-13@15:27:04 Info (48)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:27:04 Info (57)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0051841 
+08-10-13@15:27:04 Info (18)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0060770 
+08-10-13@15:27:04 Info (48)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0067040 
+08-10-13@15:29:33 Info (57)  [Common] DifferentialDiagnosisRequest request submitted 
+08-10-13@15:34:20 Error (57)  [Common] [DifferentialDiagnosisService: 8/10/2013 10:34:20 PM]:
+[REQUEST: {Resource:{id:0,submittedOn:0001-01-01,reviewedOn:0001-01-01,submittedBy:0,submittedFor:0,symptomDetails:[{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:0,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:7,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:4,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:7,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown},{symptomMatrixItemId:0,givenResponse:0,id:1,name:Swelling,description:Rate level of swelling,renderType:FiveScaleSlider,renderTemplate:examine.slider.five},{symptomMatrixItemId:0,givenResponse:8,id:2,name:Pain,description:Rate level of pain,renderType:TenScaleSlider,renderTemplate:examine.slider.ten},{symptomMatrixItemId:0,givenResponse:1,id:3,name:Bruising,description:Visible Brusing,renderType:RadioBoolean,renderTemplate:examine.radio.bool},{symptomMatrixItemId:0,givenResponse:0,id:4,name:Duration,description:Started,renderType:Dropdown,renderTemplate:examine.dropdown}]},IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Int32 SaveChanges()
+UpdateException Conflicting changes detected. This may happen when trying to insert multiple entities with the same key. Void DiagnoseKeyCollision(System.Data.Mapping.Update.Internal.UpdateCompiler, System.Data.Mapping.Update.Internal.PropagatorResult, System.Data.Mapping.Update.Internal.CompositeKey, System.Data.Mapping.Update.Internal.PropagatorResult)
+08-10-13@15:35:31 Info (67)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:35:33 Info (67)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:01.8221944 
+08-10-13@15:35:38 Info (67)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Info (23)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Info (26)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Info (52)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Info (66)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Info (25)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Error (25)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:10,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Error (52)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:4,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Error (23)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Error (67)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:1,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Error (66)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:9,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Error (26)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:3,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:35:38 Info (25)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:35:38 Error (25)  [Common] [PotentialSymptomListService: 8/10/2013 10:35:38 PM]:
+[REQUEST: {BodyPartMatrixId:11,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:36:03 Info (69)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:36:03 Error (69)  [Common] [PotentialSymptomListService: 8/10/2013 10:36:03 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:36:09 Info (66)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:36:09 Error (66)  [Common] [PotentialSymptomListService: 8/10/2013 10:36:09 PM]:
+[REQUEST: {BodyPartMatrixId:2,SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
+
+Mapping types:
+SymptomMatrixItem -> PotentialSymptomDto
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem -> SportsWebPt.Platform.ServiceModels.PotentialSymptomDto
+
+Destination path:
+List`1[0]
+
+Source value:
+SportsWebPt.Platform.Core.Models.SymptomMatrixItem System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
+08-10-13@15:37:03 Info (8)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:05 Info (8)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:01.7618043 
+08-10-13@15:37:10 Info (69)  [Common] SymptomaticRegionListRequest request submitted 
+08-10-13@15:37:10 Info (69)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.1616291 
+08-10-13@15:37:14 Info (23)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (23)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0096691 
+08-10-13@15:37:14 Info (73)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (72)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (73)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0038740 
+08-10-13@15:37:14 Info (52)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (70)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (52)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0037156 
+08-10-13@15:37:14 Info (8)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (70)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0039093 
+08-10-13@15:37:14 Info (72)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0107284 
+08-10-13@15:37:14 Info (67)  [Common] PotentialSymptomListRequest request submitted 
+08-10-13@15:37:14 Info (8)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0047437 
+08-10-13@15:37:14 Info (67)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0038009 

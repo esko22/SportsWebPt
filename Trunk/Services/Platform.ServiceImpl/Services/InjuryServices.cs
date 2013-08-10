@@ -89,6 +89,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             var injury = Mapper.Map<Injury>(request.Resource);
 
+            ResearchUnitOfWork.MapSymptomMatrixItems(injury);
             ResearchUnitOfWork.InjuryRepo.Add(injury);
             ResearchUnitOfWork.Commit();
 
@@ -103,6 +104,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             Check.Argument.IsNotNull(request.Resource, "InjuryDto");
             var injury = Mapper.Map<Injury>(request.Resource);
 
+            ResearchUnitOfWork.MapSymptomMatrixItems(injury);
             ResearchUnitOfWork.UpdateInjury(injury);
             ResearchUnitOfWork.Commit();
 

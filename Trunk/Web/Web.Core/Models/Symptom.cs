@@ -18,6 +18,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String renderOptions { get; set; }
 
+        public String displayName { get; set; }
+
         #endregion
     }
 }

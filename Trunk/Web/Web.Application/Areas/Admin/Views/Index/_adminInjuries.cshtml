@@ -74,8 +74,8 @@
                                             </thead>
                                             <tbody data-bind="foreach: injurySymptoms">
                                                 <tr>
-                                                    <td><select id="inputInjurySymptom" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'name', value: symptomId , optionsValue: 'id'" ></select></td>
-                                                    <td><select id="inputInjuryBodyPart" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyPartMatrix, optionsText: 'id', value: bodyPartMatrixItemId,  optionsValue: 'id'" ></select></td>
+                                                    <td><select id="inputInjurySymptom" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'displayName', value: symptomId , optionsValue: 'id'" ></select></td>
+                                                    <td><select id="inputInjuryBodyPart" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyPartMatrix, optionsText: 'displayName', value: bodyPartMatrixItemId,  optionsValue: 'id'" ></select></td>
                                                     <td><input type="text" class="input-mini" id="inputThreshold" name="threshold" data-bind="value: thresholdValue" placeholder="threshold"></td>
                                                     <td><button class="btn btn-primary" data-bind="click: $parent.removeSymptom">Remove</button></td>
                                                 </tr>

@@ -29,6 +29,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<InjurySignMatrixItem> InjurySignMatrixRepo { get { return GetStandardRepo<InjurySignMatrixItem>(); } }
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
+        public IRepository<SymptomMatrixItem> SymptomMatrixRepo { get { return GetStandardRepo<SymptomMatrixItem>(); } }
 
         #endregion
 
@@ -41,6 +42,24 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
         #region Methods
+
+        public void MapSymptomMatrixItems(Injury injury)
+        {
+            foreach (var injurySymptom in injury.InjurySymptomMatrixItems)
+            {
+                var symptomMatrixItem =
+                    SymptomMatrixRepo.GetAll()
+                                     .SingleOrDefault(
+                                         s =>
+                                         s.SymptomId == injurySymptom.SymptomMatrixItem.SymptomId &&
+                                         s.BodyPartMatrixItemId == injurySymptom.SymptomMatrixItem.BodyPartMatrixItemId);
+
+                if (symptomMatrixItem != null)
+                    injurySymptom.SymptomMatrixItem = symptomMatrixItem;
+            }
+
+            Commit();
+        }
 
         public void UpdateExercise(Exercise exercise)
         {
@@ -249,5 +268,6 @@ namespace SportsWebPt.Platform.DataAccess
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);
         void UpdateInjury(Injury injury);
+        void MapSymptomMatrixItems(Injury injury);
     }
 }

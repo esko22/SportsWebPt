@@ -14,9 +14,18 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<UserDto, User>();
             Mapper.CreateMap<SkeletonAreaDto, SkeletonArea>();
             Mapper.CreateMap<BodyPartDto, BodyPart>();
-            Mapper.CreateMap<BodyPartMatrixItemDto, BodyPartMatrixItem>();
+            Mapper.CreateMap<BodyPartMatrixItemDto, BodyPartMatrixItem>()
+                  .ForMember(d => d.displayName,
+                             opt =>
+                             opt.MapFrom(
+                                 s =>
+                                 String.Format("{0} {1} {2}", s.SkeletonArea.orientation, s.SkeletonArea.side,
+                                               s.BodyPart.commonName)));
             Mapper.CreateMap<BodyPartMatrixItem, BodyPartMatrixItemDto>();
-            Mapper.CreateMap<SymptomDto, Symptom>();
+            Mapper.CreateMap<SymptomDto, Symptom>()
+                                  .ForMember(d => d.displayName,
+                             opt =>
+                             opt.MapFrom(s => String.Format("{0} -- {1}", s.name, s.renderType)));
             Mapper.CreateMap<SymptomaticRegionDto, SymptomaticRegion>()
                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.orientation))
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.region))
