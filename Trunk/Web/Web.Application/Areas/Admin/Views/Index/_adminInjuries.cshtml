@@ -59,6 +59,30 @@
                                         <input type="text" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
                                     </div>
                                 </div>
+                                <div class="control-group">
+                                    <label>Exercises</label>
+                                    <div>
+                                        <button class="btn btn-primary" id="btn-admin-add-plan-exercise"data-bind="click: addNewSymptom">Add</button>
+                                    </div>
+                                    <div>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <th>Symptom</th>
+                                                <th>BodyPart</th>
+                                                <th>Threshold</th>
+                                                <th>Action</th>
+                                            </thead>
+                                            <tbody data-bind="foreach: injurySymptom">
+                                                <tr>
+                                                    <td><select id="inputInjurySymptom" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'name', value: symptomId , optionsValue: 'id'" ></select></td>
+                                                    <td><select id="inputInjuryBodyPart" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyParts, optionsText: 'bodyPart().commonName', value: bodyPartMatrixItem().id, optionsValue: 'id'" ></select></td>
+                                                    <td><input type="text" class="input-mini" id="inputThreshold" name="threshold" data-bind="value: threshold" placeholder="sets"></td>
+                                                    <td><button class="btn btn-primary" data-bind="click: $parent.removeSymptom">Remove</button></td>
+                                                </tr>
+                                            </tbody>            
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                             <div class="span6">
                                 <div class="control-group">

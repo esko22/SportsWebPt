@@ -240,6 +240,20 @@ namespace SportsWebPt.Platform.Web.Services
             PutSync<CauseResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.CausePath, cause.id), request);
         }
 
+        public IEnumerable<BodyPartMatrixItem> GetBodyPartMatrix()
+        {
+            var response = GetSync<ListResponse<BodyPartMatrixItemDto, BasicSortBy>>(_sportsWebPtClientSettings.BodyPartMatrixPath);
+
+            return Mapper.Map<IEnumerable<BodyPartMatrixItem>>(response.Resource.Items);
+        }
+
+        public IEnumerable<Symptom> GetSymtpoms()
+        {
+            var response = GetSync<ListResponse<SymptomDto, BasicSortBy>>(_sportsWebPtClientSettings.SymptomPath);
+
+            return Mapper.Map<IEnumerable<Symptom>>(response.Resource.Items);
+        }
+
 
         #endregion
 

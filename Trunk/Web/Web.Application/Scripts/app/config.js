@@ -34,7 +34,9 @@
             bodyParts: $.format('{0}/{1}', hostUri, 'research/bodyparts'),
             bodyRegion: $.format('{0}/{1}', hostUri, 'research/bodyregions'),
             adminBodyRegion: $.format('{0}/{1}', hostUri, 'admin/bodyregions'),
-            adminBodyParts: $.format('{0}/{1}', hostUri, 'admin/bodyparts')
+            adminBodyParts: $.format('{0}/{1}', hostUri, 'admin/bodyparts'),
+            adminSymptoms: $.format('{0}/{1}', hostUri, 'admin/symptoms'),
+            adminBodyPartMatrix: $.format('{0}/{1}', hostUri, 'admin/bodypartmatrix')
         };
 
         var configureExternalTemplates = function() {

@@ -172,6 +172,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                       });
             Mapper.CreateMap<InjurySymptomMatrixItem, InjurySymptomDto>()
                   .ForMember(d => d.ThresholdValue, opt => opt.MapFrom(s => s.ThresholdValue))
+                  .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.SymptomMatrixItem.SymptomId))
                   .ForMember(d => d.name, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Name))
                   .ForMember(d => d.description, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Description))
                   .ForMember(d => d.renderType, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderType.RenderType))

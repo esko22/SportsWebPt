@@ -49,3 +49,25 @@ define('model.injury.symptom.collection', ['backbone', 'model.injury.symptom', '
         return injurySymptomCollection;
 
     });
+
+define('model.admin.symptom', ['backbone', 'config'],
+    function (backbone, config) {
+
+        var symptom = backbone.RelationalModel.extend({
+            urlRoot: config.apiUris.adminSymptoms,
+        });
+
+        return symptom;
+    });
+
+define('model.admin.symptom.collection', ['backbone', 'model.admin.symptom', 'config'],
+    function (backbone, injurySymptom, config) {
+        var
+            adminSymptomCollection = backbone.Collection.extend({
+                model: injurySymptom,
+                url: config.apiUris.adminSymptoms
+            });
+
+        return adminSymptomCollection;
+
+    });

@@ -131,6 +131,18 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(_adminService.GetPlans(), JsonRequestBehavior.AllowGet);
         }
 
+        [GET("admin/bodypartmatrix", IsAbsoluteUrl = true)]
+        public ActionResult GetBodyPartMatrix()
+        {
+            return Json(_adminService.GetBodyPartMatrix(), JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("admin/symptoms", IsAbsoluteUrl = true)]
+        public ActionResult GetSymptoms()
+        {
+            return Json(_adminService.GetSymtpoms(), JsonRequestBehavior.AllowGet);
+        }
+
         [POST("admin/plans", IsAbsoluteUrl = true)]
         public ActionResult AddPlan(Plan plan)
         {

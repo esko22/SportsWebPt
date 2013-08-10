@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int thresholdValue { get; set; }
 
+        public int symptomId { get; set; }
+
         #endregion
     }
 }

@@ -12,10 +12,10 @@ namespace SportsWebPt.Platform.ServiceModels
         public int ThresholdValue { get; set; }
 
         [DataMember]
-        public SymptomDto Symptom { get; set; }
+        public BodyPartMatrixItemDto BodyPartMatrixItem { get; set; }
 
         [DataMember]
-        public BodyPartMatrixItemDto BodyPartMatrixItem { get; set; } 
+        public Int32 SymptomId { get; set; }
 
         #endregion
 

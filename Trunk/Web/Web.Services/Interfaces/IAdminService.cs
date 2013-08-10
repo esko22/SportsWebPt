@@ -48,5 +48,10 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateCause(Cause cause);
 
+        IEnumerable<BodyPartMatrixItem> GetBodyPartMatrix();
+
+        IEnumerable<Symptom> GetSymtpoms();
+
+
     }
 }

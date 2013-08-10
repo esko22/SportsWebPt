@@ -6,6 +6,8 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
+        public int id { get; set; }
+
         public BodyPart bodyPart { get; set; }
 
         public SkeletonArea skeletonArea { get; set; }
