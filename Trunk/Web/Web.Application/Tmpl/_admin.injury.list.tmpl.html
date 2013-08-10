@@ -71,9 +71,7 @@
                     <label><strong>Symptoms: </strong></label>
                     <ul data-bind="foreach: injurySymptoms">
                         <li>
-                            <span data-bind="text: bodyPartMatrixItem().skeletonArea().orientation"></span>
-                            <span data-bind="text: bodyPartMatrixItem().skeletonArea().side"></span>
-                            <span data-bind="text: bodyPartMatrixItem().bodyPart().commonName"></span> :
+                            <span data-bind="text: bodyPartMatrixItemName"></span> :
                             <span data-bind="text: name"></span>
                             (<span data-bind="text: thresholdValue"></span>)
                             <span data-bind="text: renderType"></span>

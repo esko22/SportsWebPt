@@ -6,11 +6,13 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public BodyPartMatrixItem bodyPartMatrixItem { get; set; }
-
         public int thresholdValue { get; set; }
 
         public int symptomId { get; set; }
+
+        public int bodyPartMatrixItemId { get; set; }
+
+        public String bodyPartMatrixItemName { get; set; }
 
         #endregion
     }

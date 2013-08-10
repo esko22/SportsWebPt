@@ -28,6 +28,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<InjuryCauseMatrixItem> InjuryCauseMatrixRepo { get { return GetStandardRepo<InjuryCauseMatrixItem>(); } }
         public IRepository<InjurySignMatrixItem> InjurySignMatrixRepo { get { return GetStandardRepo<InjurySignMatrixItem>(); } }
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
+        public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
 
         #endregion
 
@@ -144,7 +145,8 @@ namespace SportsWebPt.Platform.DataAccess
                 {
                     "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
                     "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                    "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
+                    "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
+                    "InjurySymptomMatrixItems","InjurySymptomMatrixItems.SymptomMatrixItem"
                 })
                 .SingleOrDefault(p => p.Id == injury.Id);
 
@@ -201,6 +203,19 @@ namespace SportsWebPt.Platform.DataAccess
             {
                 e.InjuryId = injury.Id;
                 InjuryCauseMatrixRepo.Add(e);
+            });
+
+            var deletedSymptoms = injuryInDb.InjurySymptomMatrixItems.Except(
+                injury.InjurySymptomMatrixItems, (item, matrixItem) => item.Id == matrixItem.Id).ToList();
+
+            var addedSymptoms = injury.InjurySymptomMatrixItems.Except(
+                injuryInDb.InjurySymptomMatrixItems, (item, matrixItem) => item.Id == matrixItem.Id).ToList();
+
+            deletedSymptoms.ForEach(e => InjurySymptomMatrixRepo.Delete(e));
+            addedSymptoms.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjurySymptomMatrixRepo.Add(e);
             });
 
             var injuryEntry = _context.Entry(injuryInDb);

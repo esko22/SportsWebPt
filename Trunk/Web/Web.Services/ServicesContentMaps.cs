@@ -35,8 +35,14 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.signs, opt => opt.MapFrom(s =>s.signs))
                   .ForMember(d => d.injurySymptoms, opt => opt.MapFrom(s => s.InjurySymptoms));
             Mapper.CreateMap<InjurySymptomDto, InjurySymptom>()
-                  .ForMember(d => d.bodyPartMatrixItem, opt => opt.MapFrom(s => s.BodyPartMatrixItem))
-                  .ForMember(d => d.thresholdValue, opt => opt.MapFrom(s => s.ThresholdValue));
+                  .ForMember(d => d.bodyPartMatrixItemName, opt => opt.MapFrom(s => s.BodyPartMatrixItemName))
+                  .ForMember(d => d.bodyPartMatrixItemId, opt => opt.MapFrom(s => s.BodyPartMatrixItemId))
+                  .ForMember(d => d.thresholdValue, opt => opt.MapFrom(s => s.ThresholdValue))
+                  .ForMember(d => d.symptomId, opt => opt.MapFrom(s => s.SymptomId));
+            Mapper.CreateMap<InjurySymptom, InjurySymptomDto>()
+                  .ForMember(d => d.BodyPartMatrixItemId, opt => opt.MapFrom(s => s.bodyPartMatrixItemId))
+                  .ForMember(d => d.ThresholdValue, opt => opt.MapFrom(s => s.thresholdValue))
+                  .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.symptomId));
             Mapper.CreateMap<Injury, InjuryDto>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.plans))
                   .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => s.bodyRegions))

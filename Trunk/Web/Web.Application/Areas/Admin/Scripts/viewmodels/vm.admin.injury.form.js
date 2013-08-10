@@ -52,8 +52,8 @@
         addNewSymptom = function (data, event) {
             var symptom = new InjurySymptom();
             symptom.set('symptomId', 1);
-            symptom.set('threshold', 1);
-            symptom.set('bodyPartMatrixId', 1);
+            symptom.set('thresholdValue', 1);
+            symptom.set('bodyPartMatrixItemId', 1);
             selectedInjury.get('injurySymptoms').add(symptom);
         },
         removeSymptom = function (data, event) {
@@ -67,7 +67,8 @@
            selectedInjury.get('bodyRegions').reset();
            selectedInjury.get('signs').reset();
            selectedInjury.get('causes').reset();
-
+           selectedInjury.get('injurySymptoms').reset();
+           
            _.each(data.plans(), function (viewModel) {
                _.each(planCollection.models, function (planModel) {
                    if (viewModel.id() === planModel.get('id')) {
@@ -99,6 +100,11 @@
                    }
                });
            });
+           
+           _.each(data.injurySymptoms(), function (viewModel) {
+                   selectedInjury.get('injurySymptoms').add(viewModel.model());
+               });
+
 
            selectedInjury.set('commonName', data.model().get('commonName'));
            selectedInjury.set('description', data.model().get('description'));
