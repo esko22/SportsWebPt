@@ -1,15 +1,20 @@
 ﻿define('vm.admin.injury.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection'],
-    function (ko, _, kb, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection) {
+    ['ko', 'underscore', 'knockback', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection', 'model.admin.symptom.collection','model.admin.body.part.matrix.item.collection', 'model.injury.symptom'],
+    function (ko, _, kb, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom) {
         var planCollection = new PlanCollection(),
-           bodyRegionCollection = new BodyRegionCollection(),
-           signCollection = new SignCollection(), 
-           causeCollection = new CauseCollection(),
+            bodyRegionCollection = new BodyRegionCollection(),
+            signCollection = new SignCollection(),
+            causeCollection = new CauseCollection(),
+            symptomCollection = new SymptomCollection(),
+            bodyPartMatrixCollection = new BodyPartMatrixCollection(),
            availablePlans = kb.collectionObservable(planCollection),
            availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
            availableSigns = kb.collectionObservable(signCollection),
            availableCauses = kb.collectionObservable(causeCollection),
+           availableSymptoms = kb.collectionObservable(symptomCollection),
+            availableBodyPartMatrix = kb.collectionObservable(bodyPartMatrixCollection),
            selectedInjury = new InjuryModel(),
+            injurySymptoms = kb.collectionObservable(selectedInjury.get('injurySymptoms')),
            commonName = kb.observable(selectedInjury, 'commonName'),
            medicalName = kb.observable(selectedInjury, 'medicalName'),
            description = kb.observable(selectedInjury, 'description'),
@@ -43,6 +48,16 @@
         editInjury = function (data, event) {
             bindSelectedInjury(data);
             $(modalDialogId).modal('show');
+        },
+        addNewSymptom = function (data, event) {
+            var symptom = new InjurySymptom();
+            symptom.set('symptomId', 1);
+            symptom.set('threshold', 1);
+            symptom.set('bodyPartMatrixId', 1);
+            selectedInjury.get('injurySymptoms').add(symptom);
+        },
+        removeSymptom = function (data, event) {
+            selectedInjury.get('injurySymptoms').remove(data.model());
         },
        suscribe = function (passedCallback) {
            callback = passedCallback;
@@ -177,6 +192,8 @@
             bodyRegionCollection.fetch();
             signCollection.fetch();
             causeCollection.fetch();
+            bodyPartMatrixCollection.fetch();
+            symptomCollection.fetch();
         };
 
         return {
@@ -186,6 +203,8 @@
             availableBodyRegions: availableBodyRegions,
             availableCauses: availableCauses,
             availableSigns: availableSigns,
+            availableSymptoms: availableSymptoms,
+            availableBodyPartMatrix: availableBodyPartMatrix,
             commonName: commonName,
             medicalName: medicalName,
             description: description,
@@ -200,7 +219,10 @@
             suscribe: suscribe,
             addInjury: addInjury,
             editInjury: editInjury,
-            init : init
+            init: init,
+            addNewSymptom: addNewSymptom,
+            removeSymptom: removeSymptom,
+            injurySymptoms: injurySymptoms
         };
 
     });

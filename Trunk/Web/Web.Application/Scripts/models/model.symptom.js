@@ -21,7 +21,7 @@ define('model.potential.symptom.collection', ['backbone', 'model.potential.sympt
 
     });
 
-define('model.injury.symptom', ['backbone', 'config', 'model.body.part.matrix.item'],
+define('model.injury.symptom', ['backbone', 'config', 'model.admin.body.part.matrix.item'],
     function (backbone, config, BodyPartMatrixItem) {
 
         var injurySymptom = backbone.RelationalModel.extend({
