@@ -30,7 +30,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                                   .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0)
                                   .Join(DiffDiagUnitOfWork.InjurySymptomMatrixItemRepo.GetAll(),
                                         sd => sd.SymptomMatrixItemId, ismi => ismi.SymptomMatrixItemId,
-                                        (detail, item) => new {detail, item}).Where(isimisd => isimisd.detail.GivenResponse > isimisd.item.ThresholdValue)
+                                        (detail, item) => new {detail, item}).Where(isimisd => isimisd.detail.GivenResponse >= isimisd.item.ThresholdValue)
                                   .Join(DiffDiagUnitOfWork.InjuryRepo.GetAll(), ismisd => ismisd.item.InjuryId,
                                         injury => injury.Id, (ismisd, injury) => injury).Distinct();
 
