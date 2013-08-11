@@ -52,6 +52,19 @@ namespace SportsWebPt.Platform.Web.Services
 
         IEnumerable<Symptom> GetSymtpoms();
 
+        IEnumerable<BodyPart> GetBodyParts();
+
+        IEnumerable<SkeletonArea> GetSkeletonAreas();
+
+        int AddBodyPart(BodyPart bodyPart);
+
+        void UpdateBodyPart(BodyPart bodyPart);
+
+        IEnumerable<BodyRegion> GetBodyRegions();
+
+        int AddBodyRegion(BodyRegion bodyRegion);
+
+        void UpdateBodyRegion(BodyRegion bodyRegion);
 
     }
 }

@@ -17,6 +17,10 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String scientificName { get; set; }
 
+        [DataMember]
+        public SkeletonAreaDto[] SkeletonAreas { get; set; }
+
+
         #endregion
     }
 }

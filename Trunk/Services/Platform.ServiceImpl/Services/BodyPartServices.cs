@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using AutoMapper;
-
+using ServiceStack.ServiceInterface.ServiceModel;
 using SportsWebPt.Common.ServiceStack.Infrastructure;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
@@ -27,7 +27,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             var areaComponents = new List<BodyPart>();
 
             if (request.skeletonAreaId == 0)
-                areaComponents.AddRange(SkeletonUnitOfWork.BodyPartRepo.GetAll());
+                areaComponents.AddRange(SkeletonUnitOfWork.BodyPartRepo.GetAll(new[] { "BodyPartMatrix", "BodyPartMatrix.SkeletonArea", "BodyPartMatrix.SkeletonArea.Region",
+                                                                                       "BodyPartMatrix.SkeletonArea.Side","BodyPartMatrix.SkeletonArea.Orientation"}));
             else
                 areaComponents = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll().Where(s => s.SkeletonAreaId == request.skeletonAreaId).Select(p => p.BodyPart).ToList();
 
@@ -70,8 +71,9 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
 
             var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+            bodyPart.BodyPartMatrix.ForEach(f => f.BodyPartId = bodyPart.Id);
 
-            SkeletonUnitOfWork.BodyPartRepo.Update(bodyPart);
+            SkeletonUnitOfWork.UpdateBodyPart(bodyPart);
             SkeletonUnitOfWork.Commit();
 
             return Ok(new ApiResponse<BodyPartDto>(request.Resource));

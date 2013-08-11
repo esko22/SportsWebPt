@@ -181,6 +181,8 @@
     <Content Include="Areas\Admin\Scripts\app\admin.area.bootstrapper.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.regions.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.parts.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.causes.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.equipment.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.exercise.form.js" />
@@ -194,6 +196,8 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.plan.page.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.signs.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
+    <Content Include="Areas\Admin\Views\Index\_adminBodyRegions.cshtml" />
+    <None Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />

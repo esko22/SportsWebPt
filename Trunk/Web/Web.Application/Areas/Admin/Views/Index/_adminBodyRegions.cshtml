@@ -1,0 +1,34 @@
+﻿    <div class="view container" id="admin-body-region-panel">
+            <h2> Body Regions</h2>
+            <hr class="examine-report-hr"/>
+            <div class="row-fluid">
+                <div class="span7">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Region Name</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: bodyRegions">
+                            <tr>
+                                <td data-bind="text:name"></td>
+                                <td><button class="btn-primary" data-bind="click: $parent.bindSelectedBodyRegion">Edit</button></td>
+                            </tr>
+                        </tbody>            
+                    </table>
+                </div>
+                <div class="span5 well">
+                    <form class="form-horizontal" data-bind="validateForm: bodyRegionValidationOptions" id="admin-body-region-form">
+                        <div class="control-group">
+                            <label class="control-label" for="inputName">Name</label>
+                            <div class="controls">
+                                <input type="text" id="inputName" name="bodyRegionName" data-bind="value: selectedBodyRegion.name" placeholder="Region Name">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                     </form>
+                </div>
+            </div>
+    </div>

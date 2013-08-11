@@ -1,0 +1,56 @@
+﻿    <div class="view container" id="admin-body-part-panel">
+            <h2> Body Parts</h2>
+            <hr class="examine-report-hr"/>
+            <div class="row-fluid">
+                <div class="span7">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Common Name</th>
+                                <th>Scientific Name</th>
+                                <th>Skeleton Areas</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: bodyParts">
+                            <tr>
+                                <td data-bind="text: commonName"></td>
+                                <td data-bind="text: scientificName"></td>
+                                <td>
+                                    <ul data-bind="foreach: skeletonAreas">
+                                        <li data-bind="text: name"></li>
+                                    </ul>
+                                </td>
+                                <td><button class="btn-primary" data-bind="click: $parent.bindSelectedBodyPart">Edit</button></td>
+                            </tr>
+                        </tbody>            
+                    </table>
+                </div>
+                <div class="span5 well">
+                    <form class="form-horizontal" data-bind="validateForm: bodyPartValidationOptions" id="admin-body-part-form">
+                        <div class="control-group">
+                            <label class="control-label" for="inputCommonName">Common Name</label>
+                            <div class="controls">
+                                <input type="text" id="inputCommonName" name="commonName" data-bind="value: commonName" placeholder="Common Name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputScientificName">Scientific Name</label>
+                            <div class="controls">
+                                <input type="text" id="Text1" name="scientificName" data-bind="value: scientificName" placeholder="Scientific Name">
+                            </div>
+                        </div>
+                       <div class="control-group">
+                            <label class="control-label" for="inputSkeletonAreas">Skeleton Areas</label>
+                            <div class="controls">
+                                <select id="inputSkeletonAreas" multiple size="8" name="skeletonAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: skeletonAreas" >
+                                </select>
+                            </div>
+                       </div>
+                        <div class="form-actions">
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                     </form>
+                </div>
+            </div>
+    </div>

@@ -49,7 +49,7 @@ namespace SportsWebPt.Platform.DataAccess
             {
                 var symptomMatrixItem =
                     SymptomMatrixRepo.GetAll()
-                                     .SingleOrDefault(
+                                     .FirstOrDefault(
                                          s =>
                                          s.SymptomId == injurySymptom.SymptomMatrixItem.SymptomId &&
                                          s.BodyPartMatrixItemId == injurySymptom.SymptomMatrixItem.BodyPartMatrixItemId);

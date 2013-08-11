@@ -26,6 +26,7 @@ namespace SportsWebPt.Platform.Web.Core
         public String InjuryPath { get; private set; }
         public String SymptomPath { get; private set; }
         public String BodyPartMatrixPath { get; private set; }
+        public String BodyPartPath { get; private set; }
 
         #endregion        
         
@@ -54,6 +55,7 @@ namespace SportsWebPt.Platform.Web.Core
 
             SymptomPath = String.Format("/{0}/symptoms", Version);
             BodyPartMatrixPath = String.Format("/{0}/bodypartmatrix", Version);
+            BodyPartPath = String.Format("/{0}/bodyparts", Version);
 
         }
 

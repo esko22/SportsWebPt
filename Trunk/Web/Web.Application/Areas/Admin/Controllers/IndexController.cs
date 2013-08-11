@@ -235,6 +235,55 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(injury, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("admin/bodyparts", IsAbsoluteUrl = true)]
+        public ActionResult GetBodyParts()
+        {
+            var bodyParts = _adminService.GetBodyParts();
+
+            return Json(bodyParts, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("admin/skeletonareas", IsAbsoluteUrl = true)]
+        public ActionResult GetSkeletonAreas()
+        {
+            var skeletonAreas = _adminService.GetSkeletonAreas();
+
+            return Json(skeletonAreas, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/bodyparts", IsAbsoluteUrl = true)]
+        public ActionResult AddBodyPart(BodyPart bodyPart)
+        {
+            var response = _adminService.AddBodyPart(bodyPart);
+            bodyPart.id = response;
+
+            return Json(bodyPart, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/bodyparts/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateBodyPart(BodyPart bodyPart)
+        {
+            _adminService.UpdateBodyPart(bodyPart);
+
+            return Json(bodyPart, JsonRequestBehavior.DenyGet);
+        }
+
+        [POST("admin/bodyregions", IsAbsoluteUrl = true)]
+        public ActionResult AddBodyRegion(BodyRegion bodyRegion)
+        {
+            var response = _adminService.AddBodyRegion(bodyRegion);
+            bodyRegion.id = response;
+
+            return Json(bodyRegion, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/bodyregions/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateBodyRegion(BodyRegion bodyRegion)
+        {
+            _adminService.UpdateBodyRegion(bodyRegion);
+
+            return Json(bodyRegion, JsonRequestBehavior.DenyGet);
+        }
 
         #endregion
 

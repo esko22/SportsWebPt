@@ -13,7 +13,9 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<UserDto, User>();
             Mapper.CreateMap<SkeletonAreaDto, SkeletonArea>();
+            Mapper.CreateMap<SkeletonArea, SkeletonAreaDto>();
             Mapper.CreateMap<BodyPartDto, BodyPart>();
+            Mapper.CreateMap<BodyPart, BodyPartDto>();
             Mapper.CreateMap<BodyPartMatrixItemDto, BodyPartMatrixItem>()
                   .ForMember(d => d.displayName,
                              opt =>

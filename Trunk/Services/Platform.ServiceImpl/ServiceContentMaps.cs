@@ -17,8 +17,25 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.Orientation.Value))
                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side.Value));
-            Mapper.CreateMap<BodyPart, BodyPartDto>();
-            Mapper.CreateMap<BodyPartDto, BodyPart>();
+            Mapper.CreateMap<BodyPart, BodyPartDto>()
+                  .ForMember(d => d.SkeletonAreas, opt =>
+                      {
+                          opt.Condition(s => s.BodyPartMatrix != null);
+                          opt.MapFrom(s => s.BodyPartMatrix);
+                      });
+            Mapper.CreateMap<BodyPartMatrixItem, SkeletonAreaDto>()
+                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.SkeletonArea.Id))
+                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.SkeletonArea.Orientation.Value))
+                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.SkeletonArea.Region.Name))
+                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.SkeletonArea.Side.Value));
+            Mapper.CreateMap<BodyPartDto, BodyPart>()
+                  .ForMember(d => d.BodyPartMatrix, opt =>
+                      {
+                          opt.Condition(s => s.SkeletonAreas != null);
+                          opt.MapFrom(s => s.SkeletonAreas);
+                      });
+            Mapper.CreateMap<SkeletonAreaDto, BodyPartMatrixItem>()
+                  .ForMember(d => d.SkeletonAreaId, opt => opt.MapFrom(s => s.id));
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<Symptom, SymptomDto>()

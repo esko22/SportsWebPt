@@ -1,5 +1,6 @@
-﻿define('router', ['backbone', 'jquery', 'knockback', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page', 'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page'],
-    function (backbone, $, kb, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM) {
+﻿define('router', ['backbone', 'jquery', 'knockback', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page',
+        'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page', 'vm.admin.body.parts', 'vm.admin.body.regions'],
+    function (backbone, $, kb, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM, BodyPartVM, BodyRegionVM) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -12,6 +13,8 @@
                     'injuries': 'injuries',
                     'signs': 'signs',
                     'causes' : 'causes',
+                    'bodypart': 'bodypart',
+                    'bodyregion': 'bodyregion',
                     '*actions': 'defaultRoute'
                 }
             });
@@ -38,6 +41,20 @@
                 $('.active').removeClass('active');
                 SignVM.init();
                 presenter.transitionTo($('#admin-sign-panel'), '', '');
+            });
+            
+            router.on('route:bodypart', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                BodyPartVM.init();
+                presenter.transitionTo($('#admin-body-part-panel'), '', '');
+            });
+            
+            router.on('route:bodyregion', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                BodyRegionVM.init();
+                presenter.transitionTo($('#admin-body-region-panel'), '', '');
             });
 
             router.on('route:causes', function () {

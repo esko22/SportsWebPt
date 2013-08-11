@@ -254,6 +254,72 @@ namespace SportsWebPt.Platform.Web.Services
             return Mapper.Map<IEnumerable<Symptom>>(response.Resource.Items);
         }
 
+        public IEnumerable<BodyPart> GetBodyParts()
+        {
+            var response = GetSync<ListResponse<BodyPart, BasicSortBy>>(_sportsWebPtClientSettings.BodyPartPath);
+
+            return Mapper.Map<IEnumerable<BodyPart>>(response.Resource.Items);
+        }
+
+        public IEnumerable<SkeletonArea> GetSkeletonAreas()
+        {
+            var response = GetSync<ListResponse<SkeletonArea, BasicSortBy>>(_sportsWebPtClientSettings.SkeletonAreasUriPath);
+
+            return Mapper.Map<IEnumerable<SkeletonArea>>(response.Resource.Items);
+        }
+
+        public int AddBodyPart(BodyPart bodyPart)
+        {
+            var request = new ApiResourceRequest<BodyPartDto>
+            {
+                Resource = Mapper.Map<BodyPartDto>(bodyPart)
+            };
+
+            var response =
+                PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyPartPath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateBodyPart(BodyPart bodyPart)
+        {
+            var request = new ApiResourceRequest<BodyPartDto>
+            {
+                Resource = Mapper.Map<BodyPartDto>(bodyPart)
+            };
+
+            PutSync<BodyPartResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.BodyPartPath, bodyPart.id), request);
+        }
+
+        public IEnumerable<BodyRegion> GetBodyRegions()
+        {
+            var response = GetSync<ListResponse<BodyRegion, BasicSortBy>>(_sportsWebPtClientSettings.BodyRegionUriPath);
+
+            return Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
+        }
+
+        public int AddBodyRegion(BodyRegion bodyRegion)
+        {
+            var request = new ApiResourceRequest<BodyRegionDto>
+            {
+                Resource = Mapper.Map<BodyRegionDto>(bodyRegion)
+            };
+
+            var response =
+                PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyRegionUriPath, request);
+
+            return response.Resource.id;
+        }
+
+        public void UpdateBodyRegion(BodyRegion bodyRegion)
+        {
+            var request = new ApiResourceRequest<BodyRegionDto>
+            {
+                Resource = Mapper.Map<BodyRegionDto>(bodyRegion)
+            };
+
+            PutSync<BodyPartResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.BodyRegionUriPath, bodyRegion.id), request);
+        }
 
         #endregion
 
