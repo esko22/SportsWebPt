@@ -14,11 +14,11 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("Injury");
             Property(p => p.CommonName).IsRequired().HasColumnName("common_name").HasMaxLength(50);
             Property(p => p.MedicalName).HasColumnName("medical_name").HasMaxLength(100);
-            Property(p => p.Description).IsRequired().HasColumnName("description").HasMaxLength(2000);
-            Property(p => p.OpeningStatement).IsRequired().HasColumnName("opening_statement").HasMaxLength(2000);
+            Property(p => p.Description).IsRequired().HasColumnName("description").HasColumnType("TEXT");
+            Property(p => p.OpeningStatement).IsRequired().HasColumnName("opening_statement").HasColumnType("TEXT");
             Property(p => p.Id).IsRequired().HasColumnName("injury_id");
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
-            Property(p => p.Tags).HasColumnName("tags").HasMaxLength(1000);
+            Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT");
 
         }
         

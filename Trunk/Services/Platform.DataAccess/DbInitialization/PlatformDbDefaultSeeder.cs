@@ -368,19 +368,17 @@ namespace SportsWebPt.Platform.DataAccess
                     new Equipment()
                         {
                             CommonName = "Foam Roller",
-                            TechnicalName = "Roller de Foame",
                             PriceRange = "10 - 50",
                             RecommendedVendor = "Foam House"
                         },
                     new Equipment()
                         {
                             CommonName = "Theracane",
-                            TechnicalName = "Theracane",
                             PriceRange = "20 - 60",
                             RecommendedVendor = "ActiveLife"
                         },
-                    new Equipment() {CommonName = "Baseball", TechnicalName = "Baseball", PriceRange = "2 - 7"},
-                    new Equipment() {CommonName = "Wall", TechnicalName = "Wall", PriceRange = "0"}
+                    new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7"},
+                    new Equipment() {CommonName = "Wall", PriceRange = "0"}
                 };
 
             equipmentList.ForEach(p => _dbContext.Equipment.Add(p));

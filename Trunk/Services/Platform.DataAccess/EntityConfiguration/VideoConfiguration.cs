@@ -13,9 +13,10 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("Video");
             Property(p => p.Filename).IsRequired().HasColumnName("filename").HasMaxLength(100);
             Property(p => p.YoutubeVideoId).HasColumnName("youtube_video_id").HasMaxLength(20);
-            Property(p => p.Description).HasColumnName("description").HasMaxLength(500);
+            Property(p => p.Description).HasColumnName("description").HasColumnType("TEXT");
             Property(p => p.CreationDate).HasColumnName("created_on").IsRequired();
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(100);
+            Property(p => p.MedicalName).IsOptional().HasColumnName("medical_name").HasMaxLength(100);
             Property(p => p.Id).IsRequired().HasColumnName("video_id");
         }
 

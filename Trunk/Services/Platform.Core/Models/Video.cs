@@ -13,6 +13,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Name { get; set; }
 
+        public String MedicalName { get; set; }
+
         public String Description { get; set; }
 
         public String Filename { get; set; }

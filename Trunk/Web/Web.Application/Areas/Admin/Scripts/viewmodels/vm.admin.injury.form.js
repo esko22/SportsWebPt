@@ -124,19 +124,19 @@
                {
                    required: true,
                    minlength: 4,
-                   maxlength: 30
+                   maxlength: 100
                },
                openingStatement:
                {
                    required: true,
                    minlength: 1,
-                   maxlength: 2000
+                   maxlength: 60000
                },
                description:
                {
                    required: true,
                    minlength: 1,
-                   maxlength: 1000
+                   maxlength: 60000
                },
                medicalName:
                {
@@ -147,7 +147,7 @@
                tags:
                {
                    minlength: 1,
-                   maxlength: 1000
+                   maxlength: 10000
                },
                pageName:
                {
@@ -159,8 +159,8 @@
                commonName:
                {
                    required: "common name required",
-                   minlength: "must be between 4 and 30 characters",
-                   maxlength: "must be between 4 and 30 characters"
+                   minlength: "must be between 4 and 100 characters",
+                   maxlength: "must be between 4 and 100 characters"
                },
                medicalName:
                {
@@ -170,17 +170,17 @@
                },
                description:
                {
-                   minlength: "must be between 1 and 1000 characters",
-                   maxlength: "must be between 1 and 1000 characters"
+                   minlength: "must be between 1 and 60000 characters",
+                   maxlength: "must be between 1 and 60000 characters"
                },
                openingStatement: {
                    required: "category must be set",
-                   minlength: "must be between 1 and 2000 characters",
-                    maxlength: "must be between 1 and 2000 characters"
+                   minlength: "must be between 1 and 60000 characters",
+                    maxlength: "must be between 1 and 60000 characters"
                 },
                tags: {
-                   minlength: "must be between 1 and 1000 characters",
-                   maxlength: "must be between 1 and 1000 characters"
+                   minlength: "must be between 1 and 10000 characters",
+                   maxlength: "must be between 1 and 10000 characters"
                },
                pageName: {
                    remote: "page name must be unique",

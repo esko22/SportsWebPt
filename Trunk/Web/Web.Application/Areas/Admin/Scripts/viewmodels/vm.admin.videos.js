@@ -27,7 +27,13 @@
                 {
                     required: true,
                     minlength: 4,
-                    maxlength: 30
+                    maxlength: 100
+                },
+                medicalName:
+                {
+                    required: false,
+                    minlength: 4,
+                    maxlength: 100
                 },
                 fileName:
                 {
@@ -39,7 +45,7 @@
                 {
                     required: false,
                     minlength: 1,
-                    maxlength: 50
+                    maxlength: 60000
                 },
                 youtubeId:
                 {
@@ -52,8 +58,13 @@
                 name:
                 {
                     required: "name required",
-                    minlength: "must be between 4 and 30 characters",
-                    maxlength: "must be between 4 and 30 characters"
+                    minlength: "must be between 4 and 100 characters",
+                    maxlength: "must be between 4 and 100 characters"
+                },
+                medicalName:
+                {
+                    minlength: "must be between 4 and 100 characters",
+                    maxlength: "must be between 4 and 100 characters"
                 },
                 fileName: {
                     required: "file name required",
@@ -62,8 +73,8 @@
                 },
                 description:
                 {
-                    minlength: "must be between 1 and 50 characters",
-                    maxlength: "must be between 1 and 50 characters"
+                    minlength: "must be between 1 and 60000 characters",
+                    maxlength: "must be between 1 and 60000 characters"
                 },
                 youtubeId: {
                     minlength: "must be between 6 and 20 characters",

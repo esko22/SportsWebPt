@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String name { get; set; }
 
+        public String medicalName { get; set; }
+
         public String description { get; set; }
 
         public String filename { get; set; }

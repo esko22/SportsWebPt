@@ -39,9 +39,8 @@
         <div class="span7">
             <h3>Video</h3>
             <div data-bind="foreach:exercise.videos">
-                <video data-bind="attr: { id: 'video-' + id() }" 
-                        class="sublime" width="640" height="360" data-uid="pys0Nz3KSqI" data-youtube-id="pys0Nz3KSqI" preload="none">
-                </video>        
+                <video data-bind="attr: { id: 'video-' + id(), 'data-uid': youtubeVideoId, 'data-youtube-id': youtubeVideoId }" class="sublime" width="640" height="360" preload="none">
+                </video>       
             </div>
         </div>
     </div>    

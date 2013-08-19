@@ -11,8 +11,6 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String CommonName { get; set; }
 
-        public String TechnicalName { get; set; }
-
         public String PriceRange { get; set; }
 
         public String RecommendedVendor { get; set; }

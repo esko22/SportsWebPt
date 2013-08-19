@@ -53,7 +53,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             ResearchUnitOfWork.VideoRepo.Add(video);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.id = video.Id;
+            request.Resource.Id = video.Id;
 
             return Ok(new ApiResponse<VideoDto>(request.Resource));
         }

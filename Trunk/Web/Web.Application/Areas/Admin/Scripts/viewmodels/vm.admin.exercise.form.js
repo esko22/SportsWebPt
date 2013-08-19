@@ -95,7 +95,7 @@
                 {
                     required: true,
                     minlength: 4,
-                    maxlength: 30
+                    maxlength: 100
                 },
                 duration:
                 {
@@ -107,7 +107,7 @@
                 {
                     required: true,
                     minlength: 1,
-                    maxlength: 50
+                    maxlength: 60000
                 },
                 difficulty:
                 {
@@ -116,7 +116,7 @@
                 tags :
                 {
                     minlength: 1,
-                    maxlength: 1000
+                    maxlength: 10000
                 },
                 pageName :
                 {
@@ -128,8 +128,8 @@
                 name:
                 {
                     required: "name required",
-                    minlength: "must be between 4 and 30 characters",
-                    maxlength: "must be between 4 and 30 characters"
+                    minlength: "must be between 4 and 100 characters",
+                    maxlength: "must be between 4 and 100 characters"
                 },
                 fileName: {
                     required: "file name required",
@@ -138,20 +138,20 @@
                 },
                 description:
                 {
-                    minlength: "must be between 1 and 50 characters",
-                    maxlength: "must be between 1 and 50 characters"
+                    minlength: "must be between 1 and 60000 characters",
+                    maxlength: "must be between 1 and 60000 characters"
                 },
                 difficulty: {
                     required: "difficulty must be set"
                 },
                 tags: {
-                    minlength: "must be between 1 and 1000 characters",
-                    maxlength: "must be between 1 and 1000 characters"
+                    minlength: "must be between 1 and 10000 characters",
+                    maxlength: "must be between 1 and 10000 characters"
                 },
                 pageName: {
                     remote: "page name must be unique",
-                    minlength: "must be between 1 and 1000 characters",
-                    maxlength: "must be between 1 and 1000 characters"
+                    minlength: "must be between 4 and 50 characters",
+                    maxlength: "must be between 4 and 50 characters"
                 }
             },
             submitHandler: saveChanges,

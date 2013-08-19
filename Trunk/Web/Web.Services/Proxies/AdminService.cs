@@ -78,7 +78,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 PostSync<VideoResourceResponse>(_sportsWebPtClientSettings.VideoPath, request);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdateVideo(Video video)

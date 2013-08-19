@@ -11,9 +11,15 @@
                 <div class="span5 well">
                     <form class="form-horizontal" data-bind="validateForm: videoValidationOptions" id="admin-video-form">
                         <div class="control-group">
-                            <label class="control-label" for="inputName">Name</label>
+                            <label class="control-label" for="inputName">Common Name</label>
                             <div class="controls">
                                 <input type="text" id="inputName" name="name" data-bind="value: selectedVideo.name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputMedicalName">Medical Name</label>
+                            <div class="controls">
+                                <input type="text" id="inputMedicalName" name="medicalName" data-bind="value: selectedVideo.medicalName" placeholder="Medical Name">
                             </div>
                        </div>
                         <div class="control-group">

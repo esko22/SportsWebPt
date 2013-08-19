@@ -32,6 +32,7 @@ define('model.admin.video', ['backbone', 'config', 'jquery'],
                 urlRoot: config.apiUris.adminVideos,
                 defaults: {
                     'name': '',
+                    'medicalName': '',
                     'description': '',
                     'filename': '',
                     'youtubeVideoId': '',

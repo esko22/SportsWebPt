@@ -29,12 +29,13 @@ body {
 }
 
 .edit-modal {
-    width: 1400px;
-    margin-left:  -650px !important; 
+    width: 1000px;
+    margin-left:  -450px !important; 
 }
 
 .edit-modal-body {
     max-height: 750px;
+    overflow: auto;
 }
 
 .login-container {

@@ -9,22 +9,25 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public DateTime creationDate { get; set; }
+        public DateTime CreationDate { get; set; }
 
         [DataMember]
-        public String name { get; set; }
+        public String Name { get; set; }
 
         [DataMember]
-        public String description { get; set; }
+        public String MedicalName { get; set; }
 
         [DataMember]
-        public String filename { get; set; }
+        public String Description { get; set; }
 
         [DataMember]
-        public String youtubeVideoId { get; set; }
+        public String Filename { get; set; }
+
+        [DataMember]
+        public String YoutubeVideoId { get; set; }
 
         #endregion
     }

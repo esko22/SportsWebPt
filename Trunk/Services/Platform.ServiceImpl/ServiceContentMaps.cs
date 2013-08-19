@@ -165,12 +165,12 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.MapFrom(s => s.bodyRegions);
                       });
             Mapper.CreateMap<ExerciseVideoMatrixItem, VideoDto>()
-                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.VideoId));
+                  .ForMember(d => d.Id, opt => opt.MapFrom(s => s.VideoId));
             Mapper.CreateMap<ExerciseEquipmentMatrixItem, VideoDto>()
-                  .ForMember(d => d.id, opt => opt.MapFrom(s => s.EquipmentId));
+                  .ForMember(d => d.Id, opt => opt.MapFrom(s => s.EquipmentId));
             Mapper.CreateMap<Video, VideoDto>();
             Mapper.CreateMap<VideoDto, ExerciseVideoMatrixItem>()
-                  .ForMember(d => d.VideoId, opt => opt.MapFrom(s => s.id));
+                  .ForMember(d => d.VideoId, opt => opt.MapFrom(s => s.Id));
             Mapper.CreateMap<EquipmentDto, ExerciseEquipmentMatrixItem>()
                   .ForMember(d => d.EquipmentId, opt => opt.MapFrom(s => s.id));
             Mapper.CreateMap<BodyRegionDto, ExerciseBodyRegionMatrixItem>()

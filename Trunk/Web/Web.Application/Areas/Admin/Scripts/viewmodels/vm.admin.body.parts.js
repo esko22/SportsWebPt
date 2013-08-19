@@ -79,7 +79,7 @@
                     maxlength: "must be between 1 and 100 characters"
                 },
                 primaryAreas: {
-                    required: "must select a skeleton area",
+                    required: "must select a primary skeleton area",
                 }
             },
             submitHandler: saveChanges,
