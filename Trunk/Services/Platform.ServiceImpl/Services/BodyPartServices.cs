@@ -60,6 +60,12 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var bodyPart = Mapper.Map<BodyPart>(request.Resource);
 
+            bodyPart.SecondaryBodyPartMatrix.ForEach(p =>
+                {
+                    p.IsSecondary = true;
+                    bodyPart.BodyPartMatrix.Add(p);
+                });
+
             SkeletonUnitOfWork.BodyPartRepo.Add(bodyPart);
             SkeletonUnitOfWork.Commit();
 
@@ -71,6 +77,12 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
 
             var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+            bodyPart.SecondaryBodyPartMatrix.ForEach(p =>
+            {
+                p.IsSecondary = true;
+                bodyPart.BodyPartMatrix.Add(p);
+            });
+
             bodyPart.BodyPartMatrix.ForEach(f => f.BodyPartId = bodyPart.Id);
 
             SkeletonUnitOfWork.UpdateBodyPart(bodyPart);

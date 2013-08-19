@@ -8,7 +8,8 @@
                             <tr>
                                 <th>Common Name</th>
                                 <th>Scientific Name</th>
-                                <th>Skeleton Areas</th>
+                                <th>Primary Areas</th>
+                                <th>Secondary Areas</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -17,7 +18,12 @@
                                 <td data-bind="text: commonName"></td>
                                 <td data-bind="text: scientificName"></td>
                                 <td>
-                                    <ul data-bind="foreach: skeletonAreas">
+                                    <ul data-bind="foreach: primaryAreas">
+                                        <li data-bind="text: name"></li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul data-bind="foreach: secondaryAreas">
                                         <li data-bind="text: name"></li>
                                     </ul>
                                 </td>
@@ -41,9 +47,16 @@
                             </div>
                         </div>
                        <div class="control-group">
-                            <label class="control-label" for="inputSkeletonAreas">Skeleton Areas</label>
+                            <label class="control-label" for="inputPrimaryAreas">Primary Areas</label>
                             <div class="controls">
-                                <select id="inputSkeletonAreas" multiple size="8" name="skeletonAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: skeletonAreas" >
+                                <select id="inputPrimaryAreas" multiple size="8" name="primaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: primaryAreas" >
+                                </select>
+                            </div>
+                       </div>
+                       <div class="control-group">
+                            <label class="control-label" for="inputSecondaryAreas">Secondary Areas</label>
+                            <div class="controls">
+                                <select id="inputSecondaryAreas" multiple size="8" name="secondaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: secondaryAreas" >
                                 </select>
                             </div>
                        </div>

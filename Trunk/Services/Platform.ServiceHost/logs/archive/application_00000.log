@@ -1,89 +1,10 @@
-08-11-13@01:14:14 Info (8)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:14:14 Info (5)  [Common] SkeletonAreaListRequest request submitted 
-08-11-13@01:14:17 Info (5)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:03.4012274 
-08-11-13@01:14:17 Info (8)  [Common] BodyPartListRequest request completed with duration of 00:00:03.4130669 
-08-11-13@01:14:28 Info (9)  [Common] BodyPartRequest request submitted 
-08-11-13@01:14:29 Info (9)  [Common] BodyPartRequest request completed with duration of 00:00:00.8021294 
-08-11-13@01:14:29 Info (6)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:14:29 Info (6)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0095190 
-08-11-13@01:14:42 Info (6)  [Common] BodyPartRequest request submitted 
-08-11-13@01:14:43 Info (6)  [Common] BodyPartRequest request completed with duration of 00:00:00.3343771 
-08-11-13@01:14:43 Info (13)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:14:43 Info (13)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0113495 
-08-11-13@01:14:50 Info (9)  [Common] BodyPartRequest request submitted 
-08-11-13@01:14:50 Info (9)  [Common] BodyPartRequest request completed with duration of 00:00:00.0297891 
-08-11-13@01:14:50 Info (6)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:14:50 Info (6)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0110949 
-08-11-13@01:14:57 Info (8)  [Common] BodyPartRequest request submitted 
-08-11-13@01:15:19 Error (8)  [Common] [BodyPartService: 8/11/2013 8:15:19 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:13,region:LowerArm,orientation:Back,side:Left}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:26:05 Info (25)  [Common] BodyPartRequest request submitted 
-08-11-13@01:26:30 Error (25)  [Common] [BodyPartService: 8/11/2013 8:26:30 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.EntityCommandExecutionException An error occurred while executing the command definition. See the inner exception for details. System.Data.Common.DbDataReader ExecuteStoreCommands(System.Data.EntityClient.EntityCommand, System.Data.CommandBehavior)
-MySqlException There is already an open DataReader associated with this Connection which must be closed first. Void Throw(System.Exception)
-08-11-13@01:27:27 Info (25)  [Common] BodyPartRequest request submitted 
-08-11-13@01:27:51 Error (25)  [Common] [BodyPartService: 8/11/2013 8:27:51 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.EntityCommandExecutionException An error occurred while executing the command definition. See the inner exception for details. System.Data.Common.DbDataReader ExecuteStoreCommands(System.Data.EntityClient.EntityCommand, System.Data.CommandBehavior)
-MySqlException There is already an open DataReader associated with this Connection which must be closed first. Void Throw(System.Exception)
-08-11-13@01:28:11 Info (16)  [Common] BodyPartRequest request submitted 
-08-11-13@01:28:28 Error (16)  [Common] [BodyPartService: 8/11/2013 8:28:28 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.EntityCommandExecutionException An error occurred while executing the command definition. See the inner exception for details. System.Data.Common.DbDataReader ExecuteStoreCommands(System.Data.EntityClient.EntityCommand, System.Data.CommandBehavior)
-MySqlException There is already an open DataReader associated with this Connection which must be closed first. Void Throw(System.Exception)
-08-11-13@01:29:56 Info (16)  [Common] BodyPartRequest request submitted 
-08-11-13@01:30:16 Error (16)  [Common] [BodyPartService: 8/11/2013 8:30:16 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.EntityCommandExecutionException An error occurred while executing the command definition. See the inner exception for details. System.Data.Common.DbDataReader ExecuteStoreCommands(System.Data.EntityClient.EntityCommand, System.Data.CommandBehavior)
-MySqlException There is already an open DataReader associated with this Connection which must be closed first. Void Throw(System.Exception)
-08-11-13@01:30:38 Info (32)  [Common] BodyPartRequest request submitted 
-08-11-13@01:31:27 Error (32)  [Common] [BodyPartService: 8/11/2013 8:31:27 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptomdetail`, CONSTRAINT `SymptomDetail_SymptomMatrixItem` FOREIGN KEY (`symptom_matrix_item_id`) REFERENCES `symptommatrix` (`symptom_matrix_id`) ON DELETE NO ACTION ON UPD) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:36:06 Info (16)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:36:06 Info (30)  [Common] SkeletonAreaListRequest request submitted 
-08-11-13@01:36:09 Info (30)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:03.0697795 
-08-11-13@01:36:09 Info (16)  [Common] BodyPartListRequest request completed with duration of 00:00:03.0908397 
-08-11-13@01:36:13 Info (23)  [Common] BodyPartRequest request submitted 
-08-11-13@01:36:40 Error (23)  [Common] [BodyPartService: 8/11/2013 8:36:40 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:36:56 Info (10)  [Common] BodyPartRequest request submitted 
-08-11-13@01:38:29 Error (10)  [Common] [BodyPartService: 8/11/2013 8:38:29 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:19,region:LowerLeg,orientation:Front,side:Left},{id:21,region:LowerLeg,orientation:Back,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:40:08 Info (23)  [Common] BodyPartRequest request submitted 
-08-11-13@01:40:28 Info (23)  [Common] BodyPartRequest request completed with duration of 00:00:19.5048335 
-08-11-13@01:40:28 Info (5)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:40:28 Info (5)  [Common] BodyPartListRequest request completed with duration of 00:00:00.2172589 
-08-11-13@01:42:27 Info (23)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:42:27 Info (30)  [Common] SkeletonAreaListRequest request submitted 
-08-11-13@01:42:30 Info (30)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:03.0723469 
-08-11-13@01:42:30 Info (23)  [Common] BodyPartListRequest request completed with duration of 00:00:03.0920398 
-08-11-13@01:42:34 Info (6)  [Common] BodyPartRequest request submitted 
-08-11-13@01:43:06 Error (6)  [Common] [BodyPartService: 8/11/2013 8:43:06 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:21,region:LowerLeg,orientation:Back,side:Left},{id:19,region:LowerLeg,orientation:Front,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException Collection was modified; enumeration operation may not execute. Boolean MoveNext()
-08-11-13@01:46:12 Info (9)  [Common] BodyPartRequest request submitted 
-08-11-13@01:50:50 Error (9)  [Common] [BodyPartService: 8/11/2013 8:50:50 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:21,region:LowerLeg,orientation:Back,side:Left},{id:19,region:LowerLeg,orientation:Front,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:54:36 Info (28)  [Common] BodyPartRequest request submitted 
-08-11-13@01:54:58 Error (28)  [Common] [BodyPartService: 8/11/2013 8:54:58 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:21,region:LowerLeg,orientation:Back,side:Left},{id:19,region:LowerLeg,orientation:Front,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:55:38 Info (24)  [Common] BodyPartRequest request submitted 
-08-11-13@01:56:27 Error (24)  [Common] [BodyPartService: 8/11/2013 8:56:27 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:21,region:LowerLeg,orientation:Back,side:Left},{id:19,region:LowerLeg,orientation:Front,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
-UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-08-11-13@01:57:23 Info (22)  [Common] BodyPartRequest request submitted 
-08-11-13@01:57:30 Info (18)  [Common] SkeletonAreaListRequest request submitted 
-08-11-13@01:57:30 Info (37)  [Common] BodyPartListRequest request submitted 
-08-11-13@01:57:33 Info (18)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:02.9600223 
-08-11-13@01:58:50 Info (37)  [Common] BodyPartListRequest request completed with duration of 00:01:20.7024739 
-08-11-13@01:58:50 Error (22)  [Common] [BodyPartService: 8/11/2013 8:58:50 AM]:
-[REQUEST: {Id:1,Resource:{id:1,commonName:Foot,scientificName:FancyFoot,SkeletonAreas:[{id:21,region:LowerLeg,orientation:Back,side:Left},{id:19,region:LowerLeg,orientation:Front,side:Left},{id:20,region:LowerLeg,orientation:Front,side:Right}]},IdAsLong:1,IdAsInt:1,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key. Void VerifyRootForAdd(Boolean, System.String, System.Data.Objects.Internal.IEntityWrapper, System.Data.Objects.EntityEntry, System.Data.Metadata.Edm.EntitySet ByRef, Boolean ByRef)
+08-19-13@12:11:45 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
+08-19-13@12:11:45 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0275735 
+08-19-13@12:16:58 Info (21)  [Common] BodyPartListRequest request submitted 
+08-19-13@12:16:58 Info (21)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0235307 
+08-19-13@12:20:23 Info (26)  [Common] BodyPartListRequest request submitted 
+08-19-13@12:20:25 Info (26)  [Common] BodyPartListRequest request completed with duration of 00:00:01.8095485 
+08-19-13@12:47:16 Info (5)  [Common] BodyPartListRequest request submitted 
+08-19-13@12:47:18 Info (5)  [Common] BodyPartListRequest request completed with duration of 00:00:02.0398270 
+08-19-13@12:57:54 Info (28)  [Common] BodyPartListRequest request submitted 
+08-19-13@12:57:54 Info (28)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0110121 

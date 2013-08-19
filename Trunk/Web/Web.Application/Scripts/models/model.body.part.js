@@ -33,7 +33,11 @@ define('model.admin.body.part', ['backbone', 'config', 'jquery', 'model.admin.sk
                 },
                 relations: [{
                     type: backbone.HasMany,
-                    key: 'skeletonAreas',
+                    key: 'primaryAreas',
+                    relatedModel: SkeletonArea
+                }, {
+                    type: backbone.HasMany,
+                    key: 'secondaryAreas',
                     relatedModel: SkeletonArea
                 }]
             });

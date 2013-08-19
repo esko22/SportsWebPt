@@ -9,16 +9,16 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public String region { get; set; }
+        public String Region { get; set; }
 
         [DataMember]
-        public String orientation { get; set; }
+        public String Orientation { get; set; }
 
         [DataMember]
-        public String side { get; set; }
+        public String Side { get; set; }
 
         #endregion
     }

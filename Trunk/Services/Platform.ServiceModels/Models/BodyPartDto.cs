@@ -9,17 +9,19 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public String commonName { get; set; }
+        public String CommonName { get; set; }
 
         [DataMember]
-        public String scientificName { get; set; }
+        public String ScientificName { get; set; }
 
         [DataMember]
-        public SkeletonAreaDto[] SkeletonAreas { get; set; }
+        public SkeletonAreaDto[] PrimaryAreas { get; set; }
 
+        [DataMember]
+        public SkeletonAreaDto[] SecondaryAreas { get; set; }
 
         #endregion
     }

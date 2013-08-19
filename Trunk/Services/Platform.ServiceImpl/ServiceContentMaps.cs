@@ -14,28 +14,38 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<UserDto, User>();
             Mapper.CreateMap<SkeletonArea, SkeletonAreaDto>()
-                  .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.Orientation.Value))
-                  .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
-                  .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side.Value));
+                  .ForMember(d => d.Orientation, opt => opt.MapFrom(s => s.Orientation.Value))
+                  .ForMember(d => d.Region, opt => opt.MapFrom(s => s.Region.Name))
+                  .ForMember(d => d.Side, opt => opt.MapFrom(s => s.Side.Value));
             Mapper.CreateMap<BodyPart, BodyPartDto>()
-                  .ForMember(d => d.SkeletonAreas, opt =>
+                  .ForMember(d => d.PrimaryAreas, opt =>
                       {
                           opt.Condition(s => s.BodyPartMatrix != null);
-                          opt.MapFrom(s => s.BodyPartMatrix);
+                          opt.MapFrom(s => s.BodyPartMatrix.Where(p => !p.IsSecondary));
+                      })
+                  .ForMember(d => d.SecondaryAreas, opt =>
+                      {
+                          opt.Condition(s => s.BodyPartMatrix != null);
+                          opt.MapFrom(s => s.BodyPartMatrix.Where(p => p.IsSecondary));
                       });
             Mapper.CreateMap<BodyPartMatrixItem, SkeletonAreaDto>()
-                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.SkeletonArea.Id))
-                   .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.SkeletonArea.Orientation.Value))
-                   .ForMember(d => d.region, opt => opt.MapFrom(s => s.SkeletonArea.Region.Name))
-                   .ForMember(d => d.side, opt => opt.MapFrom(s => s.SkeletonArea.Side.Value));
+                   .ForMember(d => d.Id, opt => opt.MapFrom(s => s.SkeletonArea.Id))
+                   .ForMember(d => d.Orientation, opt => opt.MapFrom(s => s.SkeletonArea.Orientation.Value))
+                   .ForMember(d => d.Region, opt => opt.MapFrom(s => s.SkeletonArea.Region.Name))
+                   .ForMember(d => d.Side, opt => opt.MapFrom(s => s.SkeletonArea.Side.Value));
             Mapper.CreateMap<BodyPartDto, BodyPart>()
                   .ForMember(d => d.BodyPartMatrix, opt =>
                       {
-                          opt.Condition(s => s.SkeletonAreas != null);
-                          opt.MapFrom(s => s.SkeletonAreas);
+                          opt.Condition(s => s.PrimaryAreas != null);
+                          opt.MapFrom(s => s.PrimaryAreas);
+                      })
+                  .ForMember(d => d.SecondaryBodyPartMatrix, opt =>
+                      {
+                          opt.Condition(s => s.SecondaryAreas != null);
+                          opt.MapFrom(s => s.SecondaryAreas);
                       });
             Mapper.CreateMap<SkeletonAreaDto, BodyPartMatrixItem>()
-                  .ForMember(d => d.SkeletonAreaId, opt => opt.MapFrom(s => s.id));
+                  .ForMember(d => d.SkeletonAreaId, opt => opt.MapFrom(s => s.Id));
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<Symptom, SymptomDto>()
@@ -43,18 +53,18 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.renderOptions, opt => opt.MapFrom(s => s.RenderOptions))
                   .ForMember(d => d.renderTemplate, opt => opt.MapFrom(s => s.RenderType.DefaultTemplate));
             Mapper.CreateMap<SkeletonArea, SymptomaticRegionDto>()
-                  .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.Orientation.Value))
-                  .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region.Name))
-                  .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side.Value))
+                  .ForMember(d => d.Orientation, opt => opt.MapFrom(s => s.Orientation.Value))
+                  .ForMember(d => d.Region, opt => opt.MapFrom(s => s.Region.Name))
+                  .ForMember(d => d.Side, opt => opt.MapFrom(s => s.Side.Value))
                   .ForMember(d => d.BodyParts, opt => opt.MapFrom(s => s.BodyPartMatrix));
             Mapper.CreateMap<BodyPartMatrixItem, SymptomaticBodyPartDto>()
                   .ForMember(d => d.bodyPartMatrixId,
                              opt => opt.MapFrom(s => s.Id))
                   .ForMember(d => d.potentialSymptoms,
                              opt => opt.MapFrom(s => s.SymptomMatrixItems))
-                   .ForMember(d => d.id, opt => opt.MapFrom(s => s.BodyPart.Id))
-                   .ForMember(d => d.commonName, opt => opt.MapFrom(s => s.BodyPart.CommonName))
-                   .ForMember(d => d.scientificName, opt => opt.MapFrom(s => s.BodyPart.ScientificName));
+                   .ForMember(d => d.Id, opt => opt.MapFrom(s => s.BodyPart.Id))
+                   .ForMember(d => d.CommonName, opt => opt.MapFrom(s => s.BodyPart.CommonName))
+                   .ForMember(d => d.ScientificName, opt => opt.MapFrom(s => s.BodyPart.ScientificName));
             Mapper.CreateMap<SymptomMatrixItem, PotentialSymptomDto>()
                     .ForMember(d => d.symptomMatrixItemId, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.description, opt => opt.MapFrom(s => s.Symptom.Description))

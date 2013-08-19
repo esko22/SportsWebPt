@@ -644,6 +644,9 @@ namespace SportsWebPt.Platform.DataAccess
                 bodyPartMatrixItems.Add(matrixItem);
             }
 
+            bodyPartMatrixItems.Last().IsSecondary = true;
+            
+
             foreach (var bodyPart in new[] { bodyParts[0], bodyParts[1], bodyParts[9], bodyParts[10] })
             {
                 var matrixItem = new BodyPartMatrixItem
@@ -653,6 +656,8 @@ namespace SportsWebPt.Platform.DataAccess
                 };
                 bodyPartMatrixItems.Add(matrixItem);
             }
+
+            bodyPartMatrixItems.Last().IsSecondary = true;
 
 
             foreach (var bodyPart in new[] { bodyParts[0], bodyParts[1], bodyParts[11] })
@@ -664,6 +669,7 @@ namespace SportsWebPt.Platform.DataAccess
                 };
                 bodyPartMatrixItems.Add(matrixItem);
             }
+            bodyPartMatrixItems.Last().IsSecondary = true;
 
 
             bodyPartMatrixItems.ForEach(p => _dbContext.BodyPartMatrix.Add(p));

@@ -9,14 +9,24 @@
             selectedBodyPart = new BodyPart(),
             commonName = kb.observable(selectedBodyPart, 'commonName'),
             scientificName = kb.observable(selectedBodyPart, 'scientificName'),
-            skeletonAreas = kb.collectionObservable(selectedBodyPart.get('skeletonAreas'), availableAreas.shareOptions()),
+            primaryAreas = kb.collectionObservable(selectedBodyPart.get('primaryAreas'), availableAreas.shareOptions()),
+            secondaryAreas = kb.collectionObservable(selectedBodyPart.get('secondaryAreas'), availableAreas.shareOptions()),
             bindSelectedBodyPart = function (data, event) {
-                selectedBodyPart.get('skeletonAreas').reset();
-                
-                _.each(data.skeletonAreas(), function (viewModel) {
+                selectedBodyPart.get('primaryAreas').reset();
+                selectedBodyPart.get('secondaryAreas').reset();
+
+                _.each(data.primaryAreas(), function (viewModel) {
                     _.each(skeletonAreaCollection.models, function (skeletonAreaModel) {
                         if (viewModel.id() === skeletonAreaModel.get('id')) {
-                            selectedBodyPart.get('skeletonAreas').add(skeletonAreaModel);
+                            selectedBodyPart.get('primaryAreas').add(skeletonAreaModel);
+                        }
+                    });
+                });
+                
+                _.each(data.secondaryAreas(), function (viewModel) {
+                    _.each(skeletonAreaCollection.models, function (skeletonAreaModel) {
+                        if (viewModel.id() === skeletonAreaModel.get('id')) {
+                            selectedBodyPart.get('secondaryAreas').add(skeletonAreaModel);
                         }
                     });
                 });
@@ -52,7 +62,7 @@
                     minlength: 1,
                     maxlength: 100
                 },
-                skeletonArea:
+                primaryAreas:
                 {
                     required: true,
                 }
@@ -68,7 +78,7 @@
                     minlength: "must be between 1 and 100 characters",
                     maxlength: "must be between 1 and 100 characters"
                 },
-                skeletonArea: {
+                primaryAreas: {
                     required: "must select a skeleton area",
                 }
             },
@@ -89,7 +99,8 @@
             bindSelectedBodyPart: bindSelectedBodyPart,
             bodyPartValidationOptions: bodyPartValidationOptions,
             availableAreas: availableAreas,
-            skeletonAreas: skeletonAreas,
+            secondaryAreas: secondaryAreas,
+            primaryAreas: primaryAreas,
             commonName: commonName,
             scientificName: scientificName,
             init : init

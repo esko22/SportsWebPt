@@ -21,17 +21,17 @@ namespace SportsWebPt.Platform.Web.Services
                              opt =>
                              opt.MapFrom(
                                  s =>
-                                 String.Format("{0} {1} {2}", s.SkeletonArea.orientation, s.SkeletonArea.side,
-                                               s.BodyPart.commonName)));
+                                 String.Format("{0} {1} {2}", s.SkeletonArea.Orientation, s.SkeletonArea.Side,
+                                               s.BodyPart.CommonName)));
             Mapper.CreateMap<BodyPartMatrixItem, BodyPartMatrixItemDto>();
             Mapper.CreateMap<SymptomDto, Symptom>()
                                   .ForMember(d => d.displayName,
                              opt =>
                              opt.MapFrom(s => String.Format("{0} -- {1}", s.name, s.renderType)));
             Mapper.CreateMap<SymptomaticRegionDto, SymptomaticRegion>()
-                  .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.orientation))
-                  .ForMember(d => d.region, opt => opt.MapFrom(s => s.region))
-                  .ForMember(d => d.side, opt => opt.MapFrom(s => s.side))
+                  .ForMember(d => d.orientation, opt => opt.MapFrom(s => s.Orientation))
+                  .ForMember(d => d.region, opt => opt.MapFrom(s => s.Region))
+                  .ForMember(d => d.side, opt => opt.MapFrom(s => s.Side))
                   .ForMember(d => d.bodyParts, opt => opt.MapFrom(s => s.BodyParts));
             Mapper.CreateMap<SymptomaticBodyPartDto, SymptomaticBodyPart>()
                   .ForMember(d => d.potentialSymptoms, opt => opt.MapFrom(s => s.potentialSymptoms));

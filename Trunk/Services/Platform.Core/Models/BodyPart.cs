@@ -15,6 +15,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<BodyPartMatrixItem> BodyPartMatrix { get; set; }
 
+        //using this to make the mapping easier 
+        public ICollection<BodyPartMatrixItem> SecondaryBodyPartMatrix { get; set; }
+
         #endregion
     }
 }

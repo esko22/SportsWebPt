@@ -12,7 +12,9 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String scientificName { get; set; }
 
-        public SkeletonArea[] skeletonAreas { get; set; }
+        public SkeletonArea[] primaryAreas { get; set; }
+
+        public SkeletonArea[] secondaryAreas { get; set; }
 
         #endregion
     }

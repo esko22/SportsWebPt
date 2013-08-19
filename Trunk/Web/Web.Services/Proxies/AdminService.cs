@@ -278,7 +278,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyPartPath, request);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdateBodyPart(BodyPart bodyPart)
@@ -308,7 +308,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyRegionUriPath, request);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdateBodyRegion(BodyRegion bodyRegion)

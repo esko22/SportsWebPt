@@ -14,6 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.CommonName).IsRequired().HasColumnName("common_name").HasMaxLength(50);
             Property(p => p.ScientificName).HasColumnName("scientific_name").HasMaxLength(100);
             Property(p => p.Id).IsRequired().HasColumnName("body_part_id");
+            Ignore(p => p.SecondaryBodyPartMatrix);
         }
         
         #endregion
