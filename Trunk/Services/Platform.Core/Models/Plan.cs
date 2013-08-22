@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public PlanCategory Category { get; set; }
+        public FunctionCategory Category { get; set; }
 
         public String RoutineName { get; set; }
 

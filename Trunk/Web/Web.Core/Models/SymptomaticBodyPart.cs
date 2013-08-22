@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int bodyPartMatrixId { get; set; }
 
+        public bool isSecondary { get; set; }
+
         #endregion
     }
 }

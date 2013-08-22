@@ -18,7 +18,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int PerWeek { get; set; }
 
-        public int PerDay { get; set; } 
+        public int PerDay { get; set; }
+
+        public int HoldFor { get; set; }
 
         public virtual Plan Plan { get; set; }
 

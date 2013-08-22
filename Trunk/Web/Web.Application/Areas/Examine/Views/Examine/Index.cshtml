@@ -39,7 +39,7 @@
         </div>
         <div class="span10">
             <ul id="skeleton" data-bind="foreach: symptomaticRegions" class="img-rounded">
-                <li data-bind="attr: { id: name }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut}" />
+                <li data-bind="attr: { id: name }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut }, bootstrapPopover: { content: $parent.formatBodyParts($data), html: true, title: 'Body Parts', trigger: 'hover' }" />
             </ul>
         </div>
     </div>

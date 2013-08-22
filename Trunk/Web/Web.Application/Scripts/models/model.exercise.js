@@ -78,7 +78,8 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                     'description' : '',
                     'duration': '',
                     'tags': '',
-                    'pageName': ''
+                    'pageName': '',
+                    'medicalName' : ''
                 },
                 relations: [
                     {

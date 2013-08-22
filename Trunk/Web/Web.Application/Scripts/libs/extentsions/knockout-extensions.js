@@ -16,5 +16,17 @@
             frm.resetForm();
         }
     };
+    
+    ko.bindingHandlers.bootstrapPopover = {
+        init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+            var options = valueAccessor();
+            var defaultOptions = {};
+            options = $.extend(true, {}, defaultOptions, options);
+            $(element).popover(options)
+                .click(function (e) {
+                    e.preventDefault();
+                });
+        }
+    };
 
 })(jQuery);

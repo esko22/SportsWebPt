@@ -5,7 +5,7 @@
                 <label><strong>Name: </strong><span data-bind="text: name"></span></label>
             </div>
             <div class="span4">
-                <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
+                <label><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></label>
             </div>
             <div class="span3 pull-right">
                 <a class="btn btn-danger" data-bind="click: $parent.editExercise">Edit</a>
@@ -27,6 +27,9 @@
         <div class="row-fluid">
             <div class="span5">
                 <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
+            </div>
+            <div class="span5">
+                <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
             </div>
         </div>
         <div class="row-fluid">
@@ -56,6 +59,30 @@
                     </ul>
                 </div>
             </div>
-        </div>  
+        </div>
+        <div class="row-fluid">
+        <div class="span8">
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                        <th>Per Day</th>
+                        <th>Per Week</th>
+                        <th>Hold</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-bind="text: sets"></td>
+                            <td data-bind="text: repititions"></td>
+                            <td data-bind="text: perDay"></td>
+                            <td data-bind="text: perWeek"></td>
+                            <td data-bind="text: holdFor"></td>
+                        </tr>
+                    </tbody>            
+                </table>
+            </div>
+        </div>
+      </div>
     </td>
 </tr>

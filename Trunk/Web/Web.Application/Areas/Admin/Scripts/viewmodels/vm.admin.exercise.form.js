@@ -9,12 +9,20 @@
             availableEquipment = kb.collectionObservable(equipmentCollection),
             availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
             selectedExercise = new ExerciseModel(),
+            rangeValues = ko.observableArray(),
             name = kb.observable(selectedExercise, 'name'),
             difficulty = kb.observable(selectedExercise, 'difficulty'),
             description = kb.observable(selectedExercise, 'description'),
             duration = kb.observable(selectedExercise, 'duration'),
             tags = kb.observable(selectedExercise, 'tags'),
+            medicalName = kb.observable(selectedExercise, 'medicalName'),
             pageName = kb.observable(selectedExercise, 'pageName'),
+            sets = kb.observable(selectedExercise, 'sets'),
+            repititions = kb.observable(selectedExercise, 'repititions'),
+            perWeek = kb.observable(selectedExercise, 'perWeek'),
+            perDay = kb.observable(selectedExercise, 'perDay'),
+            holdFor = kb.observable(selectedExercise, 'holdFor'),
+
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
@@ -79,11 +87,20 @@
             });
 
             selectedExercise.set('name', exercise.model().get('name'));
+            selectedExercise.set('medicalName', exercise.model().get('medicalName'));
             selectedExercise.set('description', exercise.model().get('description'));
             selectedExercise.set('duration', exercise.model().get('duration'));
             selectedExercise.set('difficulty', exercise.model().get('difficulty'));
             selectedExercise.set('tags', exercise.model().get('tags'));
             selectedExercise.set('pageName', exercise.model().get('pageName'));
+            selectedExercise.set('sets', exercise.model().get('sets'));
+            selectedExercise.set('repititions', exercise.model().get('repititions'));
+            selectedExercise.set('perWeek', exercise.model().get('perWeek'));
+            selectedExercise.set('perDay', exercise.model().get('perDay'));
+            selectedExercise.set('holdFor', exercise.model().get('holdFor'));
+
+
+
 
             //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
             selectedExercise.id = exercise.model().get('id');
@@ -160,6 +177,9 @@
         });
 
         var init = function() {
+            for (var i = 1; i <= 100; i++) {
+                rangeValues.push(i);
+            };
             videoCollection.fetch();
             equipmentCollection.fetch();
             bodyRegionCollection.fetch();
@@ -184,6 +204,13 @@
             pageName: pageName,
             suscribe: suscribe,
             addExercise: addExercise,
-            init : init
+            init: init,
+            rangeValues: rangeValues,
+            sets : sets,
+            repititions : repititions,
+            perWeek : perWeek,
+            perDay : perDay,
+            holdFor: holdFor,
+            medicalName: medicalName
         };
     });

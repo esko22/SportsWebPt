@@ -30,12 +30,24 @@
                 $('#' + item.name()).addClass('skeleton-selected');
             }
         };
+        
+        var formatBodyParts = function (symptomaticRegion) {
+
+            var html = "";
+            _.each(symptomaticRegion.bodyParts(), function (bodyPart) {
+                if(!bodyPart.isSecondary())
+                    html = $.validator.format('{0}<div>{1}</div>',html, bodyPart.commonName());
+            });
+
+            return html;
+        };
 
         return {
             symptomaticRegions: new kb.CollectionObservable(symptomaticRegions),
             selectArea: selectArea,
             areaMouseOver: areaMouseOver,
             areaMouseOut: areaMouseOut,
-            selectedAreas: container.selectedAreas
+            selectedAreas: container.selectedAreas,
+            formatBodyParts: formatBodyParts
         };
     });

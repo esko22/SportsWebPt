@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String name { get; set; }
 
+        public String medicalName { get; set; } 
+
         public String description { get; set; }
 
         public String tags { get; set; }
@@ -26,6 +28,16 @@ namespace SportsWebPt.Platform.Web.Core
         public int duration { get; set; }
 
         public String difficulty { get; set; }
+
+        public int sets { get; set; }
+
+        public int repititions { get; set; }
+
+        public int perWeek { get; set; }
+
+        public int perDay { get; set; }
+
+        public int holdFor { get; set; }
 
         #endregion
     }

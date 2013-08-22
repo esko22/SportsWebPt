@@ -9,10 +9,14 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int bodyPartMatrixId { get; set; }
+        public int BodyPartMatrixId { get; set; }
 
         [DataMember]
-        public PotentialSymptomDto[] potentialSymptoms { get; set; }
+        public Boolean IsSecondary { get; set; }
+
+
+        [DataMember]
+        public PotentialSymptomDto[] PotentialSymptoms { get; set; }
 
 
         #endregion

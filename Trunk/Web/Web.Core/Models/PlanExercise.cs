@@ -9,14 +9,6 @@ namespace SportsWebPt.Platform.Web.Core
     public class PlanExercise : Exercise
     {
         #region Properties
-        
-        public int sets { get; set; }
-
-        public int repititions { get; set; }
-
-        public int perWeek { get; set; }
-
-        public int perDay { get; set; }
 
         public int exerciseId { get; set; }
 

@@ -154,7 +154,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
                             MusclesInvolved = "Plantar Fascia, Gastroc/Soleus",
-                            Category = PlanCategory.Rehabilitation,
+                            Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Swelling",
                             PageName = "Plantar-Fascia-Rehab-1"
                         },
@@ -164,7 +164,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
                             MusclesInvolved = "Ankle Joint/Ligaments, Soleus",
-                            Category = PlanCategory.Stretch,
+                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "Sprained-Ankle-Stretching"
                         },
@@ -174,7 +174,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
                             MusclesInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
-                            Category = PlanCategory.Stretch,
+                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "General-Shin-Splint-Stretching"
                         },
@@ -184,7 +184,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
                             MusclesInvolved = "Soleus",
-                            Category = PlanCategory.Stretch,
+                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "Soleus-Stretching"
                         },
@@ -194,7 +194,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
                             MusclesInvolved = "Gastrocnemius, Soleus, Hamstrings",
-                            Category = PlanCategory.Rehabilitation,
+                            Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Tingle",
                             PageName = "Calf-Strain-Rehab"
                         }
