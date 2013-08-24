@@ -1,25 +1,24 @@
 ﻿<!-- LOGON / SIGNUP Dialogs --> 
-<div style="display: none;" data-bind="visible: true">
-    <div class="login-modal-body" data-bind="visible: loginVisible" id="loginForm">
+    <div class="modal-body" data-bind="visible: loginVisible" id="loginForm">
         <form>
             <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Log in using Facebook</a>
         </form>
         <form>
-            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="iconmoon-google login-icon"></i>Log in using Google</a>
+            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="iconmoon-google-plus login-icon"></i>Log in using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or using a SportsWebPt account</strong></div>
         <form class="form-horizontal text-center" action="/login" method="POST" data-bind="validateForm: loginValidationOptions" id="loginSwpt">
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-envelope"></span>
-                    <input class="input-xlarge login-input" id="loginEmail" name="loginEmail" type="text" placeholder="Email Address">
-                </div>
-                <div class="control-group input-prepend">
-                    <span class="add-on login-input iconmoon-suitcase-2"></span>
-                    <input class="input-xlarge login-input" id="loginPassword" name="loginPassword" type="password" placeholder="Password">
-                </div>
-                <div class="control-group text-center">
-                      <input class="btn" type="submit" value="Log in >>" />
-                </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon iconmoon-envelope"></span>
+                <input class="form-control" id="loginEmail" name="loginEmail" type="text" placeholder="Email Address">
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon iconmoon-suitcase-2"></span>
+                <input class="form-control" id="loginPassword" name="loginPassword" type="password" placeholder="Password">
+            </div>
+            <div class="control-group text-center">
+                <input class="btn btn-default" type="submit" value="Log in >>" />
+            </div>
         </form>
         <div class="top-border-header text-center">
             <strong>
@@ -31,33 +30,33 @@
     </div>
 
     <!-- SIGN UP -->
-    <div class="login-modal-body" data-bind="visible: signUpVisible" id="signUpForm">
+    <div class="modal-body" data-bind="visible: signUpVisible" id="signUpForm">
         <form id="signUpFacebook" >
             <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Sign up using Facebook</a>
         </form>
         <form id="signUpGoogle">
-            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="iconmoon-google login-icon"></i>Sign up using Google</a>
+            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="iconmoon-google-plus login-icon"></i>Sign up using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
         <form class="form-horizontal text-center" action="/createuser" method="POST" data-bind="validateForm: signUpValidationOptions" id="signUpSwpt">
-            <div class="control-group input-prepend">
-                <span class="add-on login-input iconmoon-single-user"></span>
-                <input class="input-xlarge login-input" id="username" name="username" type="text" placeholder="User Name">
+            <div class="input-group form-group">
+                <span class="input-group-addon login-input iconmoon-user"></span>
+                <input class="form-control" id="username" name="username" type="text" placeholder="User Name">
             </div>
-            <div class="control-group input-prepend">
-                <span class="add-on login-input iconmoon-envelope"></span>
-                <input class="input-xlarge login-input" id="signupEmail" name="signupEmail" type="text" placeholder="Email Address">
+            <div class="input-group form-group">
+                <span class="input-group-addon iconmoon-envelope"></span>
+                <input class="form-control" id="signupEmail" name="signupEmail" type="text" placeholder="Email Address">
             </div>
-            <div class="control-group input-prepend">
-                <span class="add-on login-input iconmoon-suitcase-2"></span>
-                <input class="input-xlarge login-input" id="signupPassword" name="signupPassword" type="password" placeholder="Password">
+            <div class="input-group form-group">
+                <span class="input-group-addon login-input iconmoon-suitcase-2"></span>
+                <input class="form-control" id="signupPassword" name="signupPassword" type="password" placeholder="Password">
             </div>
-            <div class="control-group input-prepend">
-                <span class="add-on login-input iconmoon-suitcase-2"></span>
-                <input class="input-xlarge login-input" id="retryPassword" equalTo="#signupPassword" name="retryPassword" type="password" placeholder="Verify Password">
+            <div class="input-group form-group">
+                <span class="input-group-addon login-input iconmoon-suitcase-2"></span>
+                <input class="form-control" id="retryPassword" equalTo="#signupPassword" name="retryPassword" type="password" placeholder="Verify Password">
             </div>
             <div class="control-group text-center">
-                <input class="btn" type="submit" value="Sign up >>" />
+                <input class="btn btn-default" type="submit" value="Sign up >>" />
             </div>
             <label id="errorDisplay"></label>
         </form>
@@ -69,4 +68,3 @@
             </strong>
         </div>
     </div>
-</div>

@@ -1,40 +1,45 @@
 ﻿<div class="navbar navbar-inverse navbar-fixed-top" id="master-header">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a href="/"><img class="header-logo" src="../../../../Content/images/logoHeader.png" /></a>
-            <div class="nav nav-collapse collapse pull-right" style="display: none;" data-bind="visible: true">
-                <ul class="nav">        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="../../../../Content/images/logoHeader.png" /></a>
+            </div>
+            <div class="col-md-6 pull-right navbar-collapse collapse">
+                <ul class="nav navbar-nav">
                     <li><a href="/examine"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
                     <li><a href="/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
                     <li><a href="/research#locate"><span aria-hidden="true" data-icon="&#xe051;" class="nav-icon"></span> Locate</a></li>
-                    <li><a data-bind="visible: isAuthenticated() == false" data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a></li>
+                    <li><a data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a></li>
+                    <li style="display: none;" data-bind="visible: isAuthenticated">
+                        <a href="#"class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
+                            <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
+                            <span data-bind="text: name"></span><b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#about">Edit Profile</a></li>
+                            <li><a href="/dashboard">My Dashboard</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout">Log Out</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <li class="dropdown" id="accountMenu" data-bind="visible: isAuthenticated">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
-                        <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
-                        <span data-bind="text: name"></span><b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#about">Edit Profile</a></li>
-                        <li><a href="/dashboard">My Dashboard</a></li>
-                        <li class="divider"></li>
-                        <li><a href="/logout">Log Out</a></li>
-                    </ul>
-                </li>
             </div>
         </div>
     </div>
 </div>
-
-<div class="modal fade login-modal" id="login-dialog" style="display: none;" tabindex="-1" role="dialog">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4>SportsWebPT</h4>
-    </div>
-    @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
+<div class="modal fade" id="login-dialog" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4>SportsWebPT</h4>
+                </div>
+                @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
+            </div>
+        </div>
 </div>

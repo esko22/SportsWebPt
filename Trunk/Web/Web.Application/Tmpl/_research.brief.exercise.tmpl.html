@@ -6,24 +6,24 @@
     </div>
     <div data-bind="attr: { id: 'brief-exercise-' + id() }" class="accordion-body collapse">
         <div class="accordion-inner">
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    <div class="span5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
                         <label><strong>Name: </strong><span data-bind="text: name"></span></label>
                     </div>
-                    <div class="span3">
+                    <div class="col-md-3">
                         <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
                     </div>
-                    <div class="span3">
+                    <div class="col-md-3">
                         <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="span10">
+                <div class="row">
+                    <div class="col-md-10">
                         <label><strong>Description: </strong><span data-bind="text: description"></span></label>
                     </div>
                 </div>
-                        <div class="row-fluid">
+                        <div class="row">
             <h3>body Regions</h3>
             <table class="table table-striped">
                 <tbody data-bind="foreach: bodyRegions">

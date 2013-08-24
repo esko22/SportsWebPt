@@ -1,14 +1,14 @@
 ﻿    <div class="view container" id="admin-equipment-panel">
             <h2> Equipment</h2>
             <hr class="examine-report-hr"/>
-        <div class="row-fluid">
-            <div class="span7">
+        <div class="row">
+            <div class="col-md-7">
                 <table class="table table-striped">
                     <tbody data-bind="template: { name: equipmentListTemplate, foreach: equipment}">
                     </tbody>            
                 </table>
             </div>
-            <div class="span5 well">
+            <div class="col-md-5 well">
                 <form class="form-horizontal" data-bind="validateForm: equipmentValidationOptions" id="admin-equipment-form">
                     <div class="control-group">
                         <label class="control-label" for="inputCommonName">Name</label>

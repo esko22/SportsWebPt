@@ -2,7 +2,7 @@
     <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
     <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
     <div class="row">
-        <div class="span2">
+        <div class="col-md-2">
             <h3>Equipment</h3>
             <table class="table table-striped">
                 <tbody data-bind="foreach: equipment">
@@ -12,7 +12,7 @@
                 </tbody>            
             </table>
         </div>
-        <div class="span7">
+        <div class="col-md-7">
             <h3>Video</h3>
             <div data-bind="template: { name: $root.researchVideoTemplate, foreach: videos }"></div>
         </div>

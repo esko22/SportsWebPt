@@ -11,34 +11,44 @@
 <div class="container content-container-panel" id="research-main-panel">
     
     <div class="view container" id="research-nav-panel">
-        <div class="row">
-            <div class="span3">
+        <div class="row text-center">
+            <div class="col-md-3">
                 <span aria-hidden="true" data-icon="&#xf0fa;" class="research-nav-icon"></span>
                 <span class="screen-reader-text">Injuries</span>
                 <h3>Injuries</h3>
                 <p>Use our self examination wizard designed by professionals to pin point your injury.</p>
-                <p><a class="btn" href="#injuries">Learn more &raquo;</a></p>
             </div>
-            <div class="span3">
+            <div class="col-md-3">
                 <span aria-hidden="true" data-icon="&#xe001;" class="research-nav-icon"></span>
                 <span class="screen-reader-text">Rehab Plans</span>
                 <h3>Rehab Plans</h3>
                 <p>Organize your own recovery using pre-configured  plans for common injuries. Get feedback and advice from professionals to augment you plan based on your progression </p>
-                <p><a class="btn" href="#plans">Learn more &raquo;</a></p>
             </div>
-            <div class="span3">
+            <div class="col-md-3">
                 <span aria-hidden="true" data-icon="&#xe007;" class="research-nav-icon"></span>
                 <span class="screen-reader-text">Exercises</span>
                 <h3>Exercises</h3>
                 <p>Documents, videos and links organized by professionals to address specific injuries saving you time and increasing your confidence</p>
-                <p><a class="btn" href="#exercises">Learn more &raquo;</a></p>
             </div>
-            <div class="span3">
+            <div class="col-md-3">
                 <span aria-hidden="true" data-icon="&#xe051;" class="research-nav-icon"></span>
                 <span class="screen-reader-text">PT Clinics</span>
                 <h3>PT Clinics</h3>
                 <p>Setup one on one video conferences with our licensed therapists to further diagnosis injuries, assist with exercises or evaluate progression.</p>
-                <p><a class="btn" href="#">Learn more &raquo;</a></p>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-top: 20px">
+            <div class="col-md-3">
+                <p><a class="btn btn-default" href="#injuries">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><a class="btn btn-default" href="#plans">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><a class="btn btn-default" href="#exercises">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
             </div>
         </div>
     </div>
@@ -47,9 +57,9 @@
         <div class="container">
             <span aria-hidden="true" data-icon="&#xf0fa;" class="research-header-icon"> Injuries</span>
             <hr class="examine-report-hr"/>
-            <div class="row-fluid">
-                <div class="span3 research-vertical-splitter" >
-                    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 research-vertical-splitter" >
+                    <div class="container">
                         <h3>Body Regions</h3>
                         <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
                         <ul class="list-no-style" data-bind="foreach: bodyRegions">
@@ -58,7 +68,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="container-fluid">
+                    <div class="container">
                         <h3>Signs</h3>
                         <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
                         <ul class="list-no-style" data-bind="foreach: signs">
@@ -68,7 +78,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="span9">
+                <div class="col-md-9">
                     <div class="accordion" id="recover-injury-accordion">
                         <section data-bind="template: { name: briefInjuryTemplate, foreach: filteredInjuries }"></section>
                     </div>
@@ -79,11 +89,11 @@
     
     
     <div class="view container" id="research-exercise-panel">
-        <div class="container-fluid">
+        <div class="container">
             <span aria-hidden="true" data-icon="&#xe007;" class="research-header-icon"> Exercises</span>
             <hr class="examine-report-hr"/>
-            <div class="row-fluid">
-                <div class="span3 research-vertical-splitter" >
+            <div class="row">
+                <div class="col-md-3 research-vertical-splitter" >
                     <h3>Body Regions</h3>
                     <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset">Show All</span></a>
                     <ul class="list-no-style" data-bind="foreach: bodyRegions">
@@ -92,7 +102,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="span9">
+                <div class="col-md-9">
                     <div class="accordion" id="recover-exercise-accordion">
                         <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
                     </div>
@@ -102,12 +112,12 @@
     </div>
     
     <div class="view container" id="research-plan-panel">
-        <div class="container-fluid">
+        <div class="container">
             <span aria-hidden="true" data-icon="&#xe001;" class="research-header-icon"> Plans</span>
             <hr class="examine-report-hr"/>
-            <div class="row-fluid">
-                <div class="span3 research-vertical-splitter" >
-                    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 research-vertical-splitter" >
+                    <div class="container">
                         <h3>Body Regions</h3>
                         <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
                         <ul class="list-no-style" data-bind="foreach: bodyRegions">
@@ -116,7 +126,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="container-fluid">
+                    <div class="container">
                         <h3>Categories</h3>
                         <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
                             <ul class="list-no-style" data-bind="foreach: categories">
@@ -127,7 +137,7 @@
                     </div>
 
                 </div>
-                <div class="span9">
+                <div class="col-md-9">
                     <div class="accordion" id="recover-plan-accordion">
                         <section data-bind="template: { name: briefPlanTemplate, foreach: filteredPlans }"></section>
                     </div>

@@ -212,6 +212,7 @@
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.injury.listing.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.plan.listing.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercise.listing.js" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\fonts\SWPT.dev.svg" />
     <Content Include="Content\fonts\SWPT.svg" />
     <Content Include="Content\images\logoFooter.png" />
@@ -370,10 +371,7 @@
     <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
     <Content Include="Areas\Main\Scripts\shared\vm.login.dialog.js" />
     <Content Include="Areas\Main\Scripts\shared\vm.master.header.js" />
-    <Content Include="Content\bootstrap-responsive.css" />
-    <Content Include="Content\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.232.css" />
     <Content Include="Content\icon-fonts.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />

@@ -1,14 +1,14 @@
 ﻿    <div class="view container" id="admin-video-panel">
             <h2> Videos</h2>
             <hr class="examine-report-hr"/>
-            <div class="row-fluid">
-                <div class="span7">
+            <div class="row">
+                <div class="col-md-7">
                     <table class="table table-striped">
                         <tbody data-bind="template: { name: videoListTemplate, foreach: videos }">
                         </tbody>            
                     </table>
                 </div>
-                <div class="span5 well">
+                <div class="col-md-5 well">
                     <form class="form-horizontal" data-bind="validateForm: videoValidationOptions" id="admin-video-form">
                         <div class="control-group">
                             <label class="control-label" for="inputName">Common Name</label>

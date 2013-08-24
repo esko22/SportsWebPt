@@ -2,7 +2,7 @@
         <div class="container">
             <h2> Injuries</h2>
             <hr class="examine-report-hr"/>
-            <div class="container-fluid" id="admin-injury-list">
+            <div class="container" id="admin-injury-list">
                 <a data-bind="click: addInjury"><span aria-hidden="true" class="action-link-icon" data-icon="&#xe04b;"/> Add Injury </a>
                 <table class="table table-striped">
                     <tbody data-bind="template: { name: injuryListTemplate, foreach: injuries }">
@@ -10,17 +10,15 @@
                 </table>
             </div>
         </div>
-    </div>
-
-<div class="modal hide fade edit-modal" id="admin-injury-form-dialog">
+        <div class="modal hide fade edit-modal" id="admin-injury-form-dialog">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3>Add /Edit Injury</h3>
     </div>
     <div class="modal-body well edit-modal-body">
                             <form class="form-horizontal" data-bind="validateForm: injuryValidationOptions" id="admin-injury-form">
-                        <div class="row-fluid">
-                            <div class="span6">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="control-group">
                                     <label class="control-label" for="inputCommonName">Common Name</label>
                                     <div class="controls">
@@ -74,8 +72,8 @@
                                             </thead>
                                             <tbody data-bind="foreach: injurySymptoms">
                                                 <tr>
-                                                    <td><select id="inputInjurySymptom" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'displayName', value: symptomId , optionsValue: 'id'" ></select></td>
-                                                    <td><select id="inputInjuryBodyPart" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyPartMatrix, optionsText: 'displayName', value: bodyPartMatrixItemId,  optionsValue: 'id'" ></select></td>
+                                                    <td><select id="inputInjurySymptom" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'displayName', value: symptomId, optionsValue: 'id'" ></select></td>
+                                                    <td><select id="inputInjuryBodyPart" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyPartMatrix, optionsText: 'displayName', value: bodyPartMatrixItemId, optionsValue: 'id'" ></select></td>
                                                     <td><input type="text" class="input-mini" id="inputThreshold" name="threshold" data-bind="value: thresholdValue" placeholder="threshold"></td>
                                                     <td><button class="btn btn-primary" data-bind="click: $parent.removeSymptom">Remove</button></td>
                                                 </tr>
@@ -84,7 +82,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="span6">
+                            <div class="col-md-6">
                                 <div class="control-group">
                                     <label class="control-label" for="inputCauses">Causes</label>
                                     <div class="controls">
@@ -121,6 +119,9 @@
                     </form>
 
     </div>
+
+    </div>
+
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     </div>

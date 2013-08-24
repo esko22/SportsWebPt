@@ -2,7 +2,7 @@
         <div class="container">
             <h2> Plans</h2>
             <hr class="examine-report-hr"/>
-            <div class="container-fluid" id="admin-plan-list">
+            <div class="container" id="admin-plan-list">
                 <a data-bind="click: addPlan"><span aria-hidden="true" class="action-link-icon" data-icon="&#xe04b;"/> Add Plan </a>
                 <table class="table table-striped">
                     <tbody data-bind="template: { name: planListTemplate, foreach: plans }">
@@ -20,8 +20,8 @@
     </div>
     <div class="modal-body well edit-modal-body">
               <form class="form-horizontal" data-bind="validateForm: planValidationOptions" id="admin-plan-form">
-                    <div class="row-fluid">
-                        <div class="span5">
+                    <div class="row">
+                        <div class="col-md-5">
                             <div class="control-group">
                                 <label class="control-label" for="inputName">Name</label>
                                 <div class="controls">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="span7">
+                        <div class="col-md-7">
                             <div class="control-group">
                                 <label class="control-label" for="inputBodyRegion">BodyRegions</label>
                                 <div class="controls">
