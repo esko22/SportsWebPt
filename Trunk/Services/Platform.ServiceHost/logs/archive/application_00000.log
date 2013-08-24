@@ -1,146 +1,148 @@
-08-23-13@22:04:37 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-08-23-13@22:04:40 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:03.4375533 
-08-23-13@22:05:29 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-08-23-13@22:05:29 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0109643 
-08-23-13@22:05:44 Info (8)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (13)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (7)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (6)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (7)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.2134560 
-08-23-13@22:05:44 Info (8)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.2135385 
-08-23-13@22:05:44 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.2134528 
-08-23-13@22:05:44 Info (13)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.2135250 
-08-23-13@22:05:44 Info (6)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (13)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (7)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (6)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0133128 
-08-23-13@22:05:44 Info (8)  [Common] PotentialSymptomListRequest request submitted 
-08-23-13@22:05:44 Info (13)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0327519 
-08-23-13@22:05:44 Info (8)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0248306 
-08-23-13@22:05:44 Info (7)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0336066 
-08-23-13@22:06:24 Info (8)  [Common] DifferentialDiagnosisRequest request submitted 
-08-23-13@22:06:25 Info (8)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.5455373 
-08-23-13@22:06:25 Info (7)  [Common] DiagnosisReportRequest request submitted 
-08-23-13@22:06:26 Info (7)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.8045005 
-08-23-13@22:06:26 Info (5)  [Common] PlanRequest request submitted 
-08-23-13@22:06:26 Info (5)  [Common] PlanRequest request completed with duration of 00:00:00.5606384 
-08-23-13@22:42:51 Info (7)  [Common] VideoListRequest request submitted 
-08-23-13@22:42:54 Info (7)  [Common] VideoListRequest request completed with duration of 00:00:03.1369881 
-08-23-13@22:42:59 Info (8)  [Common] SignListRequest request submitted 
-08-23-13@22:42:59 Info (5)  [Common] CauseListRequest request submitted 
-08-23-13@22:42:59 Info (7)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:42:59 Info (6)  [Common] BodyPartMatrixListRequest request submitted 
-08-23-13@22:42:59 Info (8)  [Common] SignListRequest request completed with duration of 00:00:00.0445910 
-08-23-13@22:42:59 Info (8)  [Common] InjuryListRequest request submitted 
-08-23-13@22:42:59 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0642979 
-08-23-13@22:42:59 Info (5)  [Common] CauseListRequest request completed with duration of 00:00:00.0708060 
-08-23-13@22:42:59 Info (7)  [Common] PlanListRequest request submitted 
-08-23-13@22:42:59 Info (5)  [Common] SymptomListRequest request submitted 
-08-23-13@22:42:59 Info (5)  [Common] SymptomListRequest request completed with duration of 00:00:00.1160224 
-08-23-13@22:42:59 Info (6)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.4914450 
-08-23-13@22:43:00 Info (7)  [Common] PlanListRequest request completed with duration of 00:00:00.8565992 
-08-23-13@22:43:00 Info (8)  [Common] InjuryListRequest request completed with duration of 00:00:01.2789735 
-08-23-13@22:43:11 Info (8)  [Common] InjuryListRequest request submitted 
-08-23-13@22:43:11 Info (6)  [Common] PlanListRequest request submitted 
-08-23-13@22:43:11 Info (5)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:11 Info (7)  [Common] SignListRequest request submitted 
-08-23-13@22:43:11 Info (7)  [Common] SignListRequest request completed with duration of 00:00:00.0053616 
-08-23-13@22:43:11 Info (7)  [Common] BodyPartMatrixListRequest request submitted 
-08-23-13@22:43:11 Info (9)  [Common] CauseListRequest request submitted 
-08-23-13@22:43:12 Info (5)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0551578 
-08-23-13@22:43:12 Info (5)  [Common] SymptomListRequest request submitted 
-08-23-13@22:43:12 Info (5)  [Common] SymptomListRequest request completed with duration of 00:00:00.0045627 
-08-23-13@22:43:12 Info (9)  [Common] CauseListRequest request completed with duration of 00:00:00.0613829 
-08-23-13@22:43:12 Info (7)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0911162 
-08-23-13@22:43:12 Info (8)  [Common] InjuryListRequest request completed with duration of 00:00:00.1432891 
-08-23-13@22:43:12 Info (6)  [Common] PlanListRequest request completed with duration of 00:00:00.2618369 
-08-23-13@22:43:21 Info (5)  [Common] SignListRequest request submitted 
-08-23-13@22:43:21 Info (5)  [Common] SignListRequest request completed with duration of 00:00:00.0048644 
-08-23-13@22:43:26 Info (9)  [Common] CauseListRequest request submitted 
-08-23-13@22:43:26 Info (9)  [Common] CauseListRequest request completed with duration of 00:00:00.0044890 
-08-23-13@22:43:27 Info (8)  [Common] InjuryListRequest request submitted 
-08-23-13@22:43:27 Info (9)  [Common] PlanListRequest request submitted 
-08-23-13@22:43:27 Info (7)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:27 Info (6)  [Common] SignListRequest request submitted 
-08-23-13@22:43:27 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0071264 
-08-23-13@22:43:27 Info (6)  [Common] SignListRequest request completed with duration of 00:00:00.0075113 
-08-23-13@22:43:27 Info (7)  [Common] BodyPartMatrixListRequest request submitted 
-08-23-13@22:43:27 Info (7)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0095453 
-08-23-13@22:43:27 Info (6)  [Common] CauseListRequest request submitted 
-08-23-13@22:43:27 Info (7)  [Common] SymptomListRequest request submitted 
-08-23-13@22:43:27 Info (6)  [Common] CauseListRequest request completed with duration of 00:00:00.0120718 
-08-23-13@22:43:27 Info (7)  [Common] SymptomListRequest request completed with duration of 00:00:00.0113091 
-08-23-13@22:43:27 Info (9)  [Common] PlanListRequest request completed with duration of 00:00:00.1387726 
-08-23-13@22:43:27 Info (8)  [Common] InjuryListRequest request completed with duration of 00:00:00.1659948 
-08-23-13@22:43:28 Info (9)  [Common] PlanListRequest request submitted 
-08-23-13@22:43:28 Info (5)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:28 Info (5)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0059540 
-08-23-13@22:43:28 Info (7)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:43:28 Info (9)  [Common] PlanListRequest request completed with duration of 00:00:00.1020233 
-08-23-13@22:43:29 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3726837 
-08-23-13@22:43:29 Info (6)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:43:29 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0528316 
-08-23-13@22:43:30 Info (9)  [Common] VideoListRequest request submitted 
-08-23-13@22:43:30 Info (6)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:30 Info (9)  [Common] VideoListRequest request completed with duration of 00:00:00.0044204 
-08-23-13@22:43:30 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041268 
-08-23-13@22:43:30 Info (7)  [Common] EquipmentListRequest request submitted 
-08-23-13@22:43:30 Info (7)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0313044 
-08-23-13@22:43:32 Info (5)  [Common] PlanListRequest request submitted 
-08-23-13@22:43:32 Info (6)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:32 Info (7)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:43:32 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0148916 
-08-23-13@22:43:32 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0804397 
-08-23-13@22:43:32 Info (5)  [Common] PlanListRequest request completed with duration of 00:00:00.1172915 
-08-23-13@22:43:39 Info (7)  [Common] PlanListRequest request submitted 
-08-23-13@22:43:39 Info (6)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:43:39 Info (5)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:43:39 Info (5)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0092568 
-08-23-13@22:43:39 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0923379 
-08-23-13@22:43:39 Info (7)  [Common] PlanListRequest request completed with duration of 00:00:00.1113119 
-08-23-13@22:44:38 Info (7)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:44:39 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0588192 
-08-23-13@22:44:40 Info (6)  [Common] VideoListRequest request submitted 
-08-23-13@22:44:40 Info (7)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:44:40 Info (6)  [Common] VideoListRequest request completed with duration of 00:00:00.0042716 
-08-23-13@22:44:40 Info (6)  [Common] EquipmentListRequest request submitted 
-08-23-13@22:44:40 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0083981 
-08-23-13@22:44:40 Info (6)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0072213 
-08-23-13@22:45:00 Info (7)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:45:00 Info (6)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:45:00 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0045988 
-08-23-13@22:45:00 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0524416 
-08-23-13@22:45:14 Info (5)  [Common] ExecerciseRequest request submitted 
-08-23-13@22:45:14 Info (5)  [Common] ExecerciseRequest request completed with duration of 00:00:00.1333388 
-08-23-13@22:45:19 Info (9)  [Common] BodyRegionListRequest request submitted 
-08-23-13@22:45:19 Info (6)  [Common] ExecerciseListRequest request submitted 
-08-23-13@22:45:19 Info (9)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0045207 
-08-23-13@22:45:19 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0537293 
-08-23-13@22:48:05 Info (10)  [Common] UserRequest request submitted 
-08-23-13@22:48:05 Info (10)  [Common] UserRequest request completed with duration of 00:00:00.0366756 
-08-23-13@22:48:13 Info (14)  [Common] UserRequest request submitted 
-08-23-13@22:48:13 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.4310619 
-08-23-13@22:48:13 Info (13)  [Common] UserRequest request submitted 
-08-23-13@22:48:13 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0339024 
-08-23-13@22:50:07 Info (16)  [Common] UserRequest request submitted 
-08-23-13@22:50:07 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0044073 
-08-23-13@22:50:38 Info (14)  [Common] UserRequest request submitted 
-08-23-13@22:50:38 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0052594 
-08-23-13@22:51:19 Info (16)  [Common] UserRequest request submitted 
-08-23-13@22:51:19 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0044544 
-08-23-13@22:51:33 Info (14)  [Common] UserRequest request submitted 
-08-23-13@22:51:33 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0043453 
-08-23-13@22:52:39 Info (16)  [Common] UserRequest request submitted 
-08-23-13@22:52:39 Info (16)  [Common] UserRequest request completed with duration of 00:00:00.0053871 
-08-23-13@22:53:04 Info (20)  [Common] UserRequest request submitted 
-08-23-13@22:53:04 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0047564 
-08-23-13@22:53:47 Info (14)  [Common] UserRequest request submitted 
-08-23-13@22:53:47 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0056859 
-08-23-13@22:56:03 Info (14)  [Common] UserRequest request submitted 
-08-23-13@22:56:03 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0046258 
-08-23-13@22:56:28 Info (24)  [Common] UserRequest request submitted 
-08-23-13@22:56:28 Info (24)  [Common] UserRequest request completed with duration of 00:00:00.0045857 
-08-23-13@22:56:47 Info (25)  [Common] UserRequest request submitted 
-08-23-13@22:56:47 Info (25)  [Common] UserRequest request completed with duration of 00:00:00.0048159 
-08-23-13@22:59:36 Info (26)  [Common] UserRequest request submitted 
-08-23-13@22:59:36 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0048403 
+08-24-13@12:00:50 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:00:50 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0293045 
+08-24-13@12:07:15 Info (25)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:07:15 Info (25)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0298561 
+08-24-13@12:13:13 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:13:13 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0277713 
+08-24-13@12:13:36 Info (54)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:13:36 Info (25)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:13:36 Info (52)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:13:36 Info (43)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:13:36 Info (52)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0942990 
+08-24-13@12:13:36 Info (54)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0957072 
+08-24-13@12:13:36 Info (25)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0958670 
+08-24-13@12:13:36 Info (43)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.1049068 
+08-24-13@12:14:07 Info (55)  [Common] DifferentialDiagnosisRequest request submitted 
+08-24-13@12:14:07 Info (55)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.1003296 
+08-24-13@12:14:07 Info (47)  [Common] DiagnosisReportRequest request submitted 
+08-24-13@12:14:08 Info (47)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.4688875 
+08-24-13@12:14:08 Info (50)  [Common] PlanRequest request submitted 
+08-24-13@12:14:08 Info (15)  [Common] PlanRequest request submitted 
+08-24-13@12:14:08 Info (34)  [Common] PlanRequest request submitted 
+08-24-13@12:14:08 Info (52)  [Common] PlanRequest request submitted 
+08-24-13@12:14:08 Info (52)  [Common] PlanRequest request completed with duration of 00:00:00.2787919 
+08-24-13@12:14:08 Info (15)  [Common] PlanRequest request completed with duration of 00:00:00.2800525 
+08-24-13@12:14:08 Info (50)  [Common] PlanRequest request completed with duration of 00:00:00.2801261 
+08-24-13@12:14:08 Info (34)  [Common] PlanRequest request completed with duration of 00:00:00.2905198 
+08-24-13@12:18:20 Info (45)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:18:20 Info (45)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0177757 
+08-24-13@12:20:48 Info (25)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:20:48 Info (25)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0180363 
+08-24-13@12:21:11 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:21:11 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0154211 
+08-24-13@12:23:47 Info (34)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:23:47 Info (34)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0072478 
+08-24-13@12:24:07 Info (34)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:24:07 Info (34)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0168592 
+08-24-13@12:24:38 Info (51)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:24:38 Info (51)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0160779 
+08-24-13@12:25:40 Info (45)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:25:40 Info (45)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0162131 
+08-24-13@12:25:43 Info (47)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:25:43 Info (47)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0156384 
+08-24-13@12:29:53 Info (44)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:29:53 Info (44)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0173697 
+08-24-13@12:30:31 Info (25)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:30:31 Info (25)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0164268 
+08-24-13@12:30:53 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:30:53 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0160257 
+08-24-13@12:31:20 Info (15)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:31:20 Info (15)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0155433 
+08-24-13@12:32:02 Info (6)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:32:02 Info (6)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0153314 
+08-24-13@12:32:58 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:32:58 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0164491 
+08-24-13@12:34:50 Info (49)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:34:50 Info (49)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0167106 
+08-24-13@12:36:06 Info (38)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:36:06 Info (38)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0163987 
+08-24-13@12:37:58 Info (53)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:37:58 Info (53)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0172099 
+08-24-13@12:39:18 Info (29)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:39:18 Info (29)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0165143 
+08-24-13@12:39:40 Info (33)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:39:40 Info (33)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0158708 
+08-24-13@12:45:32 Info (55)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:45:32 Info (55)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0166490 
+08-24-13@12:45:54 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:45:54 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0163934 
+08-24-13@12:46:11 Info (54)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:11 Info (54)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0095154 
+08-24-13@12:46:11 Info (9)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:11 Info (39)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:11 Info (25)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:11 Info (39)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0051586 
+08-24-13@12:46:11 Info (25)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0165540 
+08-24-13@12:46:11 Info (9)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0201326 
+08-24-13@12:46:15 Info (37)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:46:15 Info (37)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0163104 
+08-24-13@12:46:31 Info (29)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:31 Info (56)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:31 Info (55)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:31 Info (29)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0084829 
+08-24-13@12:46:31 Info (9)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:31 Info (55)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0077413 
+08-24-13@12:46:31 Info (56)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0097501 
+08-24-13@12:46:31 Info (9)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0091366 
+08-24-13@12:46:37 Info (39)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:37 Info (40)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:37 Info (48)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:37 Info (39)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0081563 
+08-24-13@12:46:37 Info (40)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0082504 
+08-24-13@12:46:37 Info (40)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:46:37 Info (48)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0065164 
+08-24-13@12:46:37 Info (40)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0054072 
+08-24-13@12:47:08 Info (40)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:47:08 Info (40)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0154701 
+08-24-13@12:47:12 Info (56)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:47:12 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:47:12 Info (47)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:47:12 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0105747 
+08-24-13@12:47:12 Info (56)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0127875 
+08-24-13@12:47:12 Info (47)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0107729 
+08-24-13@12:47:12 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:47:12 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0099335 
+08-24-13@12:51:05 Info (9)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:51:05 Info (9)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0166017 
+08-24-13@12:51:11 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:11 Info (56)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:11 Info (15)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:11 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0087845 
+08-24-13@12:51:11 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:11 Info (15)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0092125 
+08-24-13@12:51:11 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0072719 
+08-24-13@12:51:11 Info (56)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0124479 
+08-24-13@12:51:15 Info (48)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:51:15 Info (48)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0159052 
+08-24-13@12:51:21 Info (37)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:21 Info (54)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:21 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:21 Info (54)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0081924 
+08-24-13@12:51:21 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0082741 
+08-24-13@12:51:21 Info (37)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0088256 
+08-24-13@12:51:21 Info (35)  [Common] PotentialSymptomListRequest request submitted 
+08-24-13@12:51:21 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0096788 
+08-24-13@12:51:45 Info (51)  [Common] DifferentialDiagnosisRequest request submitted 
+08-24-13@12:51:45 Info (51)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.0795990 
+08-24-13@12:51:45 Info (33)  [Common] DiagnosisReportRequest request submitted 
+08-24-13@12:51:45 Info (33)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0571232 
+08-24-13@12:51:45 Info (52)  [Common] PlanRequest request submitted 
+08-24-13@12:51:45 Info (44)  [Common] PlanRequest request submitted 
+08-24-13@12:51:45 Info (52)  [Common] PlanRequest request completed with duration of 00:00:00.0330465 
+08-24-13@12:51:45 Info (44)  [Common] PlanRequest request completed with duration of 00:00:00.0387236 
+08-24-13@12:52:50 Info (45)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:52:50 Info (45)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0067721 
+08-24-13@12:52:53 Info (52)  [Common] DiagnosisReportRequest request submitted 
+08-24-13@12:52:53 Info (52)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0319881 
+08-24-13@12:52:53 Info (9)  [Common] PlanRequest request submitted 
+08-24-13@12:52:53 Info (50)  [Common] PlanRequest request submitted 
+08-24-13@12:52:53 Info (50)  [Common] PlanRequest request completed with duration of 00:00:00.0314638 
+08-24-13@12:52:53 Info (9)  [Common] PlanRequest request completed with duration of 00:00:00.0321826 
+08-24-13@12:59:13 Info (30)  [Common] SymptomaticRegionListRequest request submitted 
+08-24-13@12:59:13 Info (30)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0118076 
+08-24-13@12:59:16 Info (45)  [Common] DiagnosisReportRequest request submitted 
+08-24-13@12:59:16 Info (45)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0328287 
+08-24-13@12:59:16 Info (28)  [Common] PlanRequest request submitted 
+08-24-13@12:59:16 Info (22)  [Common] PlanRequest request submitted 
+08-24-13@12:59:16 Info (22)  [Common] PlanRequest request completed with duration of 00:00:00.0359205 
+08-24-13@12:59:16 Info (28)  [Common] PlanRequest request completed with duration of 00:00:00.0362106 

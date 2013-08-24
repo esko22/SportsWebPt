@@ -1,12 +1,11 @@
-﻿<div class="accordion-group examine-report-workout-accord">
-    <div class="accordion-heading examine-report-workout">
+﻿<div class="panel panel-default examine-report-workout-accord">
+    <div class="panel-heading examine-report-workout">
         <a class="accordion-toggle href-no-underline" data-toggle="collapse" data-parent="#brief-plan-accordion" data-bind="attr: { href: '#brief-plan-' + id() }" >
-            <span data-bind="text: ' ' + routineName() + ' | ' + category()" class="research-accordian-icon" data-icon="&#xe001;" /><i class="icon-chevron-down pull-right icon-white"></i>
+            <span data-bind="text: ' ' + routineName() + ' | ' + category()" class="research-accordian-icon" data-icon="&#xe001;" /><i class="glyphicon-chevron-down pull-right"></i>
         </a>
     </div>
-    <div data-bind="attr: { id: 'brief-plan-' + id() }" class="accordion-body collapse">
-        <div class="accordion-inner">
-            <div class="container">
+    <div data-bind="attr: { id: 'brief-plan-' + id() }" class="panel-collapse collapse">
+            <div class="panel-body">
                 <div class="row">
                     <div class="col-md-5">
                         <label><strong>Name: </strong><span data-bind="text: routineName"></span></label>
@@ -28,5 +27,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>

@@ -19,11 +19,17 @@
 
 <div class="container">
 <div id="examine-skeleton" class="view">
-    <div>
-        <h3><strong>Please select region(s) of discomfort</strong></h3>
-    </div>
     <div class="row">
+        <div class="col-md-11 pull-left">
+            <h3><strong>Please select up to 3 regions of discomfort</strong></h3>
+        </div>
+        <div class="col-md-1 pull-right">
+            @*<a class="btn btn-default btn-lg" href="#detail" >Next &raquo;</a>*@
+        </div>
+    </div>
+    <div class="row push-down-md">
         <div class="col-md-2">
+            <!-- ko if: selectedAreas().length > 0 -->
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -36,6 +42,7 @@
                     </tr>
                 </tbody>            
             </table>
+            <!-- /ko -->
         </div>
         <div class="col-md-10">
             <ul id="skeleton" data-bind="foreach: symptomaticRegions" class="img-rounded">
@@ -45,7 +52,7 @@
     </div>
     <div class="row examine-bottom-nav">
         <div class="col-md-2 pull-right">
-            <a class="btn btn-inverse btn-large" href="#detail" >Next &raquo;</a>
+            <a class="btn btn-default btn-lg" href="#detail" >Next &raquo;</a>
         </div>
     </div>
 </div>
@@ -72,11 +79,13 @@
         <div>
             <h3><strong>Potential Injuries</strong></h3>
         </div>
-        <div class="tabbable tabs-left" id="injuryReport">
-            <ul id="examine-report-tab-nav" class="nav nav-tabs" data-bind="foreach: injuries">
-                <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName " data-toggle="tab"></a></li>
-            </ul>
-            <section id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane examine-report-tab-pane"></section>
+        <div class="row push-down-md">
+            <div class="col-md-2" id="injuryReport">
+                <ul id="examine-report-tab-nav" class="nav nav-pills nav-stacked" data-bind="foreach: injuries">
+                    <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName " data-toggle="tab"></a></li>
+                </ul>
+            </div>
+            <div id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane examine-report-tab-pane col-md-10"></div>
         </div>
     </div>
 </div>
