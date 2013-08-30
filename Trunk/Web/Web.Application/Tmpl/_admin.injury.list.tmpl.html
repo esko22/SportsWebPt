@@ -1,36 +1,36 @@
 ﻿<tr>
     <td>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label><strong>Common Name: </strong><span data-bind="text: commonName"></span></label>
             </div>
             <div class="col-md-5">
                 <label><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></label>
             </div>
-            <div class="col-md-3 pull-right">
+            <div class="col-md-1 pull-right">
                 <button class="btn-danger" data-bind="click: $parent.editInjury">Edit</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-10">
-                <label><strong>Description: </strong><span data-bind="text: description"></span></label>
+            <div class="col-md-12">
+                <label>Description: <span data-bind="text: description"></span></label>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-10">
-                <label><strong>Opening Statement: </strong><span data-bind="text: openingStatement"></span></label>
+            <div class="col-md-12">
+                <label>Opening Statement: <span data-bind="text: openingStatement"></span></label>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label><strong>Tags: </strong><span data-bind="text: tags"></span></label>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label><strong>PageName: </strong><span data-bind="text: pageName"></span></label>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>
                     <label><strong>Causes: </strong></label>
                     <ul data-bind="foreach: causes">
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>
                     <label><strong>Signs: </strong></label>
                     <ul data-bind="foreach: signs">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>
                     <label><strong>Plans: </strong></label>
                     <ul data-bind="foreach: plans">
@@ -56,7 +56,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>
                     <label><strong>BodyRegions: </strong></label>
                     <ul data-bind="foreach: bodyRegions">

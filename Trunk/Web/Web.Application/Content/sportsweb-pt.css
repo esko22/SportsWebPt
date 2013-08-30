@@ -25,15 +25,10 @@ body {
     padding-top: 6px;
 }
 
-.edit-modal {
-    width: 1000px;
-    margin-left:  -450px !important; 
+.modal .modal-lg {
+    width: 90%; /* respsonsive width */
 }
 
-.edit-modal-body {
-    max-height: 750px;
-    overflow: auto;
-}
 
 .login-container {
     width: 400px;

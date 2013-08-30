@@ -26,6 +26,7 @@
            bodyRegions = kb.collectionObservable(selectedInjury.get('bodyRegions'), availableBodyRegions.shareOptions()),
            signs = kb.collectionObservable(selectedInjury.get('signs'), availableSigns.shareOptions()),
            causes = kb.collectionObservable(selectedInjury.get('causes'), availableCauses.shareOptions()),
+           rangeValues = ko.observableArray(),
            callback = function () {
                alert('test');
            },
@@ -193,7 +194,11 @@
            unhighlight: bh.popoverUnhighlight
        });
 
-        var init = function() {
+        var init = function () {
+            for (var i = 1; i <= 100; i++) {
+                rangeValues.push(i);
+            };
+
             planCollection.fetch();
             bodyRegionCollection.fetch();
             signCollection.fetch();
@@ -228,7 +233,8 @@
             init: init,
             addNewSymptom: addNewSymptom,
             removeSymptom: removeSymptom,
-            injurySymptoms: injurySymptoms
+            injurySymptoms: injurySymptoms,
+            rangeValues : rangeValues
         };
 
     });

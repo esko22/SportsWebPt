@@ -34,33 +34,33 @@
                 </div>
                 <div class="col-md-5 well">
                     <form class="form-horizontal" data-bind="validateForm: bodyPartValidationOptions" id="admin-body-part-form">
-                        <div class="control-group">
-                            <label class="control-label" for="inputCommonName">Common Name</label>
-                            <div class="controls">
-                                <input type="text" id="inputCommonName" name="commonName" data-bind="value: commonName" placeholder="Common Name">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputCommonName">Common Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" id="inputCommonName" class="form-control" name="commonName" data-bind="value: commonName" placeholder="Common Name">
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="inputScientificName">Scientific Name</label>
-                            <div class="controls">
-                                <input type="text" id="Text1" name="scientificName" data-bind="value: scientificName" placeholder="Scientific Name">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="scientificName">Scientific Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" id="Text1" class="form-control" name="scientificName" data-bind="value: scientificName" placeholder="Scientific Name">
                             </div>
                         </div>
-                       <div class="control-group">
-                            <label class="control-label" for="inputPrimaryAreas">Primary Areas</label>
-                            <div class="controls">
-                                <select id="inputPrimaryAreas" multiple size="8" name="primaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: primaryAreas" >
+                       <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputPrimaryAreas">Primary Areas</label>
+                            <div class="col-lg-9">
+                                <select id="inputPrimaryAreas" class="form-control" multiple size="8" name="primaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: primaryAreas" >
                                 </select>
                             </div>
                        </div>
-                       <div class="control-group">
-                            <label class="control-label" for="inputSecondaryAreas">Secondary Areas</label>
-                            <div class="controls">
-                                <select id="inputSecondaryAreas" multiple size="8" name="secondaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: secondaryAreas" >
+                       <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputSecondaryAreas">Secondary Areas</label>
+                            <div class="col-lg-9">
+                                <select id="inputSecondaryAreas" class="form-control" multiple size="8" name="secondaryAreas" data-bind="options: availableAreas, optionsText: 'name', selectedOptions: secondaryAreas" >
                                 </select>
                             </div>
                        </div>
-                        <div class="form-actions">
+                        <div class="text-center">
                           <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                      </form>

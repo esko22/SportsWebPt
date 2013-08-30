@@ -19,13 +19,13 @@
                 </div>
                 <div class="col-md-5 well">
                     <form class="form-horizontal" data-bind="validateForm: bodyRegionValidationOptions" id="admin-body-region-form">
-                        <div class="control-group">
-                            <label class="control-label" for="inputName">Name</label>
-                            <div class="controls">
-                                <input type="text" id="inputName" name="bodyRegionName" data-bind="value: selectedBodyRegion.name" placeholder="Region Name">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputName">Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" id="inputName" class="form-control" name="bodyRegionName" data-bind="value: selectedBodyRegion.name" placeholder="Region Name">
                             </div>
                         </div>
-                        <div class="form-actions">
+                        <div class="text-center">
                           <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                      </form>

@@ -10,25 +10,25 @@
             </div>
             <div class="col-md-5 well">
                 <form class="form-horizontal" data-bind="validateForm: equipmentValidationOptions" id="admin-equipment-form">
-                    <div class="control-group">
-                        <label class="control-label" for="inputCommonName">Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputCommonName" name="commonName" data-bind="value: selectedEquipment.commonName" placeholder="Common Name">
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputCommonName">Name</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputCommonName" name="commonName" data-bind="value: selectedEquipment.commonName" placeholder="Common Name">
                         </div>
                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputVendorName">Vendor</label>
-                        <div class="controls">
-                            <input type="text" id="inputVendorName" name="recommendedVendor" data-bind="value: selectedEquipment.recommendedVendor" placeholder="Vendor">
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputVendorName">Vendor</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputVendorName" name="recommendedVendor" data-bind="value: selectedEquipment.recommendedVendor" placeholder="Vendor">
                         </div>
                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPriceRange">Price Range</label>
-                        <div class="controls">
-                            <input type="text" id="inputPriceRange" name="priceRange" data-bind="value: selectedEquipment.priceRange" placeholder="Price Range">
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="inputPriceRange">Price Range</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputPriceRange" name="priceRange" data-bind="value: selectedEquipment.priceRange" placeholder="Price Range">
                         </div>
                    </div>
-                    <div class="form-actions">
+                    <div class="text-center">
                       <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                  </form>

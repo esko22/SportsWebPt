@@ -13,110 +13,113 @@
     </div>
 
 
-<div class="modal hide fade edit-modal" id="admin-exercise-form-dialog">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3>Add /Edit Exercise</h3>
-    </div>
-    <div class="modal-body well edit-modal-body">
-        <form class="form-horizontal" data-bind="validateForm: exerciseValidationOptions" id="admin-exercise-form">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="control-group">
-                        <label class="control-label" for="inputName">Common Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputName" name="name" data-bind="value: name" placeholder="Common Name">
+<div class="modal fade" id="admin-exercise-form-dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Add /Edit Exercise</h3>
+        </div>
+        <div class="modal-body well">
+            <form class="form-horizontal" data-bind="validateForm: exerciseValidationOptions" id="admin-exercise-form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputName">Common Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputName" name="name" data-bind="value: name" placeholder="Common Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputMedicalName">Medical Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputMedicalName" name="medicalName" data-bind="value: medicalName" placeholder="Medical Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputDescription">Description</label>
+                            <div class="col-lg-9">
+                                <textarea id="inputDescription" class="form-control" rows="5" form="admin-exercise-form" cols="60" name="description" data-bind="value: description" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputDuration">Duration</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputDuration" name="duration" data-bind="value: duration" placeholder="Duration">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputDifficulty">Difficulty</label>
+                            <div class="col-lg-9">
+                                <select id="inputDifficulty" class="form-control" name="difficulty" data-bind="options: availableDifficulties, value: difficulty" >
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputPageName">Page Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputTags">Tags</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
+                            </div>
+                        </div>
+                         <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>Sets</th>
+                                    <th>Reps</th>
+                                    <th>Per Day</th>
+                                    <th>Per Week</th>
+                                    <th>Hold</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><select class="input-sm" id="inputSets" name="sets" data-bind="options: rangeValues, value: sets"></select></td>
+                                        <td><select class="input-sm" id="inputReps" name="perday" data-bind="options: rangeValues, value: repititions"></select></td>
+                                        <td><select class="input-sm" id="inputWeek" name="perweek" data-bind="options: rangeValues, value: perWeek"></select></td>
+                                        <td><select class="input-sm" id="inputDay" name="perday" data-bind="options: rangeValues, value: perDay"></select></td>
+                                        <td><select id="inputHoldFor" class="input-sm" name="adminHoldForSeconds" data-bind="options: rangeValues, value: holdFor"></select></td>
+                                    </tr>
+                                </tbody>            
+                            </table>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputMedicalName">Medical Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputMedicalName" name="medicalName" data-bind="value: medicalName" placeholder="Medical Name">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputExerciseVideos">Videos</label>
+                            <div class="col-lg-9">
+                                <select id="inputExerciseVideos" class="form-control" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputDescription">Description</label>
-                        <div class="controls">
-                            <textarea id="inputDescription" rows="5" form="admin-exercise-form" cols="60" name="description" data-bind="value: description" placeholder="Description"></textarea>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputExerciseEquipment">Equipment</label>
+                            <div class="col-lg-9">
+                                <select id="inputExerciseEquipment" class="form-control" name="exerciseEquipment" multiple="multiple" size="8" data-bind="options: availableEquipment, optionsText: 'commonName', selectedOptions: equipment" >
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputDuration">Duration</label>
-                        <div class="controls">
-                            <input type="text" id="inputDuration" name="duration" data-bind="value: duration" placeholder="Duration">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputDifficulty">Difficulty</label>
-                        <div class="controls">
-                            <select id="inputDifficulty" name="difficulty" data-bind="options: availableDifficulties, value: difficulty" >
-                            </select>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPageName">Page Name</label>
-                        <div class="controls">
-                            <input type="text" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputTags">Tags</label>
-                        <div class="controls">
-                            <input type="text" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputExerciseEquipment">BodyRegions</label>
+                            <div class="col-lg-9">
+                                <select id="inputExerciseBodyRegions" class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="control-group">
-                        <label class="control-label" for="inputExerciseVideos">Videos</label>
-                        <div class="controls">
-                            <select id="inputExerciseVideos" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
-                            </select>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputExerciseEquipment">Equipment</label>
-                        <div class="controls">
-                            <select id="inputExerciseEquipment" name="exerciseEquipment" multiple="multiple" size="8" data-bind="options: availableEquipment, optionsText: 'commonName', selectedOptions: equipment" >
-                            </select>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputExerciseEquipment">BodyRegions</label>
-                        <div class="controls">
-                            <select id="inputExerciseBodyRegions" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <table class="table table-striped">
-                            <thead>
-                                <th>Sets</th>
-                                <th>Reps</th>
-                                <th>Per Day</th>
-                                <th>Per Week</th>
-                                <th>Hold</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><select class="input-mini" id="inputSets" name="sets" data-bind="options: rangeValues, value: sets"></select></td>
-                                    <td><select class="input-mini" id="inputReps" name="perday" data-bind="options: rangeValues, value: repititions"></select></td>
-                                    <td><select class="input-mini" id="inputWeek" name="perweek" data-bind="options: rangeValues, value: perWeek"></select></td>
-                                    <td><select class="input-mini" id="inputDay" name="perday" data-bind="options: rangeValues, value: perDay"></select></td>
-                                    <td><select id="inputHoldFor" class="input-mini" name="adminHoldForSeconds" data-bind="options: rangeValues, value: holdFor"></select></td>
-                                </tr>
-                            </tbody>            
-                        </table>
-                    </div>
-
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+        </div>
     </div>
 </div>
