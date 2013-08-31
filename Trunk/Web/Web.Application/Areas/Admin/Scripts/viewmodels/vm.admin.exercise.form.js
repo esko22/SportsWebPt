@@ -1,6 +1,6 @@
 ﻿define('vm.admin.exercise.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection'],
-    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection) {
+    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection','config'],
+    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection, config) {
 
         var videoCollection = new VideoCollection(),
             equipmentCollection = new EquipmentCollection(),
@@ -9,6 +9,7 @@
             availableEquipment = kb.collectionObservable(equipmentCollection),
             availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
             selectedExercise = new ExerciseModel(),
+            availableCategories = config.functionCategories,
             rangeValues = ko.observableArray(),
             name = kb.observable(selectedExercise, 'name'),
             difficulty = kb.observable(selectedExercise, 'difficulty'),
@@ -22,7 +23,7 @@
             perWeek = kb.observable(selectedExercise, 'perWeek'),
             perDay = kb.observable(selectedExercise, 'perDay'),
             holdFor = kb.observable(selectedExercise, 'holdFor'),
-
+            category = kb.observable(selectedExercise, 'category'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
@@ -98,8 +99,7 @@
             selectedExercise.set('perWeek', exercise.model().get('perWeek'));
             selectedExercise.set('perDay', exercise.model().get('perDay'));
             selectedExercise.set('holdFor', exercise.model().get('holdFor'));
-
-
+            selectedExercise.set('category', exercise.model().get('category'));
 
 
             //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
@@ -211,6 +211,8 @@
             perWeek : perWeek,
             perDay : perDay,
             holdFor: holdFor,
-            medicalName: medicalName
+            medicalName: medicalName,
+            availableCategories: availableCategories,
+            category: category
         };
     });

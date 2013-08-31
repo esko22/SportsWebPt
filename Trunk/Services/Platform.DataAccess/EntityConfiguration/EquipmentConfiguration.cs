@@ -16,6 +16,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.PriceRange).HasColumnName("price_range").HasMaxLength(50);
             Property(p => p.RecommendedVendor).HasColumnName("recommended_vendor").HasMaxLength(100);
             Property(p => p.Id).IsRequired().HasColumnName("equipment_id");
+            Property(p => p.Category).IsRequired().HasColumnName("function_category");
         }
 
         #endregion

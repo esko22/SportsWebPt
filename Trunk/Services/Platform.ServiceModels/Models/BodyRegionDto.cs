@@ -14,6 +14,9 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String Name { get; set; }
 
+        [DataMember]
+        public String RegionCategory { get; set; }
+
         #endregion
     }
 }

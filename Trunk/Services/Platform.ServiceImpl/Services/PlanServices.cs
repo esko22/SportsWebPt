@@ -110,7 +110,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             ResearchUnitOfWork.PlanRepo.Add(plan);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.id = plan.Id;
+            request.Resource.Id = plan.Id;
 
             return Ok(new ApiResponse<PlanDto>(request.Resource));
         }

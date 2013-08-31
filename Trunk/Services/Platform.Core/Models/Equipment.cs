@@ -15,6 +15,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String RecommendedVendor { get; set; }
 
+        public FunctionCategory Category { get; set; }
+
         public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }  
 
         #endregion

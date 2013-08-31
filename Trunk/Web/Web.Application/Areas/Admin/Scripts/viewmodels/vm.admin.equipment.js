@@ -6,8 +6,11 @@
             equipmentCollection = new EquipmentCollection(),
             equipment = kb.collectionObservable(equipmentCollection),
             selectedEquipment = kb.viewModel(new EquipmentModel()),
+            availableCategories = config.functionCategories,
             bindSelectedEquipment = function (data, event) {
+                var category = data.model().get('category');
                 selectedEquipment.model(data.model());
+                selectedEquipment.category(category);
             },
             onSuccessfulChange = function () {
                 selectedEquipment.model(new EquipmentModel());
@@ -86,6 +89,7 @@
             saveChanges: saveChanges,
             bindSelectedEquipment: bindSelectedEquipment,
             equipmentValidationOptions: equipmentValidationOptions,
-            init : init
+            init: init,
+            availableCategories: availableCategories
         };
     });

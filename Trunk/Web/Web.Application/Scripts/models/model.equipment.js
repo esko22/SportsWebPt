@@ -33,7 +33,8 @@ define('model.admin.equipment', ['backbone', 'config', 'jquery'],
                     'commonName': '',
                     'technicalName': '',
                     'recommendedVendor': '',
-                    'priceRange': ''
+                    'priceRange': '',
+                    'category': ''
                 }
             });
 

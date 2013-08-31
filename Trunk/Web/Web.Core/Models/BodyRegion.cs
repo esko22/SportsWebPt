@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Web.Core
 {
@@ -13,6 +9,8 @@ namespace SportsWebPt.Platform.Web.Core
         public int id { get; set; }
 
         public String name { get; set; }
+
+        public String regionCategory { get; set; }
 
         #endregion
     }

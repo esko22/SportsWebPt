@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("BodyRegion");
             Property(p => p.Id).IsRequired().HasColumnName("region_id");
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(50);
-
+            Property(p => p.RegionCategory).IsRequired().HasColumnName("region_category");
         }
 
         #endregion

@@ -39,6 +39,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int holdFor { get; set; }
 
+        public string category { get; set; }
+
         #endregion
     }
 }

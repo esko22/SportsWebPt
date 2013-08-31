@@ -15,7 +15,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Description { get; set; }
 
-        public String MusclesInvolved { get; set; }
+        public String StructuresInvolved { get; set; }
+
+        public String Instructions { get; set; }
 
         public int Duration { get; set; }
 

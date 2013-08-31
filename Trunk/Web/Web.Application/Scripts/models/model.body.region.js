@@ -28,7 +28,8 @@ define('model.admin.body.region', ['backbone', 'config', 'jquery'],
             area = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminBodyRegion,
                 defaults: {
-                    'name': ''
+                    'name': '',
+                    'regionCategory' : ''
                 }
             });
 

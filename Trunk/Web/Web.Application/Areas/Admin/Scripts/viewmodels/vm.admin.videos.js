@@ -1,13 +1,16 @@
 ﻿define('vm.admin.videos',
-    ['ko', 'underscore', 'knockback', 'model.admin.video.collection', 'model.admin.video', 'error.helper', 'bootstrap.helper'],
-    function (ko, _, kb, VideoCollection, VideoModel, err, bh) {
+    ['ko', 'underscore', 'knockback', 'model.admin.video.collection', 'model.admin.video', 'error.helper', 'bootstrap.helper', 'config'],
+    function (ko, _, kb, VideoCollection, VideoModel, err, bh, config) {
 
         var videoListTemplate = 'admin.video.list',
             videoCollection = new VideoCollection(),
             videos = kb.collectionObservable(videoCollection),
             selectedVideo = kb.viewModel(new VideoModel()),
+            availableCategories = config.functionCategories,
             bindSelectedVideo = function (data, event) {
+                var category = data.model().get('category');
                 selectedVideo.model(data.model());
+                selectedVideo.category(category);
             },
             onSuccessfulChange = function () {
                 selectedVideo.model(new VideoModel());
@@ -97,6 +100,7 @@
             saveChanges: saveChanges,
             bindSelectedVideo: bindSelectedVideo,
             videoValidationOptions: videoValidationOptions,
+            availableCategories : availableCategories,
             init : init
         };
     });

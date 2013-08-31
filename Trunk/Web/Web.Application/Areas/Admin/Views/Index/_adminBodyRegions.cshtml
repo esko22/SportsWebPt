@@ -7,11 +7,13 @@
                         <thead>
                             <tr>
                                 <th>Region Name</th>
+                                <th>Category</th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: bodyRegions">
                             <tr>
                                 <td data-bind="text:name"></td>
+                                <td data-bind="text: regionCategory"></td>
                                 <td><button class="btn-primary" data-bind="click: $parent.bindSelectedBodyRegion">Edit</button></td>
                             </tr>
                         </tbody>            
@@ -23,6 +25,13 @@
                             <label class="control-label col-lg-3" for="inputName">Name</label>
                             <div class="col-lg-9">
                                 <input type="text" id="inputName" class="form-control" name="bodyRegionName" data-bind="value: selectedBodyRegion.name" placeholder="Region Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputCategory">Category</label>
+                            <div class="col-lg-9">
+                                <select id="inputCategory" name="category" class="form-control" data-bind="options: availableCategories, value: selectedBodyRegion.regionCategory" >
+                                </select>
                             </div>
                         </div>
                         <div class="text-center">

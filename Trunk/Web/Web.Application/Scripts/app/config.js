@@ -46,8 +46,9 @@
             infuser.defaults.templateUrl = "/Tmpl";
         };
 
-        var planCategories = ko.observableArray([ 'Rehabilitation', 'Stretching', 'Preventative' ]);
-
+        var functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']);
+        var regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']);
+        
         var init = function () {
             configureExternalTemplates();
         };
@@ -59,7 +60,8 @@
             currentUser: currentUser,
             hostUri: hostUri,
             apiUris: apiUris,
-            planCategories: planCategories
+            functionCategories: functionCategories,
+            regionCategories: regionCategories
         };
 
     });

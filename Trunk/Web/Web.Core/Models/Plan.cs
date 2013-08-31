@@ -19,14 +19,15 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
-        public String musclesInvolved { get; set; }
+        public String structuresInvolved { get; set; }
+
+        public String instructions { get; set; }
 
         public int duration { get; set; }
 
         public String tags { get; set; }
 
         public String pageName { get; set; }
-
 
         #endregion
     }

@@ -21,7 +21,14 @@
                             <div class="col-lg-8">
                                 <input type="text" class="form-control" id="inputMedicalName" name="medicalName" data-bind="value: selectedVideo.medicalName" placeholder="Medical Name">
                             </div>
-                       </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4" for="inputCategory">Category</label>
+                            <div class="col-lg-8">
+                                <select id="inputCategory" class="form-control" name="category" data-bind="options: availableCategories, value: selectedVideo.category" >
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-lg-4" for="inputDescription">Description</label>
                             <div class="col-lg-8">

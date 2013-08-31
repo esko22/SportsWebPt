@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Name { get; set; }
 
+        public BodyRegionCategory RegionCategory { get; set; }
+
         #endregion    
     }
 }

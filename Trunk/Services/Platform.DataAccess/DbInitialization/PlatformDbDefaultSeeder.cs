@@ -153,50 +153,55 @@ namespace SportsWebPt.Platform.DataAccess
                             RoutineName = "Plantar Fascia Rehab 1",
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
-                            MusclesInvolved = "Plantar Fascia, Gastroc/Soleus",
+                            StructuresInvolved = "Plantar Fascia, Gastroc/Soleus",
                             Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Swelling",
-                            PageName = "Plantar-Fascia-Rehab-1"
+                            PageName = "Plantar-Fascia-Rehab-1",
+                            Instructions = "Do some shit"
                         },
                      new Plan()
                         {
                             RoutineName = "Sprained Ankle Stretching",
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
-                            MusclesInvolved = "Ankle Joint/Ligaments, Soleus",
+                            StructuresInvolved = "Ankle Joint/Ligaments, Soleus",
                             Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
-                            PageName = "Sprained-Ankle-Stretching"
+                            PageName = "Sprained-Ankle-Stretching",
+                            Instructions = "Do some shit"
                         },
                      new Plan()
                         {
                             RoutineName = "General Shin Splint Stretching",
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
-                            MusclesInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
+                            StructuresInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
                             Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
-                            PageName = "General-Shin-Splint-Stretching"
+                            PageName = "General-Shin-Splint-Stretching",
+                            Instructions = "Do some shit"
                         },
                      new Plan()
                         {
                             RoutineName = "Soleus Stretching",
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
-                            MusclesInvolved = "Soleus",
+                            StructuresInvolved = "Soleus",
                             Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
-                            PageName = "Soleus-Stretching"
+                            PageName = "Soleus-Stretching",
+                            Instructions = "Do some shit"
                         },
                      new Plan()
                         {
                             RoutineName = "Calf Strain Rehab",
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
-                            MusclesInvolved = "Gastrocnemius, Soleus, Hamstrings",
+                            StructuresInvolved = "Gastrocnemius, Soleus, Hamstrings",
                             Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Tingle",
-                            PageName = "Calf-Strain-Rehab"
+                            PageName = "Calf-Strain-Rehab",
+                            Instructions = "Do some shit"
                         }
                 };
 
@@ -232,13 +237,13 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var exercises = new List<Exercise>()
                 {
-                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "heel-self-massage"},
-                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10,Tags = "pain, tightness", PageName = "seated-plantar-fascis-strech"},
-                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "standing-calf-strech"},
-                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3,Tags = "pain, tightness", PageName = "standing-wall-calf-strech"},
-                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "standing-soleus-strech-1" },
-                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7, Tags = "pain, tightness", PageName = "standing-soleus-strech-2"},
-                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "calf-knee-massage" }
+                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "heel-self-massage", Category = FunctionCategory.Strengthing},
+                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10,Tags = "pain, tightness", PageName = "seated-plantar-fascis-strech", Category = FunctionCategory.Strengthing},
+                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "standing-calf-strech", Category = FunctionCategory.Strengthing},
+                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3,Tags = "pain, tightness", PageName = "standing-wall-calf-strech", Category = FunctionCategory.Strengthing},
+                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "standing-soleus-strech-1", Category = FunctionCategory.Strengthing },
+                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7, Tags = "pain, tightness", PageName = "standing-soleus-strech-2", Category = FunctionCategory.Strengthing},
+                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "calf-knee-massage", Category = FunctionCategory.Strengthing }
                 };
 
             exercises.ForEach(p => _dbContext.Exercises.Add(p));
@@ -251,11 +256,11 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var videos = new List<Video>()
                 {
-                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs"},
-                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins"},
-                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles"},
-                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes"},
-                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself"}
+                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself", Category = FunctionCategory.Strengthing}
                 };
 
             videos.ForEach(p => _dbContext.Videos.Add(p));
@@ -369,16 +374,18 @@ namespace SportsWebPt.Platform.DataAccess
                         {
                             CommonName = "Foam Roller",
                             PriceRange = "10 - 50",
-                            RecommendedVendor = "Foam House"
+                            RecommendedVendor = "Foam House", 
+                            Category = FunctionCategory.Strengthing
                         },
                     new Equipment()
                         {
                             CommonName = "Theracane",
                             PriceRange = "20 - 60",
-                            RecommendedVendor = "ActiveLife"
+                            RecommendedVendor = "ActiveLife", 
+                            Category = FunctionCategory.Strengthing
                         },
-                    new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7"},
-                    new Equipment() {CommonName = "Wall", PriceRange = "0"}
+                    new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7", Category = FunctionCategory.Strengthing},
+                    new Equipment() {CommonName = "Wall", PriceRange = "0", Category = FunctionCategory.Strengthing}
                 };
 
             equipmentList.ForEach(p => _dbContext.Equipment.Add(p));
@@ -543,17 +550,17 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var regions = new List<BodyRegion>()
                 {
-                    new BodyRegion() { Name = "AboveShoulder"},
-                    new BodyRegion() { Name = "Chest"},
-                    new BodyRegion() { Name = "Shoulders"},
-                    new BodyRegion() { Name = "Core"},
-                    new BodyRegion() { Name = "LowerBack"},
-                    new BodyRegion() { Name = "UpperArm"},
-                    new BodyRegion() { Name = "LowerArm"},
-                    new BodyRegion() { Name = "UpperLeg"},
-                    new BodyRegion() { Name = "LowerLeg"},
-                    new BodyRegion() { Name = "Groin"},
-                    new BodyRegion() { Name = "Butt"}
+                    new BodyRegion() { Name = "AboveShoulder", RegionCategory = BodyRegionCategory.UpperExtremity},
+                    new BodyRegion() { Name = "Chest", RegionCategory = BodyRegionCategory.UpperExtremity},
+                    new BodyRegion() { Name = "Shoulders", RegionCategory = BodyRegionCategory.UpperExtremity},
+                    new BodyRegion() { Name = "Core", RegionCategory = BodyRegionCategory.Spine},
+                    new BodyRegion() { Name = "LowerBack", RegionCategory = BodyRegionCategory.Spine},
+                    new BodyRegion() { Name = "UpperArm", RegionCategory = BodyRegionCategory.UpperExtremity},
+                    new BodyRegion() { Name = "LowerArm", RegionCategory = BodyRegionCategory.UpperExtremity},
+                    new BodyRegion() { Name = "UpperLeg", RegionCategory = BodyRegionCategory.LowerExtremity},
+                    new BodyRegion() { Name = "LowerLeg", RegionCategory = BodyRegionCategory.LowerExtremity},
+                    new BodyRegion() { Name = "Groin", RegionCategory = BodyRegionCategory.LowerExtremity},
+                    new BodyRegion() { Name = "Butt", RegionCategory = BodyRegionCategory.LowerExtremity}
                 };
 
             regions.ForEach(u => _dbContext.BodyRegions.Add(u));

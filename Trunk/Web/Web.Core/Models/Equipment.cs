@@ -16,6 +16,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String recommendedVendor { get; set; }
 
+        public string category { get; set; }
+
         #endregion
     }
 }

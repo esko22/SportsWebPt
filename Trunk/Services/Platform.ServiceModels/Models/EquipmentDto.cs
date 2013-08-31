@@ -9,19 +9,23 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public String commonName { get; set; }
+        public String CommonName { get; set; }
 
         [DataMember]
-        public String technicalName { get; set; }
+        public String TechnicalName { get; set; }
 
         [DataMember]
-        public String priceRange { get; set; }
+        public String PriceRange { get; set; }
 
         [DataMember]
-        public String recommendedVendor { get; set; }
+        public String RecommendedVendor { get; set; }
+
+        [DataMember]
+        public String Category { get; set; }
+
 
         #endregion
     }

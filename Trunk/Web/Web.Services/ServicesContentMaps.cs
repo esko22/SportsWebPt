@@ -65,11 +65,15 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.causes))
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.signs))
                   .ForMember(d => d.givenSymptoms, opt => opt.MapFrom(s => s.givenSymptoms));
-            Mapper.CreateMap<PlanDto, Plan>();
-            Mapper.CreateMap<Plan, PlanDto>();
-            Mapper.CreateMap<ExerciseDto, Exercise>();
+            Mapper.CreateMap<PlanDto, Plan>()
+                .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_"," ")));
+            Mapper.CreateMap<Plan, PlanDto>()
+                .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ","_")));
+            Mapper.CreateMap<ExerciseDto, Exercise>()
+                  .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
             Mapper.CreateMap<PlanExerciseDto, PlanExercise>();
-            Mapper.CreateMap<Exercise, ExerciseDto>();
+            Mapper.CreateMap<Exercise, ExerciseDto>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
             Mapper.CreateMap<PlanExercise, PlanExerciseDto>()
                   .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.exerciseId))
                   .ForMember(d => d.ExerciseId, opt =>
@@ -78,10 +82,14 @@ namespace SportsWebPt.Platform.Web.Services
                           opt.Condition(s => s.exerciseId > 0 );
                           opt.MapFrom(s => s.exerciseId);
                       }); 
-            Mapper.CreateMap<EquipmentDto, Equipment>();
-            Mapper.CreateMap<Equipment, EquipmentDto>();
-            Mapper.CreateMap<VideoDto, Video>();
-            Mapper.CreateMap<Video, VideoDto>();
+            Mapper.CreateMap<EquipmentDto, Equipment>()
+                  .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
+            Mapper.CreateMap<Equipment, EquipmentDto>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
+            Mapper.CreateMap<VideoDto, Video>()
+                  .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
+            Mapper.CreateMap<Video, VideoDto>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();
             Mapper.CreateMap<Cause, CauseDto>();

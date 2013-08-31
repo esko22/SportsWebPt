@@ -9,25 +9,28 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
         
         [DataMember]
-        public PlanExerciseDto[] exercises { get; set; }
+        public PlanExerciseDto[] Exercises { get; set; }
 
         [DataMember]
-        public String category { get; set; }
+        public String Category { get; set; }
 
         [DataMember]
-        public String routineName { get; set; }
+        public String RoutineName { get; set; }
 
         [DataMember]
-        public String description { get; set; }
+        public String Description { get; set; }
 
         [DataMember]
-        public String musclesInvolved { get; set; }
+        public String StructuresInvolved { get; set; }
 
         [DataMember]
-        public int duration { get; set; }
+        public String Instructions { get; set; }
+
+        [DataMember]
+        public int Duration { get; set; }
 
         [DataMember]
         public String PageName { get; set; }
@@ -36,7 +39,7 @@ namespace SportsWebPt.Platform.ServiceModels
         public String Tags { get; set; }
 
         [DataMember]
-        public BodyRegionDto[] bodyRegions { get; set; }
+        public BodyRegionDto[] BodyRegions { get; set; }
 
         #endregion
     }

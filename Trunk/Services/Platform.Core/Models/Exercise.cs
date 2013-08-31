@@ -31,6 +31,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int HoldFor { get; set; }
 
+        public FunctionCategory Category { get; set; }
+
         public ExerciseDifficulty Difficulty { get; set; }
 
         public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }

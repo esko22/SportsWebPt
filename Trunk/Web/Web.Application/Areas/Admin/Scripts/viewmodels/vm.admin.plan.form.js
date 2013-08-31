@@ -12,10 +12,11 @@
             duration = kb.observable(selectedPlan, 'duration'),
             tags = kb.observable(selectedPlan, 'tags'),
             pageName = kb.observable(selectedPlan, 'pageName'),
-            musclesInvolved = kb.observable(selectedPlan, 'musclesInvolved'),
+            structuresInvolved = kb.observable(selectedPlan, 'structuresInvolved'),
+            instructions = kb.observable(selectedPlan, 'instructions'),
             exercises = kb.collectionObservable(selectedPlan.get('exercises')),
             bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
-            availableCategories = config.planCategories,
+            availableCategories = config.functionCategories,
             modalDialogId = '#admin-plan-form-dialog',
             rangeValues = ko.observableArray(),
             callback = function() {
@@ -78,11 +79,12 @@
 
                 selectedPlan.set('routineName', data.model().get('routineName'));
                 selectedPlan.set('description', data.model().get('description'));
+                selectedPlan.set('instructions', data.model().get('instructions'));
                 selectedPlan.set('duration', data.model().get('duration'));
                 selectedPlan.set('category', data.model().get('category'));
                 selectedPlan.set('tags', data.model().get('tags'));
                 selectedPlan.set('pageName', data.model().get('pageName'));
-                selectedPlan.set('musclesInvolved', data.model().get('musclesInvolved'));
+                selectedPlan.set('structuresInvolved', data.model().get('structuresInvolved'));
 
 
                 ////TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
@@ -111,6 +113,12 @@
                         minlength: 1,
                         maxlength: 60000
                     },
+                    instructions:
+                    {
+                        required: false,
+                        minlength: 1,
+                        maxlength: 60000
+                    },
                     category:
                     {
                         required: true
@@ -134,6 +142,11 @@
                         maxlength: "must be between 4 and 100 characters"
                     },
                     description:
+                    {
+                        minlength: "must be between 1 and 60000 characters",
+                        maxlength: "must be between 1 and 60000 characters"
+                    },
+                    instructions:
                     {
                         minlength: "must be between 1 and 60000 characters",
                         maxlength: "must be between 1 and 60000 characters"
@@ -184,13 +197,14 @@
                     tags: tags,
                     pageName: pageName,
                     suscribe: suscribe,
-                    musclesInvolved: musclesInvolved,
+                    structuresInvolved: structuresInvolved,
                     addNewExercise: addNewExercise,
                     removeExercise: removeExercise,
                     addPlan: addPlan,
                     editPlan: editPlan,
                     init: init,
-                    rangeValues : rangeValues
+                    rangeValues: rangeValues,
+                    instructions: instructions
                 };
 
     });

@@ -9,37 +9,37 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
-        public EquipmentDto[] equipment { get; set; }
+        public EquipmentDto[] Equipment { get; set; }
 
         [DataMember]
-        public VideoDto[] videos { get; set; }
+        public VideoDto[] Videos { get; set; }
 
         [DataMember]
-        public BodyRegionDto[] bodyRegions { get; set; }
+        public BodyRegionDto[] BodyRegions { get; set; }
 
         [DataMember]
-        public String name { get; set; }
+        public String Name { get; set; }
 
         [DataMember]
         public String MedicalName { get; set; }
 
         [DataMember]
-        public String description { get; set; }
+        public String Description { get; set; }
 
         [DataMember]
-        public String pageName { get; set; }
+        public String PageName { get; set; }
 
         [DataMember]
-        public String tags { get; set; }
+        public String Tags { get; set; }
 
         [DataMember]
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         [DataMember]
-        public String difficulty { get; set; }
+        public String Difficulty { get; set; }
 
         [DataMember]
         public int Sets { get; set; }
@@ -55,6 +55,9 @@ namespace SportsWebPt.Platform.ServiceModels
 
         [DataMember]
         public int HoldFor { get; set; }
+
+        [DataMember]
+        public String Category { get; set; }
 
         #endregion
     }

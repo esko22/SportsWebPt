@@ -55,7 +55,7 @@ namespace SportsWebPt.Platform.Web.Services
             var response =
                 PostSync<EquipmentResourceResponse>(_sportsWebPtClientSettings.EquipmentPath, equipmentRequest);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdateEquipment(Equipment equipment)
@@ -108,7 +108,7 @@ namespace SportsWebPt.Platform.Web.Services
 
             var response = PostSync<ApiResourceRequest<ExerciseDto>>(_sportsWebPtClientSettings.ExercisePath, request);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdateExercise(Exercise exercise)
@@ -137,7 +137,7 @@ namespace SportsWebPt.Platform.Web.Services
 
             var response = PostSync<ApiResourceRequest<PlanDto>>(_sportsWebPtClientSettings.PlanPath, request);
 
-            return response.Resource.id;
+            return response.Resource.Id;
         }
 
         public void UpdatePlan(Plan plan)
