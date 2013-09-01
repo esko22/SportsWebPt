@@ -321,6 +321,14 @@ namespace SportsWebPt.Platform.Web.Services
             PutSync<BodyPartResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.BodyRegionUriPath, bodyRegion.id), request);
         }
 
+        public bool ValidatePageName(String pageName)
+        {
+            return GetSync(new PageNameValidationRequest()
+                {
+                    PageName = pageName
+                });
+        }
+
         #endregion
 
     }

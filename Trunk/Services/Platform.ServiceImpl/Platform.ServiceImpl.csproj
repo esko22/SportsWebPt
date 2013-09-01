@@ -83,6 +83,7 @@
     <Compile Include="Services\EquipmentServices.cs" />
     <Compile Include="Services\ExerciseServices.cs" />
     <Compile Include="Services\InjuryServices.cs" />
+    <Compile Include="Services\PageNameValidationService.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
     <Compile Include="Services\SignServices.cs" />
     <Compile Include="Services\SkeletonAreaListService.cs" />

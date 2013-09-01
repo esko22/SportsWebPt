@@ -285,6 +285,12 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(bodyRegion, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("validate/pagename", IsAbsoluteUrl = true)]
+        public ActionResult ValidatePageName(string pageName)
+        {
+            return Json(_adminService.ValidatePageName(pageName), JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
 

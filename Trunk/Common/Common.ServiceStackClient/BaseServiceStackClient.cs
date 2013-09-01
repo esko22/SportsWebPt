@@ -1,6 +1,7 @@
 ﻿using System;
 
 using ServiceStack.ServiceClient.Web;
+using ServiceStack.ServiceHost;
 using SportsWebPt.Common.Utilities;
 
 namespace SportsWebPt.Common.ServiceStackClient
@@ -70,6 +71,12 @@ namespace SportsWebPt.Common.ServiceStackClient
         {
             return _serviceClientBase.Get<TResponse>(uri);
         }
+
+        protected TResponse GetSync<TResponse>(IReturn<TResponse> request)
+        {
+            return _serviceClientBase.Get(request);
+        }
+
 
         protected void PostAsync<TResponse>(string uri, object request, Action<TResponse, Exception> callback)
         {

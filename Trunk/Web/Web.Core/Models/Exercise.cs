@@ -15,6 +15,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
+        public IEnumerable<BodyPart> bodyParts { get; set; }
+
         public String name { get; set; }
 
         public String medicalName { get; set; } 

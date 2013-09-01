@@ -135,6 +135,7 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<InjuryListRequest>("injuries")
                 .Add<InjuryRequest>("injuries/{id}")
                 .Add<InjuryRequest>("injuries", "POST")
+                .Add<PageNameValidationRequest>("validate")
                 .Add<BodyPartMatrixListRequest>("bodypartmatrix");
         }
 

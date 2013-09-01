@@ -1,13 +1,15 @@
 ﻿define('vm.admin.exercise.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection','config'],
-    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection, config) {
+    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection', 'config', 'model.admin.body.part.collection'],
+    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection, config, BodyPartCollection) {
 
         var videoCollection = new VideoCollection(),
             equipmentCollection = new EquipmentCollection(),
             bodyRegionCollection = new BodyRegionCollection(),
+            bodyPartCollection = new BodyPartCollection(),
             availableVideos = kb.collectionObservable(videoCollection),
             availableEquipment = kb.collectionObservable(equipmentCollection),
             availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
+            availableBodyParts = kb.collectionObservable(bodyPartCollection),
             selectedExercise = new ExerciseModel(),
             availableCategories = config.functionCategories,
             rangeValues = ko.observableArray(),
@@ -27,6 +29,7 @@
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
+            bodyParts = kb.collectionObservable(selectedExercise.get('bodyParts'), availableBodyParts.shareOptions()),
             availableDifficulties = ko.observableArray(['Beginner', 'Intermediate', 'Advanced']),
             modalDialogId = '#admin-exercise-form-dialog',
             callback = function() {
@@ -61,6 +64,7 @@
             selectedExercise.get('equipment').reset();
             selectedExercise.get('videos').reset();
             selectedExercise.get('bodyRegions').reset();
+            selectedExercise.get('bodyParts').reset();
 
             //have to get items from available collection
             _.each(exercise.equipment(), function (viewModel) {
@@ -83,6 +87,14 @@
                 _.each(bodyRegionCollection.models, function (bodyRegionModel) {
                     if (viewModel.id() === bodyRegionModel.get('id')) {
                         selectedExercise.get('bodyRegions').add(bodyRegionModel);
+                    }
+                });
+            });
+            
+            _.each(exercise.bodyParts(), function (viewModel) {
+                _.each(bodyPartCollection.models, function (bodyPartModel) {
+                    if (viewModel.id() === bodyPartModel.get('id')) {
+                        selectedExercise.get('bodyParts').add(bodyPartModel);
                     }
                 });
             });
@@ -138,7 +150,7 @@
                 pageName :
                 {
                     minlength: 4,
-                    maxlength: 50
+                    maxlength: 50,
                 }
             },
             messages: {
@@ -183,6 +195,7 @@
             videoCollection.fetch();
             equipmentCollection.fetch();
             bodyRegionCollection.fetch();
+            bodyPartCollection.fetch();
         };
         
         return {
@@ -191,6 +204,7 @@
             availableVideos: availableVideos,
             availableEquipment: availableEquipment,
             availableBodyRegions : availableBodyRegions,
+            availableBodyParts: availableBodyParts,
             availableDifficulties: availableDifficulties,
             name : name,
             difficulty : difficulty,
@@ -199,6 +213,7 @@
             videos : videos,
             equipment: equipment,
             bodyRegions : bodyRegions,
+            bodyParts: bodyParts,
             editExercise: editExercise,
             tags: tags,
             pageName: pageName,

@@ -28,7 +28,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
                     {
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion"
+                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart"
                     }), responseList);
 
             return
@@ -57,7 +57,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                                : ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
                     {
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion"
+                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
             return Ok(new ApiResponse<ExerciseDto>() {Resource = Mapper.Map<ExerciseDto>(exercise)});
 

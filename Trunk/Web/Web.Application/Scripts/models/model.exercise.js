@@ -67,8 +67,8 @@ define('model.exercise.collection', ['backbone', 'model.exercise', 'config'],
     });
 
 
-define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', 'model.admin.video', 'model.admin.equipment.collection', 'model.admin.video.collection', 'model.admin.body.region' , 'model.admin.body.region.collection'],
-    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection) {
+define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', 'model.admin.video', 'model.admin.equipment.collection', 'model.admin.video.collection', 'model.admin.body.region', 'model.admin.body.region.collection', 'model.admin.body.part', 'model.admin.body.part.collection'],
+    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection, BodyPart, BodyPartCollection) {
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminExercises,
@@ -94,6 +94,12 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                         key: 'bodyRegions',
                         relatedModel: BodyRegion,
                         collectionType: BodyRegionCollection
+                    },
+                    {
+                        type: backbone.HasMany,
+                        key: 'bodyParts',
+                        relatedModel: BodyPart,
+                        collectionType: BodyPartCollection
                     },
                     {
                         type: backbone.HasMany,

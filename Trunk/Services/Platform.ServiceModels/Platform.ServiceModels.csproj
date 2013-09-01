@@ -113,6 +113,7 @@
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
     <Compile Include="Operations\SymptomListRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
+    <Compile Include="Operations\ValidationRequests.cs" />
     <Compile Include="Operations\VideoRequests.cs" />
     <Compile Include="Operations\PlanRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

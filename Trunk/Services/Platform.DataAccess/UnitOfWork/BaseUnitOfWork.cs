@@ -49,6 +49,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         protected IRepository<T> GetStandardRepo<T>() where T : class
         {
+
             return _repositoryProvider.GetRepositoryForEntityType<T>();
         }
 

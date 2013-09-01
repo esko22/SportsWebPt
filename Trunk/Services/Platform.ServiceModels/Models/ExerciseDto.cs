@@ -21,6 +21,9 @@ namespace SportsWebPt.Platform.ServiceModels
         public BodyRegionDto[] BodyRegions { get; set; }
 
         [DataMember]
+        public BodyPartDto[] BodyParts { get; set; }
+
+        [DataMember]
         public String Name { get; set; }
 
         [DataMember]

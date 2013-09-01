@@ -18,6 +18,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get { return GetStandardRepo<ExerciseEquipmentMatrixItem>(); } }
         public IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get { return GetStandardRepo<ExerciseVideoMatrixItem>(); } }
         public IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get { return GetStandardRepo<ExerciseBodyRegionMatrixItem>(); } }
+        public IRepository<ExerciseBodyPartMatrixItem> ExerciseBodyPartRepo { get { return GetStandardRepo<ExerciseBodyPartMatrixItem>(); } }
         public IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get { return GetStandardRepo<PlanBodyRegionMatrixItem>(); } }
         public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
         public IRepository<Sign> SignRepo { get { return GetStandardRepo<Sign>(); } }
@@ -65,7 +66,7 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var execiseInDb =
                 ExerciseRepo.GetAll(new[]
-                    {"ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems", "ExerciseBodyRegionMatrixItems"})
+                    {"ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems", "ExerciseBodyRegionMatrixItems", "ExerciseBodyPartMatrixItems"})
                             .SingleOrDefault(p => p.Id == exercise.Id);
 
             if(execiseInDb == null)
@@ -108,6 +109,19 @@ namespace SportsWebPt.Platform.DataAccess
             {
                 e.ExerciseId = exercise.Id;
                 ExerciseBodyRegionRepo.Add(e);
+            });
+
+            var deletedBodyParts = execiseInDb.ExerciseBodyPartMatrixItems.Except(
+                exercise.ExerciseBodyPartMatrixItems, (item, matrixItem) => item.BodyPartId == matrixItem.BodyPartId).ToList();
+
+            var addedBodyParts = exercise.ExerciseBodyPartMatrixItems.Except(
+                execiseInDb.ExerciseBodyPartMatrixItems, (item, matrixItem) => item.BodyPartId == matrixItem.BodyPartId).ToList();
+
+            deletedBodyParts.ForEach(e => ExerciseBodyPartRepo.Delete(e));
+            addedBodyParts.ForEach(e =>
+            {
+                e.ExerciseId = exercise.Id;
+                ExerciseBodyPartRepo.Add(e);
             });
 
             var exerciseEntry = _context.Entry(execiseInDb);

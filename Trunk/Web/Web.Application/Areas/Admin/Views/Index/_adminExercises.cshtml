@@ -111,9 +111,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-lg-3" for="inputExerciseEquipment">BodyRegions</label>
+                            <label class="control-label col-lg-3" for="inputExerciseBodyRegions">BodyRegions</label>
                             <div class="col-lg-9">
                                 <select id="inputExerciseBodyRegions" class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputExerciseBodyParts">Body Parts</label>
+                            <div class="col-lg-9">
+                                <select id="inputExerciseBodyParts" class="form-control" name="exerciseBodyParts" multiple="multiple" size="8" data-bind="options: availableBodyParts, optionsText: 'commonName', selectedOptions: bodyParts" >
                                 </select>
                             </div>
                         </div>

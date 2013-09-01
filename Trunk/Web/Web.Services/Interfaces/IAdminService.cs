@@ -66,5 +66,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateBodyRegion(BodyRegion bodyRegion);
 
+        bool ValidatePageName(string pageName);
+
     }
 }
