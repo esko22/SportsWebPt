@@ -1,6 +1,31 @@
-08-31-13@12:53:09 Info (7)  [Common] ExecerciseListRequest request submitted 
-08-31-13@12:54:15 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:01:05.9452696 
-08-31-13@12:54:50 Info (8)  [Common] BodyRegionListRequest request submitted 
-08-31-13@12:54:50 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0288104 
-08-31-13@12:59:51 Info (6)  [Common] BodyRegionListRequest request submitted 
-08-31-13@12:59:51 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0129655 
+08-31-13@13:02:41 Info (16)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:02:41 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037616 
+08-31-13@13:03:14 Info (6)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:03:14 Info (6)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038499 
+08-31-13@13:03:23 Info (6)  [Common] BodyRegionRequest request submitted 
+08-31-13@13:03:23 Info (6)  [Common] BodyRegionRequest request completed with duration of 00:00:00.0665869 
+08-31-13@13:03:23 Info (19)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:03:23 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041129 
+08-31-13@13:03:27 Info (19)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:03:27 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037780 
+08-31-13@13:03:38 Info (6)  [Common] BodyRegionRequest request submitted 
+08-31-13@13:03:38 Info (6)  [Common] BodyRegionRequest request completed with duration of 00:00:00.0297198 
+08-31-13@13:03:38 Info (7)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:03:38 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0042282 
+08-31-13@13:03:44 Info (7)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:03:44 Info (7)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0039119 
+08-31-13@13:04:06 Info (6)  [Common] SkeletonAreaListRequest request submitted 
+08-31-13@13:04:06 Info (19)  [Common] BodyPartListRequest request submitted 
+08-31-13@13:04:07 Info (6)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.1489589 
+08-31-13@13:04:07 Info (19)  [Common] BodyPartListRequest request completed with duration of 00:00:00.2491755 
+08-31-13@13:04:13 Info (6)  [Common] ExecerciseListRequest request submitted 
+08-31-13@13:04:14 Info (6)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0485052 
+08-31-13@13:04:15 Info (16)  [Common] BodyRegionListRequest request submitted 
+08-31-13@13:04:15 Info (19)  [Common] VideoListRequest request submitted 
+08-31-13@13:04:15 Info (16)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0044992 
+08-31-13@13:04:15 Info (14)  [Common] EquipmentListRequest request submitted 
+08-31-13@13:04:15 Info (19)  [Common] VideoListRequest request completed with duration of 00:00:00.0344675 
+08-31-13@13:04:15 Info (14)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0303735 
+08-31-13@13:59:01 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
+08-31-13@13:59:26 Info (8)  [Common] ExecerciseListRequest request submitted 
+08-31-13@13:59:31 Info (11)  [Common] SymptomaticRegionListRequest request submitted 

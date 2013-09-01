@@ -365,6 +365,10 @@ namespace SportsWebPt.Platform.DataAccess
         }
 
 
+        private void AddBodyPartsToExercise(IList<BodyPart> bodyParts, IList<Exercise> exercises)
+        {
+            
+        }
 
         private List<Equipment> AddEquipment()
         {
