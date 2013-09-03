@@ -20,6 +20,13 @@ namespace SportsWebPt.Platform.ServiceModels
         [DataMember]
         public String Side { get; set; }
 
+        [DataMember]
+        public String DisplayName { get; set; }
+
+        [DataMember]
+        public String CssClassName { get; set; }
+
+
         #endregion
     }
 }
