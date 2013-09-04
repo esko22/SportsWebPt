@@ -1,11 +1,11 @@
-﻿<div class="accordion-group examine-report-workout-accord">
-    <div class="accordion-heading examine-report-workout">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id()  }" >
-            <span data-bind="text: routineName" /> | <span data-bind="text: category" />         <i class="icon-chevron-down pull-right icon-white"></i>
+﻿<div class="panel panel-default examine-report-workout-accord">
+    <div class="panel-heading examine-report-workout">
+        <a class="accordion-toggle href-no-underline" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id()  }" >
+            <span data-bind="text: routineName" /> | <span data-bind="text: category" />         <i class="glyphicon-chevron-down pull-right pull-right"></i>
         </a>
     </div>
-    <div data-bind="attr: { id: 'workout-plan-' + id()  }" class="accordion-body collapse">
-        <div class="accordion-inner">
+    <div data-bind="attr: { id: 'workout-plan-' + id()  }" class="panel-collapse collapse">
+        <div class="panel-body">
             <div><strong>Purpose: </strong><span data-bind="text: description"></span></div>
             <div class="tabbable" data-bind="attr: { id: 'workout-plan-exercises-' + id() }">
                 <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">

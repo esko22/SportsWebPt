@@ -14,6 +14,10 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String side { get; set; }
 
+        public String cssClassName { get; set; }
+
+        public String displayName { get; set; }
+
         public String name
         {
             get { return String.Format("{0}-{1}-{2}", orientation, region, side).ToLower(); }

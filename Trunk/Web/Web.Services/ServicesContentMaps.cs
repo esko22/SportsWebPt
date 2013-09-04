@@ -21,8 +21,7 @@ namespace SportsWebPt.Platform.Web.Services
                              opt =>
                              opt.MapFrom(
                                  s =>
-                                 String.Format("{0} {1} {2}", s.SkeletonArea.Orientation, s.SkeletonArea.Side,
-                                               s.BodyPart.CommonName)));
+                                 String.Format("{0} >> {1}", s.SkeletonArea.DisplayName, s.BodyPart.CommonName)));
             Mapper.CreateMap<BodyPartMatrixItem, BodyPartMatrixItemDto>();
             Mapper.CreateMap<SymptomDto, Symptom>()
                                   .ForMember(d => d.displayName,

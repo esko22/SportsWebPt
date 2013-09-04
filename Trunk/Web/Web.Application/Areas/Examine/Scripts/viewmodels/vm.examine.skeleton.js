@@ -7,27 +7,27 @@
 
         var selectArea = function (item) {
             if (container.selectedAreas.indexOf(item) == -1) {
-                $('#' + item.name()).addClass('skeleton-selected');
+                $('#' + item.cssClassName()).addClass('skeleton-selected');
                 container.selectedAreas.push(item);
             } else {
-                $('#' + item.name()).removeClass('skeleton-selected');
+                $('#' + item.cssClassName()).removeClass('skeleton-selected');
                 container.selectedAreas.remove(item);
             }
         };
         
         var areaMouseOver = function (item) {
             if (container.selectedAreas.indexOf(item) > -1) {
-                $('#' + item.name()).removeClass('skeleton-selected');
+                $('#' + item.cssClassName()).removeClass('skeleton-selected');
             }
             
-            $('#' + item.name()).addClass('skeleton-hover');
+            $('#' + item.cssClassName()).addClass('skeleton-hover');
         };
 
         var areaMouseOut = function (item) {
-            $('#' + item.name()).removeClass('skeleton-hover');
+            $('#' + item.cssClassName()).removeClass('skeleton-hover');
 
             if (container.selectedAreas.indexOf(item) > -1) {
-                $('#' + item.name()).addClass('skeleton-selected');
+                $('#' + item.cssClassName()).addClass('skeleton-selected');
             }
         };
         

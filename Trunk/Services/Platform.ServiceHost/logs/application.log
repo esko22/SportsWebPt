@@ -1,37 +1,126 @@
-09-03-13@16:10:42 Info (13)  [Common] VideoListRequest request submitted 
-09-03-13@16:11:30 Error (13)  [Common] [VideoListService: 9/3/2013 11:11:30 PM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-IQueryable`1 -> List`1
-System.Linq.IQueryable`1[[SportsWebPt.Platform.Core.Models.Video, Platform.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[SportsWebPt.Platform.ServiceModels.VideoDto, Platform.ServiceModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
-
-Destination path:
-List`1
-
-Source value:
-SELECT
-`Extent1`.`video_id`, 
-`Extent1`.`created_on`, 
-`Extent1`.`name`, 
-`Extent1`.`medical_name`, 
-`Extent1`.`description`, 
-`Extent1`.`filename`, 
-`Extent1`.`youtube_video_id`, 
-`Extent1`.`function_category`
-FROM `Video` AS `Extent1` System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentOutOfRangeException Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index T get_Item(Int32)
-09-03-13@16:12:12 Info (11)  [Common] VideoListRequest request submitted 
-09-03-13@16:12:13 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:01.7020473 
-09-03-13@16:12:21 Info (11)  [Common] VideoListRequest request submitted 
-09-03-13@16:12:21 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.0059440 
-09-03-13@16:12:44 Info (23)  [Common] VideoListRequest request submitted 
-09-03-13@16:13:21 Error (23)  [Common] [VideoListService: 9/3/2013 11:13:21 PM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
-09-03-13@16:14:10 Info (31)  [Common] VideoListRequest request submitted 
-09-03-13@16:14:20 Info (31)  [Common] VideoListRequest request completed with duration of 00:00:09.9286761 
-09-03-13@16:14:25 Info (7)  [Common] BodyPartListRequest request submitted 
-09-03-13@16:14:25 Info (7)  [Common] BodyPartListRequest request completed with duration of 00:00:00.1906701 
-09-03-13@16:23:08 Info (56)  [Common] BodyPartMatrixListRequest request submitted 
-09-03-13@16:23:19 Info (56)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:10.1397999 
+09-03-13@22:07:10 Info (68)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:07:10 Info (68)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0391069 
+09-03-13@22:07:13 Info (68)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:07:13 Info (68)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1329316 
+09-03-13@22:07:13 Info (76)  [Common] PlanRequest request submitted 
+09-03-13@22:07:13 Info (75)  [Common] PlanRequest request submitted 
+09-03-13@22:07:13 Info (73)  [Common] PlanRequest request submitted 
+09-03-13@22:07:13 Info (76)  [Common] PlanRequest request completed with duration of 00:00:00.0964653 
+09-03-13@22:07:13 Info (75)  [Common] PlanRequest request completed with duration of 00:00:00.1038168 
+09-03-13@22:07:13 Info (73)  [Common] PlanRequest request completed with duration of 00:00:00.1084252 
+09-03-13@22:07:34 Info (74)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:07:34 Info (74)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0246971 
+09-03-13@22:07:36 Info (74)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:07:36 Info (74)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1094670 
+09-03-13@22:07:36 Info (73)  [Common] PlanRequest request submitted 
+09-03-13@22:07:36 Info (76)  [Common] PlanRequest request submitted 
+09-03-13@22:07:36 Info (74)  [Common] PlanRequest request submitted 
+09-03-13@22:07:36 Info (73)  [Common] PlanRequest request completed with duration of 00:00:00.1217683 
+09-03-13@22:07:36 Info (76)  [Common] PlanRequest request completed with duration of 00:00:00.1424109 
+09-03-13@22:07:36 Info (74)  [Common] PlanRequest request completed with duration of 00:00:00.1411093 
+09-03-13@22:10:23 Info (73)  [Common] BodyRegionListRequest request submitted 
+09-03-13@22:10:23 Info (78)  [Common] InjuryListRequest request submitted 
+09-03-13@22:10:23 Info (73)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0060131 
+09-03-13@22:10:23 Info (73)  [Common] SignListRequest request submitted 
+09-03-13@22:10:23 Info (73)  [Common] SignListRequest request completed with duration of 00:00:00.0054148 
+09-03-13@22:10:24 Info (78)  [Common] InjuryListRequest request completed with duration of 00:00:00.1178126 
+09-03-13@22:10:28 Info (78)  [Common] BodyRegionListRequest request submitted 
+09-03-13@22:10:28 Info (80)  [Common] PlanListRequest request submitted 
+09-03-13@22:10:28 Info (78)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0047064 
+09-03-13@22:10:28 Info (80)  [Common] PlanListRequest request completed with duration of 00:00:00.0787191 
+09-03-13@22:12:12 Info (80)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:12:12 Info (80)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0299697 
+09-03-13@22:12:15 Info (73)  [Common] PotentialSymptomListRequest request submitted 
+09-03-13@22:12:15 Info (74)  [Common] PotentialSymptomListRequest request submitted 
+09-03-13@22:12:15 Info (73)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0067751 
+09-03-13@22:12:15 Info (74)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0074865 
+09-03-13@22:12:18 Info (73)  [Common] DifferentialDiagnosisRequest request submitted 
+09-03-13@22:12:18 Info (73)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.1747296 
+09-03-13@22:12:18 Info (80)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:12:19 Info (80)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1748915 
+09-03-13@22:12:19 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:12:19 Info (74)  [Common] PlanRequest request submitted 
+09-03-13@22:12:19 Info (73)  [Common] PlanRequest request submitted 
+09-03-13@22:12:19 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.1930262 
+09-03-13@22:12:19 Info (73)  [Common] PlanRequest request completed with duration of 00:00:00.2161380 
+09-03-13@22:12:19 Info (74)  [Common] PlanRequest request completed with duration of 00:00:00.2198562 
+09-03-13@22:12:28 Info (74)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:12:28 Info (74)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.1215794 
+09-03-13@22:12:30 Info (80)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:12:30 Info (80)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1216042 
+09-03-13@22:12:30 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:12:30 Info (74)  [Common] PlanRequest request submitted 
+09-03-13@22:12:30 Info (80)  [Common] PlanRequest request submitted 
+09-03-13@22:12:30 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.1105482 
+09-03-13@22:12:30 Info (80)  [Common] PlanRequest request completed with duration of 00:00:00.1247632 
+09-03-13@22:12:30 Info (74)  [Common] PlanRequest request completed with duration of 00:00:00.1316340 
+09-03-13@22:12:47 Info (73)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:12:47 Info (73)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0246595 
+09-03-13@22:12:50 Info (80)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:12:50 Info (80)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1251455 
+09-03-13@22:12:50 Info (74)  [Common] PlanRequest request submitted 
+09-03-13@22:12:50 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:12:50 Info (80)  [Common] PlanRequest request submitted 
+09-03-13@22:12:50 Info (74)  [Common] PlanRequest request completed with duration of 00:00:00.0971146 
+09-03-13@22:12:50 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.0997429 
+09-03-13@22:12:50 Info (80)  [Common] PlanRequest request completed with duration of 00:00:00.1045993 
+09-03-13@22:13:42 Info (79)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:13:42 Info (79)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0237607 
+09-03-13@22:13:44 Info (73)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:13:45 Info (73)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1167336 
+09-03-13@22:13:45 Info (73)  [Common] PlanRequest request submitted 
+09-03-13@22:13:45 Info (81)  [Common] PlanRequest request submitted 
+09-03-13@22:13:45 Info (80)  [Common] PlanRequest request submitted 
+09-03-13@22:13:45 Info (73)  [Common] PlanRequest request completed with duration of 00:00:00.0861743 
+09-03-13@22:13:45 Info (81)  [Common] PlanRequest request completed with duration of 00:00:00.0996342 
+09-03-13@22:13:45 Info (80)  [Common] PlanRequest request completed with duration of 00:00:00.1054357 
+09-03-13@22:14:29 Info (81)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:14:29 Info (81)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0256229 
+09-03-13@22:14:31 Info (73)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:14:31 Info (73)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1339292 
+09-03-13@22:14:31 Info (74)  [Common] PlanRequest request submitted 
+09-03-13@22:14:31 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:14:31 Info (73)  [Common] PlanRequest request submitted 
+09-03-13@22:14:31 Info (74)  [Common] PlanRequest request completed with duration of 00:00:00.0948080 
+09-03-13@22:14:31 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.0935554 
+09-03-13@22:14:31 Info (73)  [Common] PlanRequest request completed with duration of 00:00:00.0966455 
+09-03-13@22:17:36 Info (77)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:17:36 Info (77)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0233226 
+09-03-13@22:17:39 Info (81)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:17:39 Info (81)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1228751 
+09-03-13@22:17:39 Info (78)  [Common] PlanRequest request submitted 
+09-03-13@22:17:39 Info (77)  [Common] PlanRequest request submitted 
+09-03-13@22:17:39 Info (76)  [Common] PlanRequest request submitted 
+09-03-13@22:17:39 Info (78)  [Common] PlanRequest request completed with duration of 00:00:00.0869494 
+09-03-13@22:17:39 Info (77)  [Common] PlanRequest request completed with duration of 00:00:00.1056922 
+09-03-13@22:17:39 Info (76)  [Common] PlanRequest request completed with duration of 00:00:00.1106752 
+09-03-13@22:17:47 Info (81)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:17:47 Info (81)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0255500 
+09-03-13@22:17:49 Info (77)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:17:49 Info (77)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1131798 
+09-03-13@22:17:49 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:17:49 Info (81)  [Common] PlanRequest request submitted 
+09-03-13@22:17:49 Info (78)  [Common] PlanRequest request submitted 
+09-03-13@22:17:49 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.0957576 
+09-03-13@22:17:49 Info (81)  [Common] PlanRequest request completed with duration of 00:00:00.1106737 
+09-03-13@22:17:49 Info (78)  [Common] PlanRequest request completed with duration of 00:00:00.1141739 
+09-03-13@22:18:41 Info (76)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:18:41 Info (76)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0265831 
+09-03-13@22:18:43 Info (75)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:18:43 Info (75)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1052464 
+09-03-13@22:18:43 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:18:43 Info (81)  [Common] PlanRequest request submitted 
+09-03-13@22:18:43 Info (76)  [Common] PlanRequest request submitted 
+09-03-13@22:18:43 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.0963267 
+09-03-13@22:18:43 Info (81)  [Common] PlanRequest request completed with duration of 00:00:00.1081476 
+09-03-13@22:18:43 Info (76)  [Common] PlanRequest request completed with duration of 00:00:00.1145839 
+09-03-13@22:21:19 Info (79)  [Common] SymptomaticRegionListRequest request submitted 
+09-03-13@22:21:19 Info (79)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0238993 
+09-03-13@22:21:21 Info (70)  [Common] DiagnosisReportRequest request submitted 
+09-03-13@22:21:21 Info (70)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.1217775 
+09-03-13@22:21:21 Info (79)  [Common] PlanRequest request submitted 
+09-03-13@22:21:21 Info (76)  [Common] PlanRequest request submitted 
+09-03-13@22:21:21 Info (70)  [Common] PlanRequest request submitted 
+09-03-13@22:21:21 Info (79)  [Common] PlanRequest request completed with duration of 00:00:00.0963110 
+09-03-13@22:21:21 Info (76)  [Common] PlanRequest request completed with duration of 00:00:00.1213364 
+09-03-13@22:21:21 Info (70)  [Common] PlanRequest request completed with duration of 00:00:00.1147068 

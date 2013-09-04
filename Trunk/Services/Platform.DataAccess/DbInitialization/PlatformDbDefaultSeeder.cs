@@ -738,9 +738,9 @@ namespace SportsWebPt.Platform.DataAccess
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[19], BodyPart = bodyParts[23] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[20], BodyPart = bodyParts[23] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[21], BodyPart = bodyParts[24] });
-            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[21], BodyPart = bodyParts[24] });
+            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[21], BodyPart = bodyParts[25] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[22], BodyPart = bodyParts[25] });
-            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[22], BodyPart = bodyParts[25] });
+            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[22], BodyPart = bodyParts[24] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[23], BodyPart = bodyParts[2] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[23], BodyPart = bodyParts[3] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[24], BodyPart = bodyParts[26] });
@@ -762,6 +762,8 @@ namespace SportsWebPt.Platform.DataAccess
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[34], BodyPart = bodyParts[36] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[35], BodyPart = bodyParts[36] });
 
+
+            bodyPartMatrixItems.ForEach(p => _dbContext.BodyPartMatrix.Add(p));
             _dbContext.SaveChanges();
 
             return bodyPartMatrixItems;

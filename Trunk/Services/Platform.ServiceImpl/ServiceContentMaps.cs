@@ -32,6 +32,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.Id, opt => opt.MapFrom(s => s.SkeletonArea.Id))
                    .ForMember(d => d.Orientation, opt => opt.MapFrom(s => s.SkeletonArea.Orientation.Value))
                    .ForMember(d => d.Region, opt => opt.MapFrom(s => s.SkeletonArea.Region.Name))
+                   .ForMember(d => d.DisplayName, opt => opt.MapFrom(s => s.SkeletonArea.DisplayName))
+                   .ForMember(d => d.CssClassName, opt => opt.MapFrom(s => s.SkeletonArea.CssClassName))
                    .ForMember(d => d.Side, opt => opt.MapFrom(s => s.SkeletonArea.Side.Value));
             Mapper.CreateMap<BodyPartDto, BodyPart>()
                   .ForMember(d => d.BodyPartMatrix, opt =>

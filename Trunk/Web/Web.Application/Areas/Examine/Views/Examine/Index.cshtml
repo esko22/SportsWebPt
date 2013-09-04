@@ -38,7 +38,7 @@
                 </thead>
                 <tbody data-bind="foreach: selectedAreas">
                     <tr>
-                        <td data-bind="text: name"></td>
+                        <td data-bind="text: displayName"></td>
                     </tr>
                 </tbody>            
             </table>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-md-10">
             <ul id="skeleton" data-bind="foreach: symptomaticRegions" class="img-rounded">
-                <li data-bind="attr: { id: name }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut }, bootstrapPopover: { content: $parent.formatBodyParts($data), html: true, title: 'Body Parts', trigger: 'hover' }" />
+                <li data-bind="attr: { id: cssClassName }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut }, bootstrapPopover: { content: $parent.formatBodyParts($data), html: true, title: displayName, trigger: 'hover' }" />
             </ul>
         </div>
     </div>
@@ -58,18 +58,26 @@
 </div>
         
     <div id="examine-detail" class="view container">
-        <div class="tabbable tabs-left" id="differentialDiagnosis">
-            <ul id="examine-detail-tab-nav" class="nav nav-tabs" data-bind="foreach: selectedAreas">
-                <li><a data-bind="attr: { href: '#tab-' + id(), title: name }, text: name " data-toggle="tab"></a></li>
-            </ul>
-            <section id="examine-detail-container" data-bind="template: { name: areaTemplate, afterRender: postTabRender, foreach: selectedAreas }" class="tab-content examine-tab-pane examine-symptom-tab-pane"></section>
+        <div>
+            <h3><strong>Areas of Discomfort</strong></h3>
         </div>
+        <div class="row push-down-md">
+            <div class="col-md-3" id="discomfortAreas">
+                <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked" data-bind="foreach: selectedAreas">
+                    <li><a data-bind="attr: { href: '#tab-' + id(), title: name }, text: displayName " data-toggle="tab"></a></li>
+                </ul>
+            </div>
+            <div id="examine-detail-container" data-bind="template: { name: areaTemplate, afterRender: postTabRender, foreach: selectedAreas }" class="tab-content examine-tab-pane examine-symptom-tab-pane col-md-9"></div>
+        </div>
+        
+        
+
         <div class="row examine-bottom-nav">
             <div class="col-md-2 pull-left">
-                <a class="btn btn-inverse btn-large" href="javascript:history.back()" >&laquo; Back</a>
+                <a class="btn btn-default btn-lg" href="javascript:history.back()" >&laquo; Back</a>
             </div>
             <div class="col-md-2 pull-right">
-                <button class="btn btn-inverse btn-large" data-bind="click: submitDiscomfortDetail" >Next &raquo;</button>
+                <button class="btn btn-default btn-lg" data-bind="click: submitDiscomfortDetail" >Next &raquo;</button>
             </div>
         </div>
     </div>
