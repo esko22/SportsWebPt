@@ -1,5 +1,5 @@
 ﻿<div data-bind="attr: { id: 'tab-' + id() }" class="tab-pane">
-    <h3>Description</h3>
+    <h3><span data-icon="&#xf0fa;"> Injury Description</span></h3>
     <hr class="examine-report-hr"/>
     <div><strong>Common Name: </strong><span data-bind="text: commonName"></span></div>
     <div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
@@ -41,7 +41,9 @@
     </div>
     <div>
         <h3>Recovery Plans</h3>
-        <div id="recovery-plan-container" data-bind="template: { name: $parent.recoveryPlanTemplate, data: plans}"></div>
+        <div id="recovery-plan-container" class="panel-group">
+            <section data-bind="template: { name: $root.researchWorkoutPlanTemplate, foreach: plans, afterRender: $root.postRecoveryPlanRender }"></section>
+        </div>
     </div>
 </div>
 

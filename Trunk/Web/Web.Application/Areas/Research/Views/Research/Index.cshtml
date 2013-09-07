@@ -61,25 +61,25 @@
                 <div class="col-md-3 research-vertical-splitter" >
                     <div class="container">
                         <h3>Body Regions</h3>
-                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
-                        <ul class="list-no-style" data-bind="foreach: bodyRegions">
-                            <li>
+                        <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
+                        <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                            <li class="filter-label">
                                 <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
                             </li>
                         </ul>
                     </div>
                     <div class="container">
                         <h3>Signs</h3>
-                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
-                        <ul class="list-no-style" data-bind="foreach: signs">
-                            <li>
+                        <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
+                        <ul class="list-no-style filter-container" data-bind="foreach: signs">
+                            <li class="filter-label">
                                 <a><span class="label label-info" data-bind="text: description, click: $parent.onSignFilter"></span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="accordion" id="recover-injury-accordion">
+                    <div class="panel-group" id="recover-injury-accordion">
                         <section data-bind="template: { name: briefInjuryTemplate, foreach: filteredInjuries }"></section>
                     </div>
                 </div>
@@ -95,15 +95,15 @@
             <div class="row">
                 <div class="col-md-3 research-vertical-splitter" >
                     <h3>Body Regions</h3>
-                    <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset">Show All</span></a>
-                    <ul class="list-no-style" data-bind="foreach: bodyRegions">
-                        <li>
+                    <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset">Show All</span></a>
+                    <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                        <li class="filter-label">
                             <a><span class="label label-info" data-bind="text: name, click: $parent.onFilterSelect"></span></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-9">
-                    <div class="accordion" id="recover-exercise-accordion">
+                    <div class="panel-group" id="recover-exercise-accordion">
                         <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
                     </div>
                 </div>
@@ -119,18 +119,18 @@
                 <div class="col-md-3 research-vertical-splitter" >
                     <div class="container">
                         <h3>Body Regions</h3>
-                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
-                        <ul class="list-no-style" data-bind="foreach: bodyRegions">
-                            <li>
+                        <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
+                        <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                            <li class="filter-label">
                                 <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
                             </li>
                         </ul>
                     </div>
                     <div class="container">
                         <h3>Categories</h3>
-                        <a class="label-filter-hover"><span class="label label-important" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
-                            <ul class="list-no-style" data-bind="foreach: categories">
-                                <li>
+                        <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
+                            <ul class="list-no-style filter-container" data-bind="foreach: categories">
+                                <li class="filter-label">
                                     <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
                                 </li>
                             </ul>

@@ -29,6 +29,16 @@ body {
     width: 90%; /* respsonsive width */
 }
 
+.filter-container {
+    margin-top: 8px;
+}
+
+
+.filter-label {
+    margin-top: 2px;
+}
+
+
 
 .login-container {
     width: 400px;
@@ -467,7 +477,8 @@ ul#skeleton li {
 .examine-report-workout-accord {
     margin-right: 20px;
 }
-.examine-report-workout {
+
+.panel-default > .panel-heading {
     background-color: #333333;
 }
 
