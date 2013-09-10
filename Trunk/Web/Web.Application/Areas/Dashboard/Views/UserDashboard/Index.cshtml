@@ -4,6 +4,61 @@
     Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
 }
 
-<h2>@Model.User.firstName's Dashboard</h2>
-<h4>@Model.User.gender | Language: @Model.User.locale</h4>
+<h2>My Dashboard</h2>
+
+<div class="row push-down-md">
+    <div class="col-md-3" id="discomfortAreas">
+        <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked">
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#exercises">Exercises</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#injuries">Injuries</a></li>
+        </ul>
+    </div>
+    <div id="dashboard-container" class="col-md-9">
+        <section id="videos">
+            <h3>Favorite Videos</h3>
+            <div>
+                <table class="table table-striped">
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                </table>
+            </div>
+        </section>
+        <section id="exercises">
+            <h3>Favorite Exercises</h3>
+                <table class="table table-striped">
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                    <tr><td>Test Me</td></tr>
+                </table>
+        </section>
+        <section id="plans">
+            <h3>Favorite Plans</h3>
+        </section>
+        <section id="injuries">
+            <h3>Favorite Injuries</h3>
+        </section>
+    </div>
+</div>
+
 

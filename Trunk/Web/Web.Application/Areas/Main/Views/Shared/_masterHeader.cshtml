@@ -1,4 +1,5 @@
-﻿<div class="navbar navbar-inverse navbar-fixed-top" id="master-header">
+﻿@model  SportsWebPt.Platform.Web.Application.BaseViewModel
+<div class="navbar navbar-inverse navbar-fixed-top" id="master-header">
     <div class="container">
         <div class="row">
             <div class="col-md-1">
@@ -14,19 +15,27 @@
                     <li><a href="/examine"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
                     <li><a href="/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
                     <li><a href="/research#locate"><span aria-hidden="true" data-icon="&#xe051;" class="nav-icon"></span> Locate</a></li>
-                    <li><a data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a></li>
-                    <li style="display: none;" data-bind="visible: isAuthenticated">
-                        <a href="#"class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
-                            <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
-                            <span data-bind="text: name"></span><b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#about">Edit Profile</a></li>
-                            <li><a href="/dashboard">My Dashboard</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/logout">Log Out</a></li>
-                        </ul>
-                    </li>
+                    @if (String.IsNullOrEmpty(Model.User.emailAddress))
+                    {
+                        <li>
+                            <a data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#"class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
+                                <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
+                                <span>@Model.User.emailAddress</span><b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#about">Edit Profile</a></li>
+                                <li><a href="/dashboard">My Dashboard</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/logout">Log Out</a></li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

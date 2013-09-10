@@ -29,13 +29,13 @@
                 commonName:
                 {
                     required: true,
-                    minlength: 4,
+                    minlength: 2,
                     maxlength: 30
                 },
                 technicalName:
                 {
                     required: true,
-                    minlength: 4,
+                    minlength: 2,
                     maxlength: 30
                 },
                 recommendedVendor:
@@ -55,13 +55,13 @@
                 commonName:
                 {
                     required: "common name required",
-                    minlength: "must be between 4 and 30 characters",
-                    maxlength: "must be between 4 and 30 characters"
+                    minlength: "must be between 2 and 30 characters",
+                    maxlength: "must be between 2 and 30 characters"
                 },
                 technicalName: {
                     required: "technical name required",
-                    minlength: "must be between 4 and 30 characters",
-                    maxlength: "must be between 4 and 30 characters"
+                    minlength: "must be between 2 and 30 characters",
+                    maxlength: "must be between 2 and 30 characters"
                 },
                 recommendedVendor:
                 {

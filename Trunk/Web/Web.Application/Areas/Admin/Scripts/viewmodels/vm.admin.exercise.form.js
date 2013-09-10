@@ -123,7 +123,7 @@
                 name:
                 {
                     required: true,
-                    minlength: 4,
+                    minlength: 2,
                     maxlength: 100
                 },
                 duration:
@@ -157,8 +157,8 @@
                 name:
                 {
                     required: "name required",
-                    minlength: "must be between 4 and 100 characters",
-                    maxlength: "must be between 4 and 100 characters"
+                    minlength: "must be between 2 and 100 characters",
+                    maxlength: "must be between 2 and 100 characters"
                 },
                 fileName: {
                     required: "file name required",

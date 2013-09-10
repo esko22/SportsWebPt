@@ -1,32 +1,14 @@
-09-07-13@15:02:02 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
-09-07-13@15:02:02 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0197110 
-09-07-13@15:02:33 Info (36)  [Common] BodyRegionListRequest request submitted 
-09-07-13@15:02:33 Info (36)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0072621 
-09-07-13@15:02:33 Info (5)  [Common] ExecerciseListRequest request submitted 
-09-07-13@15:02:33 Info (5)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0233160 
-09-07-13@15:02:37 Info (32)  [Common] ExecerciseRequest request submitted 
-09-07-13@15:02:37 Info (32)  [Common] ExecerciseRequest request completed with duration of 00:00:00.1017110 
-09-07-13@15:03:04 Info (5)  [Common] SymptomaticRegionListRequest request submitted 
-09-07-13@15:03:04 Info (5)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0347659 
-09-07-13@15:03:09 Info (12)  [Common] BodyRegionListRequest request submitted 
-09-07-13@15:03:09 Info (12)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0061934 
-09-07-13@15:03:09 Info (19)  [Common] PlanListRequest request submitted 
-09-07-13@15:03:09 Info (19)  [Common] PlanListRequest request completed with duration of 00:00:00.0311828 
-09-07-13@15:03:11 Info (19)  [Common] PlanRequest request submitted 
-09-07-13@15:03:12 Info (19)  [Common] PlanRequest request completed with duration of 00:00:00.0574969 
-09-07-13@15:03:56 Info (23)  [Common] PlanListRequest request submitted 
-09-07-13@15:03:56 Info (32)  [Common] BodyRegionListRequest request submitted 
-09-07-13@15:03:56 Info (32)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028263 
-09-07-13@15:03:56 Info (23)  [Common] PlanListRequest request completed with duration of 00:00:00.0268134 
-09-07-13@15:04:00 Info (19)  [Common] BodyRegionListRequest request submitted 
-09-07-13@15:04:00 Info (32)  [Common] ExecerciseListRequest request submitted 
-09-07-13@15:04:00 Info (19)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0027335 
-09-07-13@15:04:00 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0223856 
-09-07-13@15:04:04 Info (5)  [Common] DiagnosisReportRequest request submitted 
-09-07-13@15:04:04 Info (5)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0305527 
-09-07-13@15:04:04 Info (19)  [Common] PlanRequest request submitted 
-09-07-13@15:04:04 Info (11)  [Common] PlanRequest request submitted 
-09-07-13@15:04:04 Info (12)  [Common] PlanRequest request submitted 
-09-07-13@15:04:04 Info (11)  [Common] PlanRequest request completed with duration of 00:00:00.0333719 
-09-07-13@15:04:04 Info (19)  [Common] PlanRequest request completed with duration of 00:00:00.0375868 
-09-07-13@15:04:04 Info (12)  [Common] PlanRequest request completed with duration of 00:00:00.0348703 
+09-09-13@23:03:14 Info (15)  [Common] UserRequest request submitted 
+09-09-13@23:03:14 Info (15)  [Common] UserRequest request completed with duration of 00:00:00.0107630 
+09-09-13@23:04:40 Info (9)  [Common] UserRequest request submitted 
+09-09-13@23:04:40 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0047309 
+09-09-13@23:09:22 Info (24)  [Common] UserRequest request submitted 
+09-09-13@23:09:22 Info (24)  [Common] UserRequest request completed with duration of 00:00:00.0109410 
+09-09-13@23:09:59 Info (24)  [Common] UserRequest request submitted 
+09-09-13@23:09:59 Info (24)  [Common] UserRequest request completed with duration of 00:00:00.0043847 
+09-09-13@23:12:32 Info (26)  [Common] UserRequest request submitted 
+09-09-13@23:12:32 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0043730 
+09-09-13@23:12:51 Info (26)  [Common] UserRequest request submitted 
+09-09-13@23:12:51 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0048906 
+09-09-13@23:16:37 Info (26)  [Common] UserRequest request submitted 
+09-09-13@23:16:37 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0042636 
