@@ -17,7 +17,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         public FunctionCategory Category { get; set; }
 
-        public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }  
+        #endregion
+
+        #region Navigation Properties
+
+        public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }
+
+        public ICollection<Vendor> Vendors { get; set; } 
 
         #endregion
     }

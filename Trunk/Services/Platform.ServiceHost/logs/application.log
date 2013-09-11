@@ -1,14 +1,16 @@
-09-09-13@23:03:14 Info (15)  [Common] UserRequest request submitted 
-09-09-13@23:03:14 Info (15)  [Common] UserRequest request completed with duration of 00:00:00.0107630 
-09-09-13@23:04:40 Info (9)  [Common] UserRequest request submitted 
-09-09-13@23:04:40 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0047309 
-09-09-13@23:09:22 Info (24)  [Common] UserRequest request submitted 
-09-09-13@23:09:22 Info (24)  [Common] UserRequest request completed with duration of 00:00:00.0109410 
-09-09-13@23:09:59 Info (24)  [Common] UserRequest request submitted 
-09-09-13@23:09:59 Info (24)  [Common] UserRequest request completed with duration of 00:00:00.0043847 
-09-09-13@23:12:32 Info (26)  [Common] UserRequest request submitted 
-09-09-13@23:12:32 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0043730 
-09-09-13@23:12:51 Info (26)  [Common] UserRequest request submitted 
-09-09-13@23:12:51 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0048906 
-09-09-13@23:16:37 Info (26)  [Common] UserRequest request submitted 
-09-09-13@23:16:37 Info (26)  [Common] UserRequest request completed with duration of 00:00:00.0042636 
+09-10-13@22:03:33 Info (5)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:04:41 Error (5)  [Common] [ExerciseListService: 9/11/2013 5:04:41 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Void AddUserFavorites(System.Collections.Generic.IList`1[SportsWebPt.Platform.Core.Models.User], System.Collections.Generic.IList`1[SportsWebPt.Platform.Core.Models.Video])
+09-10-13@22:06:54 Info (7)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:08:04 Error (7)  [Common] [ExerciseListService: 9/11/2013 5:08:04 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Void AddUserFavorites(System.Collections.Generic.IList`1[SportsWebPt.Platform.Core.Models.User], System.Collections.Generic.IList`1[SportsWebPt.Platform.Core.Models.Video])
+09-10-13@22:10:34 Info (21)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:11:43 Info (21)  [Common] ExecerciseListRequest request completed with duration of 00:01:09.1330374 
+09-10-13@22:13:23 Info (22)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:14:34 Info (22)  [Common] ExecerciseListRequest request completed with duration of 00:01:11.3487054 
+09-10-13@22:25:17 Info (14)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:26:30 Info (14)  [Common] ExecerciseListRequest request completed with duration of 00:01:12.7297844 
+09-10-13@22:49:29 Info (7)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:50:48 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:01:18.8003628 
+09-10-13@22:52:35 Info (7)  [Common] ExecerciseListRequest request submitted 
+09-10-13@22:53:47 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:01:12.2604359 

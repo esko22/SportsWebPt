@@ -21,6 +21,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Tags { get; set; }
 
+        public InjurySeverity Severity { get; set; }
+
         public ICollection<InjurySymptomMatrixItem> InjurySymptomMatrixItems { get; set; }
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
@@ -29,7 +31,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<InjurySignMatrixItem> InjurySignMatrixItems { get; set; }
 
-        public ICollection<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; } 
+        public ICollection<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; }
+
+        public ICollection<User> Users { get; set; } 
 
         #endregion
     }

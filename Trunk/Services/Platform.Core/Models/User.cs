@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
@@ -29,6 +30,18 @@ namespace SportsWebPt.Platform.Core.Models
         public String Locale { get; set; }
 
         public String Gender { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        public ICollection<Video> VideoFavorites { get; set; }
+
+        public ICollection<Exercise> ExerciseFavorites { get; set; }
+
+        public ICollection<Plan> PlanFavorites { get; set; }
+
+        public ICollection<Injury> InjuryFavorites { get; set; }  
 
         #endregion
 

@@ -44,6 +44,7 @@ namespace SportsWebPt.Platform.DataAccess
             var causes = AddCauses();
             var signs = AddSigns();
             var plans = AddPlans();
+            var vendors = AddVendors();
 
             BuildInjurySymptomMatrix(symptomMatrixItems,injuries);
             AssociateInjuryCause(causes, injuries);
@@ -56,6 +57,9 @@ namespace SportsWebPt.Platform.DataAccess
             AssociatePlanBodyRegion(plans, regions);
             AssociateInjuryBodyRegion(injuries, regions);
             AssociateBodyPartsToExercise(components,exercises);
+            AssociateEquipmentToVendor(equipment,vendors);
+
+            AddUserFavorites(users, videos, plans, injuries, exercises);
         }
 
         private void AssociateInjuryCause(IList<Cause> causes, IList<Injury> injuries)
@@ -466,12 +470,27 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext.SaveChanges();
         }
 
+        private List<Vendor> AddVendors()
+        {
+            var vendors = new List<Vendor>()
+                {
+                    new Vendor() {Name = "Nike", Url = "www.nike.com"},
+                    new Vendor() {Name = "Addidas", Url = "www.addidas.com"}
+                };
+
+            vendors.ForEach(p => _dbContext.Vendors.Add(p));
+            _dbContext.SaveChanges();
+
+            return vendors;
+        } 
+
         private List<Injury> AddInjuries()
         {
             var injuries = new List<Injury>()
                 {
                     new Injury()
                         {
+                            Severity = InjurySeverity.Minor,
                             Tags = "Pain, Tingle",
                             PageName = "Sprained-Ankle",
                             CommonName = "Sprained Ankle",
@@ -482,7 +501,8 @@ namespace SportsWebPt.Platform.DataAccess
                                 "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe."
                         },
                     new Injury()
-                        {                            
+                        {                         
+                            Severity = InjurySeverity.Minor,
                             Tags = "Pain, Bruise",
                             PageName = "Shin-Splints",
                             CommonName = "Shin Splints",
@@ -494,6 +514,7 @@ namespace SportsWebPt.Platform.DataAccess
                         },
                     new Injury()
                         {
+                            Severity = InjurySeverity.Major,
                             Tags = "Pain, Pressure",
                             PageName = "Plantar-Faciitis",
                             CommonName = "Plantar Faciitis",
@@ -505,6 +526,7 @@ namespace SportsWebPt.Platform.DataAccess
                         },
                     new Injury()
                         {
+                            Severity = InjurySeverity.Moderate,
                             Tags = "Pain, Pinch",
                             PageName = "Calf-Strain",
                             CommonName = "Calf Strain",
@@ -801,5 +823,20 @@ namespace SportsWebPt.Platform.DataAccess
             return symptoms;
         }
 
+        private void AddUserFavorites(IList<User> users, IList<Video> videos, IList<Plan> plans, IList<Injury> injuries, IList<Exercise> exercises)
+        {
+             users[0].VideoFavorites  = videos;
+             users[0].PlanFavorites = plans;
+             users[0].InjuryFavorites = injuries;
+             users[0].ExerciseFavorites = exercises;
+
+            _dbContext.SaveChanges();
+        }
+
+        private void AssociateEquipmentToVendor(IList<Equipment> equipment, IList<Vendor> vendors)
+        {
+            equipment.ForEach(e => e.Vendors = vendors);
+            _dbContext.SaveChanges();
+        }
     }
 }

@@ -23,7 +23,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public FunctionCategory Category { get; set; }
 
-        public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }  
+        public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }
+
+        public ICollection<User> Users { get; set; } 
 
         #endregion
     }

@@ -18,8 +18,8 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.OpeningStatement).IsRequired().HasColumnName("opening_statement").HasColumnType("TEXT");
             Property(p => p.Id).IsRequired().HasColumnName("injury_id");
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
+            Property(p => p.Severity).IsRequired().HasColumnName("severity");
             Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT");
-
         }
         
         #endregion
