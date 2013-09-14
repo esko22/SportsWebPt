@@ -47,6 +47,7 @@
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\ExerciseBodyPartMatrixItem.cs" />
     <Compile Include="Models\ExerciseBodyRegionMatrixItem.cs" />
+    <Compile Include="Models\ExerciseCategoryMatrixItem.cs" />
     <Compile Include="Models\ExerciseVideoMatrixItem.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\ExerciseDifficulty.cs" />

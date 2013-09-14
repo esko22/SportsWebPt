@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 
@@ -50,6 +51,7 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateInjuryCause(causes, injuries);
             AssociateInjurySigns(signs, injuries);
             AssociateInjuryPlans(injuries, plans);
+            AssociateExerciseCategories(exercises);
             AssociatePlanExercise(plans, exercises);
             AssociateExerciseVideos(exercises, videos);
             AssociateExerciseEquipment(exercises, equipment);
@@ -239,21 +241,30 @@ namespace SportsWebPt.Platform.DataAccess
 
         private List<Exercise> AddExercises()
         {
+
             var exercises = new List<Exercise>()
                 {
-                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "heel-self-massage", Category = FunctionCategory.Strengthing},
-                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10,Tags = "pain, tightness", PageName = "seated-plantar-fascis-strech", Category = FunctionCategory.Strengthing},
-                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "standing-calf-strech", Category = FunctionCategory.Strengthing},
-                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3,Tags = "pain, tightness", PageName = "standing-wall-calf-strech", Category = FunctionCategory.Strengthing},
-                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "standing-soleus-strech-1", Category = FunctionCategory.Strengthing },
-                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7, Tags = "pain, tightness", PageName = "standing-soleus-strech-2", Category = FunctionCategory.Strengthing},
-                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "calf-knee-massage", Category = FunctionCategory.Strengthing }
+                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "heel-self-massage"},
+                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10,Tags = "pain, tightness", PageName = "seated-plantar-fascis-strech"},
+                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "standing-calf-strech"},
+                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3,Tags = "pain, tightness", PageName = "standing-wall-calf-strech"},
+                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "standing-soleus-strech-1"},
+                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7, Tags = "pain, tightness", PageName = "standing-soleus-strech-2"},
+                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "calf-knee-massage"}
                 };
 
             exercises.ForEach(p => _dbContext.Exercises.Add(p));
             _dbContext.SaveChanges();
 
             return exercises;
+        }
+
+        private void AssociateExerciseCategories(IEnumerable<Exercise> exercises)
+        {
+            var exerciseCategories = exercises.Select(exercise => new ExerciseCategoryMatrixItem() {Category = FunctionCategory.Balance, Exercise = exercise}).ToList();
+
+            exerciseCategories.ForEach(e => _dbContext.ExerciseCategoryMatrixItems.Add(e));
+            _dbContext.SaveChanges();
         }
 
         private List<Video> AddVideos()
