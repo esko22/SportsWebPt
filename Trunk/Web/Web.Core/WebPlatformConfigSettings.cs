@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.ServiceStackClient;
+using YelpSharp;
 
 namespace SportsWebPt.Platform.Web.Core
 {
@@ -39,6 +40,8 @@ namespace SportsWebPt.Platform.Web.Core
         public String FacebookClientSecret { get; private set; }
         public String GoogleClientKey { get; private set; }
         public String GoogleClientSecret { get; private set; }
+        public Options YelpOptions { get; private set; }
+        public String YelpSearchTerm { get; private set; }
 
         #endregion
 
@@ -71,6 +74,24 @@ namespace SportsWebPt.Platform.Web.Core
             FacebookClientSecret = ConfigurationManager.AppSettings["facebookClientSecret"];
             GoogleClientKey = ConfigurationManager.AppSettings["googleClientKey"];
             GoogleClientSecret = ConfigurationManager.AppSettings["googleClientSecret"];
+            YelpSearchTerm = ConfigurationManager.AppSettings["yelpSearchTerm"];
+
+
+            YelpOptions = new Options()
+            {
+                AccessToken = ConfigurationManager.AppSettings["yelpTokenKey"],
+                AccessTokenSecret = ConfigurationManager.AppSettings["yelpTokenSecret"],
+                ConsumerKey = ConfigurationManager.AppSettings["yelpConsumerKey"],
+                ConsumerSecret = ConfigurationManager.AppSettings["yelpConsumerSecret"]
+            };
+
+            if (String.IsNullOrEmpty(YelpOptions.AccessToken) ||
+                String.IsNullOrEmpty(YelpOptions.AccessTokenSecret) ||
+                String.IsNullOrEmpty(YelpOptions.ConsumerKey) ||
+                String.IsNullOrEmpty(YelpOptions.ConsumerSecret))
+            {
+                throw new InvalidOperationException("No OAuth info available.  Please modify Config.cs to add your YELP API OAuth keys");
+            }
 
         }
 

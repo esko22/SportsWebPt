@@ -76,6 +76,9 @@
     <Reference Include="Ninject.Web.Mvc">
       <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -145,6 +148,9 @@
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="YelpSharp">
+      <HintPath>..\packages\YelpSharp.1.1.0.0\lib\net4\YelpSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
@@ -211,6 +217,7 @@
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\plan\vm.research.plan.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.injury.listing.js" />
+    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.locate.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.plan.listing.js" />
     <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercise.listing.js" />
     <Content Include="Content\bootstrap.css" />
@@ -345,6 +352,7 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\models\model.clinic.js" />
     <Content Include="Scripts\models\model.body.part.matrix.item.js" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />

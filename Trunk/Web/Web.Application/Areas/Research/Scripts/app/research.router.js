@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'jquery', 'presenter', 'knockback', 'vm.research.exercise.listing', 'vm.research.plan.listing', 'vm.research.injury.listing'],
-    function (backbone, $, presenter, kb, exerciseVm, planVm, injuryVm) {
+﻿define('router', ['backbone', 'jquery', 'presenter', 'knockback', 'vm.research.exercise.listing', 'vm.research.plan.listing', 'vm.research.injury.listing', 'vm.research.locate'],
+    function (backbone, $, presenter, kb, exerciseVm, planVm, injuryVm, locateVm) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -7,6 +7,7 @@
                     '': 'nav',
                     'injuries': 'injuries',
                     'plans': 'plans',
+                    'locate' : 'locate',
                     'exercises': 'exercises',
                     '*actions': 'defaultRoute'
                 }
@@ -21,6 +22,13 @@
                 $('.view').hide();
                 $('.active').removeClass('active');
                 presenter.transitionTo($('#research-nav-panel'),'','');
+            });
+
+            router.on('route:locate', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                kb.applyBindings(locateVm, $('#research-locate-panel').get(0));
+                presenter.transitionTo($('#research-locate-panel'), '', '');
             });
             
             router.on('route:plans', function () {

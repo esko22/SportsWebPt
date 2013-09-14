@@ -10,6 +10,7 @@ using SportsWebPt.Platform.Web.Application;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
+using YelpSharp;
 
 namespace SportsWebPt.Platform.Web.Research
 {
@@ -166,6 +167,15 @@ namespace SportsWebPt.Platform.Web.Research
             var injuries = _researchService.GetInjuries();
 
             return Json(injuries, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Research/locate/{zipcode}", IsAbsoluteUrl = true)]
+        public ActionResult GetTherapyByLocation(String zipcode)
+        {
+            var yelpProxy = new Yelp(WebPlatformConfigSettings.Instance.YelpOptions);
+            var results = yelpProxy.Search(WebPlatformConfigSettings.Instance.YelpSearchTerm, zipcode).Result;
+
+            return Json(results.businesses,JsonRequestBehavior.AllowGet);
         }
 
         #endregion

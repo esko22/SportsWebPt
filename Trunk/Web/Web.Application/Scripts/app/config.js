@@ -37,7 +37,8 @@
             adminBodyParts: $.format('{0}/{1}', hostUri, 'admin/bodyparts'),
             adminSymptoms: $.format('{0}/{1}', hostUri, 'admin/symptoms'),
             adminBodyPartMatrix: $.format('{0}/{1}', hostUri, 'admin/bodypartmatrix'),
-            adminSkeletonAreas: $.format('{0}/{1}', hostUri, 'admin/skeletonareas')
+            adminSkeletonAreas: $.format('{0}/{1}', hostUri, 'admin/skeletonareas'),
+            clinics: $.format('{0}/{1}', hostUri, 'research/locate/{zipcode}')
         };
 
         var configureExternalTemplates = function() {

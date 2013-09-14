@@ -48,7 +48,7 @@
                 <p><a class="btn btn-default" href="#exercises">Learn more &raquo;</a></p>
             </div>
             <div class="col-md-3">
-                <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+                <p><a class="btn btn-default" href="#locate">Learn more &raquo;</a></p>
             </div>
         </div>
     </div>
@@ -87,6 +87,106 @@
         </div>
     </div>
     
+    <div class="view container" id="research-locate-panel">
+        <div class="container">
+            <span aria-hidden="true" data-icon="&#xe051;" class="research-header-icon"> Locate</span>
+            <hr class="examine-report-hr"/>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" data-bind="value: zipcode"  placeholder="Zipcode">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary" data-bind="click:onSearchSubmit">Search for Clinics</button>
+                </div>
+            </div>
+            <div>
+                <h3>Clinics</h3>
+                <table class="table table-striped">
+                    <tbody data-bind="foreach: clinics">
+                        <tr>
+                            <td>
+                                <div>
+                                      <h2><span data-bind="text: name"></span></h2>
+                                        <img data-bind="attr: { src: image_url}" />
+                                        <a data-bind="attr: { href:url}" target="_blank">Listing on Yelp.com</a>    
+
+
+@*    <div class="display-label">mobile_url</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.mobile_url)
+    </div>
+
+    <div class="display-label">phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.phone)
+    </div>
+
+    <div class="display-label">display_phone</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.display_phone)
+    </div>
+
+    <div class="display-label">review_count</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.review_count)
+    </div>
+
+    <div class="display-label">distance</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.distance)
+    </div>
+
+    <div class="display-label">rating</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rating)
+    </div>
+
+    <div class="display-label">rating_img_url</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rating_img_url)
+    </div>
+
+    <div class="display-label">rating_img_url_small</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rating_img_url_small)
+    </div>
+
+    <div class="display-label">rating_img_url_large</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.rating_img_url_large)
+    </div>
+
+    <div class="display-label">snippet_text</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.snippet_text)
+    </div>
+
+    <div class="display-label">snippet_image_url</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.snippet_image_url)
+    </div>
+
+    <div class="display-label">is_claimed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.is_claimed)
+    </div>
+
+
+    <div class="display-label">is_closed</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.is_closed)
+    </div>  *@
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>            
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
     
     <div class="view container" id="research-exercise-panel">
         <div class="container">
