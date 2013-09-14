@@ -48,12 +48,13 @@
             },
             addNewExercise = function() {
                 var exercise = new Exercise();
-                exercise.set('sets', 1);
-                exercise.set('repititions', 1);
-                exercise.set('exerciseId', 1);
-                exercise.set('perWeek', 1);
-                exercise.set('perDay', 1);
-                exercise.set('holdFor', 1);
+                exercise.set('sets', 0);
+                exercise.set('repititions', 0);
+                exercise.set('exerciseId', 0);
+                exercise.set('perWeek', 0);
+                exercise.set('perDay', 0);
+                exercise.set('holdFor', 0);
+                exercise.set('holdType', 0);
                 selectedPlan.get('exercises').add(exercise);
             },
             removeExercise = function(data, event) {
@@ -130,6 +131,7 @@
                     },
                     pageName:
                     {
+                        required: true,
                         minlength: 4,
                         maxlength: 50
                     }
@@ -159,9 +161,9 @@
                         maxlength: "must be between 1 and 1000 characters"
                     },
                     pageName: {
-                        remote: "page name must be unique",
-                        minlength: "must be between 1 and 50 characters",
-                        maxlength: "must be between 1 and 50 characters"
+                        required: "page name is required",
+                        minlength: "must be between 4 and 50 characters",
+                        maxlength: "must be between 4 and 50 characters"
                     }
                 },
                 submitHandler: saveChanges,
@@ -172,7 +174,7 @@
 
                 var init = function() {
 
-                    for (var i = 1; i <= 100; i++) {
+                    for (var i = 0; i <= 100; i++) {
                         rangeValues.push(i);
                     }
                     ;
@@ -204,7 +206,8 @@
                     editPlan: editPlan,
                     init: init,
                     rangeValues: rangeValues,
-                    instructions: instructions
+                    instructions: instructions,
+                    holdTypes : config.holdTypes
                 };
 
     });

@@ -25,6 +25,7 @@
             perWeek = kb.observable(selectedExercise, 'perWeek'),
             perDay = kb.observable(selectedExercise, 'perDay'),
             holdFor = kb.observable(selectedExercise, 'holdFor'),
+            holdType = kb.observable(selectedExercise, 'holdType'),
             category = kb.observable(selectedExercise, 'category'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
@@ -111,6 +112,7 @@
             selectedExercise.set('perWeek', exercise.model().get('perWeek'));
             selectedExercise.set('perDay', exercise.model().get('perDay'));
             selectedExercise.set('holdFor', exercise.model().get('holdFor'));
+            selectedExercise.set('holdType', exercise.model().get('holdType'));
             selectedExercise.set('category', exercise.model().get('category'));
 
 
@@ -149,6 +151,7 @@
                 },
                 pageName :
                 {
+                    required : true,
                     minlength: 4,
                     maxlength: 50,
                 }
@@ -178,7 +181,7 @@
                     maxlength: "must be between 1 and 10000 characters"
                 },
                 pageName: {
-                    remote: "page name must be unique",
+                    required: "page name is required",
                     minlength: "must be between 4 and 50 characters",
                     maxlength: "must be between 4 and 50 characters"
                 }
@@ -189,7 +192,7 @@
         });
 
         var init = function() {
-            for (var i = 1; i <= 100; i++) {
+            for (var i = 0; i <= 100; i++) {
                 rangeValues.push(i);
             };
             videoCollection.fetch();
@@ -228,6 +231,8 @@
             holdFor: holdFor,
             medicalName: medicalName,
             availableCategories: availableCategories,
-            category: category
+            category: category,
+            holdTypes: config.holdTypes,
+            holdType: holdType
         };
     });

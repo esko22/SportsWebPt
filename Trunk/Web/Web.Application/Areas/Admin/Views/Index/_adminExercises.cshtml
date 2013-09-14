@@ -42,12 +42,12 @@
                                 <textarea id="inputDescription" class="form-control" rows="5" form="admin-exercise-form" cols="60" name="description" data-bind="value: description" placeholder="Description"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+@*                        <div class="form-group">
                             <label class="control-label col-lg-3" for="inputDuration">Duration</label>
                             <div class="col-lg-9">
                                 <select class="input-sm" id="inputDuration" name="duration" data-bind="options: rangeValues, value: duration"></select>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="form-group">
                             <label class="control-label col-lg-3" for="inputDifficulty">Difficulty</label>
                             <div class="col-lg-9">
@@ -90,6 +90,7 @@
                                         <td><select class="input-sm" id="inputWeek" name="perweek" data-bind="options: rangeValues, value: perWeek"></select></td>
                                         <td><select class="input-sm" id="inputDay" name="perday" data-bind="options: rangeValues, value: perDay"></select></td>
                                         <td><select id="inputHoldFor" class="input-sm" name="adminHoldForSeconds" data-bind="options: rangeValues, value: holdFor"></select></td>
+                                        <td><select id="inputHoldType" class="input-sm" name="adminHoldType" data-bind="options: holdTypes, value: holdType"></select></td>
                                     </tr>
                                 </tbody>            
                             </table>
@@ -99,7 +100,7 @@
                         <div class="form-group">
                             <label class="control-label col-lg-3" for="inputExerciseVideos">Videos</label>
                             <div class="col-lg-9">
-                                <select id="inputExerciseVideos" class="form-control" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: 'name', selectedOptions: videos" >
+                                <select id="inputExerciseVideos" class="form-control" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: 'medicalName', selectedOptions: videos" >
                                 </select>
                             </div>
                         </div>

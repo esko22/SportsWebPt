@@ -34,7 +34,7 @@
                 },
                 medicalName:
                 {
-                    required: false,
+                    required: true,
                     minlength: 4,
                     maxlength: 100
                 },
@@ -66,6 +66,7 @@
                 },
                 medicalName:
                 {
+                    required: "medical name required",
                     minlength: "must be between 4 and 100 characters",
                     maxlength: "must be between 4 and 100 characters"
                 },

@@ -52,6 +52,7 @@
     <Compile Include="Models\ExerciseDifficulty.cs" />
     <Compile Include="Models\ExerciseEquipmentMatrixItem.cs" />
     <Compile Include="Models\BodyRegionCategory.cs" />
+    <Compile Include="Models\HoldType.cs" />
     <Compile Include="Models\Injury.cs" />
     <Compile Include="Models\InjuryBodyRegionMatrixItem.cs" />
     <Compile Include="Models\InjuryCauseMatrixItem.cs" />

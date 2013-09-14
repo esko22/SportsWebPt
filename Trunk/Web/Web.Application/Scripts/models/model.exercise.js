@@ -80,6 +80,7 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                     'tags': '',
                     'pageName': '',
                     'medicalName': '',
+                    'holdType': '',
                     'category': ''
                 },
                 relations: [
@@ -142,6 +143,7 @@ define('model.admin.plan.exercise', ['backbone', 'config'],
                     'repititions': '',
                     'perDay': '',
                     'perWeek': '',
+                    'holdType':'',
                     'exerciseId' : ''
                 }
             });

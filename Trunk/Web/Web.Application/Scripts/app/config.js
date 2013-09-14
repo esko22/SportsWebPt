@@ -48,7 +48,8 @@
 
         var functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']);
         var regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']);
-        
+        var holdTypes = ko.observableArray(['Seconds', 'Minutes', 'Breaths']);
+
         var init = function () {
             configureExternalTemplates();
         };
@@ -61,7 +62,8 @@
             hostUri: hostUri,
             apiUris: apiUris,
             functionCategories: functionCategories,
-            regionCategories: regionCategories
+            regionCategories: regionCategories,
+            holdTypes : holdTypes
         };
 
     });

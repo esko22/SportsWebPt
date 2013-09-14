@@ -152,6 +152,7 @@
                },
                pageName:
                {
+                   required: true,
                    minlength: 4,
                    maxlength: 50
                }
@@ -165,17 +166,18 @@
                },
                medicalName:
                {
-                   required: "common name required",
+                   required: "medical name required",
                    minlength: "must be between 1 and 100 characters",
                    maxlength: "must be between 1 and 100 characters"
                },
                description:
                {
+                   required: "description must be set",
                    minlength: "must be between 1 and 60000 characters",
                    maxlength: "must be between 1 and 60000 characters"
                },
                openingStatement: {
-                   required: "category must be set",
+                   required: "opening statement must be set",
                    minlength: "must be between 1 and 60000 characters",
                     maxlength: "must be between 1 and 60000 characters"
                 },
@@ -184,9 +186,9 @@
                    maxlength: "must be between 1 and 10000 characters"
                },
                pageName: {
-                   remote: "page name must be unique",
-                   minlength: "must be between 1 and 1000 characters",
-                   maxlength: "must be between 1 and 1000 characters"
+                   required: "page name required", 
+                   minlength: "must be between 4 and 50 characters",
+                   maxlength: "must be between 4 and 50 characters"
                }
            },
            submitHandler: saveChanges,

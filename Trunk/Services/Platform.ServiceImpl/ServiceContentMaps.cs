@@ -162,6 +162,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.PerDay, opt => opt.MapFrom(s => s.PerDay))
                   .ForMember(d => d.PerWeek, opt => opt.MapFrom(s => s.PerWeek))
                   .ForMember(d => d.HoldFor, opt => opt.MapFrom(s => s.HoldFor))
+                  .ForMember(d => d.HoldType, opt => opt.MapFrom(s => s.HoldType))
                   .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.ExerciseId));
             Mapper.CreateMap<ExerciseDto, Exercise>()
                   .ForMember(d => d.Repititions, opt => opt.MapFrom(s => s.Repititions))
@@ -169,6 +170,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.PerDay, opt => opt.MapFrom(s => s.PerDay))
                   .ForMember(d => d.PerWeek, opt => opt.MapFrom(s => s.PerWeek))
                   .ForMember(d => d.HoldFor, opt => opt.MapFrom(s => s.HoldFor))
+                  .ForMember(d => d.HoldType, opt => opt.MapFrom(s => s.HoldType))
                   .ForMember(d => d.ExerciseVideoMatrixItems, opt =>
                       {
                           opt.Condition(s => s.Videos != null);

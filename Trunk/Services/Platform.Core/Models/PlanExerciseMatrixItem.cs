@@ -22,6 +22,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int HoldFor { get; set; }
 
+        public HoldType HoldType { get; set; }
+
         public virtual Plan Plan { get; set; }
 
         public virtual Exercise Exercise { get; set; }

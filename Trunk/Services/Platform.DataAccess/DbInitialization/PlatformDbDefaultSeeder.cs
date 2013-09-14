@@ -260,11 +260,11 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var videos = new List<Video>()
                 {
-                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself", Category = FunctionCategory.Strengthing}
+                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", MedicalName = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", MedicalName = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", MedicalName = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", MedicalName = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes", Category = FunctionCategory.Strengthing},
+                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", MedicalName = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself", Category = FunctionCategory.Strengthing}
                 };
 
             videos.ForEach(p => _dbContext.Videos.Add(p));
