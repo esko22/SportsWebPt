@@ -63,7 +63,7 @@ namespace SportsWebPt.Platform.ServiceModels
         public String HoldType { get; set; }
 
         [DataMember]
-        public String Category { get; set; }
+        public String[] Categories { get; set; }
 
         #endregion
     }

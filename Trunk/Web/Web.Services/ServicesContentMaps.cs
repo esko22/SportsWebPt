@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 using AutoMapper;
 
 using SportsWebPt.Platform.ServiceModels;
@@ -69,10 +71,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Plan, PlanDto>()
                 .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ","_")));
             Mapper.CreateMap<ExerciseDto, Exercise>()
-                  .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
+                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
             Mapper.CreateMap<PlanExerciseDto, PlanExercise>();
             Mapper.CreateMap<Exercise, ExerciseDto>()
-                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
+                  .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
             Mapper.CreateMap<PlanExercise, PlanExerciseDto>()
                   .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.exerciseId))
                   .ForMember(d => d.ExerciseId, opt =>

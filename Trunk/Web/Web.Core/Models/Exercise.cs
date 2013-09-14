@@ -43,7 +43,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public string holdType { get; set; }
 
-        public string category { get; set; }
+        public IEnumerable<string> categories { get; set; }
 
         #endregion
     }

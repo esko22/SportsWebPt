@@ -6,9 +6,9 @@ namespace SportsWebPt.Platform.Core.Models
     {
         #region Properties
 
-        public Int64 ExerciseId { get; set; }
+        public int ExerciseId { get; set; }
 
-        public FunctionCategory Category { get; set; }
+        public virtual FunctionCategory Category { get; set; }
 
         #endregion
 

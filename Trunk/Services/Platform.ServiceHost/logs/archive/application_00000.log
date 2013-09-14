@@ -1,112 +1,214 @@
-09-13-13@22:05:49 Info (27)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:05:49 Info (27)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0346342 
-09-13-13@22:05:50 Info (27)  [Common] VideoListRequest request submitted 
-09-13-13@22:05:50 Info (5)  [Common] BodyPartListRequest request submitted 
-09-13-13@22:05:50 Info (38)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:05:50 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0028022 
-09-13-13@22:05:50 Info (38)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0024983 
-09-13-13@22:05:50 Info (27)  [Common] EquipmentListRequest request submitted 
-09-13-13@22:05:50 Info (27)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0034233 
-09-13-13@22:05:50 Info (5)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0232553 
-09-13-13@22:06:08 Info (10)  [Common] InjuryListRequest request submitted 
-09-13-13@22:06:08 Info (43)  [Common] PlanListRequest request submitted 
-09-13-13@22:06:08 Info (26)  [Common] CauseListRequest request submitted 
-09-13-13@22:06:08 Info (23)  [Common] BodyPartMatrixListRequest request submitted 
-09-13-13@22:06:08 Info (34)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:06:08 Info (40)  [Common] SignListRequest request submitted 
-09-13-13@22:06:08 Info (26)  [Common] CauseListRequest request completed with duration of 00:00:00.0127858 
-09-13-13@22:06:08 Info (40)  [Common] SignListRequest request completed with duration of 00:00:00.0036357 
-09-13-13@22:06:08 Info (34)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0168423 
-09-13-13@22:06:08 Info (10)  [Common] InjuryListRequest request completed with duration of 00:00:00.0585969 
-09-13-13@22:06:08 Info (43)  [Common] PlanListRequest request completed with duration of 00:00:00.0453032 
-09-13-13@22:06:08 Info (23)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0355717 
-09-13-13@22:06:08 Info (37)  [Common] SymptomListRequest request submitted 
-09-13-13@22:06:08 Info (37)  [Common] SymptomListRequest request completed with duration of 00:00:00.0044898 
-09-13-13@22:06:25 Info (10)  [Common] PlanListRequest request submitted 
-09-13-13@22:06:25 Info (10)  [Common] PlanListRequest request completed with duration of 00:00:00.0328721 
-09-13-13@22:06:26 Info (40)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:06:26 Info (39)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:06:26 Info (39)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0037218 
-09-13-13@22:06:26 Info (40)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0250933 
-09-13-13@22:08:17 Info (39)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:08:17 Info (39)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0256136 
-09-13-13@22:08:19 Info (44)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:08:19 Info (47)  [Common] BodyPartListRequest request submitted 
-09-13-13@22:08:19 Info (29)  [Common] EquipmentListRequest request submitted 
-09-13-13@22:08:19 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0021672 
-09-13-13@22:08:19 Info (44)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0029182 
-09-13-13@22:08:19 Info (10)  [Common] VideoListRequest request submitted 
-09-13-13@22:08:19 Info (10)  [Common] VideoListRequest request completed with duration of 00:00:00.0027147 
-09-13-13@22:08:19 Info (47)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0181167 
-09-13-13@22:08:24 Info (37)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:08:24 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0230072 
-09-13-13@22:08:24 Info (34)  [Common] EquipmentListRequest request submitted 
-09-13-13@22:08:24 Info (39)  [Common] VideoListRequest request submitted 
-09-13-13@22:08:24 Info (23)  [Common] BodyPartListRequest request submitted 
-09-13-13@22:08:24 Info (47)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:08:24 Info (34)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0026679 
-09-13-13@22:08:24 Info (39)  [Common] VideoListRequest request completed with duration of 00:00:00.0023560 
-09-13-13@22:08:24 Info (47)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0045995 
-09-13-13@22:08:24 Info (23)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0200734 
-09-13-13@22:09:18 Info (34)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:09:18 Info (34)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0236712 
-09-13-13@22:09:19 Info (26)  [Common] VideoListRequest request submitted 
-09-13-13@22:09:19 Info (27)  [Common] EquipmentListRequest request submitted 
-09-13-13@22:09:19 Info (10)  [Common] BodyPartListRequest request submitted 
-09-13-13@22:09:19 Info (26)  [Common] VideoListRequest request completed with duration of 00:00:00.0027709 
-09-13-13@22:09:19 Info (27)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0021409 
-09-13-13@22:09:19 Info (42)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:09:19 Info (42)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0026567 
-09-13-13@22:09:19 Info (10)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0186696 
-09-13-13@22:09:30 Info (26)  [Common] ExecerciseRequest request submitted 
-09-13-13@22:09:30 Info (26)  [Common] ExecerciseRequest request completed with duration of 00:00:00.2837764 
-09-13-13@22:09:30 Info (40)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:09:30 Info (40)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0342175 
-09-13-13@22:10:08 Info (40)  [Common] ExecerciseRequest request submitted 
-09-13-13@22:10:08 Info (40)  [Common] ExecerciseRequest request completed with duration of 00:00:00.0136113 
-09-13-13@22:10:08 Info (34)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:10:08 Info (34)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0226596 
-09-13-13@22:16:49 Info (62)  [Common] BodyPartMatrixListRequest request submitted 
-09-13-13@22:16:49 Info (64)  [Common] PlanListRequest request submitted 
-09-13-13@22:16:49 Info (57)  [Common] InjuryListRequest request submitted 
-09-13-13@22:16:49 Info (61)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:16:49 Info (56)  [Common] CauseListRequest request submitted 
-09-13-13@22:16:49 Info (65)  [Common] SignListRequest request submitted 
-09-13-13@22:16:49 Info (61)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0105105 
-09-13-13@22:16:49 Info (62)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0249634 
-09-13-13@22:16:49 Info (64)  [Common] PlanListRequest request completed with duration of 00:00:00.0412842 
-09-13-13@22:16:49 Info (56)  [Common] CauseListRequest request completed with duration of 00:00:00.0459123 
-09-13-13@22:16:49 Info (60)  [Common] SymptomListRequest request submitted 
-09-13-13@22:16:49 Info (65)  [Common] SignListRequest request completed with duration of 00:00:00.0495235 
-09-13-13@22:16:49 Info (60)  [Common] SymptomListRequest request completed with duration of 00:00:00.0055767 
-09-13-13@22:16:49 Info (57)  [Common] InjuryListRequest request completed with duration of 00:00:00.0655881 
-09-13-13@22:30:17 Info (44)  [Common] InjuryRequest request submitted 
-09-13-13@22:30:18 Info (44)  [Common] InjuryRequest request completed with duration of 00:00:00.2078994 
-09-13-13@22:30:18 Info (47)  [Common] InjuryListRequest request submitted 
-09-13-13@22:30:18 Info (47)  [Common] InjuryListRequest request completed with duration of 00:00:00.0291855 
-09-13-13@22:31:45 Info (58)  [Common] SymptomaticRegionListRequest request submitted 
-09-13-13@22:31:45 Info (58)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0151302 
-09-13-13@22:31:50 Info (58)  [Common] PotentialSymptomListRequest request submitted 
-09-13-13@22:31:50 Info (58)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0054558 
-09-13-13@22:31:50 Info (63)  [Common] PotentialSymptomListRequest request submitted 
-09-13-13@22:31:50 Info (37)  [Common] PotentialSymptomListRequest request submitted 
-09-13-13@22:31:50 Info (37)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0026576 
-09-13-13@22:31:50 Info (63)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0096047 
-09-13-13@22:37:21 Info (37)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:37:21 Info (37)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0327030 
-09-13-13@22:37:22 Info (61)  [Common] VideoListRequest request submitted 
-09-13-13@22:37:22 Info (47)  [Common] EquipmentListRequest request submitted 
-09-13-13@22:37:22 Info (66)  [Common] BodyRegionListRequest request submitted 
-09-13-13@22:37:22 Info (61)  [Common] VideoListRequest request completed with duration of 00:00:00.0026581 
-09-13-13@22:37:22 Info (47)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0022828 
-09-13-13@22:37:22 Info (47)  [Common] BodyPartListRequest request submitted 
-09-13-13@22:37:22 Info (66)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0063902 
-09-13-13@22:37:22 Info (47)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0174764 
-09-13-13@22:37:46 Info (66)  [Common] VideoListRequest request submitted 
-09-13-13@22:37:46 Info (66)  [Common] VideoListRequest request completed with duration of 00:00:00.0066187 
-09-13-13@22:37:56 Info (58)  [Common] VideoRequest request submitted 
-09-13-13@22:37:56 Info (58)  [Common] VideoRequest request completed with duration of 00:00:00.0101589 
-09-13-13@22:37:56 Info (63)  [Common] VideoListRequest request submitted 
-09-13-13@22:37:56 Info (63)  [Common] VideoListRequest request completed with duration of 00:00:00.0027464 
-09-13-13@22:56:17 Info (88)  [Common] ExecerciseListRequest request submitted 
-09-13-13@22:56:29 Info (88)  [Common] ExecerciseListRequest request completed with duration of 00:00:12.1466984 
+09-13-13@23:05:46 Info (96)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:05:46 Info (96)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0272025 
+09-13-13@23:05:47 Info (92)  [Common] VideoListRequest request submitted 
+09-13-13@23:05:47 Info (94)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:05:47 Info (88)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:05:47 Info (95)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:05:47 Info (92)  [Common] VideoListRequest request completed with duration of 00:00:00.0219894 
+09-13-13@23:05:47 Info (88)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0290409 
+09-13-13@23:05:47 Info (95)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0355708 
+09-13-13@23:05:47 Info (94)  [Common] BodyPartListRequest request completed with duration of 00:00:00.1585164 
+09-13-13@23:07:31 Info (68)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:07:31 Info (68)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0272222 
+09-13-13@23:07:32 Info (92)  [Common] VideoListRequest request submitted 
+09-13-13@23:07:32 Info (92)  [Common] VideoListRequest request completed with duration of 00:00:00.0030338 
+09-13-13@23:07:32 Info (68)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:07:32 Info (84)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:07:32 Info (68)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0028508 
+09-13-13@23:07:32 Info (84)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028673 
+09-13-13@23:07:32 Info (94)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:07:32 Info (94)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0225873 
+09-13-13@23:07:56 Info (96)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:07:56 Info (94)  [Common] SkeletonAreaListRequest request submitted 
+09-13-13@23:07:56 Info (96)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0311689 
+09-13-13@23:07:56 Info (94)  [Common] SkeletonAreaListRequest request completed with duration of 00:00:00.0881184 
+09-13-13@23:08:06 Info (84)  [Common] BodyPartRequest request submitted 
+09-13-13@23:08:06 Info (84)  [Common] BodyPartRequest request completed with duration of 00:00:00.0957018 
+09-13-13@23:08:06 Info (94)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:08:06 Info (94)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0182657 
+09-13-13@23:08:49 Info (68)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:08:49 Info (68)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0346664 
+09-13-13@23:09:07 Info (68)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:09:07 Info (68)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0217485 
+09-13-13@23:09:14 Info (94)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:09:14 Info (94)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0226909 
+09-13-13@23:09:16 Info (92)  [Common] VideoListRequest request submitted 
+09-13-13@23:09:16 Info (95)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:09:16 Info (88)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:09:16 Info (88)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0021244 
+09-13-13@23:09:16 Info (95)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028227 
+09-13-13@23:09:16 Info (92)  [Common] VideoListRequest request completed with duration of 00:00:00.0033631 
+09-13-13@23:09:16 Info (92)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:09:16 Info (92)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0180163 
+09-13-13@23:09:47 Info (88)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:09:47 Info (88)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0227649 
+09-13-13@23:09:48 Info (92)  [Common] VideoListRequest request submitted 
+09-13-13@23:09:48 Info (96)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:09:48 Info (84)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:09:48 Info (96)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0020699 
+09-13-13@23:09:48 Info (92)  [Common] VideoListRequest request completed with duration of 00:00:00.0026259 
+09-13-13@23:09:48 Info (94)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:09:48 Info (94)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0029664 
+09-13-13@23:09:48 Info (84)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0174911 
+09-13-13@23:09:57 Info (88)  [Common] ExecerciseRequest request submitted 
+09-13-13@23:09:58 Info (88)  [Common] ExecerciseRequest request completed with duration of 00:00:00.2709040 
+09-13-13@23:09:58 Info (92)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:09:58 Info (92)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0216066 
+09-13-13@23:10:01 Info (93)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:10:01 Info (93)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0234226 
+09-13-13@23:10:02 Info (68)  [Common] VideoListRequest request submitted 
+09-13-13@23:10:02 Info (92)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:10:02 Info (95)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:10:02 Info (68)  [Common] VideoListRequest request completed with duration of 00:00:00.0026607 
+09-13-13@23:10:02 Info (92)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0022667 
+09-13-13@23:10:02 Info (68)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:10:02 Info (95)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0040953 
+09-13-13@23:10:02 Info (68)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0172046 
+09-13-13@23:10:19 Info (94)  [Common] ExecerciseRequest request submitted 
+09-13-13@23:10:19 Info (94)  [Common] ExecerciseRequest request completed with duration of 00:00:00.0083361 
+09-13-13@23:10:19 Info (88)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:10:19 Info (88)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0220786 
+09-13-13@23:10:27 Info (95)  [Common] PlanListRequest request submitted 
+09-13-13@23:10:27 Info (68)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:10:27 Info (84)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:10:27 Info (84)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0043706 
+09-13-13@23:10:27 Info (68)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0250281 
+09-13-13@23:10:27 Info (95)  [Common] PlanListRequest request completed with duration of 00:00:00.3412894 
+09-13-13@23:13:29 Info (93)  [Common] PlanListRequest request submitted 
+09-13-13@23:13:29 Info (93)  [Common] PlanListRequest request completed with duration of 00:00:00.0249460 
+09-13-13@23:13:29 Info (93)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:13:29 Info (84)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:13:29 Info (93)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0030610 
+09-13-13@23:13:29 Info (84)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0228029 
+09-13-13@23:15:34 Info (84)  [Common] PlanListRequest request submitted 
+09-13-13@23:15:34 Info (84)  [Common] PlanListRequest request completed with duration of 00:00:00.0234467 
+09-13-13@23:15:34 Info (96)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:15:34 Info (92)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:15:34 Info (96)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0028481 
+09-13-13@23:15:34 Info (92)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0229613 
+09-13-13@23:16:14 Info (88)  [Common] PlanListRequest request submitted 
+09-13-13@23:16:14 Info (88)  [Common] PlanListRequest request completed with duration of 00:00:00.0229189 
+09-13-13@23:16:14 Info (95)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:16:14 Info (96)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:16:14 Info (96)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0027803 
+09-13-13@23:16:14 Info (95)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0228591 
+09-13-13@23:16:24 Info (94)  [Common] PlanRequest request submitted 
+09-13-13@23:16:24 Info (94)  [Common] PlanRequest request completed with duration of 00:00:00.1873316 
+09-13-13@23:16:24 Info (96)  [Common] PlanListRequest request submitted 
+09-13-13@23:16:24 Info (96)  [Common] PlanListRequest request completed with duration of 00:00:00.0284319 
+09-13-13@23:16:28 Info (84)  [Common] PlanListRequest request submitted 
+09-13-13@23:16:28 Info (84)  [Common] PlanListRequest request completed with duration of 00:00:00.0231830 
+09-13-13@23:16:28 Info (95)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:16:28 Info (94)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:16:28 Info (94)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0034755 
+09-13-13@23:16:28 Info (95)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0236110 
+09-13-13@23:17:04 Info (84)  [Common] PlanRequest request submitted 
+09-13-13@23:17:04 Info (84)  [Common] PlanRequest request completed with duration of 00:00:00.0718941 
+09-13-13@23:17:04 Info (95)  [Common] PlanListRequest request submitted 
+09-13-13@23:17:04 Info (95)  [Common] PlanListRequest request completed with duration of 00:00:00.0237671 
+09-13-13@23:17:56 Info (93)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:17:56 Info (93)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0342844 
+09-13-13@23:17:56 Info (95)  [Common] VideoListRequest request submitted 
+09-13-13@23:17:56 Info (95)  [Common] VideoListRequest request completed with duration of 00:00:00.0025880 
+09-13-13@23:17:56 Info (68)  [Common] EquipmentListRequest request submitted 
+09-13-13@23:17:56 Info (95)  [Common] BodyPartListRequest request submitted 
+09-13-13@23:17:56 Info (68)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0029186 
+09-13-13@23:17:56 Info (88)  [Common] BodyRegionListRequest request submitted 
+09-13-13@23:17:56 Info (88)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0030686 
+09-13-13@23:17:56 Info (95)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0183135 
+09-13-13@23:30:20 Info (90)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:30:33 Info (90)  [Common] ExecerciseListRequest request completed with duration of 00:00:12.5022404 
+09-13-13@23:31:54 Info (41)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:31:55 Info (41)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.7479837 
+09-13-13@23:32:17 Info (87)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:32:18 Info (87)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.8175557 
+09-13-13@23:33:50 Info (7)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:34:11 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:21.7163096 
+09-13-13@23:34:59 Info (7)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:35:34 Info (7)  [Common] ExecerciseListRequest request completed with duration of 00:00:34.3407219 
+09-13-13@23:52:33 Info (26)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:52:52 Error (26)  [Common] [ExerciseListService: 9/14/2013 6:52:52 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.Data.Entity.ModelConfiguration.ModelValidationException One or more validation errors were detected during model generation:
+
+\tSystem.Data.Entity.Edm.EdmEntityType: : EntityType 'ExerciseCategoryMatrixItem' has no key defined. Define the key for this EntityType.
+\tSystem.Data.Entity.Edm.EdmEntitySet: EntityType: EntitySet 'ExerciseCategoryMatrixItems' is based on type 'ExerciseCategoryMatrixItem' that has no keys defined.
+ System.Data.Entity.Infrastructure.DbModel Build(System.Data.Common.DbProviderManifest, System.Data.Entity.Infrastructure.DbProviderInfo)
+09-13-13@23:54:42 Info (16)  [Common] ExecerciseListRequest request submitted 
+09-13-13@23:55:06 Error (16)  [Common] [ExerciseListService: 9/14/2013 6:55:06 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:MySql.Data.MySqlClient.MySqlException Duplicate column name 'Exercise_Id' MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+09-14-13@00:27:20 Info (9)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:28:00 Error (9)  [Common] [ExerciseListService: 9/14/2013 7:28:00 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.Data.Entity.ModelConfiguration.ModelValidationException One or more validation errors were detected during model generation:
+
+\tSystem.Data.Entity.Edm.EdmAssociationConstraint: : The types of all properties in the Dependent Role of a referential constraint must be the same as the corresponding property types in the Principal Role. The type of property 'ExerciseId' on entity 'ExerciseCategoryMatrixItem' does not match the type of property 'Id' on entity 'Exercise' in the referential constraint 'Exercise_ExerciseCategoryMatrixItems'.
+ System.Data.Entity.Infrastructure.DbModel Build(System.Data.Common.DbProviderManifest, System.Data.Entity.Infrastructure.DbProviderInfo)
+09-14-13@00:29:16 Info (5)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:30:39 Info (5)  [Common] ExecerciseListRequest request completed with duration of 00:01:22.7759736 
+09-14-13@00:34:12 Info (16)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:34:17 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:04.3048486 
+09-14-13@00:35:44 Info (16)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:35:47 Error (16)  [Common] [ExerciseListService: 9/14/2013 7:35:47 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:36:29 Info (21)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:36:32 Error (21)  [Common] [ExerciseListService: 9/14/2013 7:36:32 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:38:03 Info (19)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:38:33 Error (19)  [Common] [ExerciseListService: 9/14/2013 7:38:33 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:41:03 Info (19)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:41:09 Info (19)  [Common] ExecerciseListRequest request completed with duration of 00:00:06.1285385 
+09-14-13@00:50:58 Info (28)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:50:58 Info (28)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1195680 
+09-14-13@00:51:28 Info (14)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:51:28 Info (14)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1081083 
+09-14-13@00:53:09 Info (32)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:53:09 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0996069 
+09-14-13@00:53:10 Info (14)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:53:10 Info (11)  [Common] VideoListRequest request submitted 
+09-14-13@00:53:10 Info (32)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:53:10 Info (29)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:53:10 Info (14)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0317330 
+09-14-13@00:53:10 Info (29)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.1155422 
+09-14-13@00:53:10 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.1276094 
+09-14-13@00:53:10 Info (32)  [Common] BodyPartListRequest request completed with duration of 00:00:00.3392771 
+09-14-13@00:55:28 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:55:28 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1004810 
+09-14-13@00:55:29 Info (31)  [Common] VideoListRequest request submitted 
+09-14-13@00:55:29 Info (31)  [Common] VideoListRequest request completed with duration of 00:00:00.0056071 
+09-14-13@00:55:29 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:55:29 Info (29)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:55:29 Info (14)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:55:29 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0066923 
+09-14-13@00:55:29 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0072388 
+09-14-13@00:55:29 Info (14)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0439705 
+09-14-13@00:55:52 Info (29)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:55:53 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.4631361 
+09-14-13@00:55:54 Info (34)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0061229 
+09-14-13@00:55:54 Info (11)  [Common] VideoListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:55:54 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.0051146 
+09-14-13@00:55:54 Info (35)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0057800 
+09-14-13@00:55:54 Info (34)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0370808 
+09-14-13@00:56:51 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:56:51 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0055669 
+09-14-13@00:56:51 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:56:51 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1099366 
+09-14-13@00:56:58 Info (31)  [Common] ExecerciseRequest request submitted 
+09-14-13@00:56:59 Error (31)  [Common] [ExerciseService: 9/14/2013 7:56:59 AM]:
+[REQUEST: {Id:calf-knee-massage,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException A specified Include path is not valid. The EntityType 'SportsWebPt.Platform.DataAccess.ExerciseCategoryMatrixItem' does not declare a navigation property with the name 'Category'. Void ConvertSpanPath(SpanPathInfo, System.Collections.Generic.List`1[System.String], Int32)
+09-14-13@00:57:07 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:57:07 Info (29)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:57:07 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0047090 
+09-14-13@00:57:07 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0993264 
+09-14-13@00:57:28 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:57:28 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0847222 
+09-14-13@00:57:30 Info (35)  [Common] VideoListRequest request submitted 
+09-14-13@00:57:30 Info (36)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:57:30 Info (35)  [Common] VideoListRequest request completed with duration of 00:00:00.0048060 
+09-14-13@00:57:30 Info (36)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0050548 
+09-14-13@00:57:30 Info (31)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:57:30 Info (11)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:57:30 Info (31)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0053211 
+09-14-13@00:57:30 Info (11)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0403464 

@@ -146,7 +146,13 @@ namespace SportsWebPt.Platform.ServiceImpl
                       {
                           opt.Condition(s => s.ExerciseBodyPartMatrixItems != null);
                           opt.MapFrom(s => s.ExerciseBodyPartMatrixItems.Select(p => p.BodyPart));
+                      })
+                  .ForMember(d => d.Categories, opt =>
+                      {
+                          opt.Condition(s => s.ExerciseCategoryMatrixItems != null);
+                          opt.MapFrom(s => s.ExerciseCategoryMatrixItems.Select(p => p.Category));
                       });
+
             Mapper.CreateMap<PlanExerciseMatrixItem, PlanExerciseDto>()
                   .ForMember(d => d.Videos,
                              opt => opt.MapFrom(s => s.Exercise.ExerciseVideoMatrixItems.Select(p => p.Video)))
@@ -190,7 +196,14 @@ namespace SportsWebPt.Platform.ServiceImpl
                       {
                           opt.Condition(s => s.BodyParts != null);
                           opt.MapFrom(s => s.BodyParts);
+                      })
+                  .ForMember(d => d.ExerciseCategoryMatrixItems, opt =>
+                      {
+                          opt.Condition(s => s.Categories != null);
+                          opt.MapFrom(s => s.Categories);
                       });
+            Mapper.CreateMap<String, ExerciseCategoryMatrixItem>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s));
             Mapper.CreateMap<ExerciseVideoMatrixItem, VideoDto>()
                   .ForMember(d => d.Id, opt => opt.MapFrom(s => s.VideoId));
             Mapper.CreateMap<ExerciseEquipmentMatrixItem, VideoDto>()

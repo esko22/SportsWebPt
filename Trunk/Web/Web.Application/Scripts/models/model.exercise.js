@@ -81,7 +81,6 @@ define('model.admin.exercise', ['backbone', 'config', 'model.admin.equipment', '
                     'pageName': '',
                     'medicalName': '',
                     'holdType': '',
-                    'category': ''
                 },
                 relations: [
                     {

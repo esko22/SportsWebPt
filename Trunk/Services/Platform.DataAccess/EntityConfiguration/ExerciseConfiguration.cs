@@ -27,6 +27,8 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Id).IsRequired().HasColumnName("exercise_id");
             Property(p => p.HoldType).HasColumnName("hold_type_id").IsRequired();
 
+            HasMany(m => m.ExerciseCategoryMatrixItems).WithRequired(r => r.Exercise).HasForeignKey(fk => fk.ExerciseId);
+
         }
 
         #endregion

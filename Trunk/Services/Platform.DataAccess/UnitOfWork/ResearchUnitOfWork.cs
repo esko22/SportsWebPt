@@ -31,6 +31,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
         public IRepository<SymptomMatrixItem> SymptomMatrixRepo { get { return GetStandardRepo<SymptomMatrixItem>(); } }
+        public IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get { return GetStandardRepo<ExerciseCategoryMatrixItem>(); } }
 
         #endregion
 
@@ -65,12 +66,24 @@ namespace SportsWebPt.Platform.DataAccess
         public void UpdateExercise(Exercise exercise)
         {
             var execiseInDb =
-                ExerciseRepo.GetAll(new[]
-                    {"ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems", "ExerciseBodyRegionMatrixItems", "ExerciseBodyPartMatrixItems"})
+                ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseVideoMatrixItems", "ExerciseBodyRegionMatrixItems", "ExerciseBodyPartMatrixItems", "ExerciseCategoryMatrixItems" })
                             .SingleOrDefault(p => p.Id == exercise.Id);
 
             if(execiseInDb == null)
                 throw new ArgumentNullException("exercise id", "exercise does not exist");
+
+            var deletedCategories = execiseInDb.ExerciseCategoryMatrixItems.Except(
+                exercise.ExerciseCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            var addedCategories = exercise.ExerciseCategoryMatrixItems.Except(
+                execiseInDb.ExerciseCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            deletedCategories.ForEach(e => ExerciseCategoryRepo.Delete(e));
+            addedCategories.ForEach(e =>
+            {
+                e.ExerciseId = exercise.Id;
+                ExerciseCategoryRepo.Add(e);
+            });
 
             var deletedEquipment = execiseInDb.ExerciseEquipmentMatrixItems.Except(
                 exercise.ExerciseEquipmentMatrixItems, (item, matrixItem) => item.EquipmentId == matrixItem.EquipmentId).ToList();
@@ -277,7 +290,8 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Sign> SignRepo { get; }
         IRepository<Cause> CauseRepo { get; }
         IRepository<Injury> InjuryRepo { get; } 
-        IPlanRepo PlanRepo { get; } 
+        IPlanRepo PlanRepo { get; }
+        IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
 
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);
