@@ -166,6 +166,7 @@
     <Compile Include="Areas\Main\Controllers\UserController.cs" />
     <Compile Include="Areas\Main\MainAreaRegistration.cs" />
     <Compile Include="Areas\Main\Controllers\IndexController.cs" />
+    <Compile Include="Areas\Main\Models\ErrorViewModel.cs" />
     <Compile Include="Areas\Main\Models\IndexViewModel.cs" />
     <Compile Include="Areas\Main\Models\AuthFormViewModel.cs" />
     <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
@@ -416,6 +417,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Main\Views\Shared\_errorNotFound.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
