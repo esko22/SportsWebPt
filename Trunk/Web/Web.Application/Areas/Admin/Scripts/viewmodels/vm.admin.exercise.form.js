@@ -26,7 +26,7 @@
             perDay = kb.observable(selectedExercise, 'perDay'),
             holdFor = kb.observable(selectedExercise, 'holdFor'),
             holdType = kb.observable(selectedExercise, 'holdType'),
-            category = kb.observable(selectedExercise, 'category'),
+            categories = kb.observable(selectedExercise, 'categories'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
@@ -113,7 +113,7 @@
             selectedExercise.set('perDay', exercise.model().get('perDay'));
             selectedExercise.set('holdFor', exercise.model().get('holdFor'));
             selectedExercise.set('holdType', exercise.model().get('holdType'));
-            selectedExercise.set('category', exercise.model().get('category'));
+            selectedExercise.set('categories', exercise.model().get('categories'));
 
 
             //TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
@@ -231,7 +231,7 @@
             holdFor: holdFor,
             medicalName: medicalName,
             availableCategories: availableCategories,
-            category: category,
+            categories: categories,
             holdTypes: config.holdTypes,
             holdType: holdType
         };

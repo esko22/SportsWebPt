@@ -136,3 +136,82 @@
 09-13-13@23:54:42 Info (16)  [Common] ExecerciseListRequest request submitted 
 09-13-13@23:55:06 Error (16)  [Common] [ExerciseListService: 9/14/2013 6:55:06 AM]:
 [REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:MySql.Data.MySqlClient.MySqlException Duplicate column name 'Exercise_Id' MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+<<<<<<< HEAD
+=======
+09-14-13@00:27:20 Info (9)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:28:00 Error (9)  [Common] [ExerciseListService: 9/14/2013 7:28:00 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:System.Data.Entity.ModelConfiguration.ModelValidationException One or more validation errors were detected during model generation:
+
+\tSystem.Data.Entity.Edm.EdmAssociationConstraint: : The types of all properties in the Dependent Role of a referential constraint must be the same as the corresponding property types in the Principal Role. The type of property 'ExerciseId' on entity 'ExerciseCategoryMatrixItem' does not match the type of property 'Id' on entity 'Exercise' in the referential constraint 'Exercise_ExerciseCategoryMatrixItems'.
+ System.Data.Entity.Infrastructure.DbModel Build(System.Data.Common.DbProviderManifest, System.Data.Entity.Infrastructure.DbProviderInfo)
+09-14-13@00:29:16 Info (5)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:30:39 Info (5)  [Common] ExecerciseListRequest request completed with duration of 00:01:22.7759736 
+09-14-13@00:34:12 Info (16)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:34:17 Info (16)  [Common] ExecerciseListRequest request completed with duration of 00:00:04.3048486 
+09-14-13@00:35:44 Info (16)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:35:47 Error (16)  [Common] [ExerciseListService: 9/14/2013 7:35:47 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:36:29 Info (21)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:36:32 Error (21)  [Common] [ExerciseListService: 9/14/2013 7:36:32 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:38:03 Info (19)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:38:33 Error (19)  [Common] [ExerciseListService: 9/14/2013 7:38:33 AM]:
+[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
+09-14-13@00:41:03 Info (19)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:41:09 Info (19)  [Common] ExecerciseListRequest request completed with duration of 00:00:06.1285385 
+09-14-13@00:50:58 Info (28)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:50:58 Info (28)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1195680 
+09-14-13@00:51:28 Info (14)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:51:28 Info (14)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1081083 
+09-14-13@00:53:09 Info (32)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:53:09 Info (32)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0996069 
+09-14-13@00:53:10 Info (14)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:53:10 Info (11)  [Common] VideoListRequest request submitted 
+09-14-13@00:53:10 Info (32)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:53:10 Info (29)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:53:10 Info (14)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0317330 
+09-14-13@00:53:10 Info (29)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.1155422 
+09-14-13@00:53:10 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.1276094 
+09-14-13@00:53:10 Info (32)  [Common] BodyPartListRequest request completed with duration of 00:00:00.3392771 
+09-14-13@00:55:28 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:55:28 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1004810 
+09-14-13@00:55:29 Info (31)  [Common] VideoListRequest request submitted 
+09-14-13@00:55:29 Info (31)  [Common] VideoListRequest request completed with duration of 00:00:00.0056071 
+09-14-13@00:55:29 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:55:29 Info (29)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:55:29 Info (14)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:55:29 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0066923 
+09-14-13@00:55:29 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0072388 
+09-14-13@00:55:29 Info (14)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0439705 
+09-14-13@00:55:52 Info (29)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:55:53 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.4631361 
+09-14-13@00:55:54 Info (34)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0061229 
+09-14-13@00:55:54 Info (11)  [Common] VideoListRequest request submitted 
+09-14-13@00:55:54 Info (35)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:55:54 Info (11)  [Common] VideoListRequest request completed with duration of 00:00:00.0051146 
+09-14-13@00:55:54 Info (35)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0057800 
+09-14-13@00:55:54 Info (34)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0370808 
+09-14-13@00:56:51 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:56:51 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0055669 
+09-14-13@00:56:51 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:56:51 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.1099366 
+09-14-13@00:56:58 Info (31)  [Common] ExecerciseRequest request submitted 
+09-14-13@00:56:59 Error (31)  [Common] [ExerciseService: 9/14/2013 7:56:59 AM]:
+[REQUEST: {Id:calf-knee-massage,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException A specified Include path is not valid. The EntityType 'SportsWebPt.Platform.DataAccess.ExerciseCategoryMatrixItem' does not declare a navigation property with the name 'Category'. Void ConvertSpanPath(SpanPathInfo, System.Collections.Generic.List`1[System.String], Int32)
+09-14-13@00:57:07 Info (11)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:57:07 Info (29)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:57:07 Info (11)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0047090 
+09-14-13@00:57:07 Info (29)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0993264 
+09-14-13@00:57:28 Info (31)  [Common] ExecerciseListRequest request submitted 
+09-14-13@00:57:28 Info (31)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0847222 
+09-14-13@00:57:30 Info (35)  [Common] VideoListRequest request submitted 
+09-14-13@00:57:30 Info (36)  [Common] EquipmentListRequest request submitted 
+09-14-13@00:57:30 Info (35)  [Common] VideoListRequest request completed with duration of 00:00:00.0048060 
+09-14-13@00:57:30 Info (36)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0050548 
+09-14-13@00:57:30 Info (31)  [Common] BodyRegionListRequest request submitted 
+09-14-13@00:57:30 Info (11)  [Common] BodyPartListRequest request submitted 
+09-14-13@00:57:30 Info (31)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0053211 
+09-14-13@00:57:30 Info (11)  [Common] BodyPartListRequest request completed with duration of 00:00:00.0403464 
+>>>>>>> 50b929a2b2a539464bb25a718a5473e3adc66b8c

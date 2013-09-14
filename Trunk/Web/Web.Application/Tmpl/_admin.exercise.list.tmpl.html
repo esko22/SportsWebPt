@@ -28,11 +28,13 @@
             <div class="col-md-6">
                 <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
             </div>
-<!--            <div class="col-md-3">
-                <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
-            </div>-->
             <div class="col-md-6">
-                <label><strong>Category: </strong><span data-bind="text: category"></span></label>
+                <div>
+                    <label><strong>Category: </strong></label>
+                    <ul data-bind="foreach: categories">
+                        <li data-bind="text: $data"></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row">
