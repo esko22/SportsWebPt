@@ -91,16 +91,22 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.bodyPart, opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.BodyPart.CommonName));
             Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
             Mapper.CreateMap<Plan, PlanDto>()
-                      .ForMember(d => d.Exercises, opt =>
+                  .ForMember(d => d.Exercises, opt =>
                       {
                           opt.Condition(s => s.PlanExerciseMatrixItems != null);
                           opt.MapFrom(s => s.PlanExerciseMatrixItems);
                       })
-                      .ForMember(d => d.BodyRegions, opt =>
+                  .ForMember(d => d.BodyRegions, opt =>
                       {
                           opt.Condition(s => s.PlanBodyRegionMatrixItems != null);
                           opt.MapFrom(s => s.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
+                      })
+                  .ForMember(d => d.Categories, opt =>
+                      {
+                          opt.Condition(s => s.PlanCategoryMatrixItems != null);
+                          opt.MapFrom(s => s.PlanCategoryMatrixItems.Select(p => p.Category));
                       });
+
             Mapper.CreateMap<PlanDto, Plan>()
                   .ForMember(d => d.PlanExerciseMatrixItems, opt =>
                       {
@@ -111,7 +117,14 @@ namespace SportsWebPt.Platform.ServiceImpl
                       {
                           opt.Condition(s => s.BodyRegions != null);
                           opt.MapFrom(s => s.BodyRegions);
+                      })
+                  .ForMember(d => d.PlanCategoryMatrixItems, opt =>
+                      {
+                          opt.Condition(s => s.Categories != null);
+                          opt.MapFrom(s => s.Categories);
                       });
+            Mapper.CreateMap<String, PlanCategoryMatrixItem>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s));
             Mapper.CreateMap<BodyRegionDto, PlanBodyRegionMatrixItem>()
                   .ForMember(d => d.BodyRegionId, opt => opt.MapFrom(s => s.id));
             Mapper.CreateMap<PlanExerciseDto, PlanExerciseMatrixItem>()

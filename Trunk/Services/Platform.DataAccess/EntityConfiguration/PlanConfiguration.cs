@@ -12,7 +12,6 @@ namespace SportsWebPt.Platform.DataAccess
         public PlanConfiguration()
         {
             ToTable("Plan");
-            Property(p => p.Category).IsRequired().HasColumnName("function_category");
             Property(p => p.Description).HasColumnName("description").IsRequired().HasColumnType("TEXT");
             Property(p => p.Duration).IsRequired().HasColumnName("duration");
             Property(p => p.StructuresInvolved).HasColumnName("structures_used").HasColumnType("TEXT");
@@ -21,6 +20,8 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
             Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
             Property(p => p.Id).IsRequired().HasColumnName("plan_id");
+
+            HasMany(m => m.PlanCategoryMatrixItems).WithRequired(r => r.Plan).HasForeignKey(fk => fk.PlanId);
         }
 
         #endregion

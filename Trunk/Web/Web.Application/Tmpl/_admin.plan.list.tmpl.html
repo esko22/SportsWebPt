@@ -4,11 +4,8 @@
             <div class="col-md-6">
                 <label><strong>Name: </strong><span data-bind="text: routineName"></span></label>
             </div>
-            <div class="col-md-5">
-                <label><strong>Category: </strong><span data-bind="text: category"></span></label>
-            </div>
-            <div class="col-md-1 pull-right">
-                <button class="btn-danger" data-bind="click: $parent.editPlan">Edit</button>
+            <div class="col-md-6">
+                <button class="btn-danger pull-right" data-bind="click: $parent.editPlan">Edit</button>
             </div>
         </div>
         <div class="row">
@@ -40,6 +37,24 @@
         <div class="row">
             <div class="col-md-6">
                 <div>
+                    <label><strong>Category: </strong></label>
+                    <ul data-bind="foreach: categories">
+                        <li data-bind="text: $data"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <label><strong>BodyRegions: </strong></label>
+                    <ul data-bind="foreach: bodyRegions">
+                        <li data-bind="text: name"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
                     <label><strong>Exercises: </strong></label>
                     <table class="table table-striped">
                         <thead>
@@ -63,14 +78,6 @@
                             </tr>
                         </tbody>            
                     </table>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div>
-                    <label><strong>BodyRegions: </strong></label>
-                    <ul data-bind="foreach: bodyRegions">
-                        <li data-bind="text: name"></li>
-                    </ul>
                 </div>
             </div>
         </div>

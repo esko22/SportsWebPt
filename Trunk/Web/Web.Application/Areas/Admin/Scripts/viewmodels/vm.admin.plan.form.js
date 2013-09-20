@@ -7,7 +7,7 @@
             availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
             selectedPlan = new PlanModel(),
             routineName = kb.observable(selectedPlan, 'routineName'),
-            category = kb.observable(selectedPlan, 'category'),
+            categories = kb.observable(selectedPlan, 'categories'),
             description = kb.observable(selectedPlan, 'description'),
             duration = kb.observable(selectedPlan, 'duration'),
             tags = kb.observable(selectedPlan, 'tags'),
@@ -82,7 +82,7 @@
                 selectedPlan.set('description', data.model().get('description'));
                 selectedPlan.set('instructions', data.model().get('instructions'));
                 selectedPlan.set('duration', data.model().get('duration'));
-                selectedPlan.set('category', data.model().get('category'));
+                selectedPlan.set('categories', data.model().get('categories'));
                 selectedPlan.set('tags', data.model().get('tags'));
                 selectedPlan.set('pageName', data.model().get('pageName'));
                 selectedPlan.set('structuresInvolved', data.model().get('structuresInvolved'));
@@ -190,7 +190,6 @@
                     availableBodyRegions: availableBodyRegions,
                     availableCategories: availableCategories,
                     routineName: routineName,
-                    category: category,
                     description: description,
                     duration: duration,
                     exercises: exercises,
@@ -207,7 +206,8 @@
                     init: init,
                     rangeValues: rangeValues,
                     instructions: instructions,
-                    holdTypes : config.holdTypes
+                    holdTypes: config.holdTypes,
+                    categories: categories
                 };
 
     });

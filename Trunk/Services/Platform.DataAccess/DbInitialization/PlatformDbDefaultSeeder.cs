@@ -60,6 +60,7 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateInjuryBodyRegion(injuries, regions);
             AssociateBodyPartsToExercise(components,exercises);
             AssociateEquipmentToVendor(equipment,vendors);
+            AssociatePlanCategories(plans);
 
             AddUserFavorites(users, videos, plans, injuries, exercises);
         }
@@ -160,7 +161,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
                             StructuresInvolved = "Plantar Fascia, Gastroc/Soleus",
-                            Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Swelling",
                             PageName = "Plantar-Fascia-Rehab-1",
                             Instructions = "Do some shit"
@@ -171,7 +171,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
                             StructuresInvolved = "Ankle Joint/Ligaments, Soleus",
-                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "Sprained-Ankle-Stretching",
                             Instructions = "Do some shit"
@@ -182,7 +181,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
                             StructuresInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
-                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "General-Shin-Splint-Stretching",
                             Instructions = "Do some shit"
@@ -193,7 +191,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
                             StructuresInvolved = "Soleus",
-                            Category = FunctionCategory.Stretching,
                             Tags = "Pain, Weakness",
                             PageName = "Soleus-Stretching",
                             Instructions = "Do some shit"
@@ -204,7 +201,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
                             StructuresInvolved = "Gastrocnemius, Soleus, Hamstrings",
-                            Category = FunctionCategory.Rehabilitation,
                             Tags = "Pain, Tingle",
                             PageName = "Calf-Strain-Rehab",
                             Instructions = "Do some shit"
@@ -264,6 +260,14 @@ namespace SportsWebPt.Platform.DataAccess
             var exerciseCategories = exercises.Select(exercise => new ExerciseCategoryMatrixItem() {Category = FunctionCategory.Balance, Exercise = exercise}).ToList();
 
             exerciseCategories.ForEach(e => _dbContext.ExerciseCategoryMatrixItems.Add(e));
+            _dbContext.SaveChanges();
+        }
+
+        private void AssociatePlanCategories(IEnumerable<Plan> plans)
+        {
+            var planCategories = plans.Select(plan => new PlanCategoryMatrixItem() { Category = FunctionCategory.Balance, Plan = plan }).ToList();
+
+            planCategories.ForEach(e => _dbContext.PlanCategoryMatrixItems.Add(e));
             _dbContext.SaveChanges();
         }
 

@@ -65,6 +65,7 @@
     <Compile Include="Models\BodyRegion.cs" />
     <Compile Include="Models\Cause.cs" />
     <Compile Include="Models\PlanBodyRegionMatrixItem.cs" />
+    <Compile Include="Models\PlanCategoryMatrixItem.cs" />
     <Compile Include="Models\Side.cs" />
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\Sign.cs" />

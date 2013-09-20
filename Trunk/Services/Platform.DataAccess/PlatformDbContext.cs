@@ -43,6 +43,7 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<ExerciseBodyPartMatrixItem> ExerciseBodyPartMatrixItems { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<ExerciseCategoryMatrixItem> ExerciseCategoryMatrixItems { get; set; }
+        public DbSet<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; } 
 
         #endregion
 
@@ -99,6 +100,7 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ExerciseBodyPartMatrixConfiguration());
             modelBuilder.Configurations.Add(new VendorConfiguration());
             modelBuilder.Configurations.Add(new ExerciseCategoryMatrixConfiguration());
+            modelBuilder.Configurations.Add(new PlanCategoryMatrixConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

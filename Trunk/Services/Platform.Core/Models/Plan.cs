@@ -9,8 +9,6 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public FunctionCategory Category { get; set; }
-
         public String RoutineName { get; set; }
 
         public String Description { get; set; }
@@ -24,6 +22,8 @@ namespace SportsWebPt.Platform.Core.Models
         public String PageName { get; set; }
 
         public String Tags { get; set; }
+
+        public ICollection<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; } 
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 

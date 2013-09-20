@@ -32,6 +32,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
         public IRepository<SymptomMatrixItem> SymptomMatrixRepo { get { return GetStandardRepo<SymptomMatrixItem>(); } }
         public IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get { return GetStandardRepo<ExerciseCategoryMatrixItem>(); } }
+        public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
 
         #endregion
 
@@ -146,11 +147,24 @@ namespace SportsWebPt.Platform.DataAccess
         public void UpdatePlan(Plan plan)
         {
             var planInDb =
-                PlanRepo.GetAll(new[] { "PlanExerciseMatrixItems", "PlanBodyRegionMatrixItems" })
+                PlanRepo.GetAll(new[] { "PlanExerciseMatrixItems", "PlanBodyRegionMatrixItems", "PlanCategoryMatrixItems" })
                             .SingleOrDefault(p => p.Id == plan.Id);
 
             if (planInDb == null)
                 throw new ArgumentNullException("plan id", "plan does not exist");
+
+            var deletedCategories = planInDb.PlanCategoryMatrixItems.Except(
+                plan.PlanCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            var planCategories = plan.PlanCategoryMatrixItems.Except(
+                planInDb.PlanCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            deletedCategories.ForEach(e => PlanCategoryRepo.Delete(e));
+            planCategories.ForEach(e =>
+            {
+                e.PlanId = plan.Id;
+                PlanCategoryRepo.Add(e);
+            });
 
             var deletedExercises = planInDb.PlanExerciseMatrixItems.Except(
                 plan.PlanExerciseMatrixItems, (item, matrixItem) => item.ExerciseId == matrixItem.ExerciseId).ToList();
@@ -292,6 +306,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Injury> InjuryRepo { get; } 
         IPlanRepo PlanRepo { get; }
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
+        IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }
 
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);

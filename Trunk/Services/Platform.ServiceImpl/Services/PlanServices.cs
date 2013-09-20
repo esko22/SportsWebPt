@@ -35,6 +35,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                      "PlanExerciseMatrixItems.Exercise",
                      "PlanBodyRegionMatrixItems",
                      "PlanBodyRegionMatrixItems.BodyRegion",
+                     "PlanCategoryMatrixItems"
                     });
 
 
@@ -79,6 +80,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                                     "PlanExerciseMatrixItems.Exercise",
                                     "PlanBodyRegionMatrixItems",
                                     "PlanBodyRegionMatrixItems.BodyRegion",
+                                     "PlanCategoryMatrixItems"
                                 }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             if (planEntity == null)

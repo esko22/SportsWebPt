@@ -13,7 +13,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
-        public String category { get; set; }
+        public String[] categories { get; set; }
 
         public String routineName { get; set; }
 
