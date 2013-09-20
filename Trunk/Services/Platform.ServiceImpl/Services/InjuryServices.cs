@@ -45,7 +45,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Side",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Orientation"
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Orientation",
+                        "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
                     });
 
             Mapper.Map(results, responseList);
@@ -77,7 +78,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     {
                         "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
                         "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion"
+                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion","InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItem"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<InjuryDto>() { Resource = Mapper.Map<InjuryDto>(injury) });

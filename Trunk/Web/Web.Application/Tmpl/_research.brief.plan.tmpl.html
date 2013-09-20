@@ -1,7 +1,7 @@
 ﻿<div class="panel panel-default examine-report-workout-accord">
     <div class="panel-heading">
         <a class="href-no-underline" data-toggle="collapse" data-parent="#brief-plan-accordion" data-bind="attr: { href: '#brief-plan-' + id() }" >
-            <span data-bind="text: ' ' + routineName() + ' | ' + category()" class="research-accordian-icon" data-icon="&#xe001;" />
+            <span data-bind="text: ' ' + routineName()" class="research-accordian-icon" data-icon="&#xe001;" />
             <span class="glyphicon glyphicon-chevron-down pull-right research-accordian-icon" ></span>
         </a>
     </div>
@@ -12,7 +12,10 @@
                         <label><strong>Name: </strong><span data-bind="text: routineName"></span></label>
                     </div>
                     <div class="col-md-3">
-                        <label><strong>Category: </strong><span data-bind="text: category"></span></label>
+                        <label><strong>Categories: </strong></label>
+                        <ul data-bind="foreach: categories">
+                            <li data-bind="text: $data"></li>
+                        </ul>
                     </div>
                     <div class="col-md-3">
                         <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>

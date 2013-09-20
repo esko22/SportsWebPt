@@ -23,6 +23,7 @@ namespace SportsWebPt.Platform.DataAccess
             //TODO: investigate why I cant do both joins to equip and video in one query
             return DbSet
                 .Include("PlanExerciseMatrixItems")
+                .Include("PlanCategoryMatrixItems")
                 .Include("PlanExerciseMatrixItems.Exercise")
                 .SingleOrDefault(w => w.Id == planId);
         }

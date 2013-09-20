@@ -37,7 +37,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             var potentialInjuryDtos = new List<PotentialInjuryDto>();
             //TODO: this is tuurible... have to go back to get inlcudes cuz I cant figure out how to cleanly get it above yet
             var potentialInjuries =
-                DiffDiagUnitOfWork.InjuryRepo.GetAll(new[] { "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems", 
+                DiffDiagUnitOfWork.InjuryRepo.GetAll(new[] { "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems", "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems",
                                                              "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause" })
                                   .Where(p => distinctPotentialInjuries.Contains(p));
             
