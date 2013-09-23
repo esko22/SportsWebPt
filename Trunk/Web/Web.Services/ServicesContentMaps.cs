@@ -88,9 +88,9 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Equipment, EquipmentDto>()
                   .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
             Mapper.CreateMap<VideoDto, Video>()
-                  .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
+                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
             Mapper.CreateMap<Video, VideoDto>()
-                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
+                  .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<SignDto, Sign>();
             Mapper.CreateMap<Cause, CauseDto>();

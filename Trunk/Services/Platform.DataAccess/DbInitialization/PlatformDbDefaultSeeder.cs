@@ -61,7 +61,7 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateBodyPartsToExercise(components,exercises);
             AssociateEquipmentToVendor(equipment,vendors);
             AssociatePlanCategories(plans);
-
+            AssociateVideoCategory(videos);
             AddUserFavorites(users, videos, plans, injuries, exercises);
         }
 
@@ -275,17 +275,25 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var videos = new List<Video>()
                 {
-                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", MedicalName = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", MedicalName = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", MedicalName = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", MedicalName = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes", Category = FunctionCategory.Strengthing},
-                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", MedicalName = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself", Category = FunctionCategory.Strengthing}
+                    new Video() {CreationDate = DateTime.Now, Name = "Calf Raises", MedicalName = "Calf Raises", Filename = "SWPT_Template.m4v", Description = "How to raise your calfs"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Shin Stretch", MedicalName = "Shin Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your shins"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Ankle Strength", MedicalName = "Ankle Strength", Filename = "SWPT_Template.m4v", Description = "How to strengthen your ankles"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Toe Stretch", MedicalName = "Toe Stretch", Filename = "SWPT_Template.m4v", Description = "How to strech your toes"},
+                    new Video() {CreationDate = DateTime.Now, Name = "Heel self message", MedicalName = "Heel self message", Filename = "SWPT_Template.m4v", Description = "How to touch yourself"}
                 };
 
             videos.ForEach(p => _dbContext.Videos.Add(p));
             _dbContext.SaveChanges();
 
             return videos;
+        }
+
+        private void AssociateVideoCategory(IEnumerable<Video> videos)
+        {
+            var videoCategories = videos.Select(video => new VideoCategoryMatrixItem() { Category = FunctionCategory.Balance, Video = video }).ToList();
+
+            videoCategories.ForEach(e => _dbContext.VideoCategoryMatrixItems.Add(e));
+            _dbContext.SaveChanges();
         }
 
         private void AssociateExerciseVideos(IList<Exercise> exercises, IList<Video> videos)
@@ -722,7 +730,11 @@ namespace SportsWebPt.Platform.DataAccess
                     new SkeletonArea() { Region = regionTypes[16], Orientation = orientations[2], Side = sides[0], CssClassName = "left-calf-back", DisplayName = "Left Calf"},
                     new SkeletonArea() { Region = regionTypes[16], Orientation = orientations[2], Side = sides[1], CssClassName = "right-calf-back", DisplayName = "Right Calf"},
                     new SkeletonArea() { Region = regionTypes[17], Orientation = orientations[2], Side = sides[0], CssClassName = "left-heel-back", DisplayName = "Left Heel and Ankle"},
-                    new SkeletonArea() { Region = regionTypes[17], Orientation = orientations[2], Side = sides[1], CssClassName = "right-heel-back", DisplayName = "Right Heel and Ankle"}
+                    new SkeletonArea() { Region = regionTypes[17], Orientation = orientations[2], Side = sides[1], CssClassName = "right-heel-back", DisplayName = "Right Heel and Ankle"},
+                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[2], Side = sides[0], CssClassName = "left-knee-back", DisplayName = "Back Left Knee"},
+                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[2], Side = sides[1], CssClassName = "right-knee-back", DisplayName = "Back Right Knee"},
+                    new SkeletonArea() { Region = regionTypes[2], Orientation = orientations[2], Side = sides[0], CssClassName = "left-shoulder-back", DisplayName = "Back Left Shoulder"},
+                    new SkeletonArea() { Region = regionTypes[2], Orientation = orientations[2], Side = sides[1], CssClassName = "right-shoulder-back", DisplayName = "Back Right Shoulder"}
                     };
 
             areas.ForEach(u => _dbContext.SkeletonAreas.Add(u));
@@ -785,9 +797,10 @@ namespace SportsWebPt.Platform.DataAccess
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[25], BodyPart = bodyParts[28] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[26], BodyPart = bodyParts[28] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[27], BodyPart = bodyParts[29] });
-            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[27], BodyPart = bodyParts[30] });
+            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[28], BodyPart = bodyParts[30] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[28], BodyPart = bodyParts[31] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[29], BodyPart = bodyParts[31] });
+            bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[29], BodyPart = bodyParts[30] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[28], BodyPart = bodyParts[32] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[29], BodyPart = bodyParts[32] });
             bodyPartMatrixItems.Add(new BodyPartMatrixItem() { SkeletonArea = areas[30], BodyPart = bodyParts[33] });

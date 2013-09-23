@@ -18,7 +18,9 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(100);
             Property(p => p.MedicalName).HasColumnName("medical_name").HasMaxLength(100);
             Property(p => p.Id).IsRequired().HasColumnName("video_id");
-            Property(p => p.Category).IsRequired().HasColumnName("function_category");
+
+            HasMany(m => m.VideoCategoryMatrixItems).WithRequired(r => r.Video).HasForeignKey(fk => fk.VideoId);
+
         }
 
         #endregion

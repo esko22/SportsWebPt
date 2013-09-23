@@ -8,9 +8,8 @@
             selectedVideo = kb.viewModel(new VideoModel()),
             availableCategories = config.functionCategories,
             bindSelectedVideo = function (data, event) {
-                var category = data.model().get('category');
                 selectedVideo.model(data.model());
-                selectedVideo.category(category);
+                selectedVideo.categories(data.categories());
             },
             onSuccessfulChange = function () {
                 selectedVideo.model(new VideoModel());

@@ -21,11 +21,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String YoutubeVideoId { get; set; }
 
-        public FunctionCategory Category { get; set; }
-
         public ICollection<ExerciseVideoMatrixItem> ExerciseVideoMatrixItems { get; set; }
 
-        public ICollection<User> Users { get; set; } 
+        public ICollection<User> Users { get; set; }
+
+        public ICollection<VideoCategoryMatrixItem> VideoCategoryMatrixItems { get; set; } 
 
         #endregion
     }

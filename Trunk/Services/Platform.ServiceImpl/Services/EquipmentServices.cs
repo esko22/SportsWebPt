@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack.Infrastructure;
@@ -23,7 +24,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public override object OnGet(EquipmentListRequest request)
         {
             var responseList = new List<EquipmentDto>();
-            Mapper.Map(ResearchUnitOfWork.EquipmentRepo.GetAll(), responseList);
+            Mapper.Map(ResearchUnitOfWork.EquipmentRepo.GetAll().OrderBy(p => p.CommonName), responseList);
 
             return
                 Ok(new ListResponse<EquipmentDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

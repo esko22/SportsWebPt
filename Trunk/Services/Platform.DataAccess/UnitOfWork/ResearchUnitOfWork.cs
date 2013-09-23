@@ -33,6 +33,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<SymptomMatrixItem> SymptomMatrixRepo { get { return GetStandardRepo<SymptomMatrixItem>(); } }
         public IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get { return GetStandardRepo<ExerciseCategoryMatrixItem>(); } }
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
+        public IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get { return GetStandardRepo<VideoCategoryMatrixItem>(); } }
 
         #endregion
 
@@ -197,6 +198,35 @@ namespace SportsWebPt.Platform.DataAccess
 
             Commit();
         }
+
+
+        public void UpdateVideo(Video video)
+        {
+            var videoInDb =
+                VideoRepo.GetAll(new[] { "VideoCategoryMatrixItems" })
+                            .SingleOrDefault(p => p.Id == video.Id);
+
+            if (videoInDb == null)
+                throw new ArgumentNullException("video id", "video id does not exist");
+
+            var deletedCategories = videoInDb.VideoCategoryMatrixItems.Except(
+                video.VideoCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            var addedCategories = video.VideoCategoryMatrixItems.Except(
+                videoInDb.VideoCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
+
+            deletedCategories.ForEach(e => VideoCategoryRepo.Delete(e));
+            addedCategories.ForEach(e =>
+            {
+                e.VideoId = video.Id;
+                VideoCategoryRepo.Add(e);
+            });
+
+            var videoEntry = _context.Entry(videoInDb);
+            videoEntry.CurrentValues.SetValues(video);
+
+            Commit();
+        }
         
         public void UpdateInjury(Injury injury)
         {
@@ -307,10 +337,12 @@ namespace SportsWebPt.Platform.DataAccess
         IPlanRepo PlanRepo { get; }
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }
+        IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get; }
 
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);
         void UpdateInjury(Injury injury);
+        void UpdateVideo(Video video);
         void MapSymptomMatrixItems(Injury injury);
     }
 }

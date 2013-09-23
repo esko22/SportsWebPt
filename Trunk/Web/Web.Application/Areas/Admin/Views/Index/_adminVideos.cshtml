@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label class="control-label col-lg-4" for="inputCategory">Category</label>
                             <div class="col-lg-8">
-                                <select id="inputCategory" class="form-control" name="category" data-bind="options: availableCategories, value: selectedVideo.category" >
+                                <select id="inputCategory" class="form-control" name="category" multiple="multiple" size="8" data-bind="options: availableCategories, selectedOptions: selectedVideo.categories" >
                                 </select>
                             </div>
                         </div>

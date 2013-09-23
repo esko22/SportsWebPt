@@ -28,8 +28,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
                     {
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems"
-                    }), responseList);
+                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
+                    }).OrderBy(p => p.Name), responseList);
 
             return
                 Ok(new ListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -57,7 +57,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                                : ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
                     {
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems"
+                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
             return Ok(new ApiResponse<ExerciseDto>() {Resource = Mapper.Map<ExerciseDto>(exercise)});
 

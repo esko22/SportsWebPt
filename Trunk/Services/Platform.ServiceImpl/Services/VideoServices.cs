@@ -23,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public override object OnGet(VideoListRequest request)
         {
             var responseList = new List<VideoDto>();
-            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll(), responseList);
+            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll(new [] { "VideoCategoryMatrixItems" }), responseList);
 
             return
                 Ok(new ListResponse<VideoDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -62,10 +62,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             Check.Argument.IsNotNull(request.Resource, "VideoDto");
 
-            var video = Mapper.Map<Video>(request.Resource);
-
-            ResearchUnitOfWork.VideoRepo.Update(video);
-            ResearchUnitOfWork.Commit();
+            ResearchUnitOfWork.UpdateVideo(Mapper.Map<Video>(request.Resource));
 
             return Ok(new ApiResponse<VideoDto>(request.Resource));
         }

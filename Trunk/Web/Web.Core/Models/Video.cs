@@ -20,7 +20,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String youtubeVideoId { get; set; }
 
-        public string category { get; set; }
+        public string[] categories { get; set; }
 
         #endregion
     }

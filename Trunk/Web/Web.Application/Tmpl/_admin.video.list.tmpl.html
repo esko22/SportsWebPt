@@ -13,7 +13,12 @@
                 <label><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></label>
             </div>
             <div class="col-md-6">
-                <label><strong>Category: </strong><span data-bind="text: category"></span></label>
+                <div>
+                    <label><strong>Category: </strong></label>
+                    <ul data-bind="foreach: categories">
+                        <li data-bind="text: $data"></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="row">

@@ -82,6 +82,7 @@
     <Compile Include="Models\Plan.cs" />
     <Compile Include="Models\FunctionCategory.cs" />
     <Compile Include="Models\PlanExerciseMatrixItem.cs" />
+    <Compile Include="Models\VideoCategoryMatrixItem.cs" />
     <Compile Include="PlatformServiceConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

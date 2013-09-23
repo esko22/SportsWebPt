@@ -30,7 +30,7 @@ namespace SportsWebPt.Platform.ServiceModels
         public String YoutubeVideoId { get; set; }
 
         [DataMember]
-        public String Category { get; set; }
+        public String[] Categories { get; set; }
 
         #endregion
     }

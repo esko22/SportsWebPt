@@ -36,14 +36,14 @@ namespace SportsWebPt.Platform.ServiceImpl
                      "PlanBodyRegionMatrixItems",
                      "PlanBodyRegionMatrixItems.BodyRegion",
                      "PlanCategoryMatrixItems"
-                    });
+                    }).OrderBy(p => p.RoutineName);
 
 
 
             var exerciseIds = plans.SelectMany(p => p.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 
-                                                               "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video" })
+                                                               "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
             foreach (var planExercise in plans.SelectMany(p => p.PlanExerciseMatrixItems))
@@ -89,7 +89,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             var exerciseIds = planEntity.PlanExerciseMatrixItems.Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 
-                                                               "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video" })
+                                                               "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
             foreach (var planExercise in planEntity.PlanExerciseMatrixItems)

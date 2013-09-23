@@ -37,7 +37,7 @@ define('model.admin.video', ['backbone', 'config', 'jquery'],
                     'filename': '',
                     'youtubeVideoId': '',
                     'creationDate': '',
-                    'category' : ''
+                    'categories' : ''
                 }
             });
 

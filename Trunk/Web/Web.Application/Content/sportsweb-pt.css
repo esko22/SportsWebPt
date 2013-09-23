@@ -186,6 +186,20 @@ ul#skeleton li {
     left: 133px;
 }
 
+#left-shoulder-back{
+    width: 60px;
+    height: 43px;
+    top: 95px;
+    left: 478px;
+}
+
+#right-shoulder-back{
+    width: 60px;
+    height: 43px;
+    top: 95px;
+    left: 596px;
+}
+
 #left-arm-front{
     width: 37px;
     height: 50px;
@@ -291,6 +305,20 @@ ul#skeleton li {
     left: 155px;
 }
 
+#left-knee-back {
+    width: 43px;
+    height: 48px;
+    top: 380px;
+    left: 506px;
+}
+
+#right-knee-back {
+    width: 43px;
+    height: 48px;
+    top: 380px;
+    left: 585px;
+}
+
 #left-shin-front {
     width: 44px;
     height: 77px;
@@ -327,10 +355,10 @@ ul#skeleton li {
 }
 
 #mid-back-back {
-    width: 117px;
+    width: 80px;
     height: 62px;
     top: 101px;
-    left: 508px;
+    left: 528px;
 }
 
 #left-arm-back {
