@@ -56,6 +56,17 @@ namespace SportsWebPt.Platform.Web.Services
             return response.Resource.id;
         }
 
+        public void AddFavorite(UserFavorite userFavorite)
+        {
+            var userFavResuest = new ApiResourceRequest<UserFavoriteDto>
+            {
+                Resource = Mapper.Map<UserFavoriteDto>(userFavorite)
+            };
+
+            var response =
+                PostSync<ApiResourceRequest<UserFavoriteDto>>(_sportsWebPtClientSettings.UserFavoriteUriPath, userFavResuest);
+        }
+
         public User Auth(string emailAddress, string hash)
         {
             var response =

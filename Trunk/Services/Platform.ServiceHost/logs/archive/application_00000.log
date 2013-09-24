@@ -1,19 +1,136 @@
-09-22-13@16:01:23 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:01:23 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.1833571 
-09-22-13@16:02:48 Info (6)  [Common] BodyPartListRequest request submitted 
-09-22-13@16:03:02 Info (6)  [Common] BodyPartListRequest request completed with duration of 00:00:13.5718570 
-09-22-13@16:03:23 Info (17)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:03:24 Info (17)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.2453386 
-09-22-13@16:24:14 Info (7)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:24:28 Info (7)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:13.9772238 
-09-22-13@16:29:23 Info (19)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:29:23 Info (19)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0428504 
-09-22-13@16:30:58 Info (26)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:30:58 Info (26)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0426308 
-09-22-13@16:50:07 Info (48)  [Common] VideoListRequest request submitted 
-09-22-13@16:50:21 Error (48)  [Common] [VideoListService: 9/22/2013 11:50:21 PM]:
-[REQUEST: {SortDir:Asc}] EXCEPTION OCCURRED:
-09-22-13@16:56:07 Info (16)  [Common] VideoListRequest request submitted 
-09-22-13@16:56:21 Info (16)  [Common] VideoListRequest request completed with duration of 00:00:14.0021110 
-09-22-13@16:59:40 Info (17)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@16:59:41 Info (17)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.1537816 
+09-23-13@21:01:05 Info (13)  [Common] UserRequest request submitted 
+09-23-13@21:01:05 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0049917 
+09-23-13@21:01:05 Info (7)  [Common] InjuryRequest request submitted 
+09-23-13@21:01:05 Info (7)  [Common] InjuryRequest request completed with duration of 00:00:00.1088471 
+09-23-13@21:01:05 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:01:05 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.1150120 
+09-23-13@21:01:05 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:01:05 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0960198 
+09-23-13@21:01:35 Info (13)  [Common] UserRequest request submitted 
+09-23-13@21:01:35 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0054874 
+09-23-13@21:01:35 Info (7)  [Common] InjuryRequest request submitted 
+09-23-13@21:01:35 Info (7)  [Common] InjuryRequest request completed with duration of 00:00:00.1127657 
+09-23-13@21:01:35 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:01:36 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0947510 
+09-23-13@21:01:36 Info (7)  [Common] PlanRequest request submitted 
+09-23-13@21:01:36 Info (7)  [Common] PlanRequest request completed with duration of 00:00:00.0907311 
+09-23-13@21:01:59 Info (6)  [Common] UserRequest request submitted 
+09-23-13@21:01:59 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0049508 
+09-23-13@21:01:59 Info (13)  [Common] InjuryRequest request submitted 
+09-23-13@21:01:59 Info (13)  [Common] InjuryRequest request completed with duration of 00:00:00.0893267 
+09-23-13@21:01:59 Info (10)  [Common] PlanRequest request submitted 
+09-23-13@21:01:59 Info (10)  [Common] PlanRequest request completed with duration of 00:00:00.0882688 
+09-23-13@21:01:59 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:02:00 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0853585 
+09-23-13@21:02:21 Info (20)  [Common] UserRequest request submitted 
+09-23-13@21:02:21 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0052062 
+09-23-13@21:02:21 Info (13)  [Common] InjuryRequest request submitted 
+09-23-13@21:02:21 Info (13)  [Common] InjuryRequest request completed with duration of 00:00:00.1277861 
+09-23-13@21:02:21 Info (20)  [Common] PlanRequest request submitted 
+09-23-13@21:02:21 Info (20)  [Common] PlanRequest request completed with duration of 00:00:00.0899880 
+09-23-13@21:02:21 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:02:21 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0782014 
+09-23-13@21:03:23 Info (20)  [Common] UserRequest request submitted 
+09-23-13@21:03:23 Info (20)  [Common] UserRequest request completed with duration of 00:00:00.0049082 
+09-23-13@21:03:23 Info (6)  [Common] InjuryRequest request submitted 
+09-23-13@21:03:24 Info (6)  [Common] InjuryRequest request completed with duration of 00:00:00.0920790 
+09-23-13@21:03:24 Info (22)  [Common] PlanRequest request submitted 
+09-23-13@21:03:24 Info (22)  [Common] PlanRequest request completed with duration of 00:00:00.1015864 
+09-23-13@21:03:24 Info (20)  [Common] PlanRequest request submitted 
+09-23-13@21:03:24 Info (20)  [Common] PlanRequest request completed with duration of 00:00:00.0853355 
+09-23-13@21:04:14 Info (7)  [Common] UserRequest request submitted 
+09-23-13@21:04:14 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0046393 
+09-23-13@21:04:14 Info (22)  [Common] InjuryRequest request submitted 
+09-23-13@21:04:15 Info (22)  [Common] InjuryRequest request completed with duration of 00:00:00.0883454 
+09-23-13@21:04:15 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:04:15 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0895160 
+09-23-13@21:04:15 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:04:15 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0843141 
+09-23-13@21:04:35 Info (13)  [Common] UserRequest request submitted 
+09-23-13@21:04:35 Info (13)  [Common] UserRequest request completed with duration of 00:00:00.0051923 
+09-23-13@21:04:35 Info (22)  [Common] InjuryRequest request submitted 
+09-23-13@21:04:35 Info (22)  [Common] InjuryRequest request completed with duration of 00:00:00.0899629 
+09-23-13@21:04:35 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:04:36 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0886587 
+09-23-13@21:04:36 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:04:36 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0790856 
+09-23-13@21:04:54 Info (23)  [Common] UserRequest request submitted 
+09-23-13@21:04:54 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0052682 
+09-23-13@21:04:54 Info (7)  [Common] InjuryRequest request submitted 
+09-23-13@21:04:54 Info (7)  [Common] InjuryRequest request completed with duration of 00:00:00.1064158 
+09-23-13@21:04:54 Info (13)  [Common] PlanRequest request submitted 
+09-23-13@21:04:54 Info (13)  [Common] PlanRequest request completed with duration of 00:00:00.0946347 
+09-23-13@21:04:54 Info (7)  [Common] PlanRequest request submitted 
+09-23-13@21:04:54 Info (7)  [Common] PlanRequest request completed with duration of 00:00:00.0826799 
+09-23-13@21:06:00 Info (7)  [Common] UserRequest request submitted 
+09-23-13@21:06:00 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0046769 
+09-23-13@21:06:00 Info (19)  [Common] InjuryRequest request submitted 
+09-23-13@21:06:00 Info (19)  [Common] InjuryRequest request completed with duration of 00:00:00.0969952 
+09-23-13@21:06:00 Info (7)  [Common] PlanRequest request submitted 
+09-23-13@21:06:00 Info (7)  [Common] PlanRequest request completed with duration of 00:00:00.1065059 
+09-23-13@21:06:00 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:06:00 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0864386 
+09-23-13@21:08:32 Info (6)  [Common] UserRequest request submitted 
+09-23-13@21:08:32 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0045434 
+09-23-13@21:08:32 Info (19)  [Common] InjuryRequest request submitted 
+09-23-13@21:08:32 Info (19)  [Common] InjuryRequest request completed with duration of 00:00:00.1042990 
+09-23-13@21:08:32 Info (25)  [Common] PlanRequest request submitted 
+09-23-13@21:08:32 Info (25)  [Common] PlanRequest request completed with duration of 00:00:00.0945373 
+09-23-13@21:08:32 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:08:32 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0879839 
+09-23-13@21:08:52 Info (19)  [Common] UserRequest request submitted 
+09-23-13@21:08:52 Info (19)  [Common] UserRequest request completed with duration of 00:00:00.0047852 
+09-23-13@21:08:52 Info (6)  [Common] InjuryRequest request submitted 
+09-23-13@21:08:52 Info (6)  [Common] InjuryRequest request completed with duration of 00:00:00.0906862 
+09-23-13@21:08:52 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:08:52 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0995958 
+09-23-13@21:08:52 Info (25)  [Common] PlanRequest request submitted 
+09-23-13@21:08:53 Info (25)  [Common] PlanRequest request completed with duration of 00:00:00.0893223 
+09-23-13@21:09:18 Info (7)  [Common] UserRequest request submitted 
+09-23-13@21:09:18 Info (7)  [Common] UserRequest request completed with duration of 00:00:00.0051533 
+09-23-13@21:09:18 Info (26)  [Common] InjuryRequest request submitted 
+09-23-13@21:09:18 Info (26)  [Common] InjuryRequest request completed with duration of 00:00:00.0851127 
+09-23-13@21:09:18 Info (7)  [Common] PlanRequest request submitted 
+09-23-13@21:09:18 Info (7)  [Common] PlanRequest request completed with duration of 00:00:00.0896648 
+09-23-13@21:09:18 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:09:18 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.1015386 
+09-23-13@21:09:46 Info (23)  [Common] UserRequest request submitted 
+09-23-13@21:09:46 Info (23)  [Common] UserRequest request completed with duration of 00:00:00.0063440 
+09-23-13@21:09:46 Info (6)  [Common] InjuryRequest request submitted 
+09-23-13@21:09:46 Info (6)  [Common] InjuryRequest request completed with duration of 00:00:00.0913352 
+09-23-13@21:09:46 Info (26)  [Common] PlanRequest request submitted 
+09-23-13@21:09:46 Info (26)  [Common] PlanRequest request completed with duration of 00:00:00.1717151 
+09-23-13@21:09:46 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:09:46 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0822797 
+09-23-13@21:10:50 Info (6)  [Common] UserRequest request submitted 
+09-23-13@21:10:50 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0051675 
+09-23-13@21:10:50 Info (25)  [Common] InjuryRequest request submitted 
+09-23-13@21:10:50 Info (25)  [Common] InjuryRequest request completed with duration of 00:00:00.0881229 
+09-23-13@21:10:50 Info (23)  [Common] PlanRequest request submitted 
+09-23-13@21:10:50 Info (23)  [Common] PlanRequest request completed with duration of 00:00:00.1013668 
+09-23-13@21:10:50 Info (26)  [Common] PlanRequest request submitted 
+09-23-13@21:10:50 Info (26)  [Common] PlanRequest request completed with duration of 00:00:00.0808800 
+09-23-13@21:11:06 Info (6)  [Common] UserRequest request submitted 
+09-23-13@21:11:06 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0044310 
+09-23-13@21:11:06 Info (25)  [Common] InjuryRequest request submitted 
+09-23-13@21:11:06 Info (25)  [Common] InjuryRequest request completed with duration of 00:00:00.1029241 
+09-23-13@21:11:06 Info (23)  [Common] PlanRequest request submitted 
+09-23-13@21:11:06 Info (23)  [Common] PlanRequest request completed with duration of 00:00:00.1080730 
+09-23-13@21:11:06 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:11:06 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0790543 
+09-23-13@21:14:59 Info (10)  [Common] UserRequest request submitted 
+09-23-13@21:14:59 Info (10)  [Common] UserRequest request completed with duration of 00:00:00.0064538 
+09-23-13@21:14:59 Info (20)  [Common] InjuryRequest request submitted 
+09-23-13@21:14:59 Info (20)  [Common] InjuryRequest request completed with duration of 00:00:00.0851608 
+09-23-13@21:14:59 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:14:59 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0966198 
+09-23-13@21:14:59 Info (25)  [Common] PlanRequest request submitted 
+09-23-13@21:14:59 Info (25)  [Common] PlanRequest request completed with duration of 00:00:00.0805401 
+09-23-13@21:29:12 Info (6)  [Common] UserRequest request submitted 
+09-23-13@21:29:12 Info (6)  [Common] UserRequest request completed with duration of 00:00:00.0252738 
+09-23-13@21:29:12 Info (27)  [Common] InjuryRequest request submitted 
+09-23-13@21:29:12 Info (27)  [Common] InjuryRequest request completed with duration of 00:00:00.0881590 
+09-23-13@21:29:12 Info (34)  [Common] PlanRequest request submitted 
+09-23-13@21:29:12 Info (34)  [Common] PlanRequest request completed with duration of 00:00:00.0929548 
+09-23-13@21:29:12 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@21:29:12 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0869716 

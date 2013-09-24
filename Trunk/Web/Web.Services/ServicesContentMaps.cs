@@ -97,6 +97,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Sign, SignDto>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>();
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
+            Mapper.CreateMap<UserFavoriteDto, UserFavorite>();
+            Mapper.CreateMap<UserFavorite, UserFavoriteDto>();
 
         }
     }

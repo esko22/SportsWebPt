@@ -1,196 +1,65 @@
-09-22-13@17:00:00 Info (27)  [Common] VideoListRequest request submitted 
-09-22-13@17:00:00 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0130714 
-09-22-13@17:00:08 Info (13)  [Common] VideoListRequest request submitted 
-09-22-13@17:00:08 Info (13)  [Common] VideoListRequest request completed with duration of 00:00:00.0055277 
-09-22-13@17:00:19 Info (13)  [Common] VideoListRequest request submitted 
-09-22-13@17:00:19 Info (13)  [Common] VideoListRequest request completed with duration of 00:00:00.0062376 
-09-22-13@17:02:00 Info (14)  [Common] VideoListRequest request submitted 
-09-22-13@17:02:00 Info (14)  [Common] VideoListRequest request completed with duration of 00:00:00.0075874 
-09-22-13@17:02:26 Info (15)  [Common] VideoListRequest request submitted 
-09-22-13@17:02:26 Info (15)  [Common] VideoListRequest request completed with duration of 00:00:00.0055277 
-09-22-13@17:10:20 Info (27)  [Common] VideoListRequest request submitted 
-09-22-13@17:10:22 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:02.0258019 
-09-22-13@17:11:12 Info (27)  [Common] VideoListRequest request submitted 
-09-22-13@17:11:12 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0060426 
-09-22-13@17:11:23 Info (27)  [Common] VideoListRequest request submitted 
-09-22-13@17:11:23 Info (27)  [Common] VideoListRequest request completed with duration of 00:00:00.0056450 
-09-22-13@17:11:32 Info (36)  [Common] VideoRequest request submitted 
-09-22-13@17:12:09 Error (36)  [Common] [VideoService: 9/23/2013 12:12:09 AM]:
-[REQUEST: {Resource:{Id:0,CreationDate:0001-01-01,Name:fdsfds,MedicalName:fdsfsf,Description:sdsds,Filename:sadasd,Categories:[Stretching,Self_Massage]},IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException Missing type map configuration or unsupported mapping.
-
-Mapping types:
-String -> VideoCategoryMatrixItem
-System.String -> SportsWebPt.Platform.Core.Models.VideoCategoryMatrixItem
-
-Destination path:
-Video.VideoCategoryMatrixItems.VideoCategoryMatrixItems.VideoCategoryMatrixItems0[0]
-
-Source value:
-Stretching System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-09-22-13@17:13:01 Info (30)  [Common] VideoRequest request submitted 
-09-22-13@17:13:03 Info (30)  [Common] VideoRequest request completed with duration of 00:00:01.9810546 
-09-22-13@17:13:03 Info (49)  [Common] VideoListRequest request submitted 
-09-22-13@17:13:03 Info (49)  [Common] VideoListRequest request completed with duration of 00:00:00.0978713 
-09-22-13@17:13:24 Info (35)  [Common] InjuryListRequest request submitted 
-09-22-13@17:13:24 Info (27)  [Common] PlanListRequest request submitted 
-09-22-13@17:13:24 Info (30)  [Common] CauseListRequest request submitted 
-09-22-13@17:13:24 Info (52)  [Common] SignListRequest request submitted 
-09-22-13@17:13:24 Info (50)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:13:24 Info (49)  [Common] BodyPartMatrixListRequest request submitted 
-09-22-13@17:13:24 Info (30)  [Common] CauseListRequest request completed with duration of 00:00:00.0405560 
-09-22-13@17:13:24 Info (52)  [Common] SignListRequest request completed with duration of 00:00:00.0581341 
-09-22-13@17:13:24 Info (50)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0562846 
-09-22-13@17:13:24 Info (52)  [Common] SymptomListRequest request submitted 
-09-22-13@17:13:24 Info (52)  [Common] SymptomListRequest request completed with duration of 00:00:00.0870149 
-09-22-13@17:13:24 Info (49)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.2617088 
-09-22-13@17:13:25 Info (27)  [Common] PlanListRequest request completed with duration of 00:00:00.9253777 
-09-22-13@17:13:25 Info (35)  [Common] InjuryListRequest request completed with duration of 00:00:01.3661124 
-09-22-13@17:13:33 Info (50)  [Common] InjuryRequest request submitted 
-09-22-13@17:13:34 Info (50)  [Common] InjuryRequest request completed with duration of 00:00:00.5494780 
-09-22-13@17:13:34 Info (30)  [Common] InjuryListRequest request submitted 
-09-22-13@17:13:34 Info (30)  [Common] InjuryListRequest request completed with duration of 00:00:00.2956470 
-09-22-13@17:13:38 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@17:13:38 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.1948762 
-09-22-13@17:13:43 Info (30)  [Common] PotentialSymptomListRequest request submitted 
-09-22-13@17:13:43 Info (27)  [Common] PotentialSymptomListRequest request submitted 
-09-22-13@17:13:43 Info (35)  [Common] PotentialSymptomListRequest request submitted 
-09-22-13@17:13:44 Info (30)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0760992 
-09-22-13@17:13:44 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0789027 
-09-22-13@17:13:44 Info (27)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0789398 
-09-22-13@17:13:46 Info (50)  [Common] DifferentialDiagnosisRequest request submitted 
-09-22-13@17:13:46 Info (50)  [Common] DifferentialDiagnosisRequest request completed with duration of 00:00:00.1021095 
-09-22-13@17:13:46 Info (30)  [Common] DiagnosisReportRequest request submitted 
-09-22-13@17:13:47 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.4380149 
-09-22-13@17:13:56 Info (35)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@17:13:57 Info (35)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0395569 
-09-22-13@17:13:58 Info (52)  [Common] DiagnosisReportRequest request submitted 
-09-22-13@17:13:58 Info (52)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0309619 
-09-22-13@17:14:14 Info (30)  [Common] InjuryListRequest request submitted 
-09-22-13@17:14:14 Info (50)  [Common] PlanListRequest request submitted 
-09-22-13@17:14:14 Info (35)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:14:14 Info (47)  [Common] SignListRequest request submitted 
-09-22-13@17:14:14 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0073139 
-09-22-13@17:14:14 Info (47)  [Common] SignListRequest request completed with duration of 00:00:00.0059583 
-09-22-13@17:14:14 Info (48)  [Common] CauseListRequest request submitted 
-09-22-13@17:14:14 Info (52)  [Common] BodyPartMatrixListRequest request submitted 
-09-22-13@17:14:14 Info (48)  [Common] CauseListRequest request completed with duration of 00:00:00.0038994 
-09-22-13@17:14:14 Info (52)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.0550606 
-09-22-13@17:14:14 Info (48)  [Common] SymptomListRequest request submitted 
-09-22-13@17:14:14 Info (48)  [Common] SymptomListRequest request completed with duration of 00:00:00.0028410 
-09-22-13@17:14:14 Info (50)  [Common] PlanListRequest request completed with duration of 00:00:00.4149943 
-09-22-13@17:14:15 Info (30)  [Common] InjuryListRequest request completed with duration of 00:00:00.6409043 
-09-22-13@17:14:58 Info (35)  [Common] PlanListRequest request submitted 
-09-22-13@17:14:59 Info (35)  [Common] PlanListRequest request completed with duration of 00:00:00.5351157 
-09-22-13@17:16:31 Info (50)  [Common] PlanListRequest request submitted 
-09-22-13@17:16:33 Info (50)  [Common] PlanListRequest request completed with duration of 00:00:02.2622680 
-09-22-13@17:17:10 Info (42)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@17:17:11 Info (42)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.2291950 
-09-22-13@17:17:12 Info (35)  [Common] DiagnosisReportRequest request submitted 
-09-22-13@17:17:12 Info (35)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.4672817 
-09-22-13@17:17:26 Info (50)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@17:17:26 Info (50)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0396314 
-09-22-13@17:17:27 Info (12)  [Common] DiagnosisReportRequest request submitted 
-09-22-13@17:17:27 Info (12)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0298245 
-09-22-13@17:17:55 Info (48)  [Common] InjuryListRequest request submitted 
-09-22-13@17:17:55 Info (46)  [Common] PlanListRequest request submitted 
-09-22-13@17:17:55 Info (35)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:17:55 Info (27)  [Common] SignListRequest request submitted 
-09-22-13@17:17:55 Info (52)  [Common] CauseListRequest request submitted 
-09-22-13@17:17:55 Info (12)  [Common] BodyPartMatrixListRequest request submitted 
-09-22-13@17:17:55 Info (52)  [Common] CauseListRequest request completed with duration of 00:00:00.0311074 
-09-22-13@17:17:55 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0492647 
-09-22-13@17:17:55 Info (46)  [Common] PlanListRequest request completed with duration of 00:00:00.0638390 
-09-22-13@17:17:55 Info (46)  [Common] SymptomListRequest request submitted 
-09-22-13@17:17:55 Info (27)  [Common] SignListRequest request completed with duration of 00:00:00.0806265 
-09-22-13@17:17:55 Info (46)  [Common] SymptomListRequest request completed with duration of 00:00:00.0474169 
-09-22-13@17:17:55 Info (12)  [Common] BodyPartMatrixListRequest request completed with duration of 00:00:00.1482891 
-09-22-13@17:17:55 Info (48)  [Common] InjuryListRequest request completed with duration of 00:00:00.6228067 
-09-22-13@17:18:04 Info (42)  [Common] InjuryRequest request submitted 
-09-22-13@17:18:04 Info (42)  [Common] InjuryRequest request completed with duration of 00:00:00.5430039 
-09-22-13@17:18:04 Info (51)  [Common] InjuryListRequest request submitted 
-09-22-13@17:18:04 Info (51)  [Common] InjuryListRequest request completed with duration of 00:00:00.0507033 
-09-22-13@17:18:12 Info (27)  [Common] SymptomaticRegionListRequest request submitted 
-09-22-13@17:18:12 Info (27)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0387117 
-09-22-13@17:18:13 Info (30)  [Common] DiagnosisReportRequest request submitted 
-09-22-13@17:18:13 Info (30)  [Common] DiagnosisReportRequest request completed with duration of 00:00:00.0310618 
-09-22-13@17:18:13 Info (27)  [Common] PlanRequest request submitted 
-09-22-13@17:18:14 Info (27)  [Common] PlanRequest request completed with duration of 00:00:00.1594021 
-09-22-13@17:18:36 Info (42)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:18:36 Info (46)  [Common] InjuryListRequest request submitted 
-09-22-13@17:18:36 Info (27)  [Common] SignListRequest request submitted 
-09-22-13@17:18:36 Info (42)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0066673 
-09-22-13@17:18:36 Info (27)  [Common] SignListRequest request completed with duration of 00:00:00.0070274 
-09-22-13@17:18:36 Info (46)  [Common] InjuryListRequest request completed with duration of 00:00:00.0587106 
-09-22-13@17:18:39 Info (54)  [Common] InjuryRequest request submitted 
-09-22-13@17:18:39 Error (54)  [Common] [InjuryService: 9/23/2013 12:18:39 AM]:
-[REQUEST: {Id:Shin-Splints,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException A specified Include path is not valid. The EntityType 'SportsWebPt.Platform.DataAccess.Plan' does not declare a navigation property with the name 'PlanCategoryMatrixItem'. Void ConvertSpanPath(SpanPathInfo, System.Collections.Generic.List`1[System.String], Int32)
-09-22-13@17:18:42 Info (47)  [Common] SignListRequest request submitted 
-09-22-13@17:18:42 Info (51)  [Common] InjuryListRequest request submitted 
-09-22-13@17:18:42 Info (30)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:18:42 Info (47)  [Common] SignListRequest request completed with duration of 00:00:00.0042970 
-09-22-13@17:18:42 Info (30)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0041805 
-09-22-13@17:18:42 Info (51)  [Common] InjuryListRequest request completed with duration of 00:00:00.0493276 
-09-22-13@17:18:45 Info (27)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:18:45 Info (35)  [Common] PlanListRequest request submitted 
-09-22-13@17:18:45 Info (27)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0069016 
-09-22-13@17:18:45 Info (35)  [Common] PlanListRequest request completed with duration of 00:00:00.0552346 
-09-22-13@17:18:48 Info (46)  [Common] PlanRequest request submitted 
-09-22-13@17:18:48 Info (46)  [Common] PlanRequest request completed with duration of 00:00:00.1231574 
-09-22-13@17:18:54 Info (35)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:18:54 Info (51)  [Common] PlanListRequest request submitted 
-09-22-13@17:18:54 Info (35)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0069475 
-09-22-13@17:18:54 Info (51)  [Common] PlanListRequest request completed with duration of 00:00:00.0577754 
-09-22-13@17:18:58 Info (46)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:18:58 Info (46)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0088417 
-09-22-13@17:18:58 Info (52)  [Common] ExecerciseListRequest request submitted 
-09-22-13@17:18:58 Info (52)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.3778259 
-09-22-13@17:19:21 Info (30)  [Common] ExecerciseListRequest request submitted 
-09-22-13@17:19:21 Info (30)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0470078 
-09-22-13@17:21:22 Info (38)  [Common] ExecerciseListRequest request submitted 
-09-22-13@17:21:25 Info (38)  [Common] ExecerciseListRequest request completed with duration of 00:00:02.3044660 
-09-22-13@17:21:32 Info (34)  [Common] ExecerciseListRequest request submitted 
-09-22-13@17:21:32 Info (51)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:21:32 Info (51)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0272369 
-09-22-13@17:21:32 Info (34)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0346258 
-09-22-13@17:21:34 Info (15)  [Common] ExecerciseRequest request submitted 
-09-22-13@17:21:35 Info (15)  [Common] ExecerciseRequest request completed with duration of 00:00:00.2684449 
-09-22-13@17:21:40 Info (12)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:21:40 Info (46)  [Common] ExecerciseListRequest request submitted 
-09-22-13@17:21:40 Info (12)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0032158 
-09-22-13@17:21:40 Info (46)  [Common] ExecerciseListRequest request completed with duration of 00:00:00.0320899 
-09-22-13@17:21:43 Info (20)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:21:43 Info (46)  [Common] InjuryListRequest request submitted 
-09-22-13@17:21:43 Info (20)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0066615 
-09-22-13@17:21:43 Info (22)  [Common] SignListRequest request submitted 
-09-22-13@17:21:43 Info (22)  [Common] SignListRequest request completed with duration of 00:00:00.0319007 
-09-22-13@17:21:43 Info (46)  [Common] InjuryListRequest request completed with duration of 00:00:00.6677463 
-09-22-13@17:21:48 Info (46)  [Common] InjuryRequest request submitted 
-09-22-13@17:21:48 Error (46)  [Common] [InjuryService: 9/23/2013 12:21:48 AM]:
-[REQUEST: {Id:Calf-Strain,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException A specified Include path is not valid. The EntityType 'SportsWebPt.Platform.DataAccess.Plan' does not declare a navigation property with the name 'PlanCategoryMatrixItem'. Void ConvertSpanPath(SpanPathInfo, System.Collections.Generic.List`1[System.String], Int32)
-09-22-13@17:22:07 Info (18)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:22:07 Info (22)  [Common] InjuryListRequest request submitted 
-09-22-13@17:22:07 Info (18)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0027036 
-09-22-13@17:22:07 Info (15)  [Common] SignListRequest request submitted 
-09-22-13@17:22:07 Info (15)  [Common] SignListRequest request completed with duration of 00:00:00.0027705 
-09-22-13@17:22:07 Info (22)  [Common] InjuryListRequest request completed with duration of 00:00:00.2611270 
-09-22-13@17:22:08 Info (38)  [Common] BodyRegionListRequest request submitted 
-09-22-13@17:22:08 Info (35)  [Common] SignListRequest request submitted 
-09-22-13@17:22:08 Info (38)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0038405 
-09-22-13@17:22:08 Info (38)  [Common] InjuryListRequest request submitted 
-09-22-13@17:22:08 Info (35)  [Common] SignListRequest request completed with duration of 00:00:00.0037227 
-09-22-13@17:22:09 Info (38)  [Common] InjuryListRequest request completed with duration of 00:00:00.2728138 
-09-22-13@17:22:11 Info (51)  [Common] InjuryRequest request submitted 
-09-22-13@17:22:19 Error (51)  [Common] [InjuryService: 9/23/2013 12:22:19 AM]:
-[REQUEST: {Id:Calf-Strain,IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.InvalidOperationException A specified Include path is not valid. The EntityType 'SportsWebPt.Platform.DataAccess.Plan' does not declare a navigation property with the name 'PlanCategoryMatrixItem'. Void ConvertSpanPath(SpanPathInfo, System.Collections.Generic.List`1[System.String], Int32)
-09-22-13@17:22:37 Info (34)  [Common] InjuryRequest request submitted 
-09-22-13@17:22:39 Info (34)  [Common] InjuryRequest request completed with duration of 00:00:02.1836400 
-09-22-13@17:22:39 Info (22)  [Common] PlanRequest request submitted 
-09-22-13@17:22:40 Info (22)  [Common] PlanRequest request completed with duration of 00:00:00.3425625 
-09-22-13@17:29:54 Info (47)  [Common] VideoListRequest request submitted 
-09-22-13@17:29:56 Info (47)  [Common] VideoListRequest request completed with duration of 00:00:01.8727815 
-09-22-13@17:30:03 Info (30)  [Common] VideoRequest request submitted 
-09-22-13@17:30:03 Info (30)  [Common] VideoRequest request completed with duration of 00:00:00.1462477 
-09-22-13@17:30:03 Info (22)  [Common] VideoListRequest request submitted 
-09-22-13@17:30:03 Info (22)  [Common] VideoListRequest request completed with duration of 00:00:00.0056638 
-09-22-13@17:30:06 Info (29)  [Common] VideoListRequest request submitted 
-09-22-13@17:30:06 Info (29)  [Common] VideoListRequest request completed with duration of 00:00:00.0059096 
+09-23-13@22:00:45 Info (7)  [Common] InjuryRequest request submitted 
+09-23-13@22:00:50 Info (7)  [Common] InjuryRequest request completed with duration of 00:00:04.8536403 
+09-23-13@22:00:51 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@22:00:51 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.6985594 
+09-23-13@22:00:52 Info (8)  [Common] PlanRequest request submitted 
+09-23-13@22:00:52 Info (8)  [Common] PlanRequest request completed with duration of 00:00:00.1011921 
+09-23-13@22:24:49 Info (5)  [Common] UserRequest request submitted 
+09-23-13@22:24:53 Info (5)  [Common] UserRequest request completed with duration of 00:00:03.5987082 
+09-23-13@22:24:54 Info (9)  [Common] UserRequest request submitted 
+09-23-13@22:24:54 Info (9)  [Common] UserRequest request completed with duration of 00:00:00.0334246 
+09-23-13@22:24:54 Info (8)  [Common] InjuryRequest request submitted 
+09-23-13@22:24:55 Info (8)  [Common] InjuryRequest request completed with duration of 00:00:01.8340378 
+09-23-13@22:24:56 Info (5)  [Common] PlanRequest request submitted 
+09-23-13@22:25:05 Info (5)  [Common] PlanRequest request completed with duration of 00:00:09.1027329 
+09-23-13@22:25:05 Info (6)  [Common] PlanRequest request submitted 
+09-23-13@22:25:05 Info (6)  [Common] PlanRequest request completed with duration of 00:00:00.0913217 
+09-23-13@22:28:03 Info (8)  [Common] UserRequest request submitted 
+09-23-13@22:28:07 Info (8)  [Common] UserRequest request completed with duration of 00:00:03.3288053 
+09-23-13@22:28:07 Info (11)  [Common] InjuryRequest request submitted 
+09-23-13@22:28:09 Info (11)  [Common] InjuryRequest request completed with duration of 00:00:01.7767605 
+09-23-13@22:28:09 Info (9)  [Common] PlanRequest request submitted 
+09-23-13@22:28:10 Info (9)  [Common] PlanRequest request completed with duration of 00:00:00.6857441 
+09-23-13@22:28:10 Info (9)  [Common] PlanRequest request submitted 
+09-23-13@22:28:10 Info (9)  [Common] PlanRequest request completed with duration of 00:00:00.1684908 
+09-23-13@22:28:26 Info (6)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:28:45 Info (6)  [Common] UserFavoriteRequest request completed with duration of 00:00:19.5837721 
+09-23-13@22:29:41 Info (5)  [Common] UserRequest request submitted 
+09-23-13@22:29:41 Info (5)  [Common] UserRequest request completed with duration of 00:00:00.0056264 
+09-23-13@22:29:41 Info (14)  [Common] InjuryRequest request submitted 
+09-23-13@22:29:41 Info (14)  [Common] InjuryRequest request completed with duration of 00:00:00.1090529 
+09-23-13@22:29:41 Info (12)  [Common] PlanRequest request submitted 
+09-23-13@22:29:41 Info (12)  [Common] PlanRequest request completed with duration of 00:00:00.0994586 
+09-23-13@22:29:41 Info (5)  [Common] PlanRequest request submitted 
+09-23-13@22:29:41 Info (5)  [Common] PlanRequest request completed with duration of 00:00:00.0904079 
+09-23-13@22:29:56 Info (5)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:30:05 Info (5)  [Common] UserFavoriteRequest request completed with duration of 00:00:08.8933572 
+09-23-13@22:30:11 Info (5)  [Common] InjuryListRequest request submitted 
+09-23-13@22:30:11 Info (8)  [Common] BodyRegionListRequest request submitted 
+09-23-13@22:30:11 Info (12)  [Common] SignListRequest request submitted 
+09-23-13@22:30:11 Info (12)  [Common] SignListRequest request completed with duration of 00:00:00.0513597 
+09-23-13@22:30:11 Info (8)  [Common] BodyRegionListRequest request completed with duration of 00:00:00.0601317 
+09-23-13@22:30:13 Info (5)  [Common] InjuryListRequest request completed with duration of 00:00:01.9678017 
+09-23-13@22:30:16 Info (14)  [Common] UserRequest request submitted 
+09-23-13@22:30:16 Info (14)  [Common] UserRequest request completed with duration of 00:00:00.0051960 
+09-23-13@22:30:16 Info (12)  [Common] InjuryRequest request submitted 
+09-23-13@22:30:16 Info (12)  [Common] InjuryRequest request completed with duration of 00:00:00.2439538 
+09-23-13@22:30:16 Info (14)  [Common] PlanRequest request submitted 
+09-23-13@22:30:16 Info (14)  [Common] PlanRequest request completed with duration of 00:00:00.1864193 
+09-23-13@22:30:18 Info (8)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:30:25 Info (8)  [Common] UserFavoriteRequest request completed with duration of 00:00:07.2037656 
+09-23-13@22:37:15 Info (32)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:37:35 Error (32)  [Common] [UserFavoriteService: 9/24/2013 5:37:35 AM]:
+[REQUEST: {Resource:{Entity:Injury,EntityId:1,UserId:4},IdAsInt:0,IsIdCurrent:False}] EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'common_name' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+09-23-13@22:40:02 Info (26)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:40:06 Info (26)  [Common] UserFavoriteRequest request completed with duration of 00:00:03.5689905 
+09-23-13@22:42:15 Info (27)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:42:18 Info (27)  [Common] UserFavoriteRequest request completed with duration of 00:00:03.3743803 
+09-23-13@22:42:39 Info (32)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:43:08 Info (32)  [Common] UserFavoriteRequest request completed with duration of 00:00:29.4709214 
+09-23-13@22:48:13 Info (17)  [Common] UserFavoriteRequest request submitted 
+09-23-13@22:48:17 Info (17)  [Common] UserFavoriteRequest request completed with duration of 00:00:03.6491473 
+09-23-13@22:52:00 Info (31)  [Common] UserRequest request submitted 
+09-23-13@22:52:03 Info (31)  [Common] UserRequest request completed with duration of 00:00:03.0789193 

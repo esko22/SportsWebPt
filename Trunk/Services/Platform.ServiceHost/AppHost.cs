@@ -136,7 +136,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .Add<InjuryRequest>("injuries/{id}")
                 .Add<InjuryRequest>("injuries", "POST")
                 .Add<PageNameValidationRequest>("validate")
-                .Add<BodyPartMatrixListRequest>("bodypartmatrix");
+                .Add<BodyPartMatrixListRequest>("bodypartmatrix")
+                .Add<UserFavoriteRequest>("users/favorites","POST");
         }
 
         private void ConfigureContainer(Container container)

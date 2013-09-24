@@ -1,6 +1,6 @@
 ﻿define('vm.research.injury',
-    ['jquery', 'knockback', 'model.injury', 'underscore'],
-    function($, kb, Injury, _) {
+    ['jquery', 'knockback', 'model.injury', 'underscore','favorites.helper'],
+    function($, kb, Injury, _, favHelper) {
 
         var injuryModel = new Injury(JSON.parse($('#selected-injury').val())),
             injury = kb.viewModel(injuryModel),
@@ -9,6 +9,9 @@
             researchWorkoutPlanTemplate = 'research.injury.plan',
             researchExerciseTemplate = 'research.injury.exercise',
             researchVideoTemplate = 'research.injury.video',
+            addAsFavorite = function(data, event) {
+                favHelper.addEntityToFavorites('injury', injuryModel.get('id'));
+            },
             postExerciseRender = function() {
                 sublime.load();
             };
@@ -20,6 +23,7 @@
             researchExerciseTemplate: researchExerciseTemplate,
             researchVideoTemplate: researchVideoTemplate,
             injury: injury,
-            postExerciseRender: postExerciseRender
+            postExerciseRender: postExerciseRender,
+            addAsFavorite: addAsFavorite
         };
     });

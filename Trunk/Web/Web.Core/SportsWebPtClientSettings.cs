@@ -27,6 +27,7 @@ namespace SportsWebPt.Platform.Web.Core
         public String SymptomPath { get; private set; }
         public String BodyPartMatrixPath { get; private set; }
         public String BodyPartPath { get; private set; }
+        public String UserFavoriteUriPath { get; private set; }
 
         #endregion        
         
@@ -50,6 +51,7 @@ namespace SportsWebPt.Platform.Web.Core
             DiagnosisReport = String.Format("/{0}/diagnosisreports", Version);
 
             UserUriPath = String.Format("/{0}/users", Version);
+            UserFavoriteUriPath = String.Format("/{0}/users/favorites", Version);
             AuthUriPath = String.Format("/{0}/auth", Version);
             ExercisePath = String.Format("/{0}/exercises", Version);
 

@@ -354,6 +354,7 @@
     <Content Include="Scripts\app\presenter.js" />
     <Content Include="Scripts\models\model.clinic.js" />
     <Content Include="Scripts\models\model.body.part.matrix.item.js" />
+    <Content Include="Scripts\utils\favorites.helper.js" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
     <Content Include="Tmpl\_examine.dropdown.tmpl.html" />

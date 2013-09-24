@@ -6,11 +6,18 @@
 <input type="hidden" id="selected-injury" value="@Html.Raw(Json.Encode(Model.Injury))"/>
 
 <div>
-    <h2><span aria-hidden="true" data-icon="&#xe001;" class="header-icon" /> Injury</h2>
+    <h2><span aria-hidden="true" data-icon="&#xf0fa;" class="header-icon"> Injury</span>
+    </h2>
 </div>
-
-   <div class="container well" id="research-injury-page">
-        <h3 data-bind="text: injury.commonName"></h3>
+<div class="container well" id="research-injury-page">
+        <div class="row">
+            <div class="col-md-5">
+                <h3 data-bind="text: injury.commonName"></h3>
+            </div>
+            <div class="col-md-offset-6 col-md-1">
+                <a data-bind="click:addAsFavorite"><span data-icon="&#xe063;" style="font-size: 30px" class="text-center"></span></a>
+            </div>
+        </div>
         <hr class="examine-report-hr"/>
         <div><strong>Medical Name: </strong><span data-bind="text: injury.medicalName"></span></div>
         <div><span>&nbsp;</span></div>
