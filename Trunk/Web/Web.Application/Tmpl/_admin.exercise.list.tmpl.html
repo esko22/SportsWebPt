@@ -2,13 +2,18 @@
     <td>
         <div class="row">
             <div class="col-md-6">
+                <label><strong>Exercise Id: </strong><span data-bind="text: id"></span></label>
+            </div>
+            <div class="col-md-6 pull-right">
+                <button class="btn-danger" data-bind="click: $parent.editExercise">Edit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <label><strong>Name: </strong><span data-bind="text: name"></span></label>
             </div>
             <div class="col-md-5">
                 <label><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></label>
-            </div>
-            <div class="col-md-1 pull-right">
-                <a class="btn btn-danger" data-bind="click: $parent.editExercise">Edit</a>
             </div>
         </div>
         <div class="row">
@@ -42,7 +47,7 @@
                 <div>
                     <label><strong>Videos: </strong></label>
                     <ul data-bind="foreach: videos">
-                        <li data-bind="text: name"></li>
+                        <li data-bind="text: name() + ' [' + id() + ']' "></li>
                     </ul>
                 </div>
             </div>
@@ -50,7 +55,7 @@
                 <div>
                     <label><strong>Equipment: </strong></label>
                     <ul data-bind="foreach: equipment">
-                        <li data-bind="text: commonName"></li>
+                        <li data-bind="text: commonName() + ' [' + id() + ']' "></li>
                     </ul>
                 </div>
             </div>

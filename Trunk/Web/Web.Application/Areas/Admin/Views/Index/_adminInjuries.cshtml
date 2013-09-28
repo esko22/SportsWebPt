@@ -102,7 +102,7 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-3" for="inputPlans">Plans</label>
                                 <div class="col-lg-9">
-                                    <select id="inputPlans" name="plans" class="form-control" multiple="multiple" size="6" data-bind="options: availablePlans, optionsText: 'routineName', selectedOptions: plans" >
+                                    <select id="inputPlans" name="plans" class="form-control" multiple="multiple" size="6" data-bind="options: availablePlans, optionsText: function (item) { return item.routineName() + ' [' + item.id() + ' ]' }, selectedOptions: plans" >
                                     </select>
                                 </div>
                             </div>

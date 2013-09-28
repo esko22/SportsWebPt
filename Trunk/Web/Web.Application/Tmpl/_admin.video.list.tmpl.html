@@ -2,6 +2,14 @@
     <td>
         <div class="row">
             <div class="col-md-6">
+                <label><strong>Video Id: </strong><span data-bind="text: id"></span></label>
+            </div>
+            <div class="col-md-6 pull-right">
+                <button class="btn-danger" data-bind="click: $parent.bindSelectedVideo">Edit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <label><strong>Common Name: </strong><span data-bind="text: name"></span></label>
             </div>
             <div class="col-md-6">
@@ -27,11 +35,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <label><strong>Youtube Video ID: </strong><span data-bind="text: youtubeVideoId"></span></label>
-            </div>
-            <div class="col-md-5 col-md-offset-2 pull-right">
-                <button class="btn-danger" data-bind="click: $parent.bindSelectedVideo">Edit</button>
             </div>
         </div>
     </td>

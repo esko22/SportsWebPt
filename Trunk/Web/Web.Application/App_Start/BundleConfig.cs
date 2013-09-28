@@ -87,7 +87,6 @@ namespace SportsWebPt.Platform.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/bootstrap.css",
-                        "~/Content/bootstrap-responsive.css",
                          "~/Content/sportsweb-pt.css",
                          "~/Content/icon-fonts.css",
                          "~/Content/kendo/2013.1.319/kendo.common.min.css",

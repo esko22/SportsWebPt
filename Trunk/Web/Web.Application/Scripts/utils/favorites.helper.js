@@ -2,8 +2,10 @@
 
     var addEntityToFavorites = function(entity, id) {
 
+        //TODO: need to create a user object
+        if ($('#userid').val() === '0')
+            $('#login-dialog').modal('toggle');
         
-
         var messageKeys = {
             'entity': entity,
             'entityId': id

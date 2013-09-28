@@ -9,6 +9,10 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } }
+        public IRepository<Injury> InjuryRepository { get { return GetStandardRepo<Injury>(); } }
+        public IRepository<Plan> PlanRepository { get { return GetStandardRepo<Plan>(); } }
+        public IRepository<Video> VideoRepository { get { return GetStandardRepo<Video>(); } }
+        public IRepository<Exercise> ExerciseRepository { get { return GetStandardRepo<Exercise>(); } }
 
         #endregion
 
@@ -25,5 +29,9 @@ namespace SportsWebPt.Platform.DataAccess
     public interface IUserUnitOfWork : IBaseUnitOfWork
     {
         IRepository<User> UserRepository { get; }
+        IRepository<Injury> InjuryRepository { get; }
+        IRepository<Plan> PlanRepository { get; }
+        IRepository<Video> VideoRepository { get; }
+        IRepository<Exercise> ExerciseRepository { get; }
     }
 }

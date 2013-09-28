@@ -2,6 +2,14 @@
     <td>
         <div class="row">
             <div class="col-md-6">
+                <label><strong>Equipment Id: </strong><span data-bind="text: id"></span></label>
+            </div>
+            <div class="col-md-6 pull-right">
+                <button class="btn-danger" data-bind="click: $parent.bindSelectedEquipment">Edit</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
                 <label><strong>Name: </strong><span data-bind="text: commonName"></span></label>
             </div>
             <div class="col-md-6">
@@ -19,9 +27,6 @@
         <div class="row">
             <div class="col-md-4">
                 <label><strong>Price Range: </strong><span data-bind="text: priceRange"></span></label>
-            </div>
-            <div class="col-md-5 col-md-offset-2 pull-right">
-                <button class="btn-danger" data-bind="click: $parent.bindSelectedEquipment">Edit</button>
             </div>
         </div>
     </td>
