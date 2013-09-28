@@ -32,7 +32,9 @@ define('model.admin.equipment', ['backbone', 'config', 'jquery'],
                 defaults: {
                     'commonName': '',
                     'technicalName': '',
-                    'recommendedVendor': '',
+                    'productLink1': '',
+                    'productLink2': '',
+                    'productLink3': '',
                     'priceRange': '',
                     'category': ''
                 }

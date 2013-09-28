@@ -274,3 +274,27 @@
 09-27-13@20:28:37 Info (5)  [Common] InjuryRequest request completed with duration of 00:00:01.7501552 
 09-27-13@20:28:37 Info (32)  [Common] InjuryListRequest request submitted 
 09-27-13@20:28:38 Info (32)  [Common] InjuryListRequest request completed with duration of 00:00:00.1658465 
+09-27-13@20:29:33 Info (33)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:29:33 Info (33)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0056323 
+09-27-13@20:41:47 Info (23)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:43:11 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:01:23.8453301 
+09-27-13@20:43:57 Info (23)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:43:57 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0100367 
+09-27-13@20:44:26 Info (29)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:44:26 Info (29)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0051507 
+09-27-13@20:44:42 Info (21)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:44:42 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0054181 
+09-27-13@20:45:29 Info (29)  [Common] EquipmentRequest request submitted 
+09-27-13@20:45:29 Info (29)  [Common] EquipmentRequest request completed with duration of 00:00:00.0513276 
+09-27-13@20:45:29 Info (24)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:45:29 Info (24)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0055651 
+09-27-13@20:45:34 Info (23)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:45:34 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0055086 
+09-27-13@20:46:34 Info (23)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:46:34 Info (23)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0048337 
+09-27-13@20:46:51 Info (21)  [Common] EquipmentRequest request submitted 
+09-27-13@20:46:51 Info (21)  [Common] EquipmentRequest request completed with duration of 00:00:00.0536429 
+09-27-13@20:46:51 Info (24)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:46:51 Info (24)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0061729 
+09-27-13@20:46:55 Info (20)  [Common] EquipmentListRequest request submitted 
+09-27-13@20:46:55 Info (20)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0057858 

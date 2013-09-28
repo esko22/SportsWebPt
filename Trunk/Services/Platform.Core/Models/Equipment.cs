@@ -13,7 +13,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String PriceRange { get; set; }
 
-        public String RecommendedVendor { get; set; }
+        public String ProductLink1 { get; set; }
+
+        public String ProductLink2 { get; set; }
+
+        public String ProductLink3 { get; set; }
 
         public FunctionCategory Category { get; set; }
 

@@ -38,11 +38,23 @@
                     minlength: 2,
                     maxlength: 30
                 },
-                recommendedVendor:
+                productLink1:
                 {
                     required: false,
                     minlength: 4,
-                    maxlength: 30
+                    maxlength: 200
+                },
+                productLink2:
+                {
+                    required: false,
+                    minlength: 4,
+                    maxlength: 200
+                },
+                productLink3:
+                {
+                    required: false,
+                    minlength: 4,
+                    maxlength: 200
                 },
                 priceRange:
                 {
@@ -63,10 +75,20 @@
                     minlength: "must be between 2 and 30 characters",
                     maxlength: "must be between 2 and 30 characters"
                 },
-                recommendedVendor:
+                productLink1:
                 {
-                    minlength: "must be between 4 and 30 characters",
-                    maxlength: "must be between 4 and 30 characters"
+                    minlength: "must be between 4 and 200 characters",
+                    maxlength: "must be between 4 and 200 characters"
+                },
+                productLink2:
+                {
+                    minlength: "must be between 4 and 200 characters",
+                    maxlength: "must be between 4 and 200 characters"
+                },
+                productLink3:
+                {
+                    minlength: "must be between 4 and 200 characters",
+                    maxlength: "must be between 4 and 200 characters"
                 },
                 priceRange: {
                     minlength: "must be between 1 and 10 characters",

@@ -21,7 +21,13 @@ namespace SportsWebPt.Platform.ServiceModels
         public String PriceRange { get; set; }
 
         [DataMember]
-        public String RecommendedVendor { get; set; }
+        public String ProductLink1 { get; set; }
+
+        [DataMember]
+        public String ProductLink2 { get; set; }
+
+        [DataMember]
+        public String ProductLink3 { get; set; }
 
         [DataMember]
         public String Category { get; set; }
