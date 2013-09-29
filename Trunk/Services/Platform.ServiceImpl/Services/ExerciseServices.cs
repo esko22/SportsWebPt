@@ -29,7 +29,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     {
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
                         "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
-                    }).OrderBy(p => p.Name), responseList);
+                    }).OrderBy(p => p.Id), responseList);
 
             return
                 Ok(new ListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

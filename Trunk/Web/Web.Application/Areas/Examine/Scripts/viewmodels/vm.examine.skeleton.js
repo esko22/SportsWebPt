@@ -1,14 +1,19 @@
 ﻿define('vm.examine.skeleton',
-    ['jquery', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'vm.examine.container'],
-    function ($, SymptomaticRegionCollection, kb, _, container) {
+    ['jquery','config', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'vm.examine.container'],
+    function ($, config, SymptomaticRegionCollection, kb, _, container, toastr) {
 
         var symptomaticRegions = new SymptomaticRegionCollection();
         symptomaticRegions.reset(JSON.parse($('#skeleton-areas').val()));
 
         var selectArea = function (item) {
             if (container.selectedAreas.indexOf(item) == -1) {
-                $('#' + item.cssClassName()).addClass('skeleton-selected');
-                container.selectedAreas.push(item);
+                if (container.selectedAreas().length < config.maxSelectableAreas()) {
+                    $('#' + item.cssClassName()).addClass('skeleton-selected');
+                    container.selectedAreas.push(item);
+                } else {
+                    config.notifier.clear();
+                    config.notifier.error($.validator.format('Only {0} selectable areas allowed.', config.maxSelectableAreas()));
+                }
             } else {
                 $('#' + item.cssClassName()).removeClass('skeleton-selected');
                 container.selectedAreas.remove(item);
@@ -48,6 +53,7 @@
             areaMouseOver: areaMouseOver,
             areaMouseOut: areaMouseOut,
             selectedAreas: container.selectedAreas,
-            formatBodyParts: formatBodyParts
+            formatBodyParts: formatBodyParts,
+            maxSelectableAreas : config.maxSelectableAreas
         };
     });

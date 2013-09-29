@@ -21,7 +21,7 @@
 <div id="examine-skeleton" class="view">
     <div class="row">
         <div class="col-md-11 pull-left">
-            <h3><strong>Please select up to 3 regions of discomfort</strong></h3>
+            <h3><strong>Please select up to <span data-bind="text: maxSelectableAreas"></span> areas of discomfort</strong></h3>
         </div>
         <div class="col-md-1 pull-right">
             @*<a class="btn btn-default btn-lg" href="#detail" >Next &raquo;</a>*@
@@ -30,29 +30,30 @@
     <div class="row push-down-md">
         <div class="col-md-2">
             <!-- ko if: selectedAreas().length > 0 -->
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Selected Regions</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: selectedAreas">
-                    <tr>
-                        <td data-bind="text: displayName"></td>
-                    </tr>
-                </tbody>            
-            </table>
-            <!-- /ko -->
-        </div>
+            
+                <div style="height: 150px">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Selected Areas</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: selectedAreas">
+                            <tr>
+                                <td data-bind="text: displayName"></td>
+                            </tr>
+                        </tbody>            
+                    </table>
+                 </div>
+            <div>
+                <a class="btn btn-info btn-lg btn-block" href="#detail" >Next &raquo;</a>
+            </div>
+                <!-- /ko -->
+            </div>
         <div class="col-md-10">
             <ul id="skeleton" data-bind="foreach: symptomaticRegions" class="img-rounded">
                 <li data-bind="attr: { id: cssClassName }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut }, bootstrapPopover: { content: $parent.formatBodyParts($data), html: true, title: displayName, trigger: 'hover' }" />
             </ul>
-        </div>
-    </div>
-    <div class="row examine-bottom-nav">
-        <div class="col-md-2 pull-right">
-            <a class="btn btn-default btn-lg" href="#detail" >Next &raquo;</a>
         </div>
     </div>
 </div>

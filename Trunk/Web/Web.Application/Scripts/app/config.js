@@ -1,13 +1,15 @@
-﻿define('config',['ko','jquery','infuser'],
-    function (ko, $, infuser) {
+﻿define('config',['ko','jquery','infuser', 'toastr'],
+    function (ko, $, infuser, toastr) {
 
         var viewIds = {
             header: '#master-header',
             footer: '#master-footer',
             login: '#login-dialog'
         },
-        hostUri = '',
-        currentUser = ko.observable();
+            hostUri = '',
+            currentUser = ko.observable(),
+            maxSelectableAreas = ko.observable(2),
+            notifier = toastr;
 
         var apiUris = {
             users: $.format('{0}/{1}', hostUri, 'users'),
@@ -53,6 +55,21 @@
 
         var init = function () {
             configureExternalTemplates();
+            notifier.options = {
+                "closeButton": false,
+                "debug": false,
+                "positionClass": "toast-center",
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
         };
 
         init();
@@ -64,7 +81,9 @@
             apiUris: apiUris,
             functionCategories: functionCategories,
             regionCategories: regionCategories,
-            holdTypes : holdTypes
+            holdTypes: holdTypes,
+            maxSelectableAreas: maxSelectableAreas,
+            notifier : notifier
         };
 
     });

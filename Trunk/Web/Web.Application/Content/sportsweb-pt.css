@@ -38,6 +38,11 @@ body {
     margin-top: 2px;
 }
 
+.toast-center {
+top: 50%;
+margin: 0 auto;
+left: 45%;
+}
 
 
 .login-container {

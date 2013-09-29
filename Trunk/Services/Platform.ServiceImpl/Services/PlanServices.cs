@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                      "PlanBodyRegionMatrixItems",
                      "PlanBodyRegionMatrixItems.BodyRegion",
                      "PlanCategoryMatrixItems"
-                    }).OrderBy(p => p.RoutineName);
+                    }).OrderBy(p => p.Id);
 
 
 

@@ -349,9 +349,11 @@
     <Content Include="Content\kendo\2013.1.319\Uniform\slider-v.gif" />
     <Content Include="Content\kendo\2013.1.319\Uniform\sprite%402x.png" />
     <Content Include="Content\kendo\2013.1.319\Uniform\sprite.png" />
+    <Content Include="Content\toastr.css" />
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\libs\toastr.js" />
     <Content Include="Scripts\models\model.clinic.js" />
     <Content Include="Scripts\models\model.body.part.matrix.item.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />

@@ -43,7 +43,8 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/knockback.js", // depends on backbone, knockout
                         "~/Scripts/libs/koExternalTemplateEngine.js",
                         "~/Scripts/libs/kendo/2013.1.319/kendo.web.min.js",
-                        "~/Scripts/libs/extentsions/knockout-kendo.min.js"
+                        "~/Scripts/libs/extentsions/knockout-kendo.min.js",
+                        "~/Scripts/libs/toastr.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/utils")
@@ -89,9 +90,9 @@ namespace SportsWebPt.Platform.Web
                         "~/Content/bootstrap.css",
                          "~/Content/sportsweb-pt.css",
                          "~/Content/icon-fonts.css",
+                         "~/Content/toastr.css",
                          "~/Content/kendo/2013.1.319/kendo.common.min.css",
-                         "~/Content/kendo/2013.1.319/kendo.metro.min.css",
-                         "~/Content/knockback-navigators.css"));
+                         "~/Content/kendo/2013.1.319/kendo.metro.min.css"));
 
 
         }

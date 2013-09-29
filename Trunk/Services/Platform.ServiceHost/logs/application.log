@@ -1,28 +1,38 @@
-09-28-13@21:09:12 Info (21)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:09:26 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:13.6369949 
-09-28-13@21:18:15 Info (21)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:18:15 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0189321 
-09-28-13@21:18:27 Info (10)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:18:27 Info (10)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0032029 
-09-28-13@21:19:43 Info (18)  [Common] EquipmentRequest request submitted 
-09-28-13@21:19:43 Info (18)  [Common] EquipmentRequest request completed with duration of 00:00:00.0342570 
-09-28-13@21:19:43 Info (19)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:19:43 Info (19)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0029178 
-09-28-13@21:20:01 Info (21)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:20:01 Info (21)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0031940 
-09-28-13@21:27:26 Info (15)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:27:26 Info (15)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0076669 
-09-28-13@21:28:10 Info (18)  [Common] EquipmentRequest request submitted 
-09-28-13@21:28:10 Info (18)  [Common] EquipmentRequest request completed with duration of 00:00:00.0085678 
-09-28-13@21:28:10 Info (8)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:28:10 Info (8)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0031685 
-09-28-13@21:28:34 Info (9)  [Common] EquipmentRequest request submitted 
-09-28-13@21:28:34 Info (9)  [Common] EquipmentRequest request completed with duration of 00:00:00.0074647 
-09-28-13@21:28:34 Info (10)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:28:34 Info (10)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0031271 
-09-28-13@21:32:10 Info (43)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:32:10 Info (43)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0037009 
-09-28-13@21:32:28 Info (52)  [Common] EquipmentRequest request submitted 
-09-28-13@21:32:28 Info (52)  [Common] EquipmentRequest request completed with duration of 00:00:00.0098194 
-09-28-13@21:32:28 Info (19)  [Common] EquipmentListRequest request submitted 
-09-28-13@21:32:28 Info (19)  [Common] EquipmentListRequest request completed with duration of 00:00:00.0030681 
+09-29-13@00:00:45 Info (58)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:00:45 Info (54)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:00:45 Info (58)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0068565 
+09-29-13@00:00:45 Info (45)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:00:45 Info (107)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:00:45 Info (45)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0043907 
+09-29-13@00:00:45 Info (54)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0129742 
+09-29-13@00:00:45 Info (107)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0044684 
+09-29-13@00:01:42 Info (69)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:42 Info (69)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0104102 
+09-29-13@00:01:42 Info (93)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:42 Info (70)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:42 Info (46)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:42 Info (93)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0039030 
+09-29-13@00:01:42 Info (70)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0038794 
+09-29-13@00:01:42 Info (46)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0102929 
+09-29-13@00:01:54 Info (72)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:54 Info (89)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:54 Info (72)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0113067 
+09-29-13@00:01:54 Info (46)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:54 Info (89)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0070645 
+09-29-13@00:01:54 Info (89)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:01:54 Info (46)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0046919 
+09-29-13@00:01:54 Info (89)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0049266 
+09-29-13@00:09:15 Info (69)  [Common] SymptomaticRegionListRequest request submitted 
+09-29-13@00:09:17 Info (69)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:01.9753258 
+09-29-13@00:09:30 Info (50)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:09:30 Info (46)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:09:30 Info (50)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0833290 
+09-29-13@00:09:30 Info (46)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0821144 
+09-29-13@00:19:07 Info (64)  [Common] SymptomaticRegionListRequest request submitted 
+09-29-13@00:19:07 Info (64)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0408950 
+09-29-13@00:19:12 Info (46)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:19:12 Info (52)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:19:12 Info (15)  [Common] PotentialSymptomListRequest request submitted 
+09-29-13@00:19:12 Info (52)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0130505 
+09-29-13@00:19:12 Info (15)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0151451 
+09-29-13@00:19:12 Info (46)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0222297 

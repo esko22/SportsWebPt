@@ -47,7 +47,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Side",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Orientation",
                         "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
-                    }).OrderBy(p => p.CommonName);
+                    }).OrderBy(p => p.Id);
 
             Mapper.Map(results, responseList);
             

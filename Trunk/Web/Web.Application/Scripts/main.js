@@ -17,6 +17,7 @@
         define('logger', [], function () { return root.logger; });
         define('uri', [], function() { return root.Uri; });
         define('kendo', [], function () { return root.kendo; });
+        define('toastr', [], function () { return root.toastr; });
     }
 
     function loadPluginsAndBoot() {
