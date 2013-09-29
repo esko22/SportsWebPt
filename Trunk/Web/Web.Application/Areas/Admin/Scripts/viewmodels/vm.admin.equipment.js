@@ -56,6 +56,24 @@
                     minlength: 4,
                     maxlength: 200
                 },
+                productLinkName1:
+                {
+                    required: false,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                productLinkName2:
+                {
+                    required: false,
+                    minlength: 2,
+                    maxlength: 50
+                },
+                productLinkName3:
+                {
+                    required: false,
+                    minlength: 2,
+                    maxlength: 50
+                },
                 priceRange:
                 {
                     required: false,
@@ -89,6 +107,21 @@
                 {
                     minlength: "must be between 4 and 200 characters",
                     maxlength: "must be between 4 and 200 characters"
+                },
+                productLinkName1:
+                {
+                    minlength: "must be between 2 and 50 characters",
+                    maxlength: "must be between 2 and 50 characters"
+                },
+                productLinkName2:
+                {
+                    minlength: "must be between 2 and 50 characters",
+                    maxlength: "must be between 2 and 50 characters"
+                },
+                productLinkName3:
+                {
+                    minlength: "must be between 2 and 50 characters",
+                    maxlength: "must be between 2 and 50 characters"
                 },
                 priceRange: {
                     minlength: "must be between 1 and 10 characters",

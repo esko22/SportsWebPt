@@ -19,6 +19,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String ProductLink3 { get; set; }
 
+        public String ProductLinkName1 { get; set; }
+
+        public String ProductLinkName2 { get; set; }
+
+        public String ProductLinkName3 { get; set; }
+
+
         public FunctionCategory Category { get; set; }
 
         #endregion

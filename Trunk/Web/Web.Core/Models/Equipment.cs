@@ -20,6 +20,12 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String productLink3 { get; set; }
 
+        public String productLinkName1 { get; set; }
+
+        public String productLinkName2 { get; set; }
+
+        public String productLinkName3 { get; set; }
+
         public string category { get; set; }
 
         #endregion

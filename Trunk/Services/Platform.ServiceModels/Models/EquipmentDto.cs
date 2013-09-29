@@ -30,6 +30,15 @@ namespace SportsWebPt.Platform.ServiceModels
         public String ProductLink3 { get; set; }
 
         [DataMember]
+        public String ProductLinkName1 { get; set; }
+
+        [DataMember]
+        public String ProductLinkName2 { get; set; }
+
+        [DataMember]
+        public String ProductLinkName3 { get; set; }
+
+        [DataMember]
         public String Category { get; set; }
 
 

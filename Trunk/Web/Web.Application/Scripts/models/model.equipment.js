@@ -35,6 +35,9 @@ define('model.admin.equipment', ['backbone', 'config', 'jquery'],
                     'productLink1': '',
                     'productLink2': '',
                     'productLink3': '',
+                    'productLinkName1': '',
+                    'productLinkName2': '',
+                    'productLinkName3': '',
                     'priceRange': '',
                     'category': ''
                 }
