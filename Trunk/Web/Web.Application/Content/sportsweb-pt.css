@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center center;
     vertical-align: top;
-    background: url(images/swpt_splash.png)no-repeat; 
+    background: url(images/swpt_splash.png) no-repeat; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -131,7 +131,7 @@ left: 45%;
 
 #skeleton {
 	display: block;
-    background: url(images/skeletor.jpg)no-repeat;
+    background: url(images/skeletor.jpg) no-repeat;
     height: 600px;
     margin-left: auto ;
     margin-right: auto ;
@@ -628,6 +628,7 @@ ul#skeleton li {
     display: block; /* Chrome 19 was weird with clickability without this */
     text-align: center;
     font-size: 4em;
+    height: 50px;
     width: 100%;
     margin-bottom: 10px;
     color: #424947;

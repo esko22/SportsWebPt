@@ -353,9 +353,12 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\libs\html5shiv.js" />
     <Content Include="Scripts\libs\toastr.js" />
     <Content Include="Scripts\models\model.clinic.js" />
     <Content Include="Scripts\models\model.body.part.matrix.item.js" />
+    <Content Include="Scripts\libs\respond.js" />
+    <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
@@ -368,6 +371,7 @@
     <Content Include="Tmpl\_research.brief.plan.tmpl.html" />
     <Content Include="Tmpl\_admin.injury.list.tmpl.html" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Content Include="views\shared\_html5shiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
