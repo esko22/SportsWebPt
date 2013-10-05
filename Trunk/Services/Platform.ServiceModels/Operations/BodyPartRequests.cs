@@ -1,21 +1,36 @@
-﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
+﻿using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class BodyPartListRequest : ApiResourceListRequest
+    [Route("/bodyparts", "GET")]
+    public class BodyPartListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BodyPartDto, BodyPartSortBy>>
     {
         #region Properties
 
-        public int skeletonAreaId { get; set; }
+        public int SkeletonAreaId { get; set; }
 
         #endregion
     }
 
-    public class BodyPartRequest : ApiResourceRequest<BodyPartDto>
+    [Route("/bodyparts", "POST")]
+    public class CreateBodyPartRequest : BodyPartDto, IReturn<ApiResponse<BodyPartDto>>
     {
     }
 
-    public class BodyPartMatrixListRequest : ApiResourceListRequest
+
+    [Route("/bodyparts/{id}", "GET")]
+    public class BodyPartRequest : AbstractResourceRequest, IReturn<ApiResponse<BodyPartDto>>
+    {
+    }
+
+    [Route("/bodyparts/{id}", "PUT")]
+    public class UpdateBodyPartRequest : BodyPartDto, IReturn<ApiResponse<BodyPartDto>>
+    {
+    }
+
+    [Route("/bodypartmatrix", "GET")]
+    public class BodyPartMatrixListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BodyPartMatrixItemDto, BasicSortBy>>
     {
     }
 

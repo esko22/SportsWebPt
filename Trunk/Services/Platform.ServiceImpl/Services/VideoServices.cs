@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -10,7 +9,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    public class VideoListService : LoggingRestServiceBase<VideoListRequest, ListResponse<VideoDto, BasicSortBy>>
+    public class VideoService : RestService
     {
         #region Properties
 
@@ -20,51 +19,38 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         #region Methods
 
-        public override object OnGet(VideoListRequest request)
+        public object Get(VideoListRequest request)
         {
             var responseList = new List<VideoDto>();
-            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll(new [] { "VideoCategoryMatrixItems" }), responseList);
+            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll(new[] { "VideoCategoryMatrixItems" }), responseList);
 
             return
-                Ok(new ListResponse<VideoDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<VideoDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-
         }
 
-        #endregion
-    }
 
-    public class VideoService : LoggingRestServiceBase<VideoRequest, ApiResponse<VideoDto>>
-    {
-        #region Properties
-
-        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnPost(VideoRequest request)
+        public object Post(CreateVideoRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "VideoDto");
+            Check.Argument.IsNotNull(request, "VideoDto");
 
-            var video = Mapper.Map<Video>(request.Resource);
+            var video = Mapper.Map<Video>(request);
 
             ResearchUnitOfWork.VideoRepo.Add(video);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.Id = video.Id;
+            request.Id = video.Id;
 
-            return Ok(new ApiResponse<VideoDto>(request.Resource));
+            return Ok(new ApiResponse<VideoDto>(request));
         }
 
-        public override object OnPut(VideoRequest request)
+        public object Put(UpdateVideoRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "VideoDto");
+            Check.Argument.IsNotNull(request, "VideoDto");
 
-            ResearchUnitOfWork.UpdateVideo(Mapper.Map<Video>(request.Resource));
+            ResearchUnitOfWork.UpdateVideo(Mapper.Map<Video>(request));
 
-            return Ok(new ApiResponse<VideoDto>(request.Resource));
+            return Ok(new ApiResponse<VideoDto>(request));
         }
 
         #endregion

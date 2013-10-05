@@ -1,13 +1,27 @@
 ﻿using System;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class BodyRegionListRequest : ApiResourceListRequest
+    [Route("/bodyregions", "GET")]
+    public class BodyRegionListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BodyRegionDto, BasicSortBy>>
     {
     }
 
-    public class BodyRegionRequest : ApiResourceRequest<BodyRegionDto>
+    [Route("/bodyregions", "POST")]
+    public class CreateBodyRegionRequest : BodyRegionDto, IReturn<ApiResponse<BodyRegionDto>>
     {
     }
+
+    [Route("/bodyregions", "PUT")]
+    public class UpdateBodyRegionRequest : BodyRegionDto, IReturn<ApiResponse<BodyRegionDto>>
+    {
+    }
+
+    [Route("/bodyregions/{id}", "GET")]
+    public class BodyRegionRequest : AbstractResourceRequest, IReturn<ApiResponse<BodyRegionDto>>
+    {
+    }
+
 }

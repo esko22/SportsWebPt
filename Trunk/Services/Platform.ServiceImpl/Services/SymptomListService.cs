@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+
 using AutoMapper;
-using ServiceStack.ServiceInterface.ServiceModel;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class SymptomListService : LoggingRestServiceBase<SymptomListRequest, ListResponse<SymptomDto, BasicSortBy>>
+    public class SymptomListService : RestService
     {
         #region Properties
 
@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(SymptomListRequest request)
+        public object Get(SymptomListRequest request)
         {
             var symptoms = new List<Symptom>();
 
@@ -29,9 +29,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(symptoms, responseList);
 
             return
-                Ok(new ListResponse<SymptomDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<SymptomDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-
         }
 
         #endregion

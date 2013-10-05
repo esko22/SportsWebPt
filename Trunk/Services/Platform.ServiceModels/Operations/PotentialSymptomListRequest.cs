@@ -1,9 +1,12 @@
 ﻿using System;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class PotentialSymptomListRequest : ApiResourceListRequest
+    [Route("/potentialsymptoms","GET")]
+    [Route("/potentialsymptoms/{BodyPartMatrixId}", "GET")]
+    public class PotentialSymptomListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<PotentialSymptomDto, BasicSortBy>>    
     {
         #region Properties
 

@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class SymptomaticRegionService : LoggingRestServiceBase<SymptomaticRegionListRequest, ListResponse<SymptomaticRegionDto, BasicSortBy>>
+    public class SymptomaticRegionService : RestService
     {
         #region Properties
 
@@ -18,7 +17,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(SymptomaticRegionListRequest request)
+        public object Get(SymptomaticRegionListRequest request)
         {
             var areas = SkeletonUnitOfWork.SkeletonAreaRepo.GetSymptonmaticRegions();
             var responseList = new List<SymptomaticRegionDto>();
@@ -26,7 +25,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(areas, responseList);
 
             return
-                Ok(new ListResponse<SymptomaticRegionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<SymptomaticRegionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
 
         }

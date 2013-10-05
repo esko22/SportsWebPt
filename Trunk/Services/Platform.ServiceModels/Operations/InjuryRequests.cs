@@ -1,13 +1,21 @@
-﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
+﻿using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class InjuryListRequest : ApiResourceListRequest
-    {
-    }
+    [Route("/injuries", "GET")]
+    public class InjuryListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<InjuryDto, BasicSortBy>>
+    {}
 
-    public class InjuryRequest : ApiResourceRequest<InjuryDto>
-    {
+    [Route("/injuries", "POST")]
+    public class CreateInjuryRequest : InjuryDto, IReturn<ApiResponse<InjuryDto>>
+    { }
 
-    }
+    [Route("/injuries/{id}", "PUT")]
+    public class UpdateInjuryRequest : InjuryDto, IReturn<ApiResponse<InjuryDto>>
+    { }
+
+    [Route("/injuries/{id}", "GET")]
+    public class InjuryRequest : AbstractResourceRequest, IReturn<ApiResponse<InjuryDto>>
+    {}
 }

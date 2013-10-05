@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -12,7 +11,8 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class PlanListService : LoggingRestServiceBase<PlanListRequest, ListResponse<PlanDto, BasicSortBy>>
+
+    public class PlanService : RestService
     {
         #region Properties
 
@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(PlanListRequest request)
+        public object Get(PlanListRequest request)
         {
             //TODO: TON O DATA.... Need to refactor at some point to not pull entire graph...
             //just get it working for now, maybe put a bool in request 
@@ -52,25 +52,13 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(plans, responseList);
 
             return
-                Ok(new ListResponse<PlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<PlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
 
         }
 
-        #endregion
-    }
 
-    public class PlanService : LoggingRestServiceBase<PlanRequest, ApiResponse<PlanDto>>
-    {
-        #region Properties
-
-        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnGet(PlanRequest request)
+        public object Get(PlanRequest request)
         {
             var planEntity = request.IdAsInt > 0
                     ? ResearchUnitOfWork.PlanRepo.GetFullPlanGraphById(request.IdAsInt)
@@ -99,31 +87,31 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return Ok(new ApiResponse<PlanDto>()
             {
-                Resource = planDto
+                Response = planDto
             });
         }
 
-        public override object OnPost(PlanRequest request)
+        public object Post(CreatePlanRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "PlanDto");
+            Check.Argument.IsNotNull(request, "PlanDto");
 
-            var plan = Mapper.Map<Plan>(request.Resource);
+            var plan = Mapper.Map<Plan>(request);
 
             ResearchUnitOfWork.PlanRepo.Add(plan);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.Id = plan.Id;
+            request.Id = plan.Id;
 
-            return Ok(new ApiResponse<PlanDto>(request.Resource));
+            return Ok(new ApiResponse<PlanDto>(request));
         }
 
-        public override object OnPut(PlanRequest request)
+        public object Put(UpdatePlanRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "PlanDto");
+            Check.Argument.IsNotNull(request, "PlanDto");
 
-            ResearchUnitOfWork.UpdatePlan(Mapper.Map<Plan>(request.Resource));
+            ResearchUnitOfWork.UpdatePlan(Mapper.Map<Plan>(request));
 
-            return Ok(new ApiResponse<PlanDto>(request.Resource));
+            return Ok(new ApiResponse<PlanDto>(request));
         }
 
         #endregion

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -11,9 +11,9 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    public class InjuryListService : LoggingRestServiceBase<InjuryListRequest, ListResponse<InjuryDto, BasicSortBy>>
-    {
 
+    public class InjuryService : RestService
+    {
         #region Properties
 
         public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         #region Methods
 
-        public override object OnGet(InjuryListRequest request)
+        public object Get(InjuryListRequest request)
         {
             var responseList = new List<InjuryDto>();
 
@@ -50,27 +50,14 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     }).OrderBy(p => p.Id);
 
             Mapper.Map(results, responseList);
-            
-            return
-                Ok(new ListResponse<InjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
-                                                                        null, null));
 
+            return
+                Ok(new ApiListResponse<InjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
         }
 
-        #endregion
-    }
 
-    public class InjuryService : LoggingRestServiceBase<InjuryRequest, ApiResponse<InjuryDto>>
-    {
-        #region Properties
-
-        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnGet(InjuryRequest request)
+        public object Get(InjuryRequest request)
         {
             var injury = request.IdAsInt > 0
                    ? ResearchUnitOfWork.InjuryRepo.GetById(request.IdAsInt)
@@ -81,35 +68,34 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion","InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
-            return Ok(new ApiResponse<InjuryDto>() { Resource = Mapper.Map<InjuryDto>(injury) });
+            return Ok(new ApiResponse<InjuryDto>() { Response = Mapper.Map<InjuryDto>(injury) });
         }
 
-        public override object OnPost(InjuryRequest request)
+        public object Post(CreateInjuryRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "InjuryDto");
+            Check.Argument.IsNotNull(request, "InjuryDto");
 
-            var injury = Mapper.Map<Injury>(request.Resource);
+            var injury = Mapper.Map<Injury>(request);
 
             ResearchUnitOfWork.MapSymptomMatrixItems(injury);
             ResearchUnitOfWork.InjuryRepo.Add(injury);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.id = injury.Id;
+            request.Id = injury.Id;
 
-            return Ok(new ApiResponse<InjuryDto>(request.Resource));
-
+            return Ok(new ApiResponse<InjuryDto>(request));
         }
 
-        public override object OnPut(InjuryRequest request)
+        public object Put(UpdateInjuryRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "InjuryDto");
-            var injury = Mapper.Map<Injury>(request.Resource);
+            Check.Argument.IsNotNull(request, "InjuryDto");
+            var injury = Mapper.Map<Injury>(request);
 
             ResearchUnitOfWork.MapSymptomMatrixItems(injury);
             ResearchUnitOfWork.UpdateInjury(injury);
             ResearchUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<InjuryDto>(request.Resource));
+            return Ok(new ApiResponse<InjuryDto>(request));
         }
 
         #endregion

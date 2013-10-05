@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+
 using AutoMapper;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -10,7 +9,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class BodyRegionListService : LoggingRestServiceBase<BodyRegionListRequest, ListResponse<BodyRegionDto, BasicSortBy>>
+    public class BodyRegionService : RestService
     {
         #region Properties
 
@@ -20,53 +19,39 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(BodyRegionListRequest request)
+        public object Get(BodyRegionListRequest request)
         {
-
             var responseList = new List<BodyRegionDto>();
             Mapper.Map(SkeletonUnitOfWork.BodyRegionRepo.GetAll(), responseList);
 
             return
-                Ok(new ListResponse<BodyRegionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<BodyRegionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-
         }
 
-        #endregion
-    }
 
-    public class BodyRegionService : LoggingRestServiceBase<BodyRegionRequest, ApiResponse<BodyRegionDto>>
-    {
-        #region Properties
-
-        public ISkeletonUnitOfWork SkeletonUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnPost(BodyRegionRequest request)
+        public object Post(CreateBodyRegionRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "BodyRegionDto");
+            Check.Argument.IsNotNull(request, "BodyRegionDto");
 
-            var bodyRegion = Mapper.Map<BodyRegion>(request.Resource);
+            var bodyRegion = Mapper.Map<BodyRegion>(request);
 
             SkeletonUnitOfWork.BodyRegionRepo.Add(bodyRegion);
             SkeletonUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<BodyRegionDto>(request.Resource));
+            return Ok(new ApiResponse<BodyRegionDto>(request));
         }
 
-        public override object OnPut(BodyRegionRequest request)
+        public object Put(UpdateBodyRegionRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "BodyRegionDto");
+            Check.Argument.IsNotNull(request, "BodyRegionDto");
 
-            var bodyRegion = Mapper.Map<BodyRegion>(request.Resource);
+            var bodyRegion = Mapper.Map<BodyRegion>(request);
 
             SkeletonUnitOfWork.BodyRegionRepo.Update(bodyRegion);
             SkeletonUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<BodyRegionDto>(request.Resource));
+            return Ok(new ApiResponse<BodyRegionDto>(request));
         }
 
         #endregion

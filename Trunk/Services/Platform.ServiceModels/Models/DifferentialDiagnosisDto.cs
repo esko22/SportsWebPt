@@ -3,28 +3,21 @@ using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "DifferentialDiagnosis", Namespace = "http://SportsWebPt.Platform")]
     public class DifferentialDiagnosisDto
     {
         #region Properties
 
-        [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [DataMember]
-        public DateTime submittedOn { get; set; }
+        public DateTime SubmittedOn { get; set; }
 
-        [DataMember]
-        public DateTime reviewedOn { get; set; }
+        public DateTime ReviewedOn { get; set; }
 
-        [DataMember]
-        public int submittedBy { get; set; }
+        public int SubmittedBy { get; set; }
 
-        [DataMember]
-        public int submittedFor { get; set; }
+        public int SubmittedFor { get; set; }
 
-        [DataMember]
-        public PotentialSymptomDto[] symptomDetails { get; set; }
+        public PotentialSymptomDto[] SymptomDetails { get; set; }
 
         #endregion
 

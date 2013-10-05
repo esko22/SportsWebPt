@@ -1,30 +1,22 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "Symptom", Namespace = "http://SportsWebPt.Platform")]
     public class SymptomDto
     {
         #region Properties
 
-        [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [DataMember]
-        public String name { get; set; }
+        public String Name { get; set; }
 
-        [DataMember]
-        public String description { get; set; }
+        public String Description { get; set; }
 
-        [DataMember]
-        public String renderType { get; set; }
+        public String RenderType { get; set; }
 
-        [DataMember]
-        public String renderOptions { get; set; }
+        public String RenderOptions { get; set; }
 
-        [DataMember]
-        public String renderTemplate { get; set; }
+        public String RenderTemplate { get; set; }
 
         #endregion
     }

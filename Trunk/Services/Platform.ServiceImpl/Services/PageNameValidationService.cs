@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class PageNameValidationService : LoggingRestServiceBase<PageNameValidationRequest, bool>
+    public class PageNameValidationService : RestService
     {
         #region Properties
 
@@ -17,7 +16,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(PageNameValidationRequest request)
+        public object Get(PageNameValidationRequest request)
         {
             if (String.IsNullOrEmpty(request.PageName))
                 return true;

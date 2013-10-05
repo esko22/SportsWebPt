@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
+
 using AutoMapper;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class AuthService : LoggingRestServiceBase<AuthRequestDto, ApiResponse<UserDto>>
+    public class AuthService : RestService
     {
         #region Properties
 
@@ -18,24 +19,24 @@ namespace SportsWebPt.Platform.ServiceImpl
         #endregion
 
 
-        public override object OnPost(AuthRequestDto request)
+        public object Post(AuthRequest request)
         {
             UserDto userDto = null;
             var user = UserUnitOfWork.UserRepository.GetAll()
                                            .FirstOrDefault(
                                                p =>
-                                               p.EmailAddress.Equals(request.emailAddress,
+                                               p.EmailAddress.Equals(request.EmailAddress,
                                                    StringComparison.OrdinalIgnoreCase));
                 
             if (user != null)
             {
-                if(PasswordHashHelper.ValidatePassword(request.hash,user.Hash))
+                if(PasswordHashHelper.ValidatePassword(request.Hash,user.Hash))
                     userDto = Mapper.Map<UserDto>(user);
             }
 
             return Ok(new ApiResponse<UserDto>()
             {
-                Resource = userDto
+                Response = userDto
             });
 
         }

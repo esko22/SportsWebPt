@@ -1,9 +1,16 @@
 ﻿using System;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using ServiceStack.ServiceHost;
+
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class SymptomaticRegionListRequest : ApiResourceListRequest
-    {
-    }
+    [Route("/symptomaticregions", "GET")]
+    public class SymptomaticRegionListRequest : IReturn<ApiListResponse<SymptomaticRegionDto, BasicSortBy>>
+    {}
+
+    [Route("/symptoms", "GET")]
+    public class SymptomListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<SymptomDto, BasicSortBy>>
+    {}
+
 }

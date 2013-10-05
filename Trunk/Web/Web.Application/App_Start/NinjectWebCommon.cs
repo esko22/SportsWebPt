@@ -1,6 +1,5 @@
 using System.Configuration;
 using SportsWebPt.Common.Logging;
-using SportsWebPt.Common.ServiceStackClient;
 using SportsWebPt.Common.Web.Auth;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;

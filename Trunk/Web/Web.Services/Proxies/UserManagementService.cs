@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web;
+
 using AutoMapper;
 
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Common.ServiceStackClient;
-using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -29,50 +29,39 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User GetUser(String emailAddress)
         {
-            var response =
-                GetSync<UserResourceResponse>(String.Format("{0}?email={1}", _sportsWebPtClientSettings.UserUriPath, HttpUtility.UrlEncode(emailAddress)));
+            var request = GetSync(new UserRequest() { Id = emailAddress });
 
-            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
         public User GetUser(int id)
         {
-            var response =
-                GetSync<UserResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.UserUriPath, id));
+            var request = GetSync(new UserRequest() { Id = id.ToString()} );
 
-            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
         public int AddUser(User user)
         {
-            var userResuest = new ApiResourceRequest<UserDto>
-                {
-                    Resource = Mapper.Map<UserDto>(user)
-                };
+            var userResuest = Mapper.Map<CreateUserRequest>(user);
+   
+            var request = PostSync(userResuest);
 
-            var response =
-                PostSync<UserResourceResponse>(_sportsWebPtClientSettings.UserUriPath, userResuest);
-
-            return response.Resource.id;
+            return request.Response.Id;
         }
 
         public void AddFavorite(UserFavorite userFavorite)
         {
-            var userFavResuest = new ApiResourceRequest<UserFavoriteDto>
-            {
-                Resource = Mapper.Map<UserFavoriteDto>(userFavorite)
-            };
+            var userFavRequest = Mapper.Map<CreateUserFavoriteRequest>(userFavorite);
 
-            var response =
-                PostSync<ApiResourceRequest<UserFavoriteDto>>(_sportsWebPtClientSettings.UserFavoriteUriPath, userFavResuest);
+            PostSync(userFavRequest);
         }
 
         public User Auth(string emailAddress, string hash)
         {
-            var response =
-                PostSync<UserResourceResponse>(_sportsWebPtClientSettings.AuthUriPath, new AuthRequestDto() { emailAddress = emailAddress, hash = hash });
+            var request = PostSync(new AuthRequest() { EmailAddress = emailAddress, Hash = hash });
 
-            return response.Resource == null ? null : Mapper.Map<User>(response.Resource);
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
         #endregion

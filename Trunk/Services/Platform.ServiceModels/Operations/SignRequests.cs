@@ -1,15 +1,22 @@
 ﻿using System;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class SignListRequest : ApiResourceListRequest
-    {
-    }
+    [Route("/signs", "GET")]
+    public class SignListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<SignDto, BasicSortBy>> 
+    {}
 
-    public class SignRequest : ApiResourceRequest<SignDto>
-    {
-        
-    }
+    [Route("/signs", "POST")]
+    public class CreateSignRequest : SignDto, IReturn<ApiResponse<SignDto>>
+    {}
+
+    [Route("/signs/{id}", "PUT")]
+    public class UpdateSignRequest : SignDto, IReturn<ApiResponse<SignDto>>
+    {}
+
+    [Route("/signs/{id}", "GET")]
+    public class SignRequest : AbstractResourceRequest, IReturn<ApiResponse<SignDto>>
+    {}
 }

@@ -1,58 +1,40 @@
-09-29-13@19:01:21 Info (29)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:01:21 Info (61)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:01:21 Info (42)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:01:21 Info (29)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0035706 
-09-29-13@19:01:21 Info (42)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0028482 
-09-29-13@19:01:21 Info (25)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:01:21 Info (25)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0034091 
-09-29-13@19:01:21 Info (61)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0125556 
-09-29-13@19:02:04 Info (20)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:02:04 Info (35)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:02:04 Info (20)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0068369 
-09-29-13@19:02:04 Info (20)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:02:04 Info (20)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0034412 
-09-29-13@19:02:04 Info (35)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0053711 
-09-29-13@19:02:04 Info (25)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:02:04 Info (25)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0040110 
-09-29-13@19:03:59 Info (51)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:03:59 Info (51)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0061707 
-09-29-13@19:03:59 Info (51)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:03:59 Info (51)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0050561 
-09-29-13@19:03:59 Info (39)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:03:59 Info (12)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:03:59 Info (39)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0042636 
-09-29-13@19:03:59 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0052832 
-09-29-13@19:07:09 Info (32)  [Common] SymptomaticRegionListRequest request submitted 
-09-29-13@19:07:09 Info (32)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0275705 
-09-29-13@19:08:19 Info (17)  [Common] SymptomaticRegionListRequest request submitted 
-09-29-13@19:08:19 Info (17)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0264018 
-09-29-13@19:08:39 Info (17)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:08:39 Info (17)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0072764 
-09-29-13@19:08:39 Info (36)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:08:39 Info (16)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:08:39 Info (16)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0049994 
-09-29-13@19:08:39 Info (36)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0171834 
-09-29-13@19:09:42 Info (34)  [Common] SymptomaticRegionListRequest request submitted 
-09-29-13@19:09:42 Info (34)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0332647 
-09-29-13@19:09:49 Info (12)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:09:49 Info (25)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:09:49 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0081185 
-09-29-13@19:09:49 Info (12)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:09:49 Info (25)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0068833 
-09-29-13@19:09:49 Info (12)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0065134 
-09-29-13@19:10:08 Info (36)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (32)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (36)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0037589 
-09-29-13@19:10:08 Info (32)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0038937 
-09-29-13@19:10:08 Info (34)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (58)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (34)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0032832 
-09-29-13@19:10:08 Info (58)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0029258 
-09-29-13@19:10:08 Info (48)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (16)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:10:08 Info (16)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0029686 
-09-29-13@19:10:08 Info (48)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0032163 
-09-29-13@19:13:05 Info (43)  [Common] SymptomaticRegionListRequest request submitted 
-09-29-13@19:13:05 Info (43)  [Common] SymptomaticRegionListRequest request completed with duration of 00:00:00.0251029 
-09-29-13@19:13:13 Info (49)  [Common] PotentialSymptomListRequest request submitted 
-09-29-13@19:13:13 Info (49)  [Common] PotentialSymptomListRequest request completed with duration of 00:00:00.0075897 
+10-05-13@14:01:17 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/2?idAsLong=2&idAsInt=2 
+10-05-13@14:01:17 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/2?idAsLong=2&idAsInt=2; 
+10-05-13@14:02:11 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/kbloom@sportswebpt.com 
+10-05-13@14:02:11 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/kbloom@sportswebpt.com; 
+10-05-13@14:04:35 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/kbloom@sportswebpt.com 
+10-05-13@14:04:39 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/kbloom@sportswebpt.com; 
+10-05-13@14:04:40 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users 
+10-05-13@14:04:40 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users; 
+10-05-13@14:04:40 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/4?idAsLong=4&idAsInt=4 
+10-05-13@14:04:40 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/4?idAsLong=4&idAsInt=4; 
+10-05-13@14:04:50 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/4?idAsLong=4&idAsInt=4 
+10-05-13@14:04:50 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/4?idAsLong=4&idAsInt=4; 
+10-05-13@14:05:25 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/meee@test.com 
+10-05-13@14:05:25 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/meee@test.com; 
+10-05-13@14:05:35 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users 
+10-05-13@14:05:35 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users; 
+10-05-13@14:05:35 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/5?idAsLong=5&idAsInt=5 
+10-05-13@14:05:35 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/5?idAsLong=5&idAsInt=5; 
+10-05-13@14:09:53 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:09:55 Info (42)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-05-13@14:09:55 Info (44)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
+10-05-13@14:09:55 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-05-13@14:09:56 Info (42)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-05-13@14:09:56 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-05-13@14:09:56 Info (44)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
+10-05-13@14:09:56 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-05-13@14:09:56 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
+10-05-13@14:09:57 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
+10-05-13@14:10:12 Info (44)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises/1 
+10-05-13@14:10:14 Info (44)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises/1; 
+10-05-13@14:10:14 Info (30)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:10:15 Info (30)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-05-13@14:10:32 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:10:32 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-05-13@14:10:32 Info (42)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:10:34 Info (42)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-05-13@14:10:59 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:10:59 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-05-13@14:10:59 Info (44)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-05-13@14:11:01 Info (44)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 

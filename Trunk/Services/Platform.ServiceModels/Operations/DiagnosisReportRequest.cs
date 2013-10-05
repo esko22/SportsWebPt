@@ -1,8 +1,14 @@
-﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
+﻿using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class DiagnosisReportRequest : ApiResourceRequest<DiagnosisReportDto>
-    {
-    }
+    [Route("/diagnosisReports/{id}", "GET")]
+    public class DiagnosisReportRequest : AbstractResourceRequest, IReturn<ApiResponse<DiagnosisReportDto>>
+    {}
+
+    [Route("/differentialDiagnosis", "POST")]
+    public class CreateDiagnosisReportRequest : DifferentialDiagnosisDto, IReturn<ApiResponse<DifferentialDiagnosisDto>>    
+    {}
+
 }

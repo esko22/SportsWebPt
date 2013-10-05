@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
 
@@ -31,51 +30,37 @@ namespace SportsWebPt.Platform.Web.Services
 
         public IEnumerable<SkeletonArea> GetSkeletonAreas()
         {
-            var response =
-                GetSync<ListResponse<SkeletonAreaDto, SkeletonSortBy>>(_sportsWebPtClientSettings.SkeletonAreasUriPath);
+            var request = GetSync(new SkeletonAreaListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<SkeletonArea>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<SkeletonArea>>(request.Response.Items);
         }
 
         public IEnumerable<SymptomaticRegion> GetSymptomaticRegions()
         {
-            var response =
-                GetSync<ListResponse<SymptomaticRegionDto, BasicSortBy>>(_sportsWebPtClientSettings.SymptomaticRegionUriPath);
+            var request = GetSync (new SymptomaticRegionListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<SymptomaticRegion>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<SymptomaticRegion>>(request.Response.Items);
         }
 
         public IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId)
         {
-            var response =
-                GetSync<ListResponse<PotentialSymptomDto, BasicSortBy>>(String.Format("{0}?bodyPartMatrixId={1}", _sportsWebPtClientSettings.PotentialSymptomUriPath, bodyPartMatrixId));
+            var request = GetSync(new PotentialSymptomListRequest() {BodyPartMatrixId = bodyPartMatrixId});
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<PotentialSymptom>>(response.Resource.Items);
-            
+            return request.Response == null ? null : Mapper.Map<IEnumerable<PotentialSymptom>>(request.Response.Items);
         }
 
         public int SubmitDifferentialDiagnosis(DifferentialDiagnosis differentialDiagnosis)
         {
-            var resuest = new ApiResourceRequest<DifferentialDiagnosisDto>
-            {
-                Resource = Mapper.Map<DifferentialDiagnosisDto>(differentialDiagnosis)
-            };
+            var response = PostSync(Mapper.Map<CreateDiagnosisReportRequest>(differentialDiagnosis));
 
-            var response =
-                PostSync<ApiResponse<DifferentialDiagnosisDto>>(_sportsWebPtClientSettings.DiffDiagUriPath, resuest);
-
-            return response.Resource.id;
+            return response.Response.Id;
         }
 
         public DiagnosisReport GetDiagnosisReport(int differntialDiagnosisId)
         {
-            var response =
-                GetSync<ApiResourceRequest<DiagnosisReportDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.DiagnosisReport,
-                                                                                          differntialDiagnosisId));
+            var request = GetSync(new DiagnosisReportRequest() { Id = differntialDiagnosisId.ToString()});
 
-            var diagReport = Mapper.Map<DiagnosisReport>(response.Resource);
-
-            return diagReport;
+            return Mapper.Map<DiagnosisReport>(request.Response);
         }
     }
 }

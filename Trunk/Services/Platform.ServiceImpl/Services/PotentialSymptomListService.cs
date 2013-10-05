@@ -2,15 +2,13 @@
 using System.Linq;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStack.Infrastructure;
-using SportsWebPt.Platform.Core.Models;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class PotentialSymptomListService : LoggingRestServiceBase<PotentialSymptomListRequest, ListResponse<SymptomDto, BasicSortBy>>
+    public class PotentialSymptomListService : RestService
     {
         #region Properties
 
@@ -20,9 +18,8 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(PotentialSymptomListRequest request)
+        public object Get(PotentialSymptomListRequest request)
         {
-
             var symptoms = request.BodyPartMatrixId == 0
                                ? SkeletonUnitOfWork.SymptomMatrixRepo.GetAll()
                                : SkeletonUnitOfWork.SymptomMatrixRepo.GetPotentialSymptoms(request.BodyPartMatrixId);
@@ -31,9 +28,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(symptoms, responseList);
 
             return
-                Ok(new ListResponse<PotentialSymptomDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<PotentialSymptomDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-
         }
 
         #endregion

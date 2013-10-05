@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 
 using AutoMapper;
-using ServiceStack.ServiceInterface.ServiceModel;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -12,7 +11,7 @@ using System.Linq;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class BodyPartListService : LoggingRestServiceBase<BodyPartListRequest, ListResponse<BodyPartDto, BodyPartSortBy>>
+    public class BodyPartService : RestService
     {
         #region Properties
 
@@ -22,43 +21,31 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(BodyPartListRequest request)
+        public object Get(BodyPartListRequest request)
         {
             var areaComponents = new List<BodyPart>();
 
-            if (request.skeletonAreaId == 0)
+            if (request.SkeletonAreaId == 0)
                 areaComponents.AddRange(SkeletonUnitOfWork.BodyPartRepo.GetAll(new[] { "BodyPartMatrix", "BodyPartMatrix.SkeletonArea", "BodyPartMatrix.SkeletonArea.Region",
                                                                                        "BodyPartMatrix.SkeletonArea.Side","BodyPartMatrix.SkeletonArea.Orientation"}));
             else
-                areaComponents = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll().Where(s => s.SkeletonAreaId == request.skeletonAreaId).Select(p => p.BodyPart).ToList();
+                areaComponents = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll().Where(s => s.SkeletonAreaId == request.SkeletonAreaId).Select(p => p.BodyPart).ToList();
 
             var responseList = new List<BodyPartDto>();
             Mapper.Map(areaComponents, responseList);
 
             return
-                Ok(new ListResponse<BodyPartDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<BodyPartDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
 
         }
 
-        #endregion
-    }
 
-    public class BodyPartService : LoggingRestServiceBase<BodyPartRequest, ApiResponse<BodyPartDto>>
-    {
-        #region Properties
-
-        public ISkeletonUnitOfWork SkeletonUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnPost(BodyPartRequest request)
+        public object Post(CreateBodyPartRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
+            Check.Argument.IsNotNull(request, "BodyPartDto");
 
-            var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+            var bodyPart = Mapper.Map<BodyPart>(request);
 
             bodyPart.SecondaryBodyPartMatrix.ForEach(p =>
                 {
@@ -69,14 +56,14 @@ namespace SportsWebPt.Platform.ServiceImpl
             SkeletonUnitOfWork.BodyPartRepo.Add(bodyPart);
             SkeletonUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<BodyPartDto>(request.Resource));
+            return Ok(new ApiResponse<BodyPartDto>(request));
         }
 
-        public override object OnPut(BodyPartRequest request)
+        public object Put(UpdateBodyPartRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "BodyPartDto");
+            Check.Argument.IsNotNull(request, "BodyPartDto");
 
-            var bodyPart = Mapper.Map<BodyPart>(request.Resource);
+            var bodyPart = Mapper.Map<BodyPart>(request);
             bodyPart.SecondaryBodyPartMatrix.ForEach(p =>
             {
                 p.IsSecondary = true;
@@ -88,26 +75,13 @@ namespace SportsWebPt.Platform.ServiceImpl
             SkeletonUnitOfWork.UpdateBodyPart(bodyPart);
             SkeletonUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<BodyPartDto>(request.Resource));
+            return Ok(new ApiResponse<BodyPartDto>(request));
         }
 
-        #endregion
 
-    }
-
-    public class BodyPartMatrixItemService : LoggingRestServiceBase<BodyPartMatrixListRequest, ListResponse<BodyPartMatrixItemDto, BodyPartSortBy>>
-    {
-        #region Properties
-
-        public ISkeletonUnitOfWork SkeletonUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnGet(BodyPartMatrixListRequest request)
+        public object Get(BodyPartMatrixListRequest request)
         {
-            var bodyPartMatrixItems = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll(new []
+            var bodyPartMatrixItems = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll(new[]
                 {
                     "BodyPart",
                     "SkeletonArea",
@@ -121,10 +95,15 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.Map(bodyPartMatrixItems, responseList);
 
             return
-                Ok(new ListResponse<BodyPartMatrixItemDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<BodyPartMatrixItemDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 
+
         #endregion
+
+
     }
+
+
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using AutoMapper;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -11,7 +11,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    public class ExerciseListService : LoggingRestServiceBase<ExecerciseListRequest, ListResponse<ExerciseDto, BasicSortBy>>
+    public class ExerciseService : RestService
     {
         #region Properties
 
@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         #region Methods
 
-        public override object OnGet(ExecerciseListRequest request)
+        public object Get(ExerciseListRequest request)
         {
             var responseList = new List<ExerciseDto>();
             Mapper.Map(
@@ -32,25 +32,13 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     }).OrderBy(p => p.Id), responseList);
 
             return
-                Ok(new ListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
 
         }
 
-        #endregion
-    }
 
-    public class ExerciseService : LoggingRestServiceBase<ExecerciseRequest, ApiResponse<ExerciseDto>>
-    {
-        #region Properties
-
-        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnGet(ExecerciseRequest request)
+        public object Get(ExerciseRequest request)
         {
             var exercise = request.IdAsInt > 0
                                ? ResearchUnitOfWork.ExerciseRepo.GetById(request.IdAsInt)
@@ -59,32 +47,32 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
                         "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
-            return Ok(new ApiResponse<ExerciseDto>() {Resource = Mapper.Map<ExerciseDto>(exercise)});
+            return Ok(new ApiResponse<ExerciseDto>() {Response = Mapper.Map<ExerciseDto>(exercise)});
 
         }
 
-        public override object OnPost(ExecerciseRequest request)
+        public object Post(CreateExerciseRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "ExerciseDto");
+            Check.Argument.IsNotNull(request, "ExerciseDto");
 
-            var exercise = Mapper.Map<Exercise>(request.Resource);
+            var exercise = Mapper.Map<Exercise>(request);
 
             ResearchUnitOfWork.ExerciseRepo.Add(exercise);
             ResearchUnitOfWork.Commit();
 
-            request.Resource.Id = exercise.Id;
+            request.Id = exercise.Id;
 
-            return Ok(new ApiResponse<ExerciseDto>(request.Resource));
+            return Ok(new ApiResponse<ExerciseDto>(request));
 
         }
 
-        public override object OnPut(ExecerciseRequest request)
+        public object Put(UpdateExerciseRequest request)
         {
-            Check.Argument.IsNotNull(request.Resource, "ExerciseDto");
+            Check.Argument.IsNotNull(request, "ExerciseDto");
 
-            ResearchUnitOfWork.UpdateExercise(Mapper.Map<Exercise>(request.Resource));
+            ResearchUnitOfWork.UpdateExercise(Mapper.Map<Exercise>(request));
 
-            return Ok(new ApiResponse<ExerciseDto>(request.Resource));
+            return Ok(new ApiResponse<ExerciseDto>(request));
         }
 
         #endregion

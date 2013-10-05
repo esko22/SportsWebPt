@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using AutoMapper;
 
-using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -29,86 +29,79 @@ namespace SportsWebPt.Platform.Web.Services
 
         public Plan GetPlan(int planId)
         {
-            var response =
-                GetSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath,
-                                                                      planId));
+            var request =
+                GetSync(new PlanRequest() { Id = planId.ToString() });
 
-            var plan = Mapper.Map<Plan>(response.Resource);
+            var plan = Mapper.Map<Plan>(request.Response);
 
             return plan;
         }
 
         public IEnumerable<BodyPart> GetBodyParts()
         {
-            var response =
-                GetSync<ListResponse<BodyPartDto, BodyPartSortBy>>(_sportsWebPtClientSettings.BodyPartUriPath);
+            var request = GetSync(new BodyPartListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyPart>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BodyPart>>(request.Response.Items);
         }
 
         public IEnumerable<BodyRegion> GetBodyRegions()
         {
-            var response =
-                GetSync<ListResponse<BodyRegionDto, BasicSortBy>>(_sportsWebPtClientSettings.BodyRegionUriPath);
+            var request = GetSync(new BodyRegionListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BodyRegion>>(request.Response.Items);
         }
 
         public IEnumerable<Sign> GetSigns()
         {
-            var response =
-                GetSync<ListResponse<SignDto, BasicSortBy>>(_sportsWebPtClientSettings.SignPath);
+            var request = GetSync(new SignListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<Sign>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Sign>>(request.Response.Items);
         }
 
         public IEnumerable<Exercise> GetExercises()
         {
-            var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
+            var request = GetSync(new ExerciseListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Exercise>>(request.Response.Items);
         }
 
         public IEnumerable<Plan> GetPlans()
         {
-            var response = GetSync<ListResponse<PlanDto, BasicSortBy>>(_sportsWebPtClientSettings.PlanPath);
+            var request = GetSync(new PlanListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<Plan>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
         }
 
         public IEnumerable<Injury> GetInjuries()
         {
-            var response = GetSync<ListResponse<InjuryDto, BasicSortBy>>(_sportsWebPtClientSettings.InjuryPath);
+            var request = GetSync(new InjuryListRequest());
 
-            return response.Resource == null ? null : Mapper.Map<IEnumerable<Injury>>(response.Resource.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Injury>>(request.Response.Items);
         }
 
         public Exercise GetExerciseByPageName(string pageName)
         {
-            var response =
-                 GetSync<ApiResourceRequest<ExerciseDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.ExercisePath,pageName));
+            var request = GetSync(new ExerciseRequest() {Id = pageName} );
 
-            var exercise = Mapper.Map<Exercise>(response.Resource);
+            var exercise = Mapper.Map<Exercise>(request.Response);
 
             return exercise;
         }
 
         public Injury GetInjuryByPageName(string pageName)
         {
-            var response =
-                 GetSync<ApiResourceRequest<InjuryDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.InjuryPath, pageName));
+            var request = GetSync(new InjuryRequest() {Id = pageName});
 
-            var injury = Mapper.Map<Injury>(response.Resource);
+            var injury = Mapper.Map<Injury>(request.Response);
 
             return injury;
         }
 
         public Plan GetPlanByPageName(string pageName)
         {
-            var response =
-                 GetSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath, pageName));
+            var request = GetSync(new PlanRequest() {Id = pageName});
 
-            var plan = Mapper.Map<Plan>(response.Resource);
+            var plan = Mapper.Map<Plan>(request.Response);
 
             return plan;
             

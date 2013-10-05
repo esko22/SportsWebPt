@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 
 using AutoMapper;
-
-using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
-using SportsWebPt.Platform.Web.Services.Proxies;
 
 namespace SportsWebPt.Platform.Web.Services
 {
@@ -32,293 +30,195 @@ namespace SportsWebPt.Platform.Web.Services
 
         public IEnumerable<Equipment> GetEquipment()
         {
-            var response = GetSync<ListResponse<EquipmentDto, BasicSortBy>>(_sportsWebPtClientSettings.EquipmentPath);
+            var request = GetSync(new EquipmentListRequest());
 
-            return Mapper.Map<IEnumerable<Equipment>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Equipment>>(request.Response.Items);
         }
 
         public IEnumerable<Video> GetVideos()
         {
-            var response = GetSync<ListResponse<VideoDto, BasicSortBy>>(_sportsWebPtClientSettings.VideoPath);
+            var request = GetSync(new VideoListRequest());
 
-            return Mapper.Map<IEnumerable<Video>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Video>>(request.Response.Items);
         }
 
 
         public int AddEquipment(Equipment equipment)
         {
-            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
-                {
-                    Resource = Mapper.Map<EquipmentDto>(equipment)
-                };
+            var request = PostSync(Mapper.Map<CreateEquipmentRequest>(equipment));
 
-            var response =
-                PostSync<EquipmentResourceResponse>(_sportsWebPtClientSettings.EquipmentPath, equipmentRequest);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdateEquipment(Equipment equipment)
         {
-            var equipmentRequest = new ApiResourceRequest<EquipmentDto>
-            {
-                Resource = Mapper.Map<EquipmentDto>(equipment)
-            };
-
-            PutSync<EquipmentResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.EquipmentPath, equipment.id), equipmentRequest);
+            Put(Mapper.Map<UpdateEquipmentRequest>(equipment));
         }
 
         public int AddVideo(Video video)
         {
-            var request = new ApiResourceRequest<VideoDto>
-            {
-                Resource = Mapper.Map<VideoDto>(video)
-            };
+            var request = PostSync(Mapper.Map<CreateVideoRequest>(video));
 
-            var response =
-                PostSync<VideoResourceResponse>(_sportsWebPtClientSettings.VideoPath, request);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdateVideo(Video video)
         {
-            var request = new ApiResourceRequest<VideoDto>
-            {
-                Resource = Mapper.Map<VideoDto>(video)
-            };
-
-            PutSync<VideoResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.VideoPath, video.id), request);
+            Put(Mapper.Map<UpdateVideoRequest>(video));
         }
 
         public IEnumerable<Exercise> GetExercises()
         {
-            var response = GetSync<ListResponse<ExerciseDto, BasicSortBy>>(_sportsWebPtClientSettings.ExercisePath);
-            var exercises = Mapper.Map<IEnumerable<Exercise>>(response.Resource.Items);
+            var request = GetSync(new ExerciseListRequest());
 
-            return exercises;
+            return Mapper.Map<IEnumerable<Exercise>>(request.Response.Items);
         }
 
         public int AddExercise(Exercise exercise)
         {
-            var request = new ApiResourceRequest<ExerciseDto>
-                {
-                    Resource = Mapper.Map<ExerciseDto>(exercise)
-                };
+            var request = PostSync(Mapper.Map<CreateExerciseRequest>(exercise));
 
-            var response = PostSync<ApiResourceRequest<ExerciseDto>>(_sportsWebPtClientSettings.ExercisePath, request);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdateExercise(Exercise exercise)
         {
-            var request = new ApiResourceRequest<ExerciseDto>
-            {
-                Resource = Mapper.Map<ExerciseDto>(exercise)
-            };
-
-            PutSync<ApiResourceRequest<ExerciseDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.ExercisePath, exercise.id), request);
+            Put(Mapper.Map<UpdateExerciseRequest>(exercise));
         }
 
         public IEnumerable<Plan> GetPlans()
         {
-            var response = GetSync<ListResponse<PlanDto, BasicSortBy>>(_sportsWebPtClientSettings.PlanPath);
+            var request = GetSync(new PlanListRequest());
 
-            return Mapper.Map<IEnumerable<Plan>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
         }
 
         public int AddPlan(Plan plan)
         {
-            var request = new ApiResourceRequest<PlanDto>
-            {
-                Resource = Mapper.Map<PlanDto>(plan)
-            };
+            var request = PostSync(Mapper.Map<CreatePlanRequest>(plan));
 
-            var response = PostSync<ApiResourceRequest<PlanDto>>(_sportsWebPtClientSettings.PlanPath, request);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdatePlan(Plan plan)
         {
-            var request = new ApiResourceRequest<PlanDto>
-            {
-                Resource = Mapper.Map<PlanDto>(plan)
-            };
-
-            PutSync<ApiResourceRequest<PlanDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.PlanPath, plan.id), request);
+            Put(Mapper.Map<UpdatePlanRequest>(plan));
         }
 
         public IEnumerable<Injury> GetInjuries()
         {
-            var response = GetSync<ListResponse<InjuryDto, BasicSortBy>>(_sportsWebPtClientSettings.InjuryPath);
+            var request = GetSync(new InjuryListRequest());
 
-            return Mapper.Map<IEnumerable<Injury>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Injury>>(request.Response.Items);
         }
 
         public int AddInjury(Injury injury)
         {
-            var request = new ApiResourceRequest<InjuryDto>
-            {
-                Resource = Mapper.Map<InjuryDto>(injury)
-            };
+            var request = PostSync(Mapper.Map<CreateInjuryRequest>(injury));
 
-            var response =
-                PostSync<InjuryResourceResponse>(_sportsWebPtClientSettings.InjuryPath, request);
-
-            return response.Resource.id;
+            return request.Response.Id;
         }
 
         public void UpdateInjury(Injury injury)
         {
-            var request = new ApiResourceRequest<InjuryDto>
-            {
-                Resource = Mapper.Map<InjuryDto>(injury)
-            };
-
-            PutSync<ApiResourceRequest<InjuryDto>>(String.Format("{0}/{1}", _sportsWebPtClientSettings.InjuryPath, injury.id), request);
+            Put(Mapper.Map<UpdateInjuryRequest>(injury));
         }
 
         public IEnumerable<Sign> GetSigns()
         {
-            var response = GetSync<ListResponse<SignDto, BasicSortBy>>(_sportsWebPtClientSettings.SignPath);
+            var request = GetSync(new SignListRequest());
 
-            return Mapper.Map<IEnumerable<Sign>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Sign>>(request.Response.Items);
         }
 
         public int AddSign(Sign sign)
         {
-            var request = new ApiResourceRequest<SignDto>
-            {
-                Resource = Mapper.Map<SignDto>(sign)
-            };
+            var request = PostSync(Mapper.Map<CreateSignRequest>(sign));
 
-            var response =
-                PostSync<SignResourceResponse>(_sportsWebPtClientSettings.SignPath, request);
-
-            return response.Resource.id;
+            return request.Response.Id;
         }
 
         public void UpdateSign(Sign sign)
         {
-            var request = new ApiResourceRequest<SignDto>
-            {
-                Resource = Mapper.Map<SignDto>(sign)
-            };
-
-            PutSync<SignResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.SignPath, sign.id), request);
+            Put(Mapper.Map<UpdateSignRequest>(sign));
         }
 
         public IEnumerable<Cause> GetCauses()
         {
-            var response = GetSync<ListResponse<CauseDto, BasicSortBy>>(_sportsWebPtClientSettings.CausePath);
+            var request = GetSync(new CauseListRequest());
 
-            return Mapper.Map<IEnumerable<Cause>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Cause>>(request.Response.Items);
         }
 
         public int AddCause(Cause cause)
         {
-            var request = new ApiResourceRequest<CauseDto>
-            {
-                Resource = Mapper.Map<CauseDto>(cause)
-            };
+            var request = PostSync(Mapper.Map<CreateCauseRequest>(cause));
 
-            var response =
-                PostSync<CauseResourceResponse>(_sportsWebPtClientSettings.CausePath, request);
-
-            return response.Resource.id;
+            return request.Response.Id;
         }
 
         public void UpdateCause(Cause cause)
         {
-            var request = new ApiResourceRequest<CauseDto>
-            {
-                Resource = Mapper.Map<CauseDto>(cause)
-            };
-
-            PutSync<CauseResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.CausePath, cause.id), request);
+            Put(Mapper.Map<UpdateCauseRequest>(cause));
         }
 
         public IEnumerable<BodyPartMatrixItem> GetBodyPartMatrix()
         {
-            var response = GetSync<ListResponse<BodyPartMatrixItemDto, BasicSortBy>>(_sportsWebPtClientSettings.BodyPartMatrixPath);
+            var request = GetSync(new BodyPartMatrixListRequest());
 
-            return Mapper.Map<IEnumerable<BodyPartMatrixItem>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<BodyPartMatrixItem>>(request.Response.Items);
         }
 
         public IEnumerable<Symptom> GetSymtpoms()
         {
-            var response = GetSync<ListResponse<SymptomDto, BasicSortBy>>(_sportsWebPtClientSettings.SymptomPath);
+            var request = GetSync(new SymptomListRequest());
 
-            return Mapper.Map<IEnumerable<Symptom>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<Symptom>>(request.Response.Items);
         }
 
         public IEnumerable<BodyPart> GetBodyParts()
         {
-            var response = GetSync<ListResponse<BodyPart, BasicSortBy>>(_sportsWebPtClientSettings.BodyPartPath);
+            var request = GetSync(new BodyPartListRequest());
 
-            return Mapper.Map<IEnumerable<BodyPart>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<BodyPart>>(request.Response.Items);
         }
 
         public IEnumerable<SkeletonArea> GetSkeletonAreas()
         {
-            var response = GetSync<ListResponse<SkeletonArea, BasicSortBy>>(_sportsWebPtClientSettings.SkeletonAreasUriPath);
+            var request = GetSync(new SkeletonAreaListRequest());
 
-            return Mapper.Map<IEnumerable<SkeletonArea>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<SkeletonArea>>(request.Response.Items);
         }
 
         public int AddBodyPart(BodyPart bodyPart)
         {
-            var request = new ApiResourceRequest<BodyPartDto>
-            {
-                Resource = Mapper.Map<BodyPartDto>(bodyPart)
-            };
+            var request = PostSync(Mapper.Map<CreateBodyPartRequest>(bodyPart));
 
-            var response =
-                PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyPartPath, request);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdateBodyPart(BodyPart bodyPart)
         {
-            var request = new ApiResourceRequest<BodyPartDto>
-            {
-                Resource = Mapper.Map<BodyPartDto>(bodyPart)
-            };
-
-            PutSync<BodyPartResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.BodyPartPath, bodyPart.id), request);
+            Put(Mapper.Map<UpdateBodyPartRequest>(bodyPart));
         }
 
         public IEnumerable<BodyRegion> GetBodyRegions()
         {
-            var response = GetSync<ListResponse<BodyRegion, BasicSortBy>>(_sportsWebPtClientSettings.BodyRegionUriPath);
+            var request = GetSync(new BodyRegionListRequest());
 
-            return Mapper.Map<IEnumerable<BodyRegion>>(response.Resource.Items);
+            return Mapper.Map<IEnumerable<BodyRegion>>(request.Response.Items);
         }
 
         public int AddBodyRegion(BodyRegion bodyRegion)
         {
-            var request = new ApiResourceRequest<BodyRegionDto>
-            {
-                Resource = Mapper.Map<BodyRegionDto>(bodyRegion)
-            };
+            var request = PostSync(Mapper.Map<CreateBodyRegionRequest>(bodyRegion));
 
-            var response =
-                PostSync<BodyPartResourceResponse>(_sportsWebPtClientSettings.BodyRegionUriPath, request);
-
-            return response.Resource.Id;
+            return request.Response.Id;
         }
 
         public void UpdateBodyRegion(BodyRegion bodyRegion)
         {
-            var request = new ApiResourceRequest<BodyRegionDto>
-            {
-                Resource = Mapper.Map<BodyRegionDto>(bodyRegion)
-            };
-
-            PutSync<BodyPartResourceResponse>(String.Format("{0}/{1}", _sportsWebPtClientSettings.BodyRegionUriPath, bodyRegion.id), request);
+            Put(Mapper.Map<UpdateBodyRegionRequest>(bodyRegion));
         }
 
         public bool ValidatePageName(String pageName)

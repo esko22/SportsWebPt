@@ -1,13 +1,22 @@
-﻿using SportsWebPt.Common.ServiceStack.Infrastructure;
+﻿using ServiceStack.ServiceHost;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class VideoListRequest : ApiResourceListRequest
-    {
-    }
+    [Route("/videos", "GET")]
+    public class VideoListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<VideoDto, BasicSortBy>> 
+    {}
 
-    public class VideoRequest : ApiResourceRequest<VideoDto>
-    {
-    }
+    [Route("/videos", "POST")]
+    public class CreateVideoRequest : VideoDto, IReturn<ApiResponse<VideoDto>>
+    { }
+
+    [Route("/videos/{id}", "PUT")]
+    public class UpdateVideoRequest : VideoDto, IReturn<ApiResponse<VideoDto>>
+    { }
+
+    [Route("/videos/{id}", "GET")]
+    public class VideoRequest : AbstractResourceRequest, IReturn<ApiResponse<VideoDto>>
+    {}
 
 }

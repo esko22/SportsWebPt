@@ -1,48 +1,34 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "User", Namespace = "http://SportsWebPt.Platform")]
     public class UserDto
     {
         #region Properties
 
-        [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [DataMember]
-        public String emailAddress { get; set; }
+        public String EmailAddress { get; set; }
 
-        [DataMember]
-        public String firstName { get; set; }
+        public String FirstName { get; set; }
 
-        [DataMember]
-        public String lastName { get; set; }
+        public String LastName { get; set; }
 
-        [DataMember]
-        public String userName { get; set; }
+        public String UserName { get; set; }
 
-        [DataMember]
-        public String hash { get; set; }
+        public String Hash { get; set; }
 
-        [DataMember]
-        public String phone { get; set; }
+        public String Phone { get; set; }
 
-        [DataMember]
-        public String skypeHandle { get; set; }
+        public String SkypeHandle { get; set; }
 
-        [DataMember]
-        public String locale { get; set; }
+        public String Locale { get; set; }
 
-        [DataMember]
-        public String gender { get; set; }
+        public String Gender { get; set; }
 
-        [DataMember]
-        public String provider { get; set; }
+        public String Provider { get; set; }
 
-        [DataMember]
-        public String providerId { get; set; }
+        public String ProviderId { get; set; }
 
         #endregion
     }

@@ -2,15 +2,16 @@
 using System.Linq;
 
 using AutoMapper;
-using ServiceStack.ServiceInterface.ServiceModel;
+
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
-    public class DiagnosisReportService : LoggingRestServiceBase<DiagnosisReportRequest, ApiResponse<DiagnosisReportDto>>
+    public class DiagnosisReportService : RestService
     {
         #region Properties
 
@@ -20,7 +21,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public override object OnGet(DiagnosisReportRequest request)
+        public object Get(DiagnosisReportRequest request)
         {
             var differentialDiagEntity = DiffDiagUnitOfWork.DiffDiagRepo.GetById(request.IdAsInt);
             var diagnosisReportDto = Mapper.Map<DiagnosisReportDto>(differentialDiagEntity);
@@ -58,22 +59,36 @@ namespace SportsWebPt.Platform.ServiceImpl
 
                 givenSymptoms.ForEach(
                     p =>
-                    p.SymptomMatrixItem.InjurySymptomMatrixItems.Where(i => i.InjuryId == potentialInjuryDto.id)
+                    p.SymptomMatrixItem.InjurySymptomMatrixItems.Where(i => i.InjuryId == potentialInjuryDto.Id)
                      .ForEach(i => givenSymptomDtos.Add(Mapper.Map<PotentialSymptomDto>(p))));
 
-                potentialInjuryDto.givenSymptoms = givenSymptomDtos.ToArray();
+                potentialInjuryDto.GivenSymptoms = givenSymptomDtos.ToArray();
             }
 
 
 
             if (potentialInjuryDtos.Count > 0)
-                diagnosisReportDto.potentialInjuries = potentialInjuryDtos.ToArray();
+                diagnosisReportDto.PotentialInjuries = potentialInjuryDtos.ToArray();
 
             return Ok(new ApiResponse<DiagnosisReportDto>()
             {
-                Resource = diagnosisReportDto
+                Response = diagnosisReportDto
             });
         }
+
+
+        public object Post(CreateDiagnosisReportRequest request)
+        {
+            var differentialDiagEntity = Mapper.Map<DifferentialDiagnosis>(request);
+            DiffDiagUnitOfWork.DiffDiagRepo.Add(differentialDiagEntity);
+            DiffDiagUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<DifferentialDiagnosisDto>()
+            {
+                Response = Mapper.Map<DifferentialDiagnosisDto>(differentialDiagEntity)
+            });
+        }
+
 
         #endregion
 

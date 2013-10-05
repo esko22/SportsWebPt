@@ -3,8 +3,7 @@ using System.Linq;
 using System.Web;
 
 using AutoMapper;
-using ServiceStack.ServiceInterface.ServiceModel;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
@@ -12,7 +11,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    public class UserService : LoggingRestServiceBase<UserRequest, ApiResponse<UserDto>>
+    public class UserService : RestService
     {
 
         #region Properties
@@ -23,15 +22,14 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         #region Methods
 
-        public override object OnGet(UserRequest request)
+        public object Get(UserRequest request)
         {
-            var userEmailAddress = HttpUtility.UrlDecode(Request.QueryString["email"]);
             var user = request.IdAsInt > 0
-                           ? UserUnitOfWork.UserRepository.GetById((int) request.IdAsInt)
+                           ? UserUnitOfWork.UserRepository.GetById(request.IdAsInt)
                            : UserUnitOfWork.UserRepository.GetAll()
                                            .FirstOrDefault(
                                                p =>
-                                               p.EmailAddress.Equals(userEmailAddress,
+                                               p.EmailAddress.Equals(request.Id,
                                                    StringComparison.OrdinalIgnoreCase));
             UserDto userDto = null;
 
@@ -40,13 +38,13 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new ApiResponse<UserDto>()
                 {
-                    Resource = userDto
+                    Response = userDto
                 });
         }
 
-        public override object OnPost(UserRequest request)
+        public object Post(CreateUserRequest request)
         {
-            var userToAdd = request.Resource;
+            var userToAdd = request;
             Check.Argument.IsNotNull(userToAdd,"UserToAdd");
 
             var userEntity = Mapper.Map<User>(userToAdd);
@@ -55,27 +53,13 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new ApiResponse<UserDto>()
                 {
-                    Resource = new UserDto() { id = userEntity.Id}
+                    Response = new UserDto() { Id = userEntity.Id}
                 });
         }
 
-        #endregion
-
-    }
-
-    public class UserFavoriteService : LoggingRestServiceBase<UserFavoriteRequest, ApiResponse<UserFavoriteDto>>
-    {
-        #region Properties
-
-        public IUserUnitOfWork UserUnitOfWork { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        public override object OnPost(UserFavoriteRequest request)
+        public object Post(CreateUserFavoriteRequest request)
         {
-            var favoriteToAdd = request.Resource;
+            var favoriteToAdd = request;
             Check.Argument.IsNotNull(favoriteToAdd, "FavoriteToAdd");
 
             var user =
@@ -91,7 +75,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     if (user.InjuryFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var injury = UserUnitOfWork.InjuryRepository.GetById(favoriteToAdd.EntityId);
-                        if(injury != null)
+                        if (injury != null)
                             user.InjuryFavorites.Add(injury);
                     }
                     break;
@@ -99,7 +83,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     if (user.PlanFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var plan = UserUnitOfWork.PlanRepository.GetById(favoriteToAdd.EntityId);
-                        if(plan != null)
+                        if (plan != null)
                             user.PlanFavorites.Add(plan);
                     }
                     break;
@@ -107,7 +91,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     if (user.ExerciseFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var exercise = UserUnitOfWork.ExerciseRepository.GetById(favoriteToAdd.EntityId);
-                        if(exercise != null)
+                        if (exercise != null)
                             user.ExerciseFavorites.Add(exercise);
                     }
                     break;
@@ -115,7 +99,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                     if (user.VideoFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var video = UserUnitOfWork.VideoRepository.GetById(favoriteToAdd.EntityId);
-                        if(video != null)
+                        if (video != null)
                             user.VideoFavorites.Add(video);
                     }
                     break;
@@ -127,11 +111,11 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new ApiResponse<UserFavoriteDto>()
             {
-                Resource = request.Resource
+                Response = request
             });
         }
 
-
         #endregion
+
     }
 }

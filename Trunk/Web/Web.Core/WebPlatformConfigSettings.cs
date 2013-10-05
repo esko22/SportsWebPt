@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using SportsWebPt.Common.Logging;
-using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Common.ServiceStack;
 using YelpSharp;
 
 namespace SportsWebPt.Platform.Web.Core

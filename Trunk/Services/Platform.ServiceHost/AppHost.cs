@@ -7,14 +7,13 @@ using ServiceStack.WebHost.Endpoints;
 
 using Funq;
 using SportsWebPt.Common.DataAccess.Ef;
-using SportsWebPt.Common.ServiceStack.Infrastructure;
+using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities.ServiceApi;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Services;
-using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceHost
 {
@@ -36,7 +35,9 @@ namespace SportsWebPt.Platform.ServiceHost
 
         public AppHost()
             : base("SportsWebPt Platform Services", new[] { typeof(UserService).Assembly, typeof(SwaggerResourceService).Assembly })
-        { } 
+        {
+            LogManager.LoggerFactory = new NLogLoggerFactory();
+        } 
 
         #endregion
 
@@ -84,7 +85,6 @@ namespace SportsWebPt.Platform.ServiceHost
             Config.GlobalResponseHeaders["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS";
             Config.GlobalResponseHeaders["Access-Control-Allow-Headers"] = "Content-Type";
 
-            LogManager.LoggerFactory = new NLogLoggerFactory();
             ServiceContentMaps.CreateContentMaps();
 
             _configuration = PlatformServiceConfiguration.Instance;
@@ -97,48 +97,59 @@ namespace SportsWebPt.Platform.ServiceHost
 
         private void BuildRoutes()
         {
-            Routes
-                .Add<UserRequest>("users/{Id}")
-                .Add<UserRequest>("users")
-                .Add<AuthRequestDto>("auth")
-                .Add<SkeletonAreaListRequest>("areas")
-                .Add<BodyPartListRequest>("bodyparts")
-                .Add<BodyPartRequest>("bodyparts/{id}")
-                .Add<BodyPartRequest>("bodyparts", "POST")
-                .Add<BodyRegionListRequest>("bodyregions")
-                .Add<BodyRegionRequest>("bodyregions/{id}")
-                .Add<BodyRegionRequest>("bodyregions", "POST")
-                .Add<SymptomListRequest>("symptoms")
-                .Add<SymptomaticRegionListRequest>("symptomaticregions")
-                .Add<PotentialSymptomListRequest>("potentialsymptoms")
-                .Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
-                .Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
-                .Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
-                .Add<PlanRequest>("plans/{Id}")
-                .Add<PlanRequest>("plans", "POST")
-                .Add<PlanListRequest>("plans")
-                .Add<VideoListRequest>("videos")
-                .Add<VideoRequest>("videos/{id}")
-                .Add<VideoRequest>("videos", "POST")
-                .Add<EquipmentListRequest>("equipment")
-                .Add<EquipmentRequest>("equipment/{id}")
-                .Add<EquipmentRequest>("equipment", "POST")
-                .Add<ExecerciseListRequest>("exercises")
-                .Add<ExecerciseRequest>("exercises/{id}")
-                .Add<ExecerciseRequest>("exercises", "POST")
-                .Add<SignListRequest>("signs")
-                .Add<SignRequest>("signs/{id}")
-                .Add<SignRequest>("signs", "POST")
-                .Add<CauseListRequest>("causes")
-                .Add<CauseRequest>("causes/{id}")
-                .Add<CauseRequest>("causes", "POST")
-                .Add<InjuryListRequest>("injuries")
-                .Add<InjuryRequest>("injuries/{id}")
-                .Add<InjuryRequest>("injuries", "POST")
-                .Add<PageNameValidationRequest>("validate")
-                .Add<BodyPartMatrixListRequest>("bodypartmatrix")
-                .Add<UserFavoriteRequest>("users/favorites","POST");
+            //Routes
+            //    .Add<UserRequest>("users/{Id}")
+            //    .Add<UserRequest>("users")
+                //.Add<AuthRequestDto>("auth")
+                //.Add<SkeletonAreaListRequest>("areas")
+                //.Add<BodyPartListRequest>("bodyparts")
+                //.Add<BodyPartRequest>("bodyparts/{id}")
+                //.Add<BodyPartRequest>("bodyparts", "POST")
+                //.Add<BodyRegionListRequest>("bodyregions")
+                //.Add<BodyRegionRequest>("bodyregions/{id}")
+                //.Add<BodyRegionRequest>("bodyregions", "POST")
+
+                //.Add<SymptomListRequest>("symptoms")
+                //.Add<SymptomaticRegionListRequest>("symptomaticregions")
+
+                //.Add<PotentialSymptomListRequest>("potentialsymptoms")
+                //.Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
+                
+                
+                //.Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
+                //.Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
+                
+                
+                //.Add<PlanRequest>("plans/{Id}")
+                //.Add<PlanRequest>("plans", "POST")
+                //.Add<PlanListRequest>("plans")
+                //.Add<VideoListRequest>("videos")
+                //.Add<VideoRequest>("videos/{id}")
+                //.Add<VideoRequest>("videos", "POST")
+                //.Add<EquipmentListRequest>("equipment")
+                //.Add<EquipmentRequest>("equipment/{id}")
+                //.Add<EquipmentRequest>("equipment", "POST")
+                //.Add<ExecerciseListRequest>("exercises")
+                //.Add<ExecerciseRequest>("exercises/{id}")
+                //.Add<ExecerciseRequest>("exercises", "POST")
+                //.Add<SignListRequest>("signs")
+                //.Add<SignRequest>("signs/{id}")
+                //.Add<SignRequest>("signs", "POST")
+                //.Add<CauseListRequest>("causes")
+                //.Add<CauseRequest>("causes/{id}")
+                //.Add<CauseRequest>("causes", "POST")
+                //.Add<InjuryListRequest>("injuries")
+                //.Add<InjuryRequest>("injuries/{id}")
+                //.Add<InjuryRequest>("injuries", "POST")
+                //.Add<PageNameValidationRequest>("validate")
+                //.Add<BodyPartMatrixListRequest>("bodypartmatrix")
+                //.Add<UserFavoriteRequest>("users/favorites","POST");
         }
+        public override IServiceRunner<TRequest> CreateServiceRunner<TRequest>(ActionContext actionContext)
+        {
+            return new LoggingServiceRunner<TRequest>(this,actionContext);
+        }
+
 
         private void ConfigureContainer(Container container)
         {

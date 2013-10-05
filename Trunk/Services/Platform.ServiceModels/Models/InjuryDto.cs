@@ -1,47 +1,33 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [DataContract(Name = "Injury", Namespace = "http://SportsWebPt.Platform")]
     public class InjuryDto
     {
         #region Properties
 
-        [DataMember]
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [DataMember]
-        public String commonName { get; set; }
+        public String CommonName { get; set; }
 
-        [DataMember]
-        public String medicalName { get; set; }
+        public String MedicalName { get; set; }
 
-        [DataMember]
-        public String openingStatement { get; set; }
+        public String OpeningStatement { get; set; }
 
-        [DataMember]
-        public String description { get; set; }
+        public String Description { get; set; }
 
-        [DataMember]
-        public PlanDto[] plans { get; set; }
+        public PlanDto[] Plans { get; set; }
 
-        [DataMember]
-        public SignDto[] signs { get; set; }
+        public SignDto[] Signs { get; set; }
 
-        [DataMember]
-        public CauseDto[] causes { get; set; }
+        public CauseDto[] Causes { get; set; }
 
-        [DataMember]
-        public BodyRegionDto[] bodyRegions { get; set; }
+        public BodyRegionDto[] BodyRegions { get; set; }
 
-        [DataMember]
         public String PageName { get; set; }
 
-        [DataMember]
         public String Tags { get; set; }
 
-        [DataMember]
         public InjurySymptomDto[] InjurySymptoms { get; set; }
 
         #endregion

@@ -1,5 +1,5 @@
 ﻿using System;
-using SportsWebPt.Common.ServiceStackClient;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.Web.Core
 {
@@ -33,6 +33,7 @@ namespace SportsWebPt.Platform.Web.Core
         
         #region Construction
 
+        //TODO: should be able to decom this class now
         public SportsWebPtClientSettings()
         {
             PlanPath = String.Format("/{0}/plans", Version);
