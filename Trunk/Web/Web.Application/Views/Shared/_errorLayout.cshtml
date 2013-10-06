@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sports Web Pt</title>
+    
+    @Styles.Render("~/Content/css")
+</head>
+    <body>
+        @{Html.RenderPartial("/areas/main/Views/Shared/_noAuthHeader.cshtml"); }
+        <div class="container">
+            @RenderBody()
+        </div>
+        @{Html.RenderPartial("/areas/main/Views/Shared/_masterFooter.cshtml"); }
+        
+        @Scripts.Render(
+            "~/bundles/jquery",
+            "~/bundles/jsextlibs")   
+    </body>
+</html>

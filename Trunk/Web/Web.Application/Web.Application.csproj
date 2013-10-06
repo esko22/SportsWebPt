@@ -56,6 +56,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AttributeRouting.3.5.6\lib\net40\AttributeRouting.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="BrockAllen.CookieTempData">
       <HintPath>..\packages\BrockAllen.CookieTempData.dll.1.2.1\lib\net45\BrockAllen.CookieTempData.dll</HintPath>
     </Reference>
@@ -382,7 +389,10 @@
     <Content Include="Tmpl\_research.brief.plan.tmpl.html" />
     <Content Include="Tmpl\_admin.injury.list.tmpl.html" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Content Include="views\shared\_html5shiv.cshtml" />
+    <Content Include="Views\Shared\_html5shiv.cshtml" />
+    <Content Include="Views\Shared\Unhandled.cshtml" />
+    <Content Include="Views\Shared\_errorLayout.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -443,7 +453,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Areas\Main\Views\Shared\_errorNotFound.cshtml" />
+    <Content Include="Views\Shared\ErrorNotFound.cshtml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
