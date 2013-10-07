@@ -52,7 +52,7 @@
         var functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']);
         var regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']);
         var holdTypes = ko.observableArray(['Seconds', 'Minutes', 'Breaths']);
-
+        var kendoEditorIgnores = ".k-input, .k-fontName, .k-fontSize, k-formatBlock,:hidden.k-formatBlock ";
         var init = function () {
             configureExternalTemplates();
             notifier.options = {
@@ -83,7 +83,8 @@
             regionCategories: regionCategories,
             holdTypes: holdTypes,
             maxSelectableAreas: maxSelectableAreas,
-            notifier : notifier
+            notifier: notifier,
+            kendoEditorIgnores: kendoEditorIgnores
         };
 
     });

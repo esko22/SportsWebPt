@@ -24,6 +24,7 @@
 
         var videoValidationOptions = ko.observable({
             debug: true,
+            ignore: config.kendoEditorIgnores,
             rules: {
                 name:
                 {

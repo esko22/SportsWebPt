@@ -419,14 +419,14 @@ namespace SportsWebPt.Platform.DataAccess
                         {
                             CommonName = "Foam Roller",
                             PriceRange = "10 - 50",
-                            ProductLink1 = "Foam House", 
+                            ProductInformation = "Foam House", 
                             Category = FunctionCategory.Strengthing
                         },
                     new Equipment()
                         {
                             CommonName = "Theracane",
                             PriceRange = "20 - 60",
-                            ProductLink1 = "ActiveLife", 
+                            ProductInformation = "ActiveLife", 
                             Category = FunctionCategory.Strengthing
                         },
                     new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7", Category = FunctionCategory.Strengthing},

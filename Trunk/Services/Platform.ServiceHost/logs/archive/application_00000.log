@@ -1,376 +1,396 @@
-10-05-13@13:05:41 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
-10-05-13@13:06:02 Error (9)  [Common] Error - RequestUri: http://localhost:2200/v1/injuries/1 EXCEPTION OCCURRED:System.NullReferenceException Object reference not set to an instance of an object. Void MapSymptomMatrixItems(SportsWebPt.Platform.Core.Models.Injury)
-10-05-13@13:07:29 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
-10-05-13@13:07:36 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
-10-05-13@13:07:36 Info (17)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:07:38 Info (17)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:08:01 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:08:01 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:08:01 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:08:01 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:09:38 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:09:38 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:12:32 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/1 
-10-05-13@13:12:34 Info (18)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/1 
-10-05-13@13:12:36 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos/1; 
-10-05-13@13:12:37 Info (18)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos/1; 
-10-05-13@13:12:44 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:12:44 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:13:05 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/1 
-10-05-13@13:13:05 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos/1; 
-10-05-13@13:13:05 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:13:05 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:13:21 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/1 
-10-05-13@13:13:21 Error (7)  [Common] Error - RequestUri: http://localhost:2200/v1/videos/1 EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Video.VideoCategoryMatrixItems.VideoCategoryMatrixItems.VideoCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Spinal Stabilization System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Spinal Stabilization' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:13:50 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:13:50 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
-10-05-13@13:13:50 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:13:50 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:13:51 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:13:51 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
-10-05-13@13:13:51 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:13:51 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:13:51 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
-10-05-13@13:13:51 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
-10-05-13@13:13:51 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:13:51 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:13:52 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:13:52 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:14:06 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
-10-05-13@13:14:08 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
-10-05-13@13:14:08 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:14:08 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:14:13 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:14:13 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:14:13 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:14:13 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:14:13 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:14:13 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:14:13 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
-10-05-13@13:14:13 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:14:13 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:14:13 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
-10-05-13@13:14:13 Info (24)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
-10-05-13@13:14:13 Info (24)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
-10-05-13@13:14:13 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:14:13 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:14:26 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:14:26 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:14:32 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/1 
-10-05-13@13:14:32 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos/1; 
-10-05-13@13:14:32 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:14:32 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:00 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos/2 
-10-05-13@13:15:00 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos/2; 
-10-05-13@13:15:00 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:15:00 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:04 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:15:04 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:17 Info (18)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:15:17 Info (18)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:17 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:15:17 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:21 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:15:21 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:15:25 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:15:25 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:15:39 Info (5)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment/3 
-10-05-13@13:15:39 Info (5)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment/3; 
-10-05-13@13:15:39 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:15:39 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:15:44 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:15:44 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:15:57 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:15:57 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:15:57 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:15:57 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:16:02 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:16:02 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:20:08 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:20:08 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:20:08 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:20:08 Info (28)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:20:08 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:20:11 Info (28)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:20:11 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:20:11 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:20:11 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:20:12 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:20:33 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises/1 
-10-05-13@13:20:34 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises/1; 
-10-05-13@13:20:34 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:20:34 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:20:44 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:20:44 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:20:45 Info (18)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:20:45 Info (18)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:20:45 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:20:45 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:20:45 Info (28)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:20:45 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:20:45 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:20:45 Info (28)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:21:11 Info (28)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:21:11 Error (28)  [Common] Error - RequestUri: http://localhost:2200/v1/exercises EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Exercise.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Range Of Motion System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Range Of Motion' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:23:38 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises/1 
-10-05-13@13:23:44 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises/1; 
-10-05-13@13:23:44 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:23:47 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:23:54 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:23:56 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:23:56 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:23:56 Info (32)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:23:56 Info (31)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:23:56 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:23:57 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:23:57 Info (32)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:23:57 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:23:57 Info (31)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:24:04 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises/1 
-10-05-13@13:24:04 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises/1; 
-10-05-13@13:24:04 Info (32)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:24:06 Info (32)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:24:25 Info (32)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:25:11 Error (32)  [Common] Error - RequestUri: http://localhost:2200/v1/exercises EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Exercise.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Spinal Stabilization System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Spinal Stabilization' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:25:53 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:25:53 Error (9)  [Common] Error - RequestUri: http://localhost:2200/v1/exercises EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Exercise.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Spinal Stabilization System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Spinal Stabilization' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:26:02 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:27:25 Error (6)  [Common] Error - RequestUri: http://localhost:2200/v1/exercises EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Exercise.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Spinal Stabilization System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Spinal Stabilization' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:28:45 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:29:12 Error (6)  [Common] Error - RequestUri: http://localhost:2200/v1/exercises EXCEPTION OCCURRED:AutoMapper.AutoMapperMappingException 
-
-Mapping types:
-String -> FunctionCategory
-System.String -> SportsWebPt.Platform.Core.Models.FunctionCategory
-
-Destination path:
-Exercise.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems.ExerciseCategoryMatrixItems1[1].Category.Category
-
-Source value:
-Spinal Stabilization System.Object AutoMapper.IMappingEngineRunner.Map(AutoMapper.ResolutionContext)
-ArgumentException Requested value 'Spinal Stabilization' was not found. Boolean TryParseEnum(System.Type, System.String, Boolean, EnumResult ByRef)
-10-05-13@13:29:32 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:29:32 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:29:32 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:29:36 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:29:39 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:29:39 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:29:57 Info (19)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/1 
-10-05-13@13:29:58 Info (19)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/1; 
-10-05-13@13:29:58 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:29:58 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:30:13 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:30:13 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:30:13 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:30:14 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:30:20 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:30:20 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:30:20 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:30:20 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:30:20 Info (12)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:30:22 Info (12)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:31:26 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:31:28 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:31:28 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
-10-05-13@13:31:28 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
-10-05-13@13:31:28 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:31:28 Info (16)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:31:28 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:31:28 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
-10-05-13@13:31:28 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
-10-05-13@13:31:28 Info (16)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:32:04 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:32:04 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:42:13 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:42:16 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:42:20 Info (20)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes/1 
-10-05-13@13:42:20 Info (20)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes/1; 
-10-05-13@13:42:20 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:42:20 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:42:23 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:42:23 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:43:54 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:43:57 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:43:58 Info (20)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
-10-05-13@13:43:58 Info (20)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
-10-05-13@13:44:02 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:02 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:06 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs/1 
-10-05-13@13:44:06 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs/1; 
-10-05-13@13:44:06 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:06 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:17 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:17 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:23 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:23 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:23 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:23 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:27 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:44:27 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:44:31 Info (19)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:44:31 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/areas 
-10-05-13@13:44:31 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/areas; 
-10-05-13@13:44:32 Info (19)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:46:50 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts/1 
-10-05-13@13:47:29 Error (22)  [Common] Error - RequestUri: http://localhost:2200/v1/bodyparts/1 EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+10-06-13@17:07:04 Info (18)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
+10-06-13@17:07:05 Info (18)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
+10-06-13@17:07:07 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:07:07 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:07:13 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-06-13@17:07:13 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-06-13@17:07:16 Info (13)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
+10-06-13@17:07:16 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:07:16 Info (25)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:07:16 Info (13)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
+10-06-13@17:07:16 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
+10-06-13@17:07:16 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:07:16 Info (25)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:07:16 Info (16)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
+10-06-13@17:07:33 Info (13)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:07:33 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:07:33 Info (25)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:07:33 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:07:33 Info (25)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:07:33 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:07:33 Info (25)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:07:33 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:07:33 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:07:33 Info (25)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:07:33 Info (25)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:07:33 Info (25)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:07:33 Info (13)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:07:33 Info (16)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:07:54 Info (25)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:07:54 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:07:54 Info (18)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:07:54 Info (13)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:07:54 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:07:54 Info (13)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:07:54 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:07:54 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:07:54 Info (16)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:07:54 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:07:54 Info (23)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:07:54 Info (23)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:07:55 Info (18)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:07:55 Info (25)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:18:18 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:18:18 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:18:18 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:18:18 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:18:18 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:18:18 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:18:18 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:18:18 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:18:18 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:18:18 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:18:18 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:18:18 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:18:18 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:18:18 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:18:23 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:18:23 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:18:23 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:18:23 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:18:23 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:18:23 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:18:23 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:18:23 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:18:23 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:18:23 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:18:23 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:18:23 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:18:23 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:18:24 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:18:30 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:18:32 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:18:32 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:18:32 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:19:05 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:19:05 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:19:05 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:19:05 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:19:05 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:19:05 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:19:05 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:19:05 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:19:05 Info (7)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:19:05 Info (7)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:19:05 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:19:05 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:19:05 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:19:05 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:19:12 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:19:13 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:19:13 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:19:13 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:19:35 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:19:35 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:19:35 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:19:35 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:19:35 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:19:35 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:19:35 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:19:35 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:19:35 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:19:35 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:19:35 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:19:35 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:19:35 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:19:35 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:19:41 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:19:41 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:19:41 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:19:41 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:22:55 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:22:55 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:22:55 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:22:55 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:22:55 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:22:55 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:22:55 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:22:55 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:22:55 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:22:55 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:22:55 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:22:55 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:22:55 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:22:55 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:23:26 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:23:26 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:23:26 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:23:26 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:23:26 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:23:26 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:23:26 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:23:26 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:23:26 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:23:26 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:23:26 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:23:26 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:23:26 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:23:26 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:23:34 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:23:35 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:23:35 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:23:36 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:23:46 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:23:46 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:23:46 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:23:46 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:23:46 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:23:46 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:23:46 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:23:46 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:23:46 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:23:46 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:23:46 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:23:46 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:23:46 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:23:46 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:23:51 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:23:52 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:23:52 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:23:52 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:24:08 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:24:08 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:24:08 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:24:08 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:24:08 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:24:08 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:24:08 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:24:08 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:24:08 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:24:08 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:24:08 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:24:08 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:24:08 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:24:09 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:24:14 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:24:15 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:24:15 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:24:15 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:24:32 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:24:32 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:24:32 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:24:32 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:24:32 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:24:32 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:24:32 Info (11)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:24:32 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:24:32 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:24:32 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:24:32 Info (11)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:24:32 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:24:32 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:24:32 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:24:37 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:24:38 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:24:38 Info (39)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:24:38 Info (39)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:28:13 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:28:13 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:28:13 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:28:13 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:28:13 Info (38)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:28:14 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:28:14 Info (38)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:28:14 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:28:14 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:28:14 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:28:14 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:28:14 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:28:14 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:28:14 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:28:18 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:28:20 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:28:20 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:28:20 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:29:20 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:29:20 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:29:20 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:29:20 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:29:20 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:29:20 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:29:20 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:29:20 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:29:20 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:29:20 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:29:20 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:29:20 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:29:20 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:29:20 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:29:27 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:29:29 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:29:29 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:29:29 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:29:53 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:29:53 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:29:53 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:29:53 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:29:53 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:29:53 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:29:53 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:29:53 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:29:53 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:29:53 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:29:53 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:29:53 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:29:54 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:29:54 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:30:08 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:30:09 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:30:09 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:30:09 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:30:36 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:30:36 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:30:36 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:30:36 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:30:36 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:30:36 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:30:36 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:30:36 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:30:36 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:30:36 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:30:36 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:30:36 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:30:36 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:30:36 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:30:43 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:30:44 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:30:44 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:30:44 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:30:52 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:30:52 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:30:52 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:30:52 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:30:52 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:30:52 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:30:52 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:30:52 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:30:52 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:30:52 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:30:52 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:30:52 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:30:52 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:30:52 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:30:55 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-06-13@17:30:55 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-06-13@17:30:58 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
+10-06-13@17:30:58 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:30:58 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:30:58 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
+10-06-13@17:30:58 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:30:58 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:30:58 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
+10-06-13@17:30:58 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
+10-06-13@17:31:05 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
+10-06-13@17:31:05 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
+10-06-13@17:31:08 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/videos 
+10-06-13@17:31:08 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:31:08 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:31:08 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:31:08 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/videos; 
+10-06-13@17:31:08 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:31:08 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
+10-06-13@17:31:08 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
+10-06-13@17:31:10 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:31:10 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:31:10 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:31:10 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:31:10 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:31:10 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:31:10 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:31:10 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:31:10 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:31:10 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:31:10 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:31:10 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:31:10 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:31:10 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:31:16 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:31:16 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:31:16 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:31:16 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:31:37 Info (15)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:31:37 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:31:37 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:31:37 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:31:37 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:31:37 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:31:37 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:31:37 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:31:37 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:31:37 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:31:37 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:31:37 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:31:37 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:31:37 Info (15)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:31:47 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:31:48 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:31:48 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:31:48 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:34:16 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:34:16 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:34:16 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:34:16 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:34:16 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:34:16 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:34:16 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:34:16 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:34:16 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:34:16 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:34:16 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:34:16 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:34:16 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:34:16 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:34:21 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:34:22 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:34:22 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:34:22 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:36:24 Info (8)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:36:24 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
+10-06-13@17:36:24 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
+10-06-13@17:36:24 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
+10-06-13@17:36:24 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
+10-06-13@17:36:24 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
+10-06-13@17:36:24 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/causes 
+10-06-13@17:36:24 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/causes; 
+10-06-13@17:36:24 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptoms 
+10-06-13@17:36:24 Info (37)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodypartmatrix 
+10-06-13@17:36:24 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptoms; 
+10-06-13@17:36:24 Info (37)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodypartmatrix; 
+10-06-13@17:36:24 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
+10-06-13@17:36:24 Info (8)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:36:30 Info (10)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/1 
+10-06-13@17:36:31 Info (10)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/1; 
+10-06-13@17:36:31 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
+10-06-13@17:36:31 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
+10-06-13@17:37:50 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:37:50 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:48:29 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:49:12 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:50:28 Error (14)  [Common] Error - RequestUri: http://localhost:2200/v1/equipment EXCEPTION OCCURRED:System.Data.DataException An exception occurred while initializing the database. See the InnerException for details. Void PerformInitializationAction(System.Action)
+DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
 UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
-MySqlException Cannot delete or update a parent row: a foreign key constraint fails (`sportswebptdb`.`symptommatrix`, CONSTRAINT `SymptomMatrixItem_BodyPartMatrixItem` FOREIGN KEY (`body_part_matrix_id`) REFERENCES `bodypartmatrix` (`body_part_matrix_id`) ON DELETE NO ACTION O) MySql.Data.MySqlClient.MySqlPacket ReadPacket()
-10-05-13@13:48:04 Info (31)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:04 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/areas 
-10-05-13@13:48:05 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/areas; 
-10-05-13@13:48:05 Info (31)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:12 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts/1 
-10-05-13@13:48:12 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts/1; 
-10-05-13@13:48:12 Info (31)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:12 Info (31)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:17 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:17 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/areas 
-10-05-13@13:48:17 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/areas; 
-10-05-13@13:48:17 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:23 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts/1 
-10-05-13@13:48:23 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts/1; 
-10-05-13@13:48:23 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:23 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:27 Info (34)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:27 Info (31)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/areas 
-10-05-13@13:48:27 Info (31)  [Common] Request Success - RequestUri: http://localhost:2200/v1/areas; 
-10-05-13@13:48:27 Info (34)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:35 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:35 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:35 Info (35)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:35 Info (35)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:41 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyparts 
-10-05-13@13:48:41 Info (31)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/areas 
-10-05-13@13:48:41 Info (31)  [Common] Request Success - RequestUri: http://localhost:2200/v1/areas; 
-10-05-13@13:48:41 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyparts; 
-10-05-13@13:48:51 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:48:51 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:35 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:35 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:35 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:35 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:40 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:40 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:41 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:41 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:44 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:44 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:44 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:44 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:50:52 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:50:52 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:51:02 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptomaticregions 
-10-05-13@13:51:02 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptomaticregions; 
-10-05-13@13:51:08 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/2 
-10-05-13@13:51:08 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/1 
-10-05-13@13:51:08 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/34 
-10-05-13@13:51:08 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/32 
-10-05-13@13:51:08 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/3 
-10-05-13@13:51:08 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/potentialsymptoms/30 
-10-05-13@13:51:09 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/32; 
-10-05-13@13:51:09 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/34; 
-10-05-13@13:51:09 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/1; 
-10-05-13@13:51:09 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/2; 
-10-05-13@13:51:09 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/3; 
-10-05-13@13:51:09 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/potentialsymptoms/30; 
-10-05-13@13:51:11 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/differentialDiagnosis 
-10-05-13@13:51:12 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/differentialDiagnosis; 
-10-05-13@13:51:12 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/diagnosisReports/1?idAsLong=1&idAsInt=1 
-10-05-13@13:51:13 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/diagnosisReports/1?idAsLong=1&idAsInt=1; 
-10-05-13@13:51:13 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/2?idAsLong=2&idAsInt=2 
-10-05-13@13:51:13 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4 
-10-05-13@13:51:14 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/2?idAsLong=2&idAsInt=2; 
-10-05-13@13:51:14 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4; 
-10-05-13@13:51:35 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptomaticregions 
-10-05-13@13:51:35 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptomaticregions; 
-10-05-13@13:51:37 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/diagnosisReports/1?idAsLong=1&idAsInt=1 
-10-05-13@13:51:38 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/diagnosisReports/1?idAsLong=1&idAsInt=1; 
-10-05-13@13:51:38 Info (22)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/2?idAsLong=2&idAsInt=2 
-10-05-13@13:51:38 Info (27)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4 
-10-05-13@13:51:38 Info (22)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/2?idAsLong=2&idAsInt=2; 
-10-05-13@13:51:38 Info (27)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4; 
-10-05-13@13:52:14 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries 
-10-05-13@13:52:14 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/signs 
-10-05-13@13:52:14 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:52:14 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:52:14 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/signs; 
-10-05-13@13:52:15 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries; 
-10-05-13@13:52:17 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/injuries/dsfgg 
-10-05-13@13:52:18 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/injuries/dsfgg; 
-10-05-13@13:52:18 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4 
-10-05-13@13:52:18 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/4?idAsLong=4&idAsInt=4; 
-10-05-13@13:54:07 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:54:07 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:54:07 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans 
-10-05-13@13:54:07 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans; 
-10-05-13@13:54:09 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/plans/General-Shin-Splint-Stretching 
-10-05-13@13:54:10 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/plans/General-Shin-Splint-Stretching; 
-10-05-13@13:54:22 Info (29)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/bodyregions 
-10-05-13@13:54:22 Info (29)  [Common] Request Success - RequestUri: http://localhost:2200/v1/bodyregions; 
-10-05-13@13:54:22 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises 
-10-05-13@13:54:25 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises; 
-10-05-13@13:54:29 Info (26)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/exercises/standing-soleus-strech-1 
-10-05-13@13:54:30 Info (26)  [Common] Request Success - RequestUri: http://localhost:2200/v1/exercises/standing-soleus-strech-1; 
-10-05-13@13:54:42 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/symptomaticregions 
-10-05-13@13:54:42 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/symptomaticregions; 
-10-05-13@13:55:43 Info (36)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/auth 
-10-05-13@13:55:43 Info (36)  [Common] Request Success - RequestUri: http://localhost:2200/v1/auth; 
-10-05-13@13:58:30 Info (33)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/1 
-10-05-13@13:58:30 Info (33)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/1; 
-10-05-13@13:58:40 Info (9)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/users/kdot@swpt.com 
-10-05-13@13:58:40 Info (9)  [Common] Request Success - RequestUri: http://localhost:2200/v1/users/kdot@swpt.com; 
+MySqlException Column 'product_information' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+10-06-13@17:50:28 Error (35)  [Common] Error - RequestUri: http://localhost:2200/v1/equipment EXCEPTION OCCURRED:System.Data.Entity.Infrastructure.DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'common_name' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+10-06-13@17:50:44 Info (14)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:50:44 Info (14)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:53:35 Info (16)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:55:49 Error (16)  [Common] Error - RequestUri: http://localhost:2200/v1/equipment EXCEPTION OCCURRED:System.Data.DataException An exception occurred while initializing the database. See the InnerException for details. Void PerformInitializationAction(System.Action)
+DbUpdateException An error occurred while updating the entries. See the inner exception for details. Int32 SaveChanges()
+UpdateException An error occurred while updating the entries. See the inner exception for details. Int32 Update(System.Data.IEntityStateManager, System.Data.IEntityAdapter)
+MySqlException Column 'product_information' cannot be null MySql.Data.MySqlClient.MySqlPacket ReadPacket()
+10-06-13@17:56:29 Info (21)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:58:29 Info (21)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 
+10-06-13@17:59:57 Info (6)  [Common] Request Attempt - RequestUri: http://localhost:2200/v1/equipment 
+10-06-13@17:59:57 Info (6)  [Common] Request Success - RequestUri: http://localhost:2200/v1/equipment; 

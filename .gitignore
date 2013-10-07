@@ -171,4 +171,4 @@ pip-log.txt
 .DS_Store
 
 # App stuff
-.log
+*.log

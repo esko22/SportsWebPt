@@ -7,7 +7,7 @@
     </div>
     <div data-bind="attr: { id: 'workout-plan-' + id()  }" class="panel-collapse collapse">
         <div class="panel-body">
-            <div><strong>Purpose: </strong><span data-bind="text: description"></span></div>
+            <div><strong>Purpose: </strong><span data-bind="html: description"></span></div>
             <div class="tabbable" data-bind="attr: { id: 'workout-plan-exercises-' + id() }">
                 <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
                     <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>

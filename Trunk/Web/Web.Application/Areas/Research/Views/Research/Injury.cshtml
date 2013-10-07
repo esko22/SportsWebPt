@@ -21,7 +21,9 @@
         <hr class="examine-report-hr"/>
         <div><strong>Medical Name: </strong><span data-bind="text: injury.medicalName"></span></div>
         <div><span>&nbsp;</span></div>
-        <div><p data-bind="text: injury.openingStatement"></p></div>
+        <div><span data-bind="html: injury.openingStatement"></span></div>
+        <div><strong>Description: </strong><span data-bind="html: injury.description"></span></div>
+
         <div class="row">
             <div class="col-md-3">
                 <h3>Causes</h3>
