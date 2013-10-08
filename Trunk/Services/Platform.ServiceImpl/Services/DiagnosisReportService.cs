@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
 
 using AutoMapper;
 
@@ -23,49 +24,80 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(DiagnosisReportRequest request)
         {
-            var differentialDiagEntity = DiffDiagUnitOfWork.DiffDiagRepo.GetById(request.IdAsInt);
+            var differentialDiagEntity = DiffDiagUnitOfWork.GetDiffDiagWithDetails(request.IdAsInt);
             var diagnosisReportDto = Mapper.Map<DiagnosisReportDto>(differentialDiagEntity);
 
-            var distinctPotentialInjuries =
-                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll()
-                                  .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0)
-                                  .Join(DiffDiagUnitOfWork.InjurySymptomMatrixItemRepo.GetAll(),
-                                        sd => sd.SymptomMatrixItemId, ismi => ismi.SymptomMatrixItemId,
-                                        (detail, item) => new {detail, item}).Where(isimisd => isimisd.detail.GivenResponse >= isimisd.item.ThresholdValue)
-                                  .Join(DiffDiagUnitOfWork.InjuryRepo.GetAll(), ismisd => ismisd.item.InjuryId,
-                                        injury => injury.Id, (ismisd, injury) => injury).Distinct();
-
             var potentialInjuryDtos = new List<PotentialInjuryDto>();
-            //TODO: this is tuurible... have to go back to get inlcudes cuz I cant figure out how to cleanly get it above yet
             var potentialInjuries =
-                DiffDiagUnitOfWork.InjuryRepo.GetAll(new[] { "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems", "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems",
-                                                             "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause" })
-                                  .Where(p => distinctPotentialInjuries.Contains(p));
-            
-            Mapper.Map(potentialInjuries, potentialInjuryDtos);
+                DiffDiagUnitOfWork.GetPotentialInjuries(
+                    differentialDiagEntity.SymptomDetails.Select(s => s.SymptomMatrixItemId));
 
-            var givenSymptoms =
-                DiffDiagUnitOfWork.SymptomResponseRepo.GetAll(new[]
-                    {
-                        "SymptomMatrixItem", "SymptomMatrixItem.InjurySymptomMatrixItems", "SymptomMatrixItem.Symptom",
-                        "SymptomMatrixItem.BodyPartMatrixItem", "SymptomMatrixItem.BodyPartMatrixItem.BodyPart"
-                    })
-                                  .Where(p => p.DifferentialDiagnosisId == request.IdAsInt && p.GivenResponse > 0);
+            //TODO: MONEY MAKER, can use some love but it works for now...
 
-            //TODO: this whole service is a fucking mess... gotta be a better way
-            foreach (var potentialInjuryDto in potentialInjuryDtos)
+            foreach (var potentialInjury in potentialInjuries)
             {
-                var givenSymptomDtos = new List<PotentialSymptomDto>();
+                var symptomCount = potentialInjury.InjurySymptomMatrixItems.Count;
+                var matchedSymptoms = new List<SymptomDetail>();
 
-                givenSymptoms.ForEach(
-                    p =>
-                    p.SymptomMatrixItem.InjurySymptomMatrixItems.Where(i => i.InjuryId == potentialInjuryDto.Id)
-                     .ForEach(i => givenSymptomDtos.Add(Mapper.Map<PotentialSymptomDto>(p))));
+                foreach (var symptomMatrixItem in potentialInjury.InjurySymptomMatrixItems)
+                {
+                    var symptom = symptomMatrixItem.SymptomMatrixItem.Symptom;
 
-                potentialInjuryDto.GivenSymptoms = givenSymptomDtos.ToArray();
+                    var givenSymptom =
+                        differentialDiagEntity.SymptomDetails.SingleOrDefault(
+                            p => p.SymptomMatrixItemId == symptomMatrixItem.SymptomMatrixItemId);
+
+                    if(givenSymptom == null)
+                        continue;
+
+                    switch (symptom.ResponseType)
+                    {
+                        case SymptomResponseType.Exact:
+                            if (Convert.ToInt32(givenSymptom.GivenResponse) == Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.EqualAndBelowThreshold:
+                            if (Convert.ToInt32(givenSymptom.GivenResponse) <= Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.EqualAndAboveThreshold:
+                            if (Convert.ToInt32(givenSymptom.GivenResponse) >= Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.BelowThreshold:
+                            if (Convert.ToInt32(givenSymptom.GivenResponse) < Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.AboveThreshold:
+                            if (Convert.ToInt32(givenSymptom.GivenResponse) > Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.Any:
+                            var anyValues = symptomMatrixItem.ComparisonValue.Split(',');
+                            if (givenSymptom.GivenResponse.Split(',').Any(anyValues.Contains))
+                                matchedSymptoms.Add(givenSymptom);
+                            break;
+                        case SymptomResponseType.All:
+                            var allValues = symptomMatrixItem.ComparisonValue.Split(',');
+                            foreach (var givenValue in givenSymptom.GivenResponse.Split(','))
+                            {
+                                if (!allValues.Contains(givenValue))
+                                    break;
+                            }
+                            matchedSymptoms.Add(givenSymptom);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                var potentialInjuryDto = Mapper.Map<PotentialInjuryDto>(potentialInjury);
+                potentialInjuryDto.Likelyhood = Convert.ToString(matchedSymptoms.Count / (double)symptomCount);
+                var givenSymptoms = new List<PotentialSymptomDto>();
+                Mapper.Map(matchedSymptoms, givenSymptoms);
+                potentialInjuryDto.GivenSymptoms = givenSymptoms.ToArray();
+                potentialInjuryDtos.Add(potentialInjuryDto);
             }
-
-
 
             if (potentialInjuryDtos.Count > 0)
                 diagnosisReportDto.PotentialInjuries = potentialInjuryDtos.ToArray();

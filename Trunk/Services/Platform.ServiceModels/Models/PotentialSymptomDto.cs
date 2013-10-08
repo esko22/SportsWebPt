@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public int SymptomMatrixItemId { get; set; }
 
-        public int GivenResponse { get; set; }
+        public string GivenResponse { get; set; }
 
         public string BodyPart { get; set; }
 

@@ -13,7 +13,7 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("SymptomDetail");
             Property(p => p.DifferentialDiagnosisId).IsRequired().HasColumnName("differential_diagnosis_id");
             Property(p => p.SymptomMatrixItemId).HasColumnName("symptom_matrix_item_id");
-            Property(p => p.GivenResponse).IsRequired().HasColumnName("given_response");
+            Property(p => p.GivenResponse).IsRequired().HasColumnName("given_response").HasMaxLength(50);
             HasKey(p => new {p.DifferentialDiagnosisId, p.SymptomMatrixItemId});
         }
         

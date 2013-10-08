@@ -826,7 +826,8 @@ namespace SportsWebPt.Platform.DataAccess
                     new SymptomRenderType() {DefaultTemplate = "examine.radio.bool", RenderType = "RadioBoolean"},
                     new SymptomRenderType() {DefaultTemplate = "examine.slider.five", RenderType = "FiveScaleSlider"},
                     new SymptomRenderType() {DefaultTemplate = "examine.slider.ten", RenderType = "TenScaleSlider"},
-                    new SymptomRenderType() {DefaultTemplate = "examine.dropdown", RenderType = "Dropdown"}
+                    new SymptomRenderType() {DefaultTemplate = "examine.dropdown", RenderType = "Dropdown"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.sounds", RenderType = "MultiSelect"}
                 };
 
             renderTypes.ForEach(p => _dbContext.SymptomRenderTypes.Add(p));
@@ -839,10 +840,11 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var symptoms = new List<Symptom>()
                 {
-                    new Symptom() { Name = "Swelling", RenderType = renderTypes[1], Description = "Rate level of swelling"},
-                    new Symptom() { Name = "Pain", RenderType = renderTypes[2], Description = "Rate level of pain"},
-                    new Symptom() { Name = "Bruising", RenderType = renderTypes[0], Description = "Visible Brusing"},
-                    new Symptom() { Name = "Duration", RenderType = renderTypes[3], Description = "Started"}
+                    new Symptom() { Name = "Swelling", RenderType = renderTypes[1], Description = "Rate level of swelling", ResponseType = SymptomResponseType.EqualAndAboveThreshold },
+                    new Symptom() { Name = "Pain", RenderType = renderTypes[2], Description = "Rate level of pain", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
+                    new Symptom() { Name = "Bruising", RenderType = renderTypes[0], Description = "Visible Brusing", ResponseType = SymptomResponseType.Exact},
+                    new Symptom() { Name = "Duration", RenderType = renderTypes[3], Description = "Started", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
+                    new Symptom() { Name = "Sounds", RenderType = renderTypes[4], Description = "Does it", ResponseType = SymptomResponseType.Any}
                 };
 
             symptoms.ForEach(u => _dbContext.Symptoms.Add(u));

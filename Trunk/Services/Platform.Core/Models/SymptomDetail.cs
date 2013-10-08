@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int SymptomMatrixItemId { get; set; }
 
-        public int GivenResponse { get; set; }
+        public String GivenResponse { get; set; }
 
         public int DifferentialDiagnosisId { get; set; }
 

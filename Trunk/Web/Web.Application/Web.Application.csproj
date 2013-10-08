@@ -378,6 +378,7 @@
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />
+    <Content Include="Tmpl\_examine.sounds.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
     <Content Include="Tmpl\_examine.dropdown.tmpl.html" />

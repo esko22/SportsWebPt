@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int SymptomMatrixItemId { get; set; }
 
-        public int ThresholdValue { get; set; }
+        public String ComparisonValue { get; set; }
 
         public virtual Injury Injury { get; set; }
 

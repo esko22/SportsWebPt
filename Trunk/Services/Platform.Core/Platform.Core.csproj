@@ -57,6 +57,7 @@
     <Compile Include="Models\Injury.cs" />
     <Compile Include="Models\InjuryBodyRegionMatrixItem.cs" />
     <Compile Include="Models\InjuryCauseMatrixItem.cs" />
+    <Compile Include="Models\InjuryLikelyhood.cs" />
     <Compile Include="Models\InjurySeverity.cs" />
     <Compile Include="Models\InjurySignMatrixItem.cs" />
     <Compile Include="Models\InjurySymptomMatrixItem.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Models\SymptomMatrixItem.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />
+    <Compile Include="Models\SymptomResponseType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\Video.cs" />

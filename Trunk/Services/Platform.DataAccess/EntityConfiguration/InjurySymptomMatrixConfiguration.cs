@@ -13,7 +13,7 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("InjurySymptomMatrix");
             Property(p => p.InjuryId).IsRequired().HasColumnName("injury_id");
             Property(p => p.SymptomMatrixItemId).HasColumnName("symptom_matrix_item_id");
-            Property(p => p.ThresholdValue).IsRequired().HasColumnName("threshold_value");
+            Property(p => p.ComparisonValue).IsRequired().HasColumnName("comparison_value").HasMaxLength(50);
             Property(p => p.Id).IsRequired().HasColumnName("injury_symptom_matrix_item_id");
         }
         

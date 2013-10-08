@@ -17,10 +17,16 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String RenderOptions { get; set; }
 
+        public SymptomResponseType ResponseType { get; set; }
+
+        #region Navigation Properties
+        
         public virtual SymptomRenderType RenderType { get; set; }
 
-        public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }  
+        public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
 
+        #endregion
+        
         #endregion
     }
 }
