@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public int ThresholdValue { get; set; }
+        public String ComparisonValue { get; set; }
 
         public Int32 BodyPartMatrixItemId { get; set; }
 

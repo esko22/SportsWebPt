@@ -321,11 +321,11 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.MapFrom(s => s.InjurySymptomMatrixItems);
                       });
             Mapper.CreateMap<InjurySymptomMatrixItem, InjurySymptomDto>()
-                  .ForMember(d => d.ThresholdValue, opt => opt.MapFrom(s => s.ComparisonValue))
                   .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.SymptomMatrixItem.SymptomId))
                   .ForMember(d => d.Name, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Name))
                   .ForMember(d => d.Description, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Description))
                   .ForMember(d => d.RenderType, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderType.RenderType))
+                  .ForMember(d => d.RenderTemplate, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderType.DefaultTemplate))
                   .ForMember(d => d.RenderOptions, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.RenderOptions))
                   .ForMember(d => d.BodyPartMatrixItemName, opt => opt.MapFrom(s => String.Format("{0} {1} {2}", 
                                                                     s.SymptomMatrixItem.BodyPartMatrixItem.SkeletonArea.Orientation.Value, 
@@ -367,7 +367,6 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<UpdateInjuryRequest, Injury>();
 
             Mapper.CreateMap<InjurySymptomDto, InjurySymptomMatrixItem>()
-                  .ForMember(d => d.ComparisonValue, opt => opt.MapFrom(s => s.ThresholdValue))
                   .ForMember(d => d.SymptomMatrixItem, opt => opt.MapFrom(s => s));
             Mapper.CreateMap<InjurySymptomDto, SymptomMatrixItem>()
                   .ForMember(d => d.BodyPartMatrixItemId, opt => opt.MapFrom(s => s.BodyPartMatrixItemId))

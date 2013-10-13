@@ -53,7 +53,7 @@
         addNewSymptom = function (data, event) {
             var symptom = new InjurySymptom();
             symptom.set('symptomId', 1);
-            symptom.set('thresholdValue', 1);
+            symptom.set('comparisonValue', 1);
             symptom.set('bodyPartMatrixItemId', 1);
             selectedInjury.get('injurySymptoms').add(symptom);
         },

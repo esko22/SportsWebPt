@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public int thresholdValue { get; set; }
+        public string comparisonValue { get; set; }
 
         public int symptomId { get; set; }
 

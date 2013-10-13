@@ -378,10 +378,11 @@
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />
-    <Content Include="Tmpl\_examine.sounds.tmpl.html" />
+    <Content Include="Tmpl\_examine.while.multi.tmpl.html" />
+    <Content Include="Tmpl\_examine.feels.multi.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
-    <Content Include="Tmpl\_examine.dropdown.tmpl.html" />
+    <Content Include="Tmpl\_examine.duration.dropdown.tmpl.html" />
     <Content Include="Tmpl\_examine.radio.bool.tmpl.html" />
     <Content Include="Tmpl\_research.injury.video.tmpl.html" />
     <Content Include="Tmpl\_research.injury.exercise.tmpl.html" />

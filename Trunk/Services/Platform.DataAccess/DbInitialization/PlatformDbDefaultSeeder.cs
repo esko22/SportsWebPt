@@ -826,8 +826,9 @@ namespace SportsWebPt.Platform.DataAccess
                     new SymptomRenderType() {DefaultTemplate = "examine.radio.bool", RenderType = "RadioBoolean"},
                     new SymptomRenderType() {DefaultTemplate = "examine.slider.five", RenderType = "FiveScaleSlider"},
                     new SymptomRenderType() {DefaultTemplate = "examine.slider.ten", RenderType = "TenScaleSlider"},
-                    new SymptomRenderType() {DefaultTemplate = "examine.dropdown", RenderType = "Dropdown"},
-                    new SymptomRenderType() {DefaultTemplate = "examine.sounds", RenderType = "MultiSelect"}
+                    new SymptomRenderType() {DefaultTemplate = "examine.duration.dropdown", RenderType = "Dropdown"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.feels.multi", RenderType = "MultiSelect"},
+                    new SymptomRenderType() {DefaultTemplate = "examine.while.multi", RenderType = "MultiSelect"}
                 };
 
             renderTypes.ForEach(p => _dbContext.SymptomRenderTypes.Add(p));
@@ -840,11 +841,13 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var symptoms = new List<Symptom>()
                 {
-                    new Symptom() { Name = "Swelling", RenderType = renderTypes[1], Description = "Rate level of swelling", ResponseType = SymptomResponseType.EqualAndAboveThreshold },
-                    new Symptom() { Name = "Pain", RenderType = renderTypes[2], Description = "Rate level of pain", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
-                    new Symptom() { Name = "Bruising", RenderType = renderTypes[0], Description = "Visible Brusing", ResponseType = SymptomResponseType.Exact},
-                    new Symptom() { Name = "Duration", RenderType = renderTypes[3], Description = "Started", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
-                    new Symptom() { Name = "Sounds", RenderType = renderTypes[4], Description = "Does it", ResponseType = SymptomResponseType.Any}
+                    new Symptom() { Name = "Swelling", RenderType = renderTypes[0], Description = "Is it swollen? ", ResponseType = SymptomResponseType.Exact },
+                    new Symptom() { Name = "Pain", RenderType = renderTypes[2], Description = "Rate level of pain:", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
+                    new Symptom() { Name = "Bruising", RenderType = renderTypes[0], Description = "Is it brused? ", ResponseType = SymptomResponseType.Exact},
+                    new Symptom() { Name = "Duration", RenderType = renderTypes[3], Description = "Started...", ResponseType = SymptomResponseType.EqualAndAboveThreshold},
+                    new Symptom() { Name = "Feels", RenderType = renderTypes[4], Description = "Feels like...", ResponseType = SymptomResponseType.Any},
+                    new Symptom() { Name = "While", RenderType = renderTypes[5], Description = "Difficult or painful while...", ResponseType = SymptomResponseType.Any},
+                    new Symptom() { Name = "Tender", RenderType = renderTypes[0], Description = "Is it tender to touch or rub? ", ResponseType = SymptomResponseType.Exact}
                 };
 
             symptoms.ForEach(u => _dbContext.Symptoms.Add(u));

@@ -52,11 +52,9 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<InjurySymptomDto, InjurySymptom>()
                   .ForMember(d => d.bodyPartMatrixItemName, opt => opt.MapFrom(s => s.BodyPartMatrixItemName))
                   .ForMember(d => d.bodyPartMatrixItemId, opt => opt.MapFrom(s => s.BodyPartMatrixItemId))
-                  .ForMember(d => d.thresholdValue, opt => opt.MapFrom(s => s.ThresholdValue))
                   .ForMember(d => d.symptomId, opt => opt.MapFrom(s => s.SymptomId));
             Mapper.CreateMap<InjurySymptom, InjurySymptomDto>()
                   .ForMember(d => d.BodyPartMatrixItemId, opt => opt.MapFrom(s => s.bodyPartMatrixItemId))
-                  .ForMember(d => d.ThresholdValue, opt => opt.MapFrom(s => s.thresholdValue))
                   .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.symptomId));
             
             Mapper.CreateMap<Injury, InjuryDto>()
