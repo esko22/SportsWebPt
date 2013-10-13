@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int symptomMatrixItemId { get; set; }
 
-        public String givenResponse { get; set; }
+        public String[] givenResponse { get; set; }
 
         public String bodyPart { get; set; }
 
