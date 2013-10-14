@@ -80,13 +80,13 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.IsSecondary, opt => opt.MapFrom(s => s.IsSecondary))
                    .ForMember(d => d.ScientificName, opt => opt.MapFrom(s => s.BodyPart.ScientificName));
             Mapper.CreateMap<SymptomMatrixItem, PotentialSymptomDto>()
-                    .ForMember(d => d.SymptomMatrixItemId, opt => opt.MapFrom(s => s.Id))
+                    .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.Description, opt => opt.MapFrom(s => s.Symptom.Description))
                    .ForMember(d => d.Name, opt => opt.MapFrom(s => s.Symptom.Name))
                   .ForMember(d => d.RenderType, opt => opt.MapFrom(s => s.Symptom.RenderType.RenderType))
                   .ForMember(d => d.RenderOptions, opt => opt.MapFrom(s => s.Symptom.RenderOptions))
                   .ForMember(d => d.RenderTemplate, opt => opt.MapFrom(s => s.Symptom.RenderType.DefaultTemplate))
-                   .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Symptom.Id));
+                   .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.Symptom.Id));
             Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
                    .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now));
             Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
@@ -100,7 +100,9 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<SymptomDetail, PotentialSymptomDto>()
                   .ForMember(d => d.Name, opt => opt.MapFrom(s => s.SymptomMatrixItem.Symptom.Name))
                   .ForMember(d => d.BodyPart, opt => opt.MapFrom(s => s.SymptomMatrixItem.BodyPartMatrixItem.BodyPart.CommonName));
-            Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>();
+            Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>()
+                  .ForMember(d => d.SymptomMatrixItemId, opt => opt.MapFrom(s => s.Id));
+
             Mapper.CreateMap<Plan, PlanDto>()
                   .Include<Plan, CreatePlanRequest>()
                   .Include<Plan, UpdatePlanRequest>()

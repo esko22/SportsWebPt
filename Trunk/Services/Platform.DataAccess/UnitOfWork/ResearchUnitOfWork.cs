@@ -302,11 +302,28 @@ namespace SportsWebPt.Platform.DataAccess
                 injuryInDb.InjurySymptomMatrixItems, (item, matrixItem) => item.Id == matrixItem.Id).ToList();
 
             deletedSymptoms.ForEach(e => InjurySymptomMatrixRepo.Delete(e));
+            deletedSymptoms.ForEach(s => SymptomMatrixRepo.GetById(s.SymptomMatrixItemId).Decom = true);
+
             addedSymptoms.ForEach(e =>
-            {
-                e.InjuryId = injury.Id;
-                InjurySymptomMatrixRepo.Add(e);
-            });
+                {
+                    var previousSymptom =
+                        SymptomMatrixRepo.GetAll()
+                                         .FirstOrDefault(
+                                             p =>
+                                             p.BodyPartMatrixItemId == e.SymptomMatrixItem.BodyPartMatrixItemId &&
+                                             p.SymptomId == e.SymptomMatrixItem.SymptomId);
+
+                    if (previousSymptom != null)
+                    {
+                        previousSymptom.Decom = false;
+                        e.SymptomMatrixItem = null;
+                        e.SymptomMatrixItemId = previousSymptom.Id;
+                    }
+
+                    e.InjuryId = injury.Id;
+                    InjurySymptomMatrixRepo.Add(e);
+
+                });
 
             var injuryEntry = _context.Entry(injuryInDb);
             injuryEntry.CurrentValues.SetValues(injury);

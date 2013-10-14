@@ -53,8 +53,10 @@
         addNewSymptom = function (data, event) {
             var symptom = new InjurySymptom();
             symptom.set('symptomId', 1);
-            symptom.set('comparisonValue', 1);
             symptom.set('bodyPartMatrixItemId', 1);
+            symptom.set('renderTemplate', symptomCollection.models[0].get('renderTemplate'));
+            //HACK
+            symptom.set('id', 99999 + selectedInjury.get('injurySymptoms').length);
             selectedInjury.get('injurySymptoms').add(symptom);
         },
         removeSymptom = function (data, event) {
@@ -62,6 +64,10 @@
         },
        suscribe = function (passedCallback) {
            callback = passedCallback;
+       },
+       symptomSelectionChanged = function (symptom) {
+           symptom.renderTemplate(symptomCollection.findWhere({ id: symptom.symptomId() }).get('renderTemplate'));
+           symptom.givenResponse(0);
        },
        bindSelectedInjury = function (data, event) {
            selectedInjury.get('plans').reset();
@@ -237,7 +243,8 @@
             addNewSymptom: addNewSymptom,
             removeSymptom: removeSymptom,
             injurySymptoms: injurySymptoms,
-            rangeValues : rangeValues
+            rangeValues: rangeValues,
+            symptomSelectionChanged: symptomSelectionChanged
         };
 
     });

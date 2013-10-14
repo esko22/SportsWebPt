@@ -4,7 +4,7 @@
         var potentialSymptom = backbone.RelationalModel.extend({
             urlRoot: config.apiUris.potentialSymptoms,
             idAttribute: 'symptomMatrixId'
-        });
+    });
 
         return potentialSymptom;
     });
@@ -26,6 +26,7 @@ define('model.injury.symptom', ['backbone', 'config', 'model.admin.body.part.mat
 
         var injurySymptom = backbone.RelationalModel.extend({
             urlRoot: config.apiUris.symptoms,
+            defaults: { 'givenResponse' : []},
             relations: [
                     {
                         type: backbone.HasOne,

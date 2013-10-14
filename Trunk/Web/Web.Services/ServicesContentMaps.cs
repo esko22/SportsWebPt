@@ -44,7 +44,8 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.bodyParts, opt => opt.MapFrom(s => s.BodyParts));
             Mapper.CreateMap<SymptomaticBodyPartDto, SymptomaticBodyPart>()
                   .ForMember(d => d.potentialSymptoms, opt => opt.MapFrom(s => s.PotentialSymptoms));
-            Mapper.CreateMap<PotentialSymptomDto, PotentialSymptom>();
+            Mapper.CreateMap<PotentialSymptomDto, PotentialSymptom>()
+                  .ForMember(d => d.givenResponse, opt => opt.MapFrom(s => s.GivenResponse.Split(',')));
             Mapper.CreateMap<PotentialSymptom, PotentialSymptomDto>()
                   .ForMember(d => d.GivenResponse, opt => opt.MapFrom(s => String.Join(",", s.givenResponse)));
             Mapper.CreateMap<DifferentialDiagnosis, CreateDiagnosisReportRequest>()
@@ -53,11 +54,12 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<InjurySymptomDto, InjurySymptom>()
                   .ForMember(d => d.bodyPartMatrixItemName, opt => opt.MapFrom(s => s.BodyPartMatrixItemName))
                   .ForMember(d => d.bodyPartMatrixItemId, opt => opt.MapFrom(s => s.BodyPartMatrixItemId))
-                  .ForMember(d => d.symptomId, opt => opt.MapFrom(s => s.SymptomId));
+                  .ForMember(d => d.symptomId, opt => opt.MapFrom(s => s.SymptomId))
+                  .ForMember(d => d.givenResponse, opt => opt.MapFrom(s => s.ComparisonValue.Split(',')));
             Mapper.CreateMap<InjurySymptom, InjurySymptomDto>()
                   .ForMember(d => d.BodyPartMatrixItemId, opt => opt.MapFrom(s => s.bodyPartMatrixItemId))
-                  .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.symptomId));
-            
+                  .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.symptomId))
+                  .ForMember(d => d.ComparisonValue,opt => opt.MapFrom(s => String.Join(",", s.givenResponse)));
             Mapper.CreateMap<Injury, InjuryDto>()
                 .Include<Injury,CreateInjuryRequest>()
                 .Include<Injury, UpdateInjuryRequest>()

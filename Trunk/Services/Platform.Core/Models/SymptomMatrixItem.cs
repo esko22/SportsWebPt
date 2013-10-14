@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<InjurySymptomMatrixItem> InjurySymptomMatrixItems { get; set; } 
 
-        //public Boolean Decom { get; set; }
+        public Boolean Decom { get; set; }
 
         #endregion
     }

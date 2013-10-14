@@ -24,6 +24,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                                ? SkeletonUnitOfWork.SymptomMatrixRepo.GetAll()
                                : SkeletonUnitOfWork.SymptomMatrixRepo.GetPotentialSymptoms(request.BodyPartMatrixId);
 
+            symptoms = symptoms.Where(p => p.Decom == false);
+
             var responseList = new List<PotentialSymptomDto>();
             Mapper.Map(symptoms, responseList);
 

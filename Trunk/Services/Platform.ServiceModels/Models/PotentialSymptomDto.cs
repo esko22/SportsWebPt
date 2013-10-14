@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public int SymptomMatrixItemId { get; set; }
+        public int SymptomId { get; set; }
 
         public string GivenResponse { get; set; }
 
