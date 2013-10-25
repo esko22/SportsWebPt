@@ -208,7 +208,8 @@
                     rangeValues: rangeValues,
                     instructions: instructions,
                     holdTypes: config.holdTypes,
-                    categories: categories
+                    categories: categories,
+                    kendoEditorOptions: config.kendoEditorOptions
                 };
 
     });

@@ -52,6 +52,38 @@
         var functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']);
         var regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']);
         var holdTypes = ko.observableArray(['Seconds', 'Minutes', 'Breaths']);
+        var kendoEditorOptions = [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+            "justifyLeft",
+            "justifyCenter",
+            "justifyRight",
+            "justifyFull",
+            "insertUnorderedList",
+            "insertOrderedList",
+            "indent",
+            "outdent",
+            "createLink",
+            "unlink",
+            "insertImage",
+            "subscript",
+            "superscript",
+            "createTable",
+            "addRowAbove",
+            "addRowBelow",
+            "addColumnLeft",
+            "addColumnRight",
+            "deleteRow",
+            "deleteColumn",
+            "viewHtml",
+            "formatting",
+            "fontName",
+            "fontSize",
+            "foreColor",
+            "backColor"
+        ];
         var kendoEditorIgnores = ".k-input, .k-fontName, .k-fontSize, k-formatBlock,:hidden.k-formatBlock ";
         var init = function () {
             configureExternalTemplates();
@@ -84,7 +116,8 @@
             holdTypes: holdTypes,
             maxSelectableAreas: maxSelectableAreas,
             notifier: notifier,
-            kendoEditorIgnores: kendoEditorIgnores
+            kendoEditorIgnores: kendoEditorIgnores,
+            kendoEditorOptions: kendoEditorOptions
         };
 
     });

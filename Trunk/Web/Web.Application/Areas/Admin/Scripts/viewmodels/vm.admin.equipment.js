@@ -89,6 +89,7 @@
             bindSelectedEquipment: bindSelectedEquipment,
             equipmentValidationOptions: equipmentValidationOptions,
             init: init,
-            availableCategories: availableCategories
+            availableCategories: availableCategories,
+            kendoEditorOptions : config.kendoEditorOptions
         };
     });

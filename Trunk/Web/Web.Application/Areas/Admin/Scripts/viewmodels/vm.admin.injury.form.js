@@ -244,7 +244,8 @@
             removeSymptom: removeSymptom,
             injurySymptoms: injurySymptoms,
             rangeValues: rangeValues,
-            symptomSelectionChanged: symptomSelectionChanged
+            symptomSelectionChanged: symptomSelectionChanged,
+            kendoEditorOptions: config.kendoEditorOptions
         };
 
     });

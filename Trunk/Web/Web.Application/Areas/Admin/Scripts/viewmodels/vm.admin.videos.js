@@ -102,6 +102,7 @@
             bindSelectedVideo: bindSelectedVideo,
             videoValidationOptions: videoValidationOptions,
             availableCategories : availableCategories,
-            init : init
+            init: init,
+            kendoEditorOptions: config.kendoEditorOptions
         };
     });

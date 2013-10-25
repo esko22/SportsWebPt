@@ -234,6 +234,7 @@
             availableCategories: availableCategories,
             categories: categories,
             holdTypes: config.holdTypes,
-            holdType: holdType
+            holdType: holdType,
+            kendoEditorOptions: config.kendoEditorOptions
         };
     });

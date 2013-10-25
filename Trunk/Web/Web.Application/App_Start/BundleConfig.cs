@@ -42,7 +42,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/bootstrap.js", 
                         "~/Scripts/libs/knockback.js", // depends on backbone, knockout
                         "~/Scripts/libs/koExternalTemplateEngine.js",
-                        "~/Scripts/libs/kendo/2013.1.319/kendo.web.min.js",
+                        "~/Scripts/libs/kendo/kendo.web.min.js",
                         "~/Scripts/libs/extentsions/knockout-kendo.min.js",
                         "~/Scripts/libs/toastr.js"
                         ));
@@ -84,15 +84,16 @@ namespace SportsWebPt.Platform.Web
                     .IncludeDirectory("~/Areas/Admin/Scripts", "*.js", searchSubdirectories: true));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardapplib")
-                    .IncludeDirectory("~/Areas/Dashboard/Scripts", "*.js", searchSubdirectories: true)); 
+                    .IncludeDirectory("~/Areas/Dashboard/Scripts", "*.js", searchSubdirectories: true));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/bootstrap.css",
-                         "~/Content/sportsweb-pt.css",
-                         "~/Content/icon-fonts.css",
-                         "~/Content/toastr.css",
-                         "~/Content/kendo/2013.1.319/kendo.common.min.css",
-                         "~/Content/kendo/2013.1.319/kendo.metro.min.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/icon-fonts.css",
+                "~/Content/toastr.css",
+                "~/Content/kendo/kendo.common.min.css",
+                "~/Content/kendo/kendo.metro.min.css", 
+                "~/Content/sportsweb-pt.css"
+                            ));
 
 
         }
