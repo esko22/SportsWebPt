@@ -223,6 +223,7 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Admin\Views\Index\_adminBodyRegions.cshtml" />
     <None Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
+    <Content Include="Areas\Dashboard\Scripts\viewmodels\vm.dashboard.page.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />

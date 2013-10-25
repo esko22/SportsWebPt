@@ -6,6 +6,7 @@ using System.Linq;
 
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
@@ -571,9 +572,9 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var users = new List<User>()
                 {
-                    new User() {EmailAddress = "kdot@swpt.com", FirstName = "Kendrick", LastName = "Lamar", Hash = "123456", UserName = "k dot"},
-                    new User() {EmailAddress = "anut@swpt.com", FirstName = "Alexander", LastName = "Nut", Hash = "123456", UserName = "anut"},
-                    new User() {EmailAddress = "jdee@swpt.com", FirstName = "Jay", LastName = "Dee", Hash = "123456", UserName = "jdilla"}
+                    new User() {EmailAddress = "kdot@swpt.com", FirstName = "Kendrick", LastName = "Lamar", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "k dot"},
+                    new User() {EmailAddress = "anut@swpt.com", FirstName = "Alexander", LastName = "Nut", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "anut"},
+                    new User() {EmailAddress = "jdee@swpt.com", FirstName = "Jay", LastName = "Dee", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "jdilla"}
                 };
 
             users.ForEach(u => _dbContext.Users.Add(u));
