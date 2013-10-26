@@ -1,5 +1,5 @@
-﻿define('config',['ko','jquery','infuser', 'toastr'],
-    function (ko, $, infuser, toastr) {
+﻿define('config',['ko','jquery','infuser', 'toastr','knockback'],
+    function (ko, $, infuser, toastr, kb) {
 
         var viewIds = {
             header: '#master-header',
@@ -7,12 +7,12 @@
             login: '#login-dialog'
         },
             hostUri = '',
-            currentUser = ko.observable(),
             maxSelectableAreas = ko.observable(2),
             notifier = toastr;
 
         var apiUris = {
             users: $.format('{0}/{1}', hostUri, 'users'),
+            favorites: $.format('{0}/{1}', hostUri, 'users/favorites'),
             skeletonAreas: $.format('{0}/{1}', hostUri, 'examine/areas'),
             symptomaticRegions: $.format('{0}/{1}', hostUri, 'examine/symptomaticregions'),
             potentialSymptoms: $.format('{0}/{1}', hostUri, 'examine/potentialSymptoms'),
@@ -108,7 +108,6 @@
 
         return {
             viewIds: viewIds,
-            currentUser: currentUser,
             hostUri: hostUri,
             apiUris: apiUris,
             functionCategories: functionCategories,

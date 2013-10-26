@@ -11,7 +11,46 @@ namespace SportsWebPt.Platform.ServiceImpl
     {
         public static void CreateContentMaps()
         {
-            Mapper.CreateMap<User, UserDto>();
+            Mapper.CreateMap<User, UserDto>()
+                  .ForMember(d => d.VideoFavorites, opt =>
+                      {
+                          opt.Condition(s => s.VideoFavorites != null);
+                          opt.MapFrom(s => s.VideoFavorites);
+                      })
+                  .ForMember(d => d.PlanFavorites, opt =>
+                      {
+                          opt.Condition(s => s.PlanFavorites != null);
+                          opt.MapFrom(s => s.PlanFavorites);
+                      })
+                  .ForMember(d => d.InjuryFavorites, opt =>
+                  {
+                      opt.Condition(s => s.InjuryFavorites != null);
+                      opt.MapFrom(s => s.InjuryFavorites);
+                  })
+                  .ForMember(d => d.ExerciseFavorites, opt =>
+                  {
+                      opt.Condition(s => s.ExerciseFavorites != null);
+                      opt.MapFrom(s => s.ExerciseFavorites);
+                  })
+                  .ForMember(d => d.Hash, opt => opt.Ignore());
+
+            Mapper.CreateMap<Plan, FavoriteDto>()
+                  .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Plan))
+                  .ForMember(d => d.EntityName, opt => opt.MapFrom(s => s.RoutineName))
+                  .ForMember(d => d.EntityId, opt => opt.MapFrom(s => s.Id));
+            Mapper.CreateMap<Video,FavoriteDto>()
+                  .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Video ))
+                  .ForMember(d => d.EntityName, opt => opt.MapFrom(s => s.Name))
+                  .ForMember(d => d.EntityId, opt => opt.MapFrom(s => s.Id));
+            Mapper.CreateMap<Injury, FavoriteDto>()
+                  .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Injury))
+                  .ForMember(d => d.EntityName, opt => opt.MapFrom(s => s.MedicalName))
+                  .ForMember(d => d.EntityId, opt => opt.MapFrom(s => s.Id));
+            Mapper.CreateMap<Exercise, FavoriteDto>()
+                  .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Exercise))
+                  .ForMember(d => d.EntityName, opt => opt.MapFrom(s => s.Name))
+                  .ForMember(d => d.EntityId, opt => opt.MapFrom(s => s.Id));
+
             Mapper.CreateMap<UserDto, User>()
                   .Include<CreateUserRequest, User>()
                   .Include<UpdateUserRequest, User>();

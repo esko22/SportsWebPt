@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class UserFavorite
+    public class Favorite
     {
         #region Properties
 
@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public string entity { get; set; }
 
-        public int userId { get; set; }
+        public string entityName { get; set; }
 
         #endregion
     }

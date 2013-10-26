@@ -14,6 +14,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
     public class UserService : RestService
     {
 
+
         #region Properties
 
         public IUserUnitOfWork UserUnitOfWork { get; set; }
@@ -25,12 +26,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(UserRequest request)
         {
             var user = request.IdAsInt > 0
-                           ? UserUnitOfWork.UserRepository.GetById(request.IdAsInt)
-                           : UserUnitOfWork.UserRepository.GetAll()
-                                           .FirstOrDefault(
-                                               p =>
-                                               p.EmailAddress.Equals(request.Id,
-                                                   StringComparison.OrdinalIgnoreCase));
+                           ? UserUnitOfWork.GetUserById(request.IdAsInt)
+                           : UserUnitOfWork.GetUserByEmail(request.Id);
+
             UserDto userDto = null;
 
             if (user != null)
@@ -63,7 +61,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             Check.Argument.IsNotNull(favoriteToAdd, "FavoriteToAdd");
 
             var user =
-                UserUnitOfWork.UserRepository.GetAll(new[] { "InjuryFavorites", "ExerciseFavorites", "VideoFavorites", "PlanFavorites" }).SingleOrDefault(p => p.Id == favoriteToAdd.UserId);
+                UserUnitOfWork.UserRepository.GetAll(new[] { "InjuryFavorites", "ExerciseFavorites", "VideoFavorites", "PlanFavorites" }).SingleOrDefault(p => p.Id == favoriteToAdd.Id);
 
             if (user == null)
                 return BadRequest("Invalid User Id");
@@ -71,7 +69,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             switch (favoriteToAdd.Entity)
             {
-                case FavoriteType.Injury:
+                case FavoriteTypeDto.Injury:
                     if (user.InjuryFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var injury = UserUnitOfWork.InjuryRepository.GetById(favoriteToAdd.EntityId);
@@ -79,7 +77,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                             user.InjuryFavorites.Add(injury);
                     }
                     break;
-                case FavoriteType.Plan:
+                case FavoriteTypeDto.Plan:
                     if (user.PlanFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var plan = UserUnitOfWork.PlanRepository.GetById(favoriteToAdd.EntityId);
@@ -87,7 +85,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                             user.PlanFavorites.Add(plan);
                     }
                     break;
-                case FavoriteType.Exercise:
+                case FavoriteTypeDto.Exercise:
                     if (user.ExerciseFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var exercise = UserUnitOfWork.ExerciseRepository.GetById(favoriteToAdd.EntityId);
@@ -95,7 +93,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                             user.ExerciseFavorites.Add(exercise);
                     }
                     break;
-                case FavoriteType.Video:
+                case FavoriteTypeDto.Video:
                     if (user.VideoFavorites.All(p => p.Id != favoriteToAdd.EntityId))
                     {
                         var video = UserUnitOfWork.VideoRepository.GetById(favoriteToAdd.EntityId);
@@ -109,7 +107,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             UserUnitOfWork.Commit();
 
-            return Ok(new ApiResponse<UserFavoriteDto>()
+            return Ok(new ApiResponse<FavoriteDto>()
             {
                 Response = request
             });

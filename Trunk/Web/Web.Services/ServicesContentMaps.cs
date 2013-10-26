@@ -17,7 +17,27 @@ namespace SportsWebPt.Platform.Web.Services
                   .Include<User, UpdateUserRequest>();
             Mapper.CreateMap<User, CreateUserRequest>();
             Mapper.CreateMap<User, UpdateUserRequest>();
-            Mapper.CreateMap<UserDto, User>();
+            Mapper.CreateMap<UserDto, User>()
+                  .ForMember(d => d.videos, opt =>
+                      {
+                          opt.Condition(s => s.VideoFavorites != null);
+                          opt.MapFrom(s => s.VideoFavorites);
+                      })
+                  .ForMember(d => d.plans, opt =>
+                      {
+                          opt.Condition(s => s.PlanFavorites != null);
+                          opt.MapFrom(s => s.PlanFavorites);
+                      })
+                  .ForMember(d => d.injuries, opt =>
+                      {
+                          opt.Condition(s => s.InjuryFavorites != null);
+                          opt.MapFrom(s => s.InjuryFavorites);
+                      })
+                  .ForMember(d => d.exercises, opt =>
+                      {
+                          opt.Condition(s => s.ExerciseFavorites != null);
+                          opt.MapFrom(s => s.ExerciseFavorites);
+                      });
             Mapper.CreateMap<SkeletonAreaDto, SkeletonArea>();
             Mapper.CreateMap<SkeletonArea, SkeletonAreaDto>();
             Mapper.CreateMap<BodyPartDto, BodyPart>();
@@ -154,8 +174,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<BodyRegion, UpdateBodyRegionRequest>();
 
 
-            Mapper.CreateMap<UserFavoriteDto, UserFavorite>();
-            Mapper.CreateMap<UserFavorite, CreateUserFavoriteRequest>();
+            Mapper.CreateMap<FavoriteDto, Favorite>();
+            Mapper.CreateMap<Favorite, CreateUserFavoriteRequest>();
 
         }
     }

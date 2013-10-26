@@ -1,4 +1,7 @@
-﻿using SportsWebPt.Common.DataAccess;
+﻿using System;
+using System.Linq;
+
+using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Platform.Core.Models;
 
@@ -6,6 +9,13 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public class UserUnitOfWork : BaseUnitOfWork, IUserUnitOfWork
     {
+
+        #region Fields
+
+        private readonly string[] _userIncludes = new[] { "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites" };
+
+        #endregion
+
         #region Properties
 
         public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } }
@@ -23,7 +33,24 @@ namespace SportsWebPt.Platform.DataAccess
         {}
         
         #endregion
+
+        #region Methods
+
+        public User GetUserById(int userId)
+        {
+            return UserRepository.GetAll(_userIncludes).SingleOrDefault(w => w.Id == userId);
+        }
         
+        public User GetUserByEmail(string emailAddress)
+        {
+            return UserRepository.GetAll(_userIncludes)
+                                .SingleOrDefault(
+                                    p =>
+                                    p.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase));
+        }
+
+        #endregion
+
     }
 
     public interface IUserUnitOfWork : IBaseUnitOfWork
@@ -33,5 +60,8 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Plan> PlanRepository { get; }
         IRepository<Video> VideoRepository { get; }
         IRepository<Exercise> ExerciseRepository { get; }
+
+        User GetUserById(int userId);
+        User GetUserByEmail(string emailAddress);
     }
 }

@@ -1,22 +1,9 @@
 ﻿define('vm.master.header',
-['ko', 'config', 'model.user', 'knockback', 'vm.login.dialog', 'jquery'],
-    function (ko, config, user, kb, login, $) {
+['ko', 'config', 'model.user', 'knockback', 'vm.login.dialog', 'jquery', 'user.settings'],
+    function (ko, config, user, kb, login, $, userSettings) {
 
-        //TODO: this needs to come from user passed in
-        //ko mapping plugin fromJS
-        var userId = $('#userid').val(),
-            emailAddress = $('#userEmail').val(),
-            isAuthenticated = ko.observable(false);
-
-        if (userId > 0)
-            isAuthenticated(true);
-
-
-        var name = ko.observable(emailAddress);
-        
         return {
-            name: name,
-            isAuthenticated: isAuthenticated,
+            currentUser: userSettings.currentUser,
             toggleSignUp: login.toggleSignUp
         };
     });

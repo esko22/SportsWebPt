@@ -50,9 +50,10 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response.Id;
         }
 
-        public void AddFavorite(UserFavorite userFavorite)
+        public void AddFavorite(Favorite userFavorite, int userId)
         {
             var userFavRequest = Mapper.Map<CreateUserFavoriteRequest>(userFavorite);
+            userFavRequest.Id = userId;
 
             PostSync(userFavRequest);
         }

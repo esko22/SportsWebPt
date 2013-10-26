@@ -1,7 +1,4 @@
-﻿define('vm.dashboard.page', ['ko'],
-    function (ko) {
-
-
-
-        return { run: run };
+﻿define('vm.dashboard.page', ['knockback', 'user.settings'],
+    function (kb, userSettings) {
+        return { currentUser: userSettings.currentUser };
     });

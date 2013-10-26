@@ -70,7 +70,7 @@
     <Compile Include="Models\SymptomaticRegion.cs" />
     <Compile Include="Models\DifferentialDiagnosis.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserFavorite.cs" />
+    <Compile Include="Models\Favorite.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\Plan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

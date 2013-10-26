@@ -20,43 +20,55 @@
             <h3>Favorite Videos</h3>
             <div>
                 <table class="table table-striped">
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
+                    <thead>
+                        <th>Name</th>
+                    </thead>
+                        <tbody data-bind="foreach: currentUser.videos">
+                        <tr>
+                            <td data-bind="text: entityName"></td>
+                        </tr>
+                    </tbody>            
                 </table>
             </div>
         </section>
         <section id="exercises">
             <h3>Favorite Exercises</h3>
-                <table class="table table-striped">
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                    <tr><td>Test Me</td></tr>
-                </table>
+            <table class="table table-striped">
+                <thead>
+                    <th>Name</th>
+                </thead>
+                    <tbody data-bind="foreach: currentUser.exercises">
+                    <tr>
+                        <td data-bind="text: entityName"></td>
+                    </tr>
+                </tbody>            
+            </table>
         </section>
         <section id="plans">
             <h3>Favorite Plans</h3>
+            <table class="table table-striped">
+                <thead>
+                    <th>Name</th>
+                </thead>
+                <tbody data-bind="foreach: currentUser.plans">
+                <tr>
+                    <td data-bind="text: entityName"></td>
+                </tr>
+            </tbody>            
+            </table>
         </section>
         <section id="injuries">
             <h3>Favorite Injuries</h3>
+            <table class="table table-striped">
+                <thead>
+                    <th>Name</th>
+                </thead>
+                <tbody data-bind="foreach: currentUser.injuries">
+                <tr>
+                    <td data-bind="text: entityName"></td>
+                </tr>
+            </tbody>            
+            </table>
         </section>
     </div>
 </div>

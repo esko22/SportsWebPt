@@ -30,6 +30,14 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String ProviderId { get; set; }
 
+        public FavoriteDto[] VideoFavorites { get; set; }
+
+        public FavoriteDto[] PlanFavorites { get; set; }
+
+        public FavoriteDto[] InjuryFavorites { get; set; }
+
+        public FavoriteDto[] ExerciseFavorites { get; set; }
+
         #endregion
     }
 }

@@ -1,21 +1,22 @@
 ﻿using System;
+using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class UserFavoriteDto
+    public class FavoriteDto
     {
         #region Properties
 
-        public FavoriteType Entity { get; set; }
+        public FavoriteTypeDto Entity { get; set; }
 
         public int EntityId { get; set; }
 
-        public int UserId { get; set; }
+        public String EntityName { get; set; }
 
         #endregion
     }
 
-    public enum FavoriteType
+    public enum FavoriteTypeDto
     {
         Injury,
         Plan,

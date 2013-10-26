@@ -18,6 +18,6 @@ namespace SportsWebPt.Platform.Web.Services
 
         User Auth(String emailAddress, String hash);
 
-        void AddFavorite(UserFavorite userFavorite);
+        void AddFavorite(Favorite favorite, int userId);
     }
 }

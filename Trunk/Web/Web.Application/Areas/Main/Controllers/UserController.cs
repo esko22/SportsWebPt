@@ -53,17 +53,13 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(response, JsonRequestBehavior.DenyGet);
         }
 
-        //TODO: this should be changed to be a prop on the user model
         [POST("users/favorites")]
-        public ActionResult AddFavorites(UserFavorite userFavorite)
+        public ActionResult AddFavorites(Favorite favorite)
         {
             if (User.Identity.IsAuthenticated)
-            {
-                userFavorite.userId = Convert.ToInt32(User.Identity.Name);
-                _userManagementService.AddFavorite(userFavorite);
-            }
+                _userManagementService.AddFavorite(favorite, Convert.ToInt32(User.Identity.Name));
 
-            return Json(userFavorite, JsonRequestBehavior.DenyGet);
+            return Json(favorite, JsonRequestBehavior.DenyGet);
         }
 
         //[DELETE("Users/{id}")]

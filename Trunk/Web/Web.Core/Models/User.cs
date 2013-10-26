@@ -37,7 +37,13 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String gender { get; set; }
 
-        public IEnumerable<UserFavorite> favorites { get; set; } 
+        public IEnumerable<Favorite> videos { get; set; }
+
+        public IEnumerable<Favorite> plans { get; set; }
+
+        public IEnumerable<Favorite> injuries { get; set; }
+        
+        public IEnumerable<Favorite> exercises { get; set; } 
 
         #endregion
 

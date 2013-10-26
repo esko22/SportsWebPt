@@ -16,9 +16,15 @@ namespace SportsWebPt.Platform.ServiceModels
     public class UserRequest : AbstractResourceRequest, IReturn<ApiResponse<UserDto>>
     {}
 
-    [Route("/users/favorites", "POST")]
-    public class CreateUserFavoriteRequest : UserFavoriteDto, IReturn<ApiResponse<UserFavoriteDto>>
-    {}
+    [Route("/users/{id}/favorites", "POST")]
+    public class CreateUserFavoriteRequest : FavoriteDto, IReturn<ApiResponse<FavoriteDto>>
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        #endregion
+    }
 
     [Route("/auth", "POST")]
     public class AuthRequest : AuthRequestDto, IReturn<ApiResponse<UserDto>> { }

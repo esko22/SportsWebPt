@@ -223,6 +223,8 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Admin\Views\Index\_adminBodyRegions.cshtml" />
     <None Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
+    <Content Include="Areas\Dashboard\Scripts\app\dashboard.router.js" />
+    <Content Include="Areas\Dashboard\Scripts\app\dashboard.binder.js" />
     <Content Include="Areas\Dashboard\Scripts\viewmodels\vm.dashboard.page.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
@@ -275,6 +277,7 @@
     <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
     <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
+    <Content Include="Scripts\app\user.settings.js" />
     <Content Include="Scripts\libs\html5shiv.js" />
     <Content Include="Scripts\libs\kendo\kendo.web.min.js" />
     <Content Include="Scripts\libs\toastr.js" />
@@ -300,6 +303,7 @@
     <Content Include="Views\Shared\Unhandled.cshtml" />
     <Content Include="Views\Shared\_errorLayout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Scripts\models\model.favorite.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

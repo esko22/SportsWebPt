@@ -98,7 +98,7 @@
     <Compile Include="Models\SymptomaticRegionDto.cs" />
     <Compile Include="Models\SymptomDto.cs" />
     <Compile Include="Models\UserDto.cs" />
-    <Compile Include="Models\UserFavoriteDto.cs" />
+    <Compile Include="Models\FavoriteDto.cs" />
     <Compile Include="Models\VideoDto.cs" />
     <Compile Include="Models\PlanDto.cs" />
     <Compile Include="Operations\BodyPartRequests.cs" />
