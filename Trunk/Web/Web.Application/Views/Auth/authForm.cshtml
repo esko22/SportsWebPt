@@ -1,8 +1,4 @@
 ﻿@model SportsWebPt.Platform.Web.Application.AuthFormViewModel
-@{
-    Model.AreaBundles.Add("~/bundles/mainapplib");
-}
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +9,7 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-        @{Html.RenderPartial("~/Areas/Main/Views/Shared/_noAuthHeader.cshtml"); }
+        @{Html.RenderPartial("~/Views/Shared/_noAuthHeader.cshtml"); }
 
         <div class="login-container" id="login-dialog">
             @{
@@ -26,10 +22,10 @@
                     </div>
                 }
             }
-            @{Html.RenderPartial("~/Areas/Main/Views/Shared/_authDialogs.cshtml"); }
+            @{Html.RenderPartial("~/Views/Shared/_authDialogs.cshtml"); }
         </div>
 
-        @{Html.RenderPartial("~/Areas/Main/Views/Shared/_masterFooter.cshtml"); }
+        @{Html.RenderPartial("~/Views/Shared/_masterFooter.cshtml"); }
         @Html.AntiForgeryToken()
 
         @Scripts.Render(

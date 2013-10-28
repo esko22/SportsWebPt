@@ -4,7 +4,9 @@
         var viewIds = {
             header: '#master-header',
             footer: '#master-footer',
-            login: '#login-dialog'
+            login: '#login-dialog',
+            masterContainer : '#master-container',
+            mainSplash: '#main-splash-panel'
         },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),

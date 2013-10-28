@@ -8,7 +8,7 @@ using AttributeRouting.Web.Mvc;
 
 namespace SportsWebPt.Platform.Web.Application
 {
-    [RouteArea("Main")]
+    [RouteArea]
     public class IndexController : BaseController
     {
         [GET("",IsAbsoluteUrl = true)]

@@ -15,6 +15,7 @@
         define('knockback', [], function () { return root.kb; });
         define('logger', [], function () { return root.logger; });
         define('uri', [], function () { return root.Uri; });
+        define('toastr', [], function () { return root.toastr; });
     }
 
     function loadPluginsAndBoot() {

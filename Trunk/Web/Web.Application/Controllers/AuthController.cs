@@ -16,7 +16,7 @@ using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Application
 {
-    [RouteArea("Main")]
+    [RouteArea]
     public class AuthController : BaseController
     {
 

@@ -1,5 +1,5 @@
 ﻿<!-- LOGON / SIGNUP Dialogs --> 
-    <div class="modal-body" data-bind="visible: loginVisible" id="loginForm">
+    <div class="modal-body" style="display: none" data-bind="visible: loginVisible" id="loginForm">
         <form>
             <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Log in using Facebook</a>
         </form>
@@ -30,7 +30,7 @@
     </div>
 
     <!-- SIGN UP -->
-    <div class="modal-body" data-bind="visible: signUpVisible" id="signUpForm">
+    <div class="modal-body" style="display: none" data-bind="visible: signUpVisible" id="signUpForm">
         <form id="signUpFacebook" >
             <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Sign up using Facebook</a>
         </form>

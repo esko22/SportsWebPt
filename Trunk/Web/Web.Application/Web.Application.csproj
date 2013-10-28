@@ -183,16 +183,15 @@
     <Compile Include="Areas\Examine\Controllers\ExamineController.cs" />
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
     <Compile Include="Areas\Examine\Models\ExamineViewModel.cs" />
-    <Compile Include="Areas\Main\Commands\LoginCommand.cs" />
-    <Compile Include="Areas\Main\Controllers\AuthController.cs" />
-    <Compile Include="Areas\Main\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Main\Controllers\ErrorController.cs" />
-    <Compile Include="Areas\Main\Controllers\UserController.cs" />
-    <Compile Include="Areas\Main\MainAreaRegistration.cs" />
-    <Compile Include="Areas\Main\Controllers\IndexController.cs" />
-    <Compile Include="Areas\Main\Models\ErrorViewModel.cs" />
-    <Compile Include="Areas\Main\Models\IndexViewModel.cs" />
-    <Compile Include="Areas\Main\Models\AuthFormViewModel.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\IndexViewModel.cs" />
+    <Compile Include="ViewModels\AuthFormViewModel.cs" />
     <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
     <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />
     <Compile Include="Areas\Research\Models\ResearchInjuryViewModel.cs" />
@@ -286,6 +285,8 @@
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />
+    <Content Include="Scripts\viewmodels\vm.main.splash.js" />
+    <Content Include="Scripts\viewmodels\vm.main.js" />
     <Content Include="Tmpl\_examine.while.multi.tmpl.html" />
     <Content Include="Tmpl\_examine.feels.multi.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
@@ -304,6 +305,7 @@
     <Content Include="Views\Shared\_errorLayout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\models\model.favorite.js" />
+    <Content Include="Views\Main\_mainSplash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -314,12 +316,11 @@
     <Content Include="Areas\Examine\Scripts\app\examine.binder.js" />
     <Content Include="Areas\Examine\Scripts\app\examine.router.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\examine.vm.js" />
-    <Content Include="Areas\Main\Scripts\app\main.area.bootstrapper.js" />
-    <Content Include="Areas\Main\Scripts\app\main.router.js" />
-    <Content Include="Areas\Main\Scripts\shared\shared.binder.js" />
-    <Content Include="Areas\Main\Scripts\shared\shared.bootstrapper.js" />
-    <Content Include="Areas\Main\Scripts\shared\vm.login.dialog.js" />
-    <Content Include="Areas\Main\Scripts\shared\vm.master.header.js" />
+    <Content Include="Scripts\app\main.router.js" />
+    <Content Include="Scripts\shared\shared.binder.js" />
+    <Content Include="Scripts\shared\shared.bootstrapper.js" />
+    <Content Include="Scripts\shared\vm.login.dialog.js" />
+    <Content Include="Scripts\shared\vm.master.header.js" />
     <Content Include="Content\icon-fonts.css" />
     <Content Include="Content\images\skeletor.jpg" />
     <Content Include="Content\images\swpt_splash.png" />
@@ -331,17 +332,16 @@
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Areas\Examine\Views\Web.config" />
     <Content Include="Areas\Examine\Views\Examine\Index.cshtml" />
-    <Content Include="Areas\Main\Views\Web.config" />
-    <Content Include="Areas\Main\Scripts\shared\vm.master.footer.js" />
-    <Content Include="Areas\Main\Scripts\shared\shared.vm.js" />
-    <Content Include="Areas\Main\Views\Auth\authForm.cshtml" />
-    <Content Include="Areas\Main\Views\Shared\_authDialogs.cshtml" />
+    <Content Include="Scripts\shared\vm.master.footer.js" />
+    <Content Include="Scripts\shared\shared.vm.js" />
+    <Content Include="Views\Auth\authForm.cshtml" />
+    <Content Include="Views\Shared\_authDialogs.cshtml" />
     <Content Include="Areas\Dashboard\Views\Web.config" />
     <Content Include="Areas\Dashboard\Views\UserDashboard\Index.cshtml" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Main\Views\Shared\_noAuthHeader.cshtml" />
+    <Content Include="Views\Shared\_noAuthHeader.cshtml" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
     <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
     <Content Include="Areas\Research\Views\Web.config" />
@@ -425,10 +425,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Areas\Main\Views\Shared\_masterLayout.cshtml" />
-    <Content Include="Areas\Main\Views\Shared\_masterHeader.cshtml" />
-    <Content Include="Areas\Main\Views\Shared\_masterFooter.cshtml" />
-    <Content Include="Areas\Main\Views\Index\index.cshtml" />
+    <Content Include="Views\Shared\_masterLayout.cshtml" />
+    <Content Include="Views\Shared\_masterHeader.cshtml" />
+    <Content Include="Views\Shared\_masterFooter.cshtml" />
+    <Content Include="Views\Index\index.cshtml" />
     <Content Include="Tmpl\_examine.detail.area.tmpl.html" />
   </ItemGroup>
   <ItemGroup>

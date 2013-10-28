@@ -31,11 +31,10 @@
     }
 
     function boot() {
-        require(['bootstrapper', 'shared.bootstrapper', 'area.bootstrapper','router'],
-            function(bs, sbs, abs, router) {
+        require(['bootstrapper', 'shared.bootstrapper','router'],
+            function(bs, sbs, router) {
                 bs.run();
                 sbs.run();
-                abs.run();
                 
                 if(typeof (router) !== "undefined")
                     router.configure();
