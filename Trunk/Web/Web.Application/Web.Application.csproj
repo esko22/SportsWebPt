@@ -180,9 +180,8 @@
     <Compile Include="Areas\Dashboard\Controllers\UserDashboardController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
-    <Compile Include="Areas\Examine\Controllers\ExamineController.cs" />
+    <Compile Include="Controllers\ExamineController.cs" />
     <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
-    <Compile Include="Areas\Examine\Models\ExamineViewModel.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -225,8 +224,8 @@
     <Content Include="Areas\Dashboard\Scripts\app\dashboard.router.js" />
     <Content Include="Areas\Dashboard\Scripts\app\dashboard.binder.js" />
     <Content Include="Areas\Dashboard\Scripts\viewmodels\vm.dashboard.page.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.detail.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.report.js" />
+    <Content Include="Scripts\viewmodels\examine\vm.examine.detail.js" />
+    <Content Include="Scripts\viewmodels\examine\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\app\research.binder.js" />
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
@@ -285,8 +284,8 @@
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\utils\favorites.helper.js" />
-    <Content Include="Scripts\viewmodels\vm.main.splash.js" />
-    <Content Include="Scripts\viewmodels\vm.main.js" />
+    <Content Include="Scripts\viewmodels\splash\vm.splash.js" />
+    <Content Include="Scripts\viewmodels\vm.master.page.js" />
     <Content Include="Tmpl\_examine.while.multi.tmpl.html" />
     <Content Include="Tmpl\_examine.feels.multi.tmpl.html" />
     <Content Include="Tmpl\_examine.slider.ten.tmpl.html" />
@@ -305,7 +304,11 @@
     <Content Include="Views\Shared\_errorLayout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\models\model.favorite.js" />
-    <Content Include="Views\Main\_mainSplash.cshtml" />
+    <Content Include="Views\Splash\_splash.cshtml" />
+    <Content Include="Views\Examine\_examinePage.cshtml" />
+    <Content Include="Views\Examine\_examineSkeleton.cshtml" />
+    <Content Include="Views\Examine\_examineSymptomDetail.cshtml" />
+    <Content Include="Views\Examine\_examineInjuryReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -315,8 +318,8 @@
     <Content Include="Areas\Examine\Scripts\app\examine.area.bootstrapper.js" />
     <Content Include="Areas\Examine\Scripts\app\examine.binder.js" />
     <Content Include="Areas\Examine\Scripts\app\examine.router.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\examine.vm.js" />
-    <Content Include="Scripts\app\main.router.js" />
+    <Content Include="Scripts\viewmodels\examine\vm.examine.page.js" />
+    <Content Include="Scripts\app\master\router.js" />
     <Content Include="Scripts\shared\shared.binder.js" />
     <Content Include="Scripts\shared\shared.bootstrapper.js" />
     <Content Include="Scripts\shared\vm.login.dialog.js" />
@@ -329,9 +332,7 @@
     <Content Include="Scripts\app\auth.form.bootstrapper.js" />
     <Content Include="Scripts\app\services.js" />
     <Content Include="Scripts\auth.form.main.js" />
-    <Content Include="Scripts\app\bootstrapper.js" />
-    <Content Include="Areas\Examine\Views\Web.config" />
-    <Content Include="Areas\Examine\Views\Examine\Index.cshtml" />
+    <Content Include="Scripts\app\master\bootstrapper.js" />
     <Content Include="Scripts\shared\vm.master.footer.js" />
     <Content Include="Scripts\shared\shared.vm.js" />
     <Content Include="Views\Auth\authForm.cshtml" />
@@ -342,8 +343,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Shared\_noAuthHeader.cshtml" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.skeleton.js" />
-    <Content Include="Areas\Examine\Scripts\viewmodels\vm.examine.container.js" />
+    <Content Include="Scripts\viewmodels\examine\vm.examine.skeleton.js" />
     <Content Include="Areas\Research\Views\Web.config" />
     <Content Include="Areas\Research\Views\Research\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
@@ -436,7 +436,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
-    <Folder Include="Areas\Examine\Views\Shared\" />
+    <Folder Include="Areas\Examine\Scripts\viewmodels\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

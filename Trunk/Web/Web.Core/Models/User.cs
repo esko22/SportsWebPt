@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Web.Core
 {
     public class User
     {
-        //TODO: look into case sensitivity issues. Props have to match case so work
-        //with backbone model mappings, atleast the id prop
-
         #region Properties
         
         public String emailAddress { get; set; }

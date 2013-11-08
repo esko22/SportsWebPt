@@ -1,42 +1,44 @@
 ﻿define('vm.examine.skeleton',
-    ['jquery','config', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'vm.examine.container'],
-    function ($, config, SymptomaticRegionCollection, kb, _, container, toastr) {
+    ['jquery','config', 'model.symptomatic.region.collection', 'knockback', 'underscore'],
+    function ($, config, SymptomaticRegionCollection, kb, _) {
 
-        var symptomaticRegions = new SymptomaticRegionCollection();
-        symptomaticRegions.reset(JSON.parse($('#skeleton-areas').val()));
+        var symptomaticRegions = new SymptomaticRegionCollection(),
+            selectedAreas = kb.collectionObservable(new SymptomaticRegionCollection());
 
-        var selectArea = function (item) {
-            if (container.selectedAreas.indexOf(item) == -1) {
-                if (container.selectedAreas().length < config.maxSelectableAreas()) {
+        isInitialized = false;
+
+        function selectArea (item) {
+            if (selectedAreas.indexOf(item) == -1) {
+                if (selectedAreas().length < config.maxSelectableAreas()) {
                     $('#' + item.cssClassName()).addClass('skeleton-selected');
-                    container.selectedAreas.push(item);
+                    selectedAreas.push(item);
                 } else {
                     config.notifier.clear();
                     config.notifier.error($.validator.format('Only {0} selectable areas allowed.', config.maxSelectableAreas()));
                 }
             } else {
                 $('#' + item.cssClassName()).removeClass('skeleton-selected');
-                container.selectedAreas.remove(item);
+                selectedAreas.remove(item);
             }
-        };
+        }
         
-        var areaMouseOver = function (item) {
-            if (container.selectedAreas.indexOf(item) > -1) {
+        function areaMouseOver (item) {
+            if (selectedAreas.indexOf(item) > -1) {
                 $('#' + item.cssClassName()).removeClass('skeleton-selected');
             }
             
             $('#' + item.cssClassName()).addClass('skeleton-hover');
-        };
+        }
 
-        var areaMouseOut = function (item) {
+        function areaMouseOut (item) {
             $('#' + item.cssClassName()).removeClass('skeleton-hover');
 
-            if (container.selectedAreas.indexOf(item) > -1) {
+            if (selectedAreas.indexOf(item) > -1) {
                 $('#' + item.cssClassName()).addClass('skeleton-selected');
             }
-        };
+        }
         
-        var formatBodyParts = function (symptomaticRegion) {
+        function formatBodyParts(symptomaticRegion) {
 
             var html = "";
             _.each(symptomaticRegion.bodyParts(), function (bodyPart) {
@@ -45,15 +47,26 @@
             });
 
             return html;
-        };
+        }
+        
+        function init() {
+            if (!isInitialized) {
+                symptomaticRegions.fetch();
+            }
+            
+            isInitialized = true;
+        }
 
         return {
             symptomaticRegions: new kb.CollectionObservable(symptomaticRegions),
             selectArea: selectArea,
             areaMouseOver: areaMouseOver,
             areaMouseOut: areaMouseOut,
-            selectedAreas: container.selectedAreas,
+            selectedAreas: selectedAreas,
             formatBodyParts: formatBodyParts,
-            maxSelectableAreas : config.maxSelectableAreas
+            isInitialized : isInitialized,
+            maxSelectableAreas: config.maxSelectableAreas,
+            selectedAreas : selectedAreas,
+            init : init
         };
     });

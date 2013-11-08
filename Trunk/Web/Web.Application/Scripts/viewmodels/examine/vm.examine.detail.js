@@ -5,14 +5,17 @@
         var areaTemplate = 'examine.detail.area';
         var componentTemplate = 'examine.detail.components';
         var selectedAreas = ko.observableArray();
+        var detailReportId = ko.observable(0);
 
-        var bindSelectedAreas = function(newSelectedAreas) {
+        var bindSelectedAreas = function(selectedAreaViewModels) {
             selectedAreas.removeAll();
-            _.each(newSelectedAreas, function (area) {
-                _.each(area.model().get('bodyParts').models, function(bodyPart) {
-                    var potentialSymptoms = bodyPart.get('potentialSymptoms');
-                    potentialSymptoms.url = $.validator.format("{0}/{1}", config.apiUris.potentialSymptoms, bodyPart.id);
-                    potentialSymptoms.fetch();
+            _.each(selectedAreaViewModels, function (area) {
+                _.each(area.bodyParts(), function (bodyPart) {
+                    if (!bodyPart.symptomsFetched()) {
+                        var potentialSymptoms = bodyPart.model().get('potentialSymptoms');
+                        potentialSymptoms.url = $.validator.format("{0}/{1}", config.apiUris.potentialSymptoms, bodyPart.id());
+                        potentialSymptoms.fetch({ success: function () { bodyPart.symptomsFetched(true); } });
+                    }
                 });
                 selectedAreas.push(area);
             });
@@ -40,8 +43,9 @@
                 "symptomDetails": potentialSymptoms
             };
 
-            var successSub = function(data) {
-                window.location.hash = 'report/' + data;
+            var successSub = function (data) {
+                detailReportId(data);
+                window.location.hash = '/examine/report';
             };
 
             services.submitSymptomDetails(diffDiagSubmission,successSub);
@@ -50,11 +54,13 @@
         
       
         return {
+
             selectedAreas: selectedAreas,
             areaTemplate: areaTemplate,
             componentTemplate: componentTemplate,
             bindSelectedAreas: bindSelectedAreas,
             postTabRender: postTabRender,
-            submitDiscomfortDetail: submitDiscomfortDetail
+            submitDiscomfortDetail: submitDiscomfortDetail,
+            detailReportId: detailReportId
         };
     });

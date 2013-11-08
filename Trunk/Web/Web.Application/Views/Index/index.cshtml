@@ -1,10 +1,15 @@
 ﻿@model SportsWebPt.Platform.Web.Application.IndexViewModel
 @{
+    Model.AreaBundles.Add("~/bundles/masterapplib");
     Layout = "~/Views/Shared/_masterLayout.cshtml";
 }
 
-<!-- ko with: mainSplashPage -->
-@{Html.RenderPartial("~/views/main/_mainSplash.cshtml");}
+<!-- ko with: splashPage -->
+@{Html.RenderPartial("~/views/splash/_splash.cshtml");}
+<!-- /ko -->
+
+<!-- ko with: examinePage -->
+@{Html.RenderPartial("~/views/examine/_examinePage.cshtml");}
 <!-- /ko -->
 
 

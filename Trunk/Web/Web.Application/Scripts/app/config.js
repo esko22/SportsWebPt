@@ -6,7 +6,11 @@
             footer: '#master-footer',
             login: '#login-dialog',
             masterContainer : '#master-container',
-            mainSplash: '#main-splash-panel'
+            mainSplash: '#main-splash-panel',
+            examineSkeleton: '#examine-skeleton-pane',
+            examineContent: '#examine-content',
+            examineDetail: '#examine-detail-pane',
+            examineReport: '#examine-report-pane'
         },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),

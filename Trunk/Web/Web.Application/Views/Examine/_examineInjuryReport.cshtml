@@ -1,0 +1,13 @@
+﻿<div id="examine-injury-report">
+    <div>
+        <h3><strong>Potential Injuries</strong></h3>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-2" id="injuryReport">
+            <ul id="examine-report-tab-nav" class="nav nav-pills nav-stacked" data-bind="foreach: injuries">
+                <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood() " data-toggle="tab"></a></li>
+            </ul>
+        </div>
+        <div id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane examine-report-tab-pane col-md-10"></div>
+    </div>
+</div>

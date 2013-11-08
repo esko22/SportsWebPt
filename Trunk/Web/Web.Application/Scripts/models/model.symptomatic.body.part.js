@@ -4,15 +4,14 @@
         var symptomaticBodyPart = backbone.RelationalModel.extend({
             urlRoot: config.apiUris.symptomaticComponents,
             idAttribute: 'bodyPartMatrixId',
+            defaults : {
+              'symptomsFetched' : false  
+            },
             relations: [{
                 type: backbone.HasMany,
                 key: 'potentialSymptoms',
                 relatedModel: PotentialSymptom,
-                collectionType: PotentialSymptomCollection,
-                        reverseRelation: {
-                            key: 'bodyPartId',
-                            includeInJSON: 'bodyPartMatrixId'
-                        }
+                collectionType: PotentialSymptomCollection
             }]
         });
 

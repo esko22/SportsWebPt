@@ -1,5 +1,5 @@
 ﻿
-#mainsplash {
+#splash-header {
     background-size: 100%;
     background-size: cover;
     background-position: center center;
@@ -10,7 +10,7 @@
 	-o-background-size: cover;
 }
 
-#mainsplash h1,#mainsplash h2 {
+#splash-header h1,#splash-header h2 {
     color: #ffffff
 }
 

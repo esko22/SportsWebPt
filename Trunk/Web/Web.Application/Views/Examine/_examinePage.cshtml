@@ -1,0 +1,31 @@
+﻿<div class="container" style="display: none" data-bind="visible: isVisible" id="examine-content">
+    <div>
+        <span aria-hidden="true" data-icon="&#xf0f1;" class="header-icon"> Examine</span> 
+    </div>
+    <div>
+        <ul class="breadcrumb main-breadcrumb" id="examine-nav">
+            <li><a href="#/examine" id="skeleton-nav">Select Region(s)</a></li>
+            <li><a href="#/examine/detail" id="detail-nav">Describe Discomfort</a></li>
+            <li><a href="#/examine/report" id="report-nav">Potential Injuries</a></li>
+        </ul>
+    </div>
+    
+        <!-- ko with: skeleton -->
+        <div class="view" id="examine-skeleton-pane">
+            @{Html.RenderPartial("~/views/examine/_examineSkeleton.cshtml");}
+        </div>
+        <!-- /ko -->
+
+        <!-- ko with: detail -->
+        <div class="view" id="examine-detail-pane">
+            @{Html.RenderPartial("~/views/examine/_examineSymptomDetail.cshtml");}
+        </div>
+        <!-- /ko -->
+
+        <!-- ko with: report -->
+        <div class="view" id="examine-report-pane">
+            @{Html.RenderPartial("~/views/examine/_examineInjuryReport.cshtml");}
+        </div>
+        <!-- /ko -->
+        
+</div>

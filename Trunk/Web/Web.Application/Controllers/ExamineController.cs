@@ -30,13 +30,12 @@ namespace SportsWebPt.Platform.Web.Application
 
         #endregion
 
-        [GET("Examine", IsAbsoluteUrl = true)]
-        public ActionResult Index()
+        [GET("Examine/symptomaticregions", IsAbsoluteUrl = true)]
+        public ActionResult GetSymptomaticRegions()
         {
-            var viewModel = CreateViewModel<ExamineViewModel>();
-            viewModel.SymptomaticRegions = _examineService.GetSymptomaticRegions();
+            var symptomaticRegions = _examineService.GetSymptomaticRegions();
 
-            return View(viewModel);
+            return Json(symptomaticRegions, JsonRequestBehavior.AllowGet);
         }
 
         [GET("Examine/potentialsymptoms/{bodyPartMatrixId}", IsAbsoluteUrl = true)]
