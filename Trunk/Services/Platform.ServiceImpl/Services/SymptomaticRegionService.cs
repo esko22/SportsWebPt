@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.DataAccess;

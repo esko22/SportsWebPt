@@ -17,6 +17,9 @@
         }
     };
     
+
+    // ************ bootstrap handlers ***************
+    
     ko.bindingHandlers.bootstrapPopover = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
             var options = valueAccessor();
@@ -28,5 +31,22 @@
                 });
         }
     };
+    
+    // ************ end bootstrap handlers ***************
+
+    // ************ kendo handlers ***************
+
+    //Applies mask to an element
+    ko.bindingHandlers.mask = {
+        update: function (element, valueAccessor, allBindingsAccessor) {
+            var value = valueAccessor();
+            var shouldMask = ko.utils.unwrapObservable(value);
+
+            kendo.ui.progress($(element), shouldMask);
+        }
+    };
+
+    // ************ end kendo handlers ***************
+
 
 })(jQuery);

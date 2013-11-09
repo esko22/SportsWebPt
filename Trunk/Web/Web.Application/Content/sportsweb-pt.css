@@ -694,6 +694,12 @@ ul#skeleton li {
   left: -9999px;
 }
 
+/* KENDO AUGMENTS*/
+
+.k-loading-color {
+    background-color: #333333;
+}
+
 
 /* BOOTSTRAP AUGMENTS*/
 

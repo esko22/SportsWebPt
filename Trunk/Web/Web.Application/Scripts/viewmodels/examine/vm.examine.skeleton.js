@@ -1,11 +1,11 @@
 ﻿define('vm.examine.skeleton',
-    ['jquery','config', 'model.symptomatic.region.collection', 'knockback', 'underscore'],
-    function ($, config, SymptomaticRegionCollection, kb, _) {
+    ['jquery','config', 'model.symptomatic.region.collection', 'knockback', 'underscore', 'ko'],
+    function ($, config, SymptomaticRegionCollection, kb, _, ko) {
 
         var symptomaticRegions = new SymptomaticRegionCollection(),
-            selectedAreas = kb.collectionObservable(new SymptomaticRegionCollection());
-
-        isInitialized = false;
+            selectedAreas = kb.collectionObservable(new SymptomaticRegionCollection()),
+            isInitialized = ko.observable(false),
+            isProcessing = ko.observable(true);
 
         function selectArea (item) {
             if (selectedAreas.indexOf(item) == -1) {
@@ -50,11 +50,15 @@
         }
         
         function init() {
-            if (!isInitialized) {
-                symptomaticRegions.fetch();
+            if (!isInitialized()) {
+                isProcessing(true);
+                symptomaticRegions.fetch({
+                    success: function() {
+                        isInitialized(true);
+                        isProcessing(false);
+                    }
+                });
             }
-            
-            isInitialized = true;
         }
 
         return {
@@ -64,9 +68,9 @@
             areaMouseOut: areaMouseOut,
             selectedAreas: selectedAreas,
             formatBodyParts: formatBodyParts,
-            isInitialized : isInitialized,
+            isInitialized: isInitialized,
+            isProcessing: isProcessing,
             maxSelectableAreas: config.maxSelectableAreas,
-            selectedAreas : selectedAreas,
             init : init
         };
     });
