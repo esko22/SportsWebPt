@@ -8,13 +8,16 @@
             isVisible(true);
             skeleton.init();
         }
+
+        function showSkeleton() {
+            $('#examine-nav a').removeClass('active');
+            $('#skeleton-nav').addClass('active');
+        }
         
         function showDetail() {
             detail.bindSelectedAreas(skeleton.selectedAreas());
-        }
-        
-        function submitDiscomfortDetail() {
-            detail.submitDiscomfortDetail();
+            $('#examine-nav a').removeClass('active');
+            $('#detail-nav').addClass('active');
         }
         
         function showReport() {
@@ -30,7 +33,22 @@
                     //}, 12000);
                 }
             });
+            $('#examine-nav a').removeClass('active');
+            $('#report-nav').addClass('active');
         }
+
+        function submitDiscomfortDetail() {
+            detail.submitDiscomfortDetail();
+        }
+        
+        function canShowDetail() {
+            return skeleton.selectedAreas().length > 0;
+        }
+        
+        function canShowReport() {
+            return detail.detailReportId() > 0;
+        }
+
 
         return {
             skeleton: skeleton,
@@ -40,6 +58,9 @@
             showDetail: showDetail,
             submitDiscomfortDetail: submitDiscomfortDetail,
             showReport: showReport,
+            showSkeleton: showSkeleton,
+            canShowDetail: canShowDetail,
+            canShowReport: canShowReport,
             isVisible: isVisible
         };
     });

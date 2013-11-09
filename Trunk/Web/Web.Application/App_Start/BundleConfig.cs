@@ -93,7 +93,7 @@ namespace SportsWebPt.Platform.Web
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
                 "~/Content/kendo/kendo.common.min.css",
-                "~/Content/kendo/kendo.flat.min.css", 
+                "~/Content/kendo/kendo.blueopal.min.css", 
                 "~/Content/sportsweb-pt.css"
                             ));
 

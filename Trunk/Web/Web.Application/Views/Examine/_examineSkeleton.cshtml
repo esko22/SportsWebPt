@@ -1,10 +1,7 @@
-﻿<div id="examine-skeleton" data-bind="mask: isProcessing">
+﻿<div id="examine-skeleton">
     <div class="row">
         <div class="col-md-11 pull-left">
             <h3><strong>Please select up to <span data-bind="text: maxSelectableAreas"></span> areas of discomfort</strong></h3>
-        </div>
-        <div class="col-md-1 pull-right">
-            @*<a class="btn btn-default btn-lg" href="#detail" >Next &raquo;</a>*@
         </div>
     </div>
     <div class="row push-down-md">
@@ -26,12 +23,12 @@
                 </table>
             </div>
             <div>
-                <a class="btn btn-info btn-lg btn-block" href="#/examine/detail" >Next &raquo;</a>
+                <a class="btn btn-default btn-block" href="#/examine/detail" >Next &raquo;</a>
             </div>
             <!-- /ko -->
         </div>
         <div class="col-md-10">
-            <ul id="skeleton" data-bind="foreach: symptomaticRegions" class="img-rounded">
+            <ul id="skeleton" data-bind="foreach: symptomaticRegions, mask: isProcessing" class="img-rounded">
                 <li data-bind="attr: { id: cssClassName }, click: $parent.selectArea, event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut }, bootstrapPopover: { content: $parent.formatBodyParts($data), html: true, title: displayName, trigger: 'hover' }" />
             </ul>
         </div>

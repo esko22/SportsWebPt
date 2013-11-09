@@ -18,20 +18,30 @@
             });
 
             router.on('route:examine', function () {
-                splashPage.isVisible(false);
-                examinePage.onVisible();
+                if (!examinePage.isVisible()) {
+                    splashPage.isVisible(false);
+                    examinePage.onVisible();
+                }
+                examinePage.showSkeleton();
                 transitionTo(config.viewIds.examineSkeleton);
-                $('#skeleton-nav').addClass('active');
             });
 
             router.on('route:examineDetail', function () {
-                examinePage.showDetail();
-                transitionTo(config.viewIds.examineDetail);
+                if (examinePage.canShowDetail()) {
+                    examinePage.showDetail();
+                    transitionTo(config.viewIds.examineDetail);
+                } else {
+                    window.location.hash = 'examine';
+                }
             });
 
             router.on('route:examineReport', function () {
-                examinePage.showReport();
-                transitionTo(config.viewIds.examineReport);
+                if(examinePage.canShowReport()){
+                    examinePage.showReport();
+                    transitionTo(config.viewIds.examineReport);
+                } else {
+                    window.location.hash = 'examine';
+                }
             });
 
             router.on('route:main', function () {

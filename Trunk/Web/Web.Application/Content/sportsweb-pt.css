@@ -697,7 +697,7 @@ ul#skeleton li {
 /* KENDO AUGMENTS*/
 
 .k-loading-color {
-    background-color: #333333;
+    opacity: .7;
 }
 
 

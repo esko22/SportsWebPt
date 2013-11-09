@@ -11,32 +11,39 @@
         var bindSelectedAreas = function(selectedAreaViewModels) {
             selectedAreas.removeAll();
             isProcessing(true);
+            
             _.each(selectedAreaViewModels, function (area) {
-                _.each(area.bodyParts(), function (bodyPart) {
-                    if (!bodyPart.symptomsFetched()) {
-                        var potentialSymptoms = bodyPart.model().get('potentialSymptoms');
-                        potentialSymptoms.url = $.validator.format("{0}/{1}", config.apiUris.potentialSymptoms, bodyPart.id());
+                selectedAreas.push(area);
+                var symptomsNeed = area.model().get('bodyParts').where({ symptomsFetched: false });
+
+                if (symptomsNeed.length > 0) {
+                    _.each(symptomsNeed, function(bodyPart) {
+                        var potentialSymptoms = bodyPart.get('potentialSymptoms');
+                        potentialSymptoms.url = $.validator.format("{0}/{1}", config.apiUris.potentialSymptoms, bodyPart.id);
                         potentialSymptoms.fetch({
-                            success: function () {
-                                bodyPart.symptomsFetched(true);
+                            success: function() {
+                                bodyPart.set('symptomsFetched', true);
                                 checkPendingSymptoms(area.bodyParts());
                             },
-                            error: function () { isProcessing(false); }
+                            error: function() { isProcessing(false); }
+                        });
                     });
-                    }
-                });
-                selectedAreas.push(area);
+                } else {
+                    onSymptomsFetched();
+                }
+
             });
         };
 
         function checkPendingSymptoms(bodyParts) {
             var allSymptomsFetched = _.every(bodyParts, function(bodyPart) { return bodyPart.symptomsFetched(); });
             if (allSymptomsFetched) {
-                isProcessing(false);
+                onSymptomsFetched();
             };
         }
 
-        var postTabRender = function(elements) {
+        function onSymptomsFetched() {
+            isProcessing(false);
             $('#examine-detail-tab-nav > :first-child').addClass('active');
             $('#examine-detail-container > :first-child').addClass('active');
         };
@@ -78,7 +85,6 @@
             areaTemplate: areaTemplate,
             componentTemplate: componentTemplate,
             bindSelectedAreas: bindSelectedAreas,
-            postTabRender: postTabRender,
             submitDiscomfortDetail: submitDiscomfortDetail,
             detailReportId: detailReportId
         };

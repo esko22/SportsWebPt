@@ -21,6 +21,8 @@ namespace SportsWebPt.Platform.ServiceImpl
             var areas = SkeletonUnitOfWork.SkeletonAreaRepo.GetSymptonmaticRegions();
             var responseList = new List<SymptomaticRegionDto>();
 
+            System.Threading.Thread.Sleep(1500);
+
             Mapper.Map(areas, responseList);
 
             return

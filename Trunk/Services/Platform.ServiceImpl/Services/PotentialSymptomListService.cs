@@ -26,6 +26,8 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             symptoms = symptoms.Where(p => p.Decom == false);
 
+            System.Threading.Thread.Sleep(1500);
+
             var responseList = new List<PotentialSymptomDto>();
             Mapper.Map(symptoms, responseList);
 
