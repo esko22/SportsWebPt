@@ -7,7 +7,8 @@
         var selectedAreas = ko.observableArray();
         var detailReportId = ko.observable(0);
         var isProcessing = ko.observable(false);
-
+        var reportPending = ko.observable(false);
+        
         var bindSelectedAreas = function(selectedAreaViewModels) {
             selectedAreas.removeAll();
             isProcessing(true);
@@ -50,8 +51,8 @@
 
         var submitDiscomfortDetail = function () {
 
-            $('#myModal').modal('show');
-
+            $('#examine-report-modal').modal('show');
+            reportPending(true);
             var potentialSymptoms = new Array();
             
             _.each(selectedAreas(), function (area) {
@@ -70,11 +71,19 @@
 
             var successSub = function (data) {
                 detailReportId(data);
-                window.location.hash = '/examine/report';
-                //$('#myModal').modal('hide');
+                reportPending(false);
             };
 
-            services.submitSymptomDetails(diffDiagSubmission,successSub);
+            services.submitSymptomDetails(diffDiagSubmission, successSub);
+            
+            //trying to ensure a minimum time displayed
+            setTimeout(function () {
+                while (reportPending()) {
+                }
+                window.location.hash = '/examine/report';
+                $('#examine-report-modal').modal('hide');
+
+            }, 4000);
 
         };
         
