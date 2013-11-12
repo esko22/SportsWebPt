@@ -21,16 +21,12 @@
         }
         
         function showReport() {
-            var diagnosisReport = new DiagnosisReport({ diffDiagId: detail.detailReportId() });
+            //TODO: Diag Nav Temp
+            //detail.detailReportId()
+            var diagnosisReport = new DiagnosisReport({ diffDiagId: 45 });
             diagnosisReport.fetch({
                 success: function () {
                     report.bindReport(diagnosisReport);
-                    //setTimeout(function () {
-                    //    sublime.load();
-                    //}, 3000);
-                    //setTimeout(function () {
-                    //    sublime.load();
-                    //}, 12000);
                 }
             });
             $('#examine-nav a').removeClass('active');
@@ -46,7 +42,9 @@
         }
         
         function canShowReport() {
-            return detail.detailReportId() > 0;
+            //TODO: Diag Nav Temp
+            return true;
+            //return detail.detailReportId() > 0;
         }
 
 

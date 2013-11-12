@@ -1,7 +1,10 @@
 ﻿define('vm.examine.report',
-    ['ko', 'underscore', 'knockback'],
-    function (ko, _, kb) {
-        var injuries = kb.collectionObservable(),
+    ['config', 'underscore', 'knockback'],
+    function (config, _, kb) {
+        var remoteInjuries = kb.collectionObservable(),
+            probabableInjuries = kb.collectionObservable(),
+            moderateInjuries = kb.collectionObservable(),
+            injuries = kb.collectionObservable(),
             injuryTemplate = 'examine.report.injury',
             recoveryPlanTemplate = 'research.recovery.plans',
             researchWorkoutPlanTemplate = 'research.workout.plan',
@@ -9,8 +12,17 @@
             researchVideoTemplate = 'research.video';
 
         var bindReport = function (report) {
-            injuries.collection(report.get('potentialInjuries'));
             _.each(report.get('potentialInjuries').models, function (injury) {
+                var injuryViewModel = kb.viewModel(injury);
+                injuries.push(injuryViewModel);
+                
+                if (injury.get('likelyHood') >= config.likelyHoodThresholds.high)
+                    probabableInjuries.push(injuryViewModel);
+                else if (injury.get('likelyHood') >= config.likelyHoodThresholds.medium)
+                    moderateInjuries.push(injuryViewModel);
+                else
+                    remoteInjuries.push(injuryViewModel);
+
                 _.each(injury.get('plans').models, function (plan) {
                     plan.fetch();
                 });
@@ -31,11 +43,16 @@
         var postRecoveryPlanRender = function (elements) {
             $(elements[0]).find('div[id^="workout-plan-exercises-"] > ul > :first-child').addClass('active');
         };
-        
+
+        function onPillClick(event, data) {
+            $("li.active").removeClass("active");
+        }
 
         return {
             bindReport: bindReport,
-            injuries: injuries,
+            remoteInjuries: remoteInjuries,
+            probabableInjuries: probabableInjuries,
+            moderateInjuries: moderateInjuries,
             postTabRender: postTabRender,
             injuryTemplate: injuryTemplate,
             recoveryPlanTemplate: recoveryPlanTemplate,
@@ -43,6 +60,8 @@
             researchExerciseTemplate: researchExerciseTemplate,
             postExerciseRender: postExerciseRender,
             researchVideoTemplate: researchVideoTemplate,
-            postRecoveryPlanRender : postRecoveryPlanRender 
+            postRecoveryPlanRender: postRecoveryPlanRender,
+            injuries: injuries,
+            onPillClick : onPillClick
         };
     });

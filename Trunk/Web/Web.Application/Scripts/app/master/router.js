@@ -31,16 +31,18 @@
                     examinePage.showDetail();
                     transitionTo(config.viewIds.examineDetail);
                 } else {
-                    window.location.hash = 'examine';
+                    window.location.hash = '/examine';
                 }
             });
 
             router.on('route:examineReport', function () {
-                if(examinePage.canShowReport()){
+                if (examinePage.canShowReport()) {
+                    //TODO: Diag Nav Temp
+                    examinePage.isVisible(true);
                     examinePage.showReport();
                     transitionTo(config.viewIds.examineReport);
                 } else {
-                    window.location.hash = 'examine';
+                    window.location.hash = '/examine';
                 }
             });
 

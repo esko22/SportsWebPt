@@ -49,6 +49,11 @@
             clinics: $.format('{0}/{1}', hostUri, 'research/locate/{zipcode}')
         };
 
+        var likelyHoodThresholds = {
+            high: .80,
+            medium: .40
+        };
+
         var configureExternalTemplates = function() {
             infuser.defaults.templatePrefix = "_";
             infuser.defaults.templateSuffix = ".tmpl.html";
@@ -122,7 +127,8 @@
             maxSelectableAreas: maxSelectableAreas,
             notifier: notifier,
             kendoEditorIgnores: kendoEditorIgnores,
-            kendoEditorOptions: kendoEditorOptions
+            kendoEditorOptions: kendoEditorOptions,
+            likelyHoodThresholds: likelyHoodThresholds
         };
 
     });

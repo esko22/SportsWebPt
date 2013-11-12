@@ -76,7 +76,7 @@
 
             services.submitSymptomDetails(diffDiagSubmission, successSub);
             
-            //trying to ensure a minimum time displayed
+            //trying to ensure a minimum time displayed, there is prolly a better way, does this while loop block??
             setTimeout(function () {
                 while (reportPending()) {
                 }
