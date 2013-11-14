@@ -4,7 +4,7 @@
     </div>
     <div class="row push-down-md">
         <div class="col-md-3" id="injuryReport">
-            <ul class="list-group">
+            <ul class="list-group" id="injury-report-nav">
                 <li class="list-group-item"><span class="badge" data-bind="text: probabableInjuries().length"></span>Probable                 
                     <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: probabableInjuries">
                         <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>

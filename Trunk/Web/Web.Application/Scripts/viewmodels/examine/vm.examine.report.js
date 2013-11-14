@@ -45,7 +45,7 @@
         };
 
         function onPillClick(event, data) {
-            $("li.active").removeClass("active");
+            $("#injury-report-nav li.active").removeClass("active");
         }
 
         return {
