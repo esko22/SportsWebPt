@@ -53,7 +53,7 @@
             callback = passedCallback;
         },
         addExercise = function(data, event) {
-            
+            bindSelectedExercise(kb.viewModel(new ExerciseModel()), null);
             $(modalDialogId).modal('show');
         },
         editExercise = function(data, event) {

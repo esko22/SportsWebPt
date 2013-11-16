@@ -39,7 +39,8 @@
             suscribe = function(passedCallback) {
                 callback = passedCallback;
             },
-            addPlan = function(data, event) {
+            addPlan = function (data, event) {
+                bindSelectedPlan(kb.viewModel(new PlanModel()), null);
                 $(modalDialogId).modal('show');
             },
             editPlan = function(data, event) {

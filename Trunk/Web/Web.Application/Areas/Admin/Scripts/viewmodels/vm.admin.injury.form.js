@@ -1,6 +1,6 @@
 ﻿define('vm.admin.injury.form',
-    ['ko','config', 'underscore', 'knockback', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection', 'model.admin.symptom.collection','model.admin.body.part.matrix.item.collection', 'model.injury.symptom'],
-    function (ko,config, _, kb, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom) {
+    ['ko','config', 'underscore', 'knockback', 'jquery','model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection', 'model.admin.symptom.collection','model.admin.body.part.matrix.item.collection', 'model.injury.symptom'],
+    function (ko,config, _, kb, $, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom) {
         var planCollection = new PlanCollection(),
             bodyRegionCollection = new BodyRegionCollection(),
             signCollection = new SignCollection(),
@@ -44,6 +44,7 @@
            });
        },
         addInjury = function (data, event) {
+            bindSelectedInjury(kb.viewModel(new InjuryModel()), null);
             $(modalDialogId).modal('show');
         },
         editInjury = function (data, event) {
@@ -55,8 +56,10 @@
             symptom.set('symptomId', 1);
             symptom.set('bodyPartMatrixItemId', 1);
             symptom.set('renderTemplate', symptomCollection.models[0].get('renderTemplate'));
-            //HACK
-            symptom.set('id', 99999 + selectedInjury.get('injurySymptoms').length);
+            //HACK-ish--- need an unique id set to work with templates 
+            //that are used in the symptom detail for the user to select
+            //which is set
+            symptom.set('id', $.now());
             selectedInjury.get('injurySymptoms').add(symptom);
         },
         removeSymptom = function (data, event) {

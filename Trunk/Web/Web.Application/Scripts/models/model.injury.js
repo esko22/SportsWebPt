@@ -51,6 +51,8 @@ define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.a
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminInjuries,
+                defaults : {
+                },
                 relations: [{
                     type: backbone.HasMany,
                     key: 'plans',
