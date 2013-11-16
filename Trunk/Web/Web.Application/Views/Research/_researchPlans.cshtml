@@ -1,0 +1,31 @@
+﻿<div id="research-plan-panel">
+    <span aria-hidden="true" data-icon="&#xe001;" class="research-header-icon"> Plans</span>
+    <hr class="examine-report-hr"/>
+    <div class="row" data-bind="mask: !isInitialized()">
+        <div class="col-md-3 research-vertical-splitter" >
+            <div class="container">
+                <h3>Body Regions</h3>
+                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
+                <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                    <li class="filter-label">
+                        <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h3>Categories</h3>
+                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
+                    <ul class="list-no-style filter-container" data-bind="foreach: categories">
+                        <li class="filter-label">
+                            <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel-group" id="recover-plan-accordion">
+                <section data-bind="template: { name: briefPlanTemplate, foreach: filteredPlans }"></section>
+            </div>
+        </div>
+    </div>
+</div>

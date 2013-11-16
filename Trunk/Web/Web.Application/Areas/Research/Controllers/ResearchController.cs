@@ -6,13 +6,12 @@ using System.Web.Mvc;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
-using SportsWebPt.Platform.Web.Application;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 using YelpSharp;
 
-namespace SportsWebPt.Platform.Web.Research
+namespace SportsWebPt.Platform.Web.Application
 {
     [RouteArea("Research")]
     public class ResearchController : BaseController
@@ -48,14 +47,6 @@ namespace SportsWebPt.Platform.Web.Research
             return Json(plan, JsonRequestBehavior.AllowGet);
         }
 
-
-        [GET("Research", IsAbsoluteUrl = true)]
-        public ActionResult Index()
-        {
-            var viewModel = CreateViewModel<ResearchViewModel>();
-
-            return View(viewModel);
-        }
 
         [GET("Research/exercise/{pageName}", IsAbsoluteUrl = true)]
         public ActionResult Exercise(String pageName)

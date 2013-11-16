@@ -1,13 +1,14 @@
 ﻿define('vm.research.exercise.listing',
-    ['jquery', 'knockback', 'model.exercise.collection', 'underscore', 'model.body.region.collection'],
-    function ($, kb, ExerciseCollection, _, BodyRegionCollection) {
+    ['jquery', 'ko', 'knockback', 'model.exercise.collection', 'underscore', 'model.body.region.collection'],
+    function ($, ko, kb, ExerciseCollection, _, BodyRegionCollection) {
 
         var bodyRegionCollection = new BodyRegionCollection(),
             bodyRegions = kb.collectionObservable(bodyRegionCollection),
             exerciseCollection = new ExerciseCollection(),
             filteredExerciseCollection = new ExerciseCollection(),
             filteredExercises = kb.collectionObservable(filteredExerciseCollection),
-            briefExerciseTemplate = 'research.brief.exercise';
+            briefExerciseTemplate = 'research.brief.exercise',
+            isInitialized = ko.observable(false);
 
         var onFilterSelect = function (data, event) {
             filteredExerciseCollection.reset(_.filter(exerciseCollection.models, function (exercise) {
@@ -22,11 +23,18 @@
         };
 
         var init = function() {
-            bodyRegionCollection.fetch();
-            exerciseCollection.fetch({
-                success: onReset
-            });
+            if (!isInitialized()) {
+                $.when(
+                    bodyRegionCollection.fetch(),
+                    exerciseCollection.fetch({
+                        success: onReset
+                    })).done(onInitComplete);
+            }
         };
+        
+        function onInitComplete() {
+            isInitialized(true);
+        }
 
         return {
             bodyRegions: bodyRegions,
@@ -34,6 +42,7 @@
             onFilterSelect: onFilterSelect,
             briefExerciseTemplate: briefExerciseTemplate,
             onReset: onReset,
-            init: init
+            init: init,
+            isInitialized: isInitialized
         };
     });

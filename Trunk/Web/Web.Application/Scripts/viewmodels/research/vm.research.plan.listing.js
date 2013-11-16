@@ -10,7 +10,8 @@
             briefPlanTemplate = 'research.brief.plan',
             categories = config.planCategories,
             bodyReginFilter,
-            categoryFilter;
+            categoryFilter,
+            isInitialized = ko.observable(false);
 
 
         var onBodyRegionFilter = function(data, event) {
@@ -64,11 +65,18 @@
             performFilter();
         };
 
-        var init = function() {
-            bodyRegionCollection.fetch();
-            planCollection.fetch();
-            filteredPlans.collection(planCollection);
+        var init = function () {
+            if (!isInitialized()) {
+                $.when(
+                    bodyRegionCollection.fetch(),
+                    planCollection.fetch()).done(onInitComplete);
+            }
         };
+        
+        function onInitComplete() {
+            filteredPlans.collection(planCollection);
+            isInitialized(true);
+        }
 
         return {
             bodyRegions: bodyRegions,
@@ -78,6 +86,7 @@
             briefPlanTemplate: briefPlanTemplate,
             onReset: onReset,
             categories: categories,
-            init : init
+            init: init,
+            isInitialized: isInitialized
         };
     });

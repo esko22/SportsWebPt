@@ -1,0 +1,39 @@
+﻿<div class="container" style="display: none" data-bind="visible: isVisible" id="research-content">
+    
+    <div>
+        <span aria-hidden="true" data-icon="&#xe021;" class="header-icon"> Research</span>
+    </div>
+
+    <div class="content-container-panel" id="research-main-panel">
+        <!-- ko with: navPane -->
+        <div class="view" id="research-nav-pane">
+            @{Html.RenderPartial("~/views/research/_researchNav.cshtml");}
+        </div>
+        <!-- /ko -->
+        
+        <!-- ko with: injuryPane -->
+        <div class="view" id="research-injury-pane">
+            @{Html.RenderPartial("~/views/research/_researchInjuries.cshtml");}
+        </div>
+        <!-- /ko -->
+    
+        <!-- ko with: locatePane -->
+        <div class="view" id="research-locate-pane">
+            @{Html.RenderPartial("~/views/research/_researchLocate.cshtml");}
+        </div>
+        <!-- /ko -->
+
+        <!-- ko with: planPane -->
+        <div class="view" id="research-plan-pane">
+            @{Html.RenderPartial("~/views/research/_researchPlans.cshtml");}
+        </div>
+        <!-- /ko -->
+    
+        <!-- ko with: exercisePane -->
+        <div class="view" id="research-exercise-pane">
+            @{Html.RenderPartial("~/views/research/_researchexercises.cshtml");}
+        </div>
+        <!-- /ko -->
+
+    </div>
+</div>

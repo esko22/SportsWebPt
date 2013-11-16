@@ -9,10 +9,15 @@
                 clinicCollection.url = config.apiUris.clinics.replace('{zipcode}', zipcode());
                 clinicCollection.fetch();
             };
+        
+        function init() {
+            
+        }
 
         return {
             clinics: clinics,
             zipcode: zipcode,
             onSearchSubmit: onSearchSubmit,
+            init: init
         };
     });

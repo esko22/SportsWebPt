@@ -10,7 +10,12 @@
             examineSkeleton: '#examine-skeleton-pane',
             examineContent: '#examine-content',
             examineDetail: '#examine-detail-pane',
-            examineReport: '#examine-report-pane'
+            examineReport: '#examine-report-pane',
+            researchNav: '#research-nav-pane',
+            researchInjury: '#research-injury-pane',
+            researchPlan: '#research-plan-pane',
+            researchExercise: '#research-exercise-pane',
+            researchLocate: '#research-locate-pane',
         },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),

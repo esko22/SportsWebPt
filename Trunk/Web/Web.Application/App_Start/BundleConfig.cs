@@ -61,13 +61,8 @@ namespace SportsWebPt.Platform.Web
             bundles.Add(new ScriptBundle("~/bundles/masterapplib")
                             .IncludeDirectory("~/Scripts/app/master", "*.js", searchSubdirectories: false));
 
-
             bundles.Add(new ScriptBundle("~/bundles/sharedapplib")
                     .IncludeDirectory("~/Scripts/shared", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/researchapplib")
-                                .IncludeDirectory("~/Areas/Research/Scripts/app", "*.js", searchSubdirectories: false)
-                                .IncludeDirectory("~/Areas/Research/Scripts/viewmodels", "*.js", searchSubdirectories: false));
 
             bundles.Add(new ScriptBundle("~/bundles/researchexercisepage")
                     .IncludeDirectory("~/Areas/Research/Scripts/exercise", "*.js", searchSubdirectories: true));
@@ -78,12 +73,8 @@ namespace SportsWebPt.Platform.Web
             bundles.Add(new ScriptBundle("~/bundles/researchinjurypage")
                     .IncludeDirectory("~/Areas/Research/Scripts/injury", "*.js", searchSubdirectories: true));
 
-
             bundles.Add(new ScriptBundle("~/bundles/adminapplib")
                     .IncludeDirectory("~/Areas/Admin/Scripts", "*.js", searchSubdirectories: true));
-
-            bundles.Add(new ScriptBundle("~/bundles/dashboardapplib")
-                    .IncludeDirectory("~/Areas/Dashboard/Scripts", "*.js", searchSubdirectories: true));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",

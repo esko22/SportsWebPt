@@ -11,7 +11,8 @@
             signCollection = new SignCollection(),
             signs = kb.collectionObservable(signCollection),
             bodyReginFilter,
-            signFilter;
+            signFilter,
+            isInitialized = ko.observable(false);
 
 
         var onBodyRegionFilter = function(data, event) {
@@ -70,13 +71,21 @@
         };
 
 
-        var init = function() {
-            bodyRegionCollection.fetch();
-            injuryCollection.fetch();
-            signCollection.fetch();
-            filteredInjuries.collection(injuryCollection);
+        var init = function () {
+            if (!isInitialized()) {
+                $.when(
+                    bodyRegionCollection.fetch(),
+                    injuryCollection.fetch(),
+                    signCollection.fetch()).done(onInitComplete);
+            }
         };
         
+
+        function onInitComplete() {
+            filteredInjuries.collection(injuryCollection);
+            isInitialized(true);
+        }
+
         return {
             bodyRegions: bodyRegions,
             filteredInjuries: filteredInjuries,
@@ -85,6 +94,7 @@
             briefInjuryTemplate: briefInjuryTemplate,
             onReset: onReset,
             signs: signs,
-            init: init
+            init: init,
+            isInitialized : isInitialized
         };
     });

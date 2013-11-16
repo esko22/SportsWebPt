@@ -12,9 +12,9 @@
             </div>
             <div class="col-md-6 pull-right navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/examine"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
-                    <li><a href="/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
-                    <li><a href="/research#locate"><span aria-hidden="true" data-icon="&#xe051;" class="nav-icon"></span> Locate</a></li>
+                    <li><a href="/#/examine"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
+                    <li><a href="/#/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
+                    <li><a href="/#/research/locations"><span aria-hidden="true" data-icon="&#xe051;" class="nav-icon"></span> Locate</a></li>
                     @if (String.IsNullOrEmpty(Model.User.emailAddress))
                     {
                         <li>
@@ -30,7 +30,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#about">Edit Profile</a></li>
-                                <li><a href="/dashboard">My Dashboard</a></li>
+                                <li><a href="/#/dashboard">My Dashboard</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/logout">Log Out</a></li>
                             </ul>

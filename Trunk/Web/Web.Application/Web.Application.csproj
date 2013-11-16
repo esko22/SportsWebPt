@@ -177,9 +177,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
     <Compile Include="Areas\Admin\Models\AdminIndexViewModel.cs" />
-    <Compile Include="Areas\Dashboard\Controllers\UserDashboardController.cs" />
-    <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
-    <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="Controllers\ExamineController.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -220,9 +217,7 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Admin\Views\Index\_adminBodyRegions.cshtml" />
     <None Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
-    <Content Include="Areas\Dashboard\Scripts\app\dashboard.router.js" />
-    <Content Include="Areas\Dashboard\Scripts\app\dashboard.binder.js" />
-    <Content Include="Areas\Dashboard\Scripts\viewmodels\vm.dashboard.page.js" />
+    <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />
     <Content Include="Content\kendo\blueopal\editor.png" />
     <Content Include="Content\kendo\blueopal\imagebrowser.png" />
     <Content Include="Content\kendo\blueopal\loading-image.gif" />
@@ -244,19 +239,18 @@
     <Content Include="Content\kendo\kendo.blueopal.min.css" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.detail.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.report.js" />
-    <Content Include="Areas\Research\Scripts\app\research.area.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\app\research.binder.js" />
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\app\research.router.js" />
     <Content Include="Areas\Research\Scripts\exercise\vm.research.exercise.js" />
     <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\injury\vm.research.injury.js" />
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\plan\vm.research.plan.js" />
-    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.injury.listing.js" />
-    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.locate.js" />
-    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.plan.listing.js" />
-    <Content Include="Areas\Research\Scripts\viewmodels\vm.research.exercise.listing.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.injury.listing.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.locate.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.nav.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.page.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.plan.listing.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.exercise.listing.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\SWPT.dev.svg" />
@@ -316,12 +310,17 @@
     <Content Include="Views\Examine\_examineSkeleton.cshtml" />
     <Content Include="Views\Examine\_examineSymptomDetail.cshtml" />
     <Content Include="Views\Examine\_examineInjuryReport.cshtml" />
+    <Content Include="Views\Research\_researchPage.cshtml" />
+    <Content Include="Views\Research\_researchNav.cshtml" />
+    <Content Include="Views\Research\_researchInjuries.cshtml" />
+    <Content Include="Views\Research\_researchPlans.cshtml" />
+    <Content Include="Views\Research\_researchExercises.cshtml" />
+    <Content Include="Views\Research\_researchLocate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Areas\Dashboard\Scripts\app\dashboard.area.boostrapper.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.page.js" />
     <Content Include="Scripts\app\master\router.js" />
     <Content Include="Scripts\shared\shared.binder.js" />
@@ -341,15 +340,13 @@
     <Content Include="Scripts\shared\shared.vm.js" />
     <Content Include="Views\Auth\authForm.cshtml" />
     <Content Include="Views\Shared\_authDialogs.cshtml" />
-    <Content Include="Areas\Dashboard\Views\Web.config" />
-    <Content Include="Areas\Dashboard\Views\UserDashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard\_dashboardPage.cshtml" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Shared\_noAuthHeader.cshtml" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.skeleton.js" />
     <Content Include="Areas\Research\Views\Web.config" />
-    <Content Include="Areas\Research\Views\Research\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
     <Content Include="Content\fonts\SWPT.eot" />
@@ -438,8 +435,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Dashboard\Models\" />
-    <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

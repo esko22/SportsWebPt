@@ -1,11 +1,5 @@
-﻿@model SportsWebPt.Platform.Web.Application.UserDashboardViewModel
-@{
-    Model.AreaBundles.Add("~/bundles/dashboardapplib");
-    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
-}
-
+﻿<div style="display: none" data-bind="visible: isVisible" id="user-dashboard-page" >
 <h2>My Dashboard</h2>
-
 <div class="row push-down-md">
     <div class="col-md-3" id="discomfortAreas">
         <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked">
@@ -72,5 +66,5 @@
         </section>
     </div>
 </div>
-
+</div>
 
