@@ -181,7 +181,6 @@
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModel\UserDashboardViewModel.cs" />
     <Compile Include="Controllers\ExamineController.cs" />
-    <Compile Include="Areas\Examine\ExamineAreaRegistration.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -323,9 +322,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Areas\Dashboard\Scripts\app\dashboard.area.boostrapper.js" />
-    <Content Include="Areas\Examine\Scripts\app\examine.area.bootstrapper.js" />
-    <Content Include="Areas\Examine\Scripts\app\examine.binder.js" />
-    <Content Include="Areas\Examine\Scripts\app\examine.router.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.page.js" />
     <Content Include="Scripts\app\master\router.js" />
     <Content Include="Scripts\shared\shared.binder.js" />
@@ -444,7 +440,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
-    <Folder Include="Areas\Examine\Scripts\viewmodels\" />
     <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

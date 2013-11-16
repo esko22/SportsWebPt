@@ -49,7 +49,7 @@
             $('#examine-detail-container > :first-child').addClass('active');
         };
 
-        var submitDiscomfortDetail = function () {
+        function submitDiscomfortDetail() {
 
             $('#examine-report-modal').modal('show');
             reportPending(true);
@@ -69,23 +69,30 @@
                 "symptomDetails": potentialSymptoms
             };
 
-            var successSub = function (data) {
-                detailReportId(data);
-                reportPending(false);
-            };
-
-            services.submitSymptomDetails(diffDiagSubmission, successSub);
-            
-            //trying to ensure a minimum time displayed, there is prolly a better way, does this while loop block??
-            setTimeout(function () {
-                while (reportPending()) {
-                }
-                window.location.hash = '/examine/report';
-                $('#examine-report-modal').modal('hide');
-
-            }, 4000);
-
+            services.submitSymptomDetails(diffDiagSubmission, successSubmission);
+            modalTimeout(4000);
         };
+        
+        function successSubmission(data) {
+            detailReportId(data);
+            reportPending(false);
+        }
+        
+        function modalTimeout(timeout) {
+                setTimeout(function () {
+                    if (reportPending()) {
+                        modalTimeout(1000);
+                    } else {
+                        transitionToReportDetail();
+                    }
+                        
+                }, timeout);
+        }
+        
+        function transitionToReportDetail() {
+            window.location.hash = '/examine/report';
+            $('#examine-report-modal').modal('hide');
+        }
         
       
         return {
