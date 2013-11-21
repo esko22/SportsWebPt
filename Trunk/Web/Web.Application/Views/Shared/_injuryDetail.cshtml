@@ -1,0 +1,39 @@
+﻿<div class="row">
+    <div class="col-md-5">
+        <h3 data-bind="text: commonName"></h3>
+    </div>
+    <div class="col-md-offset-6 col-md-1">
+        <a data-bind="click: $parent.addAsFavorite"><span data-icon="&#xe063;" style="font-size: 30px" class="text-center"></span></a>
+    </div>
+</div>
+<hr class="examine-report-hr"/>
+<div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
+<div><span>&nbsp;</span></div>
+<div><span data-bind="html: openingStatement"></span></div>
+<div><strong>Description: </strong><span data-bind="html: description"></span></div>
+<div class="row">
+    <div class="col-md-3">
+        <h3>Causes</h3>
+        <table class="table table-striped">
+            <tbody data-bind="foreach: causes">
+                <tr>
+                    <td data-bind="text: description"></td>
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+    <div class="col-md-3">
+        <h3>Signs</h3>
+        <table class="table table-striped">
+            <tbody data-bind="foreach: signs">
+                <tr>
+                    <td data-bind="text: description"></td>
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+</div>
+<div>
+    <h3>Recovery Plans</h3>
+    <section id="recovery-plan-container" data-bind="template: { name: $parent.recoveryPlanTemplate, data: plans }"></section>
+</div>

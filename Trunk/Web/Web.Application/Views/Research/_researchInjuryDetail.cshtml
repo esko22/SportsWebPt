@@ -1,0 +1,9 @@
+﻿<div id="research-injury-detail">
+    <span aria-hidden="true" data-icon="&#xf0fa;" class="research-header-icon"> Injury</span>
+    <hr class="examine-report-hr"/>
+    <div class="row" data-bind="mask: !isInitialized()">
+        <!-- ko with: injury -->
+        @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml"); }
+        <!-- /ko -->
+    </div>
+</div>

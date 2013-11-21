@@ -3,6 +3,12 @@
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.injuries,
+                defaults: {
+                    'commonName': '',
+                    'medicalName': '',
+                    'openingStatement': '',
+                    'description' : ''
+                },
                 relations: [{
                     type: backbone.HasMany,
                     key: 'plans',

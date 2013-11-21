@@ -16,6 +16,12 @@
             @{Html.RenderPartial("~/views/research/_researchInjuries.cshtml");}
         </div>
         <!-- /ko -->
+        
+        <!-- ko with: injuryDetailPane -->
+        <div class="view" id="research-injury-detail-pane">
+            @{Html.RenderPartial("~/views/research/_researchInjuryDetail.cshtml");}
+        </div>
+        <!-- /ko -->
     
         <!-- ko with: locatePane -->
         <div class="view" id="research-locate-pane">

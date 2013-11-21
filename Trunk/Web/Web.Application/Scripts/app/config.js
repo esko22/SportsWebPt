@@ -16,6 +16,9 @@
             researchPlan: '#research-plan-pane',
             researchExercise: '#research-exercise-pane',
             researchLocate: '#research-locate-pane',
+            researchInjuryDetail: '#research-injury-detail-pane',
+            researchPlanDetail: '#research-plan-detail-pane',
+            researchExerciseDetail: '#research-exercise-detail-pane'
         },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),
@@ -51,7 +54,8 @@
             adminSymptoms: $.format('{0}/{1}', hostUri, 'admin/symptoms'),
             adminBodyPartMatrix: $.format('{0}/{1}', hostUri, 'admin/bodypartmatrix'),
             adminSkeletonAreas: $.format('{0}/{1}', hostUri, 'admin/skeletonareas'),
-            clinics: $.format('{0}/{1}', hostUri, 'research/locate/{zipcode}')
+            clinics: $.format('{0}/{1}', hostUri, 'research/locate/{zipcode}'),
+            injuryDetail: $.format('{0}/{1}', hostUri, 'research/injury/detail/')
         };
 
         var likelyHoodThresholds = {

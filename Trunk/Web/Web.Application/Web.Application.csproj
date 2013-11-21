@@ -240,11 +240,11 @@
     <Content Include="Scripts\viewmodels\examine\vm.examine.detail.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\exercise\vm.research.exercise.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.exercise.js" />
     <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\injury\vm.research.injury.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.injury.detail.js" />
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\plan\vm.research.plan.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.plan.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.injury.listing.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.locate.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.nav.js" />
@@ -316,6 +316,8 @@
     <Content Include="Views\Research\_researchPlans.cshtml" />
     <Content Include="Views\Research\_researchExercises.cshtml" />
     <Content Include="Views\Research\_researchLocate.cshtml" />
+    <Content Include="Views\Shared\_injuryDetail.cshtml" />
+    <Content Include="Views\Research\_researchInjuryDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -435,7 +437,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Research\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

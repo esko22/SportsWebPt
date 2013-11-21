@@ -1,8 +1,8 @@
-﻿define('vm.research.injury',
-    ['jquery', 'knockback', 'model.injury', 'underscore','favorites.helper'],
-    function($, kb, Injury, _, favHelper) {
+﻿define('vm.research.injury.detail',
+    ['jquery', 'knockback', 'model.injury', 'underscore','favorites.helper', 'ko', 'services'],
+    function($, kb, Injury, _, favHelper, ko, services) {
 
-        var injuryModel = new Injury(JSON.parse($('#selected-injury').val())),
+        var injuryModel = new Injury(),
             injury = kb.viewModel(injuryModel),
             injuryTemplate = 'examine.report.injury',
             recoveryPlanTemplate = 'research.recovery.plans',
@@ -14,7 +14,22 @@
             },
             postExerciseRender = function() {
                 sublime.load();
-            };
+            },
+            isInitialized = ko.observable(false);
+        function init(searchKey) {
+            if (searchKey !== '') {
+                services.getInjuryDetail(searchKey, onFetchSuccess, null, null);
+            }
+            else {
+                injury.model(new Injury(JSON.parse($('#selected-injury').val())));
+            }
+            
+            isInitialized(true);
+        }
+        
+        function onFetchSuccess(data) {
+            injury.model(new Injury(data));
+        }
 
         return {
             recoveryPlanTemplate: recoveryPlanTemplate,
@@ -24,6 +39,8 @@
             researchVideoTemplate: researchVideoTemplate,
             injury: injury,
             postExerciseRender: postExerciseRender,
-            addAsFavorite: addAsFavorite
+            addAsFavorite: addAsFavorite,
+            isInitialized: isInitialized,
+            init: init
         };
     });

@@ -1,5 +1,5 @@
-﻿define('services', ['jquery'],
-    function($) {
+﻿define('services', ['jquery', 'config'],
+    function($, config) {
 
         var submitSymptomDetails = function(messageKeys, onSuccess, onError, context) {
             var options = {
@@ -44,11 +44,33 @@
             };
 
             $.ajax(options);
+        },
+            getInjuryDetail = function (searchKey, onSuccess, onError, context) {
+                var options = {
+                    url: $.format("{0}{1}", config.apiUris.injuryDetail, searchKey),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                type: "GET",
+                cache: false,
+                success: function (result) {
+                    if (onSuccess) {
+                        onSuccess(result);
+                    }
+                },
+                error: function (xml, status, e) {
+                    if (onError) {
+                        onError(xml, status, e);
+                    }
+                }
+            };
+
+            $.ajax(options);
         };
 
         return {
             submitSymptomDetails: submitSymptomDetails,
-            addToFavorites: addToFavorites
+            addToFavorites: addToFavorites,
+            getInjuryDetail: getInjuryDetail
         };
 
     });

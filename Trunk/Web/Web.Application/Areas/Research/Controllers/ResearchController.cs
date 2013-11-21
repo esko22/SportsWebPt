@@ -106,6 +106,16 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
 
+        [GET("Research/injury/detail/{pageName}", IsAbsoluteUrl = true)]
+        public ActionResult InjuryDetail(String pageName)
+        {
+            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
+
+            var injury = _researchService.GetInjuryByPageName(pageName);
+
+            return Json(injury, JsonRequestBehavior.AllowGet);
+        }
+
         [GET("Research/bodyparts", IsAbsoluteUrl = true)]
         public ActionResult GetBodyParts()
         {

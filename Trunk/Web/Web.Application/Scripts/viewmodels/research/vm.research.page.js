@@ -1,6 +1,6 @@
 ﻿define('vm.research.page',
-    ['vm.research.exercise.listing', 'vm.research.injury.listing', 'vm.research.locate','vm.research.plan.listing','vm.research.nav', 'ko'],
-    function(exercisePane, injuryPane, locatePane, planPane, navPane, ko) {
+    ['vm.research.exercise.listing', 'vm.research.injury.listing', 'vm.research.locate','vm.research.plan.listing','vm.research.nav', 'ko', 'vm.research.injury.detail'],
+    function(exercisePane, injuryPane, locatePane, planPane, navPane, ko, injuryDetailPane) {
 
         var isVisible = ko.observable(false);
 
@@ -23,6 +23,10 @@
         function showLocations() {
             locatePane.init();
         }
+        
+        function showInjuryDetail(searchKey) {
+            injuryDetailPane.init(searchKey);
+        }
 
         return {
             isVisible : isVisible,
@@ -35,6 +39,8 @@
             showInjuries: showInjuries,
             showPlans: showPlans,
             showExercises: showeExercises,
-            showLocations : showLocations
+            showLocations: showLocations,
+            injuryDetailPane: injuryDetailPane,
+            showInjuryDetail: showInjuryDetail
         };
     });

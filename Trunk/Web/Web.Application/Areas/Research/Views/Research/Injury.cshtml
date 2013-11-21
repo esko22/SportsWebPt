@@ -1,7 +1,7 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ResearchInjuryViewModel
 @{
     Model.AreaBundles.Add("~/bundles/researchinjurypage");
-    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
+    Layout = "~/Views/Shared/_masterLayout.cshtml";
 }
 <input type="hidden" id="selected-injury" value="@Html.Raw(Json.Encode(Model.Injury))"/>
 
@@ -10,46 +10,9 @@
     </h2>
 </div>
 <div class="container well" id="research-injury-page">
-        <div class="row">
-            <div class="col-md-5">
-                <h3 data-bind="text: injury.commonName"></h3>
-            </div>
-            <div class="col-md-offset-6 col-md-1">
-                <a data-bind="click:addAsFavorite"><span data-icon="&#xe063;" style="font-size: 30px" class="text-center"></span></a>
-            </div>
-        </div>
-        <hr class="examine-report-hr"/>
-        <div><strong>Medical Name: </strong><span data-bind="text: injury.medicalName"></span></div>
-        <div><span>&nbsp;</span></div>
-        <div><span data-bind="html: injury.openingStatement"></span></div>
-        <div><strong>Description: </strong><span data-bind="html: injury.description"></span></div>
-
-        <div class="row">
-            <div class="col-md-3">
-                <h3>Causes</h3>
-                <table class="table table-striped">
-                    <tbody data-bind="foreach: injury.causes">
-                        <tr>
-                            <td data-bind="text: description"></td>
-                        </tr>
-                    </tbody>            
-                </table>
-            </div>
-            <div class="col-md-3">
-                <h3>Signs</h3>
-                <table class="table table-striped">
-                    <tbody data-bind="foreach: injury.signs">
-                        <tr>
-                            <td data-bind="text: description"></td>
-                        </tr>
-                    </tbody>            
-                </table>
-            </div>
-        </div>
-       <div>
-        <h3>Recovery Plans</h3>
-        <section id="recovery-plan-container" data-bind="template: { name: recoveryPlanTemplate, data: injury.plans }"></section>
-       </div>
-   </div>
+    <!-- ko with: injury -->
+    @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml"); }
+    <!-- /ko -->
+</div>
 
 

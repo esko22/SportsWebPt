@@ -10,6 +10,7 @@
                     'examine/report': 'examineReport',
                     'research': 'research',
                     'research/injuries': 'researchInjury',
+                    'research/injury/:searchKey': 'researchInjuryDetail',
                     'research/plans': 'researchPlan',
                     'research/locations': 'researchLocate',
                     'research/exercises': 'researchExercise',
@@ -76,6 +77,14 @@
                 transitionTo(config.viewIds.researchInjury);
             });
             
+            router.on('route:researchInjuryDetail', function (searchKey) {
+                if (!researchPage.isVisible()) {
+                    showResearch();
+                }
+                showResearchDetail('injury', searchKey);
+            });
+
+            
             router.on('route:researchPlan', function () {
                 if (!researchPage.isVisible()) {
                     showResearch();
@@ -126,6 +135,21 @@
             splashPage.isVisible(false);
             dashboardPage.isVisible(false);
             researchPage.onVisible();
+        }
+        
+        function showResearchDetail(detailType, searchKey) {
+            switch(detailType) {
+                case 'injury':
+                    researchPage.showInjuryDetail(searchKey);
+                    transitionTo(config.viewIds.researchInjuryDetail);
+                    break;
+                case 'plan':
+                    break;
+                case 'exercise':
+                    break;
+                default:
+                    break;
+            }
         }
         
         return {

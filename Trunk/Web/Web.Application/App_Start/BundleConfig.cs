@@ -65,13 +65,17 @@ namespace SportsWebPt.Platform.Web
                     .IncludeDirectory("~/Scripts/shared", "*.js", searchSubdirectories: false));
 
             bundles.Add(new ScriptBundle("~/bundles/researchexercisepage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/exercise", "*.js", searchSubdirectories: true));
+                    .IncludeDirectory("~/Areas/Research/Scripts/exercise", "*.js", searchSubdirectories: false)
+                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
 
             bundles.Add(new ScriptBundle("~/bundles/researchplanpage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/plan", "*.js", searchSubdirectories: true));
+                    .IncludeDirectory("~/Areas/Research/Scripts/plan", "*.js", searchSubdirectories: false)
+                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
 
             bundles.Add(new ScriptBundle("~/bundles/researchinjurypage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/injury", "*.js", searchSubdirectories: true));
+                    .IncludeDirectory("~/Areas/Research/Scripts/injury", "*.js", searchSubdirectories: false)
+                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
+
 
             bundles.Add(new ScriptBundle("~/bundles/adminapplib")
                     .IncludeDirectory("~/Areas/Admin/Scripts", "*.js", searchSubdirectories: true));
