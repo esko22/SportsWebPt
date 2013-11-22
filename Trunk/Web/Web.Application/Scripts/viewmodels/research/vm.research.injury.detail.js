@@ -21,14 +21,15 @@
                 services.getInjuryDetail(searchKey, onFetchSuccess, null, null);
             }
             else {
-                injury.model(new Injury(JSON.parse($('#selected-injury').val())));
+                injury.model(Injury.findOrCreate(JSON.parse($('#selected-injury').val())));
             }
             
             isInitialized(true);
         }
         
         function onFetchSuccess(data) {
-            injury.model(new Injury(data));
+            var foundInjury = Injury.findOrCreate(data);
+            injury.model(foundInjury);
         }
 
         return {
