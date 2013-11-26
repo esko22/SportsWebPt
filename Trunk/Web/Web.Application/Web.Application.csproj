@@ -72,7 +72,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
@@ -171,6 +171,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -217,6 +218,14 @@
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.videos.js" />
     <Content Include="Areas\Admin\Views\Index\_adminBodyRegions.cshtml" />
     <None Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
+    <Content Include="Scripts\libs\backbone.js" />
+    <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\libs\jquery-2.0.3.js" />
+    <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\libs\knockout-3.0.0.js" />
+    <Content Include="Scripts\libs\r.js" />
+    <Content Include="Scripts\libs\require.js" />
+    <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />
     <Content Include="Content\kendo\blueopal\editor.png" />
     <Content Include="Content\kendo\blueopal\imagebrowser.png" />
@@ -240,11 +249,11 @@
     <Content Include="Scripts\viewmodels\examine\vm.examine.detail.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.report.js" />
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
-    <Content Include="Scripts\viewmodels\research\vm.research.exercise.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.exercise.detail.js" />
     <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.injury.detail.js" />
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
-    <Content Include="Scripts\viewmodels\research\vm.research.plan.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.plan.detail.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.injury.listing.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.locate.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.nav.js" />
@@ -318,6 +327,10 @@
     <Content Include="Views\Research\_researchLocate.cshtml" />
     <Content Include="Views\Shared\_injuryDetail.cshtml" />
     <Content Include="Views\Research\_researchInjuryDetail.cshtml" />
+    <Content Include="Views\Research\_researchPlanDetail.cshtml" />
+    <Content Include="Views\Shared\_planDetail.cshtml" />
+    <Content Include="Views\Shared\_exerciseDetail.cshtml" />
+    <Content Include="Views\Research\_researchExerciseDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -371,18 +384,13 @@
     <Content Include="Content\kendo\images\kendoui.ttf" />
     <Content Include="Content\kendo\images\kendoui.woff" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Scripts\libs\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\backbone.relational.js" />
-    <Content Include="Scripts\libs\jquery-1.9.1.js" />
     <Content Include="Scripts\app\config.js" />
-    <Content Include="Scripts\libs\backbone.js" />
     <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\libs\jquery.validate.js" />
     <Content Include="Scripts\libs\knockback.js" />
     <Content Include="Scripts\libs\infuser.js" />
-    <Content Include="Scripts\libs\knockout-2.2.1.debug.js" />
-    <Content Include="Scripts\libs\knockout-2.2.1.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\extentsions\knockout-extensions.js" />
     <Content Include="Scripts\libs\koExternalTemplateEngine.js" />
@@ -403,9 +411,6 @@
     <Content Include="Scripts\models\model.symptomatic.body.part.js" />
     <Content Include="Scripts\models\model.symptomatic.region.js" />
     <Content Include="Scripts\models\model.user.js" />
-    <Content Include="Scripts\libs\r.js" />
-    <Content Include="Scripts\libs\require.js" />
-    <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Scripts\models\model.video.js" />
     <Content Include="Scripts\models\model.plan.js" />
     <Content Include="Scripts\utils\bootstrap.helper.js" />

@@ -1,7 +1,7 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ResearchExerciseViewModel
 @{
     Model.AreaBundles.Add("~/bundles/researchexercisepage");
-    Layout = "~/Areas/Main/Views/Shared/_masterLayout.cshtml";
+    Layout = "~/Views/Shared/_masterLayout.cshtml";
 }
 <input type="hidden" id="selected-exercise" value="@Html.Raw(Json.Encode(Model.Exercise))"/>
 
@@ -9,41 +9,9 @@
     <h2><span aria-hidden="true" data-icon="&#xe007;" class="header-icon" /> Exercise</h2>
 </div>
 
-    <div class="container well" id="research-exercise-page">
-        <h3 data-bind="text: exercise.name"></h3>
-        <hr class="examine-report-hr"/>
-         <div class="row">
-            <div class="col-md-10">
-                <label>Description: </label><span data-bind="html: exercise.description"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-                <label><strong>Duration: </strong><span data-bind="text: exercise.duration"></span> minutes</label>
-            </div>
-            <div class="col-md-5">
-                <label><strong>Difficulty: </strong><span data-bind="text: exercise.difficulty"></span></label>
-            </div>
-        </div>
-       <div class="row">
-        <div class="col-md-2">
-            <h3>Equipment</h3>
-            <table class="table table-striped">
-                <tbody data-bind="foreach: exercise.equipment">
-                    <tr>
-                        <td data-bind="text: commonName"></td>
-                    </tr>
-                </tbody>            
-            </table>
-        </div>
-        <div class="col-md-7">
-            <h3>Video</h3>
-            <div data-bind="foreach:exercise.videos">
-                <video data-bind="attr: { id: 'video-' + id(), 'data-uid': youtubeVideoId, 'data-youtube-id': youtubeVideoId }" class="sublime" width="640" height="360" preload="none">
-                </video>       
-            </div>
-        </div>
-    </div>    
+<div class="container well" id="research-exercise-page">
+    <!-- ko with: exercise -->
+    @{ Html.RenderPartial("~/views/shared/_exerciseDetail.cshtml"); }
+    <!-- /ko -->
 </div>
-
 

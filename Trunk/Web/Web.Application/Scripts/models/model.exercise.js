@@ -3,6 +3,11 @@
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
+                defaults: {
+                    'description': '',
+                    'duration': '',
+                    'difficulty' :''
+                },
                 relations: [
                     {
                         type: backbone.HasMany,

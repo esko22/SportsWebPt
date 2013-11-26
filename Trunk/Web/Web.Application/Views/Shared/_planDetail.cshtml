@@ -1,0 +1,57 @@
+﻿<h3 data-bind="text: routineName"></h3>
+<hr class="examine-report-hr"/>
+<div class="row">
+    <div class="col-md-5">
+        <label><strong>Category: </strong><span data-bind="text: category"></span></label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <label>Description: </label><span data-bind="html: description"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <label>Instructions:</label><span data-bind="html: instructions"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <label><strong>Muscles Involved: </strong><span data-bind="text: musclesInvolved"></span></label>
+    </div>
+    <div class="col-md-5">
+        <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
+    </div>
+</div>
+<div class="tabbable">
+    <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
+        <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
+    </ul>
+    <div class="tab-content exercise-tab-pane" data-bind="foreach: exercises">
+            <div class="tab-pane" data-bind="attr: { id: 'exercise-' + id() }">
+                <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
+                <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
+                <div><strong>Sets: </strong><span data-bind="text: sets"></span></div>
+                <div><strong>Reps: </strong><span data-bind="text: repititions"></span></div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h3>Equipment</h3>
+                        <table class="table table-striped">
+                            <tbody data-bind="foreach: equipment">
+                                <tr>
+                                    <td data-bind="text: commonName"></td>
+                                </tr>
+                            </tbody>            
+                        </table>
+                    </div>
+                    <div class="col-md-7">
+                        <h3>Video</h3>
+                        <div data-bind="foreach: videos">
+                            <video data-bind="attr: { id: 'video-' + id(), 'data-uid': youtubeVideoId , 'data-youtube-id': youtubeVideoId }" class="sublime" width="640" height="360" preload="none">
+                            </video>        
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>

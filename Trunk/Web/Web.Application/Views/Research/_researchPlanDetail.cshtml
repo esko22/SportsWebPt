@@ -1,0 +1,9 @@
+﻿<div id="research-plan-detail">
+    <span aria-hidden="true" data-icon="&#xe001;" class="research-header-icon"> Plan</span>
+    <hr class="examine-report-hr"/>
+    <div class="row" data-bind="mask: !isInitialized()">
+        <!-- ko with: plan -->
+        @{ Html.RenderPartial("~/views/shared/_planDetail.cshtml"); }
+        <!-- /ko -->
+    </div>
+</div>

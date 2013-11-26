@@ -34,12 +34,25 @@
             @{Html.RenderPartial("~/views/research/_researchPlans.cshtml");}
         </div>
         <!-- /ko -->
+
+        <!-- ko with: planDetailPane -->
+        <div class="view" id="research-plan-detail-pane">
+            @{Html.RenderPartial("~/views/research/_researchPlanDetail.cshtml");}
+        </div>
+        <!-- /ko -->
     
         <!-- ko with: exercisePane -->
         <div class="view" id="research-exercise-pane">
-            @{Html.RenderPartial("~/views/research/_researchexercises.cshtml");}
+            @{Html.RenderPartial("~/views/research/_researchExercises.cshtml");}
         </div>
         <!-- /ko -->
+
+        <!-- ko with: exerciseDetailPane -->
+        <div class="view" id="research-exercise-detail-pane">
+            @{Html.RenderPartial("~/views/research/_researchExerciseDetail.cshtml");}
+        </div>
+        <!-- /ko -->
+
 
     </div>
 </div>

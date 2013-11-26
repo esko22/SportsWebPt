@@ -10,18 +10,21 @@
                     'examine/report': 'examineReport',
                     'research': 'research',
                     'research/injuries': 'researchInjury',
-                    'research/injury/:searchKey': 'researchInjuryDetail',
+                    'research/injuries/:searchKey': 'researchInjuryDetail',
                     'research/plans': 'researchPlan',
+                    'research/plans/:searchKey': 'researchPlanDetail',
                     'research/locations': 'researchLocate',
                     'research/exercises': 'researchExercise',
-                    'dashboard' : 'dashboard',
-                    '*actions': 'defaultRoute'
+                    'research/exercises/:searchKey': 'researchExerciseDetail',
+                    'dashboard': 'dashboard',
+                    '*notfound': 'notfound'
                 }
             });
 
             var router = new mainRouter();
 
-            router.on('route:defaultRoute', function() {
+            router.on('route:notfound', function () {
+                config.notifier.error('route not found');
             });
 
             router.on('route:examine', function () {
@@ -92,6 +95,13 @@
                 researchPage.showPlans();
                 transitionTo(config.viewIds.researchPlan);
             });
+            
+            router.on('route:researchPlanDetail', function (searchKey) {
+                if (!researchPage.isVisible()) {
+                    showResearch();
+                }
+                showResearchDetail('plan', searchKey);
+            });
 
             router.on('route:researchExercise', function () {
                 if (!researchPage.isVisible()) {
@@ -99,6 +109,13 @@
                 }
                 researchPage.showExercises();
                 transitionTo(config.viewIds.researchExercise);
+            });
+            
+            router.on('route:researchExerciseDetail', function (searchKey) {
+                if (!researchPage.isVisible()) {
+                    showResearch();
+                }
+                showResearchDetail('exercise', searchKey);
             });
 
             router.on('route:researchLocate', function () {
@@ -144,8 +161,12 @@
                     transitionTo(config.viewIds.researchInjuryDetail);
                     break;
                 case 'plan':
+                    researchPage.showPlanDetail(searchKey);
+                    transitionTo(config.viewIds.researchPlanDetail);
                     break;
                 case 'exercise':
+                    researchPage.showExerciseDetail(searchKey);
+                    transitionTo(config.viewIds.researchExerciseDetail);
                     break;
                 default:
                     break;

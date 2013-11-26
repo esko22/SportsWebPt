@@ -1,8 +1,9 @@
-﻿define('area.bootstrapper', ['knockback', 'logger', 'vm.research.exercise', 'jquery'],
+﻿define('bootstrapper', ['knockback', 'logger', 'vm.research.exercise.detail', 'jquery'],
     function (kb, logger, vmExercise ,$) {
         var run = function () {
             logger.log('running research exercise bs');
 
+            vmExercise.init('');
             kb.applyBindings(vmExercise, $('#research-exercise-page').get(0));
          };
 

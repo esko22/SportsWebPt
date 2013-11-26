@@ -1,10 +1,11 @@
-﻿define('area.bootstrapper', ['knockback', 'logger', 'vm.research.plan', 'jquery'],
+﻿define('bootstrapper', ['knockback', 'logger', 'vm.research.plan.detail', 'jquery'],
     function (kb, logger, vmPlan ,$) {
         var run = function () {
             logger.log('running research plan bs');
 
+            vmPlan.init('');
             kb.applyBindings(vmPlan, $('#research-plan-page').get(0));
-         };
+        };
 
         return { run: run };
     });

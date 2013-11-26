@@ -4,6 +4,14 @@
             plan = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.plans,
                 idAttribute: 'id',
+                defaults: {
+                    'routineName': '',
+                    'category': '',
+                    'description': '',
+                    'instructions': '',
+                    'musclesInvolved': '',
+                    'duration' : ''
+                },
                 relations: [{
                     type: backbone.HasMany,
                     key: 'exercises',
