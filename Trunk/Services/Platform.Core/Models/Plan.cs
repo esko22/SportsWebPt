@@ -23,6 +23,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Tags { get; set; }
 
+        public String AnimationTag { get; set; }
+
         public ICollection<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; } 
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }

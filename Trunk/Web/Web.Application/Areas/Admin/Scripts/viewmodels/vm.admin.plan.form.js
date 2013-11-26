@@ -9,6 +9,7 @@
             routineName = kb.observable(selectedPlan, 'routineName'),
             categories = kb.observable(selectedPlan, 'categories'),
             description = kb.observable(selectedPlan, 'description'),
+            animationTag = kb.observable(selectedPlan, 'animationTag'),
             duration = kb.observable(selectedPlan, 'duration'),
             tags = kb.observable(selectedPlan, 'tags'),
             pageName = kb.observable(selectedPlan, 'pageName'),
@@ -87,6 +88,7 @@
                 selectedPlan.set('tags', data.model().get('tags'));
                 selectedPlan.set('pageName', data.model().get('pageName'));
                 selectedPlan.set('structuresInvolved', data.model().get('structuresInvolved'));
+                selectedPlan.set('animationTag', data.model().get('animationTag'));
 
 
                 ////TODO: fucking look into this... bb r-m complains of dual entity when you do a set on ('id')
@@ -210,7 +212,8 @@
                     instructions: instructions,
                     holdTypes: config.holdTypes,
                     categories: categories,
-                    kendoEditorOptions: config.kendoEditorOptions
+                    kendoEditorOptions: config.kendoEditorOptions,
+                    animationTag : animationTag
                 };
 
     });

@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
+        public String animationTag { get; set; }
+
         public IEnumerable<Plan> plans { get; set; }
 
         public IEnumerable<Cause> causes { get; set; }

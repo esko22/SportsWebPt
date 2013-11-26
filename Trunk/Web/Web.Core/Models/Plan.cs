@@ -29,6 +29,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String pageName { get; set; }
 
+        public String animationTag { get; set; }
+
         #endregion
     }
 }

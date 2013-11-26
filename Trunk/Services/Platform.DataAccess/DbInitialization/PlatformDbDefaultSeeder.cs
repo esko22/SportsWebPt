@@ -161,6 +161,7 @@ namespace SportsWebPt.Platform.DataAccess
                             RoutineName = "Plantar Fascia Rehab 1",
                             Description = "Plantar facciitis is an extremely common injury.   When this thick fascial structure becomes tight and inflamed, it can be very painful and limit function substantially. ",
                             Duration = 5,
+                            AnimationTag = "xyz12345dssf",
                             StructuresInvolved = "Plantar Fascia, Gastroc/Soleus",
                             Tags = "Pain, Swelling",
                             PageName = "Plantar-Fascia-Rehab-1",
@@ -171,6 +172,7 @@ namespace SportsWebPt.Platform.DataAccess
                             RoutineName = "Sprained Ankle Stretching",
                             Description = "This program is designed to stretch and help mobilize the ankle after an ankle sprain",
                             Duration = 5,
+                            AnimationTag = "xyz12345dssf",
                             StructuresInvolved = "Ankle Joint/Ligaments, Soleus",
                             Tags = "Pain, Weakness",
                             PageName = "Sprained-Ankle-Stretching",
@@ -518,6 +520,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Tags = "Pain, Tingle",
                             PageName = "Sprained-Ankle",
                             CommonName = "Sprained Ankle",
+                            AnimationTag = "xyz12345dssf",
                             Description =
                                 "An Ankle strain/sprain is easily one of the most common and easily identified injuries in any sport.  An athlete knows they sprained their ankle the instant they do it and the next couple days are predictable with rehabilitation. This is a bad sentence.  I understand what you’re trying to say, but can you rephrase?  The timetable for return to activity is heavily dependent on severity of the strain or sprain.  It is very important to ICE the ankle within the first 48-72 hours of the sprain.  Consistent icing can have a significant impact in expediting the rehabilitation time. There has to be more information for you to add!!!  What about adding a recommendation to have an X-ray for severe injuries to asure there is not a break????  Also, is there any way to strengthen the tendons and muscles to HELP prevent the injury???  ",
                             MedicalName = "Ankle Sprain",
@@ -530,6 +533,7 @@ namespace SportsWebPt.Platform.DataAccess
                             Tags = "Pain, Bruise",
                             PageName = "Shin-Splints",
                             CommonName = "Shin Splints",
+                            AnimationTag = "xfg5345dssf",
                             Description =
                                 "Shin splints can manifest in two different forms, one coming from the muscles in the front of the shin (ankle/toe extensors) and the other coming from the back of the shin (deep toe flexors).  Here we will focus on the anterior shin splints.  The muscles on the front of your shin (anterior tibialis, extensor hallucis and digitorum longus) are responsible for controlling the foot and ankle during the landing phase of running or walking.  With continued use, the muscles continue to experience stress and begin to shorten and form pockets of scar tissue.  If not take care of properly, this process will continue and eventually the athlete will begin to experience pain and tightness in the front of the shin.  As symptoms progress, they can eventually lead to difficulty with walking and running activities.  Anterior shin splints can be prevented with regular self -massage, stretching, and minor activity modification.",
                             MedicalName = "Anterior Tbialis",

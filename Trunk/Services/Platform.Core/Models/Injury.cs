@@ -19,6 +19,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String PageName { get; set; }
 
+        public String AnimationTag { get; set; }
+
         public String Tags { get; set; }
 
         public InjurySeverity Severity { get; set; }

@@ -28,6 +28,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public BodyRegionDto[] BodyRegions { get; set; }
 
+        public String AnimationTag { get; set; }
+
         #endregion
     }
 }

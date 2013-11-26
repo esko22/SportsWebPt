@@ -18,6 +18,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Instructions).HasColumnName("instructions").HasColumnType("TEXT");
             Property(p => p.RoutineName).HasColumnName("routine_name").HasMaxLength(100);
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
+            Property(p => p.AnimationTag).HasMaxLength(20).HasColumnName("animation_tag");
             Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
             Property(p => p.Id).IsRequired().HasColumnName("plan_id");
 

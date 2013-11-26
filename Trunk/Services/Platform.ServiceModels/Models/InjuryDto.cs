@@ -28,6 +28,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Tags { get; set; }
 
+        public String AnimationTag { get; set; }
+
         public InjurySymptomDto[] InjurySymptoms { get; set; }
 
         #endregion

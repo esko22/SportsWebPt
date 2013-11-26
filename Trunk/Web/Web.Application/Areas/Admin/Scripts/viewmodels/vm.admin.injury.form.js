@@ -18,6 +18,7 @@
            commonName = kb.observable(selectedInjury, 'commonName'),
            medicalName = kb.observable(selectedInjury, 'medicalName'),
            description = kb.observable(selectedInjury, 'description'),
+           animationTag = kb.observable(selectedInjury, 'animationTag'),
            openingStatement = kb.observable(selectedInjury, 'openingStatement'),
            modalDialogId = '#admin-injury-form-dialog',
            tags = kb.observable(selectedInjury, 'tags'),
@@ -115,7 +116,7 @@
                    selectedInjury.get('injurySymptoms').add(viewModel.model());
                });
 
-
+           selectedInjury.set('animationTag', data.model().get('animationTag'));
            selectedInjury.set('commonName', data.model().get('commonName'));
            selectedInjury.set('description', data.model().get('description'));
            selectedInjury.set('medicalName', data.model().get('medicalName'));
@@ -248,7 +249,8 @@
             injurySymptoms: injurySymptoms,
             rangeValues: rangeValues,
             symptomSelectionChanged: symptomSelectionChanged,
-            kendoEditorOptions: config.kendoEditorOptions
+            kendoEditorOptions: config.kendoEditorOptions,
+            animationTag : animationTag
         };
 
     });
