@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
@@ -59,6 +60,7 @@ namespace SportsWebPt.Platform.Web.Services
         public DiagnosisReport GetDiagnosisReport(int differntialDiagnosisId)
         {
             var request = GetSync(new DiagnosisReportRequest() { Id = differntialDiagnosisId.ToString()});
+            request.Response.PotentialInjuries = request.Response.PotentialInjuries.OrderByDescending(p => p.Likelyhood).ToArray();
 
             return Mapper.Map<DiagnosisReport>(request.Response);
         }

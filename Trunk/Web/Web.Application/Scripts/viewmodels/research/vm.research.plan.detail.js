@@ -11,6 +11,7 @@
             }
             else {
                 plan.model(Plan.findOrCreate(JSON.parse($('#selected-plan').val())));
+                postDataPrep();
             }
 
             isInitialized(true);
@@ -19,6 +20,11 @@
         function onFetchSuccess(data) {
             var foundPlan = Plan.findOrCreate(data);
             plan.model(foundPlan);
+            postDataPrep();
+        }
+        
+        function postDataPrep() {
+            setTimeout(function() { sublime.load(); }, 3000);
         }
 
         return {

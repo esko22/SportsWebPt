@@ -92,7 +92,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 }
 
                 var potentialInjuryDto = Mapper.Map<PotentialInjuryDto>(potentialInjury);
-                potentialInjuryDto.Likelyhood = Convert.ToString(matchedSymptoms.Count / (double)symptomCount);
+                potentialInjuryDto.Likelyhood = matchedSymptoms.Count / (double)symptomCount;
                 var givenSymptoms = new List<PotentialSymptomDto>();
                 Mapper.Map(matchedSymptoms, givenSymptoms);
                 potentialInjuryDto.GivenSymptoms = givenSymptoms.ToArray();

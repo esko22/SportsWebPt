@@ -33,6 +33,13 @@
         
         function postLoadPrep() {
             sublime.load();
+            //hate this shit... reloads there player every time
+            if (injury.animationTag() !== null) {
+                openthis = injury.animationTag();
+                vm_open();
+            } else {
+                $('.viewmedica-container').empty();
+            }
         }
 
         return {

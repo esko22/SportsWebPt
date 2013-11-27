@@ -22,16 +22,13 @@
                     moderateInjuries.push(injuryViewModel);
                 else
                     remoteInjuries.push(injuryViewModel);
-
-                _.each(injury.get('plans').models, function (plan) {
-                    plan.fetch();
-                });
             });
-        };
-        
-        var postTabRender = function (elements) {
-            $('#examine-report-tab-nav > :first-child').addClass('active');
-            $('#examine-report-container > :first-child').addClass('active');
+
+            setTimeout(function() {
+                //TODO: hack... dependent on the controller sorting desc by liklyhood
+                setInjuryContent(injuries()[0].model());
+                $('#injury-report-nav a:first').tab('show');
+            }, 3000);
         };
         
         var postExerciseRender = function (elements) {
@@ -44,8 +41,18 @@
             $(elements[0]).find('div[id^="workout-plan-exercises-"] > ul > :first-child').addClass('active');
         };
 
-        function onPillClick(event, data) {
+        function setInjuryContent(injury) {
+            if ($('#' + injury.get('animationTag')).children().length == 0) {
+                openthis = injury.get('animationTag');
+                vm_open();
+            }
+
+            $('#recovery-plan-accordion a:first').collapse('show');
+        }
+
+        function onPillClick(data, event) {
             $("#injury-report-nav li.active").removeClass("active");
+            setInjuryContent(data.model());
         }
 
         return {
@@ -53,7 +60,6 @@
             remoteInjuries: remoteInjuries,
             probabableInjuries: probabableInjuries,
             moderateInjuries: moderateInjuries,
-            postTabRender: postTabRender,
             injuryTemplate: injuryTemplate,
             recoveryPlanTemplate: recoveryPlanTemplate,
             researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,

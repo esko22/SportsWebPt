@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<PotentialSymptom> givenSymptoms { get; set; }
 
-        public string likelyHood { get; set; }
+        public double likelyHood { get; set; }
 
         #endregion
     }

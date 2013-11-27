@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public PotentialSymptomDto[] GivenSymptoms { get; set; }
 
-        public String Likelyhood { get; set; }
+        public Double Likelyhood { get; set; }
 
         #endregion
     }

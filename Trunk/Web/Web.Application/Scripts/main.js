@@ -4,6 +4,8 @@
     define3rdPartyModules();
     loadPluginsAndBoot();
 
+
+
     function define3rdPartyModules() {
         // These are already loaded via bundles. 
         // We define them and put them in the root object.
@@ -21,6 +23,12 @@
     }
 
     function loadPluginsAndBoot() {
+
+        window.client = "5305";
+        window.width = "460";
+        window.menuaccess = false;
+
+
         // Plugins must be loaded after jQuery and Knockout, 
         // since they depend on them.
         //requirejs([

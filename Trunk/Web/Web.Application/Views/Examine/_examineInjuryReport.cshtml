@@ -22,6 +22,8 @@
                 </li>
             </ul>
         </div>
-        <div id="examine-report-container" data-bind="template: { name: injuryTemplate, afterRender: postTabRender, foreach: injuries }" class="tab-content examine-tab-pane examine-report-tab-pane col-md-9"></div>
+        <div id="examine-report-container" data-bind="foreach: injuries" class="tab-content examine-tab-pane examine-report-tab-pane col-md-9">
+            <section data-bind="attr: { id: 'tab-' + id() }, template: { name: $parent.injuryTemplate, data: $data} " class="tab-pane"></section>
+        </div>
     </div>
 </div>

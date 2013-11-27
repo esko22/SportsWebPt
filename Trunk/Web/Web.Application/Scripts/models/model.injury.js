@@ -7,7 +7,8 @@
                     'commonName': '',
                     'medicalName': '',
                     'openingStatement': '',
-                    'description' : ''
+                    'description': '',
+                    'animationTag' : ''
                 },
                 relations: [{
                     type: backbone.HasMany,

@@ -10,8 +10,11 @@
 <div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
 <div><span>&nbsp;</span></div>
 <div><span data-bind="html: openingStatement"></span></div>
-<div><strong>Description: </strong><span data-bind="html: description"></span></div>
-<div class="row">
+<div class="row push-down-md">
+    <div class="col-md-7"><strong>Description: </strong><span data-bind="html: description"></span></div>
+    <div class="col-md-5 viewmedica-container" data-bind="attr: { id: animationTag()}"></div>
+</div>
+<div class="row push-down-md">
     <div class="col-md-3">
         <h3>Causes</h3>
         <table class="table table-striped">
@@ -33,12 +36,6 @@
         </table>
     </div>
 </div>
-    <!-- ViewMedica Main Embed Start -->
-    <div id="A_e403c6ae"></div>
-    <script type="text/javascript" src="http://www.swarminteractive.com/js/vm.js"></script>
-    <script type="text/javascript">client = "68"; width = "580"; openthis = "A_e403c6ae"; lang = "en"; vm_open();</script>
-    <!-- ViewMedica Embed End -->
-
 <div>
     <h3>Recovery Plans</h3>
     <section data-bind="template: { name: $parent.recoveryPlanTemplate, data: plans }"></section>
