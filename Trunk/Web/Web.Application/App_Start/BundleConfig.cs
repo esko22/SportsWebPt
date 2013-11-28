@@ -24,8 +24,6 @@ namespace SportsWebPt.Platform.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/libs/modernizr-*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/sublime", "http://cdn.sublimevideo.net/js/jkmwb037.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/jquery.validate*"));
