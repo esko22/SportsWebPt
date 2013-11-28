@@ -65,7 +65,7 @@
                                     <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
                                         <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
                                     </ul>
-                                    <div class="tab-content exercise-tab-pane" data-bind="template: { name: $parent.researchExerciseTemplate, foreach: exercises }, attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[0].id()}" />
+                                    <div class="tab-content exercise-tab-pane" data-bind="template: { name: $root.templateIds.researchExerciseTemplate, foreach: exercises }, attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[0].id() }" />
                                 </div>
                             </div>
                         </div>

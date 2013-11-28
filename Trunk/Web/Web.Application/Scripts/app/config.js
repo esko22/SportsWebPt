@@ -20,7 +20,13 @@
             researchPlanDetail: '#research-plan-detail-pane',
             researchExerciseDetail: '#research-exercise-detail-pane'
         },
-            templateIds = {},
+            templateIds = {
+                injuryTemplate : 'examine.report.injury',
+                recoveryPlanTemplate : 'research.recovery.plans',
+                researchWorkoutPlanTemplate : 'research.workout.plan',
+                researchExerciseTemplate : 'research.exercise',
+                researchVideoTemplate : 'research.video'
+            },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),
             notifier = toastr,
@@ -138,7 +144,8 @@
             notifier: notifier,
             kendoEditorIgnores: kendoEditorIgnores,
             kendoEditorOptions: kendoEditorOptions,
-            likelyHoodThresholds: likelyHoodThresholds
+            likelyHoodThresholds: likelyHoodThresholds,
+            templateIds: templateIds
         };
 
     });

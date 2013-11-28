@@ -1,10 +1,11 @@
-﻿define('vm.master.page', ['vm.splash', 'vm.examine.page', 'vm.research.page', 'vm.dashboard.page'],
-    function (splashPage, examinePage, researchPage, dashboardPage) {
+﻿define('vm.master.page', ['vm.splash', 'vm.examine.page', 'vm.research.page', 'vm.dashboard.page', 'config'],
+    function (splashPage, examinePage, researchPage, dashboardPage,config) {
 
         return {
             splashPage: splashPage,
             examinePage: examinePage,
             researchPage: researchPage,
-            dashboardPage: dashboardPage
+            dashboardPage: dashboardPage,
+            templateIds : config.templateIds
         };
     });

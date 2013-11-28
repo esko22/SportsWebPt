@@ -7,23 +7,23 @@
             <ul class="list-group" id="injury-report-nav">
                 <li class="list-group-item"><span class="badge" data-bind="text: probabableInjuries().length"></span>Probable                 
                     <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: probabableInjuries">
-                        <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
+                        <li><a data-bind="attr: { href: '#potential-injury-tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
                     </ul>
                 </li>
                 <li class="list-group-item"><span class="badge" data-bind="text: moderateInjuries().length"></span>Moderate                    
                     <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: moderateInjuries">
-                        <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
+                        <li><a data-bind="attr: { href: '#potential-injury-tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
                     </ul>
                 </li>
                 <li class="list-group-item"><span class="badge" data-bind="text: remoteInjuries().length"></span>Remote                
                     <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: remoteInjuries">
-                        <li><a data-bind="attr: { href: '#tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
+                        <li><a data-bind="attr: { href: '#potential-injury-tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
                     </ul>
                 </li>
             </ul>
         </div>
         <div id="examine-report-container" data-bind="foreach: injuries" class="tab-content examine-tab-pane examine-report-tab-pane col-md-9">
-            <section data-bind="attr: { id: 'tab-' + id() }, template: { name: $parent.injuryTemplate, data: $data} " class="tab-pane"></section>
+            <section data-bind="attr: { id: 'potential-injury-tab-' + id() }, template: { name: $root.templateIds.injuryTemplate, data: $data } " class="tab-pane"></section>
         </div>
     </div>
 </div>

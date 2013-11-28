@@ -423,7 +423,6 @@
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />
     <Content Include="Tmpl\_research.brief.exercise.tmpl.html" />
     <Content Include="Tmpl\_research.exercise.tmpl.html" />
-    <Content Include="Tmpl\_research.recovery.plans.tmpl.html" />
     <Content Include="Tmpl\_research.video.tmpl.html" />
     <Content Include="Tmpl\_research.workout.plan.tmpl.html" />
     <Content Include="Web.config" />

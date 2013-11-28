@@ -20,6 +20,8 @@
         function onFetchSuccess(data) {
             var foundExercise = Exercise.findOrCreate(data);
             exercise.model(foundExercise);
+
+            sublime.load();
         }
 
         return {

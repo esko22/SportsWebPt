@@ -4,7 +4,6 @@
 
         var injury = kb.viewModel(new Injury()),
             injuryTemplate = 'examine.report.injury',
-            recoveryPlanTemplate = 'research.recovery.plans',
             researchWorkoutPlanTemplate = 'research.injury.plan',
             researchExerciseTemplate = 'research.injury.exercise',
             researchVideoTemplate = 'research.injury.video',
@@ -43,7 +42,6 @@
         }
 
         return {
-            recoveryPlanTemplate: recoveryPlanTemplate,
             injuryTemplate: injuryTemplate,
             researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
             researchExerciseTemplate: researchExerciseTemplate,

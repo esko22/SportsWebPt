@@ -1,34 +1,27 @@
 ﻿define('vm.examine.report',
-    ['config', 'underscore', 'knockback'],
-    function (config, _, kb) {
+    ['config', 'underscore', 'knockback', 'backbone'],
+    function (config, _, kb, backbone) {
         var remoteInjuries = kb.collectionObservable(),
             probabableInjuries = kb.collectionObservable(),
             moderateInjuries = kb.collectionObservable(),
-            injuries = kb.collectionObservable(),
-            injuryTemplate = 'examine.report.injury',
-            recoveryPlanTemplate = 'research.recovery.plans',
-            researchWorkoutPlanTemplate = 'research.workout.plan',
-            researchExerciseTemplate = 'research.exercise',
-            researchVideoTemplate = 'research.video';
+            injuries = kb.collectionObservable();
+;
 
         var bindReport = function (report) {
-            _.each(report.get('potentialInjuries').models, function (injury) {
-                var injuryViewModel = kb.viewModel(injury);
-                injuries.push(injuryViewModel);
-                
-                if (injury.get('likelyHood') >= config.likelyHoodThresholds.high)
-                    probabableInjuries.push(injuryViewModel);
-                else if (injury.get('likelyHood') >= config.likelyHoodThresholds.medium)
-                    moderateInjuries.push(injuryViewModel);
+            injuries.collection(report.get('potentialInjuries'));
+
+            _.each(injuries(), function(injury) {
+                if (injury.likelyHood() >= config.likelyHoodThresholds.high)
+                    probabableInjuries.push(injury);
+                else if (injury.likelyHood() >= config.likelyHoodThresholds.medium)
+                    moderateInjuries.push(injury);
                 else
-                    remoteInjuries.push(injuryViewModel);
+                    remoteInjuries.push(injury);
             });
 
-            setTimeout(function() {
-                //TODO: hack... dependent on the controller sorting desc by liklyhood
-                setInjuryContent(injuries()[0].model());
-                $('#injury-report-nav a:first').tab('show');
-            }, 3000);
+            //TODO: hack... dependent on the controller sorting desc by liklyhood
+            setInjuryContent(injuries()[0].model());
+            $('#injury-report-nav a:first').tab('show');
         };
         
         var postExerciseRender = function (elements) {
@@ -47,12 +40,34 @@
                 vm_open();
             }
 
-            $('#recovery-plan-accordion a:first').collapse('show');
+            _.each(injury.get('plans').models, function(plan) {
+                if (plan.get('exercises').length === 0) {
+                    plan.fetch({ success: onSuccessfulPlanFetch(plan.get('id'), injury.get('id')) });
+                }
+            });
+
+            //TODO this timeout is ghetto... works for now... 
+            //sometimes div has not been dymaically created, post render not always working either
+            //need to do more invesitagion
+            setTimeout(function() {
+                $('#workout-plan-' + injury.get('plans').models[0].get('id') + '-' + injury.get('id')).collapse('show');
+            }, 1000);
+        }
+
+        function onSuccessfulPlanFetch(planId, injuryId) {
+            //TODO this timeout is ghetto... works for now... 
+            setTimeout(function () {
+                $('#workout-plan-exercises-' + planId + '-' + injuryId + ' a:first').tab('show');
+            }, 1000);
         }
 
         function onPillClick(data, event) {
             $("#injury-report-nav li.active").removeClass("active");
             setInjuryContent(data.model());
+
+            setTimeout(function() {
+                sublime.load();
+            },10000);
         }
 
         return {
@@ -60,12 +75,7 @@
             remoteInjuries: remoteInjuries,
             probabableInjuries: probabableInjuries,
             moderateInjuries: moderateInjuries,
-            injuryTemplate: injuryTemplate,
-            recoveryPlanTemplate: recoveryPlanTemplate,
-            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
-            researchExerciseTemplate: researchExerciseTemplate,
             postExerciseRender: postExerciseRender,
-            researchVideoTemplate: researchVideoTemplate,
             postRecoveryPlanRender: postRecoveryPlanRender,
             injuries: injuries,
             onPillClick : onPillClick
