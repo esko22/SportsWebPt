@@ -64,10 +64,6 @@
         function onPillClick(data, event) {
             $("#injury-report-nav li.active").removeClass("active");
             setInjuryContent(data.model());
-
-            setTimeout(function() {
-                sublime.load();
-            },10000);
         }
 
         return {

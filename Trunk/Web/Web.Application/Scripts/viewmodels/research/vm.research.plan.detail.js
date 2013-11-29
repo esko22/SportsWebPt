@@ -24,7 +24,6 @@
         }
         
         function postDataPrep() {
-            setTimeout(function() { sublime.load(); }, 3000);
         }
 
         return {

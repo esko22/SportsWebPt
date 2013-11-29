@@ -16,7 +16,20 @@
             frm.resetForm();
         }
     };
-    
+
+    ko.bindingHandlers.sublimeVideo = {
+        init: function (element, valueAccessor, allBindingsAccessor) {
+
+            if (sublime.prepare === undefined) {
+                sublime.ready(function() {
+                    sublime.prepare(valueAccessor());
+                });
+                sublime.load();
+            } else {
+                sublime.prepare(valueAccessor());
+            }
+        }
+    };
 
     // ************ bootstrap handlers ***************
     
