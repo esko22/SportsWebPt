@@ -44,6 +44,9 @@ margin: 0 auto;
 left: 45%;
 }
 
+.selected-filter-item {
+    background-color: #808000;
+}
 
 .login-container {
     width: 400px;

@@ -6,7 +6,7 @@
             <div class="container">
                 <h3>Body Regions</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
-                <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                <ul class="list-no-style filter-container" id="injury-bodyregions-filter-list" data-bind="foreach: bodyRegions">
                     <li class="filter-label">
                         <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
                     </li>
@@ -15,7 +15,7 @@
             <div class="container">
                 <h3>Signs</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
-                <ul class="list-no-style filter-container" data-bind="foreach: signs">
+                <ul class="list-no-style filter-container" id="injury-signs-filter-list" data-bind="foreach: signs">
                     <li class="filter-label">
                         <a><span class="label label-info" data-bind="text: description, click: $parent.onSignFilter"></span></a>
                     </li>

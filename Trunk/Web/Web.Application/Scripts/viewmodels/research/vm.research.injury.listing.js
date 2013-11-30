@@ -15,13 +15,17 @@
             isInitialized = ko.observable(false);
 
 
-        var onBodyRegionFilter = function(data, event) {
-            bodyReginFilter = data.id();
+        var onBodyRegionFilter = function (data, event) {
+            clearBodyRegions();
+            $(event.target).addClass("selected-filter-item");
+            bodyReginFilter = data;
             performFilter();
         };
 
         var onSignFilter = function (data, event) {
-            signFilter = data.id();
+            clearSigns();
+            $(event.target).addClass("selected-filter-item");
+            signFilter = data;
             performFilter();
         };
 
@@ -29,32 +33,33 @@
             filteredInjuryCollection.reset();
 
             if (typeof(bodyReginFilter) !== "undefined" && bodyReginFilter !== null) {
-                _.each(injuryCollection.models, function(injury) {
-                    _.each(injury.get('bodyRegions').models, function(bodyRegion) {
-                        if (bodyRegion.get('id') === bodyReginFilter)
-                            filteredInjuryCollection.add(injury);
+                //_.each(injuryCollection.models, function(injury) {
+                //    _.each(injury.get('bodyRegions').models, function(bodyRegion) {
+                //        if (bodyRegion.get('id') === bodyReginFilter)
+                //            filteredInjuryCollection.add(injury);
+                //    });
+                //});
+                filteredInjuryCollection = new Backbone.Collection(_.filter(injuryCollection.models, function (injury) {
+                    var bodyRegionMatch = _.find(injury.get('bodyRegions'), function (bodyRegion) {
+                        return (bodyRegion.id === bodyReginFilter.id());
                     });
-                });
+
+                    return typeof (bodyRegionMatch) !== "undefined";
+                }));
+
             }
             else
                 filteredInjuryCollection = new Backbone.Collection(injuryCollection.toJSON());
             
 
             if (typeof (signFilter) !== "undefined" && signFilter !== null) {
-                var injuriesToRemove = new InjuryCollection();
-
-                _.each(filteredInjuryCollection.models, function(injury) {
-                    _.each(injury.get('signs'), function (sign) {
-                        if (typeof(sign) !== "undefined") {
-                            if (sign.id !== signFilter)
-                                injuriesToRemove.add(injury);
-                        }
+                filteredInjuryCollection = new Backbone.Collection(_.filter(filteredInjuryCollection.models, function(injury) {
+                   var signMatch = _.find(injury.get('signs'), function(sign) {
+                        return (sign.id === signFilter.id());
                     });
-                });
 
-                _.each(injuriesToRemove.models, function(injury) {
-                    filteredInjuryCollection.remove(injury);
-                });
+                    return typeof (signMatch) !== "undefined";
+                }));
             }
             
             filteredInjuries.collection(filteredInjuryCollection);
@@ -62,10 +67,12 @@
 
         var onReset = function (resetFilter, data) {
             
-            if(resetFilter === 'sign')
-                signFilter = null;
-            if (resetFilter === 'bodyregion')
-                bodyReginFilter = null;
+            if (resetFilter === 'sign') {
+                clearSigns();
+            }
+            if (resetFilter === 'bodyregion') {
+                clearBodyRegions();
+            }
             
             performFilter();
         };
@@ -80,6 +87,16 @@
             }
         };
         
+        function clearSigns() {
+            $("#injury-signs-filter-list .selected-filter-item").removeClass("selected-filter-item");
+            signFilter = null;
+        }
+
+        function clearBodyRegions() {
+            $("#injury-bodyregions-filter-list .selected-filter-item").removeClass("selected-filter-item");
+            bodyReginFilter = null;
+        }
+
 
         function onInitComplete() {
             filteredInjuries.collection(injuryCollection);
