@@ -23,16 +23,6 @@
             setInjuryContent(injuries()[0].model());
             $('#injury-report-nav a:first').tab('show');
         };
-        
-        var postExerciseRender = function (elements) {
-            // TODO: cannot figure out why this will not work... still pulling back the infuser template
-            //$(elements[0]).next().addClass('active');
-            $('div[id^="workout-plan-exercise-panes-"] > div:first-child').addClass('active');
-        };
-
-        var postRecoveryPlanRender = function (elements) {
-            $(elements[0]).find('div[id^="workout-plan-exercises-"] > ul > :first-child').addClass('active');
-        };
 
         function setInjuryContent(injury) {
             if ($('#' + injury.get('animationTag')).children().length == 0) {
@@ -42,25 +32,11 @@
 
             _.each(injury.get('plans').models, function(plan) {
                 if (plan.get('exercises').length === 0) {
-                    plan.fetch({ success: onSuccessfulPlanFetch(plan.get('id'), injury.get('id')) });
+                    plan.fetch();
                 }
             });
-
-            //TODO this timeout is ghetto... works for now... 
-            //sometimes div has not been dymaically created, post render not always working either
-            //need to do more invesitagion
-            setTimeout(function() {
-                $('#workout-plan-' + injury.get('plans').models[0].get('id') + '-' + injury.get('id')).collapse('show');
-            }, 1000);
         }
-
-        function onSuccessfulPlanFetch(planId, injuryId) {
-            //TODO this timeout is ghetto... works for now... 
-            setTimeout(function () {
-                $('#workout-plan-exercises-' + planId + '-' + injuryId + ' a:first').tab('show');
-            }, 1000);
-        }
-
+        
         function onPillClick(data, event) {
             $("#injury-report-nav li.active").removeClass("active");
             setInjuryContent(data.model());
@@ -71,8 +47,6 @@
             remoteInjuries: remoteInjuries,
             probabableInjuries: probabableInjuries,
             moderateInjuries: moderateInjuries,
-            postExerciseRender: postExerciseRender,
-            postRecoveryPlanRender: postRecoveryPlanRender,
             injuries: injuries,
             onPillClick : onPillClick
         };

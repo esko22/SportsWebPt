@@ -49,8 +49,8 @@
     </div>
     <div>
         <h3>Recovery Plans</h3>
-            <div id="recovery-plan-accordion" class="panel-group">
-                <section data-bind="foreach: plans">
+            <div data-bind="attr: { id: 'recovery-plan-accordion-' + id() }" class="panel-group">
+                <section data-bind="foreach: plans, showInitPanel: '#recovery-plan-accordion-' + id()">
                     <div class="panel panel-default examine-report-workout-accord">
                         <div class="panel-heading">
                             <a data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[0].id() }" >
@@ -65,7 +65,8 @@
                                     <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
                                         <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
                                     </ul>
-                                    <div class="tab-content exercise-tab-pane" data-bind="template: { name: $root.templateIds.researchExerciseTemplate, foreach: exercises }, attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[0].id() }" />
+                                    <div class="tab-content exercise-tab-pane" data-bind="template: { name: $root.templateIds.researchExerciseTemplate, foreach: exercises },
+                                                                                            attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[0].id() }" />
                                 </div>
                             </div>
                         </div>
