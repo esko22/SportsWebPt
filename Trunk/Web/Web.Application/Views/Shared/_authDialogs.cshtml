@@ -1,19 +1,19 @@
 ﻿<!-- LOGON / SIGNUP Dialogs --> 
     <div class="modal-body" style="display: none" data-bind="visible: loginVisible" id="loginForm">
         <form>
-            <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Log in using Facebook</a>
+            <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="icon-sportswebpt-facebook login-icon"></i>Log in using Facebook</a>
         </form>
         <form>
-            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="iconmoon-google-plus login-icon"></i>Log in using Google</a>
+            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')"><i class="icon-sportswebpt-google-plus login-icon"></i>Log in using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or using a SportsWebPt account</strong></div>
         <form class="form-horizontal text-center" action="/login" method="POST" data-bind="validateForm: loginValidationOptions" id="loginSwpt">
             <div class="input-group form-group">
-                <span class="input-group-addon iconmoon-envelope"></span>
+                <span class="input-group-addon icon-sportswebpt-envelope"></span>
                 <input class="form-control" id="loginEmail" name="loginEmail" type="text" placeholder="Email Address">
             </div>
             <div class="input-group form-group">
-                <span class="input-group-addon iconmoon-suitcase-2"></span>
+                <span class="input-group-addon icon-sportswebpt-suitcase"></span>
                 <input class="form-control" id="loginPassword" name="loginPassword" type="password" placeholder="Password">
             </div>
             <div class="control-group text-center">
@@ -32,27 +32,27 @@
     <!-- SIGN UP -->
     <div class="modal-body" style="display: none" data-bind="visible: signUpVisible" id="signUpForm">
         <form id="signUpFacebook" >
-            <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="iconmoon-facebook login-icon"></i>Sign up using Facebook</a>
+            <a class="login-facebook login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'facebook')"><i class="icon-sportswebpt-facebook login-icon"></i>Sign up using Facebook</a>
         </form>
         <form id="signUpGoogle">
-            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="iconmoon-google-plus login-icon"></i>Sign up using Google</a>
+            <a class="login-google login-btn" data-bind="click: signUpOAtuhUser.bind($data, 'google')" ><i class="icon-sportswebpt-google-plus login-icon"></i>Sign up using Google</a>
         </form>
         <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
         <form class="form-horizontal text-center" action="/createuser" method="POST" data-bind="validateForm: signUpValidationOptions" id="signUpSwpt">
             <div class="input-group form-group">
-                <span class="input-group-addon login-input iconmoon-user"></span>
+                <span class="input-group-addon login-input icon-sportswebpt-user"></span>
                 <input class="form-control" id="username" name="username" type="text" placeholder="User Name">
             </div>
             <div class="input-group form-group">
-                <span class="input-group-addon iconmoon-envelope"></span>
+                <span class="input-group-addon icon-sportswebpt-envelope"></span>
                 <input class="form-control" id="signupEmail" name="signupEmail" type="text" placeholder="Email Address">
             </div>
             <div class="input-group form-group">
-                <span class="input-group-addon login-input iconmoon-suitcase-2"></span>
+                <span class="input-group-addon login-input icon-sportswebpt-suitcase"></span>
                 <input class="form-control" id="signupPassword" name="signupPassword" type="password" placeholder="Password">
             </div>
             <div class="input-group form-group">
-                <span class="input-group-addon login-input iconmoon-suitcase-2"></span>
+                <span class="input-group-addon login-input icon-sportswebpt-suitcase"></span>
                 <input class="form-control" id="retryPassword" equalTo="#signupPassword" name="retryPassword" type="password" placeholder="Verify Password">
             </div>
             <div class="control-group text-center">

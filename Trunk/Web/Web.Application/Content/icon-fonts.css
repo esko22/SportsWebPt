@@ -1,357 +1,355 @@
 @font-face {
-	font-family: 'SWPT';
-	src:url('fonts/SWPT.eot');
-	src:url('fonts/SWPT.eot?#iefix') format('embedded-opentype'),
-		url('fonts/SWPT.woff') format('woff'),
-		url('fonts/SWPT.ttf') format('truetype'),
-		url('fonts/SWPT.svg#SWPT') format('svg');
+	font-family: 'sportswebpt';
+	src:url('fonts/sportswebpt.eot');
+	src:url('fonts/sportswebpt.eot?#iefix') format('embedded-opentype'),
+		url('fonts/sportswebpt.ttf') format('truetype'),
+		url('fonts/sportswebpt.woff') format('woff'),
+		url('fonts/sportswebpt.svg#sportswebpt') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-	font-family: 'SWPT';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="iconmoon-"] {
-*/
-.iconmoon-search, .iconmoon-google-plus, .iconmoon-facebook-sign, .iconmoon-twitter-sign, .iconmoon-github-sign, .iconmoon-camera-retro, .iconmoon-cogs, .iconmoon-target, .iconmoon-target-2, .iconmoon-magnifier, .iconmoon-user-md, .iconmoon-stethoscope, .iconmoon-building, .iconmoon-refresh, .iconmoon-repeat, .iconmoon-facebook, .iconmoon-twitter, .iconmoon-google-plus-2, .iconmoon-google-plus-3, .iconmoon-google-plus-4, .iconmoon-untitled, .iconmoon-untitled-2, .iconmoon-untitled-3, .iconmoon-untitled-4, .iconmoon-untitled-5, .iconmoon-untitled-6, .iconmoon-untitled-7, .iconmoon-untitled-8, .iconmoon-untitled-9, .iconmoon-untitled-10, .iconmoon-untitled-11, .iconmoon-untitled-12, .iconmoon-untitled-13, .iconmoon-untitled-14, .iconmoon-untitled-15, .iconmoon-untitled-16, .iconmoon-untitled-17, .iconmoon-untitled-18, .iconmoon-untitled-19, .iconmoon-untitled-20, .iconmoon-untitled-21, .iconmoon-untitled-22, .iconmoon-untitled-23, .iconmoon-untitled-24, .iconmoon-untitled-25, .iconmoon-untitled-26, .iconmoon-untitled-27, .iconmoon-untitled-28, .iconmoon-untitled-29, .iconmoon-untitled-30, .iconmoon-untitled-31, .iconmoon-untitled-32, .iconmoon-untitled-33, .iconmoon-untitled-34, .iconmoon-untitled-35, .iconmoon-untitled-36, .iconmoon-untitled-37, .iconmoon-untitled-38, .iconmoon-untitled-39, .iconmoon-untitled-40, .iconmoon-untitled-41, .iconmoon-locked, .iconmoon-unlocked, .iconmoon-suitcase, .iconmoon-suitcase-2, .iconmoon-chat, .iconmoon-envelope, .iconmoon-download, .iconmoon-download-2, .iconmoon-cloud, .iconmoon-suitcase-3, .iconmoon-envelope-2, .iconmoon-heart, .iconmoon-soccer, .iconmoon-caret-down, .iconmoon-caret-up, .iconmoon-caret-left, .iconmoon-caret-right, .iconmoon-circle-arrow-up, .iconmoon-circle-arrow-down, .iconmoon-chevron-up, .iconmoon-chevron-down, .iconmoon-chevron-right, .iconmoon-chevron-left, .iconmoon-thumbs-up, .iconmoon-thumbs-down, .iconmoon-heart-2, .iconmoon-star, .iconmoon-star-empty, .iconmoon-lock, .iconmoon-user, .iconmoon-shopping-cart, .iconmoon-cloudy, .iconmoon-gamepad, .iconmoon-mouse, .iconmoon-medkit, .iconmoon-wrench, .iconmoon-rss, .iconmoon-credit, .iconmoon-clipboard, .iconmoon-credit-card, .iconmoon-barbell, .iconmoon-clipboard-2, .iconmoon-clipboard-3, .iconmoon-clipboard-4, .iconmoon-copy {
-	font-family: 'SWPT';
+[class^="icon-sportswebpt-"], [class*=" icon-sportswebpt-"] {
+	font-family: 'sportswebpt';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
+
+	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-.iconmoon-search:before {
+
+.icon-sportswebpt-arrow-up:before {
+	content: "\e600";
+}
+.icon-sportswebpt-arrow-left:before {
+	content: "\e601";
+}
+.icon-sportswebpt-arrow-down-left:before {
+	content: "\e602";
+}
+.icon-sportswebpt-arrow-down:before {
+	content: "\e603";
+}
+.icon-sportswebpt-arrow-down-right:before {
+	content: "\e604";
+}
+.icon-sportswebpt-arrow-right:before {
+	content: "\e605";
+}
+.icon-sportswebpt-arrow-up-right:before {
+	content: "\e606";
+}
+.icon-sportswebpt-checkmark:before {
+	content: "\e607";
+}
+.icon-sportswebpt-checkmark2:before {
+	content: "\e608";
+}
+.icon-sportswebpt-search:before {
 	content: "\e01d";
 }
-.iconmoon-google-plus:before {
+.icon-sportswebpt-google-plus:before {
 	content: "\f0d5";
 }
-.iconmoon-facebook-sign:before {
+.icon-sportswebpt-facebook-sign:before {
 	content: "\f082";
 }
-.iconmoon-twitter-sign:before {
+.icon-sportswebpt-twitter-sign:before {
 	content: "\f081";
 }
-.iconmoon-github-sign:before {
+.icon-sportswebpt-github-sign:before {
 	content: "\f092";
 }
-.iconmoon-camera-retro:before {
+.icon-sportswebpt-camera-retro:before {
 	content: "\e01e";
 }
-.iconmoon-cogs:before {
+.icon-sportswebpt-cogs:before {
 	content: "\f085";
 }
-.iconmoon-target:before {
+.icon-sportswebpt-target:before {
 	content: "\e01f";
 }
-.iconmoon-target-2:before {
+.icon-sportswebpt-target2:before {
 	content: "\e020";
 }
-.iconmoon-magnifier:before {
+.icon-sportswebpt-magnifier:before {
 	content: "\e021";
 }
-.iconmoon-user-md:before {
-	content: "\f0f0";
-}
-.iconmoon-stethoscope:before {
-	content: "\f0f1";
-}
-.iconmoon-building:before {
-	content: "\f0f7";
-}
-.iconmoon-refresh:before {
-	content: "\f021";
-}
-.iconmoon-repeat:before {
-	content: "\f01e";
-}
-.iconmoon-facebook:before {
+.icon-sportswebpt-facebook:before {
 	content: "\e022";
 }
-.iconmoon-twitter:before {
+.icon-sportswebpt-twitter:before {
 	content: "\e023";
 }
-.iconmoon-google-plus-2:before {
+.icon-sportswebpt-google-plus2:before {
 	content: "\e025";
 }
-.iconmoon-google-plus-3:before {
+.icon-sportswebpt-google-plus3:before {
 	content: "\e026";
 }
-.iconmoon-google-plus-4:before {
+.icon-sportswebpt-google-plus4:before {
 	content: "\e027";
 }
-.iconmoon-untitled:before {
+.icon-sportswebpt-uniE02B:before {
 	content: "\e02b";
 }
-.iconmoon-untitled-2:before {
+.icon-sportswebpt-one-arrow-refresh:before {
 	content: "\e02d";
 }
-.iconmoon-untitled-3:before {
+.icon-sportswebpt-two-arrow-refresh:before {
 	content: "\e02e";
 }
-.iconmoon-untitled-4:before {
+.icon-sportswebpt-trashcan1:before {
 	content: "\e02f";
 }
-.iconmoon-untitled-5:before {
+.icon-sportswebpt-trashcan2:before {
 	content: "\e030";
 }
-.iconmoon-untitled-6:before {
+.icon-sportswebpt-stethoscope2:before {
 	content: "\e032";
 }
-.iconmoon-untitled-7:before {
-	content: "\e033";
-}
-.iconmoon-untitled-8:before {
-	content: "\e034";
-}
-.iconmoon-untitled-9:before {
-	content: "\e035";
-}
-.iconmoon-untitled-10:before {
-	content: "\e036";
-}
-.iconmoon-untitled-11:before {
-	content: "\e037";
-}
-.iconmoon-untitled-12:before {
+.icon-sportswebpt-target1:before {
 	content: "\e038";
 }
-.iconmoon-untitled-13:before {
+.icon-sportswebpt-target3:before {
 	content: "\e039";
 }
-.iconmoon-untitled-14:before {
+.icon-sportswebpt-two-peeps:before {
 	content: "\e03a";
 }
-.iconmoon-untitled-15:before {
+.icon-sportswebpt-one-peep:before {
 	content: "\e03b";
 }
-.iconmoon-untitled-16:before {
+.icon-sportswebpt-video-camera1:before {
 	content: "\e03c";
 }
-.iconmoon-untitled-17:before {
-	content: "\e03d";
-}
-.iconmoon-untitled-18:before {
-	content: "\e03e";
-}
-.iconmoon-untitled-19:before {
+.icon-sportswebpt-media1:before {
 	content: "\e03f";
 }
-.iconmoon-untitled-20:before {
+.icon-sportswebpt-three-sheets-stacked:before {
 	content: "\e040";
 }
-.iconmoon-untitled-21:before {
+.icon-sportswebpt-two-sheets:before {
 	content: "\e043";
 }
-.iconmoon-untitled-22:before {
+.icon-sportswebpt-paperclip:before {
 	content: "\e044";
 }
-.iconmoon-untitled-23:before {
-	content: "\e047";
-}
-.iconmoon-untitled-24:before {
-	content: "\e048";
-}
-.iconmoon-untitled-25:before {
-	content: "\e04a";
-}
-.iconmoon-untitled-26:before {
-	content: "\e04b";
-}
-.iconmoon-untitled-27:before {
-	content: "\e04c";
-}
-.iconmoon-untitled-28:before {
+.icon-sportswebpt-stopwatch:before {
 	content: "\e04d";
 }
-.iconmoon-untitled-29:before {
+.icon-sportswebpt-medical-suitcase:before {
 	content: "\e04e";
 }
-.iconmoon-untitled-30:before {
+.icon-sportswebpt-house1:before {
 	content: "\e04f";
 }
-.iconmoon-untitled-31:before {
-	content: "\e050";
-}
-.iconmoon-untitled-32:before {
+.icon-sportswebpt-city-scape1:before {
 	content: "\e051";
 }
-.iconmoon-untitled-33:before {
-	content: "\e052";
-}
-.iconmoon-untitled-34:before {
+.icon-sportswebpt-monitor2:before {
 	content: "\e053";
 }
-.iconmoon-untitled-35:before {
+.icon-sportswebpt-monitor1:before {
 	content: "\e054";
 }
-.iconmoon-untitled-36:before {
+.icon-sportswebpt-video-camera2:before {
 	content: "\e055";
 }
-.iconmoon-untitled-37:before {
+.icon-sportswebpt-video-camera3:before {
 	content: "\e056";
 }
-.iconmoon-untitled-38:before {
+.icon-sportswebpt-disk1:before {
 	content: "\e057";
 }
-.iconmoon-untitled-39:before {
-	content: "\e058";
-}
-.iconmoon-untitled-40:before {
-	content: "\e059";
-}
-.iconmoon-untitled-41:before {
-	content: "\e05a";
-}
-.iconmoon-locked:before {
-	content: "\e000";
-}
-.iconmoon-unlocked:before {
-	content: "\e05b";
-}
-.iconmoon-suitcase:before {
+.icon-sportswebpt-suitcase:before {
 	content: "\e05c";
 }
-.iconmoon-suitcase-2:before {
+.icon-sportswebpt-suitcase2:before {
 	content: "\e05d";
 }
-.iconmoon-chat:before {
+.icon-sportswebpt-chat:before {
 	content: "\e05e";
 }
-.iconmoon-envelope:before {
+.icon-sportswebpt-envelope:before {
 	content: "\e05f";
 }
-.iconmoon-download:before {
+.icon-sportswebpt-download:before {
 	content: "\e060";
 }
-.iconmoon-download-2:before {
+.icon-sportswebpt-download2:before {
 	content: "\e061";
 }
-.iconmoon-cloud:before {
+.icon-sportswebpt-cloud:before {
 	content: "\e062";
 }
-.iconmoon-suitcase-3:before {
+.icon-sportswebpt-suitcase3:before {
 	content: "\f0f2";
 }
-.iconmoon-envelope-2:before {
+.icon-sportswebpt-envelope2:before {
 	content: "\f003";
 }
-.iconmoon-heart:before {
+.icon-sportswebpt-heart:before {
 	content: "\e063";
 }
-.iconmoon-soccer:before {
+.icon-sportswebpt-soccer:before {
 	content: "\e064";
 }
-.iconmoon-caret-down:before {
-	content: "\f0d7";
-}
-.iconmoon-caret-up:before {
-	content: "\f0d8";
-}
-.iconmoon-caret-left:before {
-	content: "\f0d9";
-}
-.iconmoon-caret-right:before {
-	content: "\f0da";
-}
-.iconmoon-circle-arrow-up:before {
-	content: "\f0aa";
-}
-.iconmoon-circle-arrow-down:before {
+.icon-sportswebpt-circle-arrow-down:before {
 	content: "\f0ab";
 }
-.iconmoon-chevron-up:before {
+.icon-sportswebpt-chevron-up:before {
 	content: "\f077";
 }
-.iconmoon-chevron-down:before {
+.icon-sportswebpt-chevron-down:before {
 	content: "\f078";
 }
-.iconmoon-chevron-right:before {
+.icon-sportswebpt-chevron-right:before {
 	content: "\f054";
 }
-.iconmoon-chevron-left:before {
+.icon-sportswebpt-chevron-left:before {
 	content: "\f053";
 }
-.iconmoon-thumbs-up:before {
+.icon-sportswebpt-thumbs-up:before {
 	content: "\f087";
 }
-.iconmoon-thumbs-down:before {
+.icon-sportswebpt-thumbs-down:before {
 	content: "\f088";
 }
-.iconmoon-heart-2:before {
+.icon-sportswebpt-heart2:before {
 	content: "\f004";
 }
-.iconmoon-star:before {
+.icon-sportswebpt-star:before {
 	content: "\f005";
 }
-.iconmoon-star-empty:before {
+.icon-sportswebpt-star-empty:before {
 	content: "\f006";
 }
-.iconmoon-lock:before {
+.icon-sportswebpt-lock:before {
 	content: "\f023";
 }
-.iconmoon-user:before {
-	content: "\f007";
-}
-.iconmoon-shopping-cart:before {
-	content: "\f07a";
-}
-.iconmoon-cloudy:before {
-	content: "\e002";
-}
-.iconmoon-gamepad:before {
-	content: "\e003";
-}
-.iconmoon-mouse:before {
-	content: "\e004";
-}
-.iconmoon-medkit:before {
+.icon-sportswebpt-medkit:before {
 	content: "\f0fa";
 }
-.iconmoon-wrench:before {
+.icon-sportswebpt-wrench:before {
 	content: "\f0ad";
 }
-.iconmoon-rss:before {
+.icon-sportswebpt-rss:before {
 	content: "\f09e";
 }
-.iconmoon-credit:before {
+.icon-sportswebpt-credit:before {
 	content: "\f09d";
 }
-.iconmoon-clipboard:before {
+.icon-sportswebpt-clipboard:before {
 	content: "\e005";
 }
-.iconmoon-credit-card:before {
+.icon-sportswebpt-credit-card:before {
 	content: "\e006";
 }
-.iconmoon-barbell:before {
+.icon-sportswebpt-barbell:before {
 	content: "\e007";
 }
-.iconmoon-clipboard-2:before {
+.icon-sportswebpt-clipboard2:before {
 	content: "\e008";
 }
-.iconmoon-clipboard-3:before {
+.icon-sportswebpt-clipboard3:before {
 	content: "\e001";
 }
-.iconmoon-clipboard-4:before {
+.icon-sportswebpt-clipboard4:before {
 	content: "\e009";
 }
-.iconmoon-copy:before {
+.icon-sportswebpt-repeat:before {
+	content: "\f01e";
+}
+.icon-sportswebpt-mouse:before {
+	content: "\e004";
+}
+.icon-sportswebpt-gamepad:before {
+	content: "\e003";
+}
+.icon-sportswebpt-cloudy:before {
+	content: "\e002";
+}
+.icon-sportswebpt-shopping-cart:before {
+	content: "\f07a";
+}
+.icon-sportswebpt-user:before {
+	content: "\f007";
+}
+.icon-sportswebpt-copy:before {
 	content: "\e00a";
+}
+.icon-sportswebpt-caret-down:before {
+	content: "\f0d7";
+}
+.icon-sportswebpt-caret-up:before {
+	content: "\f0d8";
+}
+.icon-sportswebpt-caret-left:before {
+	content: "\f0d9";
+}
+.icon-sportswebpt-caret-right:before {
+	content: "\f0da";
+}
+.icon-sportswebpt-circle-arrow-up:before {
+	content: "\f0aa";
+}
+.icon-sportswebpt-unlocked:before {
+	content: "\e05b";
+}
+.icon-sportswebpt-locked:before {
+	content: "\e000";
+}
+.icon-sportswebpt-camera4:before {
+	content: "\e05a";
+}
+.icon-sportswebpt-microphone1:before {
+	content: "\e059";
+}
+.icon-sportswebpt-power:before {
+	content: "\e058";
+}
+.icon-sportswebpt-calendar1:before {
+	content: "\e047";
+}
+.icon-sportswebpt-fire1:before {
+	content: "\e033";
+}
+.icon-sportswebpt-user-md:before {
+	content: "\f0f0";
+}
+.icon-sportswebpt-stethoscope:before {
+	content: "\f0f1";
+}
+.icon-sportswebpt-building:before {
+	content: "\f0f7";
+}
+.icon-sportswebpt-refresh:before {
+	content: "\f021";
+}
+.icon-sportswebpt-bubblequotes:before {
+	content: "\e034";
+}
+.icon-sportswebpt-waterdrop:before {
+	content: "\e048";
+}
+.icon-sportswebpt-magnifier3:before {
+	content: "\e04a";
+}
+.icon-sportswebpt-doctor1:before {
+	content: "\e035";
+}
+.icon-sportswebpt-magnifier2:before {
+	content: "\e036";
+}
+.icon-sportswebpt-keyboard1:before {
+	content: "\e04b";
+}
+.icon-sportswebpt-alarmclock1:before {
+	content: "\e04c";
 }

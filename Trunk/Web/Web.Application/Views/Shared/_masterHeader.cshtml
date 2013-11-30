@@ -12,13 +12,13 @@
             </div>
             <div class="col-md-6 pull-right navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/#/examine"><span aria-hidden="true" data-icon="&#xf0f1;" class="nav-icon"> </span> Examine</a></li>
-                    <li><a href="/#/research"><span aria-hidden="true" data-icon="&#xe021;" class="nav-icon"></span> Reseach</a></li>
-                    <li><a href="/#/research/locations"><span aria-hidden="true" data-icon="&#xe051;" class="nav-icon"></span> Locate</a></li>
+                    <li><a href="/#/examine" class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i><br />Examine</a></li>
+                    <li><a href="/#/research" class="nav-icon"><i class="icon-sportswebpt-magnifier"></i><br />Reseach</a></li>
+                    <li><a href="/#/research/locations" class="nav-icon"><i class="icon-sportswebpt-city-scape1"></i><br />Locate</a></li>
                     @if (String.IsNullOrEmpty(Model.User.emailAddress))
                     {
                         <li>
-                            <a data-toggle="modal" data-target="#login-dialog"><span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span> Log In / Sign Up</a>
+                            <a data-toggle="modal" data-target="#login-dialog" class="nav-icon"><i class="icon-sportswebpt-user"></i><br />Log In / Sign Up</a>
                         </li>
                     }
                     else

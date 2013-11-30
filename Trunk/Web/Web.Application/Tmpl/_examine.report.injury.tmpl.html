@@ -1,4 +1,4 @@
-﻿    <h3><span data-icon="&#xf0fa;"> Injury Description</span></h3>
+﻿    <h3><i class="icon-sportswebpt-medkit"></i> Injury Description</h3>
     <hr class="examine-report-hr"/>
     <div><strong>Common Name: </strong><span data-bind="text: commonName"></span></div>
     <div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
@@ -53,9 +53,10 @@
                 <section data-bind="foreach: plans, showInitPanel: '#recovery-plan-accordion-' + id()">
                     <div class="panel panel-default examine-report-workout-accord">
                         <div class="panel-heading">
-                            <a data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[0].id() }" >
-                                    <span data-bind="text: ' ' + routineName()" class="research-accordian-icon" data-icon="&#xe001;" />
-                                    <span class="glyphicon glyphicon-chevron-down pull-right research-accordian-icon" ></span>
+                            <a data-toggle="collapse" class="research-accordian-icon" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[0].id() }" >
+                                <i class="icon-sportswebpt-clipboard3"></i>
+                                <span data-bind="text: ' ' + routineName()"></span>
+                                <span class="glyphicon glyphicon-chevron-down pull-right" ></span>
                             </a>
                         </div>
                         <div data-bind="attr: { id: 'workout-plan-' + id() + '-' + $parents[0].id() }" class="panel-collapse collapse">
