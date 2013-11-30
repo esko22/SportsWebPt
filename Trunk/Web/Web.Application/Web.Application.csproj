@@ -331,6 +331,8 @@
     <Content Include="Views\Shared\_planDetail.cshtml" />
     <Content Include="Views\Shared\_exerciseDetail.cshtml" />
     <Content Include="Views\Research\_researchExerciseDetail.cshtml" />
+    <Content Include="Views\Shared\_fbSDK.cshtml" />
+    <Content Include="Views\Shared\_gPlus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

@@ -19,13 +19,13 @@
 
 
     ko.bindingHandlers.showInitPanel = {
-        update: function (element, valueAccessor, allBindingsAccessor) {
+        init: function (element, valueAccessor, allBindingsAccessor) {
             $(valueAccessor() + ' .panel-collapse:first').collapse('show');
         }   
     };
     
     ko.bindingHandlers.showInitTab = {
-        update: function (element, valueAccessor, allBindingsAccessor) {
+        init: function (element, valueAccessor, allBindingsAccessor) {
             $(valueAccessor() + ' a:first').tab('show');
         }
     };
