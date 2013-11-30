@@ -27,6 +27,7 @@
         <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
         @{Html.RenderPartial("~/Views/Shared/_fbSDK.cshtml"); }
         @{Html.RenderPartial("~/Views/Shared/_gPlus.cshtml"); }
+        @{Html.RenderPartial("~/Views/Shared/_gAnalytics.cshtml"); }
         @{Html.RenderPartial("~/Views/Shared/_masterHeader.cshtml"); }
         <div id="master-container" class="container">
             @RenderBody()

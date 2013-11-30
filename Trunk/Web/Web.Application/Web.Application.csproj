@@ -333,6 +333,7 @@
     <Content Include="Views\Research\_researchExerciseDetail.cshtml" />
     <Content Include="Views\Shared\_fbSDK.cshtml" />
     <Content Include="Views\Shared\_gPlus.cshtml" />
+    <Content Include="Views\Shared\_gAnalytics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
