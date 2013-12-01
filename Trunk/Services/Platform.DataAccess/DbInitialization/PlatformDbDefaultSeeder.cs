@@ -576,9 +576,9 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var users = new List<User>()
                 {
-                    new User() {EmailAddress = "kdot@swpt.com", FirstName = "Kendrick", LastName = "Lamar", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "k dot"},
+                    new User() {EmailAddress = "kdot@swpt.com", FirstName = "Kendrick", LastName = "Lamar", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "k dot", IsAdmin = true},
                     new User() {EmailAddress = "anut@swpt.com", FirstName = "Alexander", LastName = "Nut", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "anut"},
-                    new User() {EmailAddress = "jdee@swpt.com", FirstName = "Jay", LastName = "Dee", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "jdilla"}
+                    new User() {EmailAddress = "jdee@swpt.com", FirstName = "Jay", LastName = "Dee", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "jdilla", IsAdmin = true}
                 };
 
             users.ForEach(u => _dbContext.Users.Add(u));

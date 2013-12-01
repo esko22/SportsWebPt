@@ -1,19 +1,28 @@
-﻿    <h3 data-bind="text: name"></h3>
-    <hr class="examine-report-hr"/>
-        <div class="row">
-        <div class="col-md-10">
-            <label>Description: </label><span data-bind="html: description"></span>
-        </div>
+﻿<div class="row">
+    <div class="col-md-4 pull-left">
+        <h2 data-bind="text: name"></h2>
     </div>
-    <div class="row">
-        <div class="col-md-5">
-            <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
-        </div>
-        <div class="col-md-5">
-            <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
-        </div>
+    <div class="col-md-offset-6 col-md-2">
+        <!-- ko with: $parent.shareBar -->
+        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
+        <!-- /ko --> 
     </div>
+</div> 
+<hr class="examine-report-hr"/>
     <div class="row">
+    <div class="col-md-10">
+        <label>Description: </label><span data-bind="html: description"></span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
+    </div>
+    <div class="col-md-5">
+        <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-2">
         <h3>Equipment</h3>
         <table class="table table-striped">
@@ -27,14 +36,6 @@
     <div class="col-md-7">
         <h3>Video</h3>
         <div data-bind="foreach:videos">
-            
-@*                    <video id="myVideo" class="sublime" poster="https://cdn.sublimevideo.net/vpa/ms_800.jpg" data-bind="attr: { id: 'exercise-video-detail-' + id()}, sublimeVideo: null" width="640" height="360" title="Midnight Sun" data-uid="a240e92d" preload="none">
-            <source src="https://cdn.sublimevideo.net/vpa/ms_360p.mp4" />
-            <source src="https://cdn.sublimevideo.net/vpa/ms_720p.mp4" data-quality="hd" />
-            <source src="https://cdn.sublimevideo.net/vpa/ms_360p.webm" />
-            <source src="https://cdn.sublimevideo.net/vpa/ms_720p.webm" data-quality="hd" />
-        </video>*@
-
             <video data-bind="attr: { id: 'exercise-video-detail-' + id() }, sublimeVideo: 'exercise-video-detail-' + id()" data-uid="my-exercise-vid-1" data-youtube-id="-xIDPbg1fUQ" width="640" height="360" preload="none">
             </video>       
         </div>

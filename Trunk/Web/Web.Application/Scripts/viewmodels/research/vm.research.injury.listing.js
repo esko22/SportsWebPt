@@ -33,14 +33,8 @@
             filteredInjuryCollection.reset();
 
             if (typeof(bodyReginFilter) !== "undefined" && bodyReginFilter !== null) {
-                //_.each(injuryCollection.models, function(injury) {
-                //    _.each(injury.get('bodyRegions').models, function(bodyRegion) {
-                //        if (bodyRegion.get('id') === bodyReginFilter)
-                //            filteredInjuryCollection.add(injury);
-                //    });
-                //});
-                filteredInjuryCollection = new Backbone.Collection(_.filter(injuryCollection.models, function (injury) {
-                    var bodyRegionMatch = _.find(injury.get('bodyRegions'), function (bodyRegion) {
+                filteredInjuryCollection = new InjuryCollection(_.filter(injuryCollection.models, function (injury) {
+                    var bodyRegionMatch = _.find(injury.get('bodyRegions').models, function (bodyRegion) {
                         return (bodyRegion.id === bodyReginFilter.id());
                     });
 
@@ -49,13 +43,13 @@
 
             }
             else
-                filteredInjuryCollection = new Backbone.Collection(injuryCollection.toJSON());
+                filteredInjuryCollection = new InjuryCollection(injuryCollection.toJSON());
             
 
             if (typeof (signFilter) !== "undefined" && signFilter !== null) {
-                filteredInjuryCollection = new Backbone.Collection(_.filter(filteredInjuryCollection.models, function(injury) {
-                   var signMatch = _.find(injury.get('signs'), function(sign) {
-                        return (sign.id === signFilter.id());
+                filteredInjuryCollection = new InjuryCollection(_.filter(filteredInjuryCollection.models, function (injury) {
+                   var signMatch = _.find(injury.get('signs').models, function(sign) {
+                        return (sign.get('id') === signFilter.id());
                     });
 
                     return typeof (signMatch) !== "undefined";

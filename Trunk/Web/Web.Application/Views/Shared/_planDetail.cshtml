@@ -1,4 +1,13 @@
-﻿<h3 data-bind="text: routineName"></h3>
+﻿<div class="row">
+    <div class="col-md-4 pull-left">
+        <h2 data-bind="text: routineName"></h2>
+    </div>
+    <div class="col-md-offset-6 col-md-2">
+        <!-- ko with: $parent.shareBar -->
+        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
+        <!-- /ko --> 
+    </div>
+</div>
 <hr class="examine-report-hr"/>
 <div class="row">
     <div class="col-md-5">
@@ -6,8 +15,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-7">
         <label>Description: </label><span data-bind="html: description"></span>
+    </div>
+    <div class="col-md-5">
+        <!-- ko with: $parent.viewMedicaDisplay -->
+        @{Html.RenderPartial("~/Views/Shared/_viewMedicaDisplay.cshtml"); }
+        <!-- /ko --> 
     </div>
 </div>
 <div class="row">
@@ -25,7 +39,7 @@
 </div>
 <div class="tabbable">
     <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
-        <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + $index() " data-toggle="tab"></a></li>
+        <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + id(), title: 'Exercise ' + $index() }, text: 'Exercise ' + ($index() + 1) " data-toggle="tab"></a></li>
     </ul>
     <div class="tab-content exercise-tab-pane" data-bind="foreach: exercises">
             <div class="tab-pane" data-bind="attr: { id: 'exercise-' + id() }">

@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.DataAccess.EntityConfiguration
             Property(u => u.Locale).HasColumnName("locale").HasMaxLength(30);
             Property(u => u.Gender).HasColumnName("gender").HasMaxLength(10);
             Property(p => p.Id).HasColumnName("user_id");
-
+            Property(p => p.IsAdmin).HasColumnName("is_admin").HasColumnType("bit");
         }
 
         #endregion

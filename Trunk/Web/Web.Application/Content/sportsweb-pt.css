@@ -44,6 +44,19 @@ margin: 0 auto;
 left: 45%;
 }
 
+.return-navigation-icon {
+    font-size: 18px; 
+    margin-right: 10px;
+    color: #666666;
+    font-weight: bold;
+}
+
+.favorite-icon {
+    font-size: 24px; 
+    color: #b22222;
+}
+
+
 .selected-filter-item {
     background-color: #808000;
 }

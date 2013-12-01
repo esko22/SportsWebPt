@@ -10,7 +10,8 @@
                     'description': '',
                     'instructions': '',
                     'musclesInvolved': '',
-                    'duration' : ''
+                    'duration': '',
+                    'animationTag' : ''
                 },
                 relations: [{
                     type: backbone.HasMany,

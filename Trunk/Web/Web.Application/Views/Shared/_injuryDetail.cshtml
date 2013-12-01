@@ -1,14 +1,12 @@
 ﻿<div class="row">
-    <div class="col-md-4">
-        <h3 data-bind="text: commonName"></h3>
+    <div class="col-md-4 pull-left">
+        <h2 data-bind="text: commonName"></h2>
     </div>
-    <div class="col-md-offset-3 col-md-1">
-        <a data-bind="click: $parent.addAsFavorite"><span data-icon="&#xe063;" style="font-size: 30px" class="text-center"></span></a>
+    <div class="col-md-offset-6 col-md-2">
+        <!-- ko with: $parent.shareBar -->
+        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
+        <!-- /ko --> 
     </div>
-    <div class="col-md-2">
-        <div class="g-plusone" data-size="standard" data-href="http://sportswebpt.com/#/research/injuries/Sprained-Ankle"></div>
-    </div>
-    <div class="fb-like col-md-2" data-href="http://sportswebpt.com/#/research/injuries/Sprained-Ankle" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
 <hr class="examine-report-hr"/>
 <div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
@@ -16,7 +14,11 @@
 <div><span data-bind="html: openingStatement"></span></div>
 <div class="row push-down-md">
     <div class="col-md-7"><strong>Description: </strong><span data-bind="html: description"></span></div>
-    <div class="col-md-5 viewmedica-container" data-bind="attr: { id: animationTag()}"></div>
+    <div class="col-md-5">
+        <!-- ko with: $parent.viewMedicaDisplay -->
+        @{Html.RenderPartial("~/Views/Shared/_viewMedicaDisplay.cshtml"); }
+        <!-- /ko --> 
+    </div>
 </div>
 <div class="row push-down-md">
     <div class="col-md-3">
@@ -42,5 +44,5 @@
 </div>
 <div>
     <h3>Recovery Plans</h3>
-    <section data-bind="template: { name: $parent.recoveryPlanTemplate, data: plans }"></section>
+    <section data-bind="template: { name: $root.templateIds.recoveryPlanTemplate, data: plans }"></section>
 </div>

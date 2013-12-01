@@ -27,6 +27,12 @@
                 researchExerciseTemplate : 'research.exercise',
                 researchVideoTemplate : 'research.video'
             },
+            favoriteUri = 'http://sportswebpt.com',
+            favoriteHashTags = {
+                injuryHash: '#/research/injuries',
+                planHash: '#/research/plans',
+                exerciseHash: '#/research/exercises'
+            },
             hostUri = '',
             maxSelectableAreas = ko.observable(2),
             notifier = toastr,
@@ -145,7 +151,9 @@
             kendoEditorIgnores: kendoEditorIgnores,
             kendoEditorOptions: kendoEditorOptions,
             likelyHoodThresholds: likelyHoodThresholds,
-            templateIds: templateIds
+            templateIds: templateIds,
+            favoriteUri: favoriteUri,
+            favoriteHashTags : favoriteHashTags
         };
 
     });

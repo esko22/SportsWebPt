@@ -31,6 +31,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String gender { get; set; }
 
+        public Boolean isAdmin { get; set; }
+
         public IEnumerable<Favorite> videos { get; set; }
 
         public IEnumerable<Favorite> plans { get; set; }

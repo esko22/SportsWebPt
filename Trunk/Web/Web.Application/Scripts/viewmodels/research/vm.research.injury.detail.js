@@ -1,16 +1,11 @@
 ﻿define('vm.research.injury.detail',
-    ['jquery', 'knockback', 'model.injury', 'underscore','favorites.helper', 'ko', 'services', 'config'],
-    function($, kb, Injury, _, favHelper, ko, services, config) {
+    ['jquery', 'knockback', 'model.injury', 'underscore', 'ko', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar'],
+    function($, kb, Injury, _, ko, services, config, ViewMedicaDisplay, ShareBar) {
 
         var injury = kb.viewModel(new Injury()),
-            injuryTemplate = 'examine.report.injury',
-            researchWorkoutPlanTemplate = 'research.injury.plan',
-            researchExerciseTemplate = 'research.injury.exercise',
-            researchVideoTemplate = 'research.injury.video',
-            addAsFavorite = function(data, event) {
-                favHelper.addEntityToFavorites('injury', injury.id());
-            },
-            isInitialized = ko.observable(false);
+            isInitialized = ko.observable(false),
+            viewMedicaDisplay = new ViewMedicaDisplay(),
+            shareBar = new ShareBar();
         
         function init(searchKey) {
             if (searchKey !== '') {
@@ -31,23 +26,15 @@
         }
         
         function postLoadPrep() {
-            //hate this shit... reloads there player every time
-            if (injury.animationTag() !== null) {
-                openthis = injury.animationTag();
-                vm_open();
-            } else {
-                $('.viewmedica-container').empty();
-            }
+            viewMedicaDisplay.init(injury.animationTag());
+            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.injuryHash, injury.pageName()),'injury',injury.id());
         }
 
         return {
-            injuryTemplate: injuryTemplate,
-            researchWorkoutPlanTemplate: researchWorkoutPlanTemplate,
-            researchExerciseTemplate: researchExerciseTemplate,
-            researchVideoTemplate: researchVideoTemplate,
             injury: injury,
-            addAsFavorite: addAsFavorite,
             isInitialized: isInitialized,
-            init: init
+            init: init,
+            shareBar: shareBar,
+            viewMedicaDisplay : viewMedicaDisplay
         };
     });

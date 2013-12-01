@@ -1,9 +1,11 @@
 ﻿define('vm.research.exercise.detail',
-    ['jquery', 'knockback', 'model.exercise', 'underscore', 'services', 'config'],
-    function($, kb, Exercise, _, services, config) {
+    ['jquery', 'knockback', 'model.exercise', 'underscore', 'services', 'config', 'vm.share.bar'],
+    function($, kb, Exercise, _, services, config, ShareBar) {
 
         var exercise = kb.viewModel(new Exercise()),
-            isInitialized = ko.observable(false);
+            isInitialized = ko.observable(false),
+            shareBar = new ShareBar();
+        
 
 
         function init(searchKey) {
@@ -20,11 +22,17 @@
         function onFetchSuccess(data) {
             var foundExercise = Exercise.findOrCreate(data);
             exercise.model(foundExercise);
+            postDataPrep();
+        }
+        
+        function postDataPrep() {
+            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.exerciseHash, exercise.pageName()), 'exercise', exercise.id());
         }
 
         return {
             exercise: exercise,
             init: init,
-            isInitialized: isInitialized
+            isInitialized: isInitialized,
+            shareBar : shareBar
         };
     });

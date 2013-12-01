@@ -230,6 +230,8 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\shared\vm.share.bar.js" />
+    <Content Include="Scripts\shared\vm.viewmedica.display.js" />
     <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />
     <Content Include="Content\kendo\blueopal\editor.png" />
     <Content Include="Content\kendo\blueopal\imagebrowser.png" />
@@ -336,6 +338,9 @@
     <Content Include="Views\Shared\_fbSDK.cshtml" />
     <Content Include="Views\Shared\_gPlus.cshtml" />
     <Content Include="Views\Shared\_gAnalytics.cshtml" />
+    <Content Include="Views\Shared\_gPlusAsync.cshtml" />
+    <Content Include="Views\Shared\_shareBar.cshtml" />
+    <Content Include="Views\Shared\_viewMedicaDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

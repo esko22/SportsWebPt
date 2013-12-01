@@ -31,6 +31,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Gender { get; set; }
 
+        public Boolean IsAdmin { get; set; }
+
         #endregion
 
         #region Navigation Properties

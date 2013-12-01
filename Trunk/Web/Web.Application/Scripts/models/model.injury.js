@@ -8,7 +8,8 @@
                     'medicalName': '',
                     'openingStatement': '',
                     'description': '',
-                    'animationTag' : ''
+                    'animationTag': '',
+                    'pageName': ''
                 },
                 relations: [{
                     type: backbone.HasMany,

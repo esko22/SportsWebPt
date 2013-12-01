@@ -1,10 +1,13 @@
 ﻿define('vm.research.plan.detail',
-    ['jquery', 'knockback', 'model.plan', 'underscore', 'services', 'config'],
-    function($, kb, Plan, _, services, config) {
+    ['jquery', 'knockback', 'model.plan', 'underscore', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar'],
+    function($, kb, Plan, _, services, config, ViewMedicaDisplay, ShareBar) {
 
         var plan = kb.viewModel(new Plan()),
-            isInitialized = ko.observable(false);
-        
+            isInitialized = ko.observable(false),
+            viewMedicaDisplay = new ViewMedicaDisplay(),
+            shareBar = new ShareBar();
+
+
         function init(searchKey) {
             if (searchKey !== '') {
                 services.getEntityDetail(searchKey, config.apiUris.planDetail, onFetchSuccess, null, null);
@@ -13,7 +16,7 @@
                 plan.model(Plan.findOrCreate(JSON.parse($('#selected-plan').val())));
                 postDataPrep();
             }
-
+            
             isInitialized(true);
         }
 
@@ -24,11 +27,15 @@
         }
         
         function postDataPrep() {
+            viewMedicaDisplay.init(plan.animationTag());
+            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.planHash, plan.pageName()), 'plan', plan.id());
         }
 
         return {
             plan: plan,
             init: init,
-            isInitialized : isInitialized
+            isInitialized: isInitialized,
+            viewMedicaDisplay: viewMedicaDisplay,
+            shareBar : shareBar
         };
     });

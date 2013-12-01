@@ -30,7 +30,19 @@
         }
     };
 
+    ko.bindingHandlers.likeButton = {
+        update: function (element, valueAccessor) {
+            $(element).attr('data-href', valueAccessor());
+            FB.XFBML.parse();
+        }
+    };
 
+    ko.bindingHandlers.plusOneButton = {
+        update: function (element, valueAccessor) {
+            $(element).attr('data-href', valueAccessor());
+            gapi.plusone.render(element);
+        }
+    };
 
     ko.bindingHandlers.sublimeVideo = {
         init: function (element, valueAccessor, allBindingsAccessor) {
