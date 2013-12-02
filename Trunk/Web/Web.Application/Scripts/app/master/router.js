@@ -50,7 +50,7 @@
             router.on('route:examineReport', function () {
                 if (examinePage.canShowReport()) {
                     //TODO: Diag Nav Temp
-                    examinePage.isVisible(true);
+                    //examinePage.isVisible(true);
                     examinePage.showReport();
                     transitionTo(config.viewIds.examineReport);
                 } else {

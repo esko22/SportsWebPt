@@ -26,7 +26,7 @@
             <div class="panel-group" id="recover-exercise-accordion">
                 <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
             </div>
-            <!-- ko if: filteredExercises().length == 0 -->
+            <!-- ko if: filteredExercises().length == 0 && isInitialized() -->
             <div class="push-down-lg text-center">
                 <h3>No Results Found</h3>
             </div>

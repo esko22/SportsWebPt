@@ -25,16 +25,20 @@
                         <label>Description: </label><span data-bind="html: description"></span>
                     </div>
                 </div>
-                        <div class="row">
-            <h3>body Regions</h3>
-            <table class="table table-striped">
-                <tbody data-bind="foreach: bodyRegions">
-                    <tr>
-                        <td data-bind="text: id"></td>
-                    </tr>
-                </tbody>            
-            </table>
-        </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label><strong>Categories: </strong></label>
+                        <ul data-bind="foreach: categories">
+                            <li data-bind="text: $data"></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>BodyRegions: </strong></label>
+                        <ul data-bind="foreach: bodyRegions">
+                            <li data-bind="text: name"></li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div>
                     <a class="btn btn-primary" data-bind="attr: { href: '#/research/exercises/' + pageName() }">Learn / Watch More >></a>

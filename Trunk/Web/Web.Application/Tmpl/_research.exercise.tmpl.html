@@ -1,20 +1,18 @@
-﻿<div class="tab-pane" data-bind="attr: { id: 'exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() }, showInitTab: '#workout-plan-exercises-' + $parents[0].id() + '-' + $parents[1].id()">
-    <div><strong>Name: </strong> <span data-bind="text: name"></span></div>
-    <div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
-    <div class="row">
-        <div class="col-md-2">
-            <h3>Equipment</h3>
-            <table class="table table-striped">
-                <tbody data-bind="foreach: equipment">
-                    <tr>
-                        <td data-bind="text: commonName"></td>
-                    </tr>
-                </tbody>            
-            </table>
-        </div>
-        <div class="col-md-7">
-            <h3>Video</h3>
-            <div data-bind="template: { name: $root.templateIds.researchVideoTemplate, foreach: videos }"></div>
-        </div>
+﻿<div><strong>Name: </strong> <span data-bind="text: name"></span></div>
+<div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
+<div class="row">
+    <div class="col-md-2">
+        <h3>Equipment</h3>
+        <table class="table table-striped">
+            <tbody data-bind="foreach: equipment">
+                <tr>
+                    <td data-bind="text: commonName"></td>
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+    <div class="col-md-7">
+        <h3>Video</h3>
+        <div data-bind="template: { name: $root.templateIds.researchVideoTemplate, foreach: videos }"></div>
     </div>
 </div>

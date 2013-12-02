@@ -1,14 +1,14 @@
-﻿<div id="research-exercise-detail">
+﻿<div class="container" id="research-exercise-detail">
     <div class="row">
-        <div class="col-md-1">
-            <a href="javascript:history.back()"><i class="icon-sportswebpt-chevron-left research-header-icon"></i></a>
+        <div class="col-md-3 pull-left">
+            <a href="/#/research/exercises" class="return-navigation-icon" style="text-decoration: none;"><i class="icon-sportswebpt-arrow-left"></i> To Exercises</a>
         </div>
-        <div class="col-md-11 text-center">
+        <div class="col-md-6 text-center">
             <span class="research-header-icon"><i class="icon-sportswebpt-barbell"></i> Exercise</span> 
         </div>        
     </div>
-    <hr class="examine-report-hr"/>
     <div class="row" data-bind="mask: !isInitialized()">
+    <hr class="examine-report-hr"/>
         <!-- ko with: exercise -->
         @{ Html.RenderPartial("~/views/shared/_exerciseDetail.cshtml"); }
         <!-- /ko -->

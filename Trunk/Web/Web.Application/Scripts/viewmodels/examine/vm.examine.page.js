@@ -23,7 +23,7 @@
         function showReport() {
             //TODO: Diag Nav Temp
             //detail.detailReportId()
-            var diagnosisReport = new DiagnosisReport({ diffDiagId: 1 });
+            var diagnosisReport = new DiagnosisReport({ diffDiagId: detail.detailReportId() });
             diagnosisReport.fetch({
                 success: function () {
                     report.bindReport(diagnosisReport);
@@ -43,8 +43,8 @@
         
         function canShowReport() {
             //TODO: Diag Nav Temp
-            return true;
-            //return detail.detailReportId() > 0;
+            //return true;
+            return detail.detailReportId() > 0;
         }
 
 

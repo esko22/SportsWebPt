@@ -22,8 +22,7 @@
         },
             templateIds = {
                 injuryTemplate : 'examine.report.injury',
-                recoveryPlanTemplate : 'research.recovery.plans',
-                researchWorkoutPlanTemplate : 'research.workout.plan',
+                researchInjuryPlanTemplate: 'research.injury.plan',
                 researchExerciseTemplate : 'research.exercise',
                 researchVideoTemplate : 'research.video'
             },

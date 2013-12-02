@@ -8,6 +8,7 @@
             shareBar = new ShareBar();
         
         function init(searchKey) {
+            injury.model(new Injury());
             if (searchKey !== '') {
                 services.getEntityDetail(searchKey, config.apiUris.injuryDetail, onFetchSuccess, null, null);
             }
@@ -20,8 +21,12 @@
         }
         
         function onFetchSuccess(data) {
-            var foundInjury = Injury.findOrCreate(data);
-            injury.model(foundInjury);
+            injury.model(Injury.findOrCreate(data));
+            _.each(injury.model().get('plans').models, function (plan) {
+                if (plan.get('exercises').length === 0) {
+                    plan.fetch();
+                }
+            });
             postLoadPrep();
         }
         

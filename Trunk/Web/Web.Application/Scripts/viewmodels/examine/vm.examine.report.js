@@ -9,7 +9,10 @@
 
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
-
+            probabableInjuries.removeAll();
+            moderateInjuries.removeAll();
+            remoteInjuries.removeAll();
+            
             _.each(injuries(), function(injury) {
                 if (injury.likelyHood() >= config.likelyHoodThresholds.high)
                     probabableInjuries.push(injury);

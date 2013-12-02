@@ -26,7 +26,7 @@
             <div class="panel-group" id="recover-injury-accordion">
                 <section data-bind="template: { name: briefInjuryTemplate, foreach: filteredInjuries }"></section>
             </div>
-            <!-- ko if: filteredInjuries().length == 0 -->
+            <!-- ko if: filteredInjuries().length == 0 && isInitialized() -->
             <div class="push-down-lg text-center">
                 <h3>No Results Found</h3>
             </div>
