@@ -8,18 +8,22 @@
             filteredPlanCollection = new PlanCollection(),
             filteredPlans = kb.collectionObservable(filteredPlanCollection),
             briefPlanTemplate = 'research.brief.plan',
-            categories = config.planCategories,
+            categories = config.functionCategories,
             bodyReginFilter,
             categoryFilter,
             isInitialized = ko.observable(false);
 
 
-        var onBodyRegionFilter = function(data, event) {
-            bodyReginFilter = data.id();
+        var onBodyRegionFilter = function (data, event) {
+            clearBodyRegions();
+            $(event.target).addClass("selected-filter-item");
+            bodyReginFilter = data;
             performFilter();
         };
 
         var onCategoryFilter = function (data, event) {
+            clearCategory();
+            $(event.target).addClass("selected-filter-item");
             categoryFilter = data;
             performFilter();
         };
@@ -27,40 +31,38 @@
         var performFilter = function() {
             filteredPlanCollection.reset();
 
-            if (typeof(bodyReginFilter) !== "undefined" && bodyReginFilter !== null) {
-                _.each(planCollection.models, function(plan) {
-                    _.each(plan.get('bodyRegions').models, function(bodyRegion) {
-                        if (bodyRegion.get('id') === bodyReginFilter)
-                            filteredPlanCollection.add(plan);
+            if (typeof (bodyReginFilter) !== "undefined" && bodyReginFilter !== null) {
+                filteredPlanCollection = new PlanCollection(_.filter(planCollection.models, function (plan) {
+                    var bodyRegionMatch = _.find(plan.get('bodyRegions').models, function (bodyRegion) {
+                        return (bodyRegion.id === bodyReginFilter.id());
                     });
-                });
+
+                    return typeof (bodyRegionMatch) !== "undefined";
+                }));
+
             }
             else
-                filteredPlanCollection = new Backbone.Collection(planCollection.toJSON());
-            
+                filteredPlanCollection = new PlanCollection(planCollection.toJSON());
 
-            if (typeof (categoryFilter) !== "undefined" && categoryFilter !== null) {
-                var plansToRemove = new PlanCollection();
+            if (typeof(categoryFilter) !== "undefined" && categoryFilter !== null) {
+                filteredPlanCollection = new PlanCollection(_.filter(filteredPlanCollection.models, function(plan) {
+                    var categoryMatch = _.find(plan.get('categories'), function(category) {
+                        return (category.toLowerCase() === categoryFilter.toLowerCase());
+                    });
 
-                _.each(filteredPlanCollection.models, function(plan) {
-                    if (plan.get('category').toLowerCase() !== categoryFilter.toLowerCase())
-                        plansToRemove.add(plan);
-                });
-
-                _.each(plansToRemove.models, function(plan) {
-                    filteredPlanCollection.remove(plan);
-                });
+                    return typeof(categoryMatch) !== "undefined";
+                }));
             }
             
             filteredPlans.collection(filteredPlanCollection);
         };
 
         var onReset = function (resetFilter, data) {
-            
-            if(resetFilter === 'category')
-                categoryFilter = null;
+
+            if (resetFilter === 'category')
+                clearCategory();
             if (resetFilter === 'bodyregion')
-                bodyReginFilter = null;
+                clearBodyRegions();
             
             performFilter();
         };
@@ -73,6 +75,16 @@
             }
         };
         
+        function clearCategory() {
+            $("#plan-categories-filter-list .selected-filter-item").removeClass("selected-filter-item");
+            categoryFilter = null;
+        }
+
+        function clearBodyRegions() {
+            $("#plan-bodyregions-filter-list .selected-filter-item").removeClass("selected-filter-item");
+            bodyReginFilter = null;
+        }
+
         function onInitComplete() {
             filteredPlans.collection(planCollection);
             isInitialized(true);

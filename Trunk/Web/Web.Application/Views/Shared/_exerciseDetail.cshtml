@@ -1,8 +1,8 @@
 ﻿<div class="row">
-    <div class="col-md-4 pull-left">
+    <div class="col-md-6 pull-left">
         <h2 data-bind="text: name"></h2>
     </div>
-    <div class="col-md-offset-6 col-md-2">
+    <div class="col-md-offset-4 col-md-2">
         <!-- ko with: $parent.shareBar -->
         @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
         <!-- /ko --> 
@@ -36,7 +36,7 @@
     <div class="col-md-7">
         <h3>Video</h3>
         <div data-bind="foreach:videos">
-            <video data-bind="attr: { id: 'exercise-video-detail-' + id() }, sublimeVideo: 'exercise-video-detail-' + id()" data-uid="my-exercise-vid-1" data-youtube-id="-xIDPbg1fUQ" width="640" height="360" preload="none">
+            <video data-bind="attr: { id: 'exercise-video-detail-' + id(), 'data-uid': youtubeVideoId, 'data-youtube-id': youtubeVideoId }, sublimeVideo: 'exercise-video-detail-' + id()"  width="640" height="360" preload="none">
             </video>       
         </div>
     </div>

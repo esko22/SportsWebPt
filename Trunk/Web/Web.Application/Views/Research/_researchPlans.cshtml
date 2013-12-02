@@ -6,7 +6,7 @@
             <div class="container">
                 <h3>Body Regions</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
-                <ul class="list-no-style filter-container" data-bind="foreach: bodyRegions">
+                <ul class="list-no-style filter-container" id="plan-bodyregions-filter-list" data-bind="foreach: bodyRegions">
                     <li class="filter-label">
                         <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
                     </li>
@@ -15,7 +15,7 @@
             <div class="container">
                 <h3>Categories</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'category')">Show All</span></a>
-                    <ul class="list-no-style filter-container" data-bind="foreach: categories">
+                    <ul class="list-no-style filter-container" id="plan-categories-filter-list" data-bind="foreach: categories">
                         <li class="filter-label">
                             <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
                         </li>
@@ -26,6 +26,14 @@
             <div class="panel-group" id="recover-plan-accordion">
                 <section data-bind="template: { name: briefPlanTemplate, foreach: filteredPlans }"></section>
             </div>
+            <!-- ko if: filteredPlans().length == 0 -->
+            <div class="push-down-lg text-center">
+                <h3>No Results Found</h3>
+            </div>
+            <div class="push-down-md text-center">
+                <h4>Please change your filter selections</h4>
+            </div>
+            <!-- /ko -->
         </div>
     </div>
 </div>

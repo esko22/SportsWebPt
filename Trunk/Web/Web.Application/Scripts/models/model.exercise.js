@@ -6,7 +6,8 @@
                 defaults: {
                     'description': '',
                     'duration': '',
-                    'difficulty' :''
+                    'difficulty': '',
+                    'name' : ''
                 },
                 relations: [
                     {
