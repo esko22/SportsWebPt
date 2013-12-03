@@ -11,6 +11,8 @@
         <title>SportsWebPT - @Model.Title</title>
         <script type="text/javascript" src="//cdn.sublimevideo.net/js/jkmwb037.js"></script>
         <script type="text/javascript" src="http://www.swarminteractive.com/js/vm.js"></script>
+        @{Html.RenderPartial("~/Views/Shared/_gAnalytics.cshtml"); }
+        @{Html.RenderPartial("~/Views/Shared/_gPlus.cshtml"); }
         @Styles.Render("~/Content/css")
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -20,12 +22,10 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body id="body-content">
+        @{Html.RenderPartial("~/Views/Shared/_fbSDK.cshtml"); }
         <input type="hidden" id="userid" value="@Model.User.id"/>
         <input type="hidden" id="username" value="@Model.User.userName"/>
         <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
-        @{Html.RenderPartial("~/Views/Shared/_fbSDK.cshtml"); }
-        @{Html.RenderPartial("~/Views/Shared/_gPlus.cshtml"); }
-        @{Html.RenderPartial("~/Views/Shared/_gAnalytics.cshtml"); }
         @{Html.RenderPartial("~/Views/Shared/_masterHeader.cshtml"); }
         <div id="master-container" class="container">
             @RenderBody()

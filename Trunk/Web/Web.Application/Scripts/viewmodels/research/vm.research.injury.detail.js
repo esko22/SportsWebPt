@@ -31,8 +31,13 @@
         }
         
         function postLoadPrep() {
-            viewMedicaDisplay.init(injury.animationTag());
-            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.injuryHash, injury.pageName()),'injury',injury.id());
+            viewMedicaDisplay.init(injury.animationTag(), '#research-injury-detail');
+            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.injuryHash, injury.pageName()), 'injury', injury.id());
+            $('#injury-plan-accordion .panel-collapse:first').collapse('show');
+        }
+        
+        function setDefaultPanel() {
+            $('#injury-plan-accordion .panel-collapse:first').collapse('show');
         }
 
         return {
@@ -40,6 +45,7 @@
             isInitialized: isInitialized,
             init: init,
             shareBar: shareBar,
-            viewMedicaDisplay : viewMedicaDisplay
+            viewMedicaDisplay: viewMedicaDisplay,
+            setDefaultPanel : setDefaultPanel
         };
     });

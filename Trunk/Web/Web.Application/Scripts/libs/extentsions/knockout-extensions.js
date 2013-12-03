@@ -21,26 +21,31 @@
     ko.bindingHandlers.showInitPanel = {
         init: function (element, valueAccessor, allBindingsAccessor) {
             $(valueAccessor() + ' .panel-collapse:first').collapse('show');
-        }   
+        }
     };
     
     ko.bindingHandlers.showInitTab = {
         init: function (element, valueAccessor, allBindingsAccessor) {
-            $(valueAccessor() + ' a:first').tab('show');
+            $(document).ready(function() {
+                $(valueAccessor() + ' a:first').tab('show');
+            });
         }
     };
 
     ko.bindingHandlers.likeButton = {
         update: function (element, valueAccessor) {
-            $(element).attr('data-href', valueAccessor());
-            FB.XFBML.parse();
+            $(document).ready(function() {
+                $(element).attr('data-href', valueAccessor());
+                FB.XFBML.parse();
+            });
         }
     };
 
     ko.bindingHandlers.plusOneButton = {
         update: function (element, valueAccessor) {
-            $(element).attr('data-href', valueAccessor());
-            gapi.plusone.render(element);
+            $(document).ready(function () {
+                $(element).attr('data-href', valueAccessor());
+            });
         }
     };
 
@@ -49,11 +54,11 @@
 
             if (sublime.prepare === undefined) {
                 sublime.ready(function() {
-                    sublime.prepare(valueAccessor());
+                    sublime.prepare(element);
                 });
                 sublime.load();
             } else {
-                sublime.prepare(valueAccessor());
+                sublime.prepare(element);
             }
         }
     };

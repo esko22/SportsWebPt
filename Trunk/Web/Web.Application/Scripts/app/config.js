@@ -23,8 +23,8 @@
             templateIds = {
                 injuryTemplate : 'examine.report.injury',
                 researchInjuryPlanTemplate: 'research.injury.plan',
-                researchExerciseTemplate : 'research.exercise',
-                researchVideoTemplate : 'research.video'
+                exerciseTemplate : 'exercise',
+                sublimeYoutubeVideoTemplate: 'sublime.youtube.video'
             },
             favoriteUri = 'http://sportswebpt.com',
             favoriteHashTags = {

@@ -1,0 +1,25 @@
+﻿<div><strong>Name: </strong> <span data-bind="text: name"></span></div>
+<div><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></div>
+<div><strong>Sets: </strong><span data-bind="text: sets"></span></div>
+<div><strong>Reps: </strong><span data-bind="text: repititions"></span></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Equipment</h3>
+            <table class="table table-striped">
+                <tbody data-bind="foreach: equipment">
+                    <tr>
+                        <td data-bind="text: commonName"></td>
+                    </tr>
+                </tbody>            
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Video</h3>
+            <div data-bind="template: { name: $root.templateIds.sublimeYoutubeVideoTemplate, foreach: videos }"></div>
+        </div>
+    </div>    
+</div>
+

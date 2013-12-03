@@ -48,31 +48,39 @@
         </div>
     </div>
     <div>
-        <h3>Recovery Plans</h3>
-            <div data-bind="attr: { id: 'recovery-plan-accordion-' + id() }" class="panel-group">
-                <section data-bind="foreach: plans, showInitPanel: '#recovery-plan-accordion-' + id()">
-                    <div class="panel panel-default examine-report-workout-accord">
-                        <div class="panel-heading">
-                            <a data-toggle="collapse" class="research-accordian-icon" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#workout-plan-' + id() + '-' + $parents[0].id() }" >
-                                <i class="icon-sportswebpt-clipboard3"></i>
-                                <span data-bind="text: ' ' + routineName()"></span>
-                                <span class="glyphicon glyphicon-chevron-down pull-right" ></span>
-                            </a>
-                        </div>
-                        <div data-bind="attr: { id: 'workout-plan-' + id() + '-' + $parents[0].id() }" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div><strong>Purpose: </strong><span data-bind="html: description"></span></div>
-                                <div class="tabbable" data-bind="attr: { id: 'workout-plan-exercises-' + id() + '-' + $parents[0].id()}">
-                                    <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
-                                        <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() , title: 'Exercise ' + $index() }, text: 'Exercise ' + ($index() + 1) " data-toggle="tab"></a></li>
-                                    </ul>
-                                    <div class="tab-content exercise-tab-pane" data-bind="attr: { id: 'workout-plan-exercise-panes-' + id() + '-' + $parents[0].id() }, foreach: exercises">
-                                        <div class="tab-pane" data-bind="attr: { id: 'exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() }, template: { name: $root.templateIds.researchExerciseTemplate, data: $data }, showInitTab: '#workout-plan-exercises-' + $parents[0].id() + '-' + $parents[1].id()" />
-                                    </div>
+    <h3>Recovery Plans</h3>
+        <div data-bind="attr: { id: 'recovery-plan-accordion-' + id() }" class="panel-group">
+            <section data-bind="foreach: plans, showInitPanel: '#recovery-plan-accordion-' + id()">
+                <div class="panel panel-default examine-report-workout-accord">
+                    
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" class="research-accordian-icon" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#recovery-plan-' + id() + '-' + $parent.id() }" >
+                            <i class="icon-sportswebpt-clipboard3"></i>
+                            <span data-bind="text: ' ' + routineName()"></span>
+                            <span class="glyphicon glyphicon-chevron-down pull-right" ></span>
+                        </a>
+                    </div>
+
+                    <div data-bind="attr: { id: 'recovery-plan-' + id() + '-' + $parent.id() }" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div><strong>Purpose: </strong><span data-bind="html: description"></span></div>
+                            <div class="tabbable" data-bind="attr: { id: 'recovery-plan-exercises-' + id() + '-' + $parent.id() }">
+                                <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
+                                    <li>
+                                        <a class="exercise-tab-item" data-bind="attr: {href: '#exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id(),
+                                                                                    title: 'Exercise ' + $index()}, text: 'Exercise ' + ($index() + 1) " data-toggle="tab">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content exercise-tab-pane" data-bind="attr: { id: 'recovery-plan-exercise-panes-' + id() + '-' + $parent.id() }, foreach: exercises">
+                                    <div class="tab-pane" data-bind="attr: { id: 'exercise-' + $parent.id() + '-' + $parents[1].id() + '-' + id() },
+                                                                            template: { name: $root.templateIds.exerciseTemplate, data: $data },
+                                                                            showInitTab: '#recovery-plan-exercises-' + $parent.id() + '-' + $parents[1].id()" />
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-           </div>
+                    </div>  
+                </div>
+            </section>
+        </div>
     </div>

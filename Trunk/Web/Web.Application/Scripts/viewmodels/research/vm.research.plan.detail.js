@@ -27,8 +27,12 @@
         }
         
         function postDataPrep() {
-            viewMedicaDisplay.init(plan.animationTag());
+            viewMedicaDisplay.init(plan.animationTag(), '#research-plan-detail');
             shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.planHash, plan.pageName()), 'plan', plan.id());
+        }
+        
+        function setDefaultTab() {
+            $('#plan-exercise-tab-container a:first').tab('show');
         }
 
         return {
@@ -36,6 +40,7 @@
             init: init,
             isInitialized: isInitialized,
             viewMedicaDisplay: viewMedicaDisplay,
-            shareBar : shareBar
+            shareBar: shareBar,
+            setDefaultTab: setDefaultTab
         };
     });

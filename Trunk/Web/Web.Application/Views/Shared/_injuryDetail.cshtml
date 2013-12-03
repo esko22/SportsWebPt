@@ -42,7 +42,11 @@
         </table>
     </div>
 </div>
-<div>
-    <h3>Recovery Plans</h3>
-    <section data-bind="template: { name: $root.templateIds.researchInjuryPlanTemplate, foreach: plans}"></section>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Recovery Plans</h3>
+        <div data-bind="attr: { id: 'injury-plan-accordion' }" class="panel-group">
+            <section data-bind="template: { name: $root.templateIds.researchInjuryPlanTemplate, foreach: plans, afterRender: $parent.setDefaultPanel }"></section>
+        </div>
+    </div>
 </div>

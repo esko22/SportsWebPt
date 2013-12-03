@@ -7,15 +7,15 @@
             this.animationTag = ko.observable();
         }
 
-        ViewMedicaDisplay.prototype.init = function(animationCode) {
+        ViewMedicaDisplay.prototype.init = function(animationCode, containerSelector) {
+            $(containerSelector + ' .viewmedica-container').empty();
+            
             if (animationCode !== null) {
                 this.animationTag(animationCode);
                 //hate this shit... reloads there player every time
                 openthis = animationCode;
                 vm_open();
-            } else {
-                $('.viewmedica-container').empty();
-            }
+            }  
         };
 
         return ViewMedicaDisplay;
