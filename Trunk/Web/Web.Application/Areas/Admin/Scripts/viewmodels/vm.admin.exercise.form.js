@@ -61,7 +61,7 @@
             $(modalDialogId).modal('show');
         },    
         bindSelectedExercise = function (exercise) {
-
+            //TODO: this is totally shite... newb shit
             selectedExercise.get('equipment').reset();
             selectedExercise.get('videos').reset();
             selectedExercise.get('bodyRegions').reset();
@@ -129,6 +129,12 @@
                     minlength: 2,
                     maxlength: 100
                 },
+                medicalName:
+                {
+                    required: true,
+                    minlength: 2,
+                    maxlength: 100
+                },
                 duration:
                 {
                     required: true,
@@ -164,8 +170,8 @@
                     minlength: "must be between 2 and 100 characters",
                     maxlength: "must be between 2 and 100 characters"
                 },
-                fileName: {
-                    required: "file name required",
+                medicalName: {
+                    required: "medical name required",
                     minlength: "must be between 5 and 40 characters",
                     maxlength: "must be between 5 and 40 characters"
                 },
