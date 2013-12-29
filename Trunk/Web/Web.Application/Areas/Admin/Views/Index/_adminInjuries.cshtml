@@ -102,7 +102,7 @@
                             <div class="form-group">
                                 <label class="control-label col-lg-3" for="inputSigns">Signs</label>
                                 <div class="col-lg-9">
-                                    <select id="inputSigns" name="signs" class="form-control" multiple="multiple" size="6" data-bind="options: availableSigns, optionsText: 'description', selectedOptions: signs" >
+                                    <select id="inputSigns" name="signs" class="form-control" multiple="multiple" size="6" data-bind="options: availableSigns, optionsText: function(item) { return item.description() + ' : ' + item.category() }, selectedOptions: signs" >
                                     </select>
                                 </div>
                             </div>

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
 using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack;
@@ -23,7 +25,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(SignListRequest request)
         {
             var responseList = new List<SignDto>();
-            Mapper.Map(ResearchUnitOfWork.SignRepo.GetAll(), responseList);
+            Mapper.Map(ResearchUnitOfWork.SignRepo.GetAll().OrderBy(p => p.Description).OrderBy(c => c.Category), responseList);
 
             return
                 Ok(new ApiListResponse<SignDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
