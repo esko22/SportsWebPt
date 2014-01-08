@@ -2,7 +2,7 @@
 using System.Linq;
 
 using AutoMapper;
-
+using ServiceStack.ServiceInterface.ServiceModel;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
@@ -25,7 +25,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(SignListRequest request)
         {
             var responseList = new List<SignDto>();
-            Mapper.Map(ResearchUnitOfWork.SignRepo.GetAll().OrderBy(p => p.Description).OrderBy(c => c.Category), responseList);
+            Mapper.Map(ResearchUnitOfWork.SignRepo.GetAll(new[] { "Filter" }).OrderBy(p => p.Category).ThenBy(c => c.Description), responseList);
 
             return
                 Ok(new ApiListResponse<SignDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

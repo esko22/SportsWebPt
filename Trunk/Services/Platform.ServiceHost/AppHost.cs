@@ -97,54 +97,9 @@ namespace SportsWebPt.Platform.ServiceHost
 
         private void BuildRoutes()
         {
-            //Routes
-            //    .Add<UserRequest>("users/{Id}")
-            //    .Add<UserRequest>("users")
-                //.Add<AuthRequestDto>("auth")
-                //.Add<SkeletonAreaListRequest>("areas")
-                //.Add<BodyPartListRequest>("bodyparts")
-                //.Add<BodyPartRequest>("bodyparts/{id}")
-                //.Add<BodyPartRequest>("bodyparts", "POST")
-                //.Add<BodyRegionListRequest>("bodyregions")
-                //.Add<BodyRegionRequest>("bodyregions/{id}")
-                //.Add<BodyRegionRequest>("bodyregions", "POST")
-
-                //.Add<SymptomListRequest>("symptoms")
-                //.Add<SymptomaticRegionListRequest>("symptomaticregions")
-
-                //.Add<PotentialSymptomListRequest>("potentialsymptoms")
-                //.Add<PotentialSymptomListRequest>("potentialsymptoms/{BodyPartMatrixId}")
-                
-                
-                //.Add<DifferentialDiagnosisRequest>("differentialDiagnosis")
-                //.Add<DiagnosisReportRequest>("diagnosisReports/{Id}")
-                
-                
-                //.Add<PlanRequest>("plans/{Id}")
-                //.Add<PlanRequest>("plans", "POST")
-                //.Add<PlanListRequest>("plans")
-                //.Add<VideoListRequest>("videos")
-                //.Add<VideoRequest>("videos/{id}")
-                //.Add<VideoRequest>("videos", "POST")
-                //.Add<EquipmentListRequest>("equipment")
-                //.Add<EquipmentRequest>("equipment/{id}")
-                //.Add<EquipmentRequest>("equipment", "POST")
-                //.Add<ExecerciseListRequest>("exercises")
-                //.Add<ExecerciseRequest>("exercises/{id}")
-                //.Add<ExecerciseRequest>("exercises", "POST")
-                //.Add<SignListRequest>("signs")
-                //.Add<SignRequest>("signs/{id}")
-                //.Add<SignRequest>("signs", "POST")
-                //.Add<CauseListRequest>("causes")
-                //.Add<CauseRequest>("causes/{id}")
-                //.Add<CauseRequest>("causes", "POST")
-                //.Add<InjuryListRequest>("injuries")
-                //.Add<InjuryRequest>("injuries/{id}")
-                //.Add<InjuryRequest>("injuries", "POST")
-                //.Add<PageNameValidationRequest>("validate")
-                //.Add<BodyPartMatrixListRequest>("bodypartmatrix")
-                //.Add<UserFavoriteRequest>("users/favorites","POST");
+            // routes all moved over to attrbiutes on operations
         }
+
         public override IServiceRunner<TRequest> CreateServiceRunner<TRequest>(ActionContext actionContext)
         {
             return new LoggingServiceRunner<TRequest>(this,actionContext);
@@ -162,6 +117,8 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IResearchUnitOfWork>(c => new ResearchUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
+            container.Register<ILookupUnitOfWork>(c => new LookupUnitOfWork(c.Resolve<IRepositoryProvider>()))
+                     .ReusedWithin(ReuseScope.Request);
         }
 
         private void BoostrapEf()

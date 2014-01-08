@@ -8,12 +8,14 @@
                             <tr>
                                 <th>Description</th>
                                 <th>Category</th>
+                                <th>Filter</th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: signs">
                             <tr>
                                 <td data-bind="text:description"></td>
                                 <td data-bind="text:category"></td>
+                                <td data-bind="text:filter().filterCategory"></td>
                                 <td><button class="btn-primary" data-bind="click: $parent.bindSelectedSign">Edit</button></td>
                             </tr>
                         </tbody>            
@@ -33,7 +35,15 @@
                                 <select id="inputCategory" name="category" class="form-control" data-bind="options: availableCategories, value: selectedSign.category" >
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputCategory">Filter</label>
+                            <div class="col-lg-9">
+                                <select id="inputGroup" name="group" class="form-control" data-bind="options: availableSignFilters, optionsText: 'filterCategory', optionsValue: 'model', value: selectedSign.filter" >
+                                </select>
+                            </div>
                        </div>
+
                         <div class="text-center">
                           <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>

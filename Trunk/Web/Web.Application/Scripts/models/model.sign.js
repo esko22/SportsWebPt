@@ -1,10 +1,16 @@
-﻿define('model.sign', ['backbone', 'config', 'jquery'],
-    function (backbone, config, $) {
+﻿define('model.sign', ['backbone', 'config', 'jquery', 'model.sign.filter'],
+    function (backbone, config, $, Filter) {
         var
             sign = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.signs,
                 defaults: {
-                }
+                },
+                relations: [{
+                    type: backbone.HasOne,
+                    key: 'filter',
+                    relatedModel: Filter
+                }]
+
             });
 
         return sign;
@@ -23,15 +29,20 @@ define('model.sign.collection', ['backbone', 'model.sign', 'config'],
 
     });
 
-define('model.admin.sign', ['backbone', 'config', 'jquery'],
-    function (backbone, config, $) {
+define('model.admin.sign', ['backbone', 'config', 'jquery', 'model.sign.filter'],
+    function (backbone, config, $, Filter) {
         var
             sign = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminSigns,
                 defaults: {
                     'description': '',
                     'category': ''
-                }
+                },
+                relations: [{
+                    type: backbone.HasOne,
+                    key: 'filter',
+                    relatedModel: Filter
+                }]
             });
 
         return sign;

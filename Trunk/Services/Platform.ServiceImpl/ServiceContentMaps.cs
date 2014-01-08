@@ -425,6 +425,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
                    .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)));
 
+            Mapper.CreateMap<SignFilter, SignFilterDto>();
+            Mapper.CreateMap<SignFilterDto, SignFilter>();
+
+            Mapper.CreateMap<CreateSignRequest, Sign>()
+                  .ForMember(d => d.FilterCategoryId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.Filter, opt => opt.Ignore());
+            Mapper.CreateMap<UpdateSignRequest, Sign>()
+                  .ForMember(d => d.FilterCategoryId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.Filter, opt => opt.Ignore());
+
         }
     }
 }

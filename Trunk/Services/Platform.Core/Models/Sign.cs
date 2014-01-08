@@ -13,5 +13,17 @@ namespace SportsWebPt.Platform.Core.Models
         public SignCategory Category { get; set; }
 
         #endregion
+
+        #region Foriegn Keys
+
+        public int FilterCategoryId { get; set; }
+        
+        #endregion
+
+        #region Navigation Properties
+
+        public virtual SignFilter Filter { get; set; }
+
+        #endregion
     }
 }

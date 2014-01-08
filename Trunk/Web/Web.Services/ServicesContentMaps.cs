@@ -177,6 +177,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<FavoriteDto, Favorite>();
             Mapper.CreateMap<Favorite, CreateUserFavoriteRequest>();
 
+            Mapper.CreateMap<SignFilterDto, SignFilter>();
+            Mapper.CreateMap<SignFilter, SignFilterDto>();
+
+
         }
     }
 }

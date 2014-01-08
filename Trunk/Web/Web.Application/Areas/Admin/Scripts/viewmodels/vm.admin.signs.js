@@ -1,6 +1,6 @@
 ﻿define('vm.admin.signs',
-    ['ko', 'underscore', 'knockback', 'model.admin.sign.collection', 'model.admin.sign', 'error.helper', 'bootstrap.helper'],
-    function (ko, _, kb, SignCollection, SignModel, err, bh) {
+    ['ko', 'underscore', 'knockback', 'model.admin.sign.collection', 'model.admin.sign', 'error.helper', 'bootstrap.helper', 'config', 'config.lookups'],
+    function (ko, _, kb, SignCollection, SignModel, err, bh, config, lookups) {
 
         var signCollection = new SignCollection(),
             signs = kb.collectionObservable(signCollection),
@@ -8,8 +8,10 @@
             availableCategories = ko.observableArray(['Functional', 'Subjective', 'Visual']),
             bindSelectedSign = function (data, event) {
                 var category = data.model().get('category');
-                selectedSign.model(data.model());
+                var filter = data.model().get('filter');
                 selectedSign.category(category);
+                selectedSign.filter(lookups.availableSignFilters.models()[2]);
+                selectedSign.model(data.model());
             },
             onSuccessfulChange = function () {
                 bindSelectedSign(kb.viewModel(new SignModel()), null);
@@ -62,6 +64,7 @@
             bindSelectedSign: bindSelectedSign,
             signValidationOptions: signValidationOptions,
             availableCategories: availableCategories,
+            availableSignFilters: lookups.availableSignFilters,
             init : init
         };
     });

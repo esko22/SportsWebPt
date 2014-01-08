@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Content\kendo\textures\stripe6.png" />
     <Content Include="Content\kendo\textures\transparency.png" />
     <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Scripts\app\config.lookups.js" />
     <Content Include="Scripts\libs\backbone.js" />
     <Content Include="Content\fonts\sportswebpt.eot" />
     <Content Include="Content\fonts\sportswebpt.ttf" />
@@ -260,6 +262,7 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\models\model.sign.filter.js" />
     <Content Include="Scripts\shared\vm.share.bar.js" />
     <Content Include="Scripts\shared\vm.viewmedica.display.js" />
     <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />
@@ -459,7 +462,9 @@
     <Content Include="Tmpl\_examine.report.injury.tmpl.html" />
     <Content Include="Tmpl\_research.brief.exercise.tmpl.html" />
     <Content Include="Tmpl\_exercise.tmpl.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

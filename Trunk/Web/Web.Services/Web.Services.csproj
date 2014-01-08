@@ -63,9 +63,11 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\IExamineService.cs" />
+    <Compile Include="Interfaces\ILookupService.cs" />
     <Compile Include="Interfaces\IResearchService.cs" />
     <Compile Include="Proxies\AdminService.cs" />
     <Compile Include="Proxies\ExamineService.cs" />
+    <Compile Include="Proxies\LookupService.cs" />
     <Compile Include="Proxies\ResearchService.cs" />
     <Compile Include="ServicesContentMaps.cs" />
     <Compile Include="Interfaces\IUserManagementService.cs" />

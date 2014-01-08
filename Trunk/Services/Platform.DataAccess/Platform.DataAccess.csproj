@@ -55,6 +55,7 @@
     <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SignFilterConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoCategoryMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\PlanCategoryMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseBodyPartMatrixConfiguration.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Repositories\PlanRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\LookupUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
     <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />

@@ -44,7 +44,8 @@ namespace SportsWebPt.Platform.DataAccess
             var videos = AddVideos();
             var exercises = AddExercises();
             var causes = AddCauses();
-            var signs = AddSigns();
+            var signFilters = AddSignFilterCategories();
+            var signs = AddSigns(signFilters);
             var plans = AddPlans();
             var vendors = AddVendors();
 
@@ -120,15 +121,34 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext.SaveChanges();
         }
 
-        private List<Sign> AddSigns()
+        private List<SignFilter> AddSignFilterCategories()
+        {
+            var signFilters = new List<SignFilter>()
+                {
+                    new SignFilter() {FilterCategory = "Painful"},
+                    new SignFilter() {FilterCategory = "Throbbing"},
+                    new SignFilter() {FilterCategory = "Bruising"},
+                    new SignFilter() {FilterCategory = "Popping"},
+                    new SignFilter() {FilterCategory = "Tingling"},
+                    new SignFilter() {FilterCategory = "Tightness"},
+                };
+
+            signFilters.ForEach(p => _dbContext.SignFilterCategories.Add(p));
+            _dbContext.SaveChanges();
+
+            return signFilters;
+        } 
+
+
+        private List<Sign> AddSigns(IList<SignFilter> filterCategories)
         {
             var signs = new List<Sign>()
                 {
-                    new Sign() { Category = SignCategory.Functional, Description = "Painful to jump"},
-                    new Sign() { Category = SignCategory.Visual, Description = "Love Handles"},
-                    new Sign() { Category = SignCategory.Functional, Description = "Limited push-off"},
-                    new Sign() { Category = SignCategory.Subjective, Description = "Throbing"},
-                    new Sign() { Category = SignCategory.Subjective, Description = "Stiffness"},
+                    new Sign() { Category = SignCategory.Functional, Description = "Painful to jump", Filter = filterCategories[0]},
+                    new Sign() { Category = SignCategory.Visual, Description = "Love Handles", Filter = filterCategories[1]},
+                    new Sign() { Category = SignCategory.Functional, Description = "Limited push-off", Filter = filterCategories[0]},
+                    new Sign() { Category = SignCategory.Subjective, Description = "Throbing", Filter = filterCategories[2]},
+                    new Sign() { Category = SignCategory.Subjective, Description = "Stiffness", Filter = filterCategories[3]},
                 };
 
             signs.ForEach(p => _dbContext.Signs.Add(p));

@@ -64,6 +64,7 @@
     <Compile Include="Models\PotentialInjury.cs" />
     <Compile Include="Models\PotentialSymptom.cs" />
     <Compile Include="Models\Sign.cs" />
+    <Compile Include="Models\SignFilter.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomaticBodyPart.cs" />

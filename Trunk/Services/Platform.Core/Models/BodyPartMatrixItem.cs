@@ -13,15 +13,19 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int BodyPartId { get; set; }
 
+        public Boolean IsSecondary { get; set; }
+
+        public Boolean Decom { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
         public virtual SkeletonArea SkeletonArea { get; set; }
 
         public virtual BodyPart BodyPart { get; set; }
 
         public ICollection<SymptomMatrixItem> SymptomMatrixItems { get; set; }
-
-        public Boolean IsSecondary { get; set; }
-
-        public Boolean Decom { get; set; }
 
         #endregion
     }

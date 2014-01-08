@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Category { get; set; }
 
+        public SignFilterDto Filter { get; set; }
+
         #endregion
     }
 }

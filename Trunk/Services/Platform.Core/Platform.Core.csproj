@@ -71,6 +71,7 @@
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\Sign.cs" />
     <Compile Include="Models\SignCategory.cs" />
+    <Compile Include="Models\SignFilterCategory.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\BodyPartMatrixItem.cs" />
     <Compile Include="Models\SymptomDetail.cs" />

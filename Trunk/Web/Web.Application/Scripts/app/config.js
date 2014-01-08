@@ -68,7 +68,8 @@
                 clinics: $.format('{0}/{1}', hostUri, 'research/locate/{zipcode}'),
                 injuryDetail: $.format('{0}/{1}', hostUri, 'research/injury/detail/'),
                 planDetail: $.format('{0}/{1}', hostUri, 'research/plan/detail/'),
-                exerciseDetail: $.format('{0}/{1}', hostUri, 'research/exercise/detail/')
+                exerciseDetail: $.format('{0}/{1}', hostUri, 'research/exercise/detail/'),
+                signFilters: $.format('{0}/{1}', hostUri, 'lookup/signfilters')
             },
             likelyHoodThresholds = {
                 high: .80,
@@ -81,6 +82,7 @@
             },
             functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']),
             regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']),
+            signGroups = ko.observableArray(['Painful','Throbbing','Bruising','Popping','Tingling','Tightness']),
             holdTypes = ko.observableArray(['Seconds', 'Minutes', 'Breaths']),
             kendoEditorOptions = [
                 "bold",
@@ -152,7 +154,8 @@
             likelyHoodThresholds: likelyHoodThresholds,
             templateIds: templateIds,
             favoriteUri: favoriteUri,
-            favoriteHashTags : favoriteHashTags
+            favoriteHashTags: favoriteHashTags,
+            signGroups : signGroups
         };
 
     });
