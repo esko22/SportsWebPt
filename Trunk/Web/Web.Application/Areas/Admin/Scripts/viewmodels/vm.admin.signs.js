@@ -8,10 +8,10 @@
             availableCategories = ko.observableArray(['Functional', 'Subjective', 'Visual']),
             bindSelectedSign = function (data, event) {
                 var category = data.model().get('category');
-                var filter = data.model().get('filter');
-                selectedSign.category(category);
-                selectedSign.filter(lookups.availableSignFilters.models()[2]);
+                var filterId = data.model().get('filterId');
                 selectedSign.model(data.model());
+                selectedSign.category(category);
+                selectedSign.filterId(filterId);
             },
             onSuccessfulChange = function () {
                 bindSelectedSign(kb.viewModel(new SignModel()), null);

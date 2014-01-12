@@ -61,7 +61,7 @@
             $(modalDialogId).modal('show');
         },    
         bindSelectedExercise = function (exercise) {
-            //TODO: this is totally shite... newb shit
+            //TODO: this is totally shite... newb stuff
             selectedExercise.get('equipment').reset();
             selectedExercise.get('videos').reset();
             selectedExercise.get('bodyRegions').reset();

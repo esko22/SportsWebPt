@@ -2,7 +2,7 @@
     function (ko, $, kb, SignFilters) {
 
         var signFilterCollection = new SignFilters(),
-            availableSignFilters = kb.collectionObservable(signFilterCollection);        
+            availableSignFilters = kb.collectionObservable(signFilterCollection);
 
         function init() {
             signFilterCollection.fetch();

@@ -36,7 +36,8 @@ define('model.admin.sign', ['backbone', 'config', 'jquery', 'model.sign.filter']
                 urlRoot: config.apiUris.adminSigns,
                 defaults: {
                     'description': '',
-                    'category': ''
+                    'category': '',
+                    'filterId': ''
                 },
                 relations: [{
                     type: backbone.HasOne,

@@ -159,12 +159,16 @@ namespace SportsWebPt.Platform.Web.Services
 
 
             Mapper.CreateMap<SignDto, Sign>();
+
+            //seem to be having issues with this type of inheritance mapping
+            //http://stackoverflow.com/questions/14705064/mapping-one-source-class-to-multiple-derived-classes-with-automapper
             Mapper.CreateMap<Sign, SignDto>()
                   .Include<Sign, CreateSignRequest>()
                   .Include<Sign, UpdateSignRequest>();
-            Mapper.CreateMap<Sign, CreateSignRequest>();
-            Mapper.CreateMap<Sign, UpdateSignRequest>();
-
+            Mapper.CreateMap<Sign, CreateSignRequest>()
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new SignFilter() {id = s.filterId}));
+            Mapper.CreateMap<Sign, UpdateSignRequest>()
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new SignFilter() {id = s.filterId}));
 
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>()

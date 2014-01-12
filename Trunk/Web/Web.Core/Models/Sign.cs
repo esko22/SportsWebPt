@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public SignFilter filter { get; set; }
 
+        public int filterId { get; set; }
+
         #endregion
     }
 }
