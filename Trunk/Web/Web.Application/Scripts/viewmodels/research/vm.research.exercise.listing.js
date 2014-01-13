@@ -1,6 +1,6 @@
 ﻿define('vm.research.exercise.listing',
-    ['jquery', 'ko', 'knockback', 'model.exercise.collection', 'underscore', 'model.body.region.collection', 'config'],
-    function ($, ko, kb, ExerciseCollection, _, BodyRegionCollection, config) {
+    ['jquery', 'ko', 'knockback', 'model.exercise.collection', 'underscore', 'model.body.region.collection', 'config', 'config.lookups'],
+    function ($, ko, kb, ExerciseCollection, _, BodyRegionCollection, config, lookups) {
 
         var bodyRegionCollection = new BodyRegionCollection(),
             bodyRegions = kb.collectionObservable(bodyRegionCollection),
@@ -11,7 +11,8 @@
             isInitialized = ko.observable(false),
             bodyReginFilter,
             categoryFilter,
-            categories = config.functionCategories;
+            equipmentFilter,
+            categories = lookups.functionExerciseCategories;
 
         var performFilter = function (data, event) {
             filteredExerciseCollection.reset();
@@ -38,6 +39,16 @@
                     return typeof (categoryMatch) !== "undefined";
                 }));
             }
+            
+            if (typeof (equipmentFilter) !== "undefined" && equipmentFilter !== null) {
+                filteredExerciseCollection = new ExerciseCollection(_.filter(filteredExerciseCollection.models, function (exercise) {
+                    var equipmentMatch = _.find(exercise.get('equipment').models, function (equipment) {
+                        return (equipment.id === equipmentFilter.id());
+                    });
+
+                    return typeof (equipmentMatch) !== "undefined";
+                }));
+            }
 
             filteredExercises.collection(filteredExerciseCollection);
         };
@@ -56,12 +67,21 @@
             performFilter();
         };
 
+        var onEquipmentFilter = function(data, event) {
+            clearEquipment();
+            $(event.target).addClass("selected-filter-item");
+            equipmentFilter = data;
+            performFilter();
+        };
+
         var onReset = function (resetFilter, data) {
 
             if (resetFilter === 'category')
                 clearCategory();
             if (resetFilter === 'bodyregion')
                 clearBodyRegions();
+            if (resetFilter === 'equipment')
+                clearEquipment();
 
             performFilter();
         };
@@ -74,6 +94,11 @@
         function clearBodyRegions() {
             $("#exercise-bodyregions-filter-list .selected-filter-item").removeClass("selected-filter-item");
             bodyReginFilter = null;
+        }
+        
+        function clearEquipment() {
+            $("#exercise-equipment-filter-list .selected-filter-item").removeClass("selected-filter-item");
+            equipmentFilter = null;
         }
 
         var init = function() {
@@ -100,6 +125,8 @@
             isInitialized: isInitialized,
             onBodyRegionFilter: onBodyRegionFilter,
             onCategoryFilter: onCategoryFilter,
-            categories : categories
+            onEquipmentFilter: onEquipmentFilter, 
+            categories: categories,
+            equipment: lookups.availableEquipment
         };
     });

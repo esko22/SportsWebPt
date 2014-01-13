@@ -1,6 +1,6 @@
 ﻿define('vm.research.injury.listing',
-    ['jquery', 'config', 'knockback', 'ko', 'model.body.region.collection', 'model.injury.collection', 'underscore', 'model.sign.collection'],
-    function ($, config, kb, ko, BodyRegionCollection, InjuryCollection, _, SignCollection) {
+    ['jquery', 'config', 'knockback', 'ko', 'model.body.region.collection', 'model.injury.collection', 'underscore', 'config.lookups'],
+    function ($, config, kb, ko, BodyRegionCollection, InjuryCollection, _, lookups) {
 
         var bodyRegionCollection = new BodyRegionCollection(),
             bodyRegions = kb.collectionObservable(bodyRegionCollection),
@@ -8,8 +8,6 @@
             filteredInjuryCollection = new InjuryCollection(),
             filteredInjuries = kb.collectionObservable(filteredInjuryCollection),
             briefInjuryTemplate = 'research.brief.injury',
-            signCollection = new SignCollection(),
-            signs = kb.collectionObservable(signCollection),
             bodyReginFilter,
             signFilter,
             isInitialized = ko.observable(false);
@@ -49,7 +47,7 @@
             if (typeof (signFilter) !== "undefined" && signFilter !== null) {
                 filteredInjuryCollection = new InjuryCollection(_.filter(filteredInjuryCollection.models, function (injury) {
                    var signMatch = _.find(injury.get('signs').models, function(sign) {
-                        return (sign.get('id') === signFilter.id());
+                        return (sign.get('filterId') === signFilter.id());
                     });
 
                     return typeof (signMatch) !== "undefined";
@@ -76,8 +74,7 @@
             if (!isInitialized()) {
                 $.when(
                     bodyRegionCollection.fetch(),
-                    injuryCollection.fetch(),
-                    signCollection.fetch()).done(onInitComplete);
+                    injuryCollection.fetch()).done(onInitComplete);
             }
         };
         
@@ -104,7 +101,7 @@
             onBodyRegionFilter: onBodyRegionFilter,
             briefInjuryTemplate: briefInjuryTemplate,
             onReset: onReset,
-            signs: signs,
+            signs: lookups.availableSignFilters,
             init: init,
             isInitialized : isInitialized
         };

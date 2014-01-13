@@ -199,6 +199,15 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(results.businesses,JsonRequestBehavior.AllowGet);
         }
 
+        [GET("Research/equipment", IsAbsoluteUrl = true)]
+        public ActionResult GetEquipment()
+        {
+            var equipment = _researchService.GetEquipment();
+
+            return Json(equipment, JsonRequestBehavior.AllowGet);
+        }
+
+
         #endregion
 
     }

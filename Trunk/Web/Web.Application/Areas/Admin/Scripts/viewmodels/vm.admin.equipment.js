@@ -1,12 +1,12 @@
 ﻿define('vm.admin.equipment',
-    ['ko', 'underscore', 'knockback', 'model.admin.equipment.collection', 'model.admin.equipment', 'error.helper', 'bootstrap.helper', 'config'],
-    function(ko, _, kb, EquipmentCollection, EquipmentModel, err, bh, config) {
+    ['ko', 'underscore', 'knockback', 'model.admin.equipment.collection', 'model.admin.equipment', 'error.helper', 'bootstrap.helper', 'config', 'config.lookups'],
+    function(ko, _, kb, EquipmentCollection, EquipmentModel, err, bh, config, lookups) {
 
         var equipmentListTemplate = 'admin.equipment.list',
             equipmentCollection = new EquipmentCollection(),
             equipment = kb.collectionObservable(equipmentCollection),
             selectedEquipment = kb.viewModel(new EquipmentModel()),
-            availableCategories = config.functionCategories,
+            availableCategories = lookups.functionExerciseCategories,
             bindSelectedEquipment = function (data, event) {
                 var category = data.model().get('category');
                 selectedEquipment.model(data.model());

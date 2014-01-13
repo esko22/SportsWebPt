@@ -1,6 +1,6 @@
 ﻿define('vm.admin.plan.form',
-    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.body.region.collection', 'model.admin.plan.exercise'],
-    function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise) {
+    ['ko', 'config', 'underscore', 'knockback', 'model.admin.plan', 'error.helper', 'bootstrap.helper', 'model.admin.exercise.collection', 'model.body.region.collection', 'model.admin.plan.exercise', 'config.lookups'],
+    function (ko, config, _, kb, PlanModel, err, bh, ExerciseCollection, BodyRegionCollection, Exercise, lookups) {
         var exerciseCollection = new ExerciseCollection(),
             bodyRegionCollection = new BodyRegionCollection(),
             availableExercises = kb.collectionObservable(exerciseCollection),
@@ -17,7 +17,7 @@
             instructions = kb.observable(selectedPlan, 'instructions'),
             exercises = kb.collectionObservable(selectedPlan.get('exercises')),
             bodyRegions = kb.collectionObservable(selectedPlan.get('bodyRegions'), availableBodyRegions.shareOptions()),
-            availableCategories = config.functionCategories,
+            availableCategories = lookups.functionPlanCategories,
             modalDialogId = '#admin-plan-form-dialog',
             rangeValues = ko.observableArray(),
             callback = function() {
@@ -210,7 +210,7 @@
                     init: init,
                     rangeValues: rangeValues,
                     instructions: instructions,
-                    holdTypes: config.holdTypes,
+                    holdTypes: lookups.holdTypes,
                     categories: categories,
                     kendoEditorOptions: config.kendoEditorOptions,
                     animationTag : animationTag

@@ -80,10 +80,6 @@
                 infuser.defaults.templateSuffix = ".tmpl.html";
                 infuser.defaults.templateUrl = "/Tmpl";
             },
-            functionCategories = ko.observableArray(['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization']),
-            regionCategories = ko.observableArray(['UpperExtremity', 'LowerExtremity', 'Spine']),
-            signGroups = ko.observableArray(['Painful','Throbbing','Bruising','Popping','Tingling','Tightness']),
-            holdTypes = ko.observableArray(['Seconds', 'Minutes', 'Breaths']),
             kendoEditorOptions = [
                 "bold",
                 "italic",
@@ -144,9 +140,6 @@
             viewIds: viewIds,
             hostUri: hostUri,
             apiUris: apiUris,
-            functionCategories: functionCategories,
-            regionCategories: regionCategories,
-            holdTypes: holdTypes,
             maxSelectableAreas: maxSelectableAreas,
             notifier: notifier,
             kendoEditorIgnores: kendoEditorIgnores,
@@ -154,8 +147,7 @@
             likelyHoodThresholds: likelyHoodThresholds,
             templateIds: templateIds,
             favoriteUri: favoriteUri,
-            favoriteHashTags: favoriteHashTags,
-            signGroups : signGroups
+            favoriteHashTags: favoriteHashTags
         };
 
     });

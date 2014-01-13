@@ -1,10 +1,10 @@
 ﻿define('vm.admin.body.regions',
-    ['ko', 'underscore', 'knockback', 'model.admin.body.region.collection', 'model.admin.body.region', 'error.helper', 'bootstrap.helper', 'config'],
-    function (ko, _, kb, BodyRegionCollection, BodyRegion, err, bh, config) {
+    ['ko', 'underscore', 'knockback', 'model.admin.body.region.collection', 'model.admin.body.region', 'error.helper', 'bootstrap.helper', 'config', 'config.lookups'],
+    function (ko, _, kb, BodyRegionCollection, BodyRegion, err, bh, config, lookups) {
 
         var bodyRegionCollection = new BodyRegionCollection(),
             bodyRegions = kb.collectionObservable(bodyRegionCollection),
-            availableCategories = config.regionCategories;
+            availableCategories = lookups.regionCategories;
             selectedBodyRegion = kb.viewModel(new BodyRegion()),
             bindSelectedBodyRegion = function (data, event) {
                 var category = data.model().get('regionCategory');

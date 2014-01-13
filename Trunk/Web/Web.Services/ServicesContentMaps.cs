@@ -137,8 +137,10 @@ namespace SportsWebPt.Platform.Web.Services
                   .Include<Equipment, CreateEquipmentRequest>()
                   .Include<Equipment, UpdateEquipmentRequest>()
                   .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
-            Mapper.CreateMap<Equipment, CreateEquipmentRequest>();
-            Mapper.CreateMap<Equipment, UpdateEquipmentRequest>();
+            Mapper.CreateMap<Equipment, CreateEquipmentRequest>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
+            Mapper.CreateMap<Equipment, UpdateEquipmentRequest>()
+                  .ForMember(d => d.Category, opt => opt.MapFrom(s => s.category.Replace(" ", "_")));
 
             Mapper.CreateMap<VideoDto, Video>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
@@ -146,8 +148,10 @@ namespace SportsWebPt.Platform.Web.Services
                   .Include<Video, UpdateVideoRequest>()
                   .Include<Video, CreateVideoRequest>()
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
-            Mapper.CreateMap<Video, UpdateVideoRequest>();
-            Mapper.CreateMap<Video, CreateVideoRequest>();
+            Mapper.CreateMap<Video, UpdateVideoRequest>()
+                  .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
+            Mapper.CreateMap<Video, CreateVideoRequest>()
+                  .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
 
 
             Mapper.CreateMap<CauseDto, Cause>();

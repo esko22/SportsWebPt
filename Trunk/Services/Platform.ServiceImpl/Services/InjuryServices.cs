@@ -33,6 +33,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjuryPlanMatrixItems.Plan", 
                         "InjurySignMatrixItems",
                         "InjurySignMatrixItems.Sign", 
+                        "InjurySignMatrixItems.Sign.Filter", 
                         "InjuryCauseMatrixItems", 
                         "InjuryCauseMatrixItems.Cause",
                         "InjuryBodyRegionMatrixItems", 

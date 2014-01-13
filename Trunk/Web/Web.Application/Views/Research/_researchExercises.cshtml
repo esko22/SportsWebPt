@@ -15,9 +15,18 @@
             <div class="container">
                 <h3>Categories</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'category')">Show All</span></a>
-                    <ul class="list-no-style filter-container" id="exercise-categories-filter-list" data-bind="foreach: categories">
+                <ul class="list-no-style filter-container" id="exercise-categories-filter-list" data-bind="foreach: categories">
+                    <li class="filter-label">
+                        <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h3>Equipment</h3>
+                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'equipment')">Show All</span></a>
+                    <ul class="list-no-style filter-container" id="exercise-equipment-filter-list" data-bind="foreach: equipment">
                         <li class="filter-label">
-                            <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
+                            <a><span class="label label-info" data-bind="text: commonName, click: $parent.onEquipmentFilter"></span></a>
                         </li>
                     </ul>
             </div>

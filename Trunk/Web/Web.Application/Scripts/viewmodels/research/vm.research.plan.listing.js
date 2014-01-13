@@ -1,6 +1,6 @@
 ﻿define('vm.research.plan.listing',
-    ['jquery', 'config', 'knockback', 'ko', 'model.body.region.collection', 'model.plan.collection', 'underscore'],
-    function ($, config, kb, ko, BodyRegionCollection, PlanCollection, _) {
+    ['jquery', 'config', 'knockback', 'ko', 'model.body.region.collection', 'model.plan.collection', 'underscore', 'config.lookups'],
+    function ($, config, kb, ko, BodyRegionCollection, PlanCollection, _, lookups) {
 
         var bodyRegionCollection = new BodyRegionCollection(),
             bodyRegions = kb.collectionObservable(bodyRegionCollection),
@@ -8,7 +8,7 @@
             filteredPlanCollection = new PlanCollection(),
             filteredPlans = kb.collectionObservable(filteredPlanCollection),
             briefPlanTemplate = 'research.brief.plan',
-            categories = config.functionCategories,
+            categories = lookups.functionPlanCategories,
             bodyReginFilter,
             categoryFilter,
             isInitialized = ko.observable(false);

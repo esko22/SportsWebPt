@@ -72,6 +72,14 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
         }
 
+        public IEnumerable<Equipment> GetEquipment()
+        {
+            var request = GetSync(new EquipmentListRequest());
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Equipment>>(request.Response.Items);
+        }
+
+
         public IEnumerable<Injury> GetInjuries()
         {
             var request = GetSync(new InjuryListRequest());

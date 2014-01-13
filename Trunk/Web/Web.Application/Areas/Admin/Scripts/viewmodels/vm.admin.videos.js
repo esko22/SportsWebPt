@@ -1,12 +1,12 @@
 ﻿define('vm.admin.videos',
-    ['ko', 'underscore', 'knockback', 'model.admin.video.collection', 'model.admin.video', 'error.helper', 'bootstrap.helper', 'config'],
-    function (ko, _, kb, VideoCollection, VideoModel, err, bh, config) {
+    ['ko', 'underscore', 'knockback', 'model.admin.video.collection', 'model.admin.video', 'error.helper', 'bootstrap.helper', 'config', 'config.lookups'],
+    function (ko, _, kb, VideoCollection, VideoModel, err, bh, config, lookups) {
 
         var videoListTemplate = 'admin.video.list',
             videoCollection = new VideoCollection(),
             videos = kb.collectionObservable(videoCollection),
             selectedVideo = kb.viewModel(new VideoModel()),
-            availableCategories = config.functionCategories,
+            availableCategories = lookups.functionExerciseCategories,
             bindSelectedVideo = function (data, event) {
                 selectedVideo.model(data.model());
                 selectedVideo.categories(data.categories());

@@ -1,6 +1,6 @@
 ﻿define('vm.admin.exercise.form',
-    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection', 'config', 'model.admin.body.part.collection'],
-    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection, config, BodyPartCollection) {
+    ['ko', 'underscore', 'knockback', 'model.admin.exercise', 'error.helper', 'bootstrap.helper', 'model.admin.video.collection', 'model.admin.equipment.collection', 'model.admin.body.region.collection', 'config', 'model.admin.body.part.collection', 'config.lookups'],
+    function (ko, _, kb, ExerciseModel, err, bh, VideoCollection, EquipmentCollection, BodyRegionCollection, config, BodyPartCollection, lookups) {
 
         var videoCollection = new VideoCollection(),
             equipmentCollection = new EquipmentCollection(),
@@ -11,7 +11,7 @@
             availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
             availableBodyParts = kb.collectionObservable(bodyPartCollection),
             selectedExercise = new ExerciseModel(),
-            availableCategories = config.functionCategories,
+            availableCategories = lookups.functionExerciseCategories,
             rangeValues = ko.observableArray(),
             name = kb.observable(selectedExercise, 'name'),
             difficulty = kb.observable(selectedExercise, 'difficulty'),
@@ -239,7 +239,7 @@
             medicalName: medicalName,
             availableCategories: availableCategories,
             categories: categories,
-            holdTypes: config.holdTypes,
+            holdTypes: lookups.holdTypes,
             holdType: holdType,
             kendoEditorOptions: config.kendoEditorOptions
         };
