@@ -9,6 +9,7 @@
             selectedBodyPart = new BodyPart(),
             commonName = kb.observable(selectedBodyPart, 'commonName'),
             scientificName = kb.observable(selectedBodyPart, 'scientificName'),
+            description = kb.observable(selectedBodyPart, 'description'),
             primaryAreas = kb.collectionObservable(selectedBodyPart.get('primaryAreas'), availableAreas.shareOptions()),
             secondaryAreas = kb.collectionObservable(selectedBodyPart.get('secondaryAreas'), availableAreas.shareOptions()),
             bindSelectedBodyPart = function (data, event) {
@@ -33,6 +34,7 @@
 
                 selectedBodyPart.set('commonName', data.commonName());
                 selectedBodyPart.set('scientificName', data.scientificName());
+                selectedBodyPart.set('description', data.description());
                 selectedBodyPart.id = data.model().get('id');
             },
             onSuccessfulChange = function () {
@@ -62,7 +64,13 @@
                     minlength: 1,
                     maxlength: 100
                 },
-                primaryAreas:
+                description:
+                {
+                    required: false,
+                    minlength: 1,
+                    maxlength: 200
+                },
+            primaryAreas:
                 {
                     required: true,
                 }
@@ -103,6 +111,7 @@
             primaryAreas: primaryAreas,
             commonName: commonName,
             scientificName: scientificName,
-            init : init
+            init: init,
+            description: description
         };
     });

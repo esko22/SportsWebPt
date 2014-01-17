@@ -13,6 +13,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String ScientificName { get; set; }
 
+        public String Description { get; set; }
+
         public ICollection<BodyPartMatrixItem> BodyPartMatrix { get; set; }
 
         //using this to make the mapping easier 

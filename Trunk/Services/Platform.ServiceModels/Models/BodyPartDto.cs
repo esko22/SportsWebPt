@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String ScientificName { get; set; }
 
+        public String Description { get; set; }
+
         public SkeletonAreaDto[] PrimaryAreas { get; set; }
 
         public SkeletonAreaDto[] SecondaryAreas { get; set; }

@@ -29,8 +29,9 @@ define('model.admin.body.part', ['backbone', 'config', 'jquery', 'model.admin.sk
                 urlRoot: config.apiUris.adminBodyParts,
                 defaults: {
                     'commonName' : '', 
-                    'scientificName': ''
-                },
+                    'scientificName': '',
+                    'description': ''
+            },
                 relations: [{
                     type: backbone.HasMany,
                     key: 'primaryAreas',

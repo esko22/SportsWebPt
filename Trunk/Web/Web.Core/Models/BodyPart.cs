@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String scientificName { get; set; }
 
+        public String description { get; set; }
+
         public SkeletonArea[] primaryAreas { get; set; }
 
         public SkeletonArea[] secondaryAreas { get; set; }
