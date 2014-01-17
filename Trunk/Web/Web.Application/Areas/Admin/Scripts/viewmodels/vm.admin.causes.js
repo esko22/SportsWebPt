@@ -1,12 +1,16 @@
 ﻿define('vm.admin.causes',
-    ['ko', 'underscore', 'knockback', 'model.admin.cause.collection', 'model.admin.cause', 'error.helper', 'bootstrap.helper'],
-    function (ko, _, kb, CauseCollection, CauseModel, err, bh) {
+    ['ko', 'underscore', 'knockback', 'model.admin.cause.collection', 'model.admin.cause', 'error.helper', 'bootstrap.helper', 'config.lookups'],
+    function (ko, _, kb, CauseCollection, CauseModel, err, bh, lookups) {
 
         var causeCollection = new CauseCollection(),
             causes = kb.collectionObservable(causeCollection),
             selectedCause = kb.viewModel(new CauseModel()),
             bindSelectedCause = function (data, event) {
+                var category = data.model().get('category');
+                var filterId = data.model().get('filterId');
                 selectedCause.model(data.model());
+                selectedCause.category(category);
+                selectedCause.filterId(filterId);
             },
             onSuccessfulChange = function () {
                 bindSelectedCause(kb.viewModel(new CauseModel()), null);
@@ -51,6 +55,8 @@
             saveChanges: saveChanges,
             bindSelectedCause: bindSelectedCause,
             causeValidationOptions: causeValidationOptions,
-            init : init
+            availableCauseFilters: lookups.availableCauseFilters,
+            availableCategories: lookups.causeCategories,
+            init: init
         };
     });

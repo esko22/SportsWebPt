@@ -10,6 +10,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Description { get; set; }
 
+        public String Category { get; set; }
+
+        public FilterDto Filter { get; set; }
+
         #endregion
     }
 }

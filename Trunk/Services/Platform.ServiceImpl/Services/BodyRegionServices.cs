@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
@@ -22,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(BodyRegionListRequest request)
         {
             var responseList = new List<BodyRegionDto>();
-            Mapper.Map(SkeletonUnitOfWork.BodyRegionRepo.GetAll(), responseList);
+            Mapper.Map(SkeletonUnitOfWork.BodyRegionRepo.GetAll().OrderBy(o => o.Name), responseList);
 
             return
                 Ok(new ApiListResponse<BodyRegionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

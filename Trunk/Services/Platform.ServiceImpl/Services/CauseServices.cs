@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-
+using ServiceStack.ServiceInterface.ServiceModel;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
@@ -23,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(CauseListRequest request)
         {
             var responseList = new List<CauseDto>();
-            Mapper.Map(ResearchUnitOfWork.CauseRepo.GetAll().OrderBy(o => o.Description), responseList);
+            Mapper.Map(ResearchUnitOfWork.CauseRepo.GetAll(new [] { "Filter" }).OrderBy(o => o.Description), responseList);
 
             return
                 Ok(new ApiListResponse<CauseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

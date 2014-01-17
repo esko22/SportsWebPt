@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class SignFilter
+    public class Filter
     {
         #region Propeties
 
@@ -10,6 +10,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public string filterCategory { get; set; }
 
+        public string filterType { get; set; }
+        
         #endregion
     }
 }

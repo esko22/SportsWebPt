@@ -5,7 +5,7 @@
         var signCollection = new SignCollection(),
             signs = kb.collectionObservable(signCollection),
             selectedSign = kb.viewModel(new SignModel()),
-            availableCategories = ko.observableArray(['Functional', 'Subjective', 'Visual']),
+            availableCategories = lookups.signCategories,
             bindSelectedSign = function (data, event) {
                 var category = data.model().get('category');
                 var filterId = data.model().get('filterId');

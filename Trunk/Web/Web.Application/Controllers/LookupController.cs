@@ -35,6 +35,12 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return Json(_lookupService.GetSignFilters(), JsonRequestBehavior.AllowGet);
         }
 
+        [GET("lookup/causefilters")]
+        public ActionResult GetCauseFilters()
+        {
+            return Json(_lookupService.GetCauseFilters(), JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
 
 

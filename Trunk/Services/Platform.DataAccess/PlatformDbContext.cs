@@ -45,7 +45,7 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<ExerciseCategoryMatrixItem> ExerciseCategoryMatrixItems { get; set; }
         public DbSet<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; }
         public DbSet<VideoCategoryMatrixItem> VideoCategoryMatrixItems { get; set; }
-        public DbSet<SignFilter> SignFilterCategories { get; set; } 
+        public DbSet<Filter> Filters { get; set; } 
 
         #endregion
 
@@ -104,7 +104,7 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ExerciseCategoryMatrixConfiguration());
             modelBuilder.Configurations.Add(new PlanCategoryMatrixConfiguration());
             modelBuilder.Configurations.Add(new VideoCategoryMatrixConfiguration());
-            modelBuilder.Configurations.Add(new SignFilterCategoryConfiguration());
+            modelBuilder.Configurations.Add(new FilterConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

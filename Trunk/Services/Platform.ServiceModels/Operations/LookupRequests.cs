@@ -4,8 +4,14 @@ using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [Route("/signfilters", "GET")]
-    public class SignFilterListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<SignFilterDto, BasicSortBy>>
-    { }
+    [Route("/filters", "GET")]
+    public class FilterListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<FilterDto, BasicSortBy>>
+    {
+        #region Properties
+
+        public FilterTypeDto? FilterType { get; set; }
+
+        #endregion
+    }
 
 }

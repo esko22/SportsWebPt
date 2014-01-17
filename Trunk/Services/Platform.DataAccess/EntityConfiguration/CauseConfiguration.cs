@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.DataAccess
         {
             ToTable("Cause");
             Property(p => p.Description).IsRequired().HasColumnName("description").HasMaxLength(500);
+            Property(p => p.FilterId).IsRequired().HasColumnName("filter_id");
+            Property(p => p.Category).IsRequired();
             Property(p => p.Id).IsRequired().HasColumnName("cause_id");
         }
         

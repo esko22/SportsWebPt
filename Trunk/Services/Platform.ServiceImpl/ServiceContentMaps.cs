@@ -338,18 +338,14 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<CauseDto, Cause>()
                   .Include<CreateCauseRequest, Cause>()
                   .Include<UpdateCauseRequest, Cause>();
-            Mapper.CreateMap<CreateCauseRequest, Cause>();
-            Mapper.CreateMap<UpdateCauseRequest, Cause>();
+            Mapper.CreateMap<CreateCauseRequest, Cause>()
+                  .ForMember(d => d.FilterId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.Filter, opt => opt.Ignore());
 
+            Mapper.CreateMap<UpdateCauseRequest, Cause>()
+                  .ForMember(d => d.FilterId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.Filter, opt => opt.Ignore());
 
-            Mapper.CreateMap<Sign, SignDto>();
-            Mapper.CreateMap<SignDto, Sign>()
-                  .Include<CreateSignRequest, Sign>()
-                  .Include<UpdateSignRequest, Sign>();
-            Mapper.CreateMap<CreateSignRequest, Sign>();
-            Mapper.CreateMap<UpdateSignRequest, Sign>();
-            
-            
             Mapper.CreateMap<Injury, InjuryDto>()
                   .ForMember(d => d.Plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
                   .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
@@ -425,14 +421,20 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
                    .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)));
 
-            Mapper.CreateMap<SignFilter, SignFilterDto>();
-            Mapper.CreateMap<SignFilterDto, SignFilter>();
+            Mapper.CreateMap<Filter, FilterDto>();
+            Mapper.CreateMap<FilterDto, Filter>();
+
+
+            Mapper.CreateMap<Sign, SignDto>();
+            Mapper.CreateMap<SignDto, Sign>()
+                  .Include<CreateSignRequest, Sign>()
+                  .Include<UpdateSignRequest, Sign>();
 
             Mapper.CreateMap<CreateSignRequest, Sign>()
-                  .ForMember(d => d.FilterCategoryId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.FilterId, opt => opt.MapFrom(s => s.Filter.Id))
                   .ForMember(d => d.Filter, opt => opt.Ignore());
             Mapper.CreateMap<UpdateSignRequest, Sign>()
-                  .ForMember(d => d.FilterCategoryId, opt => opt.MapFrom(s => s.Filter.Id))
+                  .ForMember(d => d.FilterId, opt => opt.MapFrom(s => s.Filter.Id))
                   .ForMember(d => d.Filter, opt => opt.Ignore());
 
         }

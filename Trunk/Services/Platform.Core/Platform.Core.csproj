@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CauseCategory.cs" />
     <Compile Include="Models\DifferentialDiagnosis.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\ExerciseBodyPartMatrixItem.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Models\ExerciseDifficulty.cs" />
     <Compile Include="Models\ExerciseEquipmentMatrixItem.cs" />
     <Compile Include="Models\BodyRegionCategory.cs" />
+    <Compile Include="Models\FilterType.cs" />
     <Compile Include="Models\HoldType.cs" />
     <Compile Include="Models\Injury.cs" />
     <Compile Include="Models\InjuryBodyRegionMatrixItem.cs" />
@@ -71,7 +73,7 @@
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\Sign.cs" />
     <Compile Include="Models\SignCategory.cs" />
-    <Compile Include="Models\SignFilterCategory.cs" />
+    <Compile Include="Models\Filter.cs" />
     <Compile Include="Models\SkeletonArea.cs" />
     <Compile Include="Models\BodyPartMatrixItem.cs" />
     <Compile Include="Models\SymptomDetail.cs" />

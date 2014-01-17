@@ -1,4 +1,4 @@
-﻿define('model.sign', ['backbone', 'config', 'jquery', 'model.sign.filter'],
+﻿define('model.sign', ['backbone', 'config', 'jquery', 'model.filter'],
     function (backbone, config, $, Filter) {
         var
             sign = backbone.RelationalModel.extend({
@@ -29,7 +29,7 @@ define('model.sign.collection', ['backbone', 'model.sign', 'config'],
 
     });
 
-define('model.admin.sign', ['backbone', 'config', 'jquery', 'model.sign.filter'],
+define('model.admin.sign', ['backbone', 'config', 'jquery', 'model.filter'],
     function (backbone, config, $, Filter) {
         var
             sign = backbone.RelationalModel.extend({

@@ -16,13 +16,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         #region Foriegn Keys
 
-        public int FilterCategoryId { get; set; }
+        public int FilterId { get; set; }
         
         #endregion
 
         #region Navigation Properties
 
-        public virtual SignFilter Filter { get; set; }
+        public virtual Filter Filter { get; set; }
 
         #endregion
     }

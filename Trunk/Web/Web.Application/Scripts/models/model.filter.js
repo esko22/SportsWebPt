@@ -1,22 +1,20 @@
-﻿define('model.sign.filter', ['backbone', 'config', 'jquery'],
+﻿define('model.filter', ['backbone', 'config', 'jquery'],
     function (backbone, config, $) {
         var
-            signFilter = backbone.RelationalModel.extend({
-                urlRoot: config.apiUris.signFilters,
+            filter = backbone.RelationalModel.extend({
                 defaults: {
                 }
             });
 
-        return signFilter;
+        return filter;
 
     });
 
-define('model.sign.filter.collection', ['backbone', 'model.sign.filter', 'config'],
+define('model.filter.collection', ['backbone', 'model.filter', 'config'],
     function (backbone, component, config) {
         var
             componentCollection = backbone.Collection.extend({
                 model: component,
-                url: config.apiUris.signFilters
             });
 
         return componentCollection;

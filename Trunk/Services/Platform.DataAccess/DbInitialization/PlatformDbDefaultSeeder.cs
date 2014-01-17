@@ -43,9 +43,9 @@ namespace SportsWebPt.Platform.DataAccess
             var equipment = AddEquipment();
             var videos = AddVideos();
             var exercises = AddExercises();
-            var causes = AddCauses();
-            var signFilters = AddSignFilterCategories();
-            var signs = AddSigns(signFilters);
+            var filters = AddFilterCategories();
+            var causes = AddCauses(filters);
+            var signs = AddSigns(filters);
             var plans = AddPlans();
             var vendors = AddVendors();
 
@@ -86,16 +86,16 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext.SaveChanges();
         }
 
-        private List<Cause> AddCauses()
+        private List<Cause> AddCauses(IList<Filter> filterCategories)
         {
             var causes = new List<Cause>()
                 {
-                    new Cause() {Description = "Repetitive stress"},
-                    new Cause() {Description = "Accelerating"},
-                    new Cause() {Description = "Sudden increase in training volume"},
-                    new Cause() {Description = "Speed Workouts"},
-                    new Cause() {Description = "Running"},
-                    new Cause() {Description = "Overweight"}
+                    new Cause() {Description = "Repetitive stress", Category = CauseCategory.Lifestyle, Filter = filterCategories[10]},
+                    new Cause() {Description = "Accelerating", Category = CauseCategory.Lifestyle, Filter = filterCategories[11]},
+                    new Cause() {Description = "Sudden increase in training volume", Category = CauseCategory.Physiological, Filter = filterCategories[12]},
+                    new Cause() {Description = "Speed Workouts", Category = CauseCategory.Lifestyle, Filter = filterCategories[11]},
+                    new Cause() {Description = "Running", Category = CauseCategory.Physiological, Filter = filterCategories[13]},
+                    new Cause() {Description = "Overweight", Category = CauseCategory.Physiological, Filter = filterCategories[14]}
                 };
 
             causes.ForEach(p => _dbContext.Causes.Add(p));
@@ -121,26 +121,39 @@ namespace SportsWebPt.Platform.DataAccess
             _dbContext.SaveChanges();
         }
 
-        private List<SignFilter> AddSignFilterCategories()
+        private List<Filter> AddFilterCategories()
         {
-            var signFilters = new List<SignFilter>()
+            var signFilters = new List<Filter>()
                 {
-                    new SignFilter() {FilterCategory = "Painful"},
-                    new SignFilter() {FilterCategory = "Throbbing"},
-                    new SignFilter() {FilterCategory = "Bruising"},
-                    new SignFilter() {FilterCategory = "Popping"},
-                    new SignFilter() {FilterCategory = "Tingling"},
-                    new SignFilter() {FilterCategory = "Tightness"},
+                    new Filter() {FilterCategory = "Swelling", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Color Change", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Clicks / Snaps / Grinds", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Muscle Knot / Thickening", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Pain", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Tight / Stiff", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Abnormal Posture / Alignment", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Changes After", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Changes Throughout", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Other", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Repetitve Stress", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Changes in Activity", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Structurual or Skeletal Abnormality", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Muscle Imbalance", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Stress, Improper Warm-Up, Other", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Poor Posture / Mechanics", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Historical / Family", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Improper Equipment", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Unknown", FilterType = FilterType.Cause}
                 };
 
-            signFilters.ForEach(p => _dbContext.SignFilterCategories.Add(p));
+            signFilters.ForEach(p => _dbContext.Filters.Add(p));
             _dbContext.SaveChanges();
 
             return signFilters;
         } 
 
 
-        private List<Sign> AddSigns(IList<SignFilter> filterCategories)
+        private List<Sign> AddSigns(IList<Filter> filterCategories)
         {
             var signs = new List<Sign>()
                 {
@@ -668,7 +681,6 @@ namespace SportsWebPt.Platform.DataAccess
                     new BodyRegion() { Name = "Forearm", RegionCategory = BodyRegionCategory.UpperExtremity},
                     new BodyRegion() { Name = "Hand and Wrist", RegionCategory = BodyRegionCategory.UpperExtremity},
                     new BodyRegion() { Name = "Abdomen", RegionCategory = BodyRegionCategory.UpperExtremity},
-                    new BodyRegion() { Name = "Hip and Pelvis", RegionCategory = BodyRegionCategory.LowerExtremity},
                     new BodyRegion() { Name = "Upper Leg", RegionCategory = BodyRegionCategory.LowerExtremity},
                     new BodyRegion() { Name = "Knee", RegionCategory = BodyRegionCategory.LowerExtremity},
                     new BodyRegion() { Name = "Shin", RegionCategory = BodyRegionCategory.LowerExtremity},
@@ -676,10 +688,9 @@ namespace SportsWebPt.Platform.DataAccess
                     new BodyRegion() { Name = "Middle Back", RegionCategory = BodyRegionCategory.UpperExtremity},
                     new BodyRegion() { Name = "Lower Back", RegionCategory = BodyRegionCategory.Spine},
                     new BodyRegion() { Name = "Hip and Buttock", RegionCategory = BodyRegionCategory.LowerExtremity},
-                    new BodyRegion() { Name = "Calf", RegionCategory = BodyRegionCategory.LowerExtremity},
-                    new BodyRegion() { Name = "Heel and Ankle", RegionCategory = BodyRegionCategory.LowerExtremity}
+                    new BodyRegion() { Name = "Calf", RegionCategory = BodyRegionCategory.LowerExtremity}
                 };
-
+            //8  to 10  - 17 to 13 
             regions.ForEach(u => _dbContext.BodyRegions.Add(u));
             _dbContext.SaveChanges();
 
@@ -733,31 +744,31 @@ namespace SportsWebPt.Platform.DataAccess
                     new SkeletonArea() { Region = regionTypes[6], Orientation = orientations[0], Side = sides[0], CssClassName = "left-hand-front", DisplayName = "Left Hand and Wrist"},
                     new SkeletonArea() { Region = regionTypes[6], Orientation = orientations[0], Side = sides[1], CssClassName = "right-hand-front", DisplayName = "Right Hand and Wrist"},
                     new SkeletonArea() { Region = regionTypes[7], Orientation = orientations[0], Side = sides[2], CssClassName = "abs-front", DisplayName = "Abdominal"},
-                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[0], Side = sides[0], CssClassName = "left-hip-pelvis-front", DisplayName = "Left Hip and Pelvis"},
-                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[0], Side = sides[1], CssClassName = "right-hip-pelvis-front", DisplayName = "Right Hip and Pelvis"},
-                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[0], Side = sides[0], CssClassName = "left-upperleg-front", DisplayName = "Left Upper Leg"},
-                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[0], Side = sides[1], CssClassName = "right-upperleg-front", DisplayName = "Right Upper Leg"},
-                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[0], Side = sides[0], CssClassName = "left-knee-front", DisplayName = "Left Knee"},
-                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[0], Side = sides[1], CssClassName = "right-knee-front", DisplayName = "Right Knee"},
-                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[0], Side = sides[0], CssClassName = "left-shin-front", DisplayName = "Left Shin"},
-                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[0], Side = sides[1], CssClassName = "right-shin-front", DisplayName = "Right Shin"},
-                    new SkeletonArea() { Region = regionTypes[12], Orientation = orientations[0], Side = sides[0], CssClassName = "left-foot-front", DisplayName = "Left Foot and Ankle"},
-                    new SkeletonArea() { Region = regionTypes[12], Orientation = orientations[0], Side = sides[1], CssClassName = "right-foot-front", DisplayName = "Right Foot and Ankle"},
+                    new SkeletonArea() { Region = regionTypes[14], Orientation = orientations[0], Side = sides[0], CssClassName = "left-hip-pelvis-front", DisplayName = "Left Hip and Pelvis"},
+                    new SkeletonArea() { Region = regionTypes[14], Orientation = orientations[0], Side = sides[1], CssClassName = "right-hip-pelvis-front", DisplayName = "Right Hip and Pelvis"},
+                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[0], Side = sides[0], CssClassName = "left-upperleg-front", DisplayName = "Left Upper Leg"},
+                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[0], Side = sides[1], CssClassName = "right-upperleg-front", DisplayName = "Right Upper Leg"},
+                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[0], Side = sides[0], CssClassName = "left-knee-front", DisplayName = "Left Knee"},
+                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[0], Side = sides[1], CssClassName = "right-knee-front", DisplayName = "Right Knee"},
+                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[0], Side = sides[0], CssClassName = "left-shin-front", DisplayName = "Left Shin"},
+                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[0], Side = sides[1], CssClassName = "right-shin-front", DisplayName = "Right Shin"},
+                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[0], Side = sides[0], CssClassName = "left-foot-front", DisplayName = "Left Foot and Ankle"},
+                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[0], Side = sides[1], CssClassName = "right-foot-front", DisplayName = "Right Foot and Ankle"},
                     new SkeletonArea() { Region = regionTypes[0], Orientation = orientations[2], Side = sides[2], CssClassName = "head-neck-back", DisplayName = "Back of Head and Neck"},
-                    new SkeletonArea() { Region = regionTypes[13], Orientation = orientations[2], Side = sides[2], CssClassName = "mid-back-back", DisplayName = "Middle of Back"},
+                    new SkeletonArea() { Region = regionTypes[12], Orientation = orientations[2], Side = sides[2], CssClassName = "mid-back-back", DisplayName = "Middle of Back"},
                     new SkeletonArea() { Region = regionTypes[3], Orientation = orientations[2], Side = sides[0], CssClassName = "left-arm-back", DisplayName = "Back Left Arm"},
                     new SkeletonArea() { Region = regionTypes[3], Orientation = orientations[2], Side = sides[1], CssClassName = "right-arm-back", DisplayName = "Back Right Arm"},
-                    new SkeletonArea() { Region = regionTypes[14], Orientation = orientations[2], Side = sides[2], CssClassName = "lower-back-back", DisplayName = "Lower Back"},
-                    new SkeletonArea() { Region = regionTypes[15], Orientation = orientations[2], Side = sides[0], CssClassName = "left-hip-back", DisplayName = "Left Hip and Buttock"},
-                    new SkeletonArea() { Region = regionTypes[15], Orientation = orientations[2], Side = sides[1], CssClassName = "right-hip-back", DisplayName = "Right Hip and Buttock"},
-                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[2], Side = sides[0], CssClassName = "left-upperleg-back", DisplayName = "Back Left Leg"},
-                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[2], Side = sides[1], CssClassName = "right-upperleg-back", DisplayName = "Back Right Leg"},
-                    new SkeletonArea() { Region = regionTypes[16], Orientation = orientations[2], Side = sides[0], CssClassName = "left-calf-back", DisplayName = "Left Calf"},
-                    new SkeletonArea() { Region = regionTypes[16], Orientation = orientations[2], Side = sides[1], CssClassName = "right-calf-back", DisplayName = "Right Calf"},
-                    new SkeletonArea() { Region = regionTypes[17], Orientation = orientations[2], Side = sides[0], CssClassName = "left-heel-back", DisplayName = "Left Heel and Ankle"},
-                    new SkeletonArea() { Region = regionTypes[17], Orientation = orientations[2], Side = sides[1], CssClassName = "right-heel-back", DisplayName = "Right Heel and Ankle"},
-                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[2], Side = sides[0], CssClassName = "left-knee-back", DisplayName = "Back Left Knee"},
-                    new SkeletonArea() { Region = regionTypes[10], Orientation = orientations[2], Side = sides[1], CssClassName = "right-knee-back", DisplayName = "Back Right Knee"},
+                    new SkeletonArea() { Region = regionTypes[13], Orientation = orientations[2], Side = sides[2], CssClassName = "lower-back-back", DisplayName = "Lower Back"},
+                    new SkeletonArea() { Region = regionTypes[14], Orientation = orientations[2], Side = sides[0], CssClassName = "left-hip-back", DisplayName = "Left Hip and Buttock"},
+                    new SkeletonArea() { Region = regionTypes[14], Orientation = orientations[2], Side = sides[1], CssClassName = "right-hip-back", DisplayName = "Right Hip and Buttock"},
+                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[2], Side = sides[0], CssClassName = "left-upperleg-back", DisplayName = "Back Left Leg"},
+                    new SkeletonArea() { Region = regionTypes[8], Orientation = orientations[2], Side = sides[1], CssClassName = "right-upperleg-back", DisplayName = "Back Right Leg"},
+                    new SkeletonArea() { Region = regionTypes[15], Orientation = orientations[2], Side = sides[0], CssClassName = "left-calf-back", DisplayName = "Left Calf"},
+                    new SkeletonArea() { Region = regionTypes[15], Orientation = orientations[2], Side = sides[1], CssClassName = "right-calf-back", DisplayName = "Right Calf"},
+                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[2], Side = sides[0], CssClassName = "left-heel-back", DisplayName = "Left Heel and Ankle"},
+                    new SkeletonArea() { Region = regionTypes[11], Orientation = orientations[2], Side = sides[1], CssClassName = "right-heel-back", DisplayName = "Right Heel and Ankle"},
+                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[2], Side = sides[0], CssClassName = "left-knee-back", DisplayName = "Back Left Knee"},
+                    new SkeletonArea() { Region = regionTypes[9], Orientation = orientations[2], Side = sides[1], CssClassName = "right-knee-back", DisplayName = "Back Right Knee"},
                     new SkeletonArea() { Region = regionTypes[2], Orientation = orientations[2], Side = sides[0], CssClassName = "left-shoulder-back", DisplayName = "Back Left Shoulder"},
                     new SkeletonArea() { Region = regionTypes[2], Orientation = orientations[2], Side = sides[1], CssClassName = "right-shoulder-back", DisplayName = "Back Right Shoulder"}
                     };

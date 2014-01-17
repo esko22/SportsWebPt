@@ -1,10 +1,15 @@
-﻿define('model.cause', ['backbone', 'config', 'jquery'],
-    function (backbone, config, $) {
+﻿define('model.cause', ['backbone', 'config', 'jquery', 'model.filter'],
+    function (backbone, config, $, Filter) {
         var
             cause = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.causes,
                 defaults: {
-                }
+                },
+                relations: [{
+                    type: backbone.HasOne,
+                    key: 'filter',
+                    relatedModel: Filter
+                }]
             });
 
         return cause;
@@ -22,14 +27,21 @@ define('model.cause.collection', ['backbone', 'model.cause'],
 
     });
 
-define('model.admin.cause', ['backbone', 'config', 'jquery'],
-    function (backbone, config, $) {
+define('model.admin.cause', ['backbone', 'config', 'jquery', 'model.filter'],
+    function (backbone, config, $, Filter) {
         var
             cause = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminCauses,
                 defaults: {
-                    'description' :''
-                }
+                    'description': '',
+                    'category': '',
+                    'filterId': ''
+                },
+                relations: [{
+                    type: backbone.HasOne,
+                    key: 'filter',
+                    relatedModel: Filter
+                }]
             });
 
         return cause;

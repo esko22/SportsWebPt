@@ -69,7 +69,8 @@
                 injuryDetail: $.format('{0}/{1}', hostUri, 'research/injury/detail/'),
                 planDetail: $.format('{0}/{1}', hostUri, 'research/plan/detail/'),
                 exerciseDetail: $.format('{0}/{1}', hostUri, 'research/exercise/detail/'),
-                signFilters: $.format('{0}/{1}', hostUri, 'lookup/signfilters')
+                signFilters: $.format('{0}/{1}', hostUri, 'lookup/signfilters'),
+                causeFilters: $.format('{0}/{1}', hostUri, 'lookup/causefilters')
             },
             likelyHoodThresholds = {
                 high: .80,

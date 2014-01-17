@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Category).IsRequired().HasColumnName("category").IsRequired();
             Property(p => p.Description).HasColumnName("description").IsRequired().HasMaxLength(200);
             Property(p => p.Id).IsRequired().HasColumnName("sign_id");
-            Property(p => p.FilterCategoryId).IsRequired().HasColumnName("sign_filter_id");
+            Property(p => p.FilterId).IsRequired().HasColumnName("filter_id");
         }
 
         #endregion

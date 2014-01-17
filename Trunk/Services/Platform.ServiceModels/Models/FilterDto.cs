@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class SignFilterDto
+    public class FilterDto
     {
         #region Propeties
 
@@ -10,7 +10,15 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String FilterCategory { get; set; }
 
+        public FilterTypeDto FilterType { get; set; }
+
         #endregion
 
     }
+
+    public enum FilterTypeDto
+    {
+        Sign,
+        Cause
+    } 
 }

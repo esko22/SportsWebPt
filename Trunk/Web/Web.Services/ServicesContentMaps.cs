@@ -155,26 +155,25 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Video, CreateVideoRequest>()
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
 
-
             Mapper.CreateMap<CauseDto, Cause>();
             Mapper.CreateMap<Cause, CauseDto>()
                   .Include<Cause, CreateCauseRequest>()
                   .Include<Cause, UpdateCauseRequest>();
-            Mapper.CreateMap<Cause, CreateCauseRequest>();
-            Mapper.CreateMap<Cause, UpdateCauseRequest>();
-
+            Mapper.CreateMap<Cause, CreateCauseRequest>()
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new Filter() { id = s.filterId }));
+            Mapper.CreateMap<Cause, UpdateCauseRequest>()
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new Filter() { id = s.filterId }));
 
             Mapper.CreateMap<SignDto, Sign>();
-
             //seem to be having issues with this type of inheritance mapping
             //http://stackoverflow.com/questions/14705064/mapping-one-source-class-to-multiple-derived-classes-with-automapper
             Mapper.CreateMap<Sign, SignDto>()
                   .Include<Sign, CreateSignRequest>()
                   .Include<Sign, UpdateSignRequest>();
             Mapper.CreateMap<Sign, CreateSignRequest>()
-                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new SignFilter() {id = s.filterId}));
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new Filter() {id = s.filterId}));
             Mapper.CreateMap<Sign, UpdateSignRequest>()
-                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new SignFilter() {id = s.filterId}));
+                  .ForMember(d => d.Filter, opt => opt.MapFrom(s => new Filter() {id = s.filterId}));
 
             Mapper.CreateMap<BodyRegionDto, BodyRegion>();
             Mapper.CreateMap<BodyRegion, BodyRegionDto>()
@@ -183,12 +182,11 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<BodyRegion, CreateBodyRegionRequest>();
             Mapper.CreateMap<BodyRegion, UpdateBodyRegionRequest>();
 
-
             Mapper.CreateMap<FavoriteDto, Favorite>();
             Mapper.CreateMap<Favorite, CreateUserFavoriteRequest>();
 
-            Mapper.CreateMap<SignFilterDto, SignFilter>();
-            Mapper.CreateMap<SignFilter, SignFilterDto>();
+            Mapper.CreateMap<FilterDto, Filter>();
+            Mapper.CreateMap<Filter, FilterDto>();
 
 
         }

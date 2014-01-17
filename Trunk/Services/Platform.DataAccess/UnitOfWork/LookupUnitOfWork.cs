@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Fields
 
-        public IRepository<SignFilter> SignFilterRepo  { get { return GetStandardRepo<SignFilter>(); } }  
+        public IRepository<Filter> FilterRepo  { get { return GetStandardRepo<Filter>(); } }  
 
         #endregion
 
@@ -24,16 +24,28 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IEnumerable<SignFilter> GetSignFilters()
+        public IEnumerable<Filter> GetSignFilters()
         {
-            return SignFilterRepo.GetAll();
-        } 
+            return FilterRepo.GetAll().Where(p => p.FilterType == FilterType.Sign);
+        }
+
+        public IEnumerable<Filter> GetCauseFilters()
+        {
+            return FilterRepo.GetAll().Where(p => p.FilterType == FilterType.Cause);
+        }
+
+        public IEnumerable<Filter> GetFilters()
+        {
+            return FilterRepo.GetAll();
+        }
 
         #endregion
     }
 
     public interface ILookupUnitOfWork
     {
-        IEnumerable<SignFilter> GetSignFilters();
+        IEnumerable<Filter> GetSignFilters();
+        IEnumerable<Filter> GetCauseFilters();
+        IEnumerable<Filter> GetFilters();
     }
 }

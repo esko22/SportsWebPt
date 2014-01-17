@@ -32,7 +32,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 areaComponents = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll().Where(s => s.SkeletonAreaId == request.SkeletonAreaId).Select(p => p.BodyPart).ToList();
 
             var responseList = new List<BodyPartDto>();
-            Mapper.Map(areaComponents, responseList);
+            Mapper.Map(areaComponents.OrderBy(o => o.CommonName), responseList);
 
             return
                 Ok(new ApiListResponse<BodyPartDto, BodyPartSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

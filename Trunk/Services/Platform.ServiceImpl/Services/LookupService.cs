@@ -31,13 +31,26 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Methods
 
-        public object Get(SignFilterListRequest request)
+        public object Get(FilterListRequest request)
         {
-            var responseList = new List<SignFilterDto>();
-            Mapper.Map(_lookupUnitOfWork.GetSignFilters(), responseList);
+            var responseList = new List<FilterDto>();
+
+            switch (request.FilterType)
+            {
+                case FilterTypeDto.Cause:
+                    Mapper.Map(_lookupUnitOfWork.GetCauseFilters(), responseList);
+                    break;
+                case FilterTypeDto.Sign:
+                    Mapper.Map(_lookupUnitOfWork.GetSignFilters(), responseList);
+                    break;
+                default:
+                    Mapper.Map(_lookupUnitOfWork.GetFilters(), responseList);
+                    break;
+            }
+
 
             return
-                Ok(new ApiListResponse<SignFilterDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<FilterDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 

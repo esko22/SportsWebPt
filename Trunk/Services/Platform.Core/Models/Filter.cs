@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class SignFilter
+    public class Filter
     {
         #region Properties
 
@@ -11,11 +11,15 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String FilterCategory { get; set; }
 
+        public FilterType FilterType { get; set; }
+
         #endregion
 
         #region Navigation Properties
 
-        public ICollection<Sign> Signs { get; set; } 
+        public ICollection<Sign> Signs { get; set; }
+
+        public ICollection<Cause> Causes { get; set; } 
 
         #endregion
     }

@@ -10,6 +10,12 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
+        public String category { get; set; }
+
+        public Filter filter { get; set; }
+
+        public int filterId { get; set; }
+
         #endregion
     }
 }

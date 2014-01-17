@@ -262,7 +262,7 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
-    <Content Include="Scripts\models\model.sign.filter.js" />
+    <Content Include="Scripts\models\model.filter.js" />
     <Content Include="Scripts\shared\vm.share.bar.js" />
     <Content Include="Scripts\shared\vm.viewmedica.display.js" />
     <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />

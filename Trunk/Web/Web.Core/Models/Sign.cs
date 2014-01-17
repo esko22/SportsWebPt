@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String category { get; set; }
 
-        public SignFilter filter { get; set; }
+        public Filter filter { get; set; }
 
         public int filterId { get; set; }
 

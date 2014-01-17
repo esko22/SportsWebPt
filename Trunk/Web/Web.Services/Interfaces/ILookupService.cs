@@ -9,7 +9,9 @@ namespace SportsWebPt.Platform.Web.Services
     {
         #region Methods
 
-        IEnumerable<SignFilter> GetSignFilters();
+        IEnumerable<Filter> GetSignFilters();
+
+        IEnumerable<Filter> GetCauseFilters();
 
         #endregion
     }

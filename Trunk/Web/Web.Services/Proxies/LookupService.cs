@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
@@ -29,11 +31,18 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Methods
 
-        public IEnumerable<SignFilter> GetSignFilters()
+        public IEnumerable<Filter> GetSignFilters()
         {
-            var request = GetSync(new SignFilterListRequest());
+            var request = GetSync(new FilterListRequest() { FilterType = FilterTypeDto.Sign } );
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<SignFilter>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Filter>>(request.Response.Items);
+        }
+
+        public IEnumerable<Filter> GetCauseFilters()
+        {
+            var request = GetSync(new FilterListRequest() { FilterType = FilterTypeDto.Cause });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Filter>>(request.Response.Items);
         }
 
         #endregion

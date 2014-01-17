@@ -4,8 +4,8 @@ namespace SportsWebPt.Platform.Core.Models
 {
     public enum SignCategory
     {
-        Visual,
-        Subjective,
-        Functional
+        Visual = 1,
+        Subjective = 2,
+        Functional =3
     }
 }

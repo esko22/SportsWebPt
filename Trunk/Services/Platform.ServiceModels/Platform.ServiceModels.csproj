@@ -92,7 +92,7 @@
     <Compile Include="Models\InjurySymptomDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\SignDto.cs" />
-    <Compile Include="Models\SignFilterDto.cs" />
+    <Compile Include="Models\FilterDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />
     <Compile Include="Models\SkeletonAreaDto.cs" />
     <Compile Include="Models\SkeletonSortBy.cs" />
