@@ -37,6 +37,7 @@ namespace SportsWebPt.Platform.DataAccess
             var skeletonareas = AddSkeletonAreas(regions, sides, orientations);
             var renderTypes = AddRenderTypes();
             var symptoms = AddSymptoms(renderTypes);
+            var treatments = AddTreatments();
             var bodyPartMartix = AddBodyPartsToAreas(skeletonareas,components);
             var symptomMatrixItems = BuildSymptomMatrix(symptoms, bodyPartMartix);
             var injuries = AddInjuries();
@@ -543,6 +544,26 @@ namespace SportsWebPt.Platform.DataAccess
             return vendors;
         } 
 
+        private List<Treatment> AddTreatments()
+        {
+            var treatments = new List<Treatment>()
+                {
+                    new Treatment() {Description = "R.I.C.E", Name = "rice", Provider = ProviderType.Self},
+                    new Treatment() {Description = "Go get Rx", Name = "drugs", Provider = ProviderType.Physican},
+                    new Treatment()
+                        {
+                            Description = "Get deep tissue stuff done",
+                            Name = "deep tissue",
+                            Provider = ProviderType.ART
+                        }
+                };
+
+            treatments.ForEach(t => _dbContext.Treatments.Add(t));
+            _dbContext.SaveChanges();
+
+            return treatments;
+        }
+
         private List<Injury> AddInjuries()
         {
             var injuries = new List<Injury>()
@@ -558,7 +579,9 @@ namespace SportsWebPt.Platform.DataAccess
                                 "An Ankle strain/sprain is easily one of the most common and easily identified injuries in any sport.  An athlete knows they sprained their ankle the instant they do it and the next couple days are predictable with rehabilitation. This is a bad sentence.  I understand what you’re trying to say, but can you rephrase?  The timetable for return to activity is heavily dependent on severity of the strain or sprain.  It is very important to ICE the ankle within the first 48-72 hours of the sprain.  Consistent icing can have a significant impact in expediting the rehabilitation time. There has to be more information for you to add!!!  What about adding a recommendation to have an X-ray for severe injuries to asure there is not a break????  Also, is there any way to strengthen the tendons and muscles to HELP prevent the injury???  ",
                             MedicalName = "Ankle Sprain",
                             OpeningStatement =
-                                "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe."
+                                "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe.",
+                            Prognosis = "Prognosis Negative",
+                            Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {                         
@@ -571,7 +594,9 @@ namespace SportsWebPt.Platform.DataAccess
                                 "Shin splints can manifest in two different forms, one coming from the muscles in the front of the shin (ankle/toe extensors) and the other coming from the back of the shin (deep toe flexors).  Here we will focus on the anterior shin splints.  The muscles on the front of your shin (anterior tibialis, extensor hallucis and digitorum longus) are responsible for controlling the foot and ankle during the landing phase of running or walking.  With continued use, the muscles continue to experience stress and begin to shorten and form pockets of scar tissue.  If not take care of properly, this process will continue and eventually the athlete will begin to experience pain and tightness in the front of the shin.  As symptoms progress, they can eventually lead to difficulty with walking and running activities.  Anterior shin splints can be prevented with regular self -massage, stretching, and minor activity modification.",
                             MedicalName = "Anterior Tbialis",
                             OpeningStatement =
-                                "Suffering from shin splints?  Many athletes have suffered from some form of shin splints at some point in there training.  Shin splints can be very painful and can sideline the most veteran and toughest athletes."
+                                "Suffering from shin splints?  Many athletes have suffered from some form of shin splints at some point in there training.  Shin splints can be very painful and can sideline the most veteran and toughest athletes.",
+                            Prognosis = "Prognosis Negative",
+                            Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {
@@ -583,7 +608,9 @@ namespace SportsWebPt.Platform.DataAccess
                                 "Plantar Fasciitis is the name given to describe the inflammatory condition of the Plantar Fascia, the thick band of ligament that runs along the bottom of the foot and connects the heel bone to the toes. This tissue provides support to the arch of the foot.  With each step, the plantar fascia undergoes a moderate stretching tension as the arch compresses. Plantar Fasciitis occurs when a repeatedly excessive stretch causes small tears in the plantar fascia.  There are a variety of causes for plantar fasciitis.  As we age, our bodies adapt to our lifestyles, and asymmetries arise between the left and right sides of our body.  Many people notice they are stronger on one side or more flexible on the other side.  This natural adaptation to your lifestyle may contribute to this injury affecting only one of your feet.  Commonly experienced by men and women in their middle ages, the condition may also affect young people, especially recreational athletes, such as runners. ",
                             MedicalName = "Plantar Faciitis",
                             OpeningStatement =
-                                "Plantar fasciitis is the most common cause of heel pain.  Those affected by this condition most often describe a stiffness or sharp pain in their heel or along the bottom of their foot."
+                                "Plantar fasciitis is the most common cause of heel pain.  Those affected by this condition most often describe a stiffness or sharp pain in their heel or along the bottom of their foot.",
+                            Prognosis = "Prognosis Negative",
+                            Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {
@@ -595,7 +622,9 @@ namespace SportsWebPt.Platform.DataAccess
                                 "The calf is constructed of three main structures: Gastrocnemius, Soleus, and Achilles tendon.  This unit is vital in pushing off to running, jumping, pedaling, and any exercise that involves pushing off with the legs.  A calf strain occurs when a portion of the muscle is contracted to forcefully during activity and goes into spasm or 'freaks out'.  This is known as the 'oh crap' moment.  When this event occurs, the athlete will experience sharp pain each time the muscle is contracted, usually with pushing off during running and walking.  The injured area needs to go through the healing process, which is usually between 2-4 weeks (although can be much longer with severe strains).  Light stretching and light soft tissue work can dramatically increase the healing process and get the athlete back to training sooner.",
                             MedicalName = "Gastrocnemius/Soleus Strain",
                             OpeningStatement =
-                                "Suffering from calf strain?  A calf strain will make it hard for any person to walk, run, or complete any exercise that involves pushing off with the legs.  Some athletes may be able to push thorough the pain and continue exercise.  Others may not be able to fight through the pain.  Calf strains typically happen to athletes during high intensity workouts or races. "
+                                "Suffering from calf strain?  A calf strain will make it hard for any person to walk, run, or complete any exercise that involves pushing off with the legs.  Some athletes may be able to push thorough the pain and continue exercise.  Others may not be able to fight through the pain.  Calf strains typically happen to athletes during high intensity workouts or races. ",
+                            Prognosis = "Prognosis Negative",
+                            Recovery = "Do what we tell you to"
                         },
                 };
 

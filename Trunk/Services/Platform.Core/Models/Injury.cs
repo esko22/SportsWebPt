@@ -17,6 +17,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Description { get; set; }
 
+        public String Prognosis { get; set; }
+
+        public String Recovery { get; set; }
+
         public String PageName { get; set; }
 
         public String AnimationTag { get; set; }

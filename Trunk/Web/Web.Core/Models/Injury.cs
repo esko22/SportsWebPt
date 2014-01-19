@@ -17,6 +17,10 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
+        public String prognosis { get; set; }
+
+        public String recovery { get; set; }
+
         public String animationTag { get; set; }
 
         public IEnumerable<Plan> plans { get; set; }

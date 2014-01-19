@@ -18,6 +18,8 @@
            commonName = kb.observable(selectedInjury, 'commonName'),
            medicalName = kb.observable(selectedInjury, 'medicalName'),
            description = kb.observable(selectedInjury, 'description'),
+           prognosis = kb.observable(selectedInjury, 'prognosis'),
+           recovery = kb.observable(selectedInjury, 'recovery'),
            animationTag = kb.observable(selectedInjury, 'animationTag'),
            openingStatement = kb.observable(selectedInjury, 'openingStatement'),
            modalDialogId = '#admin-injury-form-dialog',
@@ -119,6 +121,8 @@
            selectedInjury.set('animationTag', data.model().get('animationTag'));
            selectedInjury.set('commonName', data.model().get('commonName'));
            selectedInjury.set('description', data.model().get('description'));
+           selectedInjury.set('prognosis', data.model().get('prognosis'));
+           selectedInjury.set('recovery', data.model().get('recovery'));
            selectedInjury.set('medicalName', data.model().get('medicalName'));
            selectedInjury.set('openingStatement', data.model().get('openingStatement'));
            selectedInjury.set('tags', data.model().get('tags'));
@@ -145,6 +149,18 @@
                    maxlength: 60000
                },
                description:
+               {
+                   required: true,
+                   minlength: 1,
+                   maxlength: 60000
+               },
+               prognosis:
+               {
+                   required: true,
+                   minlength: 1,
+                   maxlength: 60000
+               },
+               recovery:
                {
                    required: true,
                    minlength: 1,
@@ -184,6 +200,18 @@
                description:
                {
                    required: "description must be set",
+                   minlength: "must be between 1 and 60000 characters",
+                   maxlength: "must be between 1 and 60000 characters"
+               },
+               prognosis:
+               {
+                   required: "prognosis must be set",
+                   minlength: "must be between 1 and 60000 characters",
+                   maxlength: "must be between 1 and 60000 characters"
+               },
+               recovery:
+               {
+                   required: "recovery must be set",
                    minlength: "must be between 1 and 60000 characters",
                    maxlength: "must be between 1 and 60000 characters"
                },
@@ -250,7 +278,9 @@
             rangeValues: rangeValues,
             symptomSelectionChanged: symptomSelectionChanged,
             kendoEditorOptions: config.kendoEditorOptions,
-            animationTag : animationTag
+            animationTag: animationTag,
+            recovery: recovery,
+            prognosis: prognosis
         };
 
     });

@@ -437,6 +437,10 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.FilterId, opt => opt.MapFrom(s => s.Filter.Id))
                   .ForMember(d => d.Filter, opt => opt.Ignore());
 
+            Mapper.CreateMap<Treatment, TreatmentDto>();
+            Mapper.CreateMap<TreatmentDto, Treatment>();
+
+
         }
     }
 }

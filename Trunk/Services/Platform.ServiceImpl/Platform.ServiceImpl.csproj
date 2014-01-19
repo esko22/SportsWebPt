@@ -101,6 +101,7 @@
     <Compile Include="Services\SkeletonAreaListService.cs" />
     <Compile Include="Services\SymptomaticRegionService.cs" />
     <Compile Include="Services\SymptomListService.cs" />
+    <Compile Include="Services\TreatmentService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\VideoServices.cs" />
     <Compile Include="Services\PlanServices.cs" />

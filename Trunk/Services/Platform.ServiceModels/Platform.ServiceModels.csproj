@@ -98,6 +98,7 @@
     <Compile Include="Models\SkeletonSortBy.cs" />
     <Compile Include="Models\SymptomaticRegionDto.cs" />
     <Compile Include="Models\SymptomDto.cs" />
+    <Compile Include="Models\TreatmentDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\FavoriteDto.cs" />
     <Compile Include="Models\VideoDto.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Operations\SignRequests.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
+    <Compile Include="Operations\TreatmentListRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
     <Compile Include="Operations\ValidationRequests.cs" />
     <Compile Include="Operations\VideoRequests.cs" />

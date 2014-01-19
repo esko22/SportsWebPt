@@ -8,6 +8,8 @@
                     'medicalName': '',
                     'openingStatement': '',
                     'description': '',
+                    'recovery': '',
+                    'prognosis' : '',
                     'animationTag': '',
                     'pageName': ''
                 },

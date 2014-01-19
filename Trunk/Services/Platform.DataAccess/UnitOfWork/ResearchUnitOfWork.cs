@@ -34,6 +34,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get { return GetStandardRepo<ExerciseCategoryMatrixItem>(); } }
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
         public IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get { return GetStandardRepo<VideoCategoryMatrixItem>(); } }
+        public IRepository<Treatment> TreatmentRepo { get { return GetStandardRepo<Treatment>(); } }
 
         #endregion
 
@@ -355,6 +356,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }
         IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get; }
+        IRepository<Treatment> TreatmentRepo { get; } 
 
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);

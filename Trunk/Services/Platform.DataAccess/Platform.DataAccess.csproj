@@ -56,6 +56,7 @@
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\FilterConfiguration.cs" />
+    <Compile Include="EntityConfiguration\TreatmentConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoCategoryMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\PlanCategoryMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\ExerciseBodyPartMatrixConfiguration.cs" />

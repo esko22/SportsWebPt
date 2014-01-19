@@ -16,6 +16,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Description { get; set; }
 
+        public String Prognosis { get; set; }
+
+        public String Recovery { get; set; }
+
         public PlanDto[] Plans { get; set; }
 
         public SignDto[] Signs { get; set; }
