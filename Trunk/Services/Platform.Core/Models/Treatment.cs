@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ProviderType Provider { get; set; }
 
+        public TreatmentCategory Category { get; set; }
+
         #endregion
     }
 }

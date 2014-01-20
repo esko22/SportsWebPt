@@ -5,8 +5,10 @@ namespace SportsWebPt.Platform.Core.Models
     public enum ProviderType
     {
         Self = 1,
-        ART = 2,
-        Physican = 3,
-        Surgeon = 4
+        PhysicalTherapist = 2,
+        MessageTherapist =3,
+        Physican = 4,
+        Surgeon = 5,
+        Chiropracter = 6
     }
 }
