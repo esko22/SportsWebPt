@@ -11,7 +11,7 @@ using SportsWebPt.Platform.ServiceModels;
 
 namespace SportsWebPt.Platform.ServiceImpl.Services
 {
-    public class Treatment : RestService
+    public class TreatmentService : RestService
     {
         #region Properties
 
@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         #region Methods
 
-        public object Get(TreamentListRequest request)
+        public object Get(TreatmentListRequest request)
         {
             var responseList = new List<TreatmentDto>();
             Mapper.Map(ResearchUnitOfWork.TreatmentRepo.GetAll().OrderBy(p => p.Id), responseList);
@@ -32,29 +32,29 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         }
 
 
-        //public object Post(CreateEquipmentRequest request)
-        //{
-        //    Check.Argument.IsNotNull(request, "EquipmentDto");
+        public object Post(CreateTreatmentRequest request)
+        {
+            Check.Argument.IsNotNull(request, "TreatmentDto");
 
-        //    var equipment = Mapper.Map<Equipment>(request);
-            
-        //    ResearchUnitOfWork.EquipmentRepo.Add(equipment);
-        //    ResearchUnitOfWork.Commit();
+            var treatment = Mapper.Map<Treatment>(request);
 
-        //    return Ok(new ApiResponse<EquipmentDto>(request));
-        //}
+            ResearchUnitOfWork.TreatmentRepo.Add(treatment);
+            ResearchUnitOfWork.Commit();
 
-        //public object Put(UpdateEquipmentRequest request)
-        //{
-        //    Check.Argument.IsNotNull(request, "EquipmentDto");
+            return Ok(new ApiResponse<TreatmentDto>(request));
+        }
 
-        //    var equipment = Mapper.Map<Equipment>(request);
+        public object Put(UpdateTreatmentRequest request)
+        {
+            Check.Argument.IsNotNull(request, "TreatmentDto");
 
-        //    ResearchUnitOfWork.EquipmentRepo.Update(equipment);
-        //    ResearchUnitOfWork.Commit();
+            var treatment = Mapper.Map<Treatment>(request);
 
-        //    return Ok(new ApiResponse<EquipmentDto>(request));
-        //}
+            ResearchUnitOfWork.TreatmentRepo.Update(treatment);
+            ResearchUnitOfWork.Commit();
+
+            return Ok(new ApiResponse<TreatmentDto>(request));
+        }
 
         #endregion
     }

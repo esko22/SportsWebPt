@@ -188,6 +188,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<FilterDto, Filter>();
             Mapper.CreateMap<Filter, FilterDto>();
 
+            Mapper.CreateMap<TreatmentDto, Treatment>();
+            Mapper.CreateMap<Treatment, TreatmentDto>();
+            Mapper.CreateMap<Treatment, CreateTreatmentRequest>();
+            Mapper.CreateMap<Treatment, UpdateTreatmentRequest>();
 
         }
     }

@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Provider { get; set; }
 
+        public String Category { get; set; }
+
         #endregion
     }
 }

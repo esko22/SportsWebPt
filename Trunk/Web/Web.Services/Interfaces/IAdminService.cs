@@ -68,5 +68,11 @@ namespace SportsWebPt.Platform.Web.Services
 
         bool ValidatePageName(string pageName);
 
+        IEnumerable<Treatment> GetTreatments();
+
+        int AddTreatment(Treatment treatment);
+
+        void UpdateTreatment(Treatment treatment);
+
     }
 }

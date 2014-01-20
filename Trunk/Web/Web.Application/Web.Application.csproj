@@ -202,6 +202,7 @@
     <Content Include="Areas\Admin\Scripts\app\admin.area.bootstrapper.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.treatments.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.regions.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.parts.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.causes.js" />
@@ -255,6 +256,7 @@
     <Content Include="Content\fonts\sportswebpt.eot" />
     <Content Include="Content\fonts\sportswebpt.ttf" />
     <Content Include="Content\fonts\sportswebpt.woff" />
+    <Content Include="Areas\Admin\Views\Index\_adminTreatments.cshtml" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />
@@ -262,6 +264,7 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\models\model.treatment.js" />
     <Content Include="Scripts\models\model.filter.js" />
     <Content Include="Scripts\shared\vm.share.bar.js" />
     <Content Include="Scripts\shared\vm.viewmedica.display.js" />

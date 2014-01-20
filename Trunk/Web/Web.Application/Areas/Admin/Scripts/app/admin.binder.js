@@ -1,7 +1,7 @@
 ﻿define('admin.binder',
     ['jquery', 'knockback', 'logger', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page',
-        'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page', 'vm.admin.body.parts', 'vm.admin.body.regions'],
-    function ($, kb, logger, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM, BodyPartVM, BodyRegionVM) {
+        'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page', 'vm.admin.body.parts', 'vm.admin.body.regions', 'vm.admin.treatments'],
+    function ($, kb, logger, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM, BodyPartVM, BodyRegionVM, TreatmentVM) {
         var bind = function() {
             logger.log('admin binding bound');
 
@@ -14,6 +14,7 @@
             kb.applyBindings(EquipmentVM, $('#admin-equipment-panel').get(0));
             kb.applyBindings(BodyPartVM, $('#admin-body-part-panel').get(0));
             kb.applyBindings(BodyRegionVM, $('#admin-body-region-panel').get(0));
+            kb.applyBindings(TreatmentVM, $('#admin-treatment-panel').get(0));
         };
 
         return {

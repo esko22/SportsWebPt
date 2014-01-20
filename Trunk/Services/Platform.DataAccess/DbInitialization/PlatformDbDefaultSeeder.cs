@@ -548,13 +548,14 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var treatments = new List<Treatment>()
                 {
-                    new Treatment() {Description = "R.I.C.E", Name = "rice", Provider = ProviderType.Self},
-                    new Treatment() {Description = "Go get Rx", Name = "drugs", Provider = ProviderType.Physican},
+                    new Treatment() {Description = "R.I.C.E", Name = "rice", Provider = ProviderType.Self, Category = TreatmentCategory.Modalities},
+                    new Treatment() {Description = "Go get Rx", Name = "drugs", Provider = ProviderType.Physican, Category = TreatmentCategory.TherEx},
                     new Treatment()
                         {
                             Description = "Get deep tissue stuff done",
                             Name = "deep tissue",
-                            Provider = ProviderType.ART
+                            Provider = ProviderType.PhysicalTherapist,
+                            Category = TreatmentCategory.ManualTherapy
                         }
                 };
 

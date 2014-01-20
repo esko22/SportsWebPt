@@ -291,6 +291,32 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(_adminService.ValidatePageName(pageName), JsonRequestBehavior.AllowGet);
         }
 
+        [GET("admin/treatments", IsAbsoluteUrl = true)]
+        public ActionResult GetTreatments()
+        {
+            var treatments = _adminService.GetTreatments();
+
+            return Json(treatments, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/treatments", IsAbsoluteUrl = true)]
+        public ActionResult AddTreatment(Treatment treatment)
+        {
+            var response = _adminService.AddTreatment(treatment);
+            treatment.id = response;
+
+            return Json(treatment, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/treatments/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdateTreatment(Treatment treatment)
+        {
+            _adminService.UpdateTreatment(treatment);
+
+            return Json(treatment, JsonRequestBehavior.DenyGet);
+        }
+
+
         #endregion
 
 

@@ -70,7 +70,9 @@
                 planDetail: $.format('{0}/{1}', hostUri, 'research/plan/detail/'),
                 exerciseDetail: $.format('{0}/{1}', hostUri, 'research/exercise/detail/'),
                 signFilters: $.format('{0}/{1}', hostUri, 'lookup/signfilters'),
-                causeFilters: $.format('{0}/{1}', hostUri, 'lookup/causefilters')
+                causeFilters: $.format('{0}/{1}', hostUri, 'lookup/causefilters'),
+                treatments: $.format('{0}/{1}', hostUri, 'research/treatments/'),
+                adminTreatments: $.format('{0}/{1}', hostUri, 'admin/treatments/')
             },
             likelyHoodThresholds = {
                 high: .80,

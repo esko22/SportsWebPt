@@ -13,6 +13,8 @@ namespace SportsWebPt.Platform.DataAccess
             ToTable("Treatment");
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(50);
             Property(p => p.Description).HasColumnName("description").HasMaxLength(200);
+            Property(p => p.Category).HasColumnName("treatment_category_id");
+            Property(p => p.Provider).HasColumnName("provider_type_id");
             Property(p => p.Id).IsRequired().HasColumnName("treatment_id");
         }
         

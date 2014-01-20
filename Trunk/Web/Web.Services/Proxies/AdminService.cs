@@ -229,6 +229,26 @@ namespace SportsWebPt.Platform.Web.Services
                 });
         }
 
+        public IEnumerable<Treatment> GetTreatments()
+        {
+            var request = GetSync(new TreatmentListRequest());
+
+            return Mapper.Map<IEnumerable<Treatment>>(request.Response.Items);
+        }
+
+        public int AddTreatment(Treatment treatment)
+        {
+            var request = PostSync(Mapper.Map<CreateTreatmentRequest>(treatment));
+
+            return request.Response.Id;
+        }
+
+        public void UpdateTreatment(Treatment treatment)
+        {
+            Put(Mapper.Map<UpdateTreatmentRequest>(treatment));
+        }
+
+
         #endregion
 
     }
