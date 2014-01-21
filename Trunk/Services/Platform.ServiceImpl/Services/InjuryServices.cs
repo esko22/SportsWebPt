@@ -26,6 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             var responseList = new List<InjuryDto>();
 
+            //TODO: this needs to moved into the UOW... Nav paths do not belong in service layer
             var results =
                 ResearchUnitOfWork.InjuryRepo.GetAll(new[]
                     {
@@ -36,6 +37,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjurySignMatrixItems.Sign.Filter", 
                         "InjuryCauseMatrixItems", 
                         "InjuryCauseMatrixItems.Cause",
+                        "InjuryTreatmentMatrixItems", 
+                        "InjuryTreatmentMatrixItems.Treatment",
                         "InjuryBodyRegionMatrixItems", 
                         "InjuryBodyRegionMatrixItems.BodyRegion",
                         "InjurySymptomMatrixItems",
@@ -65,8 +68,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                    : ResearchUnitOfWork.InjuryRepo.GetAll(new[]
                     {
                         "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
-                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                        "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion","InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
+                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause","InjuryTreatmentMatrixItems", 
+                        "InjuryTreatmentMatrixItems.Treatment","InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion","InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<InjuryDto>() { Response = Mapper.Map<InjuryDto>(injury) });

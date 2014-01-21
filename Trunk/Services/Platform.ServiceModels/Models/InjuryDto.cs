@@ -26,6 +26,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public CauseDto[] Causes { get; set; }
 
+        public TreatmentDto[] Treatments { get; set; }
+
         public BodyRegionDto[] BodyRegions { get; set; }
 
         public String PageName { get; set; }

@@ -87,6 +87,7 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.BodyRegions, opt => opt.MapFrom(s => s.bodyRegions))
                   .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.causes))
                   .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.signs))
+                  .ForMember(d => d.Treatments, opt => opt.MapFrom(s => s.treatments))
                   .ForMember(d => d.InjurySymptoms, opt => opt.MapFrom(s => s.injurySymptoms));
             Mapper.CreateMap<Injury, CreateInjuryRequest>();
             Mapper.CreateMap<Injury, UpdateInjuryRequest>();
@@ -95,6 +96,7 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.Causes))
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs))
+                  .ForMember(d => d.treatments, opt => opt.MapFrom(s => s.Treatments))
                   .ForMember(d => d.injurySymptoms, opt => opt.MapFrom(s => s.InjurySymptoms));
             Mapper.CreateMap<PotentialInjuryDto, PotentialInjury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))

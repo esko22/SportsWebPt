@@ -29,6 +29,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public InjurySeverity Severity { get; set; }
 
+        #endregion
+
+        #region Navigation Properties
+
         public ICollection<InjurySymptomMatrixItem> InjurySymptomMatrixItems { get; set; }
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
@@ -39,8 +43,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixItems { get; set; }
 
-        public ICollection<User> Users { get; set; } 
+        public ICollection<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixItems { get; set; }
+
+        public ICollection<User> Users { get; set; }
 
         #endregion
+
     }
 }

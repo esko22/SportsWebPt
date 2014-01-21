@@ -1,16 +1,19 @@
 ﻿define('vm.admin.injury.form',
-    ['ko','config', 'underscore', 'knockback', 'jquery','model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection', 'model.admin.symptom.collection','model.admin.body.part.matrix.item.collection', 'model.injury.symptom'],
-    function (ko,config, _, kb, $, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom) {
+    ['ko', 'config', 'underscore', 'knockback', 'jquery', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection',
+     'model.admin.symptom.collection', 'model.admin.body.part.matrix.item.collection', 'model.injury.symptom', 'model.admin.treatment.collection'],
+    function (ko,config, _, kb, $, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom, TreatmentCollection) {
         var planCollection = new PlanCollection(),
             bodyRegionCollection = new BodyRegionCollection(),
             signCollection = new SignCollection(),
             causeCollection = new CauseCollection(),
             symptomCollection = new SymptomCollection(),
+            treatmentCollection = new TreatmentCollection(),
             bodyPartMatrixCollection = new BodyPartMatrixCollection(),
            availablePlans = kb.collectionObservable(planCollection),
            availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
            availableSigns = kb.collectionObservable(signCollection),
            availableCauses = kb.collectionObservable(causeCollection),
+           availableTreatments = kb.collectionObservable(treatmentCollection),
            availableSymptoms = kb.collectionObservable(symptomCollection),
             availableBodyPartMatrix = kb.collectionObservable(bodyPartMatrixCollection),
            selectedInjury = new InjuryModel(),
@@ -29,6 +32,7 @@
            bodyRegions = kb.collectionObservable(selectedInjury.get('bodyRegions'), availableBodyRegions.shareOptions()),
            signs = kb.collectionObservable(selectedInjury.get('signs'), availableSigns.shareOptions()),
            causes = kb.collectionObservable(selectedInjury.get('causes'), availableCauses.shareOptions()),
+           treatments = kb.collectionObservable(selectedInjury.get('treatments'), availableTreatments.shareOptions()),
            rangeValues = ko.observableArray(),
            callback = function () {
                alert('test');
@@ -80,6 +84,7 @@
            selectedInjury.get('bodyRegions').reset();
            selectedInjury.get('signs').reset();
            selectedInjury.get('causes').reset();
+           selectedInjury.get('treatments').reset();
            selectedInjury.get('injurySymptoms').reset();
            
            _.each(data.plans(), function (viewModel) {
@@ -110,6 +115,14 @@
                _.each(causeCollection.models, function (causeModel) {
                    if (viewModel.id() === causeModel.get('id')) {
                        selectedInjury.get('causes').add(causeModel);
+                   }
+               });
+           });
+
+           _.each(data.treatments(), function (viewModel) {
+               _.each(treatmentCollection.models, function (treatmentModel) {
+                   if (viewModel.id() === treatmentModel.get('id')) {
+                       selectedInjury.get('treatments').add(treatmentModel);
                    }
                });
            });
@@ -246,6 +259,7 @@
             causeCollection.fetch();
             bodyPartMatrixCollection.fetch();
             symptomCollection.fetch();
+            treatmentCollection.fetch();
         };
 
         return {
@@ -257,6 +271,7 @@
             availableSigns: availableSigns,
             availableSymptoms: availableSymptoms,
             availableBodyPartMatrix: availableBodyPartMatrix,
+            availableTreatments : availableTreatments,
             commonName: commonName,
             medicalName: medicalName,
             description: description,
@@ -264,7 +279,8 @@
             plans: plans,
             bodyRegions: bodyRegions,
             signs: signs,
-            causes : causes,
+            causes: causes,
+            treatments : treatments,
             bindSelectedInjury: bindSelectedInjury,
             tags: tags,
             pageName: pageName,

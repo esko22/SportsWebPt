@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CauseCategory.cs" />
+    <Compile Include="Models\InjuryTreatmentMatrixItem.cs" />
     <Compile Include="Models\DifferentialDiagnosis.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\ExerciseBodyPartMatrixItem.cs" />

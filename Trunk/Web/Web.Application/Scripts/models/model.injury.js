@@ -1,5 +1,5 @@
-﻿define('model.injury', ['backbone', 'config', 'model.injury.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region'],
-    function (backbone, config, Plan, Cause, Sign, Symptom, BodyRegion) {
+﻿define('model.injury', ['backbone', 'config', 'model.injury.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region', 'model.treatment'],
+    function (backbone, config, Plan, Cause, Sign, Symptom, BodyRegion, Treatment) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.injuries,
@@ -30,6 +30,11 @@
                 },
                 {
                     type: backbone.HasMany,
+                    key: 'treatments',
+                    relatedModel: Treatment
+                },
+                {
+                    type: backbone.HasMany,
                     key: 'bodyRegions',
                     relatedModel: BodyRegion
                 },
@@ -56,8 +61,8 @@ define('model.injury.collection', ['backbone', 'model.injury', 'config'],
 
     });
 
-define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region','model.injury.symptom'],
-    function (backbone, config, Plan, Cause, Sign, BodyRegion, InjurySymptom) {
+define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region','model.injury.symptom', 'model.admin.treatment'],
+    function (backbone, config, Plan, Cause, Sign, BodyRegion, InjurySymptom, Treatment) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminInjuries,
@@ -77,6 +82,11 @@ define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.a
                     type: backbone.HasMany,
                     key: 'signs',
                     relatedModel: Sign
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'treatments',
+                    relatedModel: Treatment
                 },
                 {
                     type: backbone.HasMany,

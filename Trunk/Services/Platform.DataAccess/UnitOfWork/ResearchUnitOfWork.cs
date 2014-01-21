@@ -35,7 +35,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
         public IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get { return GetStandardRepo<VideoCategoryMatrixItem>(); } }
         public IRepository<Treatment> TreatmentRepo { get { return GetStandardRepo<Treatment>(); } }
-
+        public IRepository<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixRepo { get { return GetStandardRepo<InjuryTreatmentMatrixItem>(); } }
         #endregion
 
         #region Construction
@@ -237,7 +237,8 @@ namespace SportsWebPt.Platform.DataAccess
                     "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
                     "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
                     "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
-                    "InjurySymptomMatrixItems","InjurySymptomMatrixItems.SymptomMatrixItem"
+                    "InjurySymptomMatrixItems","InjurySymptomMatrixItems.SymptomMatrixItem",
+                    "InjuryTreatmentMatrixItems", "InjuryTreatmentMatrixItems.Treatment"
                 })
                 .SingleOrDefault(p => p.Id == injury.Id);
 
@@ -295,6 +296,22 @@ namespace SportsWebPt.Platform.DataAccess
                 e.InjuryId = injury.Id;
                 InjuryCauseMatrixRepo.Add(e);
             });
+
+
+            var deletedTreatments = injuryInDb.InjuryTreatmentMatrixItems.Except(
+                injury.InjuryTreatmentMatrixItems, (item, matrixItem) => item.TreatmentId == matrixItem.TreatmentId).ToList();
+
+            var addedTreatments = injury.InjuryTreatmentMatrixItems.Except(
+                injuryInDb.InjuryTreatmentMatrixItems, (item, matrixItem) => item.TreatmentId == matrixItem.TreatmentId).ToList();
+
+            deletedTreatments.ForEach(e => InjuryTreatmentMatrixRepo.Delete(e));
+            addedTreatments.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjuryTreatmentMatrixRepo.Add(e);
+            });
+
+
 
             var deletedSymptoms = injuryInDb.InjurySymptomMatrixItems.Except(
                 injury.InjurySymptomMatrixItems, (item, matrixItem) => item.Id == matrixItem.Id).ToList();

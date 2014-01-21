@@ -66,6 +66,27 @@ namespace SportsWebPt.Platform.DataAccess
             AssociatePlanCategories(plans);
             AssociateVideoCategory(videos);
             AddUserFavorites(users, videos, plans, injuries, exercises);
+            AssociateInjuryTreatment(treatments,injuries);
+        }
+
+        private void AssociateInjuryTreatment(IList<Treatment> treatments, IList<Injury> injuries)
+        {
+            var injuryTreatments = new List<InjuryTreatmentMatrixItem>()
+                {
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[0], Injury = injuries[0]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[0], Injury = injuries[1]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[0], Injury = injuries[2]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[0], Injury = injuries[3]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[1], Injury = injuries[3]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[2], Injury = injuries[1]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[3], Injury = injuries[0]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[4], Injury = injuries[2]},
+                    new InjuryTreatmentMatrixItem() {Treatment = treatments[5], Injury = injuries[2]}
+                };
+
+            injuryTreatments.ForEach(p => _dbContext.InjuryTreatmentMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+            
         }
 
         private void AssociateInjuryCause(IList<Cause> causes, IList<Injury> injuries)
@@ -549,6 +570,9 @@ namespace SportsWebPt.Platform.DataAccess
             var treatments = new List<Treatment>()
                 {
                     new Treatment() {Description = "R.I.C.E", Name = "rice", Provider = ProviderType.Self, Category = TreatmentCategory.Modalities},
+                    new Treatment() {Description = "B.L.O.W", Name = "blow", Provider = ProviderType.Self, Category = TreatmentCategory.ManualTherapy},
+                    new Treatment() {Description = "Read", Name = "read", Provider = ProviderType.Self, Category = TreatmentCategory.Education},
+                    new Treatment() {Description = "Blahhhh blahhh blahh", Name = "blahhh", Provider = ProviderType.Surgeon, Category = TreatmentCategory.Modalities},
                     new Treatment() {Description = "Go get Rx", Name = "drugs", Provider = ProviderType.Physican, Category = TreatmentCategory.TherEx},
                     new Treatment()
                         {
