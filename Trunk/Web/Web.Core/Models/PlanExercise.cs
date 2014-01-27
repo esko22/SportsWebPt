@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int exerciseId { get; set; }
 
+        public int order { get; set; }
+
         #endregion
 
     }

@@ -28,13 +28,13 @@
             rules: {
                 name:
                 {
-                    required: false,
+                    required: true,
                     minlength: 1,
                     maxlength: 50
                 },
                 description:
                 {
-                    required: false,
+                    required: true,
                     minlength: 1,
                     maxlength: 10000
                 }

@@ -46,6 +46,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                                                                "ExerciseVideoMatrixItems", "ExerciseVideoMatrixItems.Video", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
+            foreach (var plan in plans)
+                plan.PlanExerciseMatrixItems = plan.PlanExerciseMatrixItems.OrderBy(p => p.Order).ToList();
+
             foreach (var planExercise in plans.SelectMany(p => p.PlanExerciseMatrixItems))
                 planExercise.Exercise = exerciseEntities.Single(p => p.Id == planExercise.ExerciseId);
 
@@ -74,6 +77,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             if (planEntity == null)
                 return NotFound("Plan Not Found");
 
+            planEntity.PlanExerciseMatrixItems = planEntity.PlanExerciseMatrixItems.OrderBy(p => p.Order).ToList();
             var exerciseIds = planEntity.PlanExerciseMatrixItems.Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment", 

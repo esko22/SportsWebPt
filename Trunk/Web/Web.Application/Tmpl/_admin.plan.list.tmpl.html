@@ -67,6 +67,7 @@
                     <table class="table table-striped">
                         <thead>
                             <th>Name</th>
+                            <th>Order</th>
                             <th>Sets</th>
                             <th>Reps</th>
                             <th>Per Day</th>
@@ -77,6 +78,7 @@
                         <tbody data-bind="foreach: exercises">
                             <tr>
                                 <td data-bind="text: medicalName() + ' [' + exerciseId() + ']'"></td>
+                                <td data-bind="text: order"></td>
                                 <td data-bind="text: sets"></td>
                                 <td data-bind="text: repititions"></td>
                                 <td data-bind="text: perDay"></td>

@@ -14,6 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.PlanId).IsRequired().HasColumnName("plan_id");
             Property(p => p.ExerciseId).IsRequired().HasColumnName("exercise_id");
             Property(p => p.Repititions).HasColumnName("repititions");
+            Property(p => p.Order).IsRequired().HasColumnName("exercise_order");
             Property(p => p.Sets).HasColumnName("sets");
             Property(p => p.PerDay).HasColumnName("per_day");
             Property(p => p.PerWeek).HasColumnName("per_week");

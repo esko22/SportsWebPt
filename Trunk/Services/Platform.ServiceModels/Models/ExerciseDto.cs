@@ -50,5 +50,7 @@ namespace SportsWebPt.Platform.ServiceModels
     public class PlanExerciseDto : ExerciseDto
     {
         public int ExerciseId { get; set; }
+
+        public int Order { get; set; }
     }
 }

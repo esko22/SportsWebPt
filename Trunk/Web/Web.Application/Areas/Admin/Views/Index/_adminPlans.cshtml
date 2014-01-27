@@ -99,6 +99,7 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <th>Name</th>
+                                        <th>Order</th>
                                         <th>Sets</th>
                                         <th>Reps</th>
                                         <th>Per Day</th>
@@ -109,6 +110,7 @@
                                     <tbody data-bind="foreach: exercises">
                                         <tr>
                                             <td><select id="inputPlanExercise" class="form-control" name="adminPlanExercises" data-bind="options: $parent.availableExercises, optionsText: function (item) { return item.medicalName() + ' [' + item.id() + ' ]' }, value: exerciseId, optionsValue: 'id'" ></select></td>
+                                            <td><select class="input-sm" id="inputOrder" name="order" data-bind="options: $parent.rangeValues, value: order"></select></td>
                                             <td><select class="input-sm" id="inputSets" name="sets" data-bind="options: $parent.rangeValues, value: sets"></select></td>
                                             <td><select class="input-sm" id="inputReps" name="perday" data-bind="options: $parent.rangeValues, value: repititions"></select></td>
                                             <td><select class="input-sm" id="inputWeek" name="perweek" data-bind="options: $parent.rangeValues, value: perWeek"></select></td>

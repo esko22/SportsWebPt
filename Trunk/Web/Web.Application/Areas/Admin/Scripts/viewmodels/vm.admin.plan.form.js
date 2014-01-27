@@ -51,6 +51,7 @@
             addNewExercise = function() {
                 var exercise = new Exercise();
                 exercise.set('sets', 0);
+                exercise.set('order', 0);
                 exercise.set('repititions', 0);
                 exercise.set('exerciseId', 0);
                 exercise.set('perWeek', 0);

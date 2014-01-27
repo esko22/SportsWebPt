@@ -42,7 +42,10 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/koExternalTemplateEngine.js",
                         "~/Scripts/libs/kendo/kendo.web.min.js",
                         "~/Scripts/libs/extentsions/knockout-kendo.min.js",
-                        "~/Scripts/libs/toastr.js"
+                        "~/Scripts/libs/toastr.js",
+                        "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
+                        "~/Content/theme/plugins/clingify/jquery.clingify.js",
+                        "~/Content/theme/js/appstrap.script.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/utils")
@@ -80,6 +83,11 @@ namespace SportsWebPt.Platform.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                "~/Content/theme/css/colour-babyblue.css",
+                "~/Content/theme/css/theme-style.css",
+                "~/Content/theme/plugins/flexslider/flexslider.css",
+                "~/Content/theme/plugins/animate/animate.css",
+                "~/Content/theme/plugins/clingify/clingify.css",
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
                 "~/Content/kendo/kendo.common.min.css",

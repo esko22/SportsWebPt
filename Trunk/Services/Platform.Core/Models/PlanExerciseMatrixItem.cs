@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int ExerciseId { get; set; }
 
+        public int Order { get; set; }
+
         public int Sets { get; set; }
 
         public int Repititions { get; set; }
