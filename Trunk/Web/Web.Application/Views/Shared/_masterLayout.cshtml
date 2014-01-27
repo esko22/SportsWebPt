@@ -21,13 +21,13 @@
     <![endif]-->        
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body id="body-content" >
+    <body id="body-content">
         @{Html.RenderPartial("~/Views/Shared/_fbSDK.cshtml"); }
         <input type="hidden" id="userid" value="@Model.User.id"/>
         <input type="hidden" id="username" value="@Model.User.userName"/>
         <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
         @{Html.RenderPartial("~/Views/Shared/_masterHeader.cshtml"); }
-        <div id="master-container" class="container pattern-block">
+        <div id="master-container" >
             @RenderBody()
         </div>
         @{Html.RenderPartial("~/Views/Shared/_masterFooter.cshtml"); }

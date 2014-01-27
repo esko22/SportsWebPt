@@ -618,16 +618,17 @@ ul#skeleton li {
 
 
 #master-container {
-    margin-top: 20px;
 }
 
 .view {
     display: none;
 }
 
-.logoMenu {
+.menu-logo {
     margin-top: 6px;
+    margin-right: 8px;
     height: 40px;
+    visibility: hidden;
 }
 /* ICON FONT AUGMENTS */
 
@@ -641,6 +642,10 @@ ul#skeleton li {
     color: #424947
 }
 
+.nav-icon {
+    font-family: inherit;
+    font-size: 13px;
+}
 
 
 .research-nav-icon {

@@ -45,6 +45,8 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/toastr.js",
                         "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
                         "~/Content/theme/plugins/clingify/jquery.clingify.js",
+                        "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
+                        "~/Content/theme/plugins/jRespond/js/jrespond.js",
                         "~/Content/theme/js/appstrap.script.js"
                         ));
 
@@ -83,9 +85,9 @@ namespace SportsWebPt.Platform.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
-                "~/Content/theme/css/colour-babyblue.css",
-                "~/Content/theme/css/theme-style.css",
                 "~/Content/theme/plugins/flexslider/flexslider.css",
+                "~/Content/theme/css/theme-style.css",
+                "~/Content/theme/css/swpt-colorway.css",
                 "~/Content/theme/plugins/animate/animate.css",
                 "~/Content/theme/plugins/clingify/clingify.css",
                 "~/Content/icon-fonts.css",

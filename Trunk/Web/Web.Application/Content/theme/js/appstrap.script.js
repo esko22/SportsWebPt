@@ -151,9 +151,16 @@ $(document).ready(function() {
   //Plugin: clingify (sticky navbar)
   // --------------------------------
   if (jQuery().clingify) {
-    $('[data-toggle=clingify]').clingify({
-      breakpoint: 1010,
-    });
+      $('[data-toggle=clingify]').clingify({
+              breakpoint: 1010,
+              locked: function () {
+                  $('#menu-logo').css('visibility', 'visible');
+              },
+              detached: function () {
+                  $('#menu-logo').css('visibility', 'hidden');
+              }
+          }
+      );
   }
   
   //Plugin: flexslider

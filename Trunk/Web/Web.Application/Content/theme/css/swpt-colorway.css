@@ -569,3 +569,21 @@ body .social-media a:hover {
 body a .de-em {
   color: rgba(0, 173, 187, 0.8);
 }
+
+
+/* Theme Style Overwrites*/
+.btn-navbar.open,
+.navbar-btn.open,
+.btn-navbar:hover,
+.navbar-btn:hover {
+  background: #1d2323;
+}
+
+.navbar-nav > li > a:hover,
+#main-menu > li > a:hover,
+.navbar-nav > li.active a,
+#main-menu > li.active a {
+  background: #1d2323;
+  color: #ffffff;
+}
+

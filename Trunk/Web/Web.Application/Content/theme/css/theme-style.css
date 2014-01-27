@@ -4962,7 +4962,7 @@ a:hover .icon-inverse-80 {
   padding: 0;
   margin: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid #242424;
+  /*border-bottom: 1px solid #242424;*/
 }
 .navbar-nav > li.home-link,
 #main-menu > li.home-link {

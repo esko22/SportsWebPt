@@ -255,7 +255,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\theme\css\colour-blue.css" />
     <Content Include="Content\theme\css\colour-red.css" />
-    <Content Include="Content\theme\css\colour-babyblue.css" />
+    <Content Include="Content\theme\css\swpt-colorway.css" />
     <Content Include="Content\theme\css\custom-style.css" />
     <Content Include="Content\theme\css\font-awesome.css" />
     <Content Include="Content\theme\css\theme-style.css" />
