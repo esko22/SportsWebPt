@@ -587,3 +587,21 @@ body a .de-em {
   color: #ffffff;
 }
 
+
+.feature-box {
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#fafafa), to(#ebebeb));
+  background-image: -webkit-linear-gradient(top, #fafafa, 0%, #ebebeb, 100%);
+  background-image: -moz-linear-gradient(top, #fafafa 0%, #ebebeb 100%);
+  background-image: linear-gradient(to bottom, #fafafa 0%, #ebebeb 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffafafa', endColorstr='#ffebebeb', GradientType=0);
+  border: 1px solid #e6e6e6;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding-top: 20px;
+}
+
+.feature-link {
+    text-decoration: none !important
+}

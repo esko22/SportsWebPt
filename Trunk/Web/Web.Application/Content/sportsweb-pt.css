@@ -1,29 +1,30 @@
 ﻿
-#splash-header {
-    margin: 20px;
-    background-size: cover;
-    background-position: center center;
-    vertical-align: top;
-    background: url(images/swpt_splash.png) no-repeat; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+#btn-splash-get-started {
+    margin-top: 10px;
 }
 
-#splash-header h1,#splash-header h2 {
-    color: #ffffff
+#splash-blurb > h1 {
+    font-size: 40px;
 }
 
-body {
+#splash-blurb > p {
+    color: #BABAB3;
 }
 
-.pattern-block {
-  background-image: url("theme/img/patterns/light_wool.png");
+#splash-wallpaper {
+    background: url("theme/img/patterns/light_wool.png");
+    padding-bottom: 40px;
+    border-bottom-color: #e6e6e6;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  -webkit-box-shadow: 1px 1px 1px rgba(27, 27, 27, 0.12);
+  box-shadow: 1px 1px 1px rgba(27, 27, 27, 0.12);
 }
 
 .header-logo {
     height: 60px;
 }
+
 
 #login-dialog .login-input {
     height: 30px;
@@ -616,8 +617,8 @@ ul#skeleton li {
     margin-top: 4px;
 }
 
-
-#master-container {
+#footer {
+    background: #333333;
 }
 
 .view {

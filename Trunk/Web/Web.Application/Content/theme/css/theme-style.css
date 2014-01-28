@@ -6675,13 +6675,13 @@ ul.nav-tabs li.active a:hover {
   border: none;
 }
 .slider-boxed .flexslider-wrapper {
-  border: 1px solid rgba(27, 27, 27, 0.15);
+  border: 2px solid rgba(27, 27, 27, 0.15);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin-top: 15px;
-  -webkit-box-shadow: 1px 1px 10px rgba(27, 27, 27, 0.12);
-  box-shadow: 1px 1px 10px rgba(27, 27, 27, 0.12);
+  -webkit-box-shadow: 10px 10px 10px rgba(27, 27, 27, 0.12);
+  box-shadow: 10px 10px 10px rgba(27, 27, 27, 0.12);
 }
 .slider-boxed .slide-content {
   padding-top: 20px;

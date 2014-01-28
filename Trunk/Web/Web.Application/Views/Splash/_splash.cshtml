@@ -1,103 +1,69 @@
-﻿<div id="main-splash-panel" class="pattern-block"  data-bind="visible:isVisible">
-
-<div id="highlighted" class="container"> 
-  <!--Showshow-->
-  <section class="flexslider-wrapper">
-    <div class="flexslider" data-slidernav="auto" data-transition="slide" data-page-class="slider-boxed">
-      <div class="slides"> 
-        <!--Slide #1 with caption-->
-        <div class="slide">
-          <div data-bg-img="/Content/images/swpt_splash_2.png" data-animate-in="fadeIn" data-animate-delay="de-02" class="slide-bg">
-            <div class="slide-content">
-              <div class="row">
-                  <div class="col-md-6 caption" style="padding-left: 100px; color: #ffffff">
-                      <h1 data-animate-in="bounceInRight">Your Recovery</h1>
-                      <h3 data-animate-in="bounceInRight" data-animate-delay="de-02">Guided, effective, always accessible</h3>
-                      <p data-animate-in="bounceInRight" data-animate-delay="de-04">Perfect for your App, Web service or hosting company!</p>
-                      <a href="#" class="btn btn-lg btn-primary" data-animate-in="bounceInRight" data-animate-delay="de-06">Get Started >></a> 
-                  </div>
-                  <div class="col-md-6"><img style="visibility: hidden" src="/Content/theme/img/slides/slide1.png" alt="Slide 1"/></div>
-              </div>
-            </div>
-          </div>
+﻿<div id="main-splash-panel" data-bind="visible:isVisible">
+    
+    <div id="splash-wallpaper">
+        <div id="highlighted" class="container">
+            <section class="flexslider-wrapper">
+                <div class="flexslider" data-slidernav="auto" data-transition="slide" data-page-class="slider-boxed">
+                    <div class="slides"> 
+                        <div class="slide">
+                            <div data-bg-img="/Content/images/swpt_splash_2.png" data-animate-in="fadeIn" data-animate-delay="de-02" class="slide-bg">
+                                <div class="slide-content">
+                                    <div class="row">
+                                        <div class="col-md-6 caption" id="splash-blurb" style="padding-left: 100px; color: #ffffff">
+                                            <h1 data-animate-in="bounceInRight">Your Recovery</h1>
+                                            <h3 data-animate-in="bounceInRight" data-animate-delay="de-02">Guided, effective, always accessible</h3>
+                                            <p data-animate-in="bounceInRight" data-animate-delay="de-04">Resources organized by professionals for your education.</p>
+                                            <a href="#" id="btn-splash-get-started" class="btn btn-lg btn-primary" data-animate-in="bounceInRight" data-animate-delay="de-06">Get Started >></a>
+                                        </div>
+                                        <div class="col-md-6"><img style="visibility: hidden" src="/Content/theme/img/slides/slide1.png" alt="Slide 1"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
     </div>
-  </section>
-</div>
 
 
 
 
-
-    <div id="content">
+    <div id="splash-content" class="push-down-md">
         <div class="container"> 
             <div class="block features">
-                <h2 class="title-divider"><span>Core <span class="de-em">Features</span></span> <small>Core features included in all plans.</small></h2>
-
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        <i class="icon-sportswebpt-stethoscope splash-icon"></i>
-                        <span class="screen-reader-text">Examination</span>
-                        <h2>Examine</h2>
-                        <p>Use our self examination wizard designed by professionals to pin point your injury.Use our self examination wizard designed by professionals to pin point your injury.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <i class="splash-icon icon-sportswebpt-magnifier"></i>
-                        <span class="screen-reader-text">Research</span>
-                        <h2>Research</h2>
-                        <p>Documents, videos and links organized by professionals to address specific injuries saving you time and increasing your confidence</p>
-                    </div>
-                    <div class="col-md-3">
-                        <i class="icon-sportswebpt-clipboard3 splash-icon"></i>
-                        <span class="screen-reader-text">Plan</span>
-                        <h2>Plan</h2>
-                        <p>Organize your own recovery using pre-configured  plans for common injuries. Get feedback and advice from professionals to augment you plan based on your progression </p>
-                    </div>
-                    <div class="col-md-3">
-                        <i class="splash-icon icon-sportswebpt-video-camera2"></i>
-                        <span class="screen-reader-text">Conference</span>
-                        <h2>Conference</h2>
-                        <p>Setup one on one video conferences with our licensed therapists to further diagnosis injuries, assist with exercises or evaluate progression.</p>
-                    </div>
-                </div>
-                <div class="row text-center push-down-md">
-                    <div class="col-md-3">
-                        <a class="btn btn-default" href="#/examine">Start Describing</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="btn btn-default" href="#/research">Start Learning</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="btn btn-default" href="#">Start Planning</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="btn btn-default" href="#">Learn more</a>
-                    </div>
-                </div>
+                <h2 class="title-divider"><span>Core <span class="de-em">Resources</span></span> <small>Resources to educate and aid your recovery.</small></h2>
+                 <div class="row">
+                     <div class="feature col-sm-6 col-md-3">
+                         <div class="feature-box">
+                              <a href="#/examine" class="feature-link"><i class="icon-sportswebpt-stethoscope splash-icon"></i></a>
+                         </div>
+                         <h3 class="title"><a href="#/examine" class="feature-link">Self <span class="de-em">Examination</span></a></h3>
+                         <p>Use our self examination wizard designed by professionals to pin point your injury.Use our self examination wizard designed by professionals to pin point your injury.</p>
+                     </div>
+                     <div class="feature col-sm-6 col-md-3">
+                         <div class="feature-box">
+                              <a href="#/research" class="feature-link"><i class="icon-sportswebpt-magnifier splash-icon"></i></a>
+                         </div>
+                         <h3 class="title"><a href="#/research" class="feature-link">Research <span class="de-em">Information</span></a></h3>
+                         <p>Documents, videos and links organized by professionals to address specific injuries saving you time and increasing your confidence</p>
+                     </div>
+                     <div class="feature col-sm-6 col-md-3">
+                         <div class="feature-box">
+                              <a href="" class="feature-link"><i class="icon-sportswebpt-clipboard3 splash-icon"></i></a>
+                         </div>
+                         <h3 class="title"><a href="" class="feature-link">Organize <span class="de-em">Recovery</span></a></h3>
+                         <p>Organize your own recovery using pre-configured plans for common injuries. Get feedback and advice from professionals to augment you plan based on your progression.</p>
+                     </div>
+                     <div class="feature col-sm-6 col-md-3">
+                         <div class="feature-box">
+                              <a href="" class="feature-link"><i class="icon-sportswebpt-video-camera2 splash-icon"></i></a>
+                         </div>
+                         <h3 class="title"><a href="" class="feature-link">Tele <span class="de-em">Rehabilitation</span></a></h3>
+                         <p>Setup one on one video conferences with our licensed therapists to further diagnosis injuries, assist with exercises or evaluate progression.</p>
+                     </div>
+                  </div>
             </div>
-
         </div>
     </div>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-@*<header class="jumbotron" id="splash-header">
-        <h1>Your recovery</h1>
-        <h2>Guided, effective, always accessible</h2>
-        <p>&nbsp;</p>
-        <p><a class="btn btn-info btn-lg col-md-3" href="#/examine" >Get started &raquo;</a></p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-    </header>
-    *@

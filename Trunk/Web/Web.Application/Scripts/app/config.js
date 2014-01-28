@@ -3,7 +3,7 @@
 
         var viewIds = {
             header: '#master-header',
-            footer: '#master-footer',
+            footer: '#footer',
             login: '#login-dialog',
             masterContainer: '#master-container',
             mainSplash: '#main-splash-panel',
