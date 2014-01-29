@@ -66,6 +66,7 @@
             //HACK-ish--- need an unique id set to work with templates 
             //that are used in the symptom detail for the user to select
             //which is set
+            symptom.set('givenResponse', 0);
             symptom.set('id', $.now());
             selectedInjury.get('injurySymptoms').add(symptom);
         },

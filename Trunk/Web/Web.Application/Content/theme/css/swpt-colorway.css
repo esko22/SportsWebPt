@@ -605,3 +605,35 @@ body a .de-em {
 .feature-link {
     text-decoration: none !important
 }
+
+.title-divider-research {
+  text-align: left;
+  margin-bottom: 1em;
+  background: #f5f5f5 url(../img/bg_divider.png) left center repeat-x;
+  padding: 0;
+}
+
+.title-divider-research span {
+  background: #f5f5f5;
+  padding-right: 0.5em;
+}
+.title-divider-research small {
+  display: block;
+  color: rgba(51, 51, 51, 0.6);
+}
+
+.title-divider-no-bar {
+  text-align: left;
+  margin-bottom: 1em;
+  background: #f5f5f5;
+  padding: 0;
+}
+
+.title-divider-no-bar span {
+  background: #f5f5f5;
+  padding-right: 0.5em;
+}
+.title-divider-no-bar small {
+  display: block;
+  color: rgba(51, 51, 51, 0.6);
+}

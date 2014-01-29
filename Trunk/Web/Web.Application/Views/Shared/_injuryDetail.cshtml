@@ -1,19 +1,23 @@
 ﻿<div class="row">
-    <div class="col-md-4 pull-left">
-        <h2 data-bind="text: commonName"></h2>
+    <div class="col-md-8">
+        <h2 class="title-divider-no-bar"><span>Name: <span class="de-em" data-bind="text: medicalName"></span></span> <small data-bind="text: medicalName"></small></h2>
     </div>
-    <div class="col-md-offset-6 col-md-2">
+@*    <div class="col-md-4">
         <!-- ko with: $parent.shareBar -->
         @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
         <!-- /ko --> 
+    </div>*@
+</div>
+<div class="row push-down-md">
+    <div class="col-md-7">
+         <h2 class="title-divider-research"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing injury</small></h2>
+    </div>
+    <div class="col-md-5">
+         <h2 class="title-divider-research"><span>Animation <span class="de-em"></span></span> <small>Animated video showing...</small></h2>
     </div>
 </div>
-<hr class="examine-report-hr"/>
-<div><strong>Medical Name: </strong><span data-bind="text: medicalName"></span></div>
-<div><span>&nbsp;</span></div>
-<div><span data-bind="html: openingStatement"></span></div>
-<div class="row push-down-md">
-    <div class="col-md-7"><strong>Description: </strong><span data-bind="html: description"></span></div>
+<div class="row">
+    <div class="col-md-7"><span data-bind="html: description"></span></div>
     <div class="col-md-5">
         <!-- ko with: $parent.viewMedicaDisplay -->
         @{Html.RenderPartial("~/Views/Shared/_viewMedicaDisplay.cshtml"); }
@@ -21,8 +25,8 @@
     </div>
 </div>
 <div class="row push-down-md">
-    <div class="col-md-3">
-        <h3>Potential Causes</h3>
+    <div class="col-md-6">
+        <h2 class="title-divider-research"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
         <table class="table table-striped">
             <tbody data-bind="foreach: causes">
                 <tr>
@@ -31,8 +35,8 @@
             </tbody>            
         </table>
     </div>
-    <div class="col-md-3">
-        <h3>Signs</h3>
+    <div class="col-md-6">
+        <h2 class="title-divider-research"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
         <table class="table table-striped">
             <tbody data-bind="foreach: signs">
                 <tr>
@@ -40,6 +44,40 @@
                 </tr>
             </tbody>            
         </table>
+    </div>
+</div>
+<div class="row push-down-md">
+    <div class="col-md-12">
+        <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span></span> <small>Outline how to get better</small></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <span data-bind="html: recovery"></span>
+    </div>
+</div>
+<div class="row push-down-md">
+<div class="col-md-12">
+    <h2 class="title-divider-research"><span>Treatments <span class="de-em"></span></span> <small>Not sure how to explain this</small></h2>
+    <table class="table table-striped">
+        <tbody data-bind="foreach: treatments">
+            <tr>
+                <td data-bind="text: name"></td>
+                <td data-bind="html: description"></td>
+                <td data-bind="html: provider"></td>
+            </tr>
+        </tbody>            
+    </table>
+</div>
+</div>
+<div class="row push-down-md">
+    <div class="col-md-12">
+        <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <span data-bind="html: prognosis"></span>
     </div>
 </div>
 <div class="row">
