@@ -32,11 +32,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <label>Prognosis: </label> <span data-bind="html: prognosis"></span>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-6">
                 <label><strong>Tags: </strong><span data-bind="text: tags"></span></label>
             </div>
@@ -105,6 +100,19 @@
                     </ul>
                 </div>
             </div>        
+        </div>  
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <label><strong>Prognoses: </strong></label>
+                    <ul data-bind="foreach: injuryPrognoses">
+                        <li>
+                            <span data-bind="text: name() + ' [' + prognosisId() + ']'"> </span>
+                            <span data-bind="text: duration"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>  
     </td>
 </tr>

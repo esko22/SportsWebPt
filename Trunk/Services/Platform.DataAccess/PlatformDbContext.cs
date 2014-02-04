@@ -47,7 +47,9 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<VideoCategoryMatrixItem> VideoCategoryMatrixItems { get; set; }
         public DbSet<Filter> Filters { get; set; }
         public DbSet<Treatment> Treatments { get; set; }
-        public DbSet<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixItems { get; set; } 
+        public DbSet<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixItems { get; set; }
+        public DbSet<Prognosis> Prognoses { get; set; }
+        public DbSet<InjuryPrognosisMatrixItem> InjuryPrognosisMatrixItems { get; set; } 
 
         #endregion
 

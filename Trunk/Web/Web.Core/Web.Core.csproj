@@ -59,10 +59,12 @@
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Injury.cs" />
+    <Compile Include="Models\InjuryPrognosis.cs" />
     <Compile Include="Models\InjurySymptom.cs" />
     <Compile Include="Models\PlanExercise.cs" />
     <Compile Include="Models\PotentialInjury.cs" />
     <Compile Include="Models\PotentialSymptom.cs" />
+    <Compile Include="Models\Prognosis.cs" />
     <Compile Include="Models\Sign.cs" />
     <Compile Include="Models\SignFilter.cs" />
     <Compile Include="Models\SkeletonArea.cs" />

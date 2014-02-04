@@ -55,13 +55,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-lg-3" for="inputPrognosis">Prognosis</label>
-                                <div class="col-lg-9">
-                                    <textarea rows="5 "id="inputPrognosis" class="form-control" name="prognosis" data-bind="kendoEditor: { value: prognosis, tools: $root.kendoEditorOptions }" placeholder="Prognosis">
-                                        </textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="control-label col-lg-3" for="inputPageName">Page Name</label>
                                 <div class="col-lg-9">
                                     <input type="text" id="inputPageName" class="form-control" name="pageName" data-bind="value: pageName" placeholder="Page Name">
@@ -139,6 +132,29 @@
                                 <div class="col-lg-9">
                                     <select id="inputBodyRegions" class="form-control" name="bodyRegions" multiple="multiple" size="6" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions" >
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Prognoses</label>
+                                <div>
+                                    <button class="btn btn-primary" id="btn-admin-add-prognosis"data-bind="click: addNewPrognosis">Add</button>
+                                </div>
+                                <div>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th>Prognosis</th>
+                                            <th>Duration</th>
+                                            <th>Action</th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody data-bind="foreach: injuryPrognoses">
+                                            <tr>
+                                                <td><select id="inputInjuryPrognosis" class="form-control" name="adminInjuryPrognosis" data-bind="options: $parent.availablePrognoses, optionsText: function(item) { return  item.name() + ':' + item.id(); }, value: prognosisId, optionsValue: 'id'" ></select></td>
+                                                <td><input id="inputInjuryPrognosisDuration" class="form-control" type="text" name="adminInjuryPrognosisDuration" data-bind="value:duration" /></td>
+                                                <td><button class="btn btn-primary" data-bind="click: $parent.removePrognosis">Remove</button></td>
+                                            </tr>
+                                        </tbody>            
+                                    </table>
                                 </div>
                             </div>
                         </div>

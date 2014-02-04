@@ -36,7 +36,9 @@
         update: function (element, valueAccessor) {
             $(document).ready(function() {
                 $(element).attr('data-href', valueAccessor());
-                FB.XFBML.parse();
+                if (typeof FB !== 'undefined') {
+                    FB.XFBML.parse();
+                }
             });
         }
     };

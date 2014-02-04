@@ -14,7 +14,9 @@
             causeCategories = ko.observableArray(['Lifestyle', 'Physiological']),
             signCategories = ko.observableArray(['Functional', 'Subjective', 'Visual']),
             treatmentCategories = ko.observableArray(['ManualTherapy', 'TherEx', 'Modalities', 'Education']),
-            treatmentProviders = ko.observableArray(['Self', 'PhysicalTherapist', 'MessageTherapist', 'Physican', 'Surgeon', 'Chiropracter']);
+            treatmentProviders = ko.observableArray(['Self', 'PhysicalTherapist', 'MessageTherapist', 'Physican', 'Surgeon', 'Chiropracter']),
+            prognosisCategories = ko.observableArray(['BestCase', 'DelayedRecovery', 'Fubar']);
+        
         
         function init() {
             signFilterCollection.url = config.apiUris.signFilters;
@@ -40,6 +42,7 @@
             signCategories: signCategories,
             availableCauseFilters: availableCauseFilters,
             treatmentCategories: treatmentCategories,
-            treatmentProviders: treatmentProviders
+            treatmentProviders: treatmentProviders,
+            prognosisCategories: prognosisCategories
         };
     });

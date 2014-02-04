@@ -55,6 +55,8 @@
     <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
+    <Compile Include="EntityConfiguration\PrognosisConfiguration.cs" />
+    <Compile Include="EntityConfiguration\InjuryPrognosisMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryTreatmentMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\FilterConfiguration.cs" />
     <Compile Include="EntityConfiguration\TreatmentConfiguration.cs" />

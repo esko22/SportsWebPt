@@ -72,8 +72,10 @@
                 signFilters: $.format('{0}/{1}', hostUri, 'lookup/signfilters'),
                 causeFilters: $.format('{0}/{1}', hostUri, 'lookup/causefilters'),
                 treatments: $.format('{0}/{1}', hostUri, 'research/treatments/'),
-                adminTreatments: $.format('{0}/{1}', hostUri, 'admin/treatments/')
-            },
+                adminTreatments: $.format('{0}/{1}', hostUri, 'admin/treatments/'),
+                prognoses: $.format('{0}/{1}', hostUri, 'research/prognoses/'),
+                adminPrognoses: $.format('{0}/{1}', hostUri, 'admin/prognoses/')
+    },
             likelyHoodThresholds = {
                 high: .80,
                 medium: .40

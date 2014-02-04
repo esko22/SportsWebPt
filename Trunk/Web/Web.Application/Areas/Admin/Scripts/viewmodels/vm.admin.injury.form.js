@@ -1,7 +1,7 @@
 ﻿define('vm.admin.injury.form',
     ['ko', 'config', 'underscore', 'knockback', 'jquery', 'model.admin.injury', 'error.helper', 'bootstrap.helper', 'model.admin.plan.collection', 'model.admin.body.region.collection', 'model.admin.cause.collection', 'model.admin.sign.collection',
-     'model.admin.symptom.collection', 'model.admin.body.part.matrix.item.collection', 'model.injury.symptom', 'model.admin.treatment.collection'],
-    function (ko,config, _, kb, $, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom, TreatmentCollection) {
+     'model.admin.symptom.collection', 'model.admin.body.part.matrix.item.collection', 'model.injury.symptom', 'model.admin.treatment.collection', 'model.admin.prognosis.collection', 'model.injury.prognosis'],
+    function (ko,config, _, kb, $, InjuryModel, err, bh, PlanCollection, BodyRegionCollection, CauseCollection, SignCollection, SymptomCollection, BodyPartMatrixCollection, InjurySymptom, TreatmentCollection, PrognosisCollection, InjuryPrognosis) {
         var planCollection = new PlanCollection(),
             bodyRegionCollection = new BodyRegionCollection(),
             signCollection = new SignCollection(),
@@ -9,19 +9,21 @@
             symptomCollection = new SymptomCollection(),
             treatmentCollection = new TreatmentCollection(),
             bodyPartMatrixCollection = new BodyPartMatrixCollection(),
+            prognosisCollection = new PrognosisCollection(),
            availablePlans = kb.collectionObservable(planCollection),
            availableBodyRegions = kb.collectionObservable(bodyRegionCollection),
            availableSigns = kb.collectionObservable(signCollection),
            availableCauses = kb.collectionObservable(causeCollection),
            availableTreatments = kb.collectionObservable(treatmentCollection),
            availableSymptoms = kb.collectionObservable(symptomCollection),
+           availablePrognoses = kb.collectionObservable(prognosisCollection),
             availableBodyPartMatrix = kb.collectionObservable(bodyPartMatrixCollection),
            selectedInjury = new InjuryModel(),
             injurySymptoms = kb.collectionObservable(selectedInjury.get('injurySymptoms')),
+            injuryPrognoses = kb.collectionObservable(selectedInjury.get('injuryPrognoses')),
            commonName = kb.observable(selectedInjury, 'commonName'),
            medicalName = kb.observable(selectedInjury, 'medicalName'),
            description = kb.observable(selectedInjury, 'description'),
-           prognosis = kb.observable(selectedInjury, 'prognosis'),
            recovery = kb.observable(selectedInjury, 'recovery'),
            animationTag = kb.observable(selectedInjury, 'animationTag'),
            openingStatement = kb.observable(selectedInjury, 'openingStatement'),
@@ -58,6 +60,15 @@
             bindSelectedInjury(data);
             $(modalDialogId).modal('show');
         },
+        addNewPrognosis = function (data, event) {
+            var prognosis = new InjuryPrognosis();
+            prognosis.set('prognosisId', 1);
+            prognosis.set('duration', '');
+            selectedInjury.get('injuryPrognoses').add(prognosis);
+        },
+        removePrognosis = function (data, event) {
+            selectedInjury.get('injuryPrognoses').remove(data.model());
+        },
         addNewSymptom = function (data, event) {
             var symptom = new InjurySymptom();
             symptom.set('symptomId', 1);
@@ -81,13 +92,16 @@
            symptom.givenResponse(0);
        },
        bindSelectedInjury = function (data, event) {
+           //TODO: this is all FUBAR, need to rework my knockback newbness
+
            selectedInjury.get('plans').reset();
            selectedInjury.get('bodyRegions').reset();
            selectedInjury.get('signs').reset();
            selectedInjury.get('causes').reset();
            selectedInjury.get('treatments').reset();
            selectedInjury.get('injurySymptoms').reset();
-           
+           selectedInjury.get('injuryPrognoses').reset();
+
            _.each(data.plans(), function (viewModel) {
                _.each(planCollection.models, function (planModel) {
                    if (viewModel.id() === planModel.get('id')) {
@@ -130,12 +144,16 @@
            
            _.each(data.injurySymptoms(), function (viewModel) {
                    selectedInjury.get('injurySymptoms').add(viewModel.model());
-               });
+           });
+           
+           _.each(data.injuryPrognoses(), function (viewModel) {
+               selectedInjury.get('injuryPrognoses').add(viewModel.model());
+           });
+
 
            selectedInjury.set('animationTag', data.model().get('animationTag'));
            selectedInjury.set('commonName', data.model().get('commonName'));
            selectedInjury.set('description', data.model().get('description'));
-           selectedInjury.set('prognosis', data.model().get('prognosis'));
            selectedInjury.set('recovery', data.model().get('recovery'));
            selectedInjury.set('medicalName', data.model().get('medicalName'));
            selectedInjury.set('openingStatement', data.model().get('openingStatement'));
@@ -163,12 +181,6 @@
                    maxlength: 60000
                },
                description:
-               {
-                   required: true,
-                   minlength: 1,
-                   maxlength: 60000
-               },
-               prognosis:
                {
                    required: true,
                    minlength: 1,
@@ -217,12 +229,6 @@
                    minlength: "must be between 1 and 60000 characters",
                    maxlength: "must be between 1 and 60000 characters"
                },
-               prognosis:
-               {
-                   required: "prognosis must be set",
-                   minlength: "must be between 1 and 60000 characters",
-                   maxlength: "must be between 1 and 60000 characters"
-               },
                recovery:
                {
                    required: "recovery must be set",
@@ -261,6 +267,7 @@
             bodyPartMatrixCollection.fetch();
             symptomCollection.fetch();
             treatmentCollection.fetch();
+            prognosisCollection.fetch();
         };
 
         return {
@@ -297,7 +304,10 @@
             kendoEditorOptions: config.kendoEditorOptions,
             animationTag: animationTag,
             recovery: recovery,
-            prognosis: prognosis
+            addNewPrognosis: addNewPrognosis,
+            removePrognosis: removePrognosis,
+            availablePrognoses: availablePrognoses,
+            injuryPrognoses: injuryPrognoses
         };
 
     });

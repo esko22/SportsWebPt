@@ -1,5 +1,5 @@
-﻿define('model.injury', ['backbone', 'config', 'model.injury.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region', 'model.treatment'],
-    function (backbone, config, Plan, Cause, Sign, Symptom, BodyRegion, Treatment) {
+﻿define('model.injury', ['backbone', 'config', 'model.injury.plan', 'model.cause', 'model.sign', 'model.potential.symptom', 'model.body.region', 'model.treatment', 'model.injury.prognosis'],
+    function (backbone, config, Plan, Cause, Sign, Symptom, BodyRegion, Treatment, InjuryPrognosis) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.injuries,
@@ -42,6 +42,11 @@
                     type: backbone.HasMany,
                     key: 'givenSymptoms',
                     relatedModel: Symptom
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'injuryPrognoses',
+                    relatedModel: InjuryPrognosis
                 }]
             });
 
@@ -61,8 +66,8 @@ define('model.injury.collection', ['backbone', 'model.injury', 'config'],
 
     });
 
-define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region','model.injury.symptom', 'model.admin.treatment'],
-    function (backbone, config, Plan, Cause, Sign, BodyRegion, InjurySymptom, Treatment) {
+define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.admin.cause', 'model.admin.sign', 'model.admin.body.region','model.injury.symptom', 'model.admin.treatment', 'model.injury.prognosis'],
+    function (backbone, config, Plan, Cause, Sign, BodyRegion, InjurySymptom, Treatment, InjuryPrognosis) {
         var
             injury = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.adminInjuries,
@@ -97,6 +102,11 @@ define('model.admin.injury', ['backbone', 'config', 'model.admin.plan', 'model.a
                     type: backbone.HasMany,
                     key: 'injurySymptoms',
                     relatedModel: InjurySymptom
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'injuryPrognoses',
+                    relatedModel: InjuryPrognosis
                 }]
             });
 

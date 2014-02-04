@@ -1,6 +1,6 @@
 ﻿define('router', ['backbone', 'jquery', 'knockback', 'presenter', 'vm.admin.equipment', 'vm.admin.videos', 'vm.admin.exercise.page', 'vm.admin.plan.page',
-        'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page', 'vm.admin.body.parts', 'vm.admin.body.regions', 'vm.admin.treatments'],
-    function (backbone, $, kb, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM, BodyPartVM, BodyRegionVM, TreatmentVM) {
+        'vm.admin.signs', 'vm.admin.causes', 'vm.admin.injury.page', 'vm.admin.body.parts', 'vm.admin.body.regions', 'vm.admin.treatments', 'vm.admin.prognoses'],
+    function (backbone, $, kb, presenter, EquipmentVM, VideoVM, ExerciseVM, PlanVM, SignVM, CauseVM, InjuryVM, BodyPartVM, BodyRegionVM, TreatmentVM, PrognosesVM) {
 
         var configure = function () {
             var mainRouter = backbone.Router.extend({
@@ -16,6 +16,7 @@
                     'bodypart': 'bodypart',
                     'bodyregion': 'bodyregion',
                     'treatments' : 'treatments',
+                    'prognoses': 'prognoses',
                     '*actions': 'defaultRoute'
                 }
             });
@@ -72,6 +73,12 @@
                 presenter.transitionTo($('#admin-treatment-panel'), '', '');
             });
 
+            router.on('route:prognoses', function () {
+                $('.view').hide();
+                $('.active').removeClass('active');
+                PrognosesVM.init();
+                presenter.transitionTo($('#admin-prognosis-panel'), '', '');
+            });
 
             router.on('route:exercises', function () {
                 $('.view').hide();

@@ -49,6 +49,7 @@ namespace SportsWebPt.Platform.DataAccess
             var signs = AddSigns(filters);
             var plans = AddPlans();
             var vendors = AddVendors();
+            var prognoses = AddPrognosis();
 
             BuildInjurySymptomMatrix(symptomMatrixItems,injuries);
             AssociateInjuryCause(causes, injuries);
@@ -67,6 +68,7 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateVideoCategory(videos);
             AddUserFavorites(users, videos, plans, injuries, exercises);
             AssociateInjuryTreatment(treatments,injuries);
+            AssociateInjuryPrognosis(prognoses, injuries);
         }
 
         private void AssociateInjuryTreatment(IList<Treatment> treatments, IList<Injury> injuries)
@@ -142,6 +144,46 @@ namespace SportsWebPt.Platform.DataAccess
             injurySigns.ForEach(p => _dbContext.InjurySignMatrixItems.Add(p));
             _dbContext.SaveChanges();
         }
+
+        private void AssociateInjuryPrognosis(IList<Prognosis> prognoses, IList<Injury> injuries)
+        {
+            var injuryPrognosis = new List<InjuryPrognosisMatrixItem>()
+                {
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[3], Prognosis = prognoses[0], Duration = "2 - 3 Weeks"},
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[2], Prognosis = prognoses[1], Duration = " Never"},
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[2], Prognosis = prognoses[0], Duration = "2 - 3 Months"},
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[0], Prognosis = prognoses[3], Duration = "4 - 6 Weeks" },
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[0], Prognosis = prognoses[4], Duration = "8 - 10 Weeks"},
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[1], Prognosis = prognoses[3], Duration = "2 - 3 Weeks"},
+                    new InjuryPrognosisMatrixItem() {Injury = injuries[2], Prognosis = prognoses[2], Duration = "7 - 10 Months"}
+                };
+
+            injuryPrognosis.ForEach(p => _dbContext.InjuryPrognosisMatrixItems.Add(p));
+            _dbContext.SaveChanges();
+        }
+
+        private List<Prognosis> AddPrognosis()
+        {
+            var prognoses = new List<Prognosis>()
+                {
+                    new Prognosis() {Description = "If an appropriate rehabilitation plan is initiated within the first week after the onset of symptoms, a full recovery is expected within ", Name = "All ginney", Category = PrognosisCategory.BestCase},
+                    new Prognosis() {Description = "Some gargin....", Name = "Maybe Ok", Category = PrognosisCategory.DelayedRecovery},
+                    new Prognosis() {Description = "Your just screwed", Name = "F'd", Category = PrognosisCategory.Fubar},
+                    new Prognosis() {Description = "Blahhhh blahhh blahh", Name = "blahhh", Category = PrognosisCategory.BestCase},
+                    new Prognosis() {Description = "If symptoms are ignored and the individual adheres to the 'no pain, no gain' theory, the recovery process becomes compromised.", Name = "Something bad", Category = PrognosisCategory.DelayedRecovery},
+                    new Prognosis()
+                        {
+                            Description = "If an appropriate rehabilitation plan is initiated within the first week after the onset of symptoms, a full recovery is expected within ",
+                            Name = "Rehab Best",
+                            Category = PrognosisCategory.BestCase
+                        }
+                };
+
+            prognoses.ForEach(t => _dbContext.Prognoses.Add(t));
+            _dbContext.SaveChanges();
+
+            return prognoses;
+        } 
 
         private List<Filter> AddFilterCategories()
         {

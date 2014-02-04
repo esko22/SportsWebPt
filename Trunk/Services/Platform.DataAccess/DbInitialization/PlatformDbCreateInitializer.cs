@@ -5,8 +5,8 @@ using SportsWebPt.Common.DataAccess.Ef;
 namespace SportsWebPt.Platform.DataAccess
 {
     public class PlatformDbCreateInitializer : 
-        //DropCreateDatabaseIfModelChanges<PlatformDbContext>
-        DropCreateDatabaseAlways<PlatformDbContext> 
+        DropCreateDatabaseIfModelChanges<PlatformDbContext>
+        //DropCreateDatabaseAlways<PlatformDbContext> 
         //CreateDatabaseIfNotExists<PlatformDbContext>
     {
         #region Properties

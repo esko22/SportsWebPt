@@ -39,6 +39,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjuryCauseMatrixItems.Cause",
                         "InjuryTreatmentMatrixItems", 
                         "InjuryTreatmentMatrixItems.Treatment",
+                        "InjuryPrognosisMatrixItems", 
+                        "InjuryPrognosisMatrixItems.Prognosis",
                         "InjuryBodyRegionMatrixItems", 
                         "InjuryBodyRegionMatrixItems.BodyRegion",
                         "InjurySymptomMatrixItems",
@@ -68,8 +70,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                    : ResearchUnitOfWork.InjuryRepo.GetAll(new[]
                     {
                         "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
-                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause","InjuryTreatmentMatrixItems", 
-                        "InjuryTreatmentMatrixItems.Treatment","InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion","InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
+                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause","InjuryTreatmentMatrixItems", "InjuryPrognosisMatrixItems", 
+                        "InjuryPrognosisMatrixItems.Prognosis", "InjuryTreatmentMatrixItems.Treatment","InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
+                        "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
                     }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<InjuryDto>() { Response = Mapper.Map<InjuryDto>(injury) });

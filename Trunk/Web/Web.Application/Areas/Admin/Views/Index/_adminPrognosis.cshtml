@@ -1,0 +1,52 @@
+﻿    <div class="view container" id="admin-prognosis-panel">
+            <h2> Prognoses</h2>
+            <hr class="examine-report-hr"/>
+            <div class="row">
+                <div class="col-md-7">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: prognoses">
+                            <tr>
+                                <td data-bind="text:name"></td>
+                                <td data-bind="html:description"></td>
+                                <td data-bind="text:category"></td>
+                                <td><button class="btn-primary" data-bind="click: $parent.bindSelectedPrognosis">Edit</button></td>
+                            </tr>
+                        </tbody>            
+                    </table>
+                </div>
+                <div class="col-md-5 well">
+                    <form class="form-horizontal" data-bind="validateForm: prognosisValidationOptions" id="admin-prognosis-form">
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputName">Name</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="inputName" name="name" data-bind="value: selectedPrognosis.name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputDescription">Description</label>
+                            <div class="col-lg-9">
+                                <textarea id="inputDescription" class="form-control" name="description" rows="5" data-bind="kendoEditor: { value: selectedPrognosis.description, tools: $root.kendoEditorOptions }" placeholder="Description">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-3" for="inputCategory">Category</label>
+                            <div class="col-lg-9">
+                                <select id="inputCategory" name="category" class="form-control" data-bind="options: availableCategories, value: selectedPrognosis.category" >
+                                </select>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                     </form>
+                </div>
+            </div>
+    </div>

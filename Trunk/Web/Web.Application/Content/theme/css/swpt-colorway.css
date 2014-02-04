@@ -47,7 +47,7 @@
  *--------------------------------------------------
  */
 body a {
-  color: #679ace;
+  color: #32ccff;
   text-decoration: none;
 }
 body a:hover {
@@ -55,25 +55,25 @@ body a:hover {
   text-decoration: underline;
 }
 body #footer {
-  border-top: 2px solid #679ace;
+  border-top: 2px solid #32ccff;
   /* primary colour */
 
 }
 body #footer #toplink i {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
 body #header-hidden-link a.show-hide,
 body .flexslider-wrapper .flex-control-nav li a.flex-active,
 body .static-banner .flex-control-nav li a.flex-active {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }
 body .flex-direction-nav a,
 body .flex-direction-nav a:before {
-  color: #679ace !important;
+  color: #32ccff !important;
 }
 .btn {
   padding: 6px 12px;
@@ -84,7 +84,7 @@ body .flex-direction-nav a:before {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
 }
 .btn-primary:hover,
@@ -116,7 +116,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
 }
 .btn-block {
@@ -161,8 +161,8 @@ ul.nav-tabs li:last-child {
 }
 ul.nav-tabs li.active a,
 ul.nav-tabs li.active a:hover {
-  color: #679ace;
-  border-top: 4px solid #679ace;
+  color: #32ccff;
+  border-top: 4px solid #32ccff;
   border-bottom: 1px solid #e6e6e6;
 }
 .vertical-tabs ul.nav-stacked {
@@ -194,17 +194,17 @@ ul.nav-tabs li.active a:hover {
   font-weight: normal;
 }
 .vertical-tabs ul.nav-stacked li a:hover i {
-  color: #679ace;
+  color: #32ccff;
 }
 .vertical-tabs ul.nav-stacked li.active a,
 .vertical-tabs ul.nav-stacked li.active a:hover {
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
-  border-left: 4px solid #679ace;
+  border-left: 4px solid #32ccff;
 }
 .vertical-tabs ul.nav-stacked li.active a i,
 .vertical-tabs ul.nav-stacked li.active a:hover i {
-  color: #679ace;
+  color: #32ccff;
 }
 .vertical-tabs .tab-content {
   margin-left: -15px;
@@ -224,7 +224,7 @@ ul.nav-tabs li.active a:hover {
   font-weight: normal;
 }
 .bold-tabs ul li a:hover i {
-  color: #679ace;
+  color: #32ccff;
 }
 @media (min-width: 768px) {
   .tabbable > ul.nav-tabs,
@@ -248,7 +248,7 @@ ul.nav-tabs li.active a:hover {
   ul.nav-tabs li.active a,
   .tabbable > ul.nav-tabs li.active a:hover,
   ul.nav-tabs li.active a:hover {
-    border-top: 4px solid #679ace;
+    border-top: 4px solid #32ccff;
     border-right: 1px solid #e6e6e6;
     border-left: 1px solid #e6e6e6;
     border-bottom-color: transparent;
@@ -270,7 +270,7 @@ ul.nav-tabs li.active a:hover {
   }
   .vertical-tabs ul.nav-tabs li.active a,
   .vertical-tabs ul.nav-tabs li.active a:hover {
-    border-left: 4px solid #679ace;
+    border-left: 4px solid #32ccff;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
     border-right: none;
@@ -286,23 +286,23 @@ ul.nav-tabs li.active a:hover {
  *--------------------------------------------------
  */
 body #navigation .header-hidden {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }
 body #navigation .header {
-  border-top-color: #679ace;
+  border-top-color: #32ccff;
   /* primary colour */
 
 }
 body #navigation .navbar-brand {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
 body #navigation .btn-primary {
   color: #ffffff;
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
   /* @see: Button maker: http://charliepark.org/bootstrap_buttons/ */
 
@@ -336,13 +336,13 @@ fieldset[disabled] body #navigation .btn-primary:active,
 body #navigation .btn-primary.disabled.active,
 body #navigation .btn-primary[disabled].active,
 fieldset[disabled] body #navigation .btn-primary.active {
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
 }
 body #navigation .navbar,
 body #navigation .js-clingify-locked {
   background-color: #333333;
-  border-bottom-color: #679ace;
+  border-bottom-color: #32ccff;
   /* primary colour */
 
 }
@@ -355,12 +355,12 @@ body .navbar-nav > li {
   border-right-color: rgba(255, 255, 255, 0.15);
 }
 body .navbar-nav .dropdown-menu {
-  border-bottom-color: #679ace;
+  border-bottom-color: #32ccff;
   /* primary colour */
 
 }
 body .navbar-nav .dropdown-menu li a.menu-item:hover {
-  border-bottom-color: #679ace;
+  border-bottom-color: #32ccff;
   /* primary colour */
 
 }
@@ -370,12 +370,12 @@ body .navbar-nav > li.home-link a:link i,
 body #main-menu > li.home-link a:link i,
 body .navbar-nav > li.home-link a:focus i,
 body #main-menu > li.home-link a:focus i {
-  color: #679ace !important;
+  color: #32ccff !important;
 }
 body .navbar .nav li > .btn.btn-primary,
 body .navbar .nav li > .btn.btn-navbar {
   color: #ffffff;
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
 }
 body .navbar .nav li > .btn.btn-primary:hover,
@@ -430,7 +430,7 @@ body .navbar .nav li > .btn.btn-primary[disabled].active,
 body .navbar .nav li > .btn.btn-navbar[disabled].active,
 fieldset[disabled] body .navbar .nav li > .btn.btn-primary.active,
 fieldset[disabled] body .navbar .nav li > .btn.btn-navbar.active {
-  background-color: #679ace;
+  background-color: #32ccff;
   border-color: #0095a2;
 }
 body .navbar-nav > li > .dropdown-menu:before {
@@ -463,7 +463,7 @@ body .dropdown-menu li a:hover,
 body .dropdown-menu li a:link:hover,
 body .dropdown-menu li a:focus:hover,
 body .dropdown-menu li a.menu-item:hover {
-  border-bottom-color: #679ace;
+  border-bottom-color: #32ccff;
 }
 /*
  * --------------------------------------------------
@@ -471,57 +471,57 @@ body .dropdown-menu li a.menu-item:hover {
  *-------------------------------------------------- 
  */
 body .pricing-stack .well .price {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
 body .pricing-stack .well.active {
-  border-color: #679ace;
+  border-color: #32ccff;
   /* primary colour */
 
 }
 body .pricing-stack .well.active .price {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
-  border-color: #679ace;
+  border-color: #32ccff;
 }
 body .section-menu ul.nav-list li a:hover i {
-  color: #679ace;
+  color: #32ccff;
 }
 body .section-menu ul.nav-list li.active > a,
 body .section-menu ul.nav-list li.active > a:hover {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
-  border-left-color: #679ace;
+  border-left-color: #32ccff;
   /* primary colour */
 
 }
 body .section-menu ul.nav-list li.active > a i,
 body .section-menu ul.nav-list li.active > a:hover i {
-  color: #679ace;
+  color: #32ccff;
 }
 body .stats .stat .well {
-  background: #679ace;
-  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#679ace), to(#007e88));
-  background-image: -webkit-radial-gradient(circle, #679ace, #007e88);
-  background-image: -moz-radial-gradient(circle, #679ace, #007e88);
-  background-image: radial-gradient(circle, #679ace, #007e88);
+  background: #32ccff;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#32ccff), to(#007e88));
+  background-image: -webkit-radial-gradient(circle, #32ccff, #007e88);
+  background-image: -moz-radial-gradient(circle, #32ccff, #007e88);
+  background-image: radial-gradient(circle, #32ccff, #007e88);
   background-repeat: no-repeat;
 }
 body .stats .stat .well:after {
-  border-top-color: #679ace;
+  border-top-color: #32ccff;
   /* primary colour */
 
 }
 body .date-wrapper span.date-m {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }
 body .tags .tag {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
@@ -532,7 +532,7 @@ body .tags .tag {
  *--------------------------------------------------
  */body .icon-inverse,
 li .icon-inverse {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }
@@ -541,12 +541,12 @@ li .icon-inverse-50 {
   background: rgba(0, 173, 187, 0.5);
 }
 body .primary-colour {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
 body .primary-colour-bg {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }
@@ -554,7 +554,7 @@ body .primary-colour-bg-50 {
   background: rgba(0, 173, 187, 0.5);
 }
 body .spacer {
-  color: #679ace;
+  color: #32ccff;
   /* primary colour */
 
 }
@@ -562,7 +562,7 @@ body .spacer.dark {
   color: #007e88;
 }
 body .social-media a:hover {
-  background: #679ace;
+  background: #32ccff;
   /* primary colour */
 
 }

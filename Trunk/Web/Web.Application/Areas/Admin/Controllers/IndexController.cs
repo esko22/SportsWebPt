@@ -316,6 +316,31 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(treatment, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("admin/prognoses", IsAbsoluteUrl = true)]
+        public ActionResult GetPrognoses()
+        {
+            var prognosis = _adminService.GetPrognoses();
+
+            return Json(prognosis, JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("admin/prognoses", IsAbsoluteUrl = true)]
+        public ActionResult AddPrognosis(Prognosis prognosis)
+        {
+            var response = _adminService.AddPrognosis(prognosis);
+            prognosis.id = response;
+
+            return Json(prognosis, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("admin/prognoses/{Id}", IsAbsoluteUrl = true)]
+        public ActionResult UpdatePrognosis(Prognosis prognosis)
+        {
+            _adminService.UpdatePrognosis(prognosis);
+
+            return Json(prognosis, JsonRequestBehavior.DenyGet);
+        }
+
 
         #endregion
 

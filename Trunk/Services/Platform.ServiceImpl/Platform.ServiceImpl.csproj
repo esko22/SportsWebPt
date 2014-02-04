@@ -97,6 +97,7 @@
     <Compile Include="Services\LookupService.cs" />
     <Compile Include="Services\PageNameValidationService.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
+    <Compile Include="Services\PrognosisService.cs" />
     <Compile Include="Services\SignServices.cs" />
     <Compile Include="Services\SkeletonAreaListService.cs" />
     <Compile Include="Services\SymptomaticRegionService.cs" />

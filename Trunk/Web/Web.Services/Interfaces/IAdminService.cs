@@ -74,5 +74,11 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateTreatment(Treatment treatment);
 
+        IEnumerable<Prognosis> GetPrognoses();
+
+        int AddPrognosis(Prognosis prognosis);
+
+        void UpdatePrognosis(Prognosis prognosis);
+
     }
 }

@@ -16,8 +16,6 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String Description { get; set; }
 
-        public String Prognosis { get; set; }
-
         public String Recovery { get; set; }
 
         public PlanDto[] Plans { get; set; }
@@ -37,6 +35,8 @@ namespace SportsWebPt.Platform.ServiceModels
         public String AnimationTag { get; set; }
 
         public InjurySymptomDto[] InjurySymptoms { get; set; }
+
+        public InjuryPrognosisDto[] InjuryPrognoses { get; set; }
 
         #endregion
     }

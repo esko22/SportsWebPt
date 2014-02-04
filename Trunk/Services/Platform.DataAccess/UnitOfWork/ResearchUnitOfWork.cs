@@ -35,6 +35,8 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
         public IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get { return GetStandardRepo<VideoCategoryMatrixItem>(); } }
         public IRepository<Treatment> TreatmentRepo { get { return GetStandardRepo<Treatment>(); } }
+        public IRepository<Prognosis> PrognosisRepo { get { return GetStandardRepo<Prognosis>(); } }
+        public IRepository<InjuryPrognosisMatrixItem> InjuryPrognosisMatrixRepo { get { return GetStandardRepo<InjuryPrognosisMatrixItem>(); } }
         public IRepository<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixRepo { get { return GetStandardRepo<InjuryTreatmentMatrixItem>(); } }
         #endregion
 
@@ -238,7 +240,8 @@ namespace SportsWebPt.Platform.DataAccess
                     "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
                     "InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
                     "InjurySymptomMatrixItems","InjurySymptomMatrixItems.SymptomMatrixItem",
-                    "InjuryTreatmentMatrixItems", "InjuryTreatmentMatrixItems.Treatment"
+                    "InjuryTreatmentMatrixItems", "InjuryTreatmentMatrixItems.Treatment", "InjuryPrognosisMatrixItems", 
+                    "InjuryPrognosisMatrixItems.Prognosis"
                 })
                 .SingleOrDefault(p => p.Id == injury.Id);
 
@@ -313,6 +316,20 @@ namespace SportsWebPt.Platform.DataAccess
 
 
 
+            var deletedPrognoses = injuryInDb.InjuryPrognosisMatrixItems.Except(
+                injury.InjuryPrognosisMatrixItems, (item, matrixItem) => item.PrognosisId == matrixItem.PrognosisId).ToList();
+
+            var addedPrognoses = injury.InjuryPrognosisMatrixItems.Except(
+                injuryInDb.InjuryPrognosisMatrixItems, (item, matrixItem) => item.PrognosisId == matrixItem.PrognosisId).ToList();
+
+            deletedPrognoses.ForEach(e => InjuryPrognosisMatrixRepo.Delete(e));
+            addedPrognoses.ForEach(e =>
+            {
+                e.InjuryId = injury.Id;
+                InjuryPrognosisMatrixRepo.Add(e);
+            });
+
+
             var deletedSymptoms = injuryInDb.InjurySymptomMatrixItems.Except(
                 injury.InjurySymptomMatrixItems, (item, matrixItem) => item.Id == matrixItem.Id).ToList();
 
@@ -373,7 +390,8 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }
         IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get; }
-        IRepository<Treatment> TreatmentRepo { get; } 
+        IRepository<Treatment> TreatmentRepo { get; }
+        IRepository<Prognosis> PrognosisRepo { get; } 
 
         void UpdateExercise(Exercise exercise);
         void UpdatePlan(Plan exercise);

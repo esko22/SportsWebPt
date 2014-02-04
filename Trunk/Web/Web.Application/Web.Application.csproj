@@ -202,6 +202,7 @@
     <Content Include="Areas\Admin\Scripts\app\admin.area.bootstrapper.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.binder.js" />
     <Content Include="Areas\Admin\Scripts\app\admin.router.js" />
+    <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.prognoses.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.treatments.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.regions.js" />
     <Content Include="Areas\Admin\Scripts\viewmodels\vm.admin.body.parts.js" />
@@ -222,6 +223,7 @@
     <Content Include="Areas\Admin\Views\Index\_adminBodyParts.cshtml" />
     <Content Include="Content\fonts\sportswebpt.svg" />
     <Content Include="Content\images\logoMenu.png" />
+    <Content Include="Content\images\swpt_splash_2.png" />
     <Content Include="Content\kendo\textures\brushed-metal.png" />
     <Content Include="Content\kendo\textures\dots1.png" />
     <Content Include="Content\kendo\textures\dots10.png" />
@@ -558,6 +560,7 @@
     <Content Include="Content\theme\plugins\respond\README.md" />
     <Content Include="Content\theme\plugins\retina\less\retina-1.1.0.less" />
     <Content Include="Content\theme\plugins\retina\README.md" />
+    <Content Include="Areas\Admin\Views\Index\_adminPrognosis.cshtml" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />
@@ -565,6 +568,7 @@
     <Content Include="Scripts\libs\r.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\models\model.prognosis.js" />
     <Content Include="Scripts\models\model.treatment.js" />
     <Content Include="Scripts\models\model.filter.js" />
     <Content Include="Scripts\shared\vm.share.bar.js" />

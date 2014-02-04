@@ -16,7 +16,6 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.MedicalName).HasColumnName("medical_name").HasMaxLength(100);
             Property(p => p.Description).IsRequired().HasColumnName("description").HasColumnType("TEXT");
             Property(p => p.OpeningStatement).IsRequired().HasColumnName("opening_statement").HasColumnType("TEXT");
-            Property(p => p.Prognosis).IsRequired().HasColumnName("prognosis").HasColumnType("TEXT");
             Property(p => p.Recovery).IsRequired().HasColumnName("recovery").HasColumnType("TEXT");
             Property(p => p.Id).IsRequired().HasColumnName("injury_id");
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);

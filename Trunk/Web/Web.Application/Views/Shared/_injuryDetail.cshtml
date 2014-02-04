@@ -71,15 +71,20 @@
 </div>
 </div>
 <div class="row push-down-md">
-    <div class="col-md-12">
-        <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
-    </div>
+<div class="col-md-12">
+    <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
+    <table class="table table-striped">
+        <tbody data-bind="foreach: injuryPrognoses">
+            <tr>
+                <td data-bind="html: description"></td>
+                <td data-bind="text: duration"></td>
+                <td data-bind="text: category"></td>
+            </tr>
+        </tbody>            
+    </table>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <span data-bind="html: prognosis"></span>
-    </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <h3>Recovery Plans</h3>

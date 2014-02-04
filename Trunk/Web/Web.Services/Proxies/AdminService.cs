@@ -248,6 +248,25 @@ namespace SportsWebPt.Platform.Web.Services
             Put(Mapper.Map<UpdateTreatmentRequest>(treatment));
         }
 
+        public IEnumerable<Prognosis> GetPrognoses()
+        {
+            var request = GetSync(new PrognosisListRequest());
+
+            return Mapper.Map<IEnumerable<Prognosis>>(request.Response.Items);
+        }
+
+        public int AddPrognosis(Prognosis prognosis)
+        {
+            var request = PostSync(Mapper.Map<CreatePrognosisRequest>(prognosis));
+
+            return request.Response.Id;
+        }
+
+        public void UpdatePrognosis(Prognosis prognosis)
+        {
+            Put(Mapper.Map<UpdatePrognosisRequest>(prognosis));
+        }
+
 
         #endregion
 
