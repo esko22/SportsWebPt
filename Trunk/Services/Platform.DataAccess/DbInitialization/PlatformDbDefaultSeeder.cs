@@ -168,7 +168,7 @@ namespace SportsWebPt.Platform.DataAccess
                 {
                     new Prognosis() {Description = "If an appropriate rehabilitation plan is initiated within the first week after the onset of symptoms, a full recovery is expected within ", Name = "All ginney", Category = PrognosisCategory.BestCase},
                     new Prognosis() {Description = "Some gargin....", Name = "Maybe Ok", Category = PrognosisCategory.DelayedRecovery},
-                    new Prognosis() {Description = "Your just screwed", Name = "F'd", Category = PrognosisCategory.Fubar},
+                    new Prognosis() {Description = "Your just screwed", Name = "F'd", Category = PrognosisCategory.WorstCase},
                     new Prognosis() {Description = "Blahhhh blahhh blahh", Name = "blahhh", Category = PrognosisCategory.BestCase},
                     new Prognosis() {Description = "If symptoms are ignored and the individual adheres to the 'no pain, no gain' theory, the recovery process becomes compromised.", Name = "Something bad", Category = PrognosisCategory.DelayedRecovery},
                     new Prognosis()

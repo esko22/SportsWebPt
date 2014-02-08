@@ -6,6 +6,6 @@ namespace SportsWebPt.Platform.Core.Models
     {
         BestCase = 1,
         DelayedRecovery = 2,
-        Fubar = 3
+        WorstCase = 3
     }
 }

@@ -15,7 +15,7 @@
             signCategories = ko.observableArray(['Functional', 'Subjective', 'Visual']),
             treatmentCategories = ko.observableArray(['ManualTherapy', 'TherEx', 'Modalities', 'Education']),
             treatmentProviders = ko.observableArray(['Self', 'PhysicalTherapist', 'MessageTherapist', 'Physican', 'Surgeon', 'Chiropracter']),
-            prognosisCategories = ko.observableArray(['BestCase', 'DelayedRecovery', 'Fubar']);
+            prognosisCategories = ko.observableArray(['BestCase', 'DelayedRecovery', 'WorstCase']);
         
         
         function init() {
