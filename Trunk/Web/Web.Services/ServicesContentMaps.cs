@@ -107,6 +107,8 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<InjuryDto, Injury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.Causes))
+                   .ForMember(d => d.lifestyleCauses, opt => opt.MapFrom(s => s.Causes.Where(p => p.Category == "Lifestyle")))
+                  .ForMember(d => d.physiologicalCauses, opt => opt.MapFrom(s => s.Causes.Where(p => p.Category == "Physiological")))
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs))
                   .ForMember(d => d.treatments, opt => opt.MapFrom(s => s.Treatments))
                   .ForMember(d => d.injuryPrognoses, opt => opt.MapFrom(s => s.InjuryPrognoses))

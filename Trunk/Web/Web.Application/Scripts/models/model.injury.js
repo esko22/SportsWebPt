@@ -25,6 +25,16 @@
                 },
                 {
                     type: backbone.HasMany,
+                    key: 'lifestyleCauses',
+                    relatedModel: Cause
+                },
+                {
+                    type: backbone.HasMany,
+                    key: 'physiologicalCauses',
+                    relatedModel: Cause
+                },
+                {
+                    type: backbone.HasMany,
                     key: 'signs',
                     relatedModel: Sign
                 },

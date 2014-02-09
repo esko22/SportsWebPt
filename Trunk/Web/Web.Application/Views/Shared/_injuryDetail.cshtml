@@ -1,14 +1,9 @@
 ﻿<div class="row">
-    <div class="col-md-8">
-        <h2 class="title-divider-no-bar"><span>Name: <span class="de-em" data-bind="text: medicalName"></span></span> <small data-bind="text: medicalName"></small></h2>
+    <div class="col-md-12">
+        <h1 class="title-divider-research"><i class="icon-sportswebpt-medkit"></i> <span data-bind="text: commonName"><span class="de-em"></span></span> <small data-bind="text: medicalName"></small></h1>
     </div>
-@*    <div class="col-md-4">
-        <!-- ko with: $parent.shareBar -->
-        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
-        <!-- /ko --> 
-    </div>*@
 </div>
-<div class="row push-down-md">
+<div class="row">
     <div class="col-md-7">
          <h2 class="title-divider-research"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing injury</small></h2>
     </div>
@@ -25,17 +20,28 @@
     </div>
 </div>
 <div class="row push-down-md">
-    <div class="col-md-6">
+    <div class="col-md-7">
         <h2 class="title-divider-research"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
-        <table class="table table-striped">
-            <tbody data-bind="foreach: causes">
-                <tr>
-                    <td data-bind="text: description"></td>
-                </tr>
-            </tbody>            
-        </table>
+        <div class="container">
+            <h5 class="title-divider-no-bar"><span>Lifestyle <span class="de-em">Contributors</span></span> <small></small></h5>
+            <table class="table table-striped">
+                <tbody data-bind="foreach: lifestyleCauses">
+                    <tr>
+                        <td data-bind="text: description"></td>
+                    </tr>
+                </tbody>            
+            </table>
+            <h5 class="title-divider-no-bar"><span>Physiological <span class="de-em">Contributors</span></span> <small></small></h5>
+            <table class="table table-striped">
+                <tbody data-bind="foreach: physiologicalCauses">
+                    <tr>
+                        <td data-bind="text: description"></td>
+                    </tr>
+                </tbody>            
+            </table>
+        </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
         <h2 class="title-divider-research"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
         <table class="table table-striped">
             <tbody data-bind="foreach: signs">
@@ -47,33 +53,88 @@
     </div>
 </div>
 <div class="row push-down-md">
-    <div class="col-md-12">
-        <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span></span> <small>Outline how to get better</small></h2>
+    <div class="col-md-7">
+        <h2 class="title-divider-research"><span>Recovery <span class="de-em"> Recommendation</span></span><small>Our thoughts on how to get better</small></h2>
+    </div>
+    <div class="col-md-5">
+        <h2 class="title-divider-research"><span>Optional <span class="de-em"> Treatments</span></span><small>Other types of treatments you can try</small></h2>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-7">
         <span data-bind="html: recovery"></span>
+    </div>
+    <div class="col-md-5">
+        <table class="table table-striped">
+            <tbody data-bind="foreach: treatments">
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4><span data-bind="text: name"></span></h4>
+                            </div>
+                            <div class="col-md-6 pull-right">
+                                <h4><small><strong>Provider: </strong><span data-bind="text: provider"></span></small></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span data-bind="text: description"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>            
+            </tbody>            
+        </table>
     </div>
 </div>
 <div class="row push-down-md">
-<div class="col-md-12">
-    <h2 class="title-divider-research"><span>Treatments <span class="de-em"></span></span> <small>Not sure how to explain this</small></h2>
-    <table class="table table-striped">
-        <tbody data-bind="foreach: treatments">
-            <tr>
-                <td data-bind="text: name"></td>
-                <td data-bind="html: description"></td>
-                <td data-bind="html: provider"></td>
-            </tr>
-        </tbody>            
-    </table>
-</div>
-</div>
-<div class="row push-down-md">
-<div class="col-md-12">
-    <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
-    <table class="table table-striped">
+    <div class="col-md-12">
+        <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
+        <div class="row pricing-stack">
+            <div class="col-md-4">
+                <div class="well">
+                    <h6 class="title"><span class="em">Best Case</span></h6>
+                    <p class="price prognosis-best"><span class="prognosis">2 - 4 weeks</span></p>
+                    <ul class="unstyled points">
+                        <li>50 User Accounts</li>
+                        <li>50 Private Projects</li>
+                        <li>Umlimited Public Projects</li>
+                        <li>Unlimited space</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="well">
+                    <h6 class="title"><span class="em">Delayed Recovery</span></h6>
+                    <p class="price prognosis-delayed"><span class="prognosis">6 - 9 weeks</span></p>
+                    <ul class="unstyled points">
+                        <li>Umlimited User Accounts</li>
+                        <li>Umlimited Private Projects</li>
+                        <li>Umlimited Public Projects</li>
+                        <li>Unlimited space</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="well">
+                    <h6 class="title"><span class="em">Worst Case</span></h6>
+                    <p class="price prognosis-worst"><span class="prognosis">3 - 6 months</span></p>
+                    <ul class="unstyled points">
+                        <li>10 User Accounts</li>
+                        <li>10 Private Projects</li>
+                        <li>Umlimited Public Projects</li>
+                        <li>15GB of space</li>
+                    </ul>
+                </div>
+            </div>
+
+                </div>
+            </div>
+
+            @*    <table class="table table-striped">
         <tbody data-bind="foreach: injuryPrognoses">
             <tr>
                 <td data-bind="html: description"></td>
@@ -81,13 +142,12 @@
                 <td data-bind="text: category"></td>
             </tr>
         </tbody>            
-    </table>
-</div>
-</div>
+    </table>*@
+        </div>
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Recovery Plans</h3>
+        <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
         <div data-bind="attr: { id: 'injury-plan-accordion' }" class="panel-group">
             <section data-bind="template: { name: $root.templateIds.researchInjuryPlanTemplate, foreach: plans, afterRender: $parent.setDefaultPanel }"></section>
         </div>

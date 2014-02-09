@@ -33,7 +33,11 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<InjuryPrognosis> injuryPrognoses { get; set; }
 
-        public IEnumerable<Treatment> treatments { get; set; } 
+        public IEnumerable<Treatment> treatments { get; set; }
+
+        public IEnumerable<Cause> lifestyleCauses { get; set; }
+
+        public IEnumerable<Cause> physiologicalCauses { get; set; }
 
         public String tags { get; set; }
 

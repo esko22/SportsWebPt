@@ -1,10 +1,11 @@
-﻿<div class="container">
-    <a data-bind="click: addAsFavorite" title="Add this to your favorites" class="favorite-icon" style="text-decoration: none;"><i class="icon-sportswebpt-heart"></i></a>
+﻿<div class="row">
+    <div class="col-md-2">
+        <a data-bind="click: addAsFavorite" title="Add this to your favorites" class="favorite-icon" style="text-decoration: none;"><i class="icon-sportswebpt-heart"></i></a>
+    </div>
+    <div class="col-md-6 fb-like" data-bind="likeButton: shareUri()"  data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+    <div class="col-md-4 pull-right">
+        <link rel="canonical" data-bind="attr: { href: shareUri() }" />
+        <div class="g-plusone" data-bind="plusOneButton: shareUri()"></div>
+    </div>
 </div>
-<div class="container">
-    <link rel="canonical" data-bind="attr: { href: shareUri() }" />
-    <div class="g-plusone" data-bind="plusOneButton: shareUri()"></div>
-</div>
-<div class="container">
-    <div class="fb-like" data-bind="likeButton: shareUri()"  data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-</div>
+

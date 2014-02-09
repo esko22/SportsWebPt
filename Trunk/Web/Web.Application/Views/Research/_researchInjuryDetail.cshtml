@@ -1,14 +1,15 @@
 ﻿<div class="container" id="research-injury-detail">
-    <div class="row">
-        <div class="col-md-3 pull-left">
-            <a href="/#/research/injuries" class="return-navigation-icon" style="text-decoration: none;"><i class="icon-sportswebpt-arrow-left"></i> To Injuries</a>
+    <div class="row research-nav-bar">
+        <div class="col-md-2">
+            <a href="/#/research/injuries" class="return-navigation-icon" title="Back to injuries" style="text-decoration: none;"><i class="icon-sportswebpt-chevron-left"></i><i class="icon-sportswebpt-chevron-left"></i> Back to Injuries</a>
         </div>
-        <div class="col-md-6 text-center">
-            <span class="research-header-icon"><i class="icon-sportswebpt-medkit"></i> Injury</span> 
+        <div class="col-md-3 col-md-offset-7">
+            <!-- ko with: shareBar -->
+            @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
+            <!-- /ko --> 
         </div>
     </div>
-    <div class="row" data-bind="mask: !isInitialized()">
-        <h2 class="title-divider-research">&nbsp;</h2>
+    <div class="push-down-md" data-bind="mask: !isInitialized()">
         <!-- ko with: injury -->
         @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml"); }
         <!-- /ko -->
