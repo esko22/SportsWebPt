@@ -112,7 +112,10 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs))
                   .ForMember(d => d.treatments, opt => opt.MapFrom(s => s.Treatments))
                   .ForMember(d => d.injuryPrognoses, opt => opt.MapFrom(s => s.InjuryPrognoses))
-                  .ForMember(d => d.injurySymptoms, opt => opt.MapFrom(s => s.InjurySymptoms));
+                  .ForMember(d => d.injurySymptoms, opt => opt.MapFrom(s => s.InjurySymptoms))
+                  .ForMember(d => d.bestCase, opt => opt.MapFrom(s => s.InjuryPrognoses.FirstOrDefault(p => p.Category.Equals("bestcase",StringComparison.OrdinalIgnoreCase))))
+                  .ForMember(d => d.worstCase, opt => opt.MapFrom(s => s.InjuryPrognoses.FirstOrDefault(p => p.Category.Equals("worstcase",StringComparison.OrdinalIgnoreCase))))
+                  .ForMember(d => d.delayedRecovery, opt => opt.MapFrom(s => s.InjuryPrognoses.FirstOrDefault(p => p.Category.Equals("delayedrecovery",StringComparison.OrdinalIgnoreCase))));
             Mapper.CreateMap<PotentialInjuryDto, PotentialInjury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.Causes))

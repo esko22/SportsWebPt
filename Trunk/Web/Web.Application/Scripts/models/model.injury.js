@@ -57,6 +57,21 @@
                     type: backbone.HasMany,
                     key: 'injuryPrognoses',
                     relatedModel: InjuryPrognosis
+                },
+                {
+                    type: backbone.HasOne,
+                    key: 'bestCase',
+                    relatedModel: InjuryPrognosis
+                },
+                {
+                    type: backbone.HasOne,
+                    key: 'delayedRecovery',
+                    relatedModel: InjuryPrognosis
+                },
+                {
+                    type: backbone.HasOne,
+                    key: 'worstCase',
+                    relatedModel: InjuryPrognosis
                 }]
             });
 

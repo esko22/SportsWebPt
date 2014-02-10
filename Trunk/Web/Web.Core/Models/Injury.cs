@@ -43,6 +43,13 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String pageName { get; set; }
 
+        //TODO: hack.. these should be rolled up under another object..
+        public InjuryPrognosis bestCase { get; set; }
+
+        public InjuryPrognosis worstCase { get; set; }
+
+        public InjuryPrognosis delayedRecovery { get; set; }
+
         #endregion
 
     }

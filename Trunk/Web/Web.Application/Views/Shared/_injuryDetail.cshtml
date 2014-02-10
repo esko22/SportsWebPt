@@ -23,6 +23,7 @@
     <div class="col-md-7">
         <h2 class="title-divider-research"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
         <div class="container">
+            <!-- ko if: lifestyleCauses().length > 0 -->
             <h5 class="title-divider-no-bar"><span>Lifestyle <span class="de-em">Contributors</span></span> <small></small></h5>
             <table class="table table-striped">
                 <tbody data-bind="foreach: lifestyleCauses">
@@ -31,6 +32,8 @@
                     </tr>
                 </tbody>            
             </table>
+            <!-- /ko --> 
+            <!-- ko if: physiologicalCauses().length > 0 -->
             <h5 class="title-divider-no-bar"><span>Physiological <span class="de-em">Contributors</span></span> <small></small></h5>
             <table class="table table-striped">
                 <tbody data-bind="foreach: physiologicalCauses">
@@ -39,6 +42,7 @@
                     </tr>
                 </tbody>            
             </table>
+            <!-- /ko --> 
         </div>
     </div>
     <div class="col-md-5">
@@ -95,39 +99,24 @@
             <div class="col-md-4">
                 <div class="well">
                     <h6 class="title"><span class="em">Best Case</span></h6>
-                    <p class="price prognosis-best"><span class="prognosis">2 - 4 weeks</span></p>
-                    <ul class="unstyled points">
-                        <li>50 User Accounts</li>
-                        <li>50 Private Projects</li>
-                        <li>Umlimited Public Projects</li>
-                        <li>Unlimited space</li>
-                    </ul>
+                    <p class="price prognosis-best"><span class="prognosis" data-bind="text: bestCase().duration"></span></p>
+                    <div data-bind="text: bestCase().description"></div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="well">
                     <h6 class="title"><span class="em">Delayed Recovery</span></h6>
-                    <p class="price prognosis-delayed"><span class="prognosis">6 - 9 weeks</span></p>
-                    <ul class="unstyled points">
-                        <li>Umlimited User Accounts</li>
-                        <li>Umlimited Private Projects</li>
-                        <li>Umlimited Public Projects</li>
-                        <li>Unlimited space</li>
-                    </ul>
+                    <p class="price prognosis-delayed"><span class="prognosis" data-bind="text: delayedRecovery().duration"></span></p>
+                    <div data-bind="text: delayedRecovery().description"></div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="well">
                     <h6 class="title"><span class="em">Worst Case</span></h6>
-                    <p class="price prognosis-worst"><span class="prognosis">3 - 6 months</span></p>
-                    <ul class="unstyled points">
-                        <li>10 User Accounts</li>
-                        <li>10 Private Projects</li>
-                        <li>Umlimited Public Projects</li>
-                        <li>15GB of space</li>
-                    </ul>
+                    <p class="price prognosis-worst"><span class="prognosis" data-bind="text: worstCase().duration"></span></p>
+                    <div data-bind="text: worstCase().description"></div>
                 </div>
             </div>
 
