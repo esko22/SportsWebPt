@@ -172,7 +172,7 @@ ul#skeleton li {
 
 .skeleton-hover {
 	display: block;
-	background: #33ccff;
+	background: #5CACEE;
 	position: relative;
 	border: 2px solid #272b30;	
 	opacity: .75;
@@ -614,7 +614,7 @@ ul#skeleton li {
 #footerBottom {
     border-top-style: solid;
     border-top-width: 2px;
-    border-top-color: #33ccff;
+    border-top-color: #5CACEE;
     background-color: #333333;
     display: block;
     height: 250px;
