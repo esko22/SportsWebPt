@@ -189,24 +189,29 @@ namespace SportsWebPt.Platform.DataAccess
         {
             var signFilters = new List<Filter>()
                 {
-                    new Filter() {FilterCategory = "Swelling", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Color Change", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Clicks / Snaps / Grinds", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Muscle Knot / Thickening", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "No Visual Abnormalities", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Swelling, Redness or Bruising", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Muscle Knot or Bump", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Abnormal Body / Joint Alignment", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Clicking, Snapping or Grinding", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Tightness or Stiffness", FilterType = FilterType.Sign},
                     new Filter() {FilterCategory = "Pain", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Tight / Stiff", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Abnormal Posture / Alignment", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Changes After", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Changes Throughout", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Other", FilterType = FilterType.Sign},
-                    new Filter() {FilterCategory = "Repetitve Stress", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Changes in Activity", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Structurual or Skeletal Abnormality", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Muscle Imbalance", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Stress, Improper Warm-Up, Other", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Poor Posture / Mechanics", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Historical / Family", FilterType = FilterType.Cause},
-                    new Filter() {FilterCategory = "Improper Equipment", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Tenderness to Touch", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Weakness or Joint Instability", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Variable Symptoms / Other", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Prolonged Sit/Stand/Sleeping", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Daily Activities", FilterType = FilterType.Sign},
+                    new Filter() {FilterCategory = "Sport or Exercise", FilterType = FilterType.Sign},
+
+
+                    new Filter() {FilterCategory = "Repetitive Movements", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Changes in Activity Level", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Trauma or Sport Related", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Poor Body Mechanics or Posture", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Improper Equipment or Shoes", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Structural/Skeletal Abnormality", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Muscle Tightness or Weakness", FilterType = FilterType.Cause},
+                    new Filter() {FilterCategory = "Previous Injury or Surgery", FilterType = FilterType.Cause},
                     new Filter() {FilterCategory = "Unknown", FilterType = FilterType.Cause}
                 };
 
