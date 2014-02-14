@@ -83,7 +83,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <span data-bind="text: description"></span>
+                                <span data-bind="html: description"></span>
                             </div>
                         </div>
                     </td>
@@ -97,41 +97,37 @@
         <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
         <div class="row pricing-stack">
             <div class="col-md-4">
+                <!-- ko if: typeof bestCase().name !== 'undefined' -->
                 <div class="well">
                     <h6 class="title"><span class="em">Best Case</span></h6>
                     <p class="price prognosis-best"><span class="prognosis" data-bind="text: bestCase().duration"></span></p>
-                    <div data-bind="text: bestCase().description"></div>
+                    <div data-bind="html: bestCase().description"></div>
                 </div>
+                <!-- /ko -->
             </div>
 
             <div class="col-md-4">
+                <!-- ko if: typeof delayedRecovery().name !== 'undefined' -->
                 <div class="well">
                     <h6 class="title"><span class="em">Delayed Recovery</span></h6>
                     <p class="price prognosis-delayed"><span class="prognosis" data-bind="text: delayedRecovery().duration"></span></p>
-                    <div data-bind="text: delayedRecovery().description"></div>
+                    <div data-bind="html: delayedRecovery().description"></div>
                 </div>
+                <!-- /ko -->
             </div>
 
             <div class="col-md-4">
+                <!-- ko if: typeof worstCase().name !== 'undefined' -->
                 <div class="well">
                     <h6 class="title"><span class="em">Worst Case</span></h6>
-                    <p class="price prognosis-worst"><span class="prognosis" data-bind="text: worstCase().duration"></span></p>
-                    <div data-bind="text: worstCase().description"></div>
+                    <p class="price prognosis-worst"><span class="prognosis" data-bind="text: worstCase()"></span></p>
+                    <div data-bind="html: worstCase().description"></div>
                 </div>
+                <!-- /ko -->
             </div>
 
                 </div>
             </div>
-
-            @*    <table class="table table-striped">
-        <tbody data-bind="foreach: injuryPrognoses">
-            <tr>
-                <td data-bind="html: description"></td>
-                <td data-bind="text: duration"></td>
-                <td data-bind="text: category"></td>
-            </tr>
-        </tbody>            
-    </table>*@
         </div>
 
 <div class="row">
