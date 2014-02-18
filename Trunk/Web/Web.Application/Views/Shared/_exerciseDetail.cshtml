@@ -35,6 +35,11 @@
     </div>
     <div class="col-md-7">
         <h3>Video</h3>
-        <div data-bind="template: { name: $root.templateIds.sublimeYoutubeVideoTemplate, foreach: videos }"></div>
+        <!-- ko with: videos()[0] -->
+        <div class="video-container">
+            <iframe data-bind="attr: { src:'http://www.youtube.com/embed/' + youtubeVideoId()  } " id="ytExercisePlayer" width="560" height="315" frameborder="0"></iframe>
+        </div>
+        <!-- /ko -->
+
     </div>
 </div>    

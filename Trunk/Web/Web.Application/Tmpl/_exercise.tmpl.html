@@ -5,7 +5,11 @@
         <div><strong>Reps: </strong><span class="badge" data-bind="text: repititions"></span></div>
     </div>
     <div class="col-md-9">
-        <div data-bind="template: { name: $root.templateIds.sublimeYoutubeVideoTemplate, foreach: videos }"></div>
+        <!-- ko with: videos()[0] -->
+        <div class="video-container">
+            <iframe data-bind="attr: { id:'yt-' + $parent.id(), src:'http://www.youtube.com/embed/' + youtubeVideoId() + '?enablejsapi=1' }" width="560" height="315" frameborder="0" class="youtube-player"></iframe>
+        </div>
+        <!-- /ko -->
     </div>
 </div>
 

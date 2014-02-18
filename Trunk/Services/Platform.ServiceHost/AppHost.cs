@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Configuration;
+using System.Data.Entity;
 using System.Web;
 using ServiceStack.Common;
 using ServiceStack.Common.Web;
@@ -15,6 +16,7 @@ using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceImpl;
 using SportsWebPt.Platform.ServiceImpl.Services;
+using SportsWebPt.Platform.DataAccess.Migrations;
 
 namespace SportsWebPt.Platform.ServiceHost
 {
@@ -124,9 +126,13 @@ namespace SportsWebPt.Platform.ServiceHost
 
         private void BoostrapEf()
         {
-            var seeder = new PlatformDbDefaultSeeder();
-            var dbConextInitializer = new PlatformDbCreateInitializer {Seeder = seeder};
-            Database.SetInitializer(dbConextInitializer);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<PlatformDbContext, PlatformDbMigrationsConfiguration>());
+
+            
+            
+            //var seeder = new PlatformDbDefaultSeeder();
+            //var dbConextInitializer = new PlatformDbCreateInitializer {Seeder = seeder};
+            //Database.SetInitializer(dbConextInitializer);
         }
 
         #endregion

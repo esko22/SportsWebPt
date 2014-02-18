@@ -16,7 +16,7 @@
                     <div class="section-menu">
                         <div data-bind="attr: { id: 'injury-plan-exercises-' + id() }">
                             <ul data-bind="foreach: exercises" class="nav nav-list">
-                                <li><a class="exercise-tab-item" data-bind="attr: { href: '#injury-plan-exercise-pane-' + id() + '-' + $parent.id(), title: 'Exercise ' + $index() }, html: 'Exercise ' + ($index() + 1) + '<small>' + name() + '</small>'" data-toggle="tab"></a></li>
+                                <li><a class="exercise-tab-item" data-bind="click: $root.youtubeVideoStop.bind($data, id()), attr: { href: '#injury-plan-exercise-pane-' + id() + '-' + $parent.id(), title: 'Exercise ' + $index() }, html: 'Exercise ' + ($index() + 1) + '<small>' + name() + '</small>'" data-toggle="tab"></a></li>
                             </ul>
                         </div>
                     </div>

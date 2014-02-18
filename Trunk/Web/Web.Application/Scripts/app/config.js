@@ -24,7 +24,7 @@
                 injuryTemplate : 'examine.report.injury',
                 researchInjuryPlanTemplate: 'research.injury.plan',
                 exerciseTemplate : 'exercise',
-                sublimeYoutubeVideoTemplate: 'sublime.youtube.video'
+                sublimeYoutubeVideoTemplate: 'youtube.video'
             },
             favoriteUri = 'http://sportswebpt.com',
             favoriteHashTags = {

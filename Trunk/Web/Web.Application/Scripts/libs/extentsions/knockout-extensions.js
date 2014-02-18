@@ -51,16 +51,17 @@
         }
     };
 
+
+    // Not using sublime for now due to ad revenue, using youtube player instead
     ko.bindingHandlers.sublimeVideo = {
         init: function (element, valueAccessor, allBindingsAccessor) {
-
-            if (sublime.prepare === undefined) {
-                sublime.ready(function() {
+            if (typeof sublime.prepare === 'undefined') {
+                sublime.ready(function () {
+                    $(element).attr('data-youtube-id', valueAccessor());
+                    $(element).attr('data-uid', valueAccessor());
                     sublime.prepare(element);
                 });
                 sublime.load();
-            } else {
-                sublime.prepare(element);
             }
         }
     };

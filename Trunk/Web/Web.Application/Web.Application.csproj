@@ -646,6 +646,7 @@
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
     <Content Include="Tmpl\_examine.duration.dropdown.tmpl.html" />
     <Content Include="Tmpl\_examine.radio.bool.tmpl.html" />
+    <Content Include="Tmpl\_youtube.video.tmpl.html" />
     <Content Include="Tmpl\_sublime.youtube.video.tmpl.html" />
     <Content Include="Tmpl\_research.injury.plan.tmpl.html" />
     <Content Include="Tmpl\_research.brief.injury.tmpl.html" />
@@ -680,6 +681,7 @@
     <Content Include="Views\Shared\_gPlusAsync.cshtml" />
     <Content Include="Views\Shared\_shareBar.cshtml" />
     <Content Include="Views\Shared\_viewMedicaDisplay.cshtml" />
+    <Content Include="Views\Shared\_sublimeVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
