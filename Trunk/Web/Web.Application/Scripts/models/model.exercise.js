@@ -40,6 +40,19 @@ define('model.plan.exercise', ['backbone', 'config', 'model.equipment', 'model.v
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
+                defaults: {
+                    'name': '',
+                    'difficulty': '',
+                    'description': '',
+                    'duration': '',
+                    'order' : '',
+                    'sets': '',
+                    'repititions': '',
+                    'perDay': '',
+                    'perWeek': '',
+                    'holdType':'',
+                    'exerciseId' : ''
+                },
                 relations: [
                     {
                         type: backbone.HasMany,

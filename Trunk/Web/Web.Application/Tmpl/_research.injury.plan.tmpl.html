@@ -1,4 +1,6 @@
 ﻿<div class="panel panel-default examine-report-workout-accord">
+    <!-- ko with: plan -->
+
     <div class="panel-heading">
         <a class="research-accordian-icon" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#injury-plan-' + id() }" >
             <i class="icon-sportswebpt-clipboard3"></i>
@@ -16,17 +18,28 @@
                     <div class="section-menu">
                         <div data-bind="attr: { id: 'injury-plan-exercises-' + id() }">
                             <ul data-bind="foreach: exercises" class="nav nav-list">
-                                <li><a class="exercise-tab-item" data-bind="click: $root.youtubeVideoStop.bind($data, id()), attr: { href: '#injury-plan-exercise-pane-' + id() + '-' + $parent.id(), title: 'Exercise ' + $index() }, html: 'Exercise ' + ($index() + 1) + '<small>' + name() + '</small>'" data-toggle="tab"></a></li>
+                                <li><a class="exercise-tab-item" data-bind="click: $parents[1].updateSelectedExercise, attr: { href: '#injury-plan-exercise-pane-' + id() + '-' + $parent.id(), title: 'Exercise ' + $index() }, html: 'Exercise ' + ($index() + 1) + '<small>' + name() + '</small>'" data-toggle="tab"></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="tab-content" data-bind="attr: { id: 'injury-plan-exercise-panes-' + id() }, foreach: exercises">
-                        <div class="tab-pane" data-bind="attr: { id: 'injury-plan-exercise-pane-' + id() + '-' + $parent.id() }, template: { name: $root.templateIds.exerciseTemplate, data: $data }, showInitTab: '#injury-plan-exercises-' + $parent.id()" />
+                    <div class="tab-content">
+                        <div class="tab-pane active" data-bind="attr: { id: 'exercise' }">
+                            <!-- ko with: $parents[1].selectedExercise -->
+                            @{Html.RenderPartial("~/Views/Shared/_planExerciseDetail.cshtml"); }
+                            <!-- /ko -->
+                        </div>
                     </div>
+
+
+                    <!--<div class="tab-content" data-bind="attr: { id: 'injury-plan-exercise-panes-' + id() }, foreach: exercises">
+                        <div class="tab-pane" data-bind="attr: { id: 'injury-plan-exercise-pane-' + id() + '-' + $parent.id() }, template: { name: $root.templateIds.exerciseTemplate, data: $data }, showInitTab: '#injury-plan-exercises-' + $parent.id()" />
+                    </div>-->
                 </div>
             </div>
         </div>
     </div>
+    <!-- /ko -->
+
 </div>

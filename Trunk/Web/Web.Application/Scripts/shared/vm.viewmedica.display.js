@@ -12,7 +12,7 @@
             
             if (animationCode !== null) {
                 this.animationTag(animationCode);
-                //hate this shit... reloads there player every time
+                //hate this... reloads there player every time
                 openthis = animationCode;
                 vm_open();
             }  

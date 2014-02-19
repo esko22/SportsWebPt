@@ -186,6 +186,7 @@
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Content Include="Scripts\viewmodels\research\vm.research.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\AuthFormViewModel.cs" />
@@ -682,6 +683,7 @@
     <Content Include="Views\Shared\_shareBar.cshtml" />
     <Content Include="Views\Shared\_viewMedicaDisplay.cshtml" />
     <Content Include="Views\Shared\_sublimeVideo.cshtml" />
+    <Content Include="Views\Shared\_planExerciseDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

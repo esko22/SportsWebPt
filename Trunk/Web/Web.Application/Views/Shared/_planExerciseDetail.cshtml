@@ -1,0 +1,14 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div><strong>Level: </strong><span data-bind="text: difficulty"></span></div>
+        <div><strong>Sets: </strong><span class="badge" data-bind="text: sets"></span></div>
+        <div><strong>Reps: </strong><span class="badge" data-bind="text: repititions"></span></div>
+    </div>
+    <div class="col-md-9">
+        <!-- ko with: videos()[0] -->
+        <div class="video-container">
+            <iframe data-bind="attr: { src:'http://www.youtube.com/embed/' + youtubeVideoId()  }" width="560" height="315" frameborder="0" class="youtube-player"></iframe>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

@@ -39,11 +39,14 @@
 </div>
 <div class="tabbable" id="plan-exercise-tab-container">
     <ul data-bind="foreach: exercises" class="nav nav-tabs exercise-tab-nav">
-        <li><a class="exercise-tab-item" data-bind="attr: { href: '#exercise-' + id(), title: 'Exercise ' + $index() }, text: 'Exercise ' + ($index() + 1) " data-toggle="tab"></a></li>
+        <li><a class="exercise-tab-item" data-bind="click: $parents[1].updateSelectedExercise, attr: { href: '#exercise', title: 'Exercise ' + $index() }, text: 'Exercise ' + ($index() + 1) " data-toggle="tab"></a></li>
     </ul>
-    <div class="tab-content exercise-tab-pane" data-bind="foreach: exercises">
-        <div class="tab-pane" data-bind="attr: { id: 'exercise-' + id() }">
-            <section data-bind="template: { name: $root.templateIds.exerciseTemplate, data: $data, afterRender: $parents[1].setDefaultTab }"></section>
+    
+    <div class="tab-content">
+        <div class="tab-pane" data-bind="attr: { id: 'exercise' }">
+            <!-- ko with: $parent.selectedExercise -->
+                @{Html.RenderPartial("~/Views/Shared/_planExerciseDetail.cshtml"); }
+            <!-- /ko --> 
         </div>
     </div>
 </div>
