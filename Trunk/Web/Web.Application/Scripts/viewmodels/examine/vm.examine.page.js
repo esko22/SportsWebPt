@@ -22,7 +22,7 @@
         
         function showReport() {
             //TODO: Diag Nav Temp
-            //detail.detailReportId()
+            //detail.detailReportId(9);
             var diagnosisReport = new DiagnosisReport({ diffDiagId: detail.detailReportId() });
             diagnosisReport.fetch({
                 success: function () {

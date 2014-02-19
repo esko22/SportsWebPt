@@ -11,7 +11,7 @@
     </div>
     <div class="push-down-md" data-bind="mask: !isInitialized()">
         <!-- ko with: injury -->
-        @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml"); }
+        @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml", "research"); }
         <!-- /ko -->
     </div>
 </div>

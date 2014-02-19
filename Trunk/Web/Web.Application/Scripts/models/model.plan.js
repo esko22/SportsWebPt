@@ -5,6 +5,7 @@
                 urlRoot: config.apiUris.plans,
                 idAttribute: 'id',
                 defaults: {
+                    'id': '',
                     'routineName': '',
                     'category': '',
                     'description': '',

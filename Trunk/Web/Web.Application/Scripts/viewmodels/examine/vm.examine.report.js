@@ -1,11 +1,13 @@
 ﻿define('vm.examine.report',
-    ['config', 'underscore', 'knockback', 'backbone'],
-    function (config, _, kb, backbone) {
+    ['config', 'underscore', 'knockback', 'ko', 'vm.injury.plan.display', 'model.injury'],
+    function (config, _, kb, ko, PlanDisplayVM, Injury) {
         var remoteInjuries = kb.collectionObservable(),
             probabableInjuries = kb.collectionObservable(),
             moderateInjuries = kb.collectionObservable(),
-            injuries = kb.collectionObservable();
-;
+            injuries = kb.collectionObservable(),
+            selectedInjury = kb.viewModel(new Injury()),
+            planDisplays = ko.observableArray();
+
 
         var bindReport = function (report) {
             injuries.collection(report.get('potentialInjuries'));
@@ -28,14 +30,19 @@
         };
 
         function setInjuryContent(injury) {
+            planDisplays.removeAll();
+            selectedInjury.model(injury);
+
             if ($('#' + injury.get('animationTag')).children().length == 0) {
                 openthis = injury.get('animationTag');
                 vm_open();
             }
 
-            _.each(injury.get('plans').models, function(plan) {
+            _.each(injury.get('plans').models, function (plan) {
                 if (plan.get('exercises').length === 0) {
-                    plan.fetch();
+                    plan.fetch({ success: onPlanFetchSuccess });
+                } else {
+                    onPlanFetchSuccess(plan);
                 }
             });
         }
@@ -45,12 +52,19 @@
             setInjuryContent(data.model());
         }
 
+        function onPlanFetchSuccess(plan) {
+            planDisplays.push(new PlanDisplayVM(plan));
+        }
+
+
         return {
             bindReport: bindReport,
             remoteInjuries: remoteInjuries,
             probabableInjuries: probabableInjuries,
             moderateInjuries: moderateInjuries,
             injuries: injuries,
-            onPillClick : onPillClick
+            onPillClick: onPillClick,
+            selectedInjury: selectedInjury,
+            planDisplays: planDisplays
         };
     });

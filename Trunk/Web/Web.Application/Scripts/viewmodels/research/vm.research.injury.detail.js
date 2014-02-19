@@ -1,5 +1,5 @@
 ﻿define('vm.research.injury.detail',
-    ['jquery', 'knockback', 'model.injury', 'underscore', 'ko', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'vm.rearch.injury.plan.display'],
+    ['jquery', 'knockback', 'model.injury', 'underscore', 'ko', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'vm.injury.plan.display'],
     function($, kb, Injury, _, ko, services, config, ViewMedicaDisplay, ShareBar, InjuryPlanDisplay) {
 
         var injury = kb.viewModel(new Injury()),
@@ -9,6 +9,7 @@
             planDisplays = ko.observableArray();
         
         function init(searchKey) {
+            planDisplays.removeAll();
             injury.model(new Injury());
             if (searchKey !== '') {
                 services.getEntityDetail(searchKey, config.apiUris.injuryDetail, onFetchSuccess, null, null);
@@ -46,7 +47,7 @@
         }
 
         function setDefaultPanel() {
-            $('#injury-plan-accordion .panel-collapse:first').collapse('show');
+            $('#injury-plan-accordion-research .panel-collapse:first').collapse('show');
         }
 
         function setDefaultTab() {

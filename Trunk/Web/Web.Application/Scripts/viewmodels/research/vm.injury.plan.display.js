@@ -1,4 +1,4 @@
-﻿define('vm.rearch.injury.plan.display',
+﻿define('vm.injury.plan.display',
     ['knockback'],
     function (kb) {
 
