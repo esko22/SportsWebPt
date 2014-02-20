@@ -1,15 +1,18 @@
 ﻿define('vm.research.plan.detail',
-    ['jquery', 'knockback', 'model.plan', 'underscore', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'model.plan.exercise'],
-    function($, kb, Plan, _, services, config, ViewMedicaDisplay, ShareBar, Exercise) {
+    ['jquery', 'knockback', 'model.plan', 'underscore', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'model.plan.exercise', 'youtube.video.manager'],
+    function($, kb, Plan, _, services, config, ViewMedicaDisplay, ShareBar, Exercise, youtubeManager) {
 
         var plan = kb.viewModel(new Plan()),
             isInitialized = ko.observable(false),
             viewMedicaDisplay = new ViewMedicaDisplay(),
             shareBar = new ShareBar(),
-            selectedExercise = kb.viewModel(new Exercise());
+            exerciseModel = new Exercise(),
+            selectedExercise = kb.viewModel(exerciseModel);
 
 
         function init(searchKey) {
+            selectedExercise.model(exerciseModel);
+
             if (searchKey !== '') {
                 services.getEntityDetail(searchKey, config.apiUris.planDetail, onFetchSuccess, null, null);
             }
@@ -30,7 +33,7 @@
         function postDataPrep() {
             viewMedicaDisplay.init(plan.animationTag(), '#research-plan-detail');
             shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.planHash, plan.pageName()), 'plan', plan.id());
-            selectedExercise.model(plan.exercises()[0].model());
+            updateSelectedExercise(plan.exercises()[0]);
             setDefaultTab();
         }
         
@@ -40,6 +43,8 @@
 
         function updateSelectedExercise(data) {
             selectedExercise.model(data.model());
+            var video = data.model().get('videos').models[0];
+            youtubeManager.addVideoInstance('ytplayer-' + plan.id() + '-' + video.get('id'));
         }
 
         return {

@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page'],
-    function (backbone, presenter, config, examinePage, splashPage, researchPage, dashboardPage) {
+﻿define('router', ['backbone', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager'],
+    function (backbone, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager) {
 
         var configure = function() {
             var mainRouter = backbone.Router.extend({
@@ -28,6 +28,7 @@
             });
 
             router.on('route:examine', function () {
+                youtubeVideoManager.destroyAll();
                 if (!examinePage.isVisible()) {
                     researchPage.isVisible(false);
                     splashPage.isVisible(false);
@@ -39,6 +40,7 @@
             });
 
             router.on('route:examineDetail', function () {
+                youtubeVideoManager.destroyAll();
                 if (examinePage.canShowDetail()) {
                     examinePage.showDetail();
                     transitionTo(config.viewIds.examineDetail);
@@ -48,6 +50,7 @@
             });
 
             router.on('route:examineReport', function () {
+                youtubeVideoManager.destroyAll();
                 if (examinePage.canShowReport()) {
                     //TODO: Diag Nav Temp
                     //examinePage.isVisible(true);
@@ -59,6 +62,7 @@
             });
 
             router.on('route:main', function () {
+                youtubeVideoManager.destroyAll();
                 examinePage.isVisible(false);
                 researchPage.isVisible(false);
                 dashboardPage.isVisible(false);
@@ -66,6 +70,7 @@
             });
             
             router.on('route:research', function () {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -73,6 +78,7 @@
             });
             
             router.on('route:researchInjury', function () {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -81,6 +87,7 @@
             });
             
             router.on('route:researchInjuryDetail', function (searchKey) {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -89,6 +96,7 @@
 
             
             router.on('route:researchPlan', function () {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -97,6 +105,7 @@
             });
             
             router.on('route:researchPlanDetail', function (searchKey) {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -104,6 +113,7 @@
             });
 
             router.on('route:researchExercise', function () {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -112,6 +122,7 @@
             });
             
             router.on('route:researchExerciseDetail', function (searchKey) {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -119,6 +130,7 @@
             });
 
             router.on('route:researchLocate', function () {
+                youtubeVideoManager.destroyAll();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -127,6 +139,7 @@
             });
 
             router.on('route:dashboard', function () {
+                youtubeVideoManager.destroyAll();
                 if (!dashboardPage.isVisible()) {
                     showDashboard();
                 }

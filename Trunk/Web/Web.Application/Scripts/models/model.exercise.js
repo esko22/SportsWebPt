@@ -4,6 +4,7 @@
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
                 defaults: {
+                    'id': '',
                     'description': '',
                     'duration': '',
                     'difficulty': '',

@@ -186,6 +186,7 @@
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Content Include="Scripts\utils\youtube.video.manager.js" />
     <Content Include="Scripts\viewmodels\research\vm.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
@@ -627,8 +628,6 @@
     <Content Include="Content\kendo\uniform\sprite.png" />
     <Content Include="Content\kendo\uniform\sprite_2x.png" />
     <Content Include="Content\toastr.css" />
-    <Content Include="Content\videos\Clip_1080_5sec_10mbps_h264.mp4" />
-    <Content Include="Content\videos\SWPT_Template.m4v" />
     <Content Include="Scripts\app\presenter.js" />
     <Content Include="Scripts\app\user.settings.js" />
     <Content Include="Scripts\libs\html5shiv.js" />
@@ -787,6 +786,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Content\videos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
