@@ -51,6 +51,7 @@
             }
 
             filteredExercises.collection(filteredExerciseCollection);
+            $('#visible-exercises').quicksand($('#filtered-exercises'));
         };
 
         var onBodyRegionFilter = function (data, event) {

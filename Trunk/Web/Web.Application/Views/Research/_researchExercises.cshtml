@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-9">
             <div class="panel-group" id="recover-exercise-accordion">
-                <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }"></section>
+                <section data-bind="template: { name: briefExerciseTemplate, foreach: filteredExercises }" id="filtered-exercises"></section>
             </div>
             <!-- ko if: filteredExercises().length == 0 && isInitialized() -->
             <div class="push-down-lg text-center">

@@ -1,9 +1,9 @@
-﻿<div class="panel panel-default examine-report-workout-accord">
+﻿<div class="panel panel-default examine-report-workout-accord" data-bind="attr: { 'data-id': '#brief-exercise-' + id() }">
     <div class="panel-heading">
-        <a class="href-no-underline research-accordian-icon" data-toggle="collapse" data-parent="#brief-exercise-accordion" data-bind="attr: { href: '#brief-exercise-' + id() }" >
-             <i class="icon-sportswebpt-barbell"></i>
-             <span data-bind="text: ' ' + name()"></span>
-             <span class="glyphicon glyphicon-chevron-down pull-right" ></span>
+        <a class="href-no-underline research-accordian-icon" data-toggle="collapse" data-parent="#brief-exercise-accordion" data-bind="attr: { href: '#brief-exercise-' + id() }">
+            <i class="icon-sportswebpt-barbell"></i>
+            <span data-bind="text: ' ' + name()"></span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
         </a>
     </div>
     <div data-bind="attr: { id: 'brief-exercise-' + id() }" class="panel-collapse collapse">

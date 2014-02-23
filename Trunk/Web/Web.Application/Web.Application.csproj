@@ -186,6 +186,7 @@
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Content Include="Scripts\libs\jquery.quicksand.js" />
     <Content Include="Scripts\utils\youtube.video.manager.js" />
     <Content Include="Scripts\viewmodels\research\vm.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />

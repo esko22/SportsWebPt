@@ -52,7 +52,8 @@ define('model.plan.exercise', ['backbone', 'config', 'model.equipment', 'model.v
                     'perDay': '',
                     'perWeek': '',
                     'holdType':'',
-                    'exerciseId' : ''
+                    'holdFor': '',
+                    'exerciseId': ''
                 },
                 relations: [
                     {

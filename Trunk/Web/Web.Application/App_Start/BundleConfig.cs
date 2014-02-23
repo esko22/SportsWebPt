@@ -47,6 +47,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Content/theme/plugins/clingify/jquery.clingify.js",
                         "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
                         "~/Content/theme/plugins/jRespond/js/jrespond.js",
+                        "~/Scripts/libs/jquery.quicksand.js",
                         "~/Content/theme/js/appstrap.script.js"
                         ));
 
