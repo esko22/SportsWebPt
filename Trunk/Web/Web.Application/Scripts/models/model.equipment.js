@@ -4,6 +4,11 @@
             equipment = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.equipment,
                 defaults: {
+                    'commonName': '',
+                    'technicalName': '',
+                    'productInformation': '',
+                    'priceRange': '',
+                    'category': ''
                 }
             });
 

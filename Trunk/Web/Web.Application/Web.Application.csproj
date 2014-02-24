@@ -684,6 +684,8 @@
     <Content Include="Views\Shared\_planExerciseListing.cshtml" />
     <Content Include="Views\Shared\_shareThisSDK.cshtml" />
     <Content Include="Views\Shared\_addThisSDK.cshtml" />
+    <Content Include="Views\Shared\_equipmentListDialog.cshtml" />
+    <Content Include="Scripts\shared\vm.equipment.list.dialog.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
