@@ -1,22 +1,20 @@
 ﻿<div class="row">
-    <div class="col-md-4 pull-left">
-        <h2 data-bind="text: routineName"></h2>
-    </div>
-    <div class="col-md-offset-6 col-md-2">
-        <!-- ko with: $parent.shareBar -->
-        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
-        <!-- /ko --> 
-    </div>
-</div>
-<hr class="examine-report-hr"/>
-<div class="row">
-    <div class="col-md-5">
-        <label><strong>Category: </strong><span data-bind="text: category"></span></label>
+    <div class="col-md-12">
+        <h1 class="title-divider-research"><i class="icon-sportswebpt-clipboard3"></i> <span data-bind="text: routineName"><span class="de-em"></span></span></h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-7">
-        <label>Description: </label><span data-bind="html: description"></span>
+        <h2 class="title-divider-research"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing plan</small></h2>
+    </div>
+    <div class="col-md-5">
+        <h2 class="title-divider-research"><span>Animation <span class="de-em"></span></span> <small>Medical animation for the affected area</small></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        <span data-bind="html: description"></span>
     </div>
     <div class="col-md-5">
         <!-- ko with: $parent.viewMedicaDisplay -->
@@ -25,16 +23,43 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-10">
-        <label>Instructions:</label><span data-bind="html: instructions"></span>
+    <div class="col-md-5">
+        <h2 class="title-divider-research"><span>Instructions <span class="de-em"></span></span> <small>Detailed overview</small></h2>
+    </div>
+    <div class="col-md-4">
+        <h2 class="title-divider-research"><span>Structures<span class="de-em"></span></span> <small>Involved body areas</small></h2>
+    </div>
+    <div class="col-md-3">
+        <h2 class="title-divider-research"><span>Categories <span class="de-em"></span></span> <small>Functional purpose</small></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <span data-bind="html: instructions"></span>
+    </div>
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <tbody data-bind="foreach: $parent.structuresInvolved">
+                <tr>
+                    <td data-bind="text: $data"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <table class="table table-striped">
+            <tbody data-bind="foreach: categories">
+                <tr>
+                    <td data-bind="text: $data"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-5">
-        <label><strong>Muscles Involved: </strong><span data-bind="text: musclesInvolved"></span></label>
-    </div>
-    <div class="col-md-5">
-        <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
+    <div class="col-md-12">
+        <h2 class="title-divider-research"><span>Exercise Listing <span class="de-em"></span></span> <small>Detailed steps for plan execution</small></h2>
     </div>
 </div>
-@{Html.RenderPartial("~/Views/Shared/_planExerciseListing.cshtml"); }
+    @{Html.RenderPartial("~/Views/Shared/_planExerciseListing.cshtml"); }

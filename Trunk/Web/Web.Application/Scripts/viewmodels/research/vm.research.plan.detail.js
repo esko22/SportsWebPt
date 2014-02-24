@@ -1,13 +1,14 @@
 ﻿define('vm.research.plan.detail',
-    ['jquery', 'knockback', 'model.plan', 'underscore', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'model.plan.exercise', 'youtube.video.manager'],
-    function($, kb, Plan, _, services, config, ViewMedicaDisplay, ShareBar, Exercise, youtubeManager) {
+    ['jquery', 'ko', 'knockback', 'model.plan', 'underscore', 'services', 'config', 'vm.viewmedica.display', 'vm.research.nav.bar', 'model.plan.exercise', 'youtube.video.manager'],
+    function($, ko, kb, Plan, _, services, config, ViewMedicaDisplay, NavBar, Exercise, youtubeManager) {
 
         var plan = kb.viewModel(new Plan()),
             isInitialized = ko.observable(false),
             viewMedicaDisplay = new ViewMedicaDisplay(),
-            shareBar = new ShareBar(),
+            navBar = new NavBar(),
             exerciseModel = new Exercise(),
-            selectedExercise = kb.viewModel(exerciseModel);
+            selectedExercise = kb.viewModel(exerciseModel),
+            structuresInvolved = ko.observableArray();
 
 
         function init(searchKey) {
@@ -32,13 +33,14 @@
         
         function postDataPrep() {
             viewMedicaDisplay.init(plan.animationTag(), '#research-plan-detail');
-            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.planHash, plan.pageName()), 'plan', plan.id());
+            navBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.planHash, plan.pageName()), 'plan', plan.id(), '/#/research/plans');
+            structuresInvolved(plan.structuresInvolved().split(','));
             updateSelectedExercise(plan.exercises()[0]);
-            setDefaultTab();
+            setTimeout(function () { setDefaultTab(); }, 500);
         }
         
         function setDefaultTab() {
-            $('#plan-exercise-tab-container a:first').tab('show');
+            $('.nav-list a:first').tab('show');
         }
 
         function updateSelectedExercise(data) {
@@ -52,9 +54,10 @@
             init: init,
             isInitialized: isInitialized,
             viewMedicaDisplay: viewMedicaDisplay,
-            shareBar: shareBar,
+            navBar: navBar,
             setDefaultTab: setDefaultTab,
             selectedExercise: selectedExercise,
-            updateSelectedExercise: updateSelectedExercise
+            updateSelectedExercise: updateSelectedExercise,
+            structuresInvolved: structuresInvolved
         };
     });

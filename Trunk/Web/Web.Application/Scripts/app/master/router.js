@@ -1,5 +1,5 @@
-﻿define('router', ['backbone', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager'],
-    function (backbone, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager) {
+﻿define('router', ['backbone','ko', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager'],
+    function (backbone, ko, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager) {
 
         var configure = function() {
             var mainRouter = backbone.Router.extend({
@@ -22,13 +22,14 @@
             });
 
             var router = new mainRouter();
+            var activeElement;
 
             router.on('route:notfound', function () {
                 config.notifier.error('route not found');
             });
 
             router.on('route:examine', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!examinePage.isVisible()) {
                     researchPage.isVisible(false);
                     splashPage.isVisible(false);
@@ -40,7 +41,7 @@
             });
 
             router.on('route:examineDetail', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (examinePage.canShowDetail()) {
                     examinePage.showDetail();
                     transitionTo(config.viewIds.examineDetail);
@@ -50,7 +51,7 @@
             });
 
             router.on('route:examineReport', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (examinePage.canShowReport()) {
                     //TODO: Diag Nav Temp
                     //examinePage.isVisible(true);
@@ -62,7 +63,7 @@
             });
 
             router.on('route:main', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 examinePage.isVisible(false);
                 researchPage.isVisible(false);
                 dashboardPage.isVisible(false);
@@ -70,7 +71,7 @@
             });
             
             router.on('route:research', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -78,7 +79,7 @@
             });
             
             router.on('route:researchInjury', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -87,7 +88,7 @@
             });
             
             router.on('route:researchInjuryDetail', function (searchKey) {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -96,7 +97,7 @@
 
             
             router.on('route:researchPlan', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -105,7 +106,7 @@
             });
             
             router.on('route:researchPlanDetail', function (searchKey) {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -113,7 +114,7 @@
             });
 
             router.on('route:researchExercise', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -122,7 +123,7 @@
             });
             
             router.on('route:researchExerciseDetail', function (searchKey) {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -130,7 +131,7 @@
             });
 
             router.on('route:researchLocate', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
@@ -139,7 +140,7 @@
             });
 
             router.on('route:dashboard', function () {
-                youtubeVideoManager.destroyAll();
+                cleanUp();
                 if (!dashboardPage.isVisible()) {
                     showDashboard();
                 }
@@ -150,7 +151,16 @@
         };
             
         function transitionTo(viewId) {
-            presenter.transitionTo($(viewId), '', '');
+            this.activeElement = $(viewId);
+            presenter.transitionTo(this.activeElement, '', '');
+        }
+
+        function cleanUp() {
+            if (this.activeElement) {
+                ko.removeNode(this.activeElement);
+            }
+            youtubeVideoManager.destroyAll();
+            backbone.Relational.store.reset();
         }
 
         function showDashboard() {

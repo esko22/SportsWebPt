@@ -7,10 +7,10 @@
                 defaults: {
                     'id': '',
                     'routineName': '',
-                    'category': '',
+                    'categories': '',
                     'description': '',
                     'instructions': '',
-                    'musclesInvolved': '',
+                    'structuresInvolved': '',
                     'duration': '',
                     'animationTag' : ''
                 },

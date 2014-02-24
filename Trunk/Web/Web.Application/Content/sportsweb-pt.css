@@ -56,9 +56,11 @@ left: 45%;
     margin-right: 10px;
     color: #333333;
     font-weight: bold;
+    text-decoration: none !important;
 }
 
 .favorite-icon {
+    text-decoration: none !important;
     font-size: 24px; 
     color: #b22222;
 }
@@ -106,7 +108,7 @@ left: 45%;
 
 .login-btn:hover,
 .login-btn:focus {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #dcdcdc;
 }
 
@@ -586,11 +588,11 @@ ul#skeleton li {
 }
 
 .research-nav-bar {
-    border-style: solid;
+    /*border-style: solid;
     border-width: 1px;
-    border-color: #ddd;
+    border-color: #ddd;*/
     background-color: #FFFAFA;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 
 #footerBottom {

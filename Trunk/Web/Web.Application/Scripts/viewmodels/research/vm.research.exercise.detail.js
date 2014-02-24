@@ -1,11 +1,11 @@
 ﻿define('vm.research.exercise.detail',
-    ['jquery', 'knockback', 'model.exercise', 'underscore', 'services', 'config', 'vm.share.bar', 'youtube.video.manager', 'model.video'],
-    function($, kb, Exercise, _, services, config, ShareBar, youtubeManager, Video) {
+    ['jquery', 'knockback', 'model.exercise', 'underscore', 'services', 'config', 'vm.research.nav.bar', 'youtube.video.manager'],
+    function($, kb, Exercise, _, services, config, NavBar, youtubeManager) {
 
         var exerciseModel = new Exercise(),
             exercise = kb.viewModel(exerciseModel),
             isInitialized = ko.observable(false),
-            shareBar = new ShareBar();
+            navBar = new NavBar();
 
         function init(searchKey) {
             exercise.model(exerciseModel);
@@ -26,7 +26,7 @@
         }
         
         function postDataPrep() {
-            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.exerciseHash, exercise.pageName()), 'exercise', exercise.id());
+            navBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.exerciseHash, exercise.pageName()), 'exercise', exercise.id(), '/#/research/exercises');
             youtubeManager.addVideoInstance('ytplayer-' + exercise.id());
         }
 
@@ -34,6 +34,6 @@
             exercise: exercise,
             init: init,
             isInitialized: isInitialized,
-            shareBar: shareBar
+            navBar: navBar
         };
     });

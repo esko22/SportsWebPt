@@ -1,14 +1,8 @@
 ﻿<div class="container" id="research-exercise-detail">
-    <div class="row">
-        <div class="col-md-3 pull-left">
-            <a href="/#/research/exercises" class="return-navigation-icon" style="text-decoration: none;"><i class="icon-sportswebpt-arrow-left"></i> To Exercises</a>
-        </div>
-        <div class="col-md-6 text-center">
-            <span class="research-header-icon"><i class="icon-sportswebpt-barbell"></i> Exercise</span> 
-        </div>        
-    </div>
-    <div class="row" data-bind="mask: !isInitialized()">
-    <hr class="examine-report-hr"/>
+    <!-- ko with: navBar -->
+    @{Html.RenderPartial("~/views/research/_researchNavBar.cshtml"); }
+    <!-- /ko -->
+    <div class="push-down-md" data-bind="mask: !isInitialized()">
         <!-- ko with: exercise -->
         @{ Html.RenderPartial("~/views/shared/_exerciseDetail.cshtml"); }
         <!-- /ko -->

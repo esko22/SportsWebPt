@@ -1,5 +1,6 @@
-﻿define('model.exercise', ['backbone', 'config', 'model.equipment', 'model.video', 'model.equipment.collection', 'model.video.collection', 'model.body.region', 'model.body.region.collection'],
-    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection) {
+﻿define('model.exercise', [
+    'backbone', 'config', 'model.equipment', 'model.video', 'model.equipment.collection', 'model.video.collection', 'model.body.region', 'model.body.region.collection', 'model.body.part'],
+    function (backbone, config, Equipment, Video, EquipmentCollection, VideoCollection, BodyRegion, BodyRegionCollection, BodyPart) {
         var
             exercise = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.exercises,
@@ -8,7 +9,14 @@
                     'description': '',
                     'duration': '',
                     'difficulty': '',
-                    'name' : ''
+                    'name': '',
+                    'sets': '',
+                    'repititions': '',
+                    'perDay': '',
+                    'perWeek': '',
+                    'holdType': '',
+                    'holdFor': '',
+                    'categories': ''
                 },
                 relations: [
                     {
@@ -16,6 +24,11 @@
                         key: 'equipment',
                         relatedModel: Equipment,
                         collectionType: EquipmentCollection
+                    },
+                    {
+                        type: backbone.HasMany,
+                        key: 'bodyParts',
+                        relatedModel: BodyPart
                     },
                     {
                         type: backbone.HasMany,

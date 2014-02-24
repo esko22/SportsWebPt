@@ -1,17 +1,10 @@
 ﻿<div class="container" id="research-injury-detail">
-    <div class="row research-nav-bar">
-        <div class="col-md-2">
-            <a href="/#/research/injuries" class="return-navigation-icon" title="Back to injuries" style="text-decoration: none;"><i class="icon-sportswebpt-chevron-left"></i><i class="icon-sportswebpt-chevron-left"></i> Back</a>
-        </div>
-        <div class="col-md-3 col-md-offset-7">
-            <!-- ko with: shareBar -->
-            @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
-            <!-- /ko --> 
-        </div>
-    </div>
+    <!-- ko with: navBar -->
+    @{Html.RenderPartial("~/views/research/_researchNavBar.cshtml"); }
+    <!-- /ko --> 
     <div class="push-down-md" data-bind="mask: !isInitialized()">
-        <!-- ko with: injury -->
-        @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml", "research"); }
-        <!-- /ko -->
+    <!-- ko with: injury -->
+    @{ Html.RenderPartial("~/views/shared/_injuryDetail.cshtml", "research"); }
+    <!-- /ko -->
     </div>
 </div>

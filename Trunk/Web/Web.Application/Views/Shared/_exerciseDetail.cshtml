@@ -1,42 +1,54 @@
 ﻿<div class="row">
-    <div class="col-md-6 pull-left">
-        <h2 data-bind="text: name"></h2>
-    </div>
-    <div class="col-md-offset-4 col-md-2">
-        <!-- ko with: $parent.shareBar -->
-        @{Html.RenderPartial("~/Views/Shared/_shareBar.cshtml"); }
-        <!-- /ko --> 
-    </div>
-</div> 
-<hr class="examine-report-hr"/>
-    <div class="row">
-    <div class="col-md-10">
-        <label>Description: </label><span data-bind="html: description"></span>
+    <div class="col-md-12">
+        <h1 class="title-divider-research"><i class="icon-sportswebpt-barbell"></i> <span data-bind="text: name"><span class="de-em"></span></span></h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-5">
-        <label><strong>Duration: </strong><span data-bind="text: duration"></span> minutes</label>
+        <h2 class="title-divider-research"><span>Description <span class="de-em"></span></span> <small>Exercise overview</small></h2>
     </div>
-    <div class="col-md-5">
-        <label><strong>Difficulty: </strong><span data-bind="text: difficulty"></span></label>
+    <div class="col-md-4">
+        <h2 class="title-divider-research"><span>Structures<span class="de-em"></span></span> <small>Involved body areas</small></h2>
+    </div>
+    <div class="col-md-3">
+        <h2 class="title-divider-research"><span>Categories <span class="de-em"></span></span> <small>Functional purpose</small></h2>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-2">
-        <h3>Equipment</h3>
+    <div class="col-md-5">
+        <span data-bind="html: description"></span>
+    </div>
+    <div class="col-md-4">
         <table class="table table-striped">
-            <tbody data-bind="foreach: equipment">
+            <tbody data-bind="foreach: bodyParts">
                 <tr>
                     <td data-bind="text: commonName"></td>
                 </tr>
-            </tbody>            
+            </tbody>
         </table>
     </div>
-    <div class="col-md-7">
-        <h3>Video</h3>
-        <div class="video-container" data-bind="foreach: videos">
-            <iframe data-bind="attr: { src:'http://www.youtube.com/embed/' + youtubeVideoId() + '?enablejsapi=1',id:'ytplayer-' + $parent.id() } " width=" 560" height="315" frameborder="0"></iframe>
-        </div>
+    <div class="col-md-3">
+        <table class="table table-striped">
+            <tbody data-bind="foreach: categories">
+                <tr>
+                    <td data-bind="text: $data"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>    
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="title-divider-research"><span>Video <span class="de-em"></span></span> <small></small></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-11 col-md-offset-1">
+        <!-- ko with: $parent.exercise -->
+        @{Html.RenderPartial("~/Views/Shared/_planExerciseDetail.cshtml"); }
+        <!-- /ko -->    
+    </div>
+</div>
+

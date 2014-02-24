@@ -1,11 +1,11 @@
 ﻿define('vm.research.injury.detail',
-    ['jquery', 'knockback', 'model.injury', 'underscore', 'ko', 'services', 'config', 'vm.viewmedica.display', 'vm.share.bar', 'vm.injury.plan.display'],
-    function($, kb, Injury, _, ko, services, config, ViewMedicaDisplay, ShareBar, InjuryPlanDisplay) {
+    ['jquery', 'knockback', 'model.injury', 'underscore', 'ko', 'services', 'config', 'vm.viewmedica.display', 'vm.research.nav.bar', 'vm.injury.plan.display'],
+    function($, kb, Injury, _, ko, services, config, ViewMedicaDisplay, NavBar, InjuryPlanDisplay) {
 
         var injury = kb.viewModel(new Injury()),
             isInitialized = ko.observable(false),
             viewMedicaDisplay = new ViewMedicaDisplay(),
-            shareBar = new ShareBar(),
+            navBar = new NavBar(),
             planDisplays = ko.observableArray();
         
         function init(searchKey) {
@@ -34,7 +34,7 @@
         
         function postLoadPrep() {
             viewMedicaDisplay.init(injury.animationTag(), '#research-injury-detail');
-            shareBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.injuryHash, injury.pageName()), 'injury', injury.id());
+            navBar.init($.format("{0}/{1}/{2}", config.favoriteUri, config.favoriteHashTags.injuryHash, injury.pageName()), 'injury', injury.id(), '/#/research/injuries');
 
             setTimeout(function() {
                 setDefaultPanel();
@@ -58,7 +58,7 @@
             injury: injury,
             isInitialized: isInitialized,
             init: init,
-            shareBar: shareBar,
+            navBar: navBar,
             viewMedicaDisplay: viewMedicaDisplay,
             setDefaultPanel : setDefaultPanel,
             planDisplays : planDisplays

@@ -574,7 +574,7 @@
     <Content Include="Scripts\models\model.prognosis.js" />
     <Content Include="Scripts\models\model.treatment.js" />
     <Content Include="Scripts\models\model.filter.js" />
-    <Content Include="Scripts\shared\vm.share.bar.js" />
+    <Content Include="Scripts\viewmodels\research\vm.research.nav.bar.js" />
     <Content Include="Scripts\shared\vm.viewmedica.display.js" />
     <Content Include="Scripts\viewmodels\dashboard\vm.dashboard.page.js" />
     <Content Include="Content\kendo\blueopal\editor.png" />
@@ -677,11 +677,13 @@
     <Content Include="Views\Shared\_gPlus.cshtml" />
     <Content Include="Views\Shared\_gAnalytics.cshtml" />
     <Content Include="Views\Shared\_gPlusAsync.cshtml" />
-    <Content Include="Views\Shared\_shareBar.cshtml" />
+    <Content Include="Views\Research\_researchNavBar.cshtml" />
     <Content Include="Views\Shared\_viewMedicaDisplay.cshtml" />
     <Content Include="Views\Shared\_sublimeVideo.cshtml" />
     <Content Include="Views\Shared\_planExerciseDetail.cshtml" />
     <Content Include="Views\Shared\_planExerciseListing.cshtml" />
+    <Content Include="Views\Shared\_shareThisSDK.cshtml" />
+    <Content Include="Views\Shared\_addThisSDK.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

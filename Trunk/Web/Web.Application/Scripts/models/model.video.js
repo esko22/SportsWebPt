@@ -4,6 +4,7 @@
             video = backbone.RelationalModel.extend({
                 urlRoot: config.apiUris.videos,
                 defaults: {
+                    'id': '',
                     'name': '',
                     'youtubeVideoId': '',
                 }
