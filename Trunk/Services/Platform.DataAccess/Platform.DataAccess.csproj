@@ -107,6 +107,10 @@
     <Compile Include="Migrations\201402170038144_SportsWebPtBeta.Designer.cs">
       <DependentUpon>201402170038144_SportsWebPtBeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402250435587_TreatmentDescType.cs" />
+    <Compile Include="Migrations\201402250435587_TreatmentDescType.Designer.cs">
+      <DependentUpon>201402250435587_TreatmentDescType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -155,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201402170038144_SportsWebPtBeta.resx">
       <DependentUpon>201402170038144_SportsWebPtBeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402250435587_TreatmentDescType.resx">
+      <DependentUpon>201402250435587_TreatmentDescType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
