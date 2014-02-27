@@ -27,7 +27,7 @@
         <input type="hidden" id="username" value="@Model.User.userName"/>
         <input type="hidden" id="userEmail" value="@Model.User.emailAddress"/>
         @{Html.RenderPartial("~/Views/Shared/_masterHeader.cshtml"); }
-        <div id="master-container" >
+        <div id="master-container" class="body-content" >
             @RenderBody()
         </div>
         @{Html.RenderPartial("~/Views/Shared/_masterFooter.cshtml"); }

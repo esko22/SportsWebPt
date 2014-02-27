@@ -1,14 +1,18 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
 @{
     Layout = "_errorLayout.cshtml";
-    ViewBag.Title = "Error";
+    ViewBag.Title = "500 Unhandled Error";
 }
-<div class="list-header clearfix">
-    <span>Unhandled Error</span>
-</div>
-<div class="list-sfs-holder">
-    <div class="alert alert-error">
-        An unexpected error has occurred. Please contact the system administrator.</div>
+
+<div class="push-down-lg">
+    <div class="well text-center">
+        <h3>Internal Server Error - 500</h3>
+        <div class="push-down-md">
+            <img class="image-box" src="~/Content/images/jamed.gif" />
+        </div>
+        <h4 class="push-down-lg">Looks like we got our radar jammed. We apologize for the mishap.</h4>
+        <h5>If the problem persists please contact our support team.</h5>
+    </div>
     @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
     {
         <div>

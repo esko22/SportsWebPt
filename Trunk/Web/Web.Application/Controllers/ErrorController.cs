@@ -4,22 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
-using SportsWebPt.Platform.Web.Admin;
+
+using SportsWebPt.Common.Logging;
 
 namespace SportsWebPt.Platform.Web.Application
 {
     public class ErrorController : BaseController
     {
+        #region Fields
+
+        private ILog _logger = LogManager.GetCommonLogger();
+
+        #endregion
+
         [GET("Error/NotFound", IsAbsoluteUrl = true)]
         public ActionResult NotFound()
         {
-            Response.StatusCode = 404;  
+            _logger.Info("Page Not Found Returned");
             return View("ErrorNotFound");
         }
 
         [GET("Error", IsAbsoluteUrl = true)]
         public ActionResult Index()
         {
+            _logger.Error("500 Unhandled Returned");
             Response.StatusCode = 200;  
             return View("Unhandled");
         }

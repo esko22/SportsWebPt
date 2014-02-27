@@ -186,7 +186,10 @@
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Content Include="Content\images\comb.png" />
     <Content Include="Scripts\libs\jquery.quicksand.js" />
+    <Content Include="Scripts\shared\vm.about.page.js" />
+    <Content Include="Scripts\shared\vm.contact.page.js" />
     <Content Include="Scripts\utils\youtube.video.manager.js" />
     <Content Include="Scripts\viewmodels\research\vm.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
@@ -686,6 +689,8 @@
     <Content Include="Views\Shared\_addThisSDK.cshtml" />
     <Content Include="Views\Shared\_equipmentListDialog.cshtml" />
     <Content Include="Scripts\shared\vm.equipment.list.dialog.js" />
+    <Content Include="Views\Shared\_aboutUs.cshtml" />
+    <Content Include="Views\Shared\_contactUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

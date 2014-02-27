@@ -1,5 +1,5 @@
-﻿define('router', ['backbone','ko', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager'],
-    function (backbone, ko, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager) {
+﻿define('router', ['backbone', 'ko', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager', 'vm.about.page', 'vm.contact.page'],
+    function (backbone, ko, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager, aboutPage, contactPage) {
 
         var configure = function() {
             var mainRouter = backbone.Router.extend({
@@ -17,6 +17,8 @@
                     'research/exercises': 'researchExercise',
                     'research/exercises/:searchKey': 'researchExerciseDetail',
                     'dashboard': 'dashboard',
+                    'about': 'about',
+                    'contact' : 'contact',
                     '*notfound': 'notfound'
                 }
             });
@@ -34,6 +36,8 @@
                     researchPage.isVisible(false);
                     splashPage.isVisible(false);
                     dashboardPage.isVisible(false);
+                    contactPage.isVisible(false);
+                    aboutPage.isVisible(false);
                     examinePage.onVisible();
                 }
                 examinePage.showSkeleton();
@@ -67,6 +71,8 @@
                 examinePage.isVisible(false);
                 researchPage.isVisible(false);
                 dashboardPage.isVisible(false);
+                contactPage.isVisible(false);
+                aboutPage.isVisible(false);
                 splashPage.isVisible(true);
             });
             
@@ -146,6 +152,20 @@
                 }
             });
 
+            router.on('route:about', function () {
+                cleanUp();
+                if (!aboutPage.isVisible()) {
+                    showAbout();
+                }
+            });
+
+            router.on('route:contact', function () {
+                cleanUp();
+                if (!contactPage.isVisible()) {
+                    showContact();
+                }
+            });
+
 
             backbone.history.start();
         };
@@ -168,14 +188,39 @@
             splashPage.isVisible(false);
             dashboardPage.isVisible(true);
             researchPage.isVisible(false);
+            contactPage.isVisible(false);
+            aboutPage.isVisible(false);
         }
 
         function showResearch() {
             examinePage.isVisible(false);
             splashPage.isVisible(false);
             dashboardPage.isVisible(false);
+            contactPage.isVisible(false);
+            aboutPage.isVisible(false);
             researchPage.onVisible();
         }
+
+        function showAbout() {
+            examinePage.isVisible(false);
+            splashPage.isVisible(false);
+            dashboardPage.isVisible(false);
+            researchPage.isVisible(false);
+            contactPage.isVisible(false);
+            aboutPage.onVisible();
+        }
+
+
+        function showContact() {
+            examinePage.isVisible(false);
+            splashPage.isVisible(false);
+            dashboardPage.isVisible(false);
+            researchPage.isVisible(false);
+            aboutPage.isVisible(false);
+            contactPage.onVisible();
+        }
+
+
         
         function showResearchDetail(detailType, searchKey) {
             switch(detailType) {

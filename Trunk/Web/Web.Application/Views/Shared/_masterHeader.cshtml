@@ -59,50 +59,6 @@
 
 
 
-    @*<div class="navbar navbar-inverse navbar-fixed-top" id="master-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/"><img src="../../Content/images/logoHeader.png" /></a>
-            </div>
-            <div class="col-md-6 pull-right navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/#/examine" class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i><br />Examine</a></li>
-                    <li><a href="/#/research" class="nav-icon"><i class="icon-sportswebpt-magnifier"></i><br />Research</a></li>
-                    <li><a href="/#/research/locations" class="nav-icon"><i class="icon-sportswebpt-city-scape1"></i><br />Locate</a></li>
-                    @if (String.IsNullOrEmpty(Model.User.emailAddress))
-                    {
-                        <li>
-                            <a data-toggle="modal" data-target="#login-dialog" class="nav-icon"><i class="icon-sportswebpt-user"></i><br />Log In / Sign Up</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a href="#"class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
-                                <span aria-hidden="true" data-icon="&#xf007;" class="nav-icon"></span>
-                                <span>@Model.User.emailAddress</span><b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#about">Edit Profile</a></li>
-                                <li><a href="/#/dashboard">My Dashboard</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/logout">Log Out</a></li>
-                            </ul>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>*@
-
-
     <div class="modal fade" id="login-dialog" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

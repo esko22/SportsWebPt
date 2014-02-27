@@ -1,5 +1,5 @@
-﻿define('vm.master.page', ['vm.splash', 'vm.examine.page', 'vm.research.page', 'vm.dashboard.page', 'config', 'vm.equipment.list.dialog'],
-    function (splashPage, examinePage, researchPage, dashboardPage,config, equipmentPage) {
+﻿define('vm.master.page', ['vm.splash', 'vm.examine.page', 'vm.research.page', 'vm.dashboard.page', 'config', 'vm.equipment.list.dialog', 'vm.about.page', 'vm.contact.page'],
+    function (splashPage, examinePage, researchPage, dashboardPage,config, equipmentPage, aboutPage, contactPage) {
 
         var player,
         equipmentList = equipmentPage;
@@ -29,6 +29,8 @@
             equipmentPage: equipmentPage,
             templateIds: config.templateIds,
             youtubeVideoStop: youtubeVideoStop,
-            showEquipmentList: showEquipmentList
+            showEquipmentList: showEquipmentList,
+            aboutPage: aboutPage,
+            contactPage: contactPage
         };
     });

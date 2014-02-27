@@ -92,6 +92,7 @@ namespace SportsWebPt.Platform.Web
                 "~/Content/theme/plugins/animate/animate.css",
                 "~/Content/theme/plugins/clingify/clingify.css",
                 "~/Content/icon-fonts.css",
+                "~/Content/theme/css/font-awesome.css",
                 "~/Content/toastr.css",
                 "~/Content/kendo/kendo.common.min.css",
                 "~/Content/kendo/kendo.blueopal.min.css", 

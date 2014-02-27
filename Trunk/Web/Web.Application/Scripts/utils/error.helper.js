@@ -1,7 +1,8 @@
-﻿define('error.helper', ['jquery'], function($) {
+﻿define('error.helper', ['jquery', 'config'], function($,config) {
 
     var onError = function(message) {
-        alert($.format('{0} -- {1}', message, 'something fucked up'));
+        config.notifier.clear();
+        config.notifier.error(message, 'Unexpected Error', { extendedTimeOut: 0, timeOut: 0 });
     };
 
     return {
