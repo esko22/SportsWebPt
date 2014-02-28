@@ -268,6 +268,7 @@
             symptomCollection.fetch();
             treatmentCollection.fetch();
             prognosisCollection.fetch();
+
         };
 
         return {

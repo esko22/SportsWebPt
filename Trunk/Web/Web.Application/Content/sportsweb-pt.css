@@ -533,11 +533,6 @@ ul#skeleton li {
             width: 240px;
         }
 
-.balSlider .k-slider-selection {
-    width: 240px;
-    display: none;
-}
-
 
 .content-container-panel {
     background-color: #f5f5f5;
@@ -739,7 +734,14 @@ ul#skeleton li {
 }
 
 
+.balSlider .k-slider-selection {
+    width: 240px;
+    display: none;
+}
 
+div .k-window {
+    z-index: 2000000 !important;
+}
 
 
 
