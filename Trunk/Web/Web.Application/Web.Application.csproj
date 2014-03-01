@@ -188,6 +188,7 @@
     <Compile Include="Controllers\IndexController.cs" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
+    <Content Include="Content\images\jamed.gif" />
     <Content Include="Scripts\libs\jquery.quicksand.js" />
     <Content Include="Scripts\shared\vm.about.page.js" />
     <Content Include="Scripts\shared\vm.contact.page.js" />
