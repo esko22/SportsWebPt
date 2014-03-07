@@ -2,7 +2,7 @@
 @using SportsWebPt.Platform.Web.Application
 @model BaseViewModel
 <!DOCTYPE html>
-<html lang="en" ng-app="swptApp">
+<html lang="en" ng-app="sportsWebPtApp">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -25,10 +25,13 @@
     <input type="hidden" id="userid" value="@Model.User.id" />
     <input type="hidden" id="username" value="@Model.User.userName" />
     <input type="hidden" id="userEmail" value="@Model.User.emailAddress" />
-
+    @{Html.RenderPartial("~/Views/Shared/_masterHeader-r.cshtml"); }
+    <div id="master-container">
         @RenderBody()
-
+    </div>
+    @{Html.RenderPartial("~/Views/Shared/_masterFooter-r.cshtml"); }
     @Html.AntiForgeryToken()
+
     @Scripts.Render(
             "~/bundles/jquery",
             "~/bundles/jsextlibs",
@@ -37,10 +40,8 @@
             "~/bundles/sharedapplib",
             "~/bundles/utils",
             "~/bundles/models")
-
-    @Scripts.Render(
-            "~/bundles/angular",
-            "~/bundles/angularApp")
+    @Scripts.Render(Model.AreaBundles.ToArray())
+    @Scripts.Render("~/Scripts/main.js")
 </body>
 </html>
 

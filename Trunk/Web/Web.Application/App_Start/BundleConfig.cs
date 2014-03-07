@@ -28,6 +28,17 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/libs/angular/angular.js",
+                        "~/Scripts/libs/angular/angular-route.js",
+                        "~/Scripts/libs/angular/angular-sanitize.js",
+                        "~/Scripts/libs/angular/angular-resource.js",
+                        "~/Scripts/libs/angularui/ui-router.js",
+                        "~/Scripts/libs/angular/angular-animate.js",
+                        "~/Scripts/libs/angular-bootstrap/ui-bootstrap-tpls-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularApp").IncludeDirectory("~/App/", "*.js", searchSubdirectories: true));
+
             bundles.Add(new ScriptBundle("~/bundles/jsextlibs").Include(
                         "~/Scripts/libs/Uri.js",
                         "~/Scripts/libs/TrafficCop.js",

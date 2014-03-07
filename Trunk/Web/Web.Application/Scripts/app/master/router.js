@@ -1,6 +1,7 @@
 ﻿define('router', ['backbone', 'ko', 'presenter', 'config', 'vm.examine.page', 'vm.splash', 'vm.research.page', 'vm.dashboard.page', 'youtube.video.manager', 'vm.about.page', 'vm.contact.page'],
     function (backbone, ko, presenter, config, examinePage, splashPage, researchPage, dashboardPage, youtubeVideoManager, aboutPage, contactPage) {
 
+        var masterRouter;
         var configure = function() {
             var mainRouter = backbone.Router.extend({
                 routes: {
@@ -133,7 +134,7 @@
                 if (!researchPage.isVisible()) {
                     showResearch();
                 }
-                showResearchDetail('exercise', searchKey);
+                //showResearchDetail('exercise', searchKey);
             });
 
             router.on('route:researchLocate', function () {
@@ -166,7 +167,7 @@
                 }
             });
 
-
+            masterRouter = router;
             backbone.history.start();
         };
             
@@ -220,7 +221,9 @@
             contactPage.onVisible();
         }
 
-
+        function getConfiguredRouter() {
+            return masterRouter;
+        }
         
         function showResearchDetail(detailType, searchKey) {
             switch(detailType) {
@@ -242,7 +245,8 @@
         }
         
         return {
-            configure: configure
+            configure: configure,
+            getConfiguredRouter: getConfiguredRouter
         };
 
     });

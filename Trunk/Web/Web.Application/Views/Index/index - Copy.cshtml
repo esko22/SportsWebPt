@@ -1,33 +1,10 @@
 ﻿@model SportsWebPt.Platform.Web.Application.IndexViewModel
 @{
+    Model.AreaBundles.Add("~/bundles/masterapplib");
     Layout = "~/Views/Shared/_masterLayout.cshtml";
 }
 
-
-
-
-
-
-@*<div >
-    <div data-ng-view data-ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
-</div>*@
-
-    @*<div class="view-animate-container">
-        <ng-view class="view-animate"></ng-view>
-    </div>*@
-
-
-<div ui-view="core-view" autoscroll="false"></div>
-
-
-
-
-
-
-
-
-
-@*<!-- ko with: splashPage -->
+<!-- ko with: splashPage -->
 @{Html.RenderPartial("~/views/splash/_splash.cshtml");}
 <!-- /ko -->
 
@@ -53,7 +30,7 @@
 
 <!-- ko with: contactPage -->
 @{Html.RenderPartial("~/views/shared/_contactUs.cshtml");}
-<!-- /ko -->*@
+<!-- /ko -->
 
 
 

@@ -1,0 +1,31 @@
+﻿<div id="research-locate-panel">
+    <span class="research-header-icon"><i class="icon-sportswebpt-city-scape1"></i> Locate</span>
+    <hr class="examine-report-hr" />
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" data-bind="value: zipcode" placeholder="Zipcode">
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary" data-bind="click:onSearchSubmit">Search for Clinics</button>
+        </div>
+    </div>
+    <div>
+        <h3>Clinics</h3>
+        <table class="table table-striped">
+            <tbody data-bind="foreach: clinics">
+                <tr>
+                    <td>
+                        <div>
+                            <h2><span data-bind="text: name"></span></h2>
+                            <img data-bind="attr: { src: image_url}" />
+                            <a data-bind="attr: { href:url}" target="_blank">Listing on Yelp.com</a>
+
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

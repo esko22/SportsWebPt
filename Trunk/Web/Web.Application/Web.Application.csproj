@@ -171,6 +171,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\examine\prtl-examine.htm" />
+    <Content Include="app\plugins\dctv-clingify.js" />
+    <Content Include="app\plugins\dctv-jPanel.js" />
+    <Content Include="app\prtl-core.htm" />
+    <Content Include="app\srvc-config.js" />
+    <Content Include="app\plugins\dctv-flexSlider.js" />
     <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -186,12 +192,52 @@
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Content Include="app\app.js" />
+    <Content Include="app\research\exerciseDetail\crtl-excerciseDetail.js" />
+    <Content Include="app\research\exerciseDetail\srvc-exerciseDetail.js" />
+    <Content Include="app\research\exerciseDetail\prtl-exerciseDetail.htm" />
+    <Content Include="app\research\prtl-research-locations.htm" />
+    <Content Include="app\research\prtl-research-injuries.htm" />
+    <Content Include="app\research\prtl-research-plans.htm" />
+    <Content Include="app\research\prtl-research-exercises.htm" />
+    <Content Include="app\research\prtl-research-nav.htm" />
+    <Content Include="app\research\prtl-research.htm" />
+    <Content Include="app\shared\footer\dctv-masterFooter.js" />
+    <Content Include="app\shared\footer\tmpl-masterFooter.htm" />
+    <Content Include="app\shared\header\dctv-masterHeader.js" />
+    <Content Include="app\shared\header\tmpl-masterHeader.htm" />
+    <Content Include="app\splash\prtl-splash.htm" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
+    <Content Include="Scripts\libs\AngularUI\ui-router.js" />
+    <Content Include="Scripts\libs\AngularUI\ui-router.min.js" />
+    <Content Include="Scripts\libs\angular\angular-animate.js" />
+    <Content Include="Scripts\libs\angular\angular-animate.min.js" />
+    <Content Include="Scripts\libs\angular\angular-cookies.js" />
+    <Content Include="Scripts\libs\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\libs\angular\angular-csp.css" />
+    <Content Include="Scripts\libs\angular\angular-loader.js" />
+    <Content Include="Scripts\libs\angular\angular-loader.min.js" />
+    <Content Include="Scripts\libs\angular\angular-mocks.js" />
+    <Content Include="Scripts\libs\angular\angular-resource.js" />
+    <Content Include="Scripts\libs\angular\angular-resource.min.js" />
+    <Content Include="Scripts\libs\angular\angular-route.js" />
+    <Content Include="Scripts\libs\angular\angular-route.min.js" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.js" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.min.js" />
+    <Content Include="Scripts\libs\angular\angular-scenario.js" />
+    <Content Include="Scripts\libs\angular\angular-touch.js" />
+    <Content Include="Scripts\libs\angular\angular-touch.min.js" />
+    <Content Include="Scripts\libs\angular\angular.js" />
+    <Content Include="Scripts\libs\angular\angular.min.js" />
     <Content Include="Scripts\libs\jquery.quicksand.js" />
     <Content Include="Scripts\shared\vm.about.page.js" />
     <Content Include="Scripts\shared\vm.contact.page.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.min.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.min.js" />
     <Content Include="Scripts\utils\youtube.video.manager.js" />
     <Content Include="Scripts\viewmodels\research\vm.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
@@ -569,6 +615,14 @@
     <Content Include="Content\theme\plugins\retina\less\retina-1.1.0.less" />
     <Content Include="Content\theme\plugins\retina\README.md" />
     <Content Include="Areas\Admin\Views\Index\_adminPrognosis.cshtml" />
+    <Content Include="Scripts\libs\angular\angular-touch.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-route.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-resource.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-loader.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-cookies.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular-animate.min.js.map" />
+    <Content Include="Scripts\libs\angular\angular.min.js.map" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />
@@ -661,17 +715,16 @@
     <Content Include="Views\Shared\_errorLayout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\models\model.favorite.js" />
-    <Content Include="Views\Splash\_splash.cshtml" />
+    <Content Include="Views\Splash\_splash-r.cshtml" />
     <Content Include="Views\Examine\_examinePage.cshtml" />
     <Content Include="Views\Examine\_examineSkeleton.cshtml" />
     <Content Include="Views\Examine\_examineSymptomDetail.cshtml" />
     <Content Include="Views\Examine\_examineInjuryReport.cshtml" />
-    <Content Include="Views\Research\_researchPage.cshtml" />
-    <Content Include="Views\Research\_researchNav.cshtml" />
-    <Content Include="Views\Research\_researchInjuries.cshtml" />
-    <Content Include="Views\Research\_researchPlans.cshtml" />
-    <Content Include="Views\Research\_researchExercises.cshtml" />
-    <Content Include="Views\Research\_researchLocate.cshtml" />
+    <Content Include="Views\Research\_researchNav-r.cshtml" />
+    <Content Include="Views\Research\_researchInjuries-r.cshtml" />
+    <Content Include="Views\Research\_researchPlans-r.cshtml" />
+    <Content Include="Views\Research\_researchExercises-r.cshtml" />
+    <Content Include="Views\Research\_researchLocate-r.cshtml" />
     <Content Include="Views\Shared\_injuryDetail.cshtml" />
     <Content Include="Views\Research\_researchInjuryDetail.cshtml" />
     <Content Include="Views\Research\_researchPlanDetail.cshtml" />
@@ -693,6 +746,9 @@
     <Content Include="Scripts\shared\vm.equipment.list.dialog.js" />
     <Content Include="Views\Shared\_aboutUs.cshtml" />
     <Content Include="Views\Shared\_contactUs.cshtml" />
+    <Content Include="Views\Index\index - Copy.cshtml" />
+    <Content Include="Views\Shared\_masterLayout-r.cshtml" />
+    <Content Include="Views\Research\_researchPage-r.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -790,13 +846,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Shared\_masterLayout.cshtml" />
-    <Content Include="Views\Shared\_masterHeader.cshtml" />
-    <Content Include="Views\Shared\_masterFooter.cshtml" />
+    <Content Include="Views\Shared\_masterHeader-r.cshtml" />
+    <Content Include="Views\Shared\_masterFooter-r.cshtml" />
     <Content Include="Views\Index\index.cshtml" />
     <Content Include="Tmpl\_examine.detail.area.tmpl.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="app\admin\" />
+    <Folder Include="app\dashboard\" />
+    <Folder Include="app\shared\auth\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\videos\" />
   </ItemGroup>

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AttributeRouting.Web.Mvc;
 
 using SportsWebPt.Common.Logging;
+using SportsWebPt.Common.Utilities;
 
 namespace SportsWebPt.Platform.Web.Application
 {

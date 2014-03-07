@@ -1,5 +1,8 @@
 ﻿(function() {
     var root = this;
+
+    window.SWPTRouter = null;
+
     
     define3rdPartyModules();
     loadPluginsAndBoot();
@@ -44,8 +47,10 @@
                 bs.run();
                 sbs.run();
                 
-                if(typeof (router) !== "undefined")
+                if (typeof (router) !== "undefined") {
                     router.configure();
+                    window.SWPTRouter = router.getConfiguredRouter();
+                }
             });
     }
     
