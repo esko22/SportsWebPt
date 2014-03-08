@@ -45,7 +45,7 @@
                 diagnosisReport: $.format('{0}/{1}', hostUri, 'examine/diagnosisReport'),
                 injuries: $.format('{0}/{1}', hostUri, 'research/injuries'),
                 adminInjuries: $.format('{0}/{1}', hostUri, 'admin/injuries'),
-                plans: $.format('{0}/{1}', hostUri, 'data/plans'),
+                plans: $.format('{0}/{1}', hostUri, 'research/plans'),
                 adminPlans: $.format('{0}/{1}', hostUri, 'admin/plans'),
                 exercises: $.format('{0}/{1}', hostUri, 'research/exercises'),
                 adminExercises: $.format('{0}/{1}', hostUri, 'admin/exercises'),

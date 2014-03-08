@@ -104,6 +104,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Injury, CreateInjuryRequest>();
             Mapper.CreateMap<Injury, UpdateInjuryRequest>();
 
+            Mapper.CreateMap<BriefInjuryDto, BriefInjury>()
+                .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs));
+
+
             Mapper.CreateMap<InjuryDto, Injury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.Causes))
@@ -122,6 +126,9 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs))
                   .ForMember(d => d.givenSymptoms, opt => opt.MapFrom(s => s.GivenSymptoms));
 
+            Mapper.CreateMap<BriefPlanDto, BriefPlan>()
+                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
+
             Mapper.CreateMap<PlanDto, Plan>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
             Mapper.CreateMap<Plan, PlanDto>()
@@ -135,6 +142,9 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
             
             //TODO: this is still ghetto hack... for some reason this inheritance map is not working
+            Mapper.CreateMap<BriefExerciseDto, BriefExercise>()
+                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
+
             Mapper.CreateMap<ExerciseDto, Exercise>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
             Mapper.CreateMap<Exercise, ExerciseDto>()
@@ -152,7 +162,8 @@ namespace SportsWebPt.Platform.Web.Services
                           //This is in place to use planexercise id as id in the admin section when adding exercises to plans 
                           opt.Condition(s => s.exerciseId > 0 );
                           opt.MapFrom(s => s.exerciseId);
-                      }); 
+                      });
+            Mapper.CreateMap<BriefEquipmentDto, BriefEquipment>();
             Mapper.CreateMap<EquipmentDto, Equipment>()
                   .ForMember(d => d.category, opt => opt.MapFrom(s => s.Category.Replace("_", " ")));
             Mapper.CreateMap<Equipment, EquipmentDto>()

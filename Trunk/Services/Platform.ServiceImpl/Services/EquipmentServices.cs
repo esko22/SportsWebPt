@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
@@ -28,6 +29,17 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return
                 Ok(new ApiListResponse<EquipmentDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
+        public object Get(BriefEquipmentListRequest request)
+        {
+            Thread.Sleep(3000);
+            var responseList = new List<BriefEquipmentDto>();
+            Mapper.Map(ResearchUnitOfWork.EquipmentRepo.GetAll().OrderBy(p => p.Id), responseList);
+
+            return
+                Ok(new ApiListResponse<BriefEquipmentDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 

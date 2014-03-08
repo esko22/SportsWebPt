@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Injury
+
+    public class BriefInjury
     {
         #region Properties
 
@@ -15,6 +16,18 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String openingStatement { get; set; }
 
+        public IEnumerable<Sign> signs { get; set; }
+
+        public IEnumerable<BodyRegion> bodyRegions { get; set; }
+
+        #endregion
+        
+    }
+
+    public class Injury : BriefInjury
+    {
+        #region Properties
+
         public String description { get; set; }
 
         public String recovery { get; set; }
@@ -24,10 +37,6 @@ namespace SportsWebPt.Platform.Web.Core
         public IEnumerable<Plan> plans { get; set; }
 
         public IEnumerable<Cause> causes { get; set; }
-
-        public IEnumerable<Sign> signs { get; set; }
-
-        public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
         public IEnumerable<InjurySymptom> injurySymptoms { get; set; }
 

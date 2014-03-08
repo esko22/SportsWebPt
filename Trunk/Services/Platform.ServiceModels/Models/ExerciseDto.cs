@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class ExerciseDto
+    public class BriefExerciseDto
     {
         #region Properties
 
@@ -10,17 +10,27 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public EquipmentDto[] Equipment { get; set; }
 
-        public VideoDto[] Videos { get; set; }
-
         public BodyRegionDto[] BodyRegions { get; set; }
-
-        public BodyPartDto[] BodyParts { get; set; }
 
         public String Name { get; set; }
 
         public String MedicalName { get; set; }
 
         public String Description { get; set; }
+
+        public String[] Categories { get; set; }
+
+        #endregion
+        
+    }
+
+    public class ExerciseDto : BriefExerciseDto
+    {
+        #region Properties
+
+        public VideoDto[] Videos { get; set; }
+
+        public BodyPartDto[] BodyParts { get; set; }
 
         public String PageName { get; set; }
 
@@ -41,9 +51,7 @@ namespace SportsWebPt.Platform.ServiceModels
         public int HoldFor { get; set; }
 
         public String HoldType { get; set; }
-
-        public String[] Categories { get; set; }
-
+        
         #endregion
     }
 

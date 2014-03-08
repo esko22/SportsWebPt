@@ -1,4 +1,4 @@
-﻿swptApp.factory('configService', function () {
+﻿swptApp.service('configService', function ($resource) {
 
     var apiUris = {
         users: 'users',
@@ -15,6 +15,7 @@
         exercises: 'research/exercises',
         adminExercises: 'admin/exercises',
         equipment: 'research/equipment',
+        briefEquipment: 'research/equipment/brief',
         adminEquipment: 'admin/equipment',
         videos: 'research/videos',
         adminVideos: 'admin/videos',
@@ -42,8 +43,24 @@
         adminPrognoses: 'admin/prognoses/'
     };
 
+    var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
+    var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
+
+    var equipmentProxy = $resource(apiUris.briefEquipment);
+    var bodyRegionProxy = $resource(apiUris.bodyRegion);
+    var signFilterProxy = $resource(apiUris.signFilters);
+
+    var equipment = equipmentProxy.query();
+    var bodyRegions = bodyRegionProxy.query();
+    var signFilters = signFilterProxy.query();
+
     return {
-        apiUris: apiUris
+        apiUris: apiUris,
+        exerciseCategories: exerciseCategories,
+        planCategories : planCategories,
+        equipment: equipment,
+        bodyRegions: bodyRegions,
+        signFilters: signFilters
     };
 
 

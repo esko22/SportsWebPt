@@ -62,6 +62,19 @@ namespace SportsWebPt.Platform.Web
                         "~/Content/theme/js/appstrap.script.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
+            "~/Scripts/libs/Uri.js",
+            "~/Scripts/libs/underscore.js",
+            "~/Scripts/libs/bootstrap.js",
+            "~/Scripts/libs/kendo/kendo.web.min.js",
+            "~/Scripts/libs/toastr.js",
+            "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
+            "~/Content/theme/plugins/clingify/jquery.clingify.js",
+            "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
+            "~/Content/theme/plugins/jRespond/js/jrespond.js"
+            ));
+
+
             bundles.Add(new ScriptBundle("~/bundles/utils")
                 .IncludeDirectory("~/Scripts/utils/", "*.js", searchSubdirectories: false));
 

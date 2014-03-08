@@ -2,14 +2,10 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class EquipmentDto
+    public class EquipmentDto : BriefEquipmentDto
     {
         #region Properties
-
-        public int Id { get; set; }
-
-        public String CommonName { get; set; }
-
+ 
         public String TechnicalName { get; set; }
 
         public String PriceRange { get; set; }
@@ -19,5 +15,16 @@ namespace SportsWebPt.Platform.ServiceModels
         public String Category { get; set; }
 
         #endregion
+    }
+
+    public class BriefEquipmentDto
+    {
+        #region Properties
+        
+        public int Id { get; set; }
+
+        public String CommonName { get; set; }
+
+        #endregion       
     }
 }

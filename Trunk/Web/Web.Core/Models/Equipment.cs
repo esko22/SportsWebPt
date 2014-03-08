@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Equipment
+    public class Equipment : BriefEquipment
     {
         #region Properties
 
@@ -19,5 +19,17 @@ namespace SportsWebPt.Platform.Web.Core
         public string category { get; set; }
 
         #endregion
+    }
+
+    public class BriefEquipment
+    {
+        #region Properties
+
+        public int id { get; set; }
+
+        public String commonName { get; set; }
+
+        #endregion
+        
     }
 }

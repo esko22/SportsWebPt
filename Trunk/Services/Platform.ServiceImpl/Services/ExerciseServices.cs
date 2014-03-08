@@ -37,6 +37,22 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         }
 
+        public object Get(BriefExerciseListRequest request)
+        {
+            var responseList = new List<BriefExerciseDto>();
+            Mapper.Map(
+                ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
+                    {
+                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart",
+                        "ExerciseCategoryMatrixItems"
+                    }).OrderBy(p => p.Id), responseList);
+
+            return
+                Ok(new ApiListResponse<BriefExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+
+        }
+
 
         public object Get(ExerciseRequest request)
         {

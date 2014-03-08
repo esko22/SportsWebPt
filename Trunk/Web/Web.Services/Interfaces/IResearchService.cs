@@ -12,15 +12,23 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<BodyRegion> GetBodyRegions();
 
         IEnumerable<Exercise> GetExercises();
-        
+
+        IEnumerable<BriefExercise> GetBriefExercises();
+
         IEnumerable<Plan> GetPlans();
         
         IEnumerable<Injury> GetInjuries();
 
+        IEnumerable<BriefPlan> GetBriefPlans();
+
+        IEnumerable<BriefInjury> GetBriefInjuries();
+
         IEnumerable<Sign> GetSigns();
 
         IEnumerable<Equipment> GetEquipment();
-        
+
+        IEnumerable<BriefEquipment> GetBriefEquipment();
+
         Exercise GetExerciseByPageName(string pageName);
 
         Injury GetInjuryByPageName(string pageName);

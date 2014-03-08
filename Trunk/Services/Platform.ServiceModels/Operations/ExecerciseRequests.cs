@@ -7,6 +7,11 @@ namespace SportsWebPt.Platform.ServiceModels
     public class ExerciseListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<ExerciseDto, BasicSortBy>>
     {}
 
+    [Route("/exercises/brief", "GET")]
+    public class BriefExerciseListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BriefExerciseDto, BasicSortBy>>
+    { }
+
+
     [Route("/exercises", "POST")]
     public class CreateExerciseRequest : ExerciseDto, IReturn<ApiResponse<ExerciseDto>>
     {

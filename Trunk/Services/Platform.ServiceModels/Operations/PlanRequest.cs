@@ -7,6 +7,11 @@ namespace SportsWebPt.Platform.ServiceModels
     public class PlanListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<PlanDto, BasicSortBy>> 
     {}
 
+    [Route("/plans/brief", "GET")]
+    public class BriefPlanListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BriefPlanDto, BasicSortBy>>
+    { }
+
+
     [Route("/plans", "POST")]
     public class CreatePlanRequest : PlanDto, IReturn<ApiResponse<PlanDto>>
     { }

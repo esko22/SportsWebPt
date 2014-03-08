@@ -2,7 +2,7 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class InjuryDto
+    public class BriefInjuryDto
     {
         #region Properties
 
@@ -13,6 +13,17 @@ namespace SportsWebPt.Platform.ServiceModels
         public String MedicalName { get; set; }
 
         public String OpeningStatement { get; set; }
+
+        public SignDto[] Signs { get; set; }
+
+        public BodyRegionDto[] BodyRegions { get; set; }
+
+        #endregion
+    }
+
+    public class InjuryDto : BriefInjuryDto
+    {
+        #region Properties
 
         public String Description { get; set; }
 
@@ -25,8 +36,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public CauseDto[] Causes { get; set; }
 
         public TreatmentDto[] Treatments { get; set; }
-
-        public BodyRegionDto[] BodyRegions { get; set; }
 
         public String PageName { get; set; }
 

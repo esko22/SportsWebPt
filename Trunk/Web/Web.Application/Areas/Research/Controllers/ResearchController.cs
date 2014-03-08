@@ -35,7 +35,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         #region Methods
 
-        [GET("data/plans/{Id}", IsAbsoluteUrl = true)]
+        [GET("Research/plans/{Id}", IsAbsoluteUrl = true)]
         public ActionResult GetPlan(string Id)
         {
             var planId = 0;
@@ -174,7 +174,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(exercises, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Data/plans", IsAbsoluteUrl = true)]
+        [GET("Research/plans", IsAbsoluteUrl = true)]
         public ActionResult GetPlans()
         {
             var plans = _researchService.GetPlans();
@@ -186,6 +186,30 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult GetInjuries()
         {
             var injuries = _researchService.GetInjuries();
+
+            return Json(injuries, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("data/exercises/brief", IsAbsoluteUrl = true)]
+        public ActionResult GetBriefExercises()
+        {
+            var exercises = _researchService.GetBriefExercises();
+
+            return Json(exercises, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("Data/plans/brief", IsAbsoluteUrl = true)]
+        public ActionResult GetBriefPlans()
+        {
+            var plans = _researchService.GetBriefPlans();
+
+            return Json(plans, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("data/injuries/brief", IsAbsoluteUrl = true)]
+        public ActionResult GetBriefInjuries()
+        {
+            var injuries = _researchService.GetBriefInjuries();
 
             return Json(injuries, JsonRequestBehavior.AllowGet);
         }
@@ -207,6 +231,13 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(equipment, JsonRequestBehavior.AllowGet);
         }
 
+        [GET("Research/equipment/brief", IsAbsoluteUrl = true)]
+        public ActionResult GetBriefEquipment()
+        {
+            var equipment = _researchService.GetBriefEquipment();
+
+            return Json(equipment, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion
 

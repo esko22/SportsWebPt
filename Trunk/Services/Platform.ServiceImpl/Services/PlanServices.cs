@@ -60,6 +60,39 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         }
 
+        public object Get(BriefPlanListRequest request)
+        {
+            //TODO: TON O DATA.... Need to refactor at some point to not pull entire graph...
+            //just get it working for now, maybe put a bool in request 
+
+            var responseList = new List<BriefPlanDto>();
+
+            var plans = ResearchUnitOfWork.PlanRepo.GetAll(new[]
+                    {
+                     "PlanExerciseMatrixItems",
+                     "PlanExerciseMatrixItems.Exercise",
+                     "PlanBodyRegionMatrixItems",
+                     "PlanBodyRegionMatrixItems.BodyRegion",
+                     "PlanCategoryMatrixItems"
+                    }).OrderBy(p => p.Id);
+
+
+
+            var exerciseIds = plans.SelectMany(p => p.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
+            var exerciseEntities =
+                ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment" })
+                                 .Where(p => exerciseIds.Contains(p.Id)).ToList();
+
+            Mapper.Map(plans, responseList);
+
+            return
+                Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+
+        }
+
+
+
 
         public object Get(PlanRequest request)
         {

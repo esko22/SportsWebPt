@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Exercise
+
+    public class BriefExercise
     {
         #region Properties
 
@@ -11,17 +12,26 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Equipment> equipment { get; set; }
 
-        public IEnumerable<Video> videos { get; set; }
-
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
-
-        public IEnumerable<BodyPart> bodyParts { get; set; }
 
         public String name { get; set; }
 
-        public String medicalName { get; set; } 
+        public String medicalName { get; set; }
 
         public String description { get; set; }
+
+        public IEnumerable<string> categories { get; set; }
+
+        #endregion
+    }
+
+    public class Exercise : BriefExercise
+    {
+        #region Properties
+
+        public IEnumerable<Video> videos { get; set; }
+
+        public IEnumerable<BodyPart> bodyParts { get; set; }
 
         public String tags { get; set; }
 
@@ -42,8 +52,6 @@ namespace SportsWebPt.Platform.Web.Core
         public int holdFor { get; set; }
 
         public string holdType { get; set; }
-
-        public IEnumerable<string> categories { get; set; }
 
         #endregion
     }

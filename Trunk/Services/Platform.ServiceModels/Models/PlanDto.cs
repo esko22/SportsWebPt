@@ -2,13 +2,12 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class PlanDto
+
+    public class BriefPlanDto
     {
         #region Properties
 
         public int Id { get; set; }
-        
-        public PlanExerciseDto[] Exercises { get; set; }
 
         public String[] Categories { get; set; }
 
@@ -18,6 +17,18 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String StructuresInvolved { get; set; }
 
+        public BodyRegionDto[] BodyRegions { get; set; }
+
+        #endregion
+    }
+
+
+    public class PlanDto : BriefPlanDto
+    {
+        #region Properties
+        
+        public PlanExerciseDto[] Exercises { get; set; }
+
         public String Instructions { get; set; }
 
         public int Duration { get; set; }
@@ -25,8 +36,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public String PageName { get; set; }
 
         public String Tags { get; set; }
-
-        public BodyRegionDto[] BodyRegions { get; set; }
 
         public String AnimationTag { get; set; }
 

@@ -6,18 +6,18 @@
             <div class="container">
                 <h3>Body Regions</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'bodyregion')">Show All</span></a>
-                <ul class="list-no-style filter-container" id="injury-bodyregions-filter-list" data-bind="foreach: bodyRegions">
-                    <li class="filter-label">
-                        <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
+                <ul class="list-no-style filter-container" id="injuries-bodyregions-filter-list">
+                    <li class="filter-label" ng-repeat="bodyRegion in bodyRegions">
+                        <a><span class="label label-info" ng-bind="bodyRegion.name" ng-click="popMsg()"></span></a>
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <h3>Signs</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data,'sign')">Show All</span></a>
-                <ul class="list-no-style filter-container" id="injury-signs-filter-list" data-bind="foreach: signs">
-                    <li class="filter-label">
-                        <a><span class="label label-default" data-bind="text: filterCategory, click: $parent.onSignFilter"></span></a>
+                <ul class="list-no-style filter-container" id="injury-signs-filter-list">
+                    <li class="filter-label" ng-repeat="filter in signFilters">
+                        <a><span class="label label-default" ng-bind="filter.filterCategory"></span></a>
                     </li>
                 </ul>
             </div>

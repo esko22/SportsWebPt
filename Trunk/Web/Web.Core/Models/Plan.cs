@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Plan
+
+    public class BriefPlan
     {
         #region Properties
 
         public int id { get; set; }
-
-        public IEnumerable<PlanExercise> exercises { get; set; }
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
@@ -20,6 +19,15 @@ namespace SportsWebPt.Platform.Web.Core
         public String description { get; set; }
 
         public String structuresInvolved { get; set; }
+
+        #endregion
+    }
+
+    public class Plan : BriefPlan
+    {
+        #region Properties
+
+        public IEnumerable<PlanExercise> exercises { get; set; }
 
         public String instructions { get; set; }
 

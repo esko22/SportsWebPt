@@ -6,27 +6,27 @@
             <div class="container">
                 <h3>Body Regions</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'bodyregion')">Show All</span></a>
-                <ul class="list-no-style filter-container" id="exercise-bodyregions-filter-list" data-bind="foreach: bodyRegions">
-                    <li class="filter-label">
-                        <a><span class="label label-info" data-bind="text: name, click: $parent.onBodyRegionFilter"></span></a>
+                <ul class="list-no-style filter-container" id="exercise-bodyregions-filter-list">
+                    <li class="filter-label" ng-repeat="bodyRegion in bodyRegions">
+                        <a><span class="label label-info" ng-bind="bodyRegion.name"></span></a>
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <h3>Categories</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'category')">Show All</span></a>
-                <ul class="list-no-style filter-container" id="exercise-categories-filter-list" data-bind="foreach: categories">
-                    <li class="filter-label">
-                        <a><span class="label label-info" data-bind="text: $data, click: $parent.onCategoryFilter"></span></a>
+                <ul class="list-no-style filter-container" id="exercise-categories-filter-list">
+                    <li class="filter-label" ng-repeat="category in categories">
+                        <a><span class="label label-info" ng-bind="category"></span></a>
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <h3>Equipment</h3>
                 <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'equipment')">Show All</span></a>
-                <ul class="list-no-style filter-container" id="exercise-equipment-filter-list" data-bind="foreach: equipment">
-                    <li class="filter-label">
-                        <a><span class="label label-info" data-bind="text: commonName, click: $parent.onEquipmentFilter"></span></a>
+                <ul class="list-no-style filter-container" id="exercise-equipment-filter-list">
+                    <li class="filter-label" ng-repeat="equipmentItem in equipment">
+                        <a><span class="label label-info" ng-bind="equipmentItem.commonName"></span></a>
                     </li>
                 </ul>
             </div>

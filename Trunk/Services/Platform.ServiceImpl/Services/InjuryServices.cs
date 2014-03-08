@@ -62,6 +62,28 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                                                                         null, null));
         }
 
+        public object Get(BriefInjuryListRequest request)
+        {
+            var responseList = new List<BriefInjuryDto>();
+
+            //TODO: this needs to moved into the UOW... Nav paths do not belong in service layer
+            var results =
+                ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+                    {
+                        "InjurySignMatrixItems",
+                        "InjurySignMatrixItems.Sign", 
+                        "InjurySignMatrixItems.Sign.Filter", 
+                        "InjuryBodyRegionMatrixItems", 
+                        "InjuryBodyRegionMatrixItems.BodyRegion",
+                    }).OrderBy(p => p.Id);
+
+            Mapper.Map(results, responseList);
+
+            return
+                Ok(new ApiListResponse<BriefInjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
 
         public object Get(InjuryRequest request)
         {

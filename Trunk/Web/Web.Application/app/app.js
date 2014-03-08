@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module'])
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'research'])
     .config(function ($urlRouterProvider, $stateProvider) {
     $stateProvider
         .state('user',
@@ -81,14 +81,14 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         {
             url: "/research/plans",
             views: {
-                "research-app-view": { templateUrl: '/app/research/prtl.research.plans.htm' }
+                "research-app-view": { templateUrl: '/app/research/plans/prtl.research.plans.htm', controller: 'PlanController' }
             }
         })
         .state('public.research.injuries',
         {
             url: "/research/injuries",
             views: {
-                "research-app-view": { templateUrl: '/app/research/prtl.research.injuries.htm' }
+                "research-app-view": { templateUrl: '/app/research/injuries/prtl.research.injuries.htm', controller : 'InjuryController' }
             }
         })
         .state('public.research.locations',
@@ -102,7 +102,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         {
             url: "/research/exercises",
             views: {
-                "research-app-view": { templateUrl: '/app/research/prtl.research.exercises.htm' }
+                "research-app-view": { templateUrl: '/app/research/exercises/prtl.research.exercises.htm', controller : 'ExerciseController'}
             }
         });
         $urlRouterProvider.otherwise('/');
@@ -112,7 +112,12 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
 var jQueryPluginModule = angular.module('jquery.plugin.module', []);
 
 
-
+swptApp.factory('$exceptionHandler', function (notifierService) {
+    return function (exception) {
+        notifierService.error("Internal Error Occurred");
+        console.log("exception handled: " + exception.message);
+    };
+});
 
 
 

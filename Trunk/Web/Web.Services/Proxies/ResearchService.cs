@@ -72,6 +72,21 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
         }
 
+        public IEnumerable<BriefExercise> GetBriefExercises()
+        {
+            var request = GetSync(new BriefExerciseListRequest());
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items);
+        }
+
+        public IEnumerable<BriefPlan> GetBriefPlans()
+        {
+            var request = GetSync(new BriefPlanListRequest());
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items);
+        }
+
+
         public IEnumerable<Equipment> GetEquipment()
         {
             var request = GetSync(new EquipmentListRequest());
@@ -79,6 +94,12 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Equipment>>(request.Response.Items);
         }
 
+        public IEnumerable<BriefEquipment> GetBriefEquipment()
+        {
+            var request = GetSync(new BriefEquipmentListRequest());
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefEquipment>>(request.Response.Items);
+        }
 
         public IEnumerable<Injury> GetInjuries()
         {
@@ -86,6 +107,14 @@ namespace SportsWebPt.Platform.Web.Services
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<Injury>>(request.Response.Items);
         }
+
+        public IEnumerable<BriefInjury> GetBriefInjuries()
+        {
+            var request = GetSync(new BriefInjuryListRequest());
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefInjury>>(request.Response.Items);
+        }
+
 
         public Exercise GetExerciseByPageName(string pageName)
         {

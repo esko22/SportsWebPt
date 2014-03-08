@@ -7,6 +7,11 @@ namespace SportsWebPt.Platform.ServiceModels
     public class InjuryListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<InjuryDto, BasicSortBy>>
     {}
 
+    [Route("/injuries/brief", "GET")]
+    public class BriefInjuryListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BriefInjuryDto, BasicSortBy>>
+    { }
+
+
     [Route("/injuries", "POST")]
     public class CreateInjuryRequest : InjuryDto, IReturn<ApiResponse<InjuryDto>>
     { }
