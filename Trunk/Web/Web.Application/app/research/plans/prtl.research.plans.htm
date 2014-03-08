@@ -23,17 +23,15 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="panel-group" id="recover-plan-accordion">
-                <section data-bind="template: { name: briefPlanTemplate, foreach: filteredPlans }"></section>
+            <brief-plan-accordian></brief-plan-accordian>
+            <div ng-hide="hasPlans()">
+                <div class="push-down-lg text-center">
+                    <h3>No Results Found</h3>
+                </div>
+                <div class="push-down-md text-center">
+                    <h4>Please change your filter selections</h4>
+                </div>
             </div>
-            <!-- ko if: filteredPlans().length == 0 && isInitialized() -->
-            <div class="push-down-lg text-center">
-                <h3>No Results Found</h3>
-            </div>
-            <div class="push-down-md text-center">
-                <h4>Please change your filter selections</h4>
-            </div>
-            <!-- /ko -->
         </div>
     </div>
 </div>

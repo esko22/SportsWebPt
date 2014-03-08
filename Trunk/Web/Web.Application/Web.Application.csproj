@@ -176,8 +176,11 @@
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.jpanel.js" />
     <Content Include="app\prtl.core.htm" />
+    <Content Include="app\research\exercises\prtl.brief.exercise.accord.htm" />
     <Content Include="app\research\exercises\research.exercises.js" />
+    <Content Include="app\research\injuries\prtl.brief.injury.accord.htm" />
     <Content Include="app\research\injuries\research.injuries.js" />
+    <Content Include="app\research\plans\prtl.brief.plan.accord.htm" />
     <Content Include="app\research\plans\research.plans.js" />
     <Content Include="app\research\research.js" />
     <Content Include="app\shared\shared.ui.js" />
@@ -710,8 +713,6 @@
     <Content Include="Tmpl\_examine.slider.five.tmpl.html" />
     <Content Include="Tmpl\_examine.duration.dropdown.tmpl.html" />
     <Content Include="Tmpl\_examine.radio.bool.tmpl.html" />
-    <Content Include="Tmpl\_research.brief.injury.tmpl.html" />
-    <Content Include="Tmpl\_research.brief.plan.tmpl.html" />
     <Content Include="Tmpl\_admin.injury.list.tmpl.html" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Content Include="Views\Shared\_html5shiv.cshtml" />
@@ -839,7 +840,6 @@
     <Content Include="Tmpl\_admin.exercise.list.tmpl.html" />
     <Content Include="Tmpl\_admin.equipment.list.tmpl.html" />
     <Content Include="Tmpl\_admin.video.list.tmpl.html" />
-    <Content Include="Tmpl\_research.brief.exercise.tmpl.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -1,0 +1,35 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="plan in plans">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-clipboard3"></i>
+                    <span ng-bind="plan.routineName"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </span>
+            </accordion-heading>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label><strong>Name: </strong><span ng-bind="plan.routineName"></span></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>Categories: </strong></label>
+                        <ul>
+                            <li ng-bind="category" ng-repeat="category in plan.categories"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label>Description: </label><span ng-bind-html="plan.description"></span>
+                    </div>
+                </div>
+                <div>
+                    <a class="btn btn-primary" ng-href="#/research/plans/{{plan.pageName}}">Learn / Watch More >></a>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

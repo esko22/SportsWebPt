@@ -1,0 +1,32 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="injury in injuries">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-medkit"></i>
+                    <span ng-bind-template="{{injury.commonName}} | {{injury.medicalName}}"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </span>
+            </accordion-heading>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label><strong>Common Name: </strong><span ng-bind="injury.commonName"></span></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>Medical Name: </strong><span ng-bind="injury.medicalName"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <span ng-bind-html="injury.openingStatement"></span>
+                    </div>
+                </div>
+                <div>
+                    <a class="btn btn-primary" ng-href="#/research/injuries/{{injury.pageName}}">Learn / Watch More >></a>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

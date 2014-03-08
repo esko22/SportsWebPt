@@ -20,6 +20,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
+        public String pageName { get; set; }
+
         #endregion
         
     }
@@ -49,8 +51,6 @@ namespace SportsWebPt.Platform.Web.Core
         public IEnumerable<Cause> physiologicalCauses { get; set; }
 
         public String tags { get; set; }
-
-        public String pageName { get; set; }
 
         //TODO: hack.. these should be rolled up under another object..
         public InjuryPrognosis bestCase { get; set; }

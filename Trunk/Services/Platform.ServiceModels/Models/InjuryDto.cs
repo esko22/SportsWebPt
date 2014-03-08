@@ -18,6 +18,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public BodyRegionDto[] BodyRegions { get; set; }
 
+        public String PageName { get; set; }
+
         #endregion
     }
 
@@ -36,8 +38,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public CauseDto[] Causes { get; set; }
 
         public TreatmentDto[] Treatments { get; set; }
-
-        public String PageName { get; set; }
 
         public String Tags { get; set; }
 

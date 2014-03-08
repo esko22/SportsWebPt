@@ -1,0 +1,49 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="exercise in exercises">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-barbell"></i>
+                    <span ng-bind="exercise.name"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </span>
+            </accordion-heading>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <label><strong>Name: </strong><span ng-bind="exercise.name"></span></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>Duration: </strong><span ng-bind="exercise.duration"></span> minutes</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>Difficulty: </strong><span ng-bind="exercise.difficulty"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label>Description: </label><span ng-bind-html="exercise.description"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label><strong>Categories: </strong></label>
+                        <ul ng-repeat="category in exercise.categories">
+                            <li ng-bind="category"></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>BodyRegions: </strong></label>
+                        <ul ng-repeat="bodyRegion in exercise.bodyRegions">
+                            <li ng-bind="bodyRegion.name"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <a class="btn btn-primary" ng-href="#/research/exercises/{{exercise.pageName}}">Learn / Watch More >></a>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

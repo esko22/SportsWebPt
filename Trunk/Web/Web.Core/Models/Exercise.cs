@@ -16,6 +16,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String name { get; set; }
 
+        public String pageName { get; set; }
+
         public String medicalName { get; set; }
 
         public String description { get; set; }
@@ -34,8 +36,6 @@ namespace SportsWebPt.Platform.Web.Core
         public IEnumerable<BodyPart> bodyParts { get; set; }
 
         public String tags { get; set; }
-
-        public String pageName { get; set; }
 
         public int duration { get; set; }
 

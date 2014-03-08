@@ -20,6 +20,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String structuresInvolved { get; set; }
 
+        public String pageName { get; set; }
+
         #endregion
     }
 
@@ -34,8 +36,6 @@ namespace SportsWebPt.Platform.Web.Core
         public int duration { get; set; }
 
         public String tags { get; set; }
-
-        public String pageName { get; set; }
 
         public String animationTag { get; set; }
 

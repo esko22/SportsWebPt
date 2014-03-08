@@ -983,3 +983,8 @@ a:focus {
   -ms-animation: bounceOut 1s;
   animation: bounceOut 1s;
 }*/
+
+
+.accordion-toggle {
+    text-decoration: none !important;
+}

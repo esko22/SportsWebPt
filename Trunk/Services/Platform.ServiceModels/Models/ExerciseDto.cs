@@ -20,6 +20,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String[] Categories { get; set; }
 
+        public String PageName { get; set; }
+
         #endregion
         
     }
@@ -31,8 +33,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public VideoDto[] Videos { get; set; }
 
         public BodyPartDto[] BodyParts { get; set; }
-
-        public String PageName { get; set; }
 
         public String Tags { get; set; }
 
