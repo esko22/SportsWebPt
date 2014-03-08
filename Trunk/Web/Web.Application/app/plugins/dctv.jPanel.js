@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-swptApp.directive('jpanel', function () {
+jQueryPluginModule.directive('jpanel', function () {
     return {
         restrict: 'A',
         link: function ($scope, element) {

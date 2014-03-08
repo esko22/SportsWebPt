@@ -954,32 +954,32 @@ a:focus {
     overflow: hidden;
   }
 
- 
-  .view-animate {
-  }
- 
-  .view-animate.ng-enter, .view-animate.ng-leave {
-    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
- 
-    display:block;
-    width:100%;
- 
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-  }
- 
-  .view-animate.ng-enter {
-    left:100%;
-  }
-  .view-animate.ng-enter.ng-enter-active {
-    left:0;
-  }
-  .view-animate.ng-leave.ng-leave-active {
-    left:-100%;
-  }
+.core-view-container {
+    
+}
 
+.sub-view-panel {
+    position:relative;
+    min-height: 400px;
+    overflow: hidden;
+}
 
+ .core-view-container.ng-enter {
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.sub-view-container.ng-enter {
+  -webkit-animation: fadeInLeft 1s;
+  -moz-animation: fadeInLeft 1s;
+  -ms-animation: fadeInLeft 1s;
+  animation: fadeInLeft 1s;
+}
+/*.sub-view-container.ng-leave {
+  -webkit-animation: bounceOut 1s;
+  -moz-animation: bounceOut 1s;
+  -ms-animation: bounceOut 1s;
+  animation: bounceOut 1s;
+}*/

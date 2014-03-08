@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-swptApp.directive('flexSlider', function () {
+jQueryPluginModule.directive('flexSlider', function () {
     return {
         restrict: 'A',
         link: function ($scope, element) {

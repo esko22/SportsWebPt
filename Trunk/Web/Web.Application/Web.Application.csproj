@@ -171,12 +171,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\examine\prtl-examine.htm" />
-    <Content Include="app\plugins\dctv-clingify.js" />
-    <Content Include="app\plugins\dctv-jPanel.js" />
-    <Content Include="app\prtl-core.htm" />
-    <Content Include="app\srvc-config.js" />
-    <Content Include="app\plugins\dctv-flexSlider.js" />
+    <Content Include="app\examine\prtl.examine.htm" />
+    <Content Include="app\plugins\dctv.clingify.js" />
+    <Content Include="app\plugins\dctv.jpanel.js" />
+    <Content Include="app\prtl.core.htm" />
+    <Content Include="app\srvc.config.js" />
+    <Content Include="app\plugins\dctv.flex.slider.js" />
     <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -193,20 +193,20 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Content Include="app\app.js" />
-    <Content Include="app\research\exerciseDetail\crtl-excerciseDetail.js" />
-    <Content Include="app\research\exerciseDetail\srvc-exerciseDetail.js" />
-    <Content Include="app\research\exerciseDetail\prtl-exerciseDetail.htm" />
-    <Content Include="app\research\prtl-research-locations.htm" />
-    <Content Include="app\research\prtl-research-injuries.htm" />
-    <Content Include="app\research\prtl-research-plans.htm" />
-    <Content Include="app\research\prtl-research-exercises.htm" />
-    <Content Include="app\research\prtl-research-nav.htm" />
-    <Content Include="app\research\prtl-research.htm" />
-    <Content Include="app\shared\footer\dctv-masterFooter.js" />
-    <Content Include="app\shared\footer\tmpl-masterFooter.htm" />
-    <Content Include="app\shared\header\dctv-masterHeader.js" />
-    <Content Include="app\shared\header\tmpl-masterHeader.htm" />
-    <Content Include="app\splash\prtl-splash.htm" />
+    <Content Include="app\research\exerciseDetail\crtl.excercise.detail.js" />
+    <Content Include="app\research\exerciseDetail\srvc.exercise.detail.js" />
+    <Content Include="app\research\exerciseDetail\prtl.exercise.detail.htm" />
+    <Content Include="app\research\prtl.research.locations.htm" />
+    <Content Include="app\research\prtl.research.injuries.htm" />
+    <Content Include="app\research\prtl.research.plans.htm" />
+    <Content Include="app\research\prtl.research.exercises.htm" />
+    <Content Include="app\research\prtl.research.nav.htm" />
+    <Content Include="app\research\prtl.research.htm" />
+    <Content Include="app\shared\footer\dctv.master.footer.js" />
+    <Content Include="app\shared\footer\tmpl.master.footer.htm" />
+    <Content Include="app\shared\header\dctv.master.header.js" />
+    <Content Include="app\shared\header\tmpl.master.header.htm" />
+    <Content Include="app\splash\prtl.splash.htm" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
