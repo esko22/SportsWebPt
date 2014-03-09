@@ -46,6 +46,12 @@
         adminPrognoses: 'admin/prognoses/'
     };
 
+    var returnUris = {
+        researchExercise: '/#/research/exercises',
+        researchPlans: '/#/research/plans',
+        researchInjuries: '/#/research/injuries',
+    };
+
     var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
     var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
 
@@ -63,7 +69,8 @@
         planCategories : planCategories,
         equipment: equipment,
         bodyRegions: bodyRegions,
-        signFilters: signFilters
+        signFilters: signFilters,
+        returnUris: returnUris
     };
 
 

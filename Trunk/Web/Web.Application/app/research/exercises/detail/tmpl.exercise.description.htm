@@ -1,0 +1,52 @@
+﻿<div class="push-down-md">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title-divider-research"><i class="icon-sportswebpt-barbell"></i> <span ng-bind="exercise.name"><span class="de-em"></span></span></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <h2 class="title-divider-research"><span>Description <span class="de-em"></span></span> <small>Exercise overview</small></h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="title-divider-research"><span>Structures<span class="de-em"></span></span> <small>Involved body areas</small></h2>
+        </div>
+        <div class="col-md-3">
+            <h2 class="title-divider-research"><span>Categories <span class="de-em"></span></span> <small>Functional purpose</small></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <span ng-bind-html="exercise.description"></span>
+        </div>
+        <div class="col-md-4">
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="bodyPart in exercise.bodyParts">
+                        <td ng-bind="bodyPart.commonName"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped">
+                <tbody data-bind="foreach: categories">
+                    <tr ng-repeat="category in exercise.categories">
+                        <td ng-bind="category"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="title-divider-research"><span>Video <span class="de-em"></span></span> <small></small></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-11 col-md-offset-1">
+        </div>
+    </div>
+</div>

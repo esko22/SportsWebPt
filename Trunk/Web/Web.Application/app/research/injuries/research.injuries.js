@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('research.injuries', [])
+angular.module('research.injuries', ['research.injury.detail'])
     .controller('InjuryController', [
         '$scope', 'configService', 'notifierService', 'injuries', function ($scope, configService, notifierService, injuries) {
 

@@ -140,10 +140,70 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                                 return deferred.promise;
                             }
                         },
-                    controller: 'ExerciseController'
+                        controller: 'ExerciseListingController'
                 }
             }
-        });
+            })
+          .state('public.research.exerciseDetail',
+            {
+                url: "/research/exercises/:exerciseId",
+                views: {
+                    "research-app-view": {
+                        templateUrl: '/app/research/exercises/detail/prtl.exercise.view.htm',
+                        controller: 'ExerciseViewController',
+                        resolve: {
+                            exercise: function ($q, exerciseDetailService, $stateParams) {
+                                var deferred = $q.defer();
+                                exerciseDetailService.getExercise($stateParams.exerciseId)
+                                    .then(function(exercise) {
+                                        deferred.resolve(exercise);
+                                    });
+                                return deferred.promise;
+                            }
+                        }
+                    }
+                }
+            })
+            .state('public.research.planDetail',
+            {
+                url: "/research/plans/:planId",
+                views: {
+                    "research-app-view": {
+                        templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
+                        controller: 'PlanViewController',
+                        resolve: {
+                            plan: function ($q, planDetailService, $stateParams) {
+                                var deferred = $q.defer();
+                                planDetailService.getPlan($stateParams.planId)
+                                    .then(function (plan) {
+                                        deferred.resolve(plan);
+                                    });
+                                return deferred.promise;
+                            }
+                        }
+                    }
+                }
+            })
+            .state('public.research.injuryDetail',
+            {
+                url: "/research/injuries/:injuryId",
+                views: {
+                    "research-app-view": {
+                        templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
+                        controller: 'InjuryViewController',
+                        resolve: {
+                            injury: function ($q, injuryDetailService, $stateParams) {
+                                var deferred = $q.defer();
+                                injuryDetailService.getInjury($stateParams.injuryId)
+                                    .then(function (injury) {
+                                        deferred.resolve(injury);
+                                    });
+                                return deferred.promise;
+                            }
+                        }
+                    }
+                }
+            });
         $urlRouterProvider.otherwise('/');
     });
 
@@ -158,36 +218,3 @@ swptApp.factory('$exceptionHandler', function (notifierService) {
     };
 });
 
-
-
-
-
-//var sportsWebPtApp = angular.module('sportsWebPtApp', ['ngResource', 'ngSanitize', 'ui-router','ngAnimate'])
-//    .config(function ($routeProvider, $locationProvider) {
-//    $routeProvider.when('/research/exercises/:exerciseId',
-//        {
-//            templateUrl: 'app/research/exerciseDetail/prtl-exerciseDetail.htm',
-//            controller: 'ExerciseDetailController',
-//            resolve: {
-//                exercise: function($q, $route, exerciseDetailService) {
-//                    var deferred = $q.defer();
-//                    exerciseDetailService.getExercise($route.current.pathParams.exerciseId)
-//                        .then(function(exercise) {
-//                            deferred.resolve(exercise);
-//                        });
-//                    return deferred.promise;
-//                }
-//            }
-//        }),
-//        $routeProvider.when('/',
-//        {
-//            templateUrl: 'app/splash/prtl-splash.htm'
-//        });
-//        $routeProvider.when('/research',
-//        {
-//            templateUrl: 'app/research/prtl-research.htm'
-//        });
-
-//    $routeProvider.otherwise({redirectTo: ''});
-
-//});

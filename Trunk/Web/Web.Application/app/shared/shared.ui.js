@@ -17,3 +17,4 @@ sharedUi.directive('masterHeader', function() {
         templateUrl: '/app/shared/tmpl.master.header.htm'
     };
 });
+

@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('research.plans', [])
+angular.module('research.plans', ['research.plan.detail'])
     .controller('PlanController', ['$scope', 'configService', 'plans', function ($scope, configService, plans) {
 
         $scope.categories = configService.planCategories;

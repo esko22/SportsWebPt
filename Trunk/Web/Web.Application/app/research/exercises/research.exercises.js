@@ -1,13 +1,13 @@
 ﻿'use strict';
 
-angular.module('research.exercises', [])
-    .controller('ExerciseController', ['$scope', 'configService', 'exercises', function($scope, configService, exercises) {
+angular.module('research.exercises', ['research.exercise.detail'])
+    .controller('ExerciseListingController', ['$scope', 'configService', 'exercises', function($scope, configService, exercises) {
         
         $scope.categories = configService.exerciseCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.equipment = configService.equipment;
         $scope.exercises = exercises;
-        
+
         $scope.selectedCategory = "";
         $scope.selectedBodyRegion = "";
         $scope.selectedEquipment = "";

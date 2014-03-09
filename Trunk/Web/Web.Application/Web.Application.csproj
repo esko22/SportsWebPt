@@ -172,16 +172,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\examine\prtl.examine.htm" />
+    <Content Include="app\plugins\dctc.add.this.toolbox.js" />
+    <Content Include="app\plugins\drct.view.medica.js" />
+    <Content Include="app\plugins\drct.youtbue.player.js" />
     <Content Include="app\plugins\notification.js" />
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.jpanel.js" />
     <Content Include="app\prtl.core.htm" />
+    <Content Include="app\research\exercises\detail\exercise.detail.js" />
+    <Content Include="app\research\exercises\detail\tmpl.exercise.description.htm" />
+    <Content Include="app\research\exercises\detail\tmpl.exercise.detail.htm" />
     <Content Include="app\research\exercises\prtl.brief.exercise.accord.htm" />
     <Content Include="app\research\exercises\research.exercises.js" />
+    <Content Include="app\research\injuries\detail\injury.detail.js" />
+    <Content Include="app\research\injuries\detail\prtl.injury.view.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.description.htm" />
     <Content Include="app\research\injuries\prtl.brief.injury.accord.htm" />
     <Content Include="app\research\injuries\research.injuries.js" />
+    <Content Include="app\research\plans\detail\plan.detail.js" />
+    <Content Include="app\research\plans\detail\prtl.plan.view.htm" />
+    <Content Include="app\research\plans\detail\tmpl.plan.exercise.listing.htm" />
+    <Content Include="app\research\plans\detail\tmpl.plan.description.htm" />
     <Content Include="app\research\plans\prtl.brief.plan.accord.htm" />
     <Content Include="app\research\plans\research.plans.js" />
+    <Content Include="app\research\tmpl.research.nav.bar.htm" />
     <Content Include="app\research\research.js" />
     <Content Include="app\shared\shared.ui.js" />
     <Content Include="app\srvc.config.js" />
@@ -202,9 +216,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Content Include="app\app.js" />
-    <Content Include="app\research\exercises\crtl.excercise.detail.js" />
-    <Content Include="app\research\exercises\srvc.exercise.detail.js" />
-    <Content Include="app\research\exercises\prtl.exercise.detail.htm" />
+    <Content Include="app\research\exercises\detail\prtl.exercise.view.htm" />
     <Content Include="app\research\prtl.research.locations.htm" />
     <Content Include="app\research\injuries\prtl.research.injuries.htm" />
     <Content Include="app\research\plans\prtl.research.plans.htm" />
