@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using AutoMapper;
-
+using ServiceStack.Common.Extensions;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
@@ -75,6 +76,13 @@ namespace SportsWebPt.Platform.Web.Services
         public IEnumerable<BriefExercise> GetBriefExercises()
         {
             var request = GetSync(new BriefExerciseListRequest());
+
+            //TODO: hack due to angular not filtering on nulls
+            request.Response.Items.ForEach(e =>
+            {
+                if (!e.Equipment.Any())
+                    e.Equipment = new [] { new EquipmentDto() { CommonName = "NA", Id = 0 } };
+            });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items);
         }

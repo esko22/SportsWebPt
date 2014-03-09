@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-
+using System.Text;
 using AutoMapper;
 
 using SportsWebPt.Platform.ServiceModels;
@@ -143,7 +144,7 @@ namespace SportsWebPt.Platform.Web.Services
             
             //TODO: this is still ghetto hack... for some reason this inheritance map is not working
             Mapper.CreateMap<BriefExerciseDto, BriefExercise>()
-                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
+                .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
 
             Mapper.CreateMap<ExerciseDto, Exercise>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));

@@ -8,11 +8,26 @@ angular.module('research.injuries', [])
             $scope.bodyRegions = configService.bodyRegions;
 
             $scope.injuries = injuries;
-            $scope.hasInjuries = function () { return injuries.length > 0; };
 
-            $scope.popMsg = function() {
-                notifierService.notify('test me');
+            $scope.selectedSign = "";
+            $scope.selectedBodyRegion = "";
+
+            $scope.isSignSelected = function (sign) {
+                return $scope.selectedSign === sign;
             };
+
+            $scope.isBodyRegionSelected = function (bodyRegion) {
+                return $scope.selectedBodyRegion === bodyRegion;
+            };
+
+            $scope.setSign = function (sign) {
+                $scope.selectedSign = sign;
+            };
+
+            $scope.setBodyRegion = function (bodyRegion) {
+                $scope.selectedBodyRegion = bodyRegion;
+            };
+
 
         }
     ])

@@ -5,45 +5,40 @@
         <div class="col-md-3 research-vertical-splitter">
             <div class="container">
                 <h3>Body Regions</h3>
-                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'bodyregion')">Show All</span></a>
+                <a class="label-filter-hover"><span class="label label-danger" ng-click="setBodyRegion('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-bodyregions-filter-list">
                     <li class="filter-label" ng-repeat="bodyRegion in bodyRegions">
-                        <a><span class="label label-info" ng-bind="bodyRegion.name"></span></a>
+                        <a><span class="label label-info" ng-bind="bodyRegion.name" 
+                                 ng-class="{ 'selected-filter-item' : isBodyRegionSelected(bodyRegion.name)}" 
+                                 ng-click="setBodyRegion(bodyRegion.name)"></span></a>
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <h3>Categories</h3>
-                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'category')">Show All</span></a>
+                <a class="label-filter-hover"><span class="label label-danger" ng-click="setCategory('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-categories-filter-list">
                     <li class="filter-label" ng-repeat="category in categories">
-                        <a><span class="label label-info" ng-bind="category"></span></a>
+                        <a><span class="label label-info" ng-bind="category" 
+                                 ng-class="{ 'selected-filter-item' : isCategorySelected(category)}" 
+                                 ng-click="setCategory(category)"></span></a>
                     </li>
                 </ul>
             </div>
             <div class="container">
                 <h3>Equipment</h3>
-                <a class="label-filter-hover"><span class="label label-danger" data-bind="click: onReset.bind($data, 'equipment')">Show All</span></a>
+                <a class="label-filter-hover"><span class="label label-danger" ng-click="setEquipment('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-equipment-filter-list">
                     <li class="filter-label" ng-repeat="equipmentItem in equipment">
-                        <a><span class="label label-info" ng-bind="equipmentItem.commonName"></span></a>
+                        <a><span class="label label-info" ng-bind="equipmentItem.commonName" 
+                                 ng-class="{ 'selected-filter-item' : isEquipmentSelected(equipmentItem.commonName)}" 
+                                 ng-click="setEquipment(equipmentItem.commonName)"></span></a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-md-9">
-
             <brief-exercise-accordian></brief-exercise-accordian>
-
-            
-            <div ng-hide="hasExercises()">
-                <div class="push-down-lg text-center">
-                    <h3>No Results Found</h3>
-                </div>
-                <div class="push-down-md text-center">
-                    <h4>Please change your filter selections</h4>
-                </div>
-            </div>
         </div>
     </div>
 </div>

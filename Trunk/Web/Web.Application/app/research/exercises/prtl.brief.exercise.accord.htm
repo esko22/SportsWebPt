@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="false" ng-repeat="exercise in exercises">
+        <accordion-group is-open="false" ng-repeat="exercise in filtered = ( exercises | filter:{ categories: selectedCategory, bodyRegions: selectedBodyRegion, equipment : selectedEquipment }) ">
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-barbell"></i>
@@ -45,5 +45,14 @@
                 </div>
             </div>
         </accordion-group>
+        <div ng-hide="filtered.length !== 0">
+            <div class="push-down-lg text-center">
+                <h3>No Results Found</h3>
+            </div>
+            <div class="push-down-md text-center">
+                <h4>Please change your filter selections</h4>
+            </div>
+        </div>
     </accordion>
+
 </div>

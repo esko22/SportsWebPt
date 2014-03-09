@@ -6,8 +6,25 @@ angular.module('research.plans', [])
         $scope.categories = configService.planCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.plans = plans;
-        $scope.hasPlans = function () { return plans.length > 0; };
 
+        $scope.selectedCategory = "";
+        $scope.selectedBodyRegion = "";
+
+        $scope.isCategorySelected = function (category) {
+            return $scope.selectedCategory === category;
+        };
+
+        $scope.isBodyRegionSelected = function (bodyRegion) {
+            return $scope.selectedBodyRegion === bodyRegion;
+        };
+
+        $scope.setCategory = function (category) {
+            $scope.selectedCategory = category;
+        };
+
+        $scope.setBodyRegion = function (bodyRegion) {
+            $scope.selectedBodyRegion = bodyRegion;
+        };
     }
     ])
     .controller('BriefPlanController', [
