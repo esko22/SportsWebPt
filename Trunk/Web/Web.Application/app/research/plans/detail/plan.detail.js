@@ -14,10 +14,18 @@ angular.module('research.plan.detail', [])
     ])
     .controller('PlanDescriptionController', function ($scope) {
         $scope.structuresInvolved = $scope.plan.structuresInvolved.split(',');
-
-    })
+        $scope.animationTag = $scope.plan.animationTag;
+   })
     .controller('PlanDetailController', function ($scope) {
 
+    })
+    .controller('PlanExerciseListingController', function ($scope) {
+        $scope.exercises = $scope.plan.exercises;
+        $scope.exercise = $scope.plan.exercises[0];
+
+        $scope.onSelectExercise = function (exerciseIndex) {
+            $scope.exercise = $scope.plan.exercises[exerciseIndex];
+        };
     })
     .directive("planDescription", function () {
         return {
@@ -27,14 +35,14 @@ angular.module('research.plan.detail', [])
             templateUrl: '/app/research/plans/detail/tmpl.plan.description.htm'
         };
     })
-    //.directive("exerciseDetail", function () {
-    //    return {
-    //        restrict: 'E',
-    //        replace: true,
-    //        controller: 'ExerciseDetailController',
-    //        templateUrl: '/app/research/exercises/detail/tmpl.exercise.detail.htm'
-    //    };
-    //})
+    .directive("planExerciseListing", function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            controller: 'PlanExerciseListingController',
+            templateUrl: '/app/research/plans/detail/tmpl.plan.exercise.listing.htm'
+        };
+    })
     .factory('planDetailService', function ($resource, $q, configService) {
         var resource = $resource(configService.apiUris.planDetail + ':id', { id: '@id' });
         return {

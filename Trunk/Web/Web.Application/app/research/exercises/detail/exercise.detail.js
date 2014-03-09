@@ -18,8 +18,7 @@ angular.module('research.exercise.detail', [])
     .controller('ExerciseDetailController', function ($scope) {
 
         $scope.video = $scope.exercise.videos[0];
-        $scope.code = $scope.video.youtubeVideoId;
-
+        $scope.code = $scope.exercise.videos[0].youtubeVideoId;
     })
     .directive("exerciseDescription", function () {
         return {

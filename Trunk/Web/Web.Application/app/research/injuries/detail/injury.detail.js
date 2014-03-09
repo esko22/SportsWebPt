@@ -13,8 +13,7 @@ angular.module('research.injury.detail', [])
         }
     ])
     .controller('InjuryDescriptionController', function ($scope) {
-        $scope.code = 'A_19e36120';
-        //$scope.injury.animationTag;
+        $scope.animationTag = $scope.injury.animationTag;
     })
     .controller('InjuryDetailController', function ($scope) {
 
