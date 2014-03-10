@@ -1,0 +1,17 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="plan in plans">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-clipboard3"></i>
+                    <span ng-bind="plan.routineName"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right pull-right"></span>
+                </span>
+            </accordion-heading>
+
+            <div class="container">
+                <injury-plan-detail></injury-plan-detail>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

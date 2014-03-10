@@ -17,8 +17,12 @@ angular.module('research.exercise.detail', [])
     })
     .controller('ExerciseDetailController', function ($scope) {
 
-        $scope.video = $scope.exercise.videos[0];
-        $scope.code = $scope.exercise.videos[0].youtubeVideoId;
+        $scope.$watch('exercise', function (newVal) {
+            if (newVal) {
+                $scope.video = $scope.exercise.videos[0];
+                $scope.code = $scope.exercise.videos[0].youtubeVideoId;
+            }
+        });
     })
     .directive("exerciseDescription", function () {
         return {

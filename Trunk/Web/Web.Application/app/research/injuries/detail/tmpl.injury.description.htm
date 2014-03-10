@@ -122,47 +122,6 @@
     <div class="row">
         <div class="col-md-12">
             <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
-            <div data-bind="attr: { id: 'injury-plan-accordion-@Model' }" class="panel-group">
-
-                <div data-bind="foreach: $parent.planDisplays">
-                    <!-- ko with: plan -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="research-accordian-icon" data-toggle="collapse" data-parent="#recover-plan-accordion" data-bind="attr: { href: '#plan-@Model-' + id() }">
-                                <i class="icon-sportswebpt-clipboard3"></i>
-                                <span data-bind="text: routineName"></span>
-                                <span class="glyphicon glyphicon-chevron-down pull-right pull-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <div data-bind="attr: { id: 'plan-@Model-' + id()  }" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h5 class="title-divider-research"><span>Description <span class="de-em"></span></span></h5>
-                                </div>
-                                <div class="col-md-6">
-                                    <h5 class="title-divider-research"><span>Instructions <span class="de-em"></span></span></h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <span data-bind="html: description"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <span data-bind="html: instructions"></span>
-                                </div>
-                            </div>
-
-                            <!--@{Html.RenderPartial("~/Views/Shared/_planExerciseListing.cshtml"); }-->
-                        </div>
-
-                    </div>
-
-                    <!-- /ko -->
-                </div>
-
-            </div>
         </div>
     </div>
 </div>

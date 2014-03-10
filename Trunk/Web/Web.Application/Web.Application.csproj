@@ -187,6 +187,8 @@
     <Content Include="app\research\injuries\detail\injury.detail.js" />
     <Content Include="app\research\injuries\detail\prtl.injury.view.htm" />
     <Content Include="app\research\injuries\detail\tmpl.injury.description.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.plan.detail.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.plan.listing.htm" />
     <Content Include="app\research\injuries\prtl.brief.injury.accord.htm" />
     <Content Include="app\research\injuries\research.injuries.js" />
     <Content Include="app\research\plans\detail\plan.detail.js" />

@@ -15,37 +15,57 @@ angular.module('research.injury.detail', [])
     .controller('InjuryDescriptionController', function ($scope) {
         $scope.animationTag = $scope.injury.animationTag;
     })
-    .controller('InjuryDetailController', function ($scope) {
+    .controller('InjuryPlanDetailController', function ($scope) {
 
+    })
+    .controller('InjuryPlanListingController', function ($scope, planDetailService) {
+        $scope.oneAtATime = true;
 
+        $scope.$watch('injury', function (newVal) {
+            if (newVal) {
+                $scope.plans = $scope.injury.plans;
+
+                angular.forEach($scope.plans, function (plan) {
+                    planDetailService.getPlan(plan.id).
+                        then(function(fetchedPlan) {
+                            plan.exercises = fetchedPlan.exercises;
+                    });
+                });
+            }
+        });
     })
     .directive("injuryDescription", function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'InjuryDescriptionController',
-            templateUrl: '/app/research/injuries/detail/tmpl.injury.description.htm',
-            link: function(scope) {
-                openthis = "C_d4202781";
-                vm_open();
-            }
+            templateUrl: '/app/research/injuries/detail/tmpl.injury.description.htm'
         };
     })
-    //.directive("exerciseDetail", function () {
-    //    return {
-    //        restrict: 'E',
-    //        replace: true,
-    //        controller: 'ExerciseDetailController',
-    //        templateUrl: '/app/research/exercises/detail/tmpl.exercise.detail.htm'
-    //    };
-    //})
+    .directive("injuryPlanListing", function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            controller: 'InjuryPlanListingController',
+            templateUrl: '/app/research/injuries/detail/tmpl.injury.plan.listing.htm'
+        };
+    })
+    .directive("injuryPlanDetail", function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            controller: 'InjuryPlanDetailController',
+            templateUrl: '/app/research/injuries/detail/tmpl.injury.plan.detail.htm'
+        };
+    })
     .factory('injuryDetailService', function ($resource, $q, configService) {
         var resource = $resource(configService.apiUris.injuryDetail + ':id', { id: '@id' });
         return {
             getInjury: function(injuryId) {
                 var deferred = $q.defer();
                 resource.get({ id: injuryId },
-                    function(injury) {
+                    function (injury) {
+
                         deferred.resolve(injury);
                     },
                     function (response) {
