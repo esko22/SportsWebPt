@@ -33,9 +33,10 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/angular/angular-route.js",
                         "~/Scripts/libs/angular/angular-sanitize.js",
                         "~/Scripts/libs/angular/angular-resource.js",
-                        "~/Scripts/libs/angularui/ui-router.js",
+                        "~/Scripts/libs/angular-ui/ui-router.js",
                         "~/Scripts/libs/angular/angular-animate.js",
-                        "~/Scripts/libs/angular-bootstrap/ui-bootstrap-tpls-{version}.js"));
+                        "~/Scripts/libs/angular-bootstrap/ui-bootstrap-tpls-{version}.js",
+                        "~/Scripts/libs/angular-kendo/angular-kendo.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularApp").IncludeDirectory("~/App/", "*.js", searchSubdirectories: true));
 

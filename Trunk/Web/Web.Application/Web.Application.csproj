@@ -173,9 +173,13 @@
   <ItemGroup>
     <Content Include="app\examine\mod.examine.js" />
     <Content Include="app\examine\prtl.examine.htm" />
+    <Content Include="app\examine\report\mod.examine.report.js" />
     <Content Include="app\examine\report\prtl.examine.report.htm" />
+    <Content Include="app\examine\skeleton\mod.examine.skeleton.js" />
     <Content Include="app\examine\skeleton\prtl.examine.skeleton.htm" />
+    <Content Include="app\examine\symptoms\mod.examine.symptoms.js" />
     <Content Include="app\examine\symptoms\prtl.examine.symptoms.htm" />
+    <Content Include="app\examine\symptoms\tmpl.symptom.details.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\drct.view.medica.js" />
     <Content Include="app\plugins\drct.youtbue.player.js" />
@@ -235,8 +239,10 @@
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
-    <Content Include="Scripts\libs\AngularUI\ui-router.js" />
-    <Content Include="Scripts\libs\AngularUI\ui-router.min.js" />
+    <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
+    <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
+    <Content Include="Scripts\libs\angular-ui\ui-router.js" />
+    <Content Include="Scripts\libs\angular-ui\ui-router.min.js" />
     <Content Include="Scripts\libs\angular\angular-animate.js" />
     <Content Include="Scripts\libs\angular\angular-animate.min.js" />
     <Content Include="Scripts\libs\angular\angular-cookies.js" />

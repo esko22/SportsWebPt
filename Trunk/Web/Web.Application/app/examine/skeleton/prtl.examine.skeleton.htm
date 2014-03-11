@@ -22,7 +22,7 @@
                     </table>
                 </div>
                 <div>
-                    <a class="btn btn-default btn-block" href="#/examine/detail">Next &raquo;</a>
+                    <a class="btn btn-default btn-block" ui-sref="public.examine.symptoms">Next &raquo;</a>
                 </div>
             </div>
         </div>
@@ -32,6 +32,7 @@
                     ng-click="onSelectedRegion(region, selectedAreas)"
                     ng-mouseover="areaMouseover(region, selectedAreas)"
                     ng-mouseout="areaMouseout(region, selectedAreas)"
+                    ng-class="{'skeleton-selected' : isSelected(region, selectedAreas)}"
                     tooltip-html-unsafe="{{formatBodyParts(region)}}">
                 </li>
             </ul>

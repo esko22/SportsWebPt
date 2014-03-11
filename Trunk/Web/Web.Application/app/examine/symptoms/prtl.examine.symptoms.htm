@@ -1,1 +1,47 @@
-﻿<h1>Symptoms</h1>
+﻿<div id="examine-symptom-detail" class="container" ng-controller="ExamineSymptomsController">
+    <div>
+        <h3><strong>Areas of Discomfort</strong></h3>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-3" id="discomfortAreas">
+            <div style="height: 100px">
+                <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked">
+                    <li ng-repeat="region in selectedAreas">
+                        <a ng-click="selectArea(region)" data-toggle="tab"><span ng-bind="region.displayName"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="push-down-lg text-center">
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-1">
+                        <button class="btn btn-default btn-block" ui-sref="public.examine.skeleton">&laquo; Back</button>
+                    </div>
+                    <div class="col-md-5">
+                        <button class="btn btn-default btn-block" ng-click="submitReport()">Next &raquo;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="examine-detail-container" class="col-md-9 well" ng-controller="ExamineSymptomListingController">
+            <div ng-repeat="bodyPart in bodyParts" ng-controller="BodyPartSymptomListingController">
+                <div class="row">
+                    <div class="col-md-2"><h4 ng-bind="bodyPart.commonName"></h4></div>
+                    <div class="col-md-9 well" style="background-color: #ffffff">
+                        <div class="row" ng-repeat="symptom in bodyPart.potentialSymptoms">
+                            <div class="col-md-4">
+                                <h4 style="margin-left: 20px; vertical-align: text-top;" ng-bind="symptom.description"></h4>
+                                <select multiple ng-model="symptom.givenResponse">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                </select>
+                            </div>
+                            <!--<div class="col-md-8" data-bind="template: { name: renderTemplate(), data: $data }"></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
