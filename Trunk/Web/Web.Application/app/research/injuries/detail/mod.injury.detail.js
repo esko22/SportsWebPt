@@ -18,21 +18,9 @@ angular.module('research.injury.detail', [])
     .controller('InjuryPlanDetailController', function ($scope) {
 
     })
-    .controller('InjuryPlanListingController', function ($scope, planDetailService) {
+    .controller('InjuryPlanListingController', function ($scope) {
         $scope.oneAtATime = true;
-
-        $scope.$watch('injury', function (newVal) {
-            if (newVal) {
-                $scope.plans = $scope.injury.plans;
-
-                angular.forEach($scope.plans, function (plan) {
-                    planDetailService.getPlan(plan.id).
-                        then(function(fetchedPlan) {
-                            plan.exercises = fetchedPlan.exercises;
-                    });
-                });
-            }
-        });
+        $scope.plans = $scope.injury.plans;
     })
     .directive("injuryDescription", function () {
         return {
@@ -65,7 +53,6 @@ angular.module('research.injury.detail', [])
                 var deferred = $q.defer();
                 resource.get({ id: injuryId },
                     function (injury) {
-
                         deferred.resolve(injury);
                     },
                     function (response) {

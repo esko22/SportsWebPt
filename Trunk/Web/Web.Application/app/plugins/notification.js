@@ -29,7 +29,7 @@ jQueryPluginModule.service('notifierService', function (toastr) {
             console.log(msg);
         },
             error: function (msg) {
-                toastr.error(msg);
+                toastr.error(msg,"Internal Server Error");
                 console.log(msg);
         }
     };

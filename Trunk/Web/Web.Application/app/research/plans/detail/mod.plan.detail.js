@@ -19,9 +19,24 @@ angular.module('research.plan.detail', [])
     .controller('PlanDetailController', function ($scope) {
 
     })
-    .controller('PlanExerciseListingController', function ($scope) {
-        $scope.exercises = $scope.plan.exercises;
-        $scope.exercise = $scope.plan.exercises[0];
+    .controller('PlanExerciseListingController', function ($scope, planDetailService) {
+
+        $scope.$watch('plan', function (newVal) {
+            if (newVal) {
+                if (newVal.exercises.length === 0) {
+                    planDetailService.getPlan(newVal.id).
+                        then(function (fetchedPlan) {
+                            $scope.plan.exercises = fetchedPlan.exercises;
+                            $scope.exercises = $scope.plan.exercises;
+                            $scope.exercise = $scope.plan.exercises[0];
+                        });
+                }
+
+                $scope.exercises = $scope.plan.exercises;
+                $scope.exercise = $scope.plan.exercises[0];
+            }
+        });
+
 
         $scope.onSelectExercise = function (exerciseIndex) {
             $scope.exercise = $scope.plan.exercises[exerciseIndex];

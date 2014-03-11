@@ -171,7 +171,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\examine\mod.examine.js" />
     <Content Include="app\examine\prtl.examine.htm" />
+    <Content Include="app\examine\report\prtl.examine.report.htm" />
+    <Content Include="app\examine\skeleton\prtl.examine.skeleton.htm" />
+    <Content Include="app\examine\symptoms\prtl.examine.symptoms.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\drct.view.medica.js" />
     <Content Include="app\plugins\drct.youtbue.player.js" />
@@ -179,26 +183,26 @@
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.jpanel.js" />
     <Content Include="app\prtl.core.htm" />
-    <Content Include="app\research\exercises\detail\exercise.detail.js" />
+    <Content Include="app\research\exercises\detail\mod.exercise.detail.js" />
     <Content Include="app\research\exercises\detail\tmpl.exercise.description.htm" />
     <Content Include="app\research\exercises\detail\tmpl.exercise.detail.htm" />
     <Content Include="app\research\exercises\prtl.brief.exercise.accord.htm" />
-    <Content Include="app\research\exercises\research.exercises.js" />
-    <Content Include="app\research\injuries\detail\injury.detail.js" />
+    <Content Include="app\research\exercises\mod.research.exercises.js" />
+    <Content Include="app\research\injuries\detail\mod.injury.detail.js" />
     <Content Include="app\research\injuries\detail\prtl.injury.view.htm" />
     <Content Include="app\research\injuries\detail\tmpl.injury.description.htm" />
     <Content Include="app\research\injuries\detail\tmpl.injury.plan.detail.htm" />
     <Content Include="app\research\injuries\detail\tmpl.injury.plan.listing.htm" />
     <Content Include="app\research\injuries\prtl.brief.injury.accord.htm" />
-    <Content Include="app\research\injuries\research.injuries.js" />
-    <Content Include="app\research\plans\detail\plan.detail.js" />
+    <Content Include="app\research\injuries\mod.research.injuries.js" />
+    <Content Include="app\research\plans\detail\mod.plan.detail.js" />
     <Content Include="app\research\plans\detail\prtl.plan.view.htm" />
     <Content Include="app\research\plans\detail\tmpl.plan.exercise.listing.htm" />
     <Content Include="app\research\plans\detail\tmpl.plan.description.htm" />
     <Content Include="app\research\plans\prtl.brief.plan.accord.htm" />
-    <Content Include="app\research\plans\research.plans.js" />
+    <Content Include="app\research\plans\mod.research.plans.js" />
     <Content Include="app\research\tmpl.research.nav.bar.htm" />
-    <Content Include="app\research\research.js" />
+    <Content Include="app\research\mod.research.js" />
     <Content Include="app\shared\shared.ui.js" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />

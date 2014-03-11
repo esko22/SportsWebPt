@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'research', 'ui.bootstrap', 'ngSanitize'])
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui','examine', 'research','ui.bootstrap', 'ngSanitize'])
     .config(function ($urlRouterProvider, $stateProvider) {
         $stateProvider
             .state('user',
@@ -58,9 +58,38 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             })
             .state('public.examine',
             {
+                abstract: true,
+                views: {
+                    "core-app-view": {
+                        templateUrl: '/app/examine/prtl.examine.htm'
+                    }
+                }
+            })
+            .state('public.examine.skeleton',
+            {
                 url: "/examine",
                 views: {
-                    "core-app-view": { templateUrl: '/app/examine/prtl.examine.htm' }
+                    "examine-app-view": {
+                        templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm'
+                    }
+                }
+            })
+            .state('public.examine.symptoms',
+            {
+                url: "/examine/symptoms",
+                views: {
+                    "examine-app-view": {
+                        templateUrl: '/app/examine/symptoms/prtl.examine.symptoms.htm'
+                    }
+                }
+            })
+            .state('public.examine.report',
+            {
+                url: "/examine/report",
+                views: {
+                    "examine-app-view": {
+                        templateUrl: '/app/examine/report/prtl.examine.report.htm'
+                    }
                 }
             })
             .state('public.research',
@@ -213,8 +242,15 @@ var jQueryPluginModule = angular.module('jquery.plugin.module', []);
 
 swptApp.factory('$exceptionHandler', function (notifierService) {
     return function (exception) {
-        notifierService.error("Internal Error Occurred");
+        notifierService.error(exception.message);
         console.log("exception handled: " + exception.message);
     };
 });
+
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.remove = function (from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
+};
 

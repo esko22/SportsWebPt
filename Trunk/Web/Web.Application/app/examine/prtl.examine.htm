@@ -1,3 +1,19 @@
-﻿<div id="examine-view" class="container">
-    <h1>Examine this bitch</h1>    
+﻿<div id="examine-view" class="container" ng-controller="ExamineController">
+    <div>
+        <span class="header-icon"><i class="icon-sportswebpt-stethoscope"></i> Examine</span>
+    </div>
+    <div>
+        <ul class="breadcrumb main-breadcrumb" id="examine-nav">
+            <li><a ui-sref="public.examine.skeleton" id="skeleton-nav">Select Region(s)</a></li>
+            <li><a ui-sref="public.examine.symptoms" id="detail-nav">Describe Discomfort</a></li>
+            <li><a id="report-nav" style="text-decoration: none; cursor: default;">Potential Injuries</a></li>
+        </ul>
+    </div>
+
+
+    <div class="sub-view-panel">
+        <div id="examine-main-panel">
+            <div ui-view="examine-app-view" class="sub-view-container" autoscroll="false"></div>
+        </div>
+    </div>
 </div>

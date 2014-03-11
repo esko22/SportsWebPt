@@ -1,0 +1,49 @@
+﻿<div id="examine-skeleton" ng-controller="ExamineSkeletonController">
+    <div class="row">
+        <div class="col-md-11 pull-left">
+            <h3><strong>Please select up to <span ng-bind="maxSelectableAreas"></span> areas of discomfort</strong></h3>
+        </div>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-2">
+            <div ng-show="selectedAreas.length > 0">
+                <div style="height: 150px">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Selected Areas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="region in selectedAreas">
+                                <td ng-bind="region.displayName"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <a class="btn btn-default btn-block" href="#/examine/detail">Next &raquo;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <ul id="skeleton" class="img-rounded">
+                <li ng-repeat="region in symptomaticRegions" id="{{region.cssClassName}}"
+                    ng-click="onSelectedRegion(region, selectedAreas)"
+                    ng-mouseover="areaMouseover(region, selectedAreas)"
+                    ng-mouseout="areaMouseout(region, selectedAreas)"
+                    tooltip-html-unsafe="{{formatBodyParts(region)}}">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--data-bind="attr: { id: cssClassName },
+    click: $parent.selectArea,
+    event: { mouseover: $parent.areaMouseOver, mouseout: $parent.areaMouseOut },
+    bootstrapPopover: { content: $parent.formatBodyParts($data),
+        html: true,
+        title: displayName,
+        trigger: 'hover' }"--> 

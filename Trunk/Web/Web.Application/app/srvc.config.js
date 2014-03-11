@@ -58,10 +58,13 @@
     var equipmentProxy = $resource(apiUris.briefEquipment);
     var bodyRegionProxy = $resource(apiUris.bodyRegion);
     var signFilterProxy = $resource(apiUris.signFilters);
+    var symptomaticRegionsProxy = $resource(apiUris.symptomaticRegions);
 
     var equipment = equipmentProxy.query();
     var bodyRegions = bodyRegionProxy.query();
     var signFilters = signFilterProxy.query();
+    var symptomaticRegions = symptomaticRegionsProxy.query();
+    var maxSelectableAreas = 2;
 
     return {
         apiUris: apiUris,
@@ -70,7 +73,9 @@
         equipment: equipment,
         bodyRegions: bodyRegions,
         signFilters: signFilters,
-        returnUris: returnUris
+        returnUris: returnUris,
+        maxSelectableAreas: maxSelectableAreas,
+        symptomaticRegions: symptomaticRegions
     };
 
 
