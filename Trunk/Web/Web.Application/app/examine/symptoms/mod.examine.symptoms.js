@@ -16,7 +16,7 @@
         $scope.submitReport = function() {
             var symptomsForReport = [];
 
-            angular.forEach($scope.selectedArea.bodyParts, function (bodyPart) {
+            angular.forEach($scope.selectedArea.bodyParts, function(bodyPart) {
                 if (bodyPart.potentialSymptoms.length > 0) {
                     symptomsForReport.push.apply(symptomsForReport, bodyPart.potentialSymptoms);
                 }
@@ -29,8 +29,8 @@
             };
 
 
-            $http.post("/examine/diffdiag", diffDiagSubmission).then(function (response) {
-                examineSymptomsService.getReport(response.data).then(function (report) {
+            $http.post("/examine/diffdiag", diffDiagSubmission).then(function(response) {
+                examineSymptomsService.getReport(response.data).then(function(report) {
                     $scope.report.potentialInjuries = report.potentialInjuries;
                     $state.go('public.examine.report');
 
@@ -38,8 +38,6 @@
             });
 
         };
-
-
     })
     .controller('ExamineSymptomListingController', function ($scope, examineSymptomsService) {
 
@@ -61,28 +59,6 @@
     })
     .factory('examineSymptomsService', function ($resource, $q, configService, notifierService, $http) {
         return {
-
-            //submitReport : function() {
-            //    var symptomsForReport = [];
-
-            //    angular.forEach($scope.selectedArea.bodyParts, function (bodyPart) {
-            //        if (bodyPart.potentialSymptoms.length > 0) {
-            //            symptomsForReport.push.apply(symptomsForReport, bodyPart.potentialSymptoms);
-            //        }
-            //    });
-
-
-            //    var diffDiagSubmission = {
-            //        "submittedFor": 0,
-            //        "symptomDetails": symptomsForReport
-            //    };
-
-
-            //    $http.post("/examine/diffdiag", diffDiagSubmission).then(function (response) {
-            //        $scope.report = 
-            //        });
-
-            //},
             getReport: function(reportId) {
                 var resource = $resource(configService.apiUris.diagnosisReport + '/:id', { id: '@id' });
                 var deferred = $q.defer();

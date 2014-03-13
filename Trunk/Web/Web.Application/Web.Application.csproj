@@ -208,6 +208,9 @@
     <Content Include="app\research\tmpl.research.nav.bar.htm" />
     <Content Include="app\research\mod.research.js" />
     <Content Include="app\shared\shared.ui.js" />
+    <Content Include="app\shared\symptoms\mod.symptom.controls.js" />
+    <Content Include="app\splash\prtl.contact.htm" />
+    <Content Include="app\splash\prtl.about.htm" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />
     <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />

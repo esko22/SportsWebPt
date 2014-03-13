@@ -56,6 +56,20 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     "core-app-view": { templateUrl: '/app/splash/prtl.splash.htm' }
                 }
             })
+            .state('public.about',
+            {
+                url: "/",
+                views: {
+                    "core-app-view": { templateUrl: '/app/splash/prtl.about.htm' }
+                }
+            })
+            .state('public.contact',
+            {
+                url: "/",
+                views: {
+                    "core-app-view": { templateUrl: '/app/splash/prtl.contact.htm' }
+                }
+            })
             .state('public.examine',
             {
                 abstract: true,

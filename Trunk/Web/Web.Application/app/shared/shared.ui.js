@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var sharedUi = angular.module('shared.ui', []);
+var sharedUi = angular.module('shared.ui', ['symptom.controls']);
 
 sharedUi.directive('masterFooter', function() {
     return {
