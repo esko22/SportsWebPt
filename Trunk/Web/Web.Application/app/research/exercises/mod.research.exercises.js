@@ -1,12 +1,12 @@
 ﻿'use strict';
 
 angular.module('research.exercises', ['research.exercise.detail'])
-    .controller('ExerciseListingController', ['$scope', 'configService', 'exercises', function($scope, configService, exercises) {
+    .controller('ExerciseListingController', ['$scope', 'configService', 'exerciseListService', function($scope, configService, exerciseListService) {
         
         $scope.categories = configService.exerciseCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.equipment = configService.equipment;
-        $scope.exercises = exercises;
+        $scope.isLoading = true;
 
         $scope.selectedCategory = "";
         $scope.selectedBodyRegion = "";
@@ -36,11 +36,25 @@ angular.module('research.exercises', ['research.exercise.detail'])
             $scope.selectedEquipment = equipment;
         };
 
+        exerciseListService.exerciseList.$promise.then(function (exercises) {
+
+            $scope.isLoading = false;
+            $scope.exercises = exercises;
+        });
+
+
     }])
     .controller('BriefExerciseController', ['$scope', function ($scope) {
         $scope.oneAtATime = true;
     }])
-    .directive("briefExerciseAccordian", function() {
+    .factory('exerciseListService', function ($resource, $q, configService) {
+
+        return {
+            exerciseList: $resource(configService.apiUris.briefExercises).query()
+        };
+
+    })
+    .directive("briefExerciseAccordian", function () {
     return {
         restrict: 'E',
         replace: true,

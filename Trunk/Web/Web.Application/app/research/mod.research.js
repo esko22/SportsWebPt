@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('research', ['research.exercises', 'research.plans', 'research.injuries'])
-    .controller('RearchNavBarController', [
+    .controller('ResarchNavBarController', [
         '$scope', function ($scope) {
 
             $scope.entityType = $scope.navBarService.entityType;
@@ -13,7 +13,11 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
                 //favHelper.addEntityToFavorites(this.entityType(), this.entityId);
             };
         }])
-    .factory('navBarService', function() {
+    .controller('ResearchController', [
+        '$scope', function ($scope) {
+            
+        }])
+    .factory('navBarService', function () {
         
         var entityType = 'dsfdsf';
         var entityId = 0;
@@ -29,7 +33,7 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
         return {
             restrict: 'E',
             replace: 'true',
-            controller: 'RearchNavBarController',
+            controller: 'ResarchNavBarController',
             templateUrl: '/app/research/tmpl.research.nav.bar.htm'
         };
 });

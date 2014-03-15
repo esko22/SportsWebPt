@@ -2,14 +2,21 @@
 
 angular.module('research.exercise.detail', [])
     .controller('ExerciseViewController', [
-        '$scope', 'exercise','navBarService', 'configService', function($scope, exercise, navBarService, configService) {
-            $scope.exercise = exercise;
+        '$scope', '$stateParams', 'navBarService', 'configService', 'exerciseDetailService', function ($scope, $stateParams, navBarService, configService, exerciseDetailService) {
+
+            $scope.exercise = null;
+
+            exerciseDetailService.getExercise($stateParams.exerciseId).$promise.then(function (exercise) {
+                $scope.exercise = exercise;
+                navBarService.entityId = exercise.id;
+                $scope.isLoading = false;
+            });
 
             navBarService.entityType = 'exercises';
-            navBarService.entityId = exercise.id;
             navBarService.returnUri = configService.returnUris.researchExercise;
 
             $scope.navBarService = navBarService;
+            $scope.isLoading = true;
         }
     ])
     .controller('ExerciseDescriptionController',function ($scope) {
@@ -40,21 +47,15 @@ angular.module('research.exercise.detail', [])
             templateUrl: '/app/research/exercises/detail/tmpl.exercise.detail.htm'
         };
     })
-    .factory('exerciseDetailService', function ($resource, $q, configService) {
+    .factory('exerciseDetailService', function ($resource, configService) {
         var resource = $resource(configService.apiUris.exerciseDetail + ':id', { id: '@id' });
-        return {
-            getExercise: function(exerciseId) {
-                var deferred = $q.defer();
-                resource.get({ id: exerciseId },
-                    function(exercise) {
-                        deferred.resolve(exercise);
-                    },
-                    function(response) {
-                        deferred.reject(response);
-                    });
 
-                return deferred.promise;
-            }
-        };
+            var getExercise = function(exerciseId) {
+                return resource.get({ id: exerciseId });
+            };
+
+            return {
+                getExercise: getExercise
+            };
     });
 

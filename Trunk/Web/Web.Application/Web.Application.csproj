@@ -183,6 +183,7 @@
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\drct.view.medica.js" />
     <Content Include="app\plugins\drct.youtbue.player.js" />
+    <Content Include="app\plugins\kendo.cloak.js" />
     <Content Include="app\plugins\notification.js" />
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.jpanel.js" />

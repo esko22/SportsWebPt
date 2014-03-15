@@ -52,8 +52,8 @@
         researchInjuries: '/#/research/injuries',
     };
 
-    var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
-    var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthing', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
+    var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
+    var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
 
     var equipmentProxy = $resource(apiUris.briefEquipment);
     var bodyRegionProxy = $resource(apiUris.bodyRegion);

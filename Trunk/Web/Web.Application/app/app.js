@@ -75,7 +75,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 abstract: true,
                 views: {
                     "core-app-view": {
-                        templateUrl: '/app/examine/prtl.examine.htm'
+                        templateUrl: '/app/examine/prtl.examine.htm',
+                        controller: 'ExamineController'
                     }
                 }
             })
@@ -110,14 +111,19 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             {
                 abstract: true,
                 views: {
-                    "core-app-view": { templateUrl: '/app/research/prtl.research.htm' },
+                    "core-app-view": {
+                        templateUrl: '/app/research/prtl.research.htm',
+                        controller: 'ResearchController'
+                    },
                 }
             })
             .state('public.research.nav',
             {
                 url: "/research",
                 views: {
-                    "research-app-view": { templateUrl: '/app/research/prtl.research.nav.htm' }
+                    "research-app-view": {
+                        templateUrl: '/app/research/prtl.research.nav.htm'
+                    }
                 }
             })
             .state('public.research.plans',
@@ -173,16 +179,6 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/exercises/prtl.research.exercises.htm',
-                        resolve: {
-                            exercises: function ($q, $resource, configService) {
-                                var deferred = $q.defer();
-                                var briefExerciseProxy = $resource(configService.apiUris.briefExercises);
-                                briefExerciseProxy.query({}, function(exercises) {
-                                        deferred.resolve(exercises);
-                                    });
-                                return deferred.promise;
-                            }
-                        },
                         controller: 'ExerciseListingController'
                 }
             }
@@ -193,17 +189,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/exercises/detail/prtl.exercise.view.htm',
-                        controller: 'ExerciseViewController',
-                        resolve: {
-                            exercise: function ($q, exerciseDetailService, $stateParams) {
-                                var deferred = $q.defer();
-                                exerciseDetailService.getExercise($stateParams.exerciseId)
-                                    .then(function(exercise) {
-                                        deferred.resolve(exercise);
-                                    });
-                                return deferred.promise;
-                            }
-                        }
+                        controller: 'ExerciseViewController'
                     }
                 }
             })

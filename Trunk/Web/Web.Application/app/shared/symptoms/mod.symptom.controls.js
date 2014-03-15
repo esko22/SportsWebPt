@@ -63,7 +63,7 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<select multiple kendo-multi-select ng-model="givenResponse" size="11" data-placeholder="Select while...">' +
+            template: '<select multiple ng-model="givenResponse" size="11" data-placeholder="Select while...">' +
                         '<option value="0">Not Painful</option>' +
                         '<option value="1">Sleeping</option>' +
                         '<option value="2">Prolonged Sitting</option>' +
@@ -85,7 +85,7 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<select multiple kendo-multi-select ng-model="givenResponse" size="12" data-placeholder="Select feels like..."> ' +
+            template: '<select multiple ng-model="givenResponse" size="12" data-placeholder="Select feels like..."> ' +
                         '<option value="0">Has No Feeling</option>' +
                         '<option value="1">Sharp / Stabbing </option>' +
                         '<option value="2">Dull / Aching </option>' +

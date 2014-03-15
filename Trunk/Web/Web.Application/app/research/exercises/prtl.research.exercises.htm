@@ -8,9 +8,11 @@
                 <a class="label-filter-hover"><span class="label label-danger" ng-click="setBodyRegion('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-bodyregions-filter-list">
                     <li class="filter-label" ng-repeat="bodyRegion in bodyRegions">
-                        <a><span class="label label-info" ng-bind="bodyRegion.name" 
-                                 ng-class="{ 'selected-filter-item' : isBodyRegionSelected(bodyRegion.name)}" 
-                                 ng-click="setBodyRegion(bodyRegion.name)"></span></a>
+                        <a>
+                            <span class="label label-info" ng-bind="bodyRegion.name"
+                                  ng-class="{ 'selected-filter-item' : isBodyRegionSelected(bodyRegion.name)}"
+                                  ng-click="setBodyRegion(bodyRegion.name)"></span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -19,9 +21,11 @@
                 <a class="label-filter-hover"><span class="label label-danger" ng-click="setCategory('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-categories-filter-list">
                     <li class="filter-label" ng-repeat="category in categories">
-                        <a><span class="label label-info" ng-bind="category" 
-                                 ng-class="{ 'selected-filter-item' : isCategorySelected(category)}" 
-                                 ng-click="setCategory(category)"></span></a>
+                        <a>
+                            <span class="label label-info" ng-bind="category"
+                                  ng-class="{ 'selected-filter-item' : isCategorySelected(category)}"
+                                  ng-click="setCategory(category)"></span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -30,14 +34,16 @@
                 <a class="label-filter-hover"><span class="label label-danger" ng-click="setEquipment('')">Show All</span></a>
                 <ul class="list-no-style filter-container" id="exercise-equipment-filter-list">
                     <li class="filter-label" ng-repeat="equipmentItem in equipment">
-                        <a><span class="label label-info" ng-bind="equipmentItem.commonName" 
-                                 ng-class="{ 'selected-filter-item' : isEquipmentSelected(equipmentItem.commonName)}" 
-                                 ng-click="setEquipment(equipmentItem.commonName)"></span></a>
+                        <a>
+                            <span class="label label-info" ng-bind="equipmentItem.commonName"
+                                  ng-class="{ 'selected-filter-item' : isEquipmentSelected(equipmentItem.commonName)}"
+                                  ng-click="setEquipment(equipmentItem.commonName)"></span>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" kendo-cloak="{{isLoading}}">
             <brief-exercise-accordian></brief-exercise-accordian>
         </div>
     </div>
