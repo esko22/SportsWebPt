@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>AngularJS.KendoUI</id>
+    <version>0.7.7</version>
+    <title>AngularJS.KendoUI</title>
+    <authors>Atanas Korchev</authors>
+    <owners>Atanas Korchev</owners>
+    <projectUrl>https://github.com/kendo-labs/angular-kendo</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>angular-kendo is a directive for AngularJS that runs an element through Kendo UI declarative initialization, allowing you to take full advantage of Kendo UI within the context of an AngularJS Application.</description>
+    <releaseNotes />
+    <copyright>Copyright 2014</copyright>
+    <language />
+    <tags>angular angularjs kendo kendo-ui</tags>
+    <dependencies>
+      <dependency id="AngularJS.Core" version="1.2.9" />
+    </dependencies>
+  </metadata>
+</package>
