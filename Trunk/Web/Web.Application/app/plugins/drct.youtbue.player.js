@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-jQueryPluginModule.directive('youtubePlayer', function ($sce) {
+jQueryPluginModule.directive('youtubePlayer', ['$sce', function ($sce) {
     return {
         restrict: 'EA',
         scope: { code: '=' },
@@ -14,4 +14,4 @@ jQueryPluginModule.directive('youtubePlayer', function ($sce) {
             });
         }
     };
-});
+}]);

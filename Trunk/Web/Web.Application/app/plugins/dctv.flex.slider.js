@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-jQueryPluginModule.directive('flexSlider', function () {
+jQueryPluginModule.directive('flexSlider', [function () {
     return {
         restrict: 'A',
         link: function ($scope, element) {
@@ -90,4 +90,4 @@ jQueryPluginModule.directive('flexSlider', function () {
 
         }
     };
-});
+}]);

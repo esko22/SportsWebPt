@@ -4,6 +4,7 @@ angular.module('research.plan.detail', [])
     .controller('PlanViewController', [
         '$scope', 'navBarService', 'configService', 'planDetailService', '$stateParams', function ($scope, navBarService, configService, planDetailService, $stateParams) {
             $scope.isLoading = true;
+            $scope.animationTag = null;
 
             planDetailService.getPlan($stateParams.planId).$promise.then(function(plan) {
                 $scope.plan = plan;
@@ -18,7 +19,12 @@ angular.module('research.plan.detail', [])
         }
     ])
     .controller('PlanDescriptionController', ['$scope', function ($scope) {
-        $scope.$watch('plan', function(plan) {
+        $scope.$watch('plan', function (plan) {
+
+            $scope.hasAnimationTag = function () {
+                return $scope.animationTag !== null;
+            };
+
             if (plan) {
                 $scope.structuresInvolved = $scope.plan.structuresInvolved.split(',');
                 $scope.animationTag = $scope.plan.animationTag;

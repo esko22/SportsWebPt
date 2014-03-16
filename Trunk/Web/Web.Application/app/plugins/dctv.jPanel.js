@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-jQueryPluginModule.directive('jpanel', function () {
+jQueryPluginModule.directive('jpanel', [function () {
     return {
         restrict: 'A',
         link: function ($scope, element) {
@@ -49,7 +49,7 @@ jQueryPluginModule.directive('jpanel', function () {
             }
         }
     };
-});
+}]);
 
 
 

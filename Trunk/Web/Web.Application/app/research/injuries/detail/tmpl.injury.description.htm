@@ -15,7 +15,8 @@
     <div class="row">
         <div class="col-md-7"><span ng-bind-html="injury.description"></span></div>
         <div class="col-md-5">
-            <div view-medica-display class="viewmedica-container"></div>
+            <div view-medica-display class="viewmedica-container" ng-show="hasAnimationTag()"></div>
+            <h5 ng-hide="hasAnimationTag()">No animation currently availble</h5>
         </div>
     </div>
     <div class="row push-down-md">

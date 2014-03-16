@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 jQueryPluginModule.value('toastr', toastr);
-jQueryPluginModule.service('notifierService', function (toastr) {
+jQueryPluginModule.service('notifierService', ['toastr', function (toastr) {
 
     toastr.options = {
         "closeButton": false,
@@ -33,4 +33,4 @@ jQueryPluginModule.service('notifierService', function (toastr) {
                 console.log(msg);
         }
     };
-});
+}]);

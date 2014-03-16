@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-jQueryPluginModule.directive('kendoCloak', function () {
+jQueryPluginModule.directive('kendoCloak', [function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
@@ -14,4 +14,4 @@ jQueryPluginModule.directive('kendoCloak', function () {
             });
         }
     };
-});
+}]);

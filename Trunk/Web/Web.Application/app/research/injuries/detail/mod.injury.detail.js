@@ -5,6 +5,7 @@ angular.module('research.injury.detail', [])
         '$scope','navBarService', 'configService', 'injuryDetailService', '$stateParams', function($scope, navBarService, configService, injuryDetailService, $stateParams) {
 
             $scope.isLoading = true;
+            $scope.animationTag = null;
 
             injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
                 $scope.injury = injury;
@@ -19,14 +20,19 @@ angular.module('research.injury.detail', [])
         }
     ])
     .controller('InjuryDescriptionController', ['$scope', function ($scope) {
+        $scope.hasAnimationTag = function () {
+            return $scope.animationTag !== null;
+        };
+
         $scope.$watch('injury', function (injury) {
             if (injury) {
-                $scope.animationTag = $scope.injury.animationTag;
+                if ($scope.injury.animationTag) {
+                    $scope.animationTag = $scope.injury.animationTag;
+                }
             }
         });
     }])
-    .controller('InjuryPlanDetailController', [function () {
-
+    .controller('InjuryPlanDetailController', ['$scope', function ($scope) {
     }])
     .controller('InjuryPlanListingController', ['$scope', function ($scope) {
         $scope.$watch('injury', function (injury) {
