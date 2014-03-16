@@ -37,7 +37,6 @@ angular.module('research.exercises', ['research.exercise.detail'])
         };
 
         exerciseListService.exerciseList.$promise.then(function (exercises) {
-
             $scope.isLoading = false;
             $scope.exercises = exercises;
         });
@@ -47,18 +46,18 @@ angular.module('research.exercises', ['research.exercise.detail'])
     .controller('BriefExerciseController', ['$scope', function ($scope) {
         $scope.oneAtATime = true;
     }])
-    .factory('exerciseListService', function ($resource, $q, configService) {
+    .factory('exerciseListService',['$resource', 'configService', function ($resource, configService) {
 
         return {
             exerciseList: $resource(configService.apiUris.briefExercises).query()
         };
 
-    })
-    .directive("briefExerciseAccordian", function () {
+    }])
+    .directive("briefExerciseAccordian", [function () {
     return {
         restrict: 'E',
         replace: true,
         templateUrl: '/app/research/exercises/prtl.brief.exercise.accord.htm',
         controller: "BriefExerciseController"
     };
-});
+}]);

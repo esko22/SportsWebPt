@@ -154,6 +154,12 @@ left: 45%;
     cursor: default;
 }
 
+
+
+.research-brief-listing {
+    min-height: 300px;
+}
+
 .viewmedica-container {
     
 }
@@ -731,6 +737,7 @@ ul#skeleton li {
 
 .k-loading-color {
     opacity: .7;
+    background-color: transparent !important;
 }
 
 
@@ -742,10 +749,6 @@ ul#skeleton li {
 div .k-window {
     z-index: 2000000 !important;
 }
-
-
-
-
 
 
 /* BOOTSTRAP AUGMENTS*/

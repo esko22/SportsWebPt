@@ -2,12 +2,11 @@
 
 angular.module('research.injuries', ['research.injury.detail'])
     .controller('InjuryController', [
-        '$scope', 'configService', 'notifierService', 'injuries', function ($scope, configService, notifierService, injuries) {
+        '$scope', 'configService', 'injuryListService', function ($scope, configService, injuryListService) {
 
             $scope.signFilters = configService.signFilters;
             $scope.bodyRegions = configService.bodyRegions;
-
-            $scope.injuries = injuries;
+            $scope.isLoading = true;
 
             $scope.selectedSign = "";
             $scope.selectedBodyRegion = "";
@@ -28,6 +27,11 @@ angular.module('research.injuries', ['research.injury.detail'])
                 $scope.selectedBodyRegion = bodyRegion;
             };
 
+            injuryListService.injuryList.$promise.then(function (injuries) {
+                $scope.isLoading = false;
+                $scope.injuries = injuries;
+            });
+
 
         }
     ])
@@ -36,11 +40,18 @@ angular.module('research.injuries', ['research.injury.detail'])
             $scope.oneAtATime = true;
         }
     ])
-    .directive("briefInjuryAccordian", function() {
+    .factory('injuryListService', ['$resource', 'configService', function ($resource, configService) {
+
+        return {
+            injuryList: $resource(configService.apiUris.briefInjuries).query()
+        };
+
+    }])
+    .directive("briefInjuryAccordian", [function() {
         return {
             restrict: 'E',
             replace: true,
             templateUrl: '/app/research/injuries/prtl.brief.injury.accord.htm',
             controller: "BriefInjuryController"
         };
-    });
+    }]);

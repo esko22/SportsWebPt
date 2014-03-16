@@ -2,65 +2,74 @@
 
 angular.module('research.injury.detail', [])
     .controller('InjuryViewController', [
-        '$scope', 'injury','navBarService', 'configService', function($scope, injury, navBarService, configService) {
-            $scope.injury = injury;
+        '$scope','navBarService', 'configService', 'injuryDetailService', '$stateParams', function($scope, navBarService, configService, injuryDetailService, $stateParams) {
+
+            $scope.isLoading = true;
+
+            injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
+                $scope.injury = injury;
+                navBarService.entityId = injury.id;
+                $scope.isLoading = false;
+            });
 
             navBarService.entityType = 'injuries';
-            navBarService.entityId = injury.id;
             navBarService.returnUri = configService.returnUris.researchInjuries;
 
             $scope.navBarService = navBarService;
         }
     ])
-    .controller('InjuryDescriptionController', function ($scope) {
-        $scope.animationTag = $scope.injury.animationTag;
-    })
-    .controller('InjuryPlanDetailController', function ($scope) {
+    .controller('InjuryDescriptionController', ['$scope', function ($scope) {
+        $scope.$watch('injury', function (injury) {
+            if (injury) {
+                $scope.animationTag = $scope.injury.animationTag;
+            }
+        });
+    }])
+    .controller('InjuryPlanDetailController', [function () {
 
-    })
-    .controller('InjuryPlanListingController', function ($scope) {
-        $scope.oneAtATime = true;
-        $scope.plans = $scope.injury.plans;
-    })
-    .directive("injuryDescription", function () {
+    }])
+    .controller('InjuryPlanListingController', ['$scope', function ($scope) {
+        $scope.$watch('injury', function (injury) {
+            if (injury) {
+                $scope.oneAtATime = true;
+                $scope.plans = $scope.injury.plans;
+            }
+        });
+    }])
+    .directive("injuryDescription", [function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'InjuryDescriptionController',
             templateUrl: '/app/research/injuries/detail/tmpl.injury.description.htm'
         };
-    })
-    .directive("injuryPlanListing", function () {
+    }])
+    .directive("injuryPlanListing", [function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'InjuryPlanListingController',
             templateUrl: '/app/research/injuries/detail/tmpl.injury.plan.listing.htm'
         };
-    })
-    .directive("injuryPlanDetail", function () {
+    }])
+    .directive("injuryPlanDetail", [function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'InjuryPlanDetailController',
             templateUrl: '/app/research/injuries/detail/tmpl.injury.plan.detail.htm'
         };
-    })
-    .factory('injuryDetailService', function ($resource, $q, configService) {
-        var resource = $resource(configService.apiUris.injuryDetail + ':id', { id: '@id' });
-        return {
-            getInjury: function(injuryId) {
-                var deferred = $q.defer();
-                resource.get({ id: injuryId },
-                    function (injury) {
-                        deferred.resolve(injury);
-                    },
-                    function (response) {
-                        deferred.reject(response);
-                    });
+    }])
+    .factory('injuryDetailService',['$resource', 'configService', function ($resource, configService) {
 
-                return deferred.promise;
-            }
+        var resource = $resource(configService.apiUris.injuryDetail + ':id', { id: '@id' });
+
+        var getInjury = function (injuryId) {
+            return resource.get({ id: injuryId });
         };
-    });
+
+        return {
+            getInjury: getInjury
+        };
+    }]);
 

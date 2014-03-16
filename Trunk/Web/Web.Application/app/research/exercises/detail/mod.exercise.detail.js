@@ -6,6 +6,7 @@ angular.module('research.exercise.detail', [])
 
             $scope.exercise = null;
 
+
             exerciseDetailService.getExercise($stateParams.exerciseId).$promise.then(function (exercise) {
                 $scope.exercise = exercise;
                 navBarService.entityId = exercise.id;
@@ -19,10 +20,10 @@ angular.module('research.exercise.detail', [])
             $scope.isLoading = true;
         }
     ])
-    .controller('ExerciseDescriptionController',function ($scope) {
+    .controller('ExerciseDescriptionController',[function () {
 
-    })
-    .controller('ExerciseDetailController', function ($scope) {
+    }])
+    .controller('ExerciseDetailController',['$scope', function ($scope) {
 
         $scope.$watch('exercise', function (newVal) {
             if (newVal) {
@@ -30,24 +31,24 @@ angular.module('research.exercise.detail', [])
                 $scope.code = $scope.exercise.videos[0].youtubeVideoId;
             }
         });
-    })
-    .directive("exerciseDescription", function () {
+    }])
+    .directive("exerciseDescription", [function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'ExerciseDescriptionController',
             templateUrl: '/app/research/exercises/detail/tmpl.exercise.description.htm'
         };
-    })
-    .directive("exerciseDetail", function () {
+    }])
+    .directive("exerciseDetail", [function () {
         return {
             restrict: 'E',
             replace: true,
             controller: 'ExerciseDetailController',
             templateUrl: '/app/research/exercises/detail/tmpl.exercise.detail.htm'
         };
-    })
-    .factory('exerciseDetailService', function ($resource, configService) {
+    }])
+    .factory('exerciseDetailService',['$resource', 'configService', function ($resource, configService) {
         var resource = $resource(configService.apiUris.exerciseDetail + ':id', { id: '@id' });
 
             var getExercise = function(exerciseId) {
@@ -57,5 +58,5 @@ angular.module('research.exercise.detail', [])
             return {
                 getExercise: getExercise
             };
-    });
+    }]);
 

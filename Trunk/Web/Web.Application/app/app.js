@@ -132,16 +132,6 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/plans/prtl.research.plans.htm',
-                        resolve: {
-                            plans: function ($q, $resource, configService) {
-                                var deferred = $q.defer();
-                                var briefPlanProxy = $resource(configService.apiUris.briefPlans);
-                                briefPlanProxy.query({}, function (plans) {
-                                    deferred.resolve(plans);
-                                });
-                                return deferred.promise;
-                            }
-                        },
                         controller: 'PlanController'
                     }
                 }
@@ -152,16 +142,6 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/injuries/prtl.research.injuries.htm',
-                        resolve: {
-                            injuries: function ($q, $resource, configService) {
-                                var deferred = $q.defer();
-                                var briefInjuryProxy = $resource(configService.apiUris.briefInjuries);
-                                briefInjuryProxy.query({}, function (injuries) {
-                                    deferred.resolve(injuries);
-                                });
-                                return deferred.promise;
-                            }
-                        },
                         controller: 'InjuryController'
                     }
                 }
@@ -199,17 +179,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
-                        controller: 'PlanViewController',
-                        resolve: {
-                            plan: function ($q, planDetailService, $stateParams) {
-                                var deferred = $q.defer();
-                                planDetailService.getPlan($stateParams.planId)
-                                    .then(function (plan) {
-                                        deferred.resolve(plan);
-                                    });
-                                return deferred.promise;
-                            }
-                        }
+                        controller: 'PlanViewController'
                     }
                 }
             })
@@ -219,17 +189,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "research-app-view": {
                         templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
-                        controller: 'InjuryViewController',
-                        resolve: {
-                            injury: function ($q, injuryDetailService, $stateParams) {
-                                var deferred = $q.defer();
-                                injuryDetailService.getInjury($stateParams.injuryId)
-                                    .then(function (injury) {
-                                        deferred.resolve(injury);
-                                    });
-                                return deferred.promise;
-                            }
-                        }
+                        controller: 'InjuryViewController'
                     }
                 }
             });
