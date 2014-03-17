@@ -65,6 +65,7 @@
     var signFilters = signFilterProxy.query();
     var symptomaticRegions = symptomaticRegionsProxy.query();
     var maxSelectableAreas = 2;
+    var likelyHoodThresholds = { high: .80, medium: .40 };
 
     return {
         apiUris: apiUris,
@@ -75,7 +76,8 @@
         signFilters: signFilters,
         returnUris: returnUris,
         maxSelectableAreas: maxSelectableAreas,
-        symptomaticRegions: symptomaticRegions
+        symptomaticRegions: symptomaticRegions,
+        likelyHoodThresholds: likelyHoodThresholds
     };
 
 

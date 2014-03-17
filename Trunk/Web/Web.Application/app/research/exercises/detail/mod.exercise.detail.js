@@ -23,12 +23,25 @@ angular.module('research.exercise.detail', [])
     .controller('ExerciseDescriptionController',[function () {
 
     }])
-    .controller('ExerciseDetailController',['$scope', function ($scope) {
+    .controller('EquipmentModalController', ['$scope', function ($scope) {
+        $scope.equipmentList = $scope.exercise.equipment;
+    }])
+    .controller('ExerciseDetailController', ['$scope', '$modal', function ($scope, $modal) {
+        $scope.showEquipmentList = function () {
+            $modal.open({
+                templateUrl: '/app/research/exercises/detail/tmpl.equipment.list.modal.htm',
+                controller: 'EquipmentModalController',
+                scope: $scope
+            });
+        };
+
+        $scope.hasEquipment = false;
 
         $scope.$watch('exercise', function (newVal) {
             if (newVal) {
                 $scope.video = $scope.exercise.videos[0];
                 $scope.code = $scope.exercise.videos[0].youtubeVideoId;
+                $scope.hasEquipment = $scope.exercise.equipment.length > 0;
             }
         });
     }])

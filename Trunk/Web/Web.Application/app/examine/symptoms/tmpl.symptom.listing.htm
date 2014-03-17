@@ -14,7 +14,7 @@
                             <duration-list ng-switch-when="examine.duration.dropdown" given-response="symptom.givenResponse"></duration-list>
                             <feels-like-list ng-switch-when="examine.feels.multi" given-response="symptom.givenResponse"></feels-like-list>
                             <while-list ng-switch-when="examine.while.multi" given-response="symptom.givenResponse"></while-list>
-                            <boolean-response ng-switch-when="examine.radio.bool" given-response="symptom.givenResponse"></boolean-response>
+                            <boolean-response ng-switch-when="examine.radio.bool" name="{{symptom.id}}" given-response="symptom.givenResponse"></boolean-response>
                             <div ng-switch-default></div>
                         </div>
                     </div>

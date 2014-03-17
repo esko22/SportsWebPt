@@ -49,10 +49,10 @@ angular.module('symptom.controls', [])
                 givenResponse: '='
             },
             template: '<div><label class="radio">' +
-                      '<input type="radio" id="option1" name="option-{{id}}" + value="0" ng-model="givenResponse[0]" >No ' +
+                      '<input type="radio" id="option1" value="0" ng-model="givenResponse[0]" >No ' +
                       '</label>'+ 
                       '<label class="radio">' +
-                      '<input type="radio" id="option2" name="option-{{id}}" value="1" ng-model="givenResponse[0]">Yes ' +
+                      '<input type="radio" id="option2" value="1" ng-model="givenResponse[0]">Yes ' +
                       '</label></div>'
         };
     })

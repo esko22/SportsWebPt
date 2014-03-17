@@ -6,7 +6,7 @@
         <div class="col-md-3" id="discomfortAreas">
             <div style="height: 100px">
                 <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked">
-                    <li ng-repeat="region in selectedAreas">
+                    <li ng-repeat="region in selectedAreas track by $index" ng-class="{true: 'active'}[$index === 0]">
                         <a ng-click="selectArea(region)" data-toggle="tab"><span ng-bind="region.displayName"></span></a>
                     </li>
                 </ul>

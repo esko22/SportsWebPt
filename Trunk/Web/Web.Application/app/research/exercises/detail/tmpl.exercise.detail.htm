@@ -29,7 +29,7 @@
 
             </table>
         </div>
-        <button data-bind="click:$root.showEquipmentList.bind($data, equipment())">Equipment</button>
+        <button ng-click="showEquipmentList()" ng-show="hasEquipment">Equipment</button>
     </div>
 
     <div class="col-md-9">
