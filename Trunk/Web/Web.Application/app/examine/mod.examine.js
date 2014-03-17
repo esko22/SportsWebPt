@@ -4,5 +4,5 @@ angular.module('examine', ['examine.skeleton', 'examine.symptoms', 'examine.repo
     .controller('ExamineController',[ '$scope', function ($scope) {
         $scope.selectedAreas = [];
         $scope.report = {};
-    $scope.report.potentialInjuries = [];
+        $scope.report.potentialInjuries = [];
 }]);

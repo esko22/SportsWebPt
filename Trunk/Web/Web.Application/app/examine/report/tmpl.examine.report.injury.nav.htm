@@ -1,0 +1,25 @@
+﻿<div class="col-md-3" id="injuryReport">
+    <ul class="list-group" id="injury-report-nav">
+        <li class="list-group-item">
+            <span class="badge" ng-bind="potentialInjuries.length"></span>Probable
+            <ul class="nav nav-pills nav-stacked push-down-sm">
+                <li ng-repeat="injury in potentialInjuries">
+                    <a ng-click="selectInjury(injury)" data-toggle="tab">{{injury.commonName}} - {{injury.likelyHood}}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <span class="badge" data-bind="text: moderateInjuries().length"></span>Moderate
+            <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: moderateInjuries">
+                <li><a data-bind="attr: { href: '#potential-injury-tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <span class="badge" data-bind="text: remoteInjuries().length"></span>Remote
+            <ul class="nav nav-pills nav-stacked push-down-sm" data-bind="foreach: remoteInjuries">
+                <li><a data-bind="attr: { href: '#potential-injury-tab-' + id(), title: commonName }, text: commonName() + ' : ' + likelyHood(), click: $parent.onPillClick " data-toggle="tab"></a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+

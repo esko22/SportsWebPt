@@ -85,7 +85,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 url: "/examine",
                 views: {
                     "examine-app-view": {
-                        templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm'
+                        templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm',
+                        controller: 'ExamineSkeletonController'
                     }
                 }
             })
@@ -94,7 +95,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 url: "/examine/symptoms",
                 views: {
                     "examine-app-view": {
-                        templateUrl: '/app/examine/symptoms/prtl.examine.symptoms.htm'
+                        templateUrl: '/app/examine/symptoms/prtl.examine.symptoms.htm',
+                        controller: 'ExamineSymptomsController'
                     }
                 }
             })
@@ -103,7 +105,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 url: "/examine/report",
                 views: {
                     "examine-app-view": {
-                        templateUrl: '/app/examine/report/prtl.examine.report.htm'
+                        templateUrl: '/app/examine/report/prtl.examine.report.htm',
+                        controller: 'ExamineReportController'
                     }
                 }
             })

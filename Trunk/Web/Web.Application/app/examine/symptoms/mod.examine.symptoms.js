@@ -1,5 +1,5 @@
 ﻿angular.module('examine.symptoms', [])
-    .controller('ExamineSymptomsController', function($scope, examineSymptomsService, configService, $state, $http) {
+    .controller('ExamineSymptomsController', ['$scope', 'examineSymptomsService', 'configService', '$state', '$modal', '$q', '$timeout', function ($scope, examineSymptomsService, configService, $state, $modal, $q, $timeout) {
 
         if ($scope.selectedAreas.length === 0) {
             $state.go('public.examine.skeleton');
@@ -13,33 +13,30 @@
             $scope.selectedArea = selectArea;
         };
 
-        $scope.submitReport = function() {
-            var symptomsForReport = [];
-
-            angular.forEach($scope.selectedArea.bodyParts, function(bodyPart) {
-                if (bodyPart.potentialSymptoms.length > 0) {
-                    symptomsForReport.push.apply(symptomsForReport, bodyPart.potentialSymptoms);
-                }
+        var showModal = function() {
+            return $modal.open({
+                templateUrl: '/app/examine/symptoms/tmpl.report.progress.modal.htm',
             });
-
-
-            var diffDiagSubmission = {
-                "submittedFor": 0,
-                "symptomDetails": symptomsForReport
-            };
-
-
-            $http.post("/examine/diffdiag", diffDiagSubmission).then(function(response) {
-                examineSymptomsService.getReport(response.data).then(function(report) {
-                    $scope.report.potentialInjuries = report.potentialInjuries;
-                    $state.go('public.examine.report');
-
-                });
-            });
-
         };
-    })
-    .controller('ExamineSymptomListingController', function ($scope, examineSymptomsService) {
+
+        $scope.submitReport = function() {
+        var modal = showModal();
+
+            examineSymptomsService.submitReport($scope.selectedArea.bodyParts).then(function(response) {
+
+                $q.all([
+                    examineSymptomsService.getReport(response.data).$promise,
+                    $timeout(function() {}, 5000)
+                    ])
+                    .then(function(results) {
+                        $scope.report.potentialInjuries = results[0].potentialInjuries;
+                        $state.go('public.examine.report');
+                        modal.dismiss('complete');
+                    });
+            });
+        };
+    }])
+    .controller('ExamineSymptomListingController', ['$scope', 'examineSymptomsService', function ($scope, examineSymptomsService) {
 
         $scope.$watch('selectedArea', function(selectedArea) {
             if (selectedArea) {
@@ -52,31 +49,49 @@
                 $scope.bodyParts = selectedArea.bodyParts;
             }
         });
-
-    })
-    .controller('BodyPartSymptomListingController', function ($scope, examineSymptomsService) {
-
-    })
-    .factory('examineSymptomsService', function ($resource, $q, configService, notifierService, $http) {
+    }])
+    .directive("examineSymptomListing", [function () {
         return {
-            getReport: function(reportId) {
-                var resource = $resource(configService.apiUris.diagnosisReport + '/:id', { id: '@id' });
-                var deferred = $q.defer();
-                    resource.get({ id: reportId },
-                        function(report) {
-                            deferred.resolve(report);
-                        },
-                        function(response) {
-                            deferred.reject(response);
-                        });
-
-                    return deferred.promise;
-            },            
-
-            getSymptoms: function (bodyPartId) {
-                var resource = $resource(configService.apiUris.potentialSymptoms + '/' + bodyPartId);
-                return resource.query();
-            }
+            restrict: 'E',
+            replace: true,
+            controller: 'ExamineSymptomListingController',
+            templateUrl: '/app/examine/symptoms/tmpl.symptom.listing.htm'
         };
-    
-});
+    }])
+    .factory('examineSymptomsService',['$resource', 'configService', '$http', function ($resource, configService, $http) {
+
+    var submitReport = function(bodyParts) {
+        var symptomsForReport = [];
+
+        angular.forEach(bodyParts, function(bodyPart) {
+            if (bodyPart.potentialSymptoms.length > 0) {
+                symptomsForReport.push.apply(symptomsForReport, bodyPart.potentialSymptoms);
+            }
+        });
+
+        var diffDiagSubmission = {
+            "submittedFor": 0,
+            "symptomDetails": symptomsForReport
+        };
+
+        return $http.post("/examine/diffdiag", diffDiagSubmission);
+    };
+
+    var getReport = function(reportId) {
+        var resource = $resource(configService.apiUris.diagnosisReport + '/:id', { id: '@id' });
+        return resource.get({ id: reportId });
+    };
+
+    var getSymptoms = function(bodyPartId) {
+        var resource = $resource(configService.apiUris.potentialSymptoms + '/' + bodyPartId);
+        return resource.query();
+    };
+
+
+    return {
+        submitReport: submitReport,
+        getReport: getReport,
+        getSymptoms: getSymptoms
+    };
+
+}]);

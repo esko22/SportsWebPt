@@ -1,6 +1,5 @@
 ﻿angular.module('examine.report', [])
-    .controller('ExamineReportController', function ($scope, $state) {
-
+    .controller('ExamineReportController', ['$scope', '$state', function ($scope, $state) {
 
         $scope.potentialInjuries = $scope.report.potentialInjuries;
 
@@ -18,4 +17,18 @@
             $scope.plans = selectedInjury.plans;
             $scope.animationTag = selectedInjury.animationTag;
         };
-});
+    }])
+    .directive("examineReportInjuryListing", [function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            templateUrl: '/app/examine/report/tmpl.examine.report.injury.listing.htm'
+        };
+    }])
+    .directive("examineReportInjuryNav", [function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            templateUrl: '/app/examine/report/tmpl.examine.report.injury.nav.htm'
+        };
+    }]);

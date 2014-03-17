@@ -175,11 +175,15 @@
     <Content Include="app\examine\prtl.examine.htm" />
     <Content Include="app\examine\report\mod.examine.report.js" />
     <Content Include="app\examine\report\prtl.examine.report.htm" />
+    <Content Include="app\examine\report\tmpl.examine.report.injury.listing.htm" />
+    <Content Include="app\examine\report\tmpl.examine.report.injury.nav.htm" />
     <Content Include="app\examine\skeleton\mod.examine.skeleton.js" />
     <Content Include="app\examine\skeleton\prtl.examine.skeleton.htm" />
     <Content Include="app\examine\symptoms\mod.examine.symptoms.js" />
     <Content Include="app\examine\symptoms\prtl.examine.symptoms.htm" />
+    <Content Include="app\examine\symptoms\tmpl.report.progress.modal.htm" />
     <Content Include="app\examine\symptoms\tmpl.symptom.details.htm" />
+    <Content Include="app\examine\symptoms\tmpl.symptom.listing.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\drct.view.medica.js" />
     <Content Include="app\plugins\drct.youtbue.player.js" />
@@ -214,6 +218,11 @@
     <Content Include="app\splash\prtl.about.htm" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />
+    <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />
+    <Compile Include="Areas\Research\Models\ResearchInjuryViewModel.cs" />
+    <Compile Include="Areas\Research\Models\ResearchPlanViewModel.cs" />
+    <Compile Include="Areas\Research\Models\ResearchViewModel.cs" />
+    <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
     <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -240,6 +249,9 @@
     <Content Include="app\shared\tmpl.master.footer.htm" />
     <Content Include="app\shared\tmpl.master.header.htm" />
     <Content Include="app\splash\prtl.splash.htm" />
+    <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
+    <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
+    <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
@@ -279,11 +291,6 @@
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\AuthFormViewModel.cs" />
     <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
-    <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchInjuryViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchPlanViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchViewModel.cs" />
-    <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -658,6 +665,10 @@
     <Content Include="Scripts\libs\angular\angular-cookies.min.js.map" />
     <Content Include="Scripts\libs\angular\angular-animate.min.js.map" />
     <Content Include="Scripts\libs\angular\angular.min.js.map" />
+    <Content Include="Areas\Research\Views\Research\Exercise.cshtml" />
+    <Content Include="Areas\Research\Views\Research\Injury.cshtml" />
+    <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
+    <Content Include="Areas\Research\Views\Web.config" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />
@@ -692,11 +703,8 @@
     <Content Include="Content\kendo\kendo.blueopal.min.css" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.detail.js" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.report.js" />
-    <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.exercise.detail.js" />
-    <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.injury.detail.js" />
-    <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.plan.detail.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.injury.listing.js" />
     <Content Include="Scripts\viewmodels\research\vm.research.locate.js" />
@@ -812,19 +820,15 @@
     </Content>
     <Content Include="Views\Shared\_noAuthHeader.cshtml" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.skeleton.js" />
-    <Content Include="Areas\Research\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Index\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminEquipment.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminVideos.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminExercises.cshtml" />
-    <Content Include="Areas\Research\Views\Research\Exercise.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminPlans.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminSigns.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminInjuries.cshtml" />
     <Content Include="Areas\Admin\Views\Index\_adminCauses.cshtml" />
-    <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
-    <Content Include="Areas\Research\Views\Research\Injury.cshtml" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -1,15 +1,25 @@
 ﻿angular.module('examine.skeleton', [])
-    .controller('ExamineSkeletonController', function ($scope, examineSkeletonService, configService) {
-        $scope.maxSelectableAreas = configService.maxSelectableAreas;
+    .controller('ExamineSkeletonController', ['$scope', 'examineSkeletonService', 'configService',function ($scope, examineSkeletonService, configService) {
 
-        $scope.symptomaticRegions = configService.symptomaticRegions;
+        $scope.isLoading = true;
+
+
+        configService.symptomaticRegions.$promise.then(function(regions) {
+            $scope.symptomaticRegions = regions;
+            $scope.isLoading = false;
+        });
+
+
+        $scope.maxSelectableAreas = configService.maxSelectableAreas;
+         
         $scope.onSelectedRegion = examineSkeletonService.onSelectedRegion;
         $scope.areaMouseover = examineSkeletonService.areaMouseover;
         $scope.areaMouseout = examineSkeletonService.areaMouseout;
         $scope.formatBodyParts = examineSkeletonService.formatBodyParts;
         $scope.isSelected = examineSkeletonService.isSelected;
-    })
-    .factory('examineSkeletonService', function ($resource, $q, configService, notifierService) {
+
+    }])
+    .factory('examineSkeletonService', ['configService', 'notifierService', function (configService, notifierService) {
 
         var onSelectedRegion = function (region, selectedAreas) {
             if (selectedAreas.indexOf(region) == -1) {
@@ -64,5 +74,5 @@
             formatBodyParts: formatBodyParts,
             isSelected: isSelected
         };
-    }
+    }]
 );
