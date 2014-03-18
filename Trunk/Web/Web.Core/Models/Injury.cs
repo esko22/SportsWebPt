@@ -46,10 +46,6 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Treatment> treatments { get; set; }
 
-        public IEnumerable<Cause> lifestyleCauses { get; set; }
-
-        public IEnumerable<Cause> physiologicalCauses { get; set; }
-
         public String tags { get; set; }
 
         //TODO: hack.. these should be rolled up under another object..

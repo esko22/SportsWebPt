@@ -127,7 +127,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.RenderTemplate, opt => opt.MapFrom(s => s.Symptom.RenderType.DefaultTemplate))
                    .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.Symptom.Id));
             Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
-                   .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now));
+                .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now))
+                .ForMember(d => d.SymptomDetails,
+                    opt => opt.MapFrom(s => s.SymptomDetails.Where(p => !String.IsNullOrEmpty(p.GivenResponse))));
             Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
                    .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Id))
                    .ForMember(d => d.ReviewedOn, opt => opt.MapFrom(s => s.ReviewedOn))

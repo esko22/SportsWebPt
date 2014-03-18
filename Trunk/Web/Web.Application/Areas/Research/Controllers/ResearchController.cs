@@ -35,17 +35,20 @@ namespace SportsWebPt.Platform.Web.Application
 
         #region Methods
 
-        [GET("Research/plans/{Id}", IsAbsoluteUrl = true)]
-        public ActionResult GetPlan(string Id)
-        {
-            var planId = 0;
-            if (!String.IsNullOrEmpty(Id))
-                int.TryParse(Id, out planId);
+        //[GET("Research/plans/{Id}", IsAbsoluteUrl = true)]
+        //public ActionResult GetPlan(string Id)
+        //{
+        //    var planId = 0;
+        //    if (!String.IsNullOrEmpty(Id))
+        //        int.TryParse(Id, out planId);
 
-            var plan = _researchService.GetPlan(planId);
+        //    if (planId == 0)
+        //        return Plan(Id);
 
-            return Json(plan, JsonRequestBehavior.AllowGet);
-        }
+        //    var plan = _researchService.GetPlan(planId);
+
+        //    return Json(plan, JsonRequestBehavior.AllowGet);
+        //}
 
 
         [GET("Research/exercises/{pageName}", IsAbsoluteUrl = true)]

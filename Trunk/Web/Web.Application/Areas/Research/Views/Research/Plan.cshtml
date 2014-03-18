@@ -5,13 +5,12 @@
 }
 <input type="hidden" id="selected-plan" value="@Html.Raw(Json.Encode(Model.Plan))"/>
 
-<div>
+<div id="research-view" class="container">
     <h2><span class="header-icon"><i class="icon-sportswebpt-clipboard3"></i> Plan</span></h2>
-</div>
-
-<div class="container well" id="research-plan-page">
-    <!-- ko with: plan -->
-    @{ Html.RenderPartial("~/views/shared/_planDetail.cshtml"); }
-    <!-- /ko -->
+    <div class="container" id="research-plan-view" kendo-cloak="{{isLoading}}">
+        <research-nav-bar></research-nav-bar>
+        <plan-description></plan-description>
+        <plan-exercise-listing></plan-exercise-listing>
+    </div>
 </div>
 

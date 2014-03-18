@@ -7,11 +7,19 @@ angular.module('research.injury.detail', [])
             $scope.isLoading = true;
             $scope.animationTag = null;
 
-            injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
-                $scope.injury = injury;
-                navBarService.entityId = injury.id;
-                $scope.isLoading = false;
-            });
+            //TODO: move this out of controller
+            var injuryDump = $('#selected-injury').val();
+
+            if (injuryDump) {
+                $scope.injury = JSON.parse(injuryDump);
+                $scope.isLoading = true;
+            } else {
+                injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
+                    $scope.injury = injury;
+                    navBarService.entityId = injury.id;
+                    $scope.isLoading = false;
+                });
+            }
 
             navBarService.entityType = 'injuries';
             navBarService.returnUri = configService.returnUris.researchInjuries;
@@ -22,6 +30,25 @@ angular.module('research.injury.detail', [])
     .controller('InjuryDescriptionController', ['$scope', function ($scope) {
         $scope.hasAnimationTag = function () {
             return $scope.animationTag !== null;
+        };
+
+        $scope.treatmentSortFunc = function(treatment) {
+            switch (treatment.provider.toLowerCase()) {
+            case "self":
+                return 1;
+            case "physicaltherapist":
+                return 2;
+            case "messagetherapist":
+                return 3;
+            case "physican":
+                return 4;
+            case "surgeon":
+                return 5;
+            case "chiropracter":
+                return 6;
+            default:
+                return 99;
+            }
         };
 
         $scope.$watch('injury', function (injury) {

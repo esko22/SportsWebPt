@@ -68,7 +68,11 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<PotentialSymptomDto, PotentialSymptom>()
                   .ForMember(d => d.givenResponse, opt => opt.MapFrom(s => s.GivenResponse.Split(',')));
             Mapper.CreateMap<PotentialSymptom, PotentialSymptomDto>()
-                  .ForMember(d => d.GivenResponse, opt => opt.MapFrom(s => String.Join(",", s.givenResponse)));
+                .ForMember(d => d.GivenResponse, opt =>
+                {
+                    opt.Condition(s => s.givenResponse != null && s.givenResponse.Length > 0);
+                    opt.MapFrom(s => String.Join(",", s.givenResponse));
+                });
             Mapper.CreateMap<DifferentialDiagnosis, CreateDiagnosisReportRequest>()
                   .ForMember(d => d.SubmittedFor, opt => opt.MapFrom(s => s.submittedFor));
             Mapper.CreateMap<DiagnosisReportDto, DiagnosisReport>();
@@ -112,8 +116,6 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<InjuryDto, Injury>()
                   .ForMember(d => d.plans, opt => opt.MapFrom(s => s.Plans))
                   .ForMember(d => d.causes, opt => opt.MapFrom(s => s.Causes))
-                   .ForMember(d => d.lifestyleCauses, opt => opt.MapFrom(s => s.Causes.Where(p => p.Category == "Lifestyle")))
-                  .ForMember(d => d.physiologicalCauses, opt => opt.MapFrom(s => s.Causes.Where(p => p.Category == "Physiological")))
                   .ForMember(d => d.signs, opt => opt.MapFrom(s => s.Signs))
                   .ForMember(d => d.treatments, opt => opt.MapFrom(s => s.Treatments))
                   .ForMember(d => d.injuryPrognoses, opt => opt.MapFrom(s => s.InjuryPrognoses))

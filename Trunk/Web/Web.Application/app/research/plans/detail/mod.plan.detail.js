@@ -40,7 +40,7 @@ angular.module('research.plan.detail', [])
 
         $scope.$watch('plan', function (newVal) {
             if (newVal) {
-                if (newVal.exercises === null) {
+                if (newVal.exercises.length === 0) {
                     planDetailService.getPlan(newVal.id).
                         $promise.then(function (fetchedPlan) {
                             $scope.plan.exercises = fetchedPlan.exercises;
