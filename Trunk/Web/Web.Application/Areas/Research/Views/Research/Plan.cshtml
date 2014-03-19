@@ -1,16 +1,12 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ResearchPlanViewModel
 @{
-    Model.AreaBundles.Add("~/bundles/researchplanpage");
-    Layout = "~/Views/Shared/_masterLayout.cshtml";
+    Layout = "_researchStaticLayout.cshtml";
 }
 <input type="hidden" id="selected-plan" value="@Html.Raw(Json.Encode(Model.Plan))"/>
 
-<div id="research-view" class="container">
-    <h2><span class="header-icon"><i class="icon-sportswebpt-clipboard3"></i> Plan</span></h2>
-    <div class="container" id="research-plan-view" kendo-cloak="{{isLoading}}">
-        <research-nav-bar></research-nav-bar>
-        <plan-description></plan-description>
-        <plan-exercise-listing></plan-exercise-listing>
-    </div>
+<div class="container" id="research-plan-view" kendo-cloak="{{isLoading}}" ng-controller="PlanViewController">
+    <research-nav-bar></research-nav-bar>
+    <plan-description></plan-description>
+    <plan-exercise-listing></plan-exercise-listing>
 </div>
 

@@ -256,6 +256,8 @@
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
+    <Content Include="Content\theme\css\theme-style.min.css" />
+    <Content Include="Content\theme\plugins\animate\animate.css" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
     <Content Include="Scripts\libs\angular-ui\ui-router.js" />
@@ -283,9 +285,7 @@
     <Content Include="Scripts\shared\vm.about.page.js" />
     <Content Include="Scripts\shared\vm.contact.page.js" />
     <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.js" />
-    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.min.js" />
     <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.js" />
-    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.min.js" />
     <Content Include="Scripts\utils\youtube.video.manager.js" />
     <Content Include="Scripts\viewmodels\research\vm.injury.plan.display.js" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
@@ -376,8 +376,6 @@
     <Content Include="Content\theme\img\patterns\white_wall_hash.png" />
     <Content Include="Content\theme\img\patterns\white_wall_hash_%402X.png" />
     <Content Include="Content\theme\js\appstrap.script.js" />
-    <Content Include="Content\theme\plugins\animate\animate.css" />
-    <Content Include="Content\theme\plugins\animate\animate.min.css" />
     <Content Include="Content\theme\plugins\animate\source\bounce.css" />
     <Content Include="Content\theme\plugins\animate\source\bounceIn.css" />
     <Content Include="Content\theme\plugins\animate\source\bounceInDown.css" />
@@ -670,6 +668,7 @@
     <Content Include="Areas\Research\Views\Research\Injury.cshtml" />
     <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
     <Content Include="Areas\Research\Views\Web.config" />
+    <Content Include="Areas\Research\Views\Research\_researchStaticLayout.cshtml" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />

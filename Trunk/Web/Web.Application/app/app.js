@@ -1,8 +1,8 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine', 'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives'])
-    .config(function ($urlRouterProvider, $stateProvider) {
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine', 'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module'])
+    .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
         $stateProvider
             .state('user',
             {
@@ -197,18 +197,18 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 }
             });
         $urlRouterProvider.otherwise('/');
-    });
+    }]);
 
 
 var jQueryPluginModule = angular.module('jquery.plugin.module', []);
 
 
-swptApp.factory('$exceptionHandler', function (notifierService) {
+swptApp.factory('$exceptionHandler', ['notifierService', function (notifierService) {
     return function (exception) {
         notifierService.error(exception.message);
         console.log("exception handled: " + exception.message);
     };
-});
+}]);
 
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function (from, to) {
@@ -216,4 +216,5 @@ Array.prototype.remove = function (from, to) {
     this.length = from < 0 ? this.length + from : from;
     return this.push.apply(this, rest);
 };
+
 

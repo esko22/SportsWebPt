@@ -1,21 +1,14 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ResearchInjuryViewModel
 @{
-    Model.AreaBundles.Add("~/bundles/researchinjurypage");
-    Layout = "~/Views/Shared/_masterLayout.cshtml";
+    Layout = "_researchStaticLayout.cshtml";
 }
+
 <input type="hidden" id="selected-injury" value="@Html.Raw(Json.Encode(Model.Injury))"/>
 
-<master-header></master-header>
-
-<div>
-    <h2><span class="header-icon"><i class="icon-sportswebpt-medkit"></i> Injury</span></h2>
-</div>
 <div class="container" kendo-cloak="{{isLoading}}" id="research-injury-view" ng-controller="InjuryViewController">
     <research-nav-bar></research-nav-bar>
     <injury-description></injury-description>
     <injury-plan-listing></injury-plan-listing>
 </div>
-
-<master-footer></master-footer>
 
 

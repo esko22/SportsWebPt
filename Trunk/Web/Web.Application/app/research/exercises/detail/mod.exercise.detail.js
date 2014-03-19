@@ -3,21 +3,29 @@
 angular.module('research.exercise.detail', [])
     .controller('ExerciseViewController', [
         '$scope', '$stateParams', 'navBarService', 'configService', 'exerciseDetailService', function ($scope, $stateParams, navBarService, configService, exerciseDetailService) {
+            $scope.isLoading = true;
 
-            $scope.exercise = null;
+            //TODO: move this out of controller
+            var exerciseDump = $('#selected-exercise').val();
 
+            if (exerciseDump) {
+                onExerciseLoadComplete(JSON.parse(exerciseDump));
+            } else {
+                exerciseDetailService.getExercise($stateParams.exerciseId).$promise.then(function (exercise) {
+                    onExerciseLoadComplete(exercise);
+                });
+            }
 
-            exerciseDetailService.getExercise($stateParams.exerciseId).$promise.then(function (exercise) {
+            function onExerciseLoadComplete(exercise) {
                 $scope.exercise = exercise;
-                navBarService.entityId = exercise.id;
                 $scope.isLoading = false;
-            });
+                navBarService.entityId = exercise.id;
+            };
 
             navBarService.entityType = 'exercises';
             navBarService.returnUri = configService.returnUris.researchExercise;
 
             $scope.navBarService = navBarService;
-            $scope.isLoading = true;
         }
     ])
     .controller('ExerciseDescriptionController',[function () {

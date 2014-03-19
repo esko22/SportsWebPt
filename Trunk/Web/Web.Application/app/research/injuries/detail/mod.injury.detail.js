@@ -11,15 +11,18 @@ angular.module('research.injury.detail', [])
             var injuryDump = $('#selected-injury').val();
 
             if (injuryDump) {
-                $scope.injury = JSON.parse(injuryDump);
-                $scope.isLoading = true;
+                onInjuryLoadComplete(JSON.parse(injuryDump));
             } else {
                 injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
-                    $scope.injury = injury;
-                    navBarService.entityId = injury.id;
-                    $scope.isLoading = false;
+                    onInjuryLoadComplete(injury);
                 });
             }
+
+            function onInjuryLoadComplete(injury) {
+                $scope.injury = injury;
+                navBarService.entityId = injury.id;
+                $scope.isLoading = false;
+            };
 
             navBarService.entityType = 'injuries';
             navBarService.returnUri = configService.returnUris.researchInjuries;

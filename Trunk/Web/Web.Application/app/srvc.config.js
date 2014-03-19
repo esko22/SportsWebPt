@@ -1,5 +1,6 @@
-﻿swptApp.service('configService', function ($resource) {
+﻿var configModule = angular.module('config.module', []);
 
+configModule.service('configService', ['$resource','$location', function ($resource, $location) {
     var apiUris = {
         users: 'users',
         favorites: 'users/favorites',
@@ -55,10 +56,11 @@
     var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
     var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
 
-    var equipmentProxy = $resource(apiUris.briefEquipment);
-    var bodyRegionProxy = $resource(apiUris.bodyRegion);
-    var signFilterProxy = $resource(apiUris.signFilters);
-    var symptomaticRegionsProxy = $resource(apiUris.symptomaticRegions);
+    //needed to put the abs location because the static pages for research were not setting the path correctly
+    var equipmentProxy = $resource(window.location.origin + '/' + apiUris.briefEquipment);
+    var bodyRegionProxy = $resource(window.location.origin + '/' + apiUris.bodyRegion);
+    var signFilterProxy = $resource(window.location.origin + '/' + apiUris.signFilters);
+    var symptomaticRegionsProxy = $resource(window.location.origin + '/' + apiUris.symptomaticRegions);
 
     var equipment = equipmentProxy.query();
     var bodyRegions = bodyRegionProxy.query();
@@ -81,4 +83,4 @@
     };
 
 
-});
+}]);

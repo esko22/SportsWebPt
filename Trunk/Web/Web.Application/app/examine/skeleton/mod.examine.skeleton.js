@@ -1,5 +1,5 @@
 ﻿angular.module('examine.skeleton', [])
-    .controller('ExamineSkeletonController', ['$scope', 'examineSkeletonService', 'configService',function ($scope, examineSkeletonService, configService) {
+    .controller('ExamineSkeletonController', ['$scope', 'examineSkeletonService', 'configService', function ($scope, examineSkeletonService, configService) {
 
         $scope.isLoading = true;
 

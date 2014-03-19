@@ -1,17 +1,13 @@
 ﻿@model SportsWebPt.Platform.Web.Application.ResearchExerciseViewModel
 @{
-    Model.AreaBundles.Add("~/bundles/researchexercisepage");
-    Layout = "~/Views/Shared/_masterLayout.cshtml";
+    Layout = "_researchStaticLayout.cshtml";
 }
 <input type="hidden" id="selected-exercise" value="@Html.Raw(Json.Encode(Model.Exercise))"/>
 
-<div>
-    <h2><span class="header-icon"><i class="icon-sportswebpt-barbell"></i> Exercise</span></h2>
-</div>
 
-<div class="container well" id="research-exercise-page">
-    <!-- ko with: exercise -->
-    @{ Html.RenderPartial("~/views/shared/_exerciseDetail.cshtml"); }
-    <!-- /ko -->
+<div class="container" kendo-cloak="{{isLoading}}" id="research-exercise-view" ng-controller="ExerciseViewController">
+    <research-nav-bar></research-nav-bar>
+    <exercise-description></exercise-description>
+    <exercise-detail></exercise-detail>
 </div>
 

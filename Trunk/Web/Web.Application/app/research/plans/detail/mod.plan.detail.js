@@ -6,11 +6,22 @@ angular.module('research.plan.detail', [])
             $scope.isLoading = true;
             $scope.animationTag = null;
 
-            planDetailService.getPlan($stateParams.planId).$promise.then(function(plan) {
+            //TODO: move this out of controller
+            var planDump = $('#selected-plan').val();
+
+            if (planDump) {
+                onPlanLoadComplete(JSON.parse(planDump));
+            } else {
+                planDetailService.getPlan($stateParams.planId).$promise.then(function (plan) {
+                    onPlanLoadComplete(plan);
+                });
+            }
+
+            function onPlanLoadComplete(plan) {
                 $scope.plan = plan;
                 $scope.isLoading = false;
                 navBarService.entityId = plan.id;
-            });
+            };
 
             navBarService.entityType = 'plans';
             navBarService.returnUri = configService.returnUris.researchPlans;
