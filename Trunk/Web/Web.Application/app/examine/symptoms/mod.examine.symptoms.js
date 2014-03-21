@@ -43,7 +43,7 @@
                 angular.forEach(selectedArea.bodyParts, function(bodyPart) {
                     if (bodyPart.potentialSymptoms.length === 0) {
                         //TODO: ANGC HACK if really has no values... fetch keeps happing
-                        bodyPart.potentialSymptoms = examineSymptomsService.getSymptoms(bodyPart.id);
+                        bodyPart.potentialSymptoms = examineSymptomsService.getSymptoms(bodyPart.bodyPartMatrixId);
                     }
                 });
                 $scope.bodyParts = selectedArea.bodyParts;
