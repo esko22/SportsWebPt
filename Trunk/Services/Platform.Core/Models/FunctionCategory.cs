@@ -7,7 +7,7 @@ namespace SportsWebPt.Platform.Core.Models
         Rehabilitation = 1,
         Preventative = 2,
         Stretching = 3,
-        Strengthing = 4,
+        Strengthening = 4,
         Self_Massage = 5,
         Range_Of_Motion = 6,
         Spinal_Stabilization = 7,

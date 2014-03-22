@@ -1,7 +1,8 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine', 'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module'])
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine',
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard'])
     .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
         $stateProvider
             .state('user',
@@ -18,7 +19,10 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             {
                 url: "/dashboard",
                 views: {
-                    "core-app-view": { templateUrl: '/app/dashboard/prtl.dashboard.htm' }
+                    "core-app-view": {
+                        templateUrl: '/app/dashboard/prtl.user.dashboard.htm',
+                        controller: 'UserDashboardController'
+                    }
                 }
             })
             .state('admin',
@@ -153,7 +157,10 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             {
                 url: "/research/locations",
                 views: {
-                    "research-app-view": { templateUrl: '/app/research/prtl.research.locations.htm' }
+                    "research-app-view": {
+                        templateUrl: '/app/research/prtl.research.locations.htm',
+                        controller: 'ResearchLocateController'
+                    }
                 }
             })
             .state('public.research.exercises',
@@ -210,11 +217,19 @@ swptApp.factory('$exceptionHandler', ['notifierService', function (notifierServi
     };
 }]);
 
+
+
 // Array Remove - By John Resig (MIT Licensed)
 Array.prototype.remove = function (from, to) {
     var rest = this.slice((to || from) + 1 || this.length);
     this.length = from < 0 ? this.length + from : from;
     return this.push.apply(this, rest);
 };
+
+
+
+
+
+
 
 

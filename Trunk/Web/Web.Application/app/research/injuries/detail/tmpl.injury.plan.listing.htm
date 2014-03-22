@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="{{$index === 0}}" ng-repeat="plan in plans" track by $index>
+        <accordion-group is-open="{{$index === 0}}" ng-repeat="plan in plans | orderBy : planSortFunc" track by $index>
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-clipboard3"></i>

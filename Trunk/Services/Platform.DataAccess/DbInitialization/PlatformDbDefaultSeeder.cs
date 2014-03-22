@@ -525,17 +525,17 @@ namespace SportsWebPt.Platform.DataAccess
                             CommonName = "Foam Roller",
                             PriceRange = "10 - 50",
                             ProductInformation = "Foam House", 
-                            Category = FunctionCategory.Strengthing
+                            Category = FunctionCategory.Strengthening
                         },
                     new Equipment()
                         {
                             CommonName = "Theracane",
                             PriceRange = "20 - 60",
                             ProductInformation = "ActiveLife", 
-                            Category = FunctionCategory.Strengthing
+                            Category = FunctionCategory.Strengthening
                         },
-                    new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7", Category = FunctionCategory.Strengthing},
-                    new Equipment() {CommonName = "Wall", PriceRange = "0", Category = FunctionCategory.Strengthing}
+                    new Equipment() {CommonName = "Baseball", PriceRange = "2 - 7", Category = FunctionCategory.Strengthening},
+                    new Equipment() {CommonName = "Wall", PriceRange = "0", Category = FunctionCategory.Strengthening}
                 };
 
             equipmentList.ForEach(p => _dbContext.Equipment.Add(p));

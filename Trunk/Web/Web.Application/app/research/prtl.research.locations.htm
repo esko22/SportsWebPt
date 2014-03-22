@@ -3,29 +3,24 @@
     <hr class="examine-report-hr" />
     <div class="row">
         <div class="col-md-2">
-            <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" data-bind="value: zipcode" placeholder="Zipcode">
+            <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" ng-model="zipcode" placeholder="Zipcode">
         </div>
         <div class="col-md-3">
-            <button class="btn btn-primary" data-bind="click:onSearchSubmit">Search for Clinics</button>
+            <button class="btn btn-primary" ng-click="onSearchSubmit()">Search for Clinics</button>
         </div>
     </div>
     <div>
         <h3>Clinics</h3>
         <table class="table table-striped">
-            <tbody data-bind="foreach: clinics">
-                <tr>
-                    <td>
-                        <div>
-                            <h2><span data-bind="text: name"></span></h2>
-                            <img data-bind="attr: { src: image_url}" />
-                            <a data-bind="attr: { href:url}" target="_blank">Listing on Yelp.com</a>
-
-
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+            <tr ng-repeat="clinic in clinics">
+                <td>
+                    <div>
+                        <h2><span ng-bind="clinic.name"></span></h2>
+                        <img ng-src="{{clinic.image_url}}" />
+                        <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
+                    </div>
+                </td>
+            </tr>
         </table>
-
     </div>
 </div>

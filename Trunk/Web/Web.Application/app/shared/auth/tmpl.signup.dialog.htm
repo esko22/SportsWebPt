@@ -1,0 +1,31 @@
+﻿<section>
+    <form id="signUpFacebook">
+        <a class="login-facebook login-btn" ng-click="showOAuthProvider('facebook')"><i class="icon-sportswebpt-facebook login-icon"></i>Sign up using Facebook</a>
+    </form>
+    <form id="signUpGoogle">
+        <a class="login-google login-btn" ng-click="showOAuthProvider('google')"><i class="icon-sportswebpt-google-plus login-icon"></i>Sign up using Google</a>
+    </form>
+    <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
+    <form class="form-horizontal text-center" action="/createuser" method="POST" data-bind="validateForm: signUpValidationOptions" id="signUpSwpt">
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-user"></span>
+            <input class="form-control" id="username" name="username" type="text" placeholder="User Name">
+        </div>
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-envelope"></span>
+            <input class="form-control" id="signupEmail" name="signupEmail" type="text" placeholder="Email Address">
+        </div>
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-suitcase"></span>
+            <input class="form-control" id="signupPassword" name="signupPassword" type="password" placeholder="Password">
+        </div>
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-suitcase"></span>
+            <input class="form-control" id="retryPassword" equalto="#signupPassword" name="retryPassword" type="password" placeholder="Verify Password">
+        </div>
+        <div class="control-group text-center">
+            <input class="btn btn-default" type="submit" value="Sign up >>" />
+        </div>
+        <label id="errorDisplay"></label>
+    </form>
+</section>

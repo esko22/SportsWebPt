@@ -71,6 +71,33 @@ angular.module('research.injury.detail', [])
                 $scope.plans = $scope.injury.plans;
             }
         });
+
+        $scope.planSortFunc = function (plan) {
+            if (!plan.categories)
+                return 99;
+
+            switch (plan.categories[0].toLowerCase()) {
+                case "rehabilitation":
+                    return 1;
+                case "streching":
+                    return 2;
+                case "preventative":
+                    return 3;
+                case "strengthening":
+                    return 4;
+                case "spinal stabilization":
+                    return 5;
+                case "self massage":
+                    return 6;
+                case "range of motion":
+                    return 7;
+                case "balance":
+                    return 6;
+                default:
+                    return 99;
+            }
+        };
+
     }])
     .directive("injuryDescription", [function () {
         return {

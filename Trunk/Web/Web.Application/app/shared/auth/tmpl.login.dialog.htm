@@ -1,0 +1,23 @@
+﻿<section>
+    <form>
+        <a class="login-facebook login-btn" ng-click="showOAuthProvider('facebook')"><i class="icon-sportswebpt-facebook login-icon"></i>Log in using Facebook</a>
+    </form>
+    <form>
+        <a class="login-google login-btn" ng-click="showOAuthProvider('google')"><i class="icon-sportswebpt-google-plus login-icon"></i>Log in using Google</a>
+    </form>
+    <div class="top-border-header text-center"><strong>or using a SportsWebPt account</strong></div>
+    <form class="form-horizontal text-center" action="/login" method="POST" data-bind="validateForm: loginValidationOptions" id="loginSwpt">
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-envelope"></span>
+            <input class="form-control" id="loginEmail" name="loginEmail" type="text" placeholder="Email Address">
+        </div>
+        <div class="input-group form-group">
+            <span class="input-group-addon login-input icon-sportswebpt-suitcase"></span>
+            <input class="form-control" id="loginPassword" name="loginPassword" type="password" placeholder="Password">
+        </div>
+        <div class="control-group text-center">
+            <input class="btn btn-default" type="submit" value="Log in >>" />
+        </div>
+    </form>
+</section>
+

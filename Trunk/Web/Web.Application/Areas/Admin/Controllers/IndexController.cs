@@ -43,7 +43,10 @@ namespace SportsWebPt.Platform.Web.Admin
         public ActionResult Index()
         {
             var viewModel = CreateViewModel<AdminIndexViewModel>();
-
+            
+            if(!viewModel.User.isAdmin)
+                return new HttpNotFoundResult("Page Not Found");
+            
             return View(viewModel);
         }
 

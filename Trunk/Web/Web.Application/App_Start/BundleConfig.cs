@@ -121,19 +121,17 @@ namespace SportsWebPt.Platform.Web
                 ));
 
             bundles.Add(new StyleBundle("~/content/theme/css/appstrap").Include(
-                "~/Content/kendo/kendo.blueopal.min.css",
-                "~/Content/kendo/kendo.common.min.css",
                 "~/Content/theme/plugins/flexslider/flexslider.css",
+                "~/Content/theme/plugins/animate/animate.css",
                 "~/Content/theme/css/theme-style.css",
-                "~/Content/theme/css/swpt-colorway.css"
+                "~/Content/theme/css/swpt-colorway.css",
+                "~/Content/theme/plugins/clingify/clingify.css",
+                "~/Content/theme/css/font-awesome.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
-                "~/Content/theme/plugins/animate/animate.css",
-                "~/Content/theme/plugins/clingify/clingify.css",
                 "~/Content/icon-fonts.css",
-                "~/Content/theme/css/font-awesome.css",
                 "~/Content/toastr.css",
                 "~/Content/sportsweb-pt.css"
                             ));

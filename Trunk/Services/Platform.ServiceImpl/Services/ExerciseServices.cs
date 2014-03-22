@@ -56,13 +56,17 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Get(ExerciseRequest request)
         {
+            var exerciseQuery = ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
+            {
+                "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
+                "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart",
+                "ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
+            });
+
             var exercise = request.IdAsInt > 0
-                               ? ResearchUnitOfWork.ExerciseRepo.GetById(request.IdAsInt)
-                               : ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
-                    {
-                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
-                    }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+                ? exerciseQuery.FirstOrDefault(p => p.Id == request.IdAsInt)
+                : exerciseQuery.FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+
             return Ok(new ApiResponse<ExerciseDto>() {Response = Mapper.Map<ExerciseDto>(exercise)});
 
         }

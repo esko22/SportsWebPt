@@ -5,10 +5,12 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>SportsWebPT | Authentication</title>
+        @Styles.Render("~/content/kendo/bundle")
+        @Styles.Render("~/content/theme/css/appstrap")
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body>
+    <body ng-app="swptApp">
         @{Html.RenderPartial("~/Views/Shared/_noAuthHeader.cshtml"); }
 
         <div class="login-container" id="login-dialog">
@@ -22,23 +24,20 @@
                     </div>
                 }
             }
-            @{Html.RenderPartial("~/Views/Shared/_authDialogs.cshtml"); }
+            
+            <login-dialog></login-dialog>
         </div>
 
-        @{Html.RenderPartial("~/Views/Shared/_masterFooter.cshtml"); }
+        @{Html.RenderPartial("~/Views/Shared/_masterFooter-r.cshtml"); }
         @Html.AntiForgeryToken()
 
         @Scripts.Render(
-        
             "~/bundles/jquery",
-            "~/bundles/jsextlibs",
-            "~/Scripts/libs/require.js",
-            "~/bundles/baseapplib",
-            "~/bundles/sharedapplib",
-            "~/bundles/utils",
-            "~/bundles/models",
-            "~/Scripts/auth.form.main.js"               
-             )
-        @Scripts.Render(Model.AreaBundles.ToArray())
+            "~/bundles/jslibs"
+            )
+
+        @Scripts.Render(
+            "~/bundles/angular",
+            "~/bundles/angularApp")
     </body>
 </html>

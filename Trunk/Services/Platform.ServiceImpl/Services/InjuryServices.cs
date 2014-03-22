@@ -87,15 +87,17 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Get(InjuryRequest request)
         {
-            var injury = request.IdAsInt > 0
-                   ? ResearchUnitOfWork.InjuryRepo.GetById(request.IdAsInt)
-                   : ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+            var injuryQuery = ResearchUnitOfWork.InjuryRepo.GetAll(new[]
                     {
                         "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
                         "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause","InjuryTreatmentMatrixItems", "InjuryPrognosisMatrixItems", 
                         "InjuryPrognosisMatrixItems.Prognosis", "InjuryTreatmentMatrixItems.Treatment","InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
                         "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
-                    }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+                    });
+            
+            var injury = request.IdAsInt > 0
+                ? injuryQuery.FirstOrDefault(p => p.Id == request.IdAsInt)
+                : injuryQuery.FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<InjuryDto>() { Response = Mapper.Map<InjuryDto>(injury) });
         }

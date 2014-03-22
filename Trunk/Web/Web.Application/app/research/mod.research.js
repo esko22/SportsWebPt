@@ -17,6 +17,19 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
         '$scope', function ($scope) {
             
         }])
+    .controller('ResearchLocateController', [
+        '$scope', '$http', 'configService', function ($scope, $http, configService) {
+
+
+            $scope.zipcode = null;
+
+            $scope.onSearchSubmit = function () {
+                $http.get(configService.apiUris.clinics.replace('{zipcode}', $scope.zipcode)).then(function (result) {
+                    $scope.clinics = result.data;
+                });
+            };
+
+    }])
     .factory('navBarService', function () {
         
         var entityType = 'dsfdsf';

@@ -12,7 +12,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Fields
 
-        private readonly string[] _userIncludes = new[] { "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites" };
+        private readonly string[] _userIncludes = { "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites" };
 
         #endregion
 

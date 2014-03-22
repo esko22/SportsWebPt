@@ -171,6 +171,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\dashboard\prtl.user.dashboard.htm" />
+    <Content Include="app\dashboard\user.dashboard.module.js" />
     <Content Include="app\examine\mod.examine.js" />
     <Content Include="app\examine\prtl.examine.htm" />
     <Content Include="app\examine\report\mod.examine.report.js" />
@@ -212,6 +214,13 @@
     <Content Include="app\research\plans\mod.research.plans.js" />
     <Content Include="app\research\tmpl.research.nav.bar.htm" />
     <Content Include="app\research\mod.research.js" />
+    <Content Include="app\services\favorites.service.js" />
+    <Content Include="app\services\user.managment.service.js" />
+    <Content Include="app\shared\auth\auth.dialogs.js" />
+    <Content Include="app\shared\auth\tmpl.login.modal.htm" />
+    <Content Include="app\shared\auth\tmpl.login.dialog.htm" />
+    <Content Include="app\shared\auth\tmpl.signup.modal.htm" />
+    <Content Include="app\shared\auth\tmpl.signup.dialog.htm" />
     <Content Include="app\shared\shared.ui.js" />
     <Content Include="app\shared\symptoms\mod.symptom.controls.js" />
     <Content Include="app\research\exercises\detail\tmpl.equipment.list.modal.htm" />
@@ -889,7 +898,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\admin\" />
-    <Folder Include="app\dashboard\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\videos\" />
   </ItemGroup>
