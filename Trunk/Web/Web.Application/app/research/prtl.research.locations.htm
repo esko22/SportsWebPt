@@ -1,26 +1,27 @@
 ﻿<div id="research-locate-panel">
     <span class="research-header-icon"><i class="icon-sportswebpt-city-scape1"></i> Locate</span>
     <hr class="examine-report-hr" />
-    <div class="row">
-        <div class="col-md-2">
-            <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" ng-model="zipcode" placeholder="Zipcode">
+    <form name="locateClinics" novalidate rc-submit="onSearchSubmit()">
+        <div class="row">
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" ng-model="zipcode" placeholder="Zipcode">
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" type="submit">Search for Clinics</button>
+            </div>
         </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary" ng-click="onSearchSubmit()">Search for Clinics</button>
+        <div>
+            <h3>Clinics</h3>
+            <table class="table table-striped">
+                <tr ng-repeat="clinic in clinics">
+                    <td>
+                        <div>
+                            <h2><span ng-bind="clinic.name"></span></h2>
+                            <img ng-src="{{clinic.image_url}}" />
+                            <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
-    <div>
-        <h3>Clinics</h3>
-        <table class="table table-striped">
-            <tr ng-repeat="clinic in clinics">
-                <td>
-                    <div>
-                        <h2><span ng-bind="clinic.name"></span></h2>
-                        <img ng-src="{{clinic.image_url}}" />
-                        <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
 </div>

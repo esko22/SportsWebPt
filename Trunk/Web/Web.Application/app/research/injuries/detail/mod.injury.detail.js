@@ -24,7 +24,7 @@ angular.module('research.injury.detail', [])
                 $scope.isLoading = false;
             };
 
-            navBarService.entityType = 'injuries';
+            navBarService.entityType = 'injury';
             navBarService.returnUri = configService.returnUris.researchInjuries;
 
             $scope.navBarService = navBarService;

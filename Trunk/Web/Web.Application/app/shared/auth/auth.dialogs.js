@@ -21,8 +21,12 @@ authDialogModule.directive('signUpDialog', [function () {
 }]);
 
 authDialogModule.controller('LoginController', [
-    '$scope', 'returnUrlService', function ($scope, returnUrlService) {
+    '$scope', 'returnUrlService', '$http', function ($scope, returnUrlService, $http) {
         $scope.showOAuthProvider = returnUrlService.getOAuthUrl;
+
+        $scope.login = function () {
+            return true;
+        };
     }
 ]);
 

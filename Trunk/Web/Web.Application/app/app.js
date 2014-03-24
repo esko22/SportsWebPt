@@ -2,7 +2,7 @@
 
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard'])
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module'])
     .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
         $stateProvider
             .state('user',

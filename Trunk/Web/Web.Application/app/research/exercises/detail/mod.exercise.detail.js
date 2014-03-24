@@ -22,7 +22,7 @@ angular.module('research.exercise.detail', [])
                 navBarService.entityId = exercise.id;
             };
 
-            navBarService.entityType = 'exercises';
+            navBarService.entityType = 'exercise';
             navBarService.returnUri = configService.returnUris.researchExercise;
 
             $scope.navBarService = navBarService;

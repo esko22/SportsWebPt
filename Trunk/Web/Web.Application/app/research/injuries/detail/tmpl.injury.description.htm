@@ -48,16 +48,6 @@
         <div class="col-md-5">
             <h2 class="title-divider-research"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
             <div class="well-sm">
-                <div class="push-up-md" ng-show="functionalSigns.length > 0">
-                    <h4 class="title-divider-no-bar"><span>Difficulty <span class="de-em">While</span></span> <small></small></h4>
-                    <table class="table table-striped">
-                        <tbody>
-                            <tr ng-repeat="sign in functionalSigns = ( injury.signs |  filter: { category : 'functional'})">
-                                <td ng-bind="sign.description"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
                 <div class="push-up-md" ng-show="visualSigns.length > 0">
                     <h4 class="title-divider-no-bar"><span>Looks <span class="de-em">Like</span></span> <small></small></h4>
                     <table class="table table-striped">
@@ -73,6 +63,16 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr ng-repeat="sign in subjectiveSigns = ( injury.signs |  filter: { category : 'subjective'})">
+                                <td ng-bind="sign.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="push-up-md" ng-show="functionalSigns.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Difficulty <span class="de-em">While</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="sign in functionalSigns = ( injury.signs |  filter: { category : 'functional'})">
                                 <td ng-bind="sign.description"></td>
                             </tr>
                         </tbody>

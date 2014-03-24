@@ -2,15 +2,27 @@
 
 angular.module('research', ['research.exercises', 'research.plans', 'research.injuries'])
     .controller('ResarchNavBarController', [
-        '$scope', function ($scope) {
+        '$scope', '$http', 'notifierService', function ($scope, $http, notifierService) {
 
             $scope.entityType = $scope.navBarService.entityType;
             $scope.entityId = $scope.navBarService.entityId;
             $scope.returnUri = $scope.navBarService.returnUri;
 
-            $scope.addAsFavorite = function() {
-                alert($scope.entityType + $scope.entityId);
-                //favHelper.addEntityToFavorites(this.entityType(), this.entityId);
+            $scope.addAsFavorite = function () {
+                var messageKeys = {
+                    'entity': $scope.navBarService.entityType,
+                    'entityId': $scope.navBarService.entityId
+                };
+
+                $http.post("/users/favorites", messageKeys).
+                    success(function() {
+                        notifierService.notify('Favorite Added Successfully!');
+                    }).
+                    error(function() {
+                        notifierService.warn('Favorite Not Added. Please Try Again.');
+                });
+
+
             };
         }])
     .controller('ResearchController', [
@@ -32,9 +44,9 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
     }])
     .factory('navBarService', function () {
         
-        var entityType = 'dsfdsf';
+        var entityType = '';
         var entityId = 0;
-        var returnUri = 'testklk';
+        var returnUri = '';
 
         return {
             entityType: entityType,

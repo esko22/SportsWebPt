@@ -23,7 +23,7 @@ angular.module('research.plan.detail', [])
                 navBarService.entityId = plan.id;
             };
 
-            navBarService.entityType = 'plans';
+            navBarService.entityType = 'plan';
             navBarService.returnUri = configService.returnUris.researchPlans;
 
             $scope.navBarService = navBarService;

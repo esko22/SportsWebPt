@@ -259,6 +259,7 @@
     <Content Include="app\shared\tmpl.master.footer.htm" />
     <Content Include="app\shared\tmpl.master.header.htm" />
     <Content Include="app\splash\prtl.splash.htm" />
+    <Content Include="app\utils\util.module.js" />
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
