@@ -33,11 +33,6 @@
     z-index: 105000 !important;
 }*/
 
-#login-dialog .login-input {
-    height: 30px;
-    font-size: 20px;
-    padding-top: 6px;
-}
 
 .modal .modal-lg {
     width: 90%; /* respsonsive width */

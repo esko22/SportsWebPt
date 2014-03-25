@@ -102,6 +102,16 @@ namespace SportsWebPt.Platform.Web.Application
         [POST("CreateUser", IsAbsoluteUrl = true)]
         public ActionResult CreateNewUser(LoginCommand loginCommand)
         {
+
+            var user = _userManagementService.GetUser(loginCommand.signupEmail);
+
+            if (user != null)
+            {
+                TempData["authError"] = "Your email address is already in use.";
+                return Redirect(String.Format("/logon?ReturnUrl={0}", loginCommand.returnUrl));
+            }
+
+            
             //TODO: relying on client side validation right now
             var userId = _userManagementService.AddUser(new User()
             {
@@ -122,7 +132,7 @@ namespace SportsWebPt.Platform.Web.Application
         [POST("Login", IsAbsoluteUrl = true)]
         public ActionResult LoginSwptAccount(LoginCommand loginCommand)
         {
-            var user = _userManagementService.Auth(loginCommand.loginEmail, loginCommand.loginPassword);
+            var user = _userManagementService.Auth(loginCommand.userEmail, loginCommand.userPassword);
 
             if (user == null)
             {

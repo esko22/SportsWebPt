@@ -9,11 +9,11 @@ namespace SportsWebPt.Platform.Web.Application
     {
         #region Properties
 
-        public String loginEmail { get; set; }
+        public String userEmail { get; set; }
 
         public String username { get; set; }
 
-        public String loginPassword { get; set; }
+        public String userPassword { get; set; }
 
         public String signupPassword { get; set; }
 

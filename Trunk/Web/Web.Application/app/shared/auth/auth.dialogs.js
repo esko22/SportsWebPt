@@ -33,8 +33,35 @@ authDialogModule.controller('LoginController', [
 authDialogModule.controller('SignupController', [
     '$scope', 'returnUrlService', function ($scope, returnUrlService) {
         $scope.showOAuthProvider = returnUrlService.getOAuthUrl;
+
+        $scope.signUp = function () {
+            return true;
+        };
+
     }
 ]);
+
+
+authDialogModule.controller('AuthFormController', [
+    '$scope', function ($scope) {
+
+        $scope.showSignUp = false;
+        $scope.showLogin = true;
+
+        $scope.alreadyHaveAccount = function () {
+            $scope.showSignUp = false;
+            $scope.showLogin = true;
+        };
+
+        $scope.createAccount = function () {
+            $scope.showLogin = false;
+            $scope.showSignUp = true;
+        };
+
+
+    }
+]);
+
 
 authDialogModule.factory("returnUrlService", [
     function() {

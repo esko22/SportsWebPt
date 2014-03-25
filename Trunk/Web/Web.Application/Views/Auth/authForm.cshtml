@@ -10,10 +10,10 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
-    <body ng-app="swptApp">
+    <body ng-app="swptApp" ng-controller="AuthFormController">
         @{Html.RenderPartial("~/Views/Shared/_noAuthHeader.cshtml"); }
 
-        <div class="login-container" id="login-dialog">
+        <div class="login-container push-down-lg" id="login-dialog">
             @{
                 if (!String.IsNullOrEmpty(Model.oAuthError))
                 {
@@ -25,7 +25,23 @@
                 }
             }
             
-            <login-dialog></login-dialog>
+            <div ng-show="showLogin">
+                <login-dialog></login-dialog>
+                <div class="top-border-header text-center">
+                    <strong>
+                        <a ng-click="createAccount()">create account</a>
+                    </strong>
+                </div>
+            </div>
+
+            <div ng-show="showSignUp">
+                <sign-up-dialog></sign-up-dialog>
+                <div class="top-border-header text-center">
+                    <strong>
+                        <a ng-click="alreadyHaveAccount()">already have an account</a>
+                    </strong>
+                </div>
+            </div>
         </div>
 
         @{Html.RenderPartial("~/Views/Shared/_masterFooter-r.cshtml"); }

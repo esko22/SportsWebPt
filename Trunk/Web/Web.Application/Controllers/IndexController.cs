@@ -15,11 +15,5 @@ namespace SportsWebPt.Platform.Web.Application
             return View(CreateViewModel<IndexViewModel>());
         }
 
-        [GET("tester", IsAbsoluteUrl = true)]
-        public ActionResult Tester()
-        {
-            return View();
-        }
-
     }
 }

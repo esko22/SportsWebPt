@@ -1,27 +1,36 @@
 ﻿<div id="research-locate-panel">
     <span class="research-header-icon"><i class="icon-sportswebpt-city-scape1"></i> Locate</span>
     <hr class="examine-report-hr" />
-    <form name="locateClinics" novalidate rc-submit="onSearchSubmit()">
+    <form name="locateClinicForm" novalidate rc-submit="onSearchSubmit()">
         <div class="row">
-            <div class="col-md-2">
-                <input type="text" class="form-control" id="inputZipcode" name="commonZipcode" ng-model="zipcode" placeholder="Zipcode">
+            <div class="col-md-2 form-group" ng-class="{'has-error': rc.locateClinicForm.needsAttention(locateClinicForm.zipcode)}">
+                <input type="text" class="form-control" id="zipcode" name="zipcode" ng-model="zipcode" ng-pattern="/^[0-9]{1,5}$/" placeholder="Zipcode" required>
             </div>
             <div class="col-md-3">
                 <button class="btn btn-primary" type="submit">Search for Clinics</button>
             </div>
         </div>
         <div>
-            <h3>Clinics</h3>
-            <table class="table table-striped">
-                <tr ng-repeat="clinic in clinics">
-                    <td>
-                        <div>
-                            <h2><span ng-bind="clinic.name"></span></h2>
-                            <img ng-src="{{clinic.image_url}}" />
-                            <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <span class="help-block" ng-show="locateClinicForm.zipcode.$error.required  && rc.locateClinicForm.attempted">Zipcode Required</span>
+            <span class="help-block" ng-show="locateClinicForm.zipcode.$error.pattern  && rc.locateClinicForm.attempted">Not a valid zipcode</span>
         </div>
+    </form>
+
+    <div ng-show="clinics.length > 0">
+        <h3>Clinics</h3>
+        <table class="table table-striped">
+            <tr ng-repeat="clinic in clinics">
+                <td>
+                    <div>
+                        <h2><span ng-bind="clinic.name"></span></h2>
+                        <img ng-src="{{clinic.image_url}}" />
+                        <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div ng-show="clinics.length == 0 && rc.locateClinicForm.attempted">
+        <h4>Your search produced no results. Please try different criteria</h4>
+    </div>
 </div>
