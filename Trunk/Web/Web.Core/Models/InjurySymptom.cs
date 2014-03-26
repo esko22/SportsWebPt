@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String bodyPartMatrixItemName { get; set; }
 
+        public Boolean isRedFlag { get; set; }
+
         #endregion
     }
 }

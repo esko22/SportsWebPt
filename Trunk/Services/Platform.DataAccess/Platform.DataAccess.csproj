@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201402250435587_TreatmentDescType.Designer.cs">
       <DependentUpon>201402250435587_TreatmentDescType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403260243353_RedFlag.cs" />
+    <Compile Include="Migrations\201403260243353_RedFlag.Designer.cs">
+      <DependentUpon>201403260243353_RedFlag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402250435587_TreatmentDescType.resx">
       <DependentUpon>201402250435587_TreatmentDescType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403260243353_RedFlag.resx">
+      <DependentUpon>201403260243353_RedFlag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

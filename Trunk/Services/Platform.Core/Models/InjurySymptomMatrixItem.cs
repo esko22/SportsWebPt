@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String ComparisonValue { get; set; }
 
+        public Boolean IsRedFlag { get; set; }
+
         public virtual Injury Injury { get; set; }
 
         public virtual SymptomMatrixItem SymptomMatrixItem { get; set; }

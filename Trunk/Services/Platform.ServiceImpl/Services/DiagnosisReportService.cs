@@ -38,6 +38,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             {
                 var symptomCount = potentialInjury.InjurySymptomMatrixItems.Count;
                 var matchedSymptoms = new List<SymptomDetail>();
+                var hasRedFlag = false;
 
                 foreach (var symptomMatrixItem in potentialInjury.InjurySymptomMatrixItems)
                 {
@@ -54,28 +55,52 @@ namespace SportsWebPt.Platform.ServiceImpl
                     {
                         case SymptomResponseType.Exact:
                             if (Convert.ToInt32(givenSymptom.GivenResponse) == Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.EqualAndBelowThreshold:
                             if (Convert.ToInt32(givenSymptom.GivenResponse) <= Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.EqualAndAboveThreshold:
                             if (Convert.ToInt32(givenSymptom.GivenResponse) >= Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.BelowThreshold:
                             if (Convert.ToInt32(givenSymptom.GivenResponse) < Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.AboveThreshold:
                             if (Convert.ToInt32(givenSymptom.GivenResponse) > Convert.ToInt32(symptomMatrixItem.ComparisonValue))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.Any:
                             var anyValues = symptomMatrixItem.ComparisonValue.Split(',');
                             if (givenSymptom.GivenResponse.Split(',').Any(anyValues.Contains))
+                            {
                                 matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         case SymptomResponseType.All:
                             var allValues = symptomMatrixItem.ComparisonValue.Split(',');
@@ -84,7 +109,11 @@ namespace SportsWebPt.Platform.ServiceImpl
                                 if (!allValues.Contains(givenValue))
                                     break;
                             }
-                            matchedSymptoms.Add(givenSymptom);
+                            {
+                                matchedSymptoms.Add(givenSymptom);
+                                if (symptomMatrixItem.IsRedFlag)
+                                    hasRedFlag = true;
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -92,7 +121,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 }
 
                 var potentialInjuryDto = Mapper.Map<PotentialInjuryDto>(potentialInjury);
-                potentialInjuryDto.Likelyhood = matchedSymptoms.Count / (double)symptomCount;
+                potentialInjuryDto.Likelyhood = hasRedFlag ? 1.0 : matchedSymptoms.Count / (double)symptomCount;
                 var givenSymptoms = new List<PotentialSymptomDto>();
                 Mapper.Map(matchedSymptoms, givenSymptoms);
                 potentialInjuryDto.GivenSymptoms = givenSymptoms.ToArray();
@@ -107,7 +136,6 @@ namespace SportsWebPt.Platform.ServiceImpl
                 Response = diagnosisReportDto
             });
         }
-
 
         public object Post(CreateDiagnosisReportRequest request)
         {

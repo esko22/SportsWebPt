@@ -78,6 +78,7 @@
             //that are used in the symptom detail for the user to select
             //which is set
             symptom.set('givenResponse', 0);
+            symptom.set('isRedFlag', false);
             symptom.set('id', $.now());
             selectedInjury.get('injurySymptoms').add(symptom);
         },

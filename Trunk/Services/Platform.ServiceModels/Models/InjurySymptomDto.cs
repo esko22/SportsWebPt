@@ -8,6 +8,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String ComparisonValue { get; set; }
 
+        public Boolean IsRedFlag { get; set; }
+
         public Int32 BodyPartMatrixItemId { get; set; }
 
         public String BodyPartMatrixItemName { get; set; }
