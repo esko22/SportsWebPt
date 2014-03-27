@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="false" ng-repeat="exercise in filtered = ( exercises | filter:{ categories: selectedCategory, bodyRegions: selectedBodyRegion, equipment : selectedEquipment }) ">
+        <accordion-group is-open="false" ng-repeat="exercise in filteredExercises | startFrom:firstItemPosition | limitTo:pageSize">
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-barbell"></i>
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </accordion-group>
-        <div ng-hide="filtered.length !== 0">
+        <div ng-hide="filteredExercises.length !== 0">
             <div class="push-down-lg text-center">
                 <h3>No Results Found</h3>
             </div>
@@ -54,5 +54,19 @@
             </div>
         </div>
     </accordion>
-
+    <div>
+        <div class="pull-left">
+            Showing
+            {{firstItemPosition}}
+            to
+            {{lastItemPosition}}
+            of
+            {{filteredExercises.length}}
+        </div>
+        <div class="pull-right">
+            <pagination page="currentPage" total-items="filteredExercises.length" items-per-page="pageSize" max-size="5"
+                        on-select-page="onPageChanged(page)">
+            </pagination>
+        </div>
+    </div>
 </div>

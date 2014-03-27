@@ -1,0 +1,18 @@
+﻿'use strict';
+
+var filterModule = angular.module('common.filters', []);
+
+// For use with the built-in limitTo filter to accomplish paging.
+// Expects the start position as a 1-based number.
+// TODO: this filter fires multiple times when applying to an ng-repeat, need to figure out a workaround...
+// http://www.bennadel.com/blog/2489-How-Often-Do-Filters-Execute-In-AngularJS.htm
+filterModule.filter('startFrom', function () {
+    return function (input, startPosition) {
+        startPosition = startPosition - 1;  //convert to 0-based index
+        if (!input) {
+            return 0;
+        }
+
+        return input.slice(startPosition);
+    };
+});
