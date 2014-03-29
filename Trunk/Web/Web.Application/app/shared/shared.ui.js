@@ -19,6 +19,14 @@ sharedUi.directive('masterHeader', [function() {
     };
 }]);
 
+sharedUi.directive('modalHeader', [ function () {
+    return {
+        restrict: 'A',
+        replace: 'true',
+        template: '<div class="modal-header"><button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button><img class="modal-logo" src="../../Content/images/logoFooter.png" /></div>'
+    };
+}]);
+
 
 sharedUi.controller('HeaderController', [
     '$scope', '$modal', 'userManagementService', function ($scope, $modal, userManagementService) {

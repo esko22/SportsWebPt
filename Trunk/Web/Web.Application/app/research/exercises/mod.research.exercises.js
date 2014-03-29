@@ -14,7 +14,7 @@ angular.module('research.exercises', ['research.exercise.detail'])
         $scope.selectedEquipment = "";
 
         // Paging controls
-        $scope.pageSize = 2;
+        $scope.pageSize = 20;
         $scope.currentPage = 1;
         $scope.firstItemPosition = 1;
         $scope.lastItemPosition = $scope.pageSize;

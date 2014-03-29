@@ -55,7 +55,7 @@
         </div>
     </accordion>
     <div>
-        <div class="pull-right">
+        <div class="pull-right" ng-show="filteredExercises.length > 0">
             <pagination page="currentPage" total-items="filteredExercises.length" items-per-page="pageSize" max-size="5"
                         on-select-page="onPageChanged(page)">
             </pagination>

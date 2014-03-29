@@ -25,6 +25,10 @@
     height: 60px;
 }
 
+.modal-logo {
+    height: 40px;
+}
+
 .body-content {
     min-height: 350px;
 }
@@ -887,7 +891,7 @@ a:focus {
 }
 
 .push-down-md {
-    margin-top: 20px; 
+    margin-top: 24px; 
 }
 
 .push-down-lg {

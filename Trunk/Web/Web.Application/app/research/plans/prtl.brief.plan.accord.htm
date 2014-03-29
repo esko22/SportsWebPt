@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="false" ng-repeat="plan in filtered = ( plans | filter:{ categories: selectedCategory, bodyRegions: selectedBodyRegion })">
+        <accordion-group is-open="false" ng-repeat="plan in filteredPlans | startFrom:firstItemPosition | limitTo:pageSize">
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-clipboard3"></i>
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </accordion-group>
-        <div ng-hide="filtered.length !== 0">
+        <div ng-hide="filteredPlans.length !== 0">
             <div class="push-down-lg text-center">
                 <h3>No Results Found</h3>
             </div>
@@ -40,4 +40,11 @@
             </div>
         </div>
     </accordion>
+    <div>
+        <div class="pull-right" ng-show="filteredPlans.length > 0">
+            <pagination page="currentPage" total-items="filteredPlans.length" items-per-page="pageSize" max-size="5"
+                        on-select-page="onPageChanged(page)">
+            </pagination>
+        </div>
+    </div>
 </div>
