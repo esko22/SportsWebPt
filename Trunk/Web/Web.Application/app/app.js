@@ -3,7 +3,7 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module', 'common.filters'])
-    .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
+    .config(['$urlRouterProvider', '$stateProvider','$httpProvider','$provide', function ($urlRouterProvider, $stateProvider, $httpProvider, $provide) {
         $stateProvider
             .state('user',
             {
@@ -204,6 +204,41 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 }
             });
         $urlRouterProvider.otherwise('/');
+
+
+        //$httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
+        //    return {
+        //        'responseError': function(response) {
+        //            if (response.status === 401 || response.status === 403) {
+        //                $location.path('/login');
+        //                return $q.reject(response);
+        //            } else {
+        //                return $q.reject(response);
+        //            }
+        //        }
+        //    };
+        //}]);
+
+        // This is for using $rootScope.$emit and $scope.$on as a global event bus.
+        // Creates an $onRootScope method that you can call from a local $scope to bind to events.
+        // This will automatically take care of destroying the event binding if the $scope is destroyed.
+        // See: http://stackoverflow.com/a/19498009
+
+        $provide.decorator('$rootScope', [
+            '$delegate', function ($delegate) {
+
+                Object.defineProperty($delegate.constructor.prototype, '$onRootScope', {
+                    value: function (name, listener) {
+                        var unsubscribe = $delegate.$on(name, listener);
+                        this.$on('$destroy', unsubscribe);
+                    },
+                    enumerable: false
+                });
+
+                return $delegate;
+            }
+        ]);
+
     }]);
 
 
@@ -216,6 +251,7 @@ swptApp.factory('$exceptionHandler', ['notifierService', function (notifierServi
         console.log("exception handled: " + exception.message);
     };
 }]);
+
 
 
 

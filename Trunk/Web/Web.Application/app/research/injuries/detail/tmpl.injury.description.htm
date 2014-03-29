@@ -91,7 +91,7 @@
     </div>
     <div class="row">
         <div class="col-md-7">
-            <span ng-bind-html="injury.recovery"></span>
+            <span ng-bind-html="injury.recovery | unsafe"></span>
         </div>
         <div class="col-md-5">
             <table class="table table-striped">
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="recovery-plans">
         <div class="col-md-12">
             <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
         </div>

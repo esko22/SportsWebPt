@@ -60,6 +60,11 @@ sharedUi.controller('HeaderController', [
                 $scope.currentUser = user;
             });
         }
+
+        $scope.$onRootScope('signup-dialog-prompt', function() {
+            $scope.showSignUp();
+        });
+
     }
 ]);
 

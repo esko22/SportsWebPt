@@ -18,8 +18,9 @@ angular.module('research.exercise.detail', [])
 
             function onExerciseLoadComplete(exercise) {
                 $scope.exercise = exercise;
-                $scope.isLoading = false;
                 navBarService.entityId = exercise.id;
+                $scope.isFavorite = navBarService.isFavorite();
+                $scope.isLoading = false;
             };
 
             navBarService.entityType = 'exercise';

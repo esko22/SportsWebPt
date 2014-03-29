@@ -55,14 +55,6 @@
         </div>
     </accordion>
     <div>
-        <div class="pull-left">
-            Showing
-            {{firstItemPosition}}
-            to
-            {{lastItemPosition}}
-            of
-            {{filteredExercises.length}}
-        </div>
         <div class="pull-right">
             <pagination page="currentPage" total-items="filteredExercises.length" items-per-page="pageSize" max-size="5"
                         on-select-page="onPageChanged(page)">

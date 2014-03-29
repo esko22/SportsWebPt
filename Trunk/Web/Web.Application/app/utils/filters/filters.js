@@ -16,3 +16,9 @@ filterModule.filter('startFrom', function () {
         return input.slice(startPosition);
     };
 });
+
+filterModule.filter('unsafe', function ($sce) {
+    return function (val) {
+        return $sce.trustAsHtml(val);
+    };
+});

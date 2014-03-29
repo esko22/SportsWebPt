@@ -21,6 +21,7 @@ angular.module('research.injury.detail', [])
             function onInjuryLoadComplete(injury) {
                 $scope.injury = injury;
                 navBarService.entityId = injury.id;
+                $scope.isFavorite = navBarService.isFavorite();
                 $scope.isLoading = false;
             };
 

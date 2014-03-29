@@ -1,6 +1,6 @@
 ﻿<div class="row well research-nav-bar">
     <div class="col-md-2">
-        <a ng-href="{{returnUri}}" class="return-navigation-icon" title="Back"><i class="icon-sportswebpt-chevron-left"></i><i class="icon-sportswebpt-chevron-left"></i> Back to {{entityType}}</a>
+        <a ng-href="{{navBarService.returnUri}}" class="return-navigation-icon" title="Back"><i class="icon-sportswebpt-chevron-left"></i><i class="icon-sportswebpt-chevron-left"></i> Back to {{navBarService.entityType}}</a>
     </div>
     <div class="col-md-4 col-md-offset-6 pull-right">
         <div addthis-toolbox class="addthis_toolbox addthis_default_style addthis_32x32_style">
@@ -9,7 +9,7 @@
             <a class="addthis_button_twitter"></a>
             <a class="addthis_button_compact"></a>
             <a class="addthis_counter addthis_bubble_style"></a>
-            <a ng-click="addAsFavorite()" title="Add this to your favorites" class="favorite-icon" style="margin-left: 10px"><i class="icon-sportswebpt-heart"></i></a>
+            <a ng-click="addAsFavorite()" title="Add this to your personal dashboard" class="favorite-icon" ng-hide="isFavorite" style="margin-left: 10px"><i class="icon-sportswebpt-heart"></i></a>
         </div>
     </div>
 </div>

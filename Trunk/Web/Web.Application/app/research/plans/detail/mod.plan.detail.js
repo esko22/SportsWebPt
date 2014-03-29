@@ -19,8 +19,9 @@ angular.module('research.plan.detail', [])
 
             function onPlanLoadComplete(plan) {
                 $scope.plan = plan;
-                $scope.isLoading = false;
                 navBarService.entityId = plan.id;
+                $scope.isFavorite = navBarService.isFavorite();
+                $scope.isLoading = false;
             };
 
             navBarService.entityType = 'plan';

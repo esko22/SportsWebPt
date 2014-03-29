@@ -755,6 +755,20 @@ div .k-window {
 
 /* BOOTSTRAP AUGMENTS*/
 
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  color: #ffffff;
+  cursor: default;
+  background-color: #333333;
+  border-color: #404040;
+}
+
+
 .top-border-header {
     padding-top: 5px;
     margin: 21px 0 20px;
@@ -763,7 +777,7 @@ div .k-window {
 
 .modal-header {
   border-bottom: 1px solid #eee;
-  background-color: #272b30;
+  background-color: #333333;
 }
 
 .modal-header h2, .modal-header h3, .modal-header h4, .modal-header h5{
