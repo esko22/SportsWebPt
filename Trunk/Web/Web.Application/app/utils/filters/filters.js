@@ -17,8 +17,8 @@ filterModule.filter('startFrom', function () {
     };
 });
 
-filterModule.filter('unsafe', function ($sce) {
+filterModule.filter('unsafe', ['$sce', function ($sce) {
     return function (val) {
         return $sce.trustAsHtml(val);
     };
-});
+}]);

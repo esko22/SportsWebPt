@@ -267,7 +267,6 @@
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
-    <Content Include="Content\theme\css\theme-style.min.css" />
     <Content Include="Content\theme\plugins\animate\animate.css" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
@@ -363,8 +362,6 @@
     <Content Include="Content\kendo\textures\transparency.png" />
     <Content Include="Content\kendo\textures\transtexture.png" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\theme\css\colour-blue.css" />
-    <Content Include="Content\theme\css\colour-red.css" />
     <Content Include="Content\theme\css\swpt-colorway.css" />
     <Content Include="Content\theme\css\custom-style.css" />
     <Content Include="Content\theme\css\font-awesome.css" />

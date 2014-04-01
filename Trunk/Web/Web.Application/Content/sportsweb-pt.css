@@ -806,7 +806,15 @@ a:focus {
   background-color: #404040;
 }
 
+.menu-drop > a:hover,
+.menu-drop > a:focus {
+  text-decoration: none !important;
+  background-color: #333333 !important;
+}
 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #333333;
+}
 
 .alert {
   padding: 8px 35px 8px 14px;
@@ -891,7 +899,7 @@ a:focus {
 }
 
 .push-down-md {
-    margin-top: 24px; 
+    margin-top: 20px; 
 }
 
 .push-down-lg {

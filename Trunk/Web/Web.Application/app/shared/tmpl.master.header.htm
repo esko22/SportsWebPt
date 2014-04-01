@@ -31,43 +31,39 @@
                 <div class="btn-group user-menu pull-right" ng-show="!isAuthenticated">
                     <a class="btn btn-primary signup" ng-click="showSignUp()">Sign Up</a> <a href="#login-modal" class="btn btn-primary dropdown-toggle login" ng-click="showLogin()">Login</a>
                 </div>
-                
-                <div class="pull-right" style="padding-right: 10px" ng-show="isAuthenticated">
-                    <ul class="nav navbar-nav">
-                        <li ng-show="isAuthenticated">
-                            <a class="dropdown-toggle menu-item" data-toggle="dropdown" data-target="#accountMenu">
-                                <span class="nav-icon"><i class="icon-sportswebpt-caret-down" style="padding-right: 10px;"></i><span ng-bind="currentUser.emailAddress"></span></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/#/dashboard">My Dashboard</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/logout">Log Out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                
 
                 <!--everything within this div is collapsed on mobile-->
                 <div class="navbar-collapse collapse">
-
-                    <!--main navigation-->
-                    <ul class="nav navbar-nav">
-                        <li class="home-link"><a href="/"><img id="menu-logo" src="../../Content/images/logoMenu.png" class="menu-logo" /></a></li>
-                        <li><a href="/#/examine" class="menu-item"><span class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></li>
-                        <li><a href="/#/research" class="menu-item"><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Research</span></a></li>
-                        <li><a href="/#/research/locations" class="menu-item"><span class="nav-icon"><i class="icon-sportswebpt-city-scape1"></i> Locate</span></a></li>
-                        <!--<li><a href="/#/research" class="menu-item"><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Blog</span></a></li>-->
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!--main navigation-->
+                            <ul class="nav navbar-nav">
+                                <li class="home-link"><a href="/"><img id="menu-logo" src="../../Content/images/logoMenu.png" class="menu-logo" /></a></li>
+                                <li><a href="/#/examine" ><span class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></li>
+                                <li><a href="/#/research" ><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Research</span></a></li>
+                                <li><a href="/#/research/locations" ><span class="nav-icon"><i class="icon-sportswebpt-city-scape1"></i> Locate</span></a></li>
+                                <!--<li><a href="/#/research" class="menu-item"><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Blog</span></a></li>-->
+                            </ul>
+                        </div>
+                        <div class="col-md-3 pull-right">
+                            <ul class="nav navbar-nav" ng-show="isAuthenticated">
+                                <li style="min-width: 200px" class="menu-drop">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#accountMenu">
+                                        <span class="nav-icon"><i class="icon-sportswebpt-caret-down"></i>&nbsp;<span ng-bind="currentUser.emailAddress"></span></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/#/dashboard">My Dashboard</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/logout">Log Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
-
 </div>
 
 
