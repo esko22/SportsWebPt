@@ -3,27 +3,14 @@
     Layout = "_errorLayout.cshtml";
     ViewBag.Title = "404 Page Not Found";
 }
-<div class="push-down-lg">
-    <div class="text-center well">
-        <h3>404 - Page Not Found</h3>
-        <div>
-            <img class="image-box" src="~/Content/images/comb404.gif" />
-        </div>
-        <h4 class="push-down-md">We looked for the page you requested... but we can't find !%#$!</h4>
+
+<div class="well push-down-lg text-center">
+    <h3><b> We looked for the page you requested... but we can't find !%#$!</b></h3>
+    <div class="text-warning">
+        404 - Page Not Found
     </div>
-    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
-    {
-        <div>
-            <p>
-                <b>Exception:</b> @Model.Exception.Message<br />
-                <b>Controller:</b> @Model.ControllerName<br />
-                <b>Action:</b> @Model.ActionName
-            </p>
-            <div style="overflow:scroll">
-                <pre>
-@Model.Exception.StackTrace
-                </pre>
-            </div>
-        </div>
-    }
+    <div class="push-down-md">
+        <img class="image-box" src="~/Content/images/comb404.gif" />
+    </div>
 </div>
+

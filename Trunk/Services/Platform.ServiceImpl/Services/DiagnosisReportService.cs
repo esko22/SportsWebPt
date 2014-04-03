@@ -104,16 +104,14 @@ namespace SportsWebPt.Platform.ServiceImpl
                             break;
                         case SymptomResponseType.All:
                             var allValues = symptomMatrixItem.ComparisonValue.Split(',');
-                            foreach (var givenValue in givenSymptom.GivenResponse.Split(','))
-                            {
-                                if (!allValues.Contains(givenValue))
-                                    break;
-                            }
-                            {
+                            var hasAllValues = givenSymptom.GivenResponse.Split(',').All(allValues.Contains);
+
+                            if (hasAllValues){
                                 matchedSymptoms.Add(givenSymptom);
                                 if (symptomMatrixItem.IsRedFlag)
                                     hasRedFlag = true;
                             }
+
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

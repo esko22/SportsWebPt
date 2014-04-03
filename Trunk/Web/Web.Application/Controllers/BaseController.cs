@@ -47,7 +47,14 @@ namespace SportsWebPt.Platform.Web.Application
             where T : BaseViewModel, new()
         {
             return CreateViewModel<T>(false);
-        } 
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            //TODO: still need to work this out...
+            base.OnException(filterContext);
+        }
+
 
         private User GetUser()
         {

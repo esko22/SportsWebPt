@@ -29,7 +29,6 @@ namespace SportsWebPt.Platform.Web.Application
         public ActionResult Index()
         {
             _logger.Error("500 Unhandled Returned", new ApplicationException("Unknow Server Error"));
-            Response.StatusCode = 200;  
             return View("Unhandled");
         }
     }

@@ -7,7 +7,7 @@ namespace SportsWebPt.Platform.Web.Application
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new AjaxHandleErrorAttribute { View = "Error/Unhandled" });
+            filters.Add(new AjaxHandleErrorAttribute { View = "Unhandled" });
         }
     }
 }

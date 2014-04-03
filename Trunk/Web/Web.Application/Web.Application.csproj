@@ -802,7 +802,6 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Scripts\viewmodels\examine\vm.examine.page.js" />
     <Content Include="Scripts\app\master\router.js" />
     <Content Include="Scripts\shared\shared.binder.js" />

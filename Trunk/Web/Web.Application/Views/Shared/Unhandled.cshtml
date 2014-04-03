@@ -4,28 +4,39 @@
     ViewBag.Title = "500 Unhandled Error";
 }
 
-<div class="push-down-lg">
-    <div class="well text-center">
-        <h3>Internal Server Error - 500</h3>
-        <div class="push-down-md">
-            <img class="image-box" src="~/Content/images/jamed.gif" />
-        </div>
-        <h4 class="push-down-lg">Looks like we got our radar jammed. We apologize for the mishap.</h4>
-        <h5>If the problem persists please contact our support team.</h5>
+
+<div class="well push-down-lg text-center">
+    <h3><b>Looks like we got our radar jammed with an unexpected error.</b></h3>
+    <div class="text-warning">
+        We apologize for the mishap. If the problem persists please contact our support team.
     </div>
+    
+    
     @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
     {
-        <div>
-            <p>
-                <b>Exception:</b> @Model.Exception.Message<br />
-                <b>Controller:</b> @Model.ControllerName<br />
-                <b>Action:</b> @Model.ActionName
-            </p>
-            <div style="overflow:scroll">
-                <pre>
-@Model.Exception.StackTrace
-                </pre>
+        <div class="push-down-md">
+            <div>
+                <b>Exception: </b>@Model.Exception.Message<br />
+                <b>Controller: </b>@Model.ControllerName<br />
+                <b>Action: </b>@Model.ActionName
+            </div>
+            <h4><b>Stack Trace</b></h4>
+            @*
+                The <pre> tag defines preformatted text and preserves spaces and line breaks. Keep this all one line or
+                you will get extra whitespace
+            *@
+            <pre class=".pre-scrollable">@Model.Exception.StackTrace</pre>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <div class="push-down-md">
+                <img class="image-box" src="~/Content/images/jamed.gif" />
             </div>
         </div>
     }
 </div>
+    
+    
+

@@ -205,6 +205,9 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             });
         $urlRouterProvider.otherwise('/');
 
+        //NOTE: this may impact CORS requests, but we should not have any
+        //https://github.com/angular/angular.js/commit/3a75b1124d062f64093a90b26630938558909e8d
+        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
         //$httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
         //    return {
