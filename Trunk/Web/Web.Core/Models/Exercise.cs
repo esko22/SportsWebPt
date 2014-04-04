@@ -24,6 +24,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<string> categories { get; set; }
 
+        public String structuresInvolved { get; set; }
+
         #endregion
     }
 

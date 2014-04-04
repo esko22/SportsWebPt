@@ -22,9 +22,27 @@
             <tr ng-repeat="clinic in clinics">
                 <td>
                     <div>
-                        <h2><span ng-bind="clinic.name"></span></h2>
-                        <img ng-src="{{clinic.image_url}}" />
-                        <a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a>
+                        <h4><span ng-bind="clinic.name"></span></h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <address>
+                                    <table>
+                                        <tr>
+                                            <td><abbr title="Phone"><i class="fa fa-phone"></i></abbr> </td>
+                                            <td><span ng-bind="clinic.display_phone"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><abbr title="Address"><i class="fa fa-home"></i></abbr></td>
+                                            <td><div ng-repeat="addyLine in clinic.location.display_address">{{addyLine}}</div></td>
+                                        </tr>
+                                    </table>
+                                </address>
+                            </div>
+                            <div class="col-md-6">
+                                <div><img ng-src="{{clinic.image_url}}" /></div>
+                                <div><a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a></div>
+                            </div>
+                        </div>
                     </div>
                 </td>
             </tr>

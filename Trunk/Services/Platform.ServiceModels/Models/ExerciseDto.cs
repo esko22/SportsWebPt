@@ -22,6 +22,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String PageName { get; set; }
 
+        public String StructuresInvolved { get; set; }
+
         #endregion
         
     }

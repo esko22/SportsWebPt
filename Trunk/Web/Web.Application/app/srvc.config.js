@@ -67,7 +67,7 @@ configModule.service('configService', ['$resource','$location', function ($resou
     var signFilters = signFilterProxy.query();
     var symptomaticRegions = symptomaticRegionsProxy.query();
     var maxSelectableAreas = 2;
-    var likelyHoodThresholds = { high: .80, medium: .40 };
+    var likelyHoodThresholds = { high: .75, medium: .20 };
 
     return {
         apiUris: apiUris,

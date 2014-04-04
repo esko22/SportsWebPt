@@ -115,6 +115,10 @@
     <Compile Include="Migrations\201403260243353_RedFlag.Designer.cs">
       <DependentUpon>201403260243353_RedFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404040556326_Exercise-Structures.cs" />
+    <Compile Include="Migrations\201404040556326_Exercise-Structures.Designer.cs">
+      <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -169,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403260243353_RedFlag.resx">
       <DependentUpon>201403260243353_RedFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404040556326_Exercise-Structures.resx">
+      <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

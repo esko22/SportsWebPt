@@ -19,6 +19,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Tags { get; set; }
 
+        public String StructuresInvolved { get; set; }
+
         public int Duration { get; set; }
 
         public int Sets { get; set; }

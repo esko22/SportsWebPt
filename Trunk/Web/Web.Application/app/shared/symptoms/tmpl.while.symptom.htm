@@ -1,0 +1,7 @@
+﻿<div>
+    <label style="padding-right: 10px; " ng-repeat="whileItem in whileItems">
+        <input type="checkbox" name="selectedWhileItems[]" value="{{whileItem.value}}"
+                ng-checked="givenResponse.indexOf(whileItem.value) > -1"
+                ng-click="toggleSelection(whileItem)"> {{whileItem.name}}
+    </label>
+</div>

@@ -21,6 +21,11 @@ angular.module('research.exercise.detail', [])
                 navBarService.entityId = exercise.id;
                 $scope.isFavorite = navBarService.isFavorite();
                 $scope.isLoading = false;
+
+                if ($scope.exercise.structuresInvolved) {
+                    $scope.structuresInvolved = $scope.exercise.structuresInvolved.split(',');
+                }
+
             };
 
             navBarService.entityType = 'exercise';

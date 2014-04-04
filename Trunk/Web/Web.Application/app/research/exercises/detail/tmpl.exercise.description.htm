@@ -23,8 +23,8 @@
         <div class="col-md-4">
             <table class="table table-striped">
                 <tbody>
-                    <tr ng-repeat="bodyPart in exercise.bodyParts">
-                        <td ng-bind="bodyPart.commonName"></td>
+                    <tr ng-repeat="structures in structuresInvolved track by $index">
+                        <td ng-bind="structures"></td>
                     </tr>
                 </tbody>
             </table>

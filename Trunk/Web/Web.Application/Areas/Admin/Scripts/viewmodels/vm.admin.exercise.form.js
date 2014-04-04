@@ -27,6 +27,7 @@
             holdFor = kb.observable(selectedExercise, 'holdFor'),
             holdType = kb.observable(selectedExercise, 'holdType'),
             categories = kb.observable(selectedExercise, 'categories'),
+            structuresInvolved = kb.observable(selectedExercise, 'structuresInvolved'),
             videos = kb.collectionObservable(selectedExercise.get('videos'), availableVideos.shareOptions()),
             equipment = kb.collectionObservable(selectedExercise.get('equipment'), availableEquipment.shareOptions()),
             bodyRegions = kb.collectionObservable(selectedExercise.get('bodyRegions'), availableBodyRegions.shareOptions()),
@@ -103,6 +104,7 @@
             selectedExercise.set('name', exercise.model().get('name'));
             selectedExercise.set('medicalName', exercise.model().get('medicalName'));
             selectedExercise.set('description', exercise.model().get('description'));
+            selectedExercise.set('structuresInvolved', exercise.model().get('structuresInvolved'));
             selectedExercise.set('duration', exercise.model().get('duration'));
             selectedExercise.set('difficulty', exercise.model().get('difficulty'));
             selectedExercise.set('tags', exercise.model().get('tags'));
@@ -147,6 +149,12 @@
                     minlength: 1,
                     maxlength: 60000
                 },
+                structuresInvolved:
+                {
+                    required: false,
+                    minlength: 1,
+                    maxlength: 60000
+                },
                 difficulty:
                 {
                     required: false
@@ -176,6 +184,11 @@
                     maxlength: "must be between 5 and 40 characters"
                 },
                 description:
+                {
+                    minlength: "must be between 1 and 60000 characters",
+                    maxlength: "must be between 1 and 60000 characters"
+                },
+                structuresInvolved:
                 {
                     minlength: "must be between 1 and 60000 characters",
                     maxlength: "must be between 1 and 60000 characters"
@@ -241,6 +254,7 @@
             categories: categories,
             holdTypes: lookups.holdTypes,
             holdType: holdType,
-            kendoEditorOptions: config.kendoEditorOptions
+            kendoEditorOptions: config.kendoEditorOptions,
+            structuresInvolved: structuresInvolved
         };
     });
