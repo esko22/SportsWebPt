@@ -266,6 +266,7 @@
     <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
     <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
+    <Content Include="Content\fonts\icomoon.svg" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
     <Content Include="Content\images\jamed.gif" />
@@ -668,6 +669,9 @@
     <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
     <Content Include="Areas\Research\Views\Web.config" />
     <Content Include="Areas\Research\Views\Research\_researchStaticLayout.cshtml" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\knockout-3.0.0.debug.js" />

@@ -1,32 +1,23 @@
 ﻿<div id="examine-skeleton">
     <div class="row">
         <div class="col-md-11 pull-left">
-            <h3><strong>Please select up to <span ng-bind="maxSelectableAreas"></span> areas of discomfort</strong></h3>
+            <h3><strong>Please click on area(s) of discomfort below:</strong></h3>
         </div>
     </div>
-    <div class="row" kendo-cloak="{{isLoading}}">
-        <div class="col-md-2">
-            <div ng-show="selectedAreas.length > 0">
-                <div style="height: 150px">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Selected Areas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="region in selectedAreas">
-                                <td ng-bind="region.displayName"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="row push-down-sm" kendo-cloak="{{isLoading}}">
+        <div class="col-md-3">
+            <div  class="well">
+                <h4 class="title-divider-research"><span>Selected <span class="de-em">Areas</span></span><small>(Click area to undo)</small></h4>
+                <div class="row" ng-repeat="region in selectedAreas">
+                    <div class="col-md-2"><h4><i ng-class="'icon-sportswebpt-number1' + ($index + 1) "></i></h4></div>
+                    <div class="col-md-10"><h4><span ng-bind="region.displayName"></span></h4></div>
                 </div>
-                <div>
-                    <a class="btn btn-default btn-block" ui-sref="public.examine.symptoms">Next &raquo;</a>
+                <div class="push-down-sm">
+                    <button class="btn btn-block" ng-class="selectedAreas.length == 0 ? 'btn-info' : 'btn-primary'" ng-disabled="selectedAreas.length == 0" ui-sref="public.examine.symptoms">Next &raquo;</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             <ul id="skeleton" class="img-rounded">
                 <li ng-repeat="region in symptomaticRegions" id="{{region.cssClassName}}"
                     ng-click="onSelectedRegion(region, selectedAreas)"

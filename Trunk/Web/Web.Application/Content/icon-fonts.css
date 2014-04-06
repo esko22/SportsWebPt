@@ -1,16 +1,16 @@
 @font-face {
-	font-family: 'sportswebpt';
-	src:url('fonts/sportswebpt.eot');
-	src:url('fonts/sportswebpt.eot?#iefix') format('embedded-opentype'),
-		url('fonts/sportswebpt.ttf') format('truetype'),
-		url('fonts/sportswebpt.woff') format('woff'),
-		url('fonts/sportswebpt.svg#sportswebpt') format('svg');
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-e173dz');
+	src:url('fonts/icomoon.eot?#iefix-e173dz') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-e173dz') format('woff'),
+		url('fonts/icomoon.ttf?-e173dz') format('truetype'),
+		url('fonts/icomoon.svg?-e173dz#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="icon-sportswebpt-"], [class*=" icon-sportswebpt-"] {
-	font-family: 'sportswebpt';
+	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -23,6 +23,69 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-sportswebpt-number1:before {
+	content: "\e60d";
+}
+.icon-sportswebpt-number2:before {
+	content: "\e60e";
+}
+.icon-sportswebpt-number3:before {
+	content: "\e60f";
+}
+.icon-sportswebpt-number4:before {
+	content: "\e610";
+}
+.icon-sportswebpt-number5:before {
+	content: "\e611";
+}
+.icon-sportswebpt-number6:before {
+	content: "\e612";
+}
+.icon-sportswebpt-number7:before {
+	content: "\e613";
+}
+.icon-sportswebpt-number8:before {
+	content: "\e614";
+}
+.icon-sportswebpt-number9:before {
+	content: "\e615";
+}
+.icon-sportswebpt-number10:before {
+	content: "\e616";
+}
+.icon-sportswebpt-number11:before {
+	content: "\e617";
+}
+.icon-sportswebpt-number12:before {
+	content: "\e618";
+}
+.icon-sportswebpt-number13:before {
+	content: "\e619";
+}
+.icon-sportswebpt-number14:before {
+	content: "\e61a";
+}
+.icon-sportswebpt-number15:before {
+	content: "\e61b";
+}
+.icon-sportswebpt-number16:before {
+	content: "\e61c";
+}
+.icon-sportswebpt-number17:before {
+	content: "\e61d";
+}
+.icon-sportswebpt-number18:before {
+	content: "\e61e";
+}
+.icon-sportswebpt-number19:before {
+	content: "\e61f";
+}
+.icon-sportswebpt-number20:before {
+	content: "\e620";
+}
+.icon-sportswebpt-heart:before {
+	content: "\e621";
+}
 .icon-sportswebpt-arrow-up:before {
 	content: "\e600";
 }
@@ -49,6 +112,18 @@
 }
 .icon-sportswebpt-checkmark2:before {
 	content: "\e608";
+}
+.icon-sportswebpt-newspaper:before {
+	content: "\e60b";
+}
+.icon-sportswebpt-pencil:before {
+	content: "\e609";
+}
+.icon-sportswebpt-pencil2:before {
+	content: "\e60a";
+}
+.icon-sportswebpt-profile:before {
+	content: "\e60c";
 }
 .icon-sportswebpt-search:before {
 	content: "\e01d";
@@ -194,7 +269,7 @@
 .icon-sportswebpt-envelope2:before {
 	content: "\f003";
 }
-.icon-sportswebpt-heart:before {
+.icon-sportswebpt-heart2:before {
 	content: "\e063";
 }
 .icon-sportswebpt-soccer:before {
@@ -221,7 +296,7 @@
 .icon-sportswebpt-thumbs-down:before {
 	content: "\f088";
 }
-.icon-sportswebpt-heart2:before {
+.icon-sportswebpt-heart22:before {
 	content: "\f004";
 }
 .icon-sportswebpt-star:before {
