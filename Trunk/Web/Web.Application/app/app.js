@@ -8,6 +8,10 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         AnalyticsProvider.setAccount('UA-39296197-3');
         AnalyticsProvider.trackPages(true);
         AnalyticsProvider.setPageEvent('$stateChangeSuccess');
+        AnalyticsProvider.useAnalytics(true);
+
+        //Optional set domain (Use 'none' for testing on localhost)
+        //AnalyticsProvider.setDomainName('none');
 
         $stateProvider
             .state('user',
@@ -247,6 +251,10 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             }
         ]);
 
+    }])
+    .run(['Analytics' , function (Analytics) {
+        // In case you are relying on automatic page tracking, you need to inject Analytics
+        // at least once in your application (for example in the main run() block)
     }]);
 
 
