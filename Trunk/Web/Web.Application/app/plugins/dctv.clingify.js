@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-jQueryPluginModule.directive('clingify', [function () {
+jQueryPluginModule.directive('clingifyPlugin', [function () {
         return {
             restrict: 'A',
             link: function($scope, element) {

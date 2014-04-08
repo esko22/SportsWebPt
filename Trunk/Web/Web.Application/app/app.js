@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate', 'jquery.plugin.module', 'shared.ui', 'examine',
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider) {
 

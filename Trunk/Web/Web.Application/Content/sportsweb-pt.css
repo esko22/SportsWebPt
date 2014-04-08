@@ -71,6 +71,10 @@ left: 45%;
     color: #b22222;
 }
 
+.selected-area-number-icon {
+    font-size: 32px;
+    color: #333333;
+}
 
 .selected-filter-item {
     background-color: #808000;
@@ -1026,3 +1030,5 @@ a:focus {
 .accordion-toggle {
     text-decoration: none !important;
 }
+
+

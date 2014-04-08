@@ -38,6 +38,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/angular/angular-route.js",
                         "~/Scripts/libs/angular/angular-sanitize.js",
                         "~/Scripts/libs/angular/angular-resource.js",
+                        "~/Scripts/libs/angular/angular-touch.js",
                         "~/Scripts/libs/angular/angular-google-analytics.js",
                         "~/Scripts/libs/angular-ui/ui-router.js",
                         "~/Scripts/libs/angular/angular-animate.js",
@@ -122,6 +123,7 @@ namespace SportsWebPt.Platform.Web
                 ));
 
             bundles.Add(new StyleBundle("~/content/theme/css/appstrap").Include(
+                "~/Content/bootstrap.css",
                 "~/Content/theme/plugins/flexslider/flexslider.css",
                 "~/Content/theme/plugins/animate/animate.css",
                 "~/Content/theme/css/theme-style.css",
@@ -131,7 +133,6 @@ namespace SportsWebPt.Platform.Web
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
                 "~/Content/sportsweb-pt.css"
