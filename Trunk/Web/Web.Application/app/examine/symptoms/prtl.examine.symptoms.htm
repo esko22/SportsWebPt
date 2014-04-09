@@ -1,28 +1,29 @@
 ﻿<div id="examine-symptom-detail" class="container" >
     <div>
-        <h3><strong>Areas of Discomfort</strong></h3>
+        <h3><strong>Tell us more about your discomfort...</strong></h3>
     </div>
     <div class="row push-down-md">
         <div class="col-md-3" id="discomfortAreas">
-            <div style="height: 100px">
-                <ul id="examine-detail-tab-nav" class="nav nav-pills nav-stacked">
-                    <li ng-repeat="region in selectedAreas track by $index" ng-class="{true: 'active'}[$index === 0]">
-                        <a ng-click="selectArea(region)" data-toggle="tab">
-                            <div class="row">
-                                <div class="col-md-2"><i class="selected-area-number-icon" ng-class="'icon-sportswebpt-number1' + ($index + 1) "></i></div>
-                                <div class="col-md-10"><h4><span ng-bind="region.displayName"></span></h4></div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="push-down-lg text-center">
-                <div class="row">
-                    <div class="col-md-5 col-md-offset-1">
-                        <button class="btn btn-primary btn-block" ui-sref="public.examine.skeleton">&laquo; Back</button>
-                    </div>
-                    <div class="col-md-5">
-                        <button class="btn btn-primary btn-block" ng-click="submitReport()">Next &raquo;</button>
+            <div class="well">
+                <h4 class="title-divider-research"><span>Selected <span class="de-em">Areas</span></span><small>(Click area for questions)</small></h4>
+                <div style="min-height: 84px;">
+                        <div ng-repeat="region in selectedAreas track by $index" ng-class="{true: 'active'}[$index === 0]">
+                            <a ng-click="selectArea(region)" data-toggle="tab">
+                                <div class="row">
+                                    <div class="col-md-2"><i class="selected-area-number-icon" ng-class="'icon-sportswebpt-number1' + ($index + 1) "></i></div>
+                                    <div class="col-md-10"><h4><span ng-bind="region.displayName"></span></h4></div>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+                <div class="push-down-lg text-center">
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-1">
+                            <button class="btn btn-primary btn-block" ui-sref="public.examine.skeleton">&laquo; Back</button>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="btn btn-primary btn-block" ng-click="submitReport()">Next &raquo;</button>
+                        </div>
                     </div>
                 </div>
             </div>

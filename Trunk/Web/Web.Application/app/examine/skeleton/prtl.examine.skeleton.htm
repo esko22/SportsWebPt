@@ -1,7 +1,7 @@
 ﻿<div id="examine-skeleton">
     <div class="row">
         <div class="col-md-11 pull-left">
-            <h3><strong>Please click on area(s) of discomfort below:</strong></h3>
+            <h3><strong>Please click on area(s) of discomfort...</strong></h3>
         </div>
     </div>
     <div class="row push-down-sm" kendo-cloak="{{isLoading}}">
@@ -10,8 +10,10 @@
                 <h4 class="title-divider-research"><span>Selected <span class="de-em">Areas</span></span><small>(Click area to undo)</small></h4>
                 <div style="min-height: 84px;">
                     <div class="row" ng-repeat="region in selectedAreas">
-                        <div class="col-md-2"><i class="selected-area-number-icon" ng-class="'icon-sportswebpt-number1' + ($index + 1) "></i></div>
-                        <div class="col-md-10"><h4><span ng-bind="region.displayName"></span></h4></div>
+                        <a ng-click="onSelectedRegion(region, selectedAreas)">
+                            <div class="col-md-2"><i class="selected-area-number-icon" ng-class="'icon-sportswebpt-number1' + ($index + 1) "></i></div>
+                            <div class="col-md-10"><h4><span ng-bind="region.displayName"></span></h4></div>
+                        </a>
                     </div>
                 </div>
                 <div class="push-down-sm">

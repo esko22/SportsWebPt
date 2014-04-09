@@ -1,5 +1,6 @@
 ﻿angular.module('examine.symptoms', [])
-    .controller('ExamineSymptomsController', ['$scope', 'examineSymptomsService', 'configService', '$state', '$modal', '$q', '$timeout', function ($scope, examineSymptomsService, configService, $state, $modal, $q, $timeout) {
+    .controller('ExamineSymptomsController', ['$scope', 'examineSymptomsService', 'configService', '$state', '$modal', '$q', '$timeout', 'notifierService',
+        function ($scope, examineSymptomsService, configService, $state, $modal, $q, $timeout, notifierService) {
 
         if ($scope.selectedAreas.length === 0) {
             $state.go('public.examine.skeleton');
@@ -32,7 +33,10 @@
                         $scope.report.potentialInjuries = results[0].potentialInjuries;
                         $state.go('public.examine.report');
                         modal.dismiss('complete');
-                    });
+                    }).catch(function() {
+                        modal.dismiss('complete');
+                    notifierService.error('Issue getting results, please try again');
+                });
             });
         };
     }])
