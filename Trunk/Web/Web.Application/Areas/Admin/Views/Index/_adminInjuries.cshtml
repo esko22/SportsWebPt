@@ -89,7 +89,7 @@
                                                         <td><select id="inputInjurySymptom" class="form-control" name="adminInjurySymptom" data-bind="options: $parent.availableSymptoms, optionsText: 'displayName', value: symptomId, optionsValue: 'id', event: { change: $parent.symptomSelectionChanged }"></select></td>
                                                         <td><select id="inputInjuryBodyPart" class="form-control" name="adminInjuryBodyPart" data-bind="options: $parent.availableBodyPartMatrix, optionsText: 'displayName', value: bodyPartMatrixItemId, optionsValue: 'id'"></select></td>
                                                         <td><div data-bind="template: { name: renderTemplate(), data: $data }"></div></td>
-                                                        <td><input type="checkbox" data-bind="checked: isRedFlag"></td>
+                                                        <td><input type="checkbox" data-bind="checked: isRedFlag" name="adminIsRedFlag"></td>
                                                         <td><button class="btn btn-primary" data-bind="click: $parent.removeSymptom">Remove</button></td>
                                                     </tr>
                                                 </tbody>

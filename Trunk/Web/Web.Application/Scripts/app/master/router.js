@@ -221,9 +221,6 @@
             contactPage.onVisible();
         }
 
-        function getConfiguredRouter() {
-            return masterRouter;
-        }
         
         function showResearchDetail(detailType, searchKey) {
             switch(detailType) {
@@ -245,8 +242,7 @@
         }
         
         return {
-            configure: configure,
-            getConfiguredRouter: getConfiguredRouter
+            configure: configure
         };
 
     });

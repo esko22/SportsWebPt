@@ -49,7 +49,6 @@
                 
                 if (typeof (router) !== "undefined") {
                     router.configure();
-                    window.SWPTRouter = router.getConfiguredRouter();
                 }
             });
     }

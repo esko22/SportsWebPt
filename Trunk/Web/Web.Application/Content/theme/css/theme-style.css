@@ -5869,6 +5869,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xs {
   padding: 1px 5px;
 }
+/*
 .modal-open {
   overflow: hidden;
 }
@@ -5902,7 +5903,7 @@ body.modal-open,
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-.modal-dialog {
+/*.modal-dialog {
   margin-left: auto;
   margin-right: auto;
   width: auto;
@@ -5966,9 +5967,9 @@ body.modal-open,
   content: " ";
   /* 1 */
 
-  display: table;
+  /*display: table;*/
   /* 2 */
-
+/*
 }
 .modal-footer:after {
   clear: both;
@@ -5996,6 +5997,10 @@ body.modal-open,
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
 }
+
+
+*/
+
 .tabbable.row {
   margin-left: 0;
   margin-right: 0;
