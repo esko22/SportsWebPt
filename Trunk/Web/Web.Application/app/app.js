@@ -278,6 +278,13 @@ Array.prototype.remove = function (from, to) {
     return this.push.apply(this, rest);
 };
 
+var scrollToPlans = function () {
+    var elementId = '#recovery-plans';
+
+    if (window.location.href.indexOf(elementId) === -1) {
+        window.location.href = window.location.href + elementId;
+    } 
+};
 
 
 

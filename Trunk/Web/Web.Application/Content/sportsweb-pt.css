@@ -552,8 +552,7 @@ ul#skeleton li {
 
 
 .content-container-panel {
-        background: url("theme/img/patterns/lightpaperfibers.png");
-
+    background: url("theme/img/patterns/light_wool.png");
     border-style: solid;
     border-width: 1px;
     border-color: #ddd;
