@@ -56,6 +56,11 @@ configModule.service('configService', ['$resource','$location', function ($resou
     var exerciseCategories = ['Stretching', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
     var planCategories = ['Rehabilitation', 'Stretching', 'Preventative', 'Spinal Stabilization', 'Strengthening', 'Self Massage', 'Range Of Motion', 'Balance', 'Mobilization'];
 
+    //IE does not set origin
+    if (!window.location.origin) {
+        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+    }
+
     //needed to put the abs location because the static pages for research were not setting the path correctly
     var equipmentProxy = $resource(window.location.origin + '/' + apiUris.briefEquipment);
     var bodyRegionProxy = $resource(window.location.origin + '/' + apiUris.bodyRegion);

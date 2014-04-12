@@ -8,22 +8,21 @@
                     <span class="glyphicon glyphicon-chevron-down pull-right"></span>
                 </span>
             </accordion-heading>
-
-            <div class="container">
+            
+            <div class="well-small">
                 <div class="row">
-                    <div class="col-md-5">
-                        <label><strong>Common Name: </strong><span ng-bind="injury.commonName"></span></label>
-                    </div>
-                    <div class="col-md-3">
-                        <label><strong>Medical Name: </strong><span ng-bind="injury.medicalName"></span></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
+                        <h5>Description: </h5>
                         <span ng-bind-html="injury.openingStatement"></span>
                     </div>
+                    <div class="col-md-4">
+                        <h5>Common Signs: </h5>
+                        <div ng-repeat="sign in injury.signs">
+                            <span ng-bind="sign.description"></span>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div class="text-right push-down-lg">
                     <a class="btn btn-primary" ng-href="#/research/injuries/{{injury.pageName}}">Learn / Watch More >></a>
                 </div>
             </div>

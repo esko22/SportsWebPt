@@ -1,14 +1,18 @@
 ﻿<div id="research-injury-panel">
-    <span class="research-header-icon"><i class="icon-sportswebpt-medkit"></i> Injuries</span>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <h1 class="title-divider-research-header"><i class="icon-sportswebpt-medkit"></i><span> Common <span class="de-em">Injuries</span></span><small>Detailed descriptions and recovery plans</small></h1>
+        </div>
+    </div>
     <hr class="examine-report-hr" />
     <div class="row">
-        <div class="col-md-3 research-vertical-splitter">
-            <div class="container">
-                <h3>Body Regions</h3>
-                <a class="label-filter-hover"><span class="label label-danger" ng-click="setBodyRegion('')">Show All</span></a>
+        <div class="col-md-3">
+            <div class="well">
+                <h3 class="title-divider-no-bar"><span>Body <span class="de-em">Regions</span></span><small><strong>(Click below to filter)</strong></small></h3>
+                <a class="label-filter-hover"><span class="label label-danger" ng-click="setBodyRegion('')" ng-class="{ 'selected-filter-item' : isBodyRegionSelected('')}">Show All</span></a>
                 <ul class="list-no-style filter-container" id="injuries-bodyregions-filter-list">
                     <li class="filter-label" ng-repeat="bodyRegion in bodyRegions">
-                        <a>
+                        <a class="href-no-underline">
                             <span class="label label-info" ng-bind="bodyRegion.name" 
                                   ng-class="{ 'selected-filter-item' : isBodyRegionSelected(bodyRegion.name)}"
                                   ng-click="setBodyRegion(bodyRegion.name)"></span>
@@ -16,13 +20,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="container">
-                <h3>Signs</h3>
-                <a class="label-filter-hover"><span class="label label-danger" ng-click="setSign('')">Show All</span></a>
+            <div class="well">
+                <h3 class="title-divider-no-bar"><span>Common <span class="de-em">Signs</span></span><small><strong>(Click below to filter)</strong></small></h3>
+                <a class="label-filter-hover"><span class="label label-danger" ng-class="{ 'selected-filter-item' : isSignSelected('')}" ng-click="setSign('')" >Show All</span></a>
                 <ul class="list-no-style filter-container" id="injury-signs-filter-list">
                     <li class="filter-label" ng-repeat="filter in signFilters">
-                        <a>
-                            <span class="label label-default" ng-bind="filter.filterCategory"
+                        <a class="href-no-underline">
+                            <span class="label label-info" ng-bind="filter.filterCategory"
                                   ng-class="{ 'selected-filter-item' : isSignSelected(filter.filterCategory)}"
                                   ng-click="setSign(filter.filterCategory)"></span>
                         </a>

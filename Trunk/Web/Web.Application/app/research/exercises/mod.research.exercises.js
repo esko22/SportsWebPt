@@ -59,7 +59,7 @@ angular.module('research.exercises', ['research.exercise.detail'])
             $scope.filteredExercises = $filter('filter')($scope.exercises, { categories: $scope.selectedCategory, bodyRegions: $scope.selectedBodyRegion, equipment: $scope.selectedEquipment });
             updatePaging(1);
             $location.hash('research-exercise-panel');
-            $anchorScroll();
+            //$anchorScroll();
         }
 
             //todo: convert to a service

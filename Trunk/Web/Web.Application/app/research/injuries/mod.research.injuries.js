@@ -48,7 +48,7 @@ angular.module('research.injuries', ['research.injury.detail'])
                 $scope.filteredInjuries = $filter('filter')($scope.injuries, { signs: $scope.selectedSign, bodyRegions: $scope.selectedBodyRegion });
                 updatePaging(1);
                 $location.hash('research-injury-panel');
-                $anchorScroll();
+                //$anchorScroll();
             }
 
             //todo: convert to a service

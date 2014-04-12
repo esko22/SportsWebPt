@@ -572,32 +572,17 @@ body a .de-em {
     text-decoration: none !important
 }
 
-.title-divider-research {
-  text-align: left;
-  margin-bottom: 1em;
-  background: #f5f5f5 url(../img/bg_divider.png) left center repeat-x;
+
+.title-divider-research-header {
+  text-align: right;
   padding: 0;
 }
-
-.title-divider-research span {
-  background: #f5f5f5;
+.title-divider-research-header span {
+  text-align: right;
   padding-right: 0.5em;
 }
-.title-divider-research small {
-  display: block;
-  color: rgba(51, 51, 51, 0.6);
-}
-
-.title-divider-no-margin {
-  text-align: left;
-  background: #ffffff url(../img/bg_divider.png) left center repeat-x;
-  padding: 0;
-}
-.title-divider-no-margin span {
-  background: #ffffff;
-  padding-right: 0.5em;
-}
-.title-divider-no-margin small {
+.title-divider-research-header small {
+  text-align: right;
   display: block;
   color: rgba(51, 51, 51, 0.6);
 }
@@ -605,12 +590,10 @@ body a .de-em {
 .title-divider-no-bar {
   text-align: left;
   margin-bottom: 1em;
-  background: #f5f5f5;
   padding: 0;
 }
 
 .title-divider-no-bar span {
-  background: #f5f5f5;
   padding-right: 0.5em;
 }
 .title-divider-no-bar small {
@@ -618,7 +601,6 @@ body a .de-em {
   color: rgba(51, 51, 51, 0.6);
 }
 .title-divider-no-bar i {
-  background-color: #f5f5f5 !important;
   padding-right: 1em;
 }
 

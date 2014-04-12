@@ -67,7 +67,7 @@ left: 45%;
 
 .favorite-icon {
     text-decoration: none !important;
-    font-size: 24px; 
+    font-size: 30px; 
     color: #b22222;
 }
 
@@ -77,7 +77,12 @@ left: 45%;
 }
 
 .selected-filter-item {
-    background-color: #808000;
+    background-color: #424947;
+}
+
+.all-filter-item {
+    background: #b22222;
+    background-color: rgba(217, 83, 79, 1);
 }
 
 .login-container {
@@ -547,7 +552,8 @@ ul#skeleton li {
 
 
 .content-container-panel {
-    background-color: #f5f5f5;
+        background: url("theme/img/patterns/lightpaperfibers.png");
+
     border-style: solid;
     border-width: 1px;
     border-color: #ddd;

@@ -1,15 +1,15 @@
 ﻿@model string
 <div class="row">
     <div class="col-md-12">
-        <h1 class="title-divider-research"><i class="icon-sportswebpt-medkit"></i><span data-bind="text: commonName"><span class="de-em"></span></span> <small data-bind="text: medicalName"></small></h1>
+        <h1 class="title-divider"><i class="icon-sportswebpt-medkit"></i><span data-bind="text: commonName"><span class="de-em"></span></span> <small data-bind="text: medicalName"></small></h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-7">
-         <h2 class="title-divider-research"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing injury</small></h2>
+         <h2 class="title-divider"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing injury</small></h2>
     </div>
     <div class="col-md-5">
-         <h2 class="title-divider-research"><span>Animation <span class="de-em"></span></span> <small>Medical animation for the affected area</small></h2>
+         <h2 class="title-divider"><span>Animation <span class="de-em"></span></span> <small>Medical animation for the affected area</small></h2>
     </div>
 </div>
 <div class="row">
@@ -22,7 +22,7 @@
 </div>
 <div class="row push-down-md">
     <div class="col-md-7">
-        <h2 class="title-divider-research"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
+        <h2 class="title-divider"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
         <div class="container">
             <!-- ko if: lifestyleCauses().length > 0 -->
             <h5 class="title-divider-no-bar"><span>Lifestyle <span class="de-em">Contributors</span></span> <small></small></h5>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="col-md-5">
-        <h2 class="title-divider-research"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
+        <h2 class="title-divider"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
         <table class="table table-striped">
             <tbody data-bind="foreach: signs">
                 <tr>
@@ -59,10 +59,10 @@
 </div>
 <div class="row push-down-md">
     <div class="col-md-7">
-        <h2 class="title-divider-research"><span>Recovery <span class="de-em"> Recommendation</span></span><small>Our thoughts on how to get better</small></h2>
+        <h2 class="title-divider"><span>Recovery <span class="de-em"> Recommendation</span></span><small>Our thoughts on how to get better</small></h2>
     </div>
     <div class="col-md-5">
-        <h2 class="title-divider-research"><span>Optional <span class="de-em"> Treatments</span></span><small>Other types of treatments you can try</small></h2>
+        <h2 class="title-divider"><span>Optional <span class="de-em"> Treatments</span></span><small>Other types of treatments you can try</small></h2>
     </div>
 </div>
 <div class="row">
@@ -92,7 +92,7 @@
 </div>
 <div class="row push-down-md">
     <div class="col-md-12">
-        <h2 class="title-divider-research"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
+        <h2 class="title-divider"><span>Prognosis <span class="de-em"></span></span> <small>How screwed are you</small></h2>
         <div class="row pricing-stack">
             <div class="col-md-4">
                 <!-- ko if: typeof bestCase().name !== 'undefined' -->
@@ -130,7 +130,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h2 class="title-divider-research"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
+        <h2 class="title-divider"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
         <div data-bind="attr: { id: 'injury-plan-accordion-@Model' }" class="panel-group">
 
             <div data-bind="foreach: $parent.planDisplays">
@@ -148,10 +148,10 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="title-divider-research"><span>Description <span class="de-em"></span></span></h5>
+                                <h5 class="title-divider"><span>Description <span class="de-em"></span></span></h5>
                             </div>
                             <div class="col-md-6">
-                                <h5 class="title-divider-research"><span>Instructions <span class="de-em"></span></span></h5>
+                                <h5 class="title-divider"><span>Instructions <span class="de-em"></span></span></h5>
                             </div>
                         </div>
                         <div class="row">

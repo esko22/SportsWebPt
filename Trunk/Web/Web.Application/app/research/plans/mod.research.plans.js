@@ -47,7 +47,7 @@ angular.module('research.plans', ['research.plan.detail'])
             $scope.filteredPlans = $filter('filter')($scope.plans, { categories: $scope.selectedCategory, bodyRegions: $scope.selectedBodyRegion});
             updatePaging(1);
             $location.hash('research-plan-panel');
-            $anchorScroll();
+            //$anchorScroll();
         }
 
         //todo: convert to a service

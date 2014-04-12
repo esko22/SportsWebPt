@@ -5,7 +5,7 @@
     <div class="row push-down-md">
         <div class="col-md-3" id="discomfortAreas">
             <div class="well">
-                <h4 class="title-divider-research"><span>Selected <span class="de-em">Areas</span></span><small>(Click area for questions)</small></h4>
+                <h4 class="title-divider"><span>Selected <span class="de-em">Areas</span></span><small>(Click area for questions)</small></h4>
                 <div style="min-height: 84px;">
                         <div ng-repeat="region in selectedAreas track by $index" ng-class="{true: 'active'}[$index === 0]">
                             <a ng-click="selectArea(region)" data-toggle="tab">
