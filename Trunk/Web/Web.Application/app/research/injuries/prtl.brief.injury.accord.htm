@@ -11,15 +11,8 @@
             
             <div class="well-small">
                 <div class="row">
-                    <div class="col-md-8">
-                        <h5>Description: </h5>
+                    <div class="col-md-12">
                         <span ng-bind-html="injury.openingStatement"></span>
-                    </div>
-                    <div class="col-md-4">
-                        <h5>Common Signs: </h5>
-                        <div ng-repeat="sign in injury.signs">
-                            <span ng-bind="sign.description"></span>
-                        </div>
                     </div>
                 </div>
                 <div class="text-right push-down-lg">

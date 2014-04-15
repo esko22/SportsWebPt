@@ -2,13 +2,13 @@
     <div>
         <h1><a href="/#/examine" class="href-no-underline header-icon"><span><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></h1>
     </div>
-    <div class="push-down-sm">
-        <ul class="breadcrumb main-breadcrumb" id="examine-nav">
-            <li><a ui-sref="public.examine.skeleton" id="skeleton-nav">Select Region(s)</a></li>
-            <li><a ui-sref="public.examine.symptoms" id="detail-nav">Describe Discomfort</a></li>
-            <li><a id="report-nav" style="text-decoration: none; cursor: default;">Potential Injuries</a></li>
-        </ul>
-    </div>
+        <div id="examine-nav" class="text-center">
+            <ul class="breacrumb">
+                <li><a ui-sref="public.examine.skeleton" style="text-decoration: none; color: #424947" id="skeleton-nav" >Select area(s) on skeleton</a></li>
+                <li><a ui-sref="public.examine.symptoms" style="text-decoration: none; color: #424947; " id="detail-nav" >Describe discomfort for each area</a></li>
+                <li><a id="report-nav" style="text-decoration: none; cursor: default; color: #424947; ">View potential injuries</a></li>
+            </ul>
+        </div>
     <div class="sub-view-panel">
         <div id="examine-main-panel">
             <div ui-view="examine-app-view" class="sub-view-container" autoscroll="false"></div>
