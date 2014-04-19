@@ -47,7 +47,8 @@
 .breacrumb {
   list-style: none;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold; 
   color: #fff;
   border: 1px solid #e3e3e3;
   background: #f5f5f5;
@@ -56,10 +57,10 @@
 .breacrumb > li {
   display: inline-block;
   padding: 0 10px;
-  line-height: 40px;
-  background: #e3e3e3;
+  line-height: 28px;
+  background: #c7c7c7;
   position: relative;
-  border: 0 #e3e3e3;
+  border: 0 #c7c7c7;
   -moz-transition: background 0.25s, border-color 0.25s, margin 0.125s;
   -o-transition: background 0.25s, border-color 0.25s, margin 0.125s;
   -webkit-transition: background 0.25s, border-color 0.25s, margin 0.125s;
@@ -69,14 +70,41 @@
 .breacrumb > li + li {
   margin-left: 25px;
 }
-.breacrumb > li:hover {
-  background: #c7c7c7;
-  border-color: #c7c7c7;
+.breacrumb > li > a {
+  color: #FFF !important;
+    text-decoration: none !important;
 }
+
+.breacrumb > li:hover {
+  background: #5CACEE;
+  border-color: #5CACEE;
+}
+.breacrumb > li.selected {
+  background: #5CACEE !important;
+  border-color: #5CACEE !important;
+}
+
+.breacrumb > li.selected:hover {
+  background: #c7c7c7 !important;
+  border-color: #c7c7c7 !important;
+}
+
+.breacrumb > li.nonactive:hover {
+  background: #c7c7c7 !important;
+  border-color: #c7c7c7 !important;
+  cursor: default;
+}
+
+.breacrumb > li.nonactive.selected:hover {
+  background: #5CACEE !important;
+  border-color: #5CACEE !important;
+  cursor: default;
+}
+
 .breacrumb > li:before, .breacrumb > li:after {
   content: '';
   position: absolute;
-  border: 20px solid transparent;
+  border: 14px solid transparent;
   border-right: 0;
   top: 0;
 }
@@ -246,7 +274,7 @@ left: 45%;
 
 #skeleton {
 	display: block;
-    background: url(images/skeletor.jpg) no-repeat;
+    background: url(images/skeletorwshades.png) no-repeat;
     height: 600px;
     margin-left: auto ;
     margin-right: auto ;

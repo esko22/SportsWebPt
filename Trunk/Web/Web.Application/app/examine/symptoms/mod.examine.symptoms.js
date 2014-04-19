@@ -6,7 +6,7 @@
             $state.go('public.examine.skeleton');
             return;
         }
-
+        $scope.currentStep.order = 2;
         $scope.selectedArea = $scope.selectedAreas[0];
         $scope.potentialSymptoms = [];
 

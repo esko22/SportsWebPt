@@ -2,7 +2,7 @@
     .controller('ExamineSkeletonController', ['$scope', 'examineSkeletonService', 'configService', function ($scope, examineSkeletonService, configService) {
 
         $scope.isLoading = true;
-
+        $scope.currentStep.order = 1;
 
         configService.symptomaticRegions.$promise.then(function(regions) {
             $scope.symptomaticRegions = regions;

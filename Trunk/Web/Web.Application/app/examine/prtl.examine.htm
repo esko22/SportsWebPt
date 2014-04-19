@@ -4,9 +4,12 @@
     </div>
         <div id="examine-nav" class="text-center">
             <ul class="breacrumb">
-                <li><a ui-sref="public.examine.skeleton" style="text-decoration: none; color: #424947" id="skeleton-nav" >Select area(s) on skeleton</a></li>
-                <li><a ui-sref="public.examine.symptoms" style="text-decoration: none; color: #424947; " id="detail-nav" >Describe discomfort for each area</a></li>
-                <li><a id="report-nav" style="text-decoration: none; cursor: default; color: #424947; ">View potential injuries</a></li>
+                <li ng-class="{'selected' : currentStep.order >= 1}"><a ui-sref="public.examine.skeleton" id="skeleton-nav">Select area(s) on skeleton</a></li>
+                <li ng-class="{'selected' : currentStep.order >= 2, 'nonactive' : selectedAreas.length == 0}">
+                    <a ng-show="selectedAreas.length > 0" ui-sref="public.examine.symptoms" id="detail-nav">Describe discomfort for each area</a>
+                    <span ng-show="selectedAreas.length == 0">Describe discomfort for each area</span>
+                </li>
+                <li ng-class="{'selected' : currentStep.order >= 3}" class="nonactive"><span id="report-nav">View potential injuries</span></li>
             </ul>
         </div>
     <div class="sub-view-panel">

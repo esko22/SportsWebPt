@@ -6,6 +6,7 @@
             return;
         }
 
+        $scope.currentStep.order = 3;
         $scope.probabableInjuries = [];
         $scope.moderateInjuries = [];
         $scope.remoteInjuries = [];
