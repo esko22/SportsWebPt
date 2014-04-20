@@ -84,14 +84,14 @@ namespace SportsWebPt.Platform.Web.Services
                     e.Equipment = new [] { new EquipmentDto() { CommonName = "NA", Id = 0 } };
             });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items.OrderBy(p => p.Name));
         }
 
         public IEnumerable<BriefPlan> GetBriefPlans()
         {
             var request = GetSync(new BriefPlanListRequest());
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
 
@@ -106,7 +106,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var request = GetSync(new BriefEquipmentListRequest());
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefEquipment>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefEquipment>>(request.Response.Items.OrderBy(p => p.CommonName));
         }
 
         public IEnumerable<Injury> GetInjuries()
@@ -120,7 +120,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var request = GetSync(new BriefInjuryListRequest());
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefInjury>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefInjury>>(request.Response.Items.OrderBy(p => p.CommonName));
         }
 
 
