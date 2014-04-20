@@ -1,23 +1,23 @@
 ﻿<div class="col-md-3" id="injuryReport">
     <ul class="list-group" id="injury-report-nav">
-        <li class="list-group-item">
-            <span class="badge" ng-bind="probabableInjuries.length"></span>Probable
+        <li class="list-group-item injury-report-nav-item">
+            <h5 class="title-divider"><span>Probable <span class="de-em">Injuries</span></span><span class="badge pull-right" ng-bind="probabableInjuries.length"></span></h5>
             <ul class="nav nav-pills nav-stacked push-down-sm">
                 <li ng-repeat="injury in probabableInjuries">
                     <a ng-click="selectInjury(injury)" data-toggle="tab">{{injury.commonName}}</a>
                 </li>
             </ul>
         </li>
-        <li class="list-group-item">
-            <span class="badge" ng-bind="moderateInjuries.length"></span>Moderate
+        <li class="list-group-item injury-report-nav-item">
+            <h5 class="title-divider"><span>Moderate <span class="de-em">Injuries</span></span><span class="badge pull-right" ng-bind="moderateInjuries.length"></span></h5>
             <ul class="nav nav-pills nav-stacked push-down-sm">
                 <li ng-repeat="injury in moderateInjuries">
                     <a ng-click="selectInjury(injury)" data-toggle="tab">{{injury.commonName}}</a>
                 </li>
             </ul>
         </li>
-        <li class="list-group-item">
-            <span class="badge" ng-bind="remoteInjuries.length"></span>Remote
+        <li class="list-group-item injury-report-nav-item">
+            <h5 class="title-divider"><span>Remote <span class="de-em">Injuries</span></span><span class="badge pull-right" ng-bind="remoteInjuries.length"></span></h5>
             <ul class="nav nav-pills nav-stacked push-down-sm">
                 <li ng-repeat="injury in remoteInjuries">
                     <a ng-click="selectInjury(injury)" data-toggle="tab">{{injury.commonName}}</a>

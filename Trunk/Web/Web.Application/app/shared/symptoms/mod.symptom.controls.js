@@ -8,7 +8,7 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<div kendo-slider ng-model="givenResponse[0]" class="balSlider" k-options="{ min : 1, max : 5, value : 1}"></div>'
+            template: '<div kendo-slider ng-model="givenResponse[0]" class="balSlider" k-options="{ min : 0, max : 5, value : 0}"></div>'
         };
     })
     .directive("mediumScaleSlider", function() {
@@ -18,7 +18,7 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<div id="slider" ng-model="givenResponse[0]" kendo-slider k-options="{ min : 1, max : 10, value : 1}"></div>'
+            template: '<div id="slider" ng-model="givenResponse[0]" kendo-slider k-options="{ min : 0, max : 10, value : 0}"></div>'
         };
     })
     .directive("durationList", function() {
@@ -48,11 +48,11 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<div><label class="radio">' +
-                '<input type="radio" id="option1" value="0" ng-model="givenResponse[0]" >No ' +
+            template: '<div class="form-inline"><label class="radio">' +
+                '<input type="radio" id="option2" value="1" ng-model="givenResponse[0]"> Yes ' +
                 '</label>' +
-                '<label class="radio">' +
-                '<input type="radio" id="option2" value="1" ng-model="givenResponse[0]">Yes ' +
+                '<label style="padding-left:10px" class="radio">' +
+                '<input type="radio" id="option1" value="0" ng-model="givenResponse[0]"> No ' +
                 '</label></div>'
         };
     })

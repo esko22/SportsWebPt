@@ -1,35 +1,61 @@
 ﻿<div id="examine-detail-container" class="col-md-9 well">
-    <div ng-repeat="bodyPart in bodyParts">
-        <div class="row">
-            <div class="col-md-2"><h4 ng-bind="bodyPart.commonName"></h4></div>
-            <div class="col-md-9 well" style="background-color: #ffffff">
-                <div class="row push-down-md" ng-repeat="symptom in bodyPart.potentialSymptoms">
-                    <div class="col-md-4">
-                        <h4 style="margin-left: 20px; vertical-align: text-top;" ng-bind="symptom.description"></h4>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="animate-switch-container" ng-switch on="symptom.renderTemplate">
-                            <small-scale-slider ng-switch-when="examine.slider.five" given-response="symptom.givenResponse"></small-scale-slider>
-                            <medium-scale-slider ng-switch-when="examine.slider.ten" given-response="symptom.givenResponse"></medium-scale-slider>
-                            <duration-list ng-switch-when="examine.duration.dropdown" given-response="symptom.givenResponse"></duration-list>
-                            <feels-like-list ng-switch-when="examine.feels.multi" given-response="symptom.givenResponse"></feels-like-list>
-                            <while-list ng-switch-when="examine.while.multi" given-response="symptom.givenResponse"></while-list>
-                            <boolean-response ng-switch-when="examine.radio.bool" name="{{symptom.id}}" given-response="symptom.givenResponse"></boolean-response>
-                            <div ng-switch-default></div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="title-divider"><span>Detailed Response Section</span><small>(Fill out as much or as little as you like)</small></h4>
+        </div>
+    </div>
+
+        <div class="row push-down-md">
+            <div class="col-md-10 col-md-offset-1" style="border-bottom: 1px solid #cdcdcd">
+                <h3><span style="color: #494949; " ng-bind="selectedArea.displayName"></span></h3>
+            </div>
+            <!-- sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-repeat="bodyPart in bodyParts track by $index" ng-class="{true: 'active'}[selectedBodyPart.id === bodyPart.id]">
+                            <a class="exercise-tab-item" ng-click="onBodyPartSelected(bodyPart)" data-toggle="tab"><span ng-bind="bodyPart.commonName"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <div class="row push-down-md" ng-repeat="symptom in selectedBodyPart.potentialSymptoms">
+                            <div class="col-md-4">
+                                <h4 style="margin-left: 20px; vertical-align: text-top;" ng-bind="symptom.description"></h4>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="animate-switch-container" ng-switch on="symptom.renderTemplate">
+                                    <small-scale-slider ng-switch-when="examine.slider.five" given-response="symptom.givenResponse"></small-scale-slider>
+                                    <medium-scale-slider ng-switch-when="examine.slider.ten" given-response="symptom.givenResponse"></medium-scale-slider>
+                                    <duration-list ng-switch-when="examine.duration.dropdown" given-response="symptom.givenResponse"></duration-list>
+                                    <feels-like-list ng-switch-when="examine.feels.multi" given-response="symptom.givenResponse"></feels-like-list>
+                                    <while-list ng-switch-when="examine.while.multi" given-response="symptom.givenResponse"></while-list>
+                                    <boolean-response ng-switch-when="examine.radio.bool" name="{{symptom.id}}" given-response="symptom.givenResponse"></boolean-response>
+                                    <div ng-switch-default></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="push-down-lg" ng-show="selectedBodyPart == null">
+                            <h4 class="text-center">No Symtpoms Required For Input</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="push-down-lg text-center">
-        <div class="row">
-            <div class="col-md-5 col-md-offset-1">
-                <button class="btn btn-primary btn-block" ui-sref="public.examine.skeleton">&laquo; Back</button>
-            </div>
-            <div class="col-md-5">
-                <button class="btn btn-primary btn-block" ng-click="submitReport()">Next &raquo;</button>
+
+
+        <div class="push-down-lg text-center">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <button class="btn btn-primary btn-block" ui-sref="public.examine.skeleton">&laquo; Back</button>
+                </div>
+                <div class="col-md-5">
+                    <button class="btn btn-primary btn-block" ng-click="submitReport()">Next &raquo;</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

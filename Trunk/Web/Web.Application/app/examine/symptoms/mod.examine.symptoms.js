@@ -42,17 +42,36 @@
     }])
     .controller('ExamineSymptomListingController', ['$scope', 'examineSymptomsService', function ($scope, examineSymptomsService) {
 
+        $scope.bodyParts = [];
+
         $scope.$watch('selectedArea', function(selectedArea) {
             if (selectedArea) {
-                angular.forEach(selectedArea.bodyParts, function(bodyPart) {
+                $scope.bodyParts.length = 0;
+                $scope.selectedBodyPart = null;
+
+                angular.forEach(selectedArea.bodyParts, function (bodyPart) {
                     if (bodyPart.potentialSymptoms.length === 0) {
                         //TODO: ANGC HACK if really has no values... fetch keeps happing
-                        bodyPart.potentialSymptoms = examineSymptomsService.getSymptoms(bodyPart.bodyPartMatrixId);
+                        examineSymptomsService.getSymptoms(bodyPart.bodyPartMatrixId).$promise.then(function(results) {
+                            bodyPart.potentialSymptoms = results;
+                            if (bodyPart.potentialSymptoms.length > 0) {
+                                $scope.bodyParts.push(bodyPart);
+                                $scope.selectedBodyPart = $scope.bodyParts[0];
+                            }
+                        });
+                    } else {
+                        $scope.bodyParts.push(bodyPart);
+                        $scope.selectedBodyPart = $scope.bodyParts[0];
                     }
                 });
-                $scope.bodyParts = selectedArea.bodyParts;
             }
         });
+
+        $scope.onBodyPartSelected = function(bodyPart) {
+            if(bodyPart)
+                $scope.selectedBodyPart = bodyPart;
+        }
+
     }])
     .directive("examineSymptomListing", [function () {
         return {
