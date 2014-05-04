@@ -49,7 +49,8 @@ namespace SportsWebPt.Platform.DataAccess
                         "InjurySignMatrixItems", "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems",
                         "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
                         "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart"
+                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart","InjuryTreatmentMatrixItems", "InjuryPrognosisMatrixItems", 
+                        "InjuryPrognosisMatrixItems.Prognosis", "InjuryTreatmentMatrixItems.Treatment"
                     })
                           .Where(
                               p => p.InjurySymptomMatrixItems.Any(s => symptomMatrixIds.Contains(s.SymptomMatrixItemId)));

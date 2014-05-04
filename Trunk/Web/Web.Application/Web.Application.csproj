@@ -171,6 +171,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\about\mod.about.js" />
+    <Content Include="app\about\tmpl.team.htm" />
+    <Content Include="app\about\tmpl.privacy.htm" />
+    <Content Include="app\about\tmpl.terms.htm" />
+    <Content Include="app\about\tmpl.contact.htm" />
+    <Content Include="app\about\tmpl.us.htm" />
     <Content Include="app\dashboard\prtl.user.dashboard.htm" />
     <Content Include="app\dashboard\user.dashboard.module.js" />
     <Content Include="app\examine\mod.examine.js" />
@@ -226,8 +232,7 @@
     <Content Include="app\research\exercises\detail\tmpl.equipment.list.modal.htm" />
     <Content Include="app\shared\symptoms\tmpl.feels.symptom.htm" />
     <Content Include="app\shared\symptoms\tmpl.while.symptom.htm" />
-    <Content Include="app\splash\prtl.contact.htm" />
-    <Content Include="app\splash\prtl.about.htm" />
+    <Content Include="app\about\prtl.about.htm" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />
     <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />

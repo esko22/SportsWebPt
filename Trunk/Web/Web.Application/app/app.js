@@ -2,7 +2,7 @@
 
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics'])
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider) {
 
         AnalyticsProvider.setAccount('UA-39296197-3');
@@ -71,16 +71,9 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             })
             .state('public.about',
             {
-                url: "/",
+                url: "/about/:aboutType",
                 views: {
-                    "core-app-view": { templateUrl: '/app/splash/prtl.about.htm' }
-                }
-            })
-            .state('public.contact',
-            {
-                url: "/",
-                views: {
-                    "core-app-view": { templateUrl: '/app/splash/prtl.contact.htm' }
+                    "core-app-view": { templateUrl: '/app/about/prtl.about.htm', controller: 'AboutController' }
                 }
             })
             .state('public.examine',

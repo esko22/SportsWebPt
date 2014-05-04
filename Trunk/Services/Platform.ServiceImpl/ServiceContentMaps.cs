@@ -487,6 +487,12 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.BodyRegionId, opt => opt.MapFrom(s => s.Id));
             Mapper.CreateMap<Injury, PotentialInjuryDto>()
                   .ForMember(d => d.Plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
+                  .ForMember(d => d.Treatments, opt => opt.MapFrom(s => s.InjuryTreatmentMatrixItems.Select(p => p.Treatment)))
+                    .ForMember(d => d.InjuryPrognoses, opt =>
+                      {
+                          opt.Condition(s => s.InjuryPrognosisMatrixItems != null);
+                          opt.MapFrom(s => s.InjuryPrognosisMatrixItems);
+                      })
                   .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
                   .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)));
 
