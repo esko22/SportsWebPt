@@ -20,7 +20,8 @@ jQueryPluginModule.service('notifierService', ['toastr', function (toastr) {
 
 
     return {
-            notify: function (msg) {
+        notify: function (msg) {
+            toastr.options.positionClass = 'toast-bottom-right';
             toastr.success(msg);
             console.log(msg);
         },

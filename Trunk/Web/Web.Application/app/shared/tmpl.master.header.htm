@@ -36,6 +36,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="/#/dashboard">My Dashboard</a></li>
                                     <li class="divider"></li>
+                                    <li ng-show="currentUser.isAdmin"><a ui-sref="admin.dashboard">Admin Section</a></li>
                                     <li><a href="/logout">Log Out</a></li>
                                 </ul>
                             </li>

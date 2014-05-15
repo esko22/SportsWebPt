@@ -3,7 +3,7 @@
 angular.module('research.plans', ['research.plan.detail'])
     .controller('PlanController', ['$scope', 'configService', 'planListService', '$filter', '$location', '$anchorScroll', function ($scope, configService, planListService, $filter, $location, $anchorScroll) {
 
-        $scope.categories = configService.planCategories;
+        $scope.categories = configService.lookups.planCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.isLoading = true;
 

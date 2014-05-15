@@ -2,7 +2,7 @@
 
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'config.module', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module'])
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module','admin.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider) {
 
         AnalyticsProvider.setAccount('UA-39296197-3');
@@ -36,20 +36,29 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
             })
             .state('admin',
             {
-                url: '/admin',
                 abstract: true,
                 views: {
-                    "core-view": { templateUrl: '/app/prtl.app.htm' }
+                    "core-view": { templateUrl: '/app/prtl.core.htm' }
                 },
                 data: {
-                    access: 'access.user'
+                    access: 'access.admin'
                 }
             })
             .state('admin.dashboard',
             {
-                url: "/admin/dashboard",
+                url: "/admin",
                 views: {
-                    "admin-view": { templateUrl: '/app/dashboard/prtl.dashboard.htm' }
+                    "core-app-view": { templateUrl: '/app/admin/prtl.admin.dashboard.htm' }
+                }
+            })
+            .state('admin.dashboard.bodyregion',
+            {
+                url: "/bodyregion",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/content/prtl.body.region.htm',
+                        controller: 'BodyRegionController'
+                    }
                 }
             })
             .state('public',
@@ -245,9 +254,31 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         ]);
 
     }])
-    .run(['Analytics' , function (Analytics) {
+    .run(['Analytics', 'userManagementService', '$rootScope', '$location', function (Analytics, userManagementService, $rootScope, $location) {
         // In case you are relying on automatic page tracking, you need to inject Analytics
         // at least once in your application (for example in the main run() block)
+
+        $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
+
+            if (to.data && to.data.access) {
+                var accessLevel = to.data.access.toLowerCase();
+                if (accessLevel !== 'access.anon') {
+                    var currentUser = userManagementService.getUser();
+                    if (currentUser) {
+                        currentUser.$promise.then(function() {
+                            if (accessLevel === 'access.admin' && (!currentUser || !currentUser.isAdmin)) {
+                                $location.path('/');
+                            }
+                        }, function() {
+                            $location.path('/');
+                        });
+                    } else {
+                        $location.path('/');
+                    }
+                }
+            }
+        });
+
     }]);
 
 

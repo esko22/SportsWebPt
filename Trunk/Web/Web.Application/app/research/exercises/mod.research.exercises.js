@@ -4,7 +4,7 @@ angular.module('research.exercises', ['research.exercise.detail'])
     .controller('ExerciseListingController', ['$scope', 'configService', 'exerciseListService', '$filter', '$location', '$anchorScroll',
         function ($scope, configService, exerciseListService, $filter, $location, $anchorScroll) {
         
-        $scope.categories = configService.exerciseCategories;
+        $scope.categories = configService.lookups.exerciseCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.equipment = configService.equipment;
         $scope.isLoading = true;
