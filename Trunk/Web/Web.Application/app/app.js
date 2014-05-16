@@ -111,7 +111,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             })
-            .state('public',
+            .state('admin.dashboard.sign',
+            {
+                url: "/sign",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.sign.htm',
+                        controller: 'SignController'
+                    }
+                }
+            }).state('public',
             {
                 abstract: true,
                 views: {

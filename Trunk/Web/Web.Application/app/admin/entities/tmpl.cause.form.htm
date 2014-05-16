@@ -2,7 +2,7 @@
     <div class="form-group">
         <label class="control-label col-lg-3">Name</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.causeForm.needsAttention(causeForm.description)}">
-            <input type="text" class="form-control" name="description" ng-model="selectedCause.description" placeholder="Descriptione" required>
+            <input type="text" class="form-control" name="description" ng-model="selectedCause.description" placeholder="Description" required>
         </div>
     </div>
     <div class="form-group">
@@ -27,6 +27,9 @@
         </div>
         <div ng-show="causeForm.category.$error.required && rc.causeForm.attempted">
             <strong><span class="help-block">Category Required</span></strong>
+        </div>
+        <div ng-show="causeForm.filter.$error.required && rc.causeForm.attempted">
+            <strong><span class="help-block">Filter Required</span></strong>
         </div>
     </div>
     <div class="text-center">
