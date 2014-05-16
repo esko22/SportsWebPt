@@ -1,0 +1,121 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add / Edit Exercise</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="exerciseForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputName">Common Name</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputName" name="name" data-bind="value: name" placeholder="Common Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputMedicalName">Medical Name</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputMedicalName" name="medicalName" data-bind="value: medicalName" placeholder="Medical Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputDescription">Description</label>
+                    <div class="col-lg-9">
+                        <textarea rows="5 " id="inputDescription" class="form-control" name="description" data-bind="kendoEditor: { value: description, tools: $root.kendoEditorOptions }" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputStructuresInvolved">Structures Involved</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputStructuresInvolved" name="structuresInvolved" data-bind="value: structuresInvolved" placeholder="Structures">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputDifficulty">Difficulty</label>
+                    <div class="col-lg-9">
+                        <select id="inputDifficulty" class="form-control" name="difficulty" data-bind="options: availableDifficulties, value: difficulty"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputCategory">Category</label>
+                    <div class="col-lg-9">
+                        <select id="inputCategory" class="form-control" name="category" multiple="multiple" size="8" data-bind="options: availableCategories, selectedOptions: categories"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputPageName">Page Name</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputTags">Tags</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                        <th>Per Day</th>
+                        <th>Per Week</th>
+                        <th>Hold</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><select class="input-sm" id="inputSets" name="sets" data-bind="options: rangeValues, value: sets"></select></td>
+                                <td><select class="input-sm" id="inputReps" name="perday" data-bind="options: rangeValues, value: repititions"></select></td>
+                                <td><select class="input-sm" id="inputDay" name="perday" data-bind="options: rangeValues, value: perDay"></select></td>
+                                <td><select class="input-sm" id="inputWeek" name="perweek" data-bind="options: rangeValues, value: perWeek"></select></td>
+                                <td><select id="inputHoldFor" class="input-sm" name="adminHoldForSeconds" data-bind="options: rangeValues, value: holdFor"></select></td>
+                                <td><select id="inputHoldType" class="input-sm" name="adminHoldType" data-bind="options: holdTypes, value: holdType"></select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputExerciseVideos">Videos</label>
+                    <div class="col-lg-9">
+                        <select id="inputExerciseVideos" class="form-control" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: function (item) { return item.medicalName() + ' [' + item.id() +' ]' }, selectedOptions: videos"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputExerciseEquipment">Equipment</label>
+                    <div class="col-lg-9">
+                        <select id="inputExerciseEquipment" class="form-control" name="exerciseEquipment" multiple="multiple" size="8" data-bind="options: availableEquipment, optionsText: function (item) { return item.commonName() + ' [' + item.id() +' ]' }, selectedOptions: equipment"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" for="inputExerciseBodyRegions">BodyRegions</label>
+                    <div class="col-lg-9">
+                        <select id="inputExerciseBodyRegions" class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="equipmentForm.name.$error.required && rc.equipmentForm.attempted">
+                <strong><span class="help-block">Name Required</span></strong>
+            </div>
+            <div ng-show="equipmentForm.productInformation.$error.required && rc.equipmentForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
+            </div>
+            <div ng-show="equipmentForm.category.$error.required && rc.equipmentForm.attempted">
+                <strong><span class="help-block">Category Required</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

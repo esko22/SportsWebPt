@@ -8,5 +8,6 @@ var adminModule = angular.module('admin.module', [
     'equipment.admin.module',
     'cause.admin.module',
     'sign.admin.module',
-    'video.admin.module'
+    'video.admin.module',
+    'exercise.admin.module'
 ]);
