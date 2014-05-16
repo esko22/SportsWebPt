@@ -8,51 +8,57 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputName">Common Name</label>
+                    <label class="control-label col-lg-3">Common Name</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputName" name="name" data-bind="value: name" placeholder="Common Name">
+                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputMedicalName">Medical Name</label>
+                    <label class="control-label col-lg-3">Medical Name</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputMedicalName" name="medicalName" data-bind="value: medicalName" placeholder="Medical Name">
+                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputDescription">Description</label>
+                    <label class="control-label col-lg-3">Description</label>
                     <div class="col-lg-9">
-                        <textarea rows="5 " id="inputDescription" class="form-control" name="description" data-bind="kendoEditor: { value: description, tools: $root.kendoEditorOptions }" placeholder="Description"></textarea>
+                        <textarea rows="5 " class="form-control" name="description" kendo-editor k-tools="editorOptions" ng-model="exercise.description" placeholder="Description"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputStructuresInvolved">Structures Involved</label>
+                    <label class="control-label col-lg-3">Structures Involved</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputStructuresInvolved" name="structuresInvolved" data-bind="value: structuresInvolved" placeholder="Structures">
+                        <input type="text" class="form-control" name="structuresInvolved" ng-model="exercise.structuresInvolved" placeholder="Structures">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputDifficulty">Difficulty</label>
+                    <label class="control-label col-lg-3">Difficulty</label>
                     <div class="col-lg-9">
-                        <select id="inputDifficulty" class="form-control" name="difficulty" data-bind="options: availableDifficulties, value: difficulty"></select>
+                        <select class="form-control" name="difficulty"
+                                ng-options="difficulty for difficulty in difficulties" ng-model="exercise.difficulty">
+                            <option value="">-- Select Difficulty-- </option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputCategory">Category</label>
+                    <label class="control-label col-lg-3">Category</label>
                     <div class="col-lg-9">
-                        <select id="inputCategory" class="form-control" name="category" multiple="multiple" size="8" data-bind="options: availableCategories, selectedOptions: categories"></select>
+                        <select class="form-control" name="category" multiple="multiple" size="8" 
+                                ng-options="category for category in categories" ng-model="exercise.categories">
+                            <option value="">-- Select Category-- </option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputPageName">Page Name</label>
+                    <label class="control-label col-lg-3">Page Name</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPageName" name="pageName" data-bind="value: pageName" placeholder="Page Name">
+                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputTags">Tags</label>
+                    <label class="control-label col-lg-3">Tags</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputTags" name="tags" data-bind="value: tags" placeholder="Tags">
+                        <input type="text" class="form-control" name="tags" ng-model="exercise.tags" placeholder="Tags">
                     </div>
                 </div>
                 <div>
@@ -66,12 +72,24 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><select class="input-sm" id="inputSets" name="sets" data-bind="options: rangeValues, value: sets"></select></td>
-                                <td><select class="input-sm" id="inputReps" name="perday" data-bind="options: rangeValues, value: repititions"></select></td>
-                                <td><select class="input-sm" id="inputDay" name="perday" data-bind="options: rangeValues, value: perDay"></select></td>
-                                <td><select class="input-sm" id="inputWeek" name="perweek" data-bind="options: rangeValues, value: perWeek"></select></td>
-                                <td><select id="inputHoldFor" class="input-sm" name="adminHoldForSeconds" data-bind="options: rangeValues, value: holdFor"></select></td>
-                                <td><select id="inputHoldType" class="input-sm" name="adminHoldType" data-bind="options: holdTypes, value: holdType"></select></td>
+                                <td><select class="input-sm" name="sets" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.sets">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="perday" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.repititions">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="perday" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perDay">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="perweek" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perWeek">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="adminHoldForSeconds" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.holdFor">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="adminHoldType" ng-options="holdType for holdType in holdTypes" ng-model="exercise.holdType">
+                                        <option value="">-- Type -- </option>
+                                    </select></td>
                             </tr>
                         </tbody>
                     </table>
@@ -79,21 +97,24 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputExerciseVideos">Videos</label>
+                    <label class="control-label col-lg-3">Videos</label>
                     <div class="col-lg-9">
-                        <select id="inputExerciseVideos" class="form-control" name="exerciseVideos" multiple="multiple" size="8" data-bind="options: availableVideos, optionsText: function (item) { return item.medicalName() + ' [' + item.id() +' ]' }, selectedOptions: videos"></select>
+                        <select class="form-control" name="exerciseVideos" multiple="multiple" size="8" ng-model="exercise.videos"
+                                ng-options="(video.medicalName + ' [' + video.id +']') for video in availableVideos"></select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputExerciseEquipment">Equipment</label>
+                    <label class="control-label col-lg-3">Equipment</label>
                     <div class="col-lg-9">
-                        <select id="inputExerciseEquipment" class="form-control" name="exerciseEquipment" multiple="multiple" size="8" data-bind="options: availableEquipment, optionsText: function (item) { return item.commonName() + ' [' + item.id() +' ]' }, selectedOptions: equipment"></select>
+                        <select class="form-control" name="exerciseEquipment" multiple="multiple" size="8"
+                                ng-options="(equipment.commonName + ' [' + equipment.id +']') for equipment in availableEquipment" ng-model="exercise.equipment"></select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3" for="inputExerciseBodyRegions">BodyRegions</label>
+                    <label class="control-label col-lg-3">BodyRegions</label>
                     <div class="col-lg-9">
-                        <select id="inputExerciseBodyRegions" class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" data-bind="options: availableBodyRegions, optionsText: 'name', selectedOptions: bodyRegions"></select>
+                        <select class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" ng-model="exercise.bodyRegions"
+                                ng-options="bodyRegion.name for bodyRegion in availableBodyRegions"></select>
                     </div>
                 </div>
             </div>
@@ -111,11 +132,7 @@
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Save changes</button>
-            <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
         </div>
     </form>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

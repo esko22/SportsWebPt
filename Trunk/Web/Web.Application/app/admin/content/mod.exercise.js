@@ -12,24 +12,64 @@ exerciseAdminModule.directive('exerciseList', [function () {
 }]);
 
 
-exerciseAdminModule.controller('ExerciseModalController', ['$scope', 'exerciseAdminService', '$modalInstance', 'selectedExercise','notifierService', function ($scope, exerciseAdminService, $modalInstance, selectedExercise, notifierService) {
+exerciseAdminModule.controller('ExerciseModalController', [
+    '$scope', 'exerciseAdminService', '$modalInstance', 'selectedExercise', 'notifierService',
+    'configService', 'equipmentAdminService', 'bodyRegionAdminService', 'videoAdminService',
+    function ($scope, exerciseAdminService, $modalInstance, selectedExercise, notifierService, configService, equipmentAdminService, bodyRegionAdminService, videoAdminService) {
 
-        $scope.exericse = selectedExercise;
+        //lookups
+        $scope.categories = configService.lookups.functionExerciseCategories;
+        $scope.holdTypes = configService.lookups.holdTypes;
+        $scope.repetitionRangeValues = configService.lookups.repetitionRangeValues;
+        $scope.editorOptions = configService.kendoEditorOptions;
+        $scope.difficulties = configService.lookups.difficulties;
 
-        $scope.ok = function () {
-            if ($scope.exericse.id > 0) {
-                exerciseAdminService.update($scope.exericse).$promise.then(function () {
+        equipmentAdminService.getAll().$promise.then(function (results){
+            $scope.availableEquipment = results;
+            //have to get items from available collection
+            var currentEquipment = [];
+            _.each(selectedExercise.equipment, function (equipment) {
+                currentEquipment.push(_.findWhere($scope.availableEquipment, { id: equipment.id }));
+            });
+            selectedExercise.equipment = currentEquipment;
+        });
+
+        bodyRegionAdminService.getAll().$promise.then(function (results) {
+            $scope.availableBodyRegions = results;
+            var currentBodyRegions = [];
+            _.each(selectedExercise.bodyRegions, function (bodyRegion) {
+                currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
+            });
+            selectedExercise.bodyRegions = currentBodyRegions;
+        });
+
+        videoAdminService.getAll().$promise.then(function (results) {
+            $scope.availableVideos = results;
+            var currentVideos = [];
+            _.each(selectedExercise.videos, function (video) {
+                currentVideos.push(_.findWhere($scope.availableVideos, { id: video.id }));
+            });
+            selectedExercise.videos = currentVideos;
+        });
+
+        $scope.exercise = selectedExercise;
+
+        $scope.submit = function () {
+            if ($scope.exercise.id > 0) {
+                exerciseAdminService.update($scope.exercise).$promise.then(function () {
                     notifierService.notify('Update Success!');
+                    $modalInstance.close($scope.exercise);
                 });
             } else {
-                exerciseAdminService.save($scope.exericse).$promise.then(function () {
+                exerciseAdminService.save($scope.exercise).$promise.then(function () {
                     notifierService.notify('Created Successfully!');
+                    $modalInstance.close($scope.exercise);
                 });
             }
-            $modalInstance.close($scope.exericse);
         };
 
-        $scope.cancel = function () {
+        $scope.reset = function () {
+            $scope.exercise = null;
             $modalInstance.dismiss('cancel');
         };
     }
@@ -46,7 +86,6 @@ exerciseAdminModule.controller('ExerciseController', ['$scope', 'exerciseAdminSe
     $scope.categories = configService.lookups.functionExerciseCategories;
     getExerciseList();
 
-    $scope.editorOptions = configService.kendoEditorOptions;
 
     $scope.bindSelectedExercise = function (exercise) {
         $scope.selectedExercise = exercise;
@@ -63,8 +102,8 @@ exerciseAdminModule.controller('ExerciseController', ['$scope', 'exerciseAdminSe
         });
 
         modalInstance.result.then(function (exerciseReturned) {
-            $scope.selectedExercise = exerciseReturned;
             getExerciseList();
+            $scope.selectedExercise = exerciseReturned;
         });
     }
 
@@ -76,7 +115,7 @@ exerciseAdminModule.controller('ExerciseController', ['$scope', 'exerciseAdminSe
 
 exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($resource) {
 
-    var adminExercisePath = '/admin/exercises/';
+    var adminExercisePath = '/admin/exercises';
 
 
     return {

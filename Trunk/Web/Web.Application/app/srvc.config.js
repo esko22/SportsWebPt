@@ -46,6 +46,13 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             adminPrognoses: 'admin/prognoses/'
         };
 
+
+        var repetitionRangeValues = [];
+        for (var i = 0; i <= 100; i++) {
+            repetitionRangeValues.push(i);
+        };
+
+
         var returnUris = {
             researchExercise: '/#/research/exercises',
             researchPlans: '/#/research/plans',
@@ -63,7 +70,9 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             signCategories: ['Functional', 'Subjective', 'Visual'],
             treatmentCategories: ['ManualTherapy', 'TherEx', 'Modalities', 'Education'],
             treatmentProviders: ['Self', 'PhysicalTherapist', 'MessageTherapist', 'Physican', 'Surgeon', 'Chiropracter'],
-            prognosisCategories: ['BestCase', 'DelayedRecovery', 'WorstCase']
+            prognosisCategories: ['BestCase', 'DelayedRecovery', 'WorstCase'],
+            difficulties: ['Beginner', 'Intermediate', 'Advanced'],
+            repetitionRangeValues: repetitionRangeValues
         };
 
 
