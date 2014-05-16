@@ -1,3 +1,6 @@
 ﻿'use strict';
 
-var adminModule = angular.module('admin.module', ['body.region.module']);
+var adminModule = angular.module('admin.module', [
+    'body.region.admin.module',
+    'body.part.admin.module'
+]);

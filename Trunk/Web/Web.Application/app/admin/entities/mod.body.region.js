@@ -1,12 +1,12 @@
 ﻿'use strict';
 
-var bodyRegionModule = angular.module('body.region.module', []);
+var bodyRegionModule = angular.module('body.region.admin.module', []);
 
 bodyRegionModule.directive('bodyRegionForm', [function () {
     return {
         restrict: 'EA',
         replace: 'true',
-        templateUrl: '/app/admin/content/tmpl.body.region.form.htm'
+        templateUrl: '/app/admin/entities/tmpl.body.region.form.htm'
     };
 }]);
 
@@ -15,15 +15,15 @@ bodyRegionModule.directive('bodyRegionList', [function () {
         restrict: 'EA',
         scope: true,
         replace: 'true',
-        templateUrl: '/app/admin/content/tmpl.body.region.list.htm'
+        templateUrl: '/app/admin/entities/tmpl.body.region.list.htm'
     };
 }]);
 
 
-bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionService', 'configService', 'notifierService', function ($scope, bodyRegionService, configService, notifierService) {
+bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionAdminService', 'configService', 'notifierService', function ($scope, bodyRegionAdminService, configService, notifierService) {
 
     function getBodyRegionList() {
-        bodyRegionService.getAll().$promise.then(function (results) {
+        bodyRegionAdminService.getAll().$promise.then(function (results) {
             $scope.bodyRegions = results;
         });
     }
@@ -35,18 +35,18 @@ bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionServic
         $scope.selectedBodyRegion = bodyRegion;
     }
 
-    $scope.resetBodyRegion = function() {
+    $scope.reset = function() {
         $scope.selectedBodyRegion = null;
     }
 
     $scope.submit = function() {
         if ($scope.selectedBodyRegion.id > 0) {
-            bodyRegionService.update($scope.selectedBodyRegion).$promise.then(function () {
+            bodyRegionAdminService.update($scope.selectedBodyRegion).$promise.then(function () {
                 notifierService.notify('Update Successfully!');
                 getBodyRegionList();
             });
         } else {
-            bodyRegionService.save($scope.selectedBodyRegion).$promise.then(function() {
+            bodyRegionAdminService.save($scope.selectedBodyRegion).$promise.then(function () {
                 notifierService.notify('Creeate Successfully!');
                 getBodyRegionList();
             });
@@ -55,24 +55,24 @@ bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionServic
 }]);
 
 
-bodyRegionModule.factory('bodyRegionService', ['$resource', function($resource) {
+bodyRegionModule.factory('bodyRegionAdminService', ['$resource', function($resource) {
     
-    var adminBodyRegion = '/admin/bodyregions';
+    var adminBodyRegionPath = '/admin/bodyregions';
 
 
 return {
     get: function (id) {
-        var resource = $resource(adminBodyRegion + '/:id');
+        var resource = $resource(adminBodyRegionPath + '/:id');
         return resource.get({ id: id });
     },
     getAll: function () {
-        return $resource(adminBodyRegion).query();
+        return $resource(adminBodyRegionPath).query();
     },
     save: function (bodyRegion) {
-        return $resource(adminBodyRegion).save(bodyRegion);
+        return $resource(adminBodyRegionPath).save(bodyRegion);
     },
     update: function (bodyRegion) {
-        var resource = $resource(adminBodyRegion + '/:id', null, {
+        var resource = $resource(adminBodyRegionPath + '/:id', null, {
             'update': { method: 'PUT' }
         });
         return resource.update({ id: bodyRegion.id }, bodyRegion);

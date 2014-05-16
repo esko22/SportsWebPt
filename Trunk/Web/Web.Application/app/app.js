@@ -56,8 +56,18 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 url: "/bodyregion",
                 views: {
                     "admin-app-view": {
-                        templateUrl: '/app/admin/content/prtl.body.region.htm',
+                        templateUrl: '/app/admin/entities/prtl.body.region.htm',
                         controller: 'BodyRegionController'
+                    }
+                }
+            })
+            .state('admin.dashboard.bodypart',
+            {
+                url: "/bodypart",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.body.part.htm',
+                        controller: 'BodyPartController'
                     }
                 }
             })

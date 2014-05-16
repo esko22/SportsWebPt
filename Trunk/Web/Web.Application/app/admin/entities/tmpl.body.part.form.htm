@@ -1,0 +1,46 @@
+﻿<form class="form-horizontal" novalidate rc-submit="submit()" name="bodyPartForm">
+    <div class="form-group">
+        <label class="control-label col-lg-3">Common Name</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.bodyPartForm.needsAttention(bodyPartForm.commonName)}">
+            <input type="text" class="form-control" name="commonName" ng-model="selectedBodyPart.commonName" placeholder="Common Name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Scientific Name</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="scientificName" ng-model="selectedBodyPart.scientificName" placeholder="Scientific Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Description</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="description" ng-model="selectedBodyPart.description" placeholder="Description">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Primary Areas</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.bodyPartForm.needsAttention(bodyPartForm.primaryAreas)}">
+            <select class="form-control" multiple size="8" name="primaryAreas" ng-model="selectedBodyPart.primaryAreas" required
+                    ng-options="area.displayName for area in skeletonAreas"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3" for="inputSecondaryAreas">Secondary Areas</label>
+        <div class="col-lg-9">
+            <select id="inputSecondaryAreas" class="form-control" multiple size="8" ng-model="selectedBodyPart.secondaryAreas"
+                    ng-options="area.displayName for area in skeletonAreas"></select>
+        </div>
+    </div>
+    <div class="text-center">
+        <div ng-show="bodyPartForm.commonName.$error.required && rc.bodyPartForm.attempted">
+            <strong><span class="help-block">Common Name Required</span></strong>
+        </div>
+        <div ng-show="bodyPartForm.primaryAreas.$error.required && rc.bodyPartForm.attempted">
+            <strong><span class="help-block">Primary Area Required</span></strong>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+    </div>
+</form>
