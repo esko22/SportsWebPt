@@ -71,6 +71,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             })
+            .state('admin.dashboard.prognosis',
+            {
+                url: "/prognosis",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.prognosis.htm',
+                        controller: 'PrognosisController'
+                    }
+                }
+            })
             .state('public',
             {
                 abstract: true,

@@ -85,6 +85,40 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
     var maxSelectableAreas = 2;
     var likelyHoodThresholds = { high: .75, medium: .20 };
 
+    var kendoEditorOptions = [
+               "bold",
+               "italic",
+               "underline",
+               "strikethrough",
+               "justifyLeft",
+               "justifyCenter",
+               "justifyRight",
+               "justifyFull",
+               "insertUnorderedList",
+               "insertOrderedList",
+               "indent",
+               "outdent",
+               "createLink",
+               "unlink",
+               "insertImage",
+               "subscript",
+               "superscript",
+               "createTable",
+               "addRowAbove",
+               "addRowBelow",
+               "addColumnLeft",
+               "addColumnRight",
+               "deleteRow",
+               "deleteColumn",
+               "viewHtml",
+               "formatting",
+               "fontName",
+               "fontSize",
+               "foreColor",
+               "backColor"
+    ],
+    kendoEditorIgnores = ".k-input, .k-fontName, .k-fontSize, k-formatBlock,:hidden.k-formatBlock ";
+
     return {
         apiUris: apiUris,
         equipment: equipment,
@@ -94,7 +128,9 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
         maxSelectableAreas: maxSelectableAreas,
         symptomaticRegions: symptomaticRegions,
         likelyHoodThresholds: likelyHoodThresholds,
-        lookups: lookups
+        lookups: lookups,
+        kendoEditorOptions: kendoEditorOptions,
+        kendoEditorIgnores: kendoEditorIgnores
     };
 
 
