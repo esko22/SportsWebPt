@@ -120,7 +120,18 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         controller: 'SignController'
                     }
                 }
-            }).state('public',
+            })
+            .state('admin.dashboard.video',
+            {
+                url: "/video",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.video.htm',
+                        controller: 'VideoController'
+                    }
+                }
+            })
+            .state('public',
             {
                 abstract: true,
                 views: {

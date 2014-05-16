@@ -178,12 +178,14 @@
     <Content Include="app\about\tmpl.contact.htm" />
     <Content Include="app\about\tmpl.us.htm" />
     <Content Include="app\admin\entities\mod.body.parts.js" />
+    <Content Include="app\admin\entities\mod.video.js" />
     <Content Include="app\admin\entities\mod.sign.js" />
     <Content Include="app\admin\entities\mod.cause.js" />
     <Content Include="app\admin\entities\mod.body.region.js" />
     <Content Include="app\admin\entities\mod.equipment.js" />
     <Content Include="app\admin\entities\mod.treatment.js" />
     <Content Include="app\admin\entities\mod.prognosis.js" />
+    <Content Include="app\admin\entities\prtl.video.htm" />
     <Content Include="app\admin\entities\prtl.sign.htm" />
     <Content Include="app\admin\entities\prtl.cause.htm" />
     <Content Include="app\admin\entities\prtl.equipment.htm" />
@@ -191,6 +193,8 @@
     <Content Include="app\admin\entities\prtl.prognosis.htm" />
     <Content Include="app\admin\entities\prtl.body.part.htm" />
     <Content Include="app\admin\entities\prtl.body.region.htm" />
+    <Content Include="app\admin\entities\tmpl.video.form.htm" />
+    <Content Include="app\admin\entities\tmpl.video.list.htm" />
     <Content Include="app\admin\entities\tmpl.sign.form.htm" />
     <Content Include="app\admin\entities\tmpl.cause.form.htm" />
     <Content Include="app\admin\entities\tmpl.sign.list.htm" />

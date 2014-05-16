@@ -1,0 +1,53 @@
+﻿<form class="form-horizontal" novalidate rc-submit="submit()" name="videoForm">
+    <div class="form-group">
+        <label class="control-label col-lg-3">Name</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.name)}">
+            <input type="text" class="form-control" name="name" ng-model="selectedVideo.name" placeholder="Name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Medical Name</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="medicalName" ng-model="selectedVideo.medicalName" placeholder="Medical Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Description</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.description)}">
+            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedVideo.description" required></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Category</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.category)}">
+            <select name="category" class="form-control" multiple size="8" ng-model="selectedVideo.categories" ng-options="videoCategory for videoCategory in categories" required></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">File Name</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="fileName" ng-model="selectedVideo.fileName" placeholder="File Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Youtube Video Id</label>
+        <div class="col-lg-9">
+            <input type="text" class="form-control" name="youtubeVideoId" ng-model="selectedVideo.youtubeVideoId" placeholder="Youtube Video Id">
+        </div>
+    </div>
+    <div class="text-center">
+        <div ng-show="equipmentForm.name.$error.required && rc.equipmentForm.attempted">
+            <strong><span class="help-block">Name Required</span></strong>
+        </div>
+        <div ng-show="equipmentForm.productInformation.$error.required && rc.equipmentForm.attempted">
+            <strong><span class="help-block">Description Required</span></strong>
+        </div>
+        <div ng-show="equipmentForm.category.$error.required && rc.equipmentForm.attempted">
+            <strong><span class="help-block">Category Required</span></strong>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+    </div>
+</form>

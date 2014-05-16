@@ -1,0 +1,47 @@
+﻿<table class="table table-striped">
+    <tbody ng-repeat="video in videos">
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Video Id: </strong><span ng-bind="video.id"></span></label>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <button class="btn-danger" ng-click="bindSelectedVideo(video)">Edit</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Common Name: </strong><span ng-bind="video.name"></span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <label><strong>File name: </strong><span ng-bind="video.filename"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Medical Name: </strong><span ng-bind="video.medicalName"></span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Category: </strong></label>
+                            <ul>
+                                <li ng-repeat="category in video.categories" ng-bind="category"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Description:</label><span ng-bind-html="video.description"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Youtube Video ID: </strong><span ng-bind="video.youtubeVideoId"></span></label>
+                    </div>
+                </div>
+            </td>
+        </tr>    
+    </tbody>
+</table>
