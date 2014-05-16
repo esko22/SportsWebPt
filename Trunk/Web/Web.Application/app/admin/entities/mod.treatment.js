@@ -45,12 +45,12 @@ treatmentAdminModule.controller('TreatmentController', ['$scope', 'treatmentAdmi
     $scope.submit = function () {
         if ($scope.selectedTreatment.id > 0) {
             treatmentAdminService.update($scope.selectedTreatment).$promise.then(function () {
-                notifierService.notify('Update Successfully!');
+                notifierService.notify('Update Success!');
                 getTreatmentList();
             });
         } else {
             treatmentAdminService.save($scope.selectedTreatment).$promise.then(function () {
-                notifierService.notify('Creeate Successfully!');
+                notifierService.notify('Created Successfully!');
                 getTreatmentList();
             });
         }

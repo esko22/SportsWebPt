@@ -91,6 +91,26 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             })
+            .state('admin.dashboard.equipment',
+            {
+                url: "/equipment",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.equipment.htm',
+                        controller: 'EquipmentController'
+                    }
+                }
+            })
+            .state('admin.dashboard.cause',
+            {
+                url: "/cause",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.cause.htm',
+                        controller: 'CauseController'
+                    }
+                }
+            })
             .state('public',
             {
                 abstract: true,

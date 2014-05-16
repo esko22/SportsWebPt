@@ -44,12 +44,12 @@ prognosisAdminModule.controller('PrognosisController', ['$scope', 'prognosisAdmi
     $scope.submit = function () {
         if ($scope.selectedPrognosis.id > 0) {
             prognosisAdminService.update($scope.selectedPrognosis).$promise.then(function () {
-                notifierService.notify('Update Successfully!');
+                notifierService.notify('Update Success!');
                 getPrognosisList();
             });
         } else {
             prognosisAdminService.save($scope.selectedPrognosis).$promise.then(function () {
-                notifierService.notify('Creeate Successfully!');
+                notifierService.notify('Created Successfully!');
                 getPrognosisList();
             });
         }

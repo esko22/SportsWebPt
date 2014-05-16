@@ -76,11 +76,13 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
     var equipmentProxy = $resource(window.location.origin + '/' + apiUris.briefEquipment);
     var bodyRegionProxy = $resource(window.location.origin + '/' + apiUris.bodyRegion);
     var signFilterProxy = $resource(window.location.origin + '/' + apiUris.signFilters);
+    var causeFilterProxy = $resource(window.location.origin + '/' + apiUris.causeFilters);
     var symptomaticRegionsProxy = $resource(window.location.origin + '/' + apiUris.symptomaticRegions);
 
     var equipment = equipmentProxy.query();
     var bodyRegions = bodyRegionProxy.query();
     var signFilters = signFilterProxy.query();
+    var causeFilters = causeFilterProxy.query();
     var symptomaticRegions = symptomaticRegionsProxy.query();
     var maxSelectableAreas = 2;
     var likelyHoodThresholds = { high: .75, medium: .20 };
@@ -124,6 +126,7 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
         equipment: equipment,
         bodyRegions: bodyRegions,
         signFilters: signFilters,
+        causeFilters: causeFilters,
         returnUris: returnUris,
         maxSelectableAreas: maxSelectableAreas,
         symptomaticRegions: symptomaticRegions,

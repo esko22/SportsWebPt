@@ -42,12 +42,12 @@ bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionAdminS
     $scope.submit = function() {
         if ($scope.selectedBodyRegion.id > 0) {
             bodyRegionAdminService.update($scope.selectedBodyRegion).$promise.then(function () {
-                notifierService.notify('Update Successfully!');
+                notifierService.notify('Update Success!');
                 getBodyRegionList();
             });
         } else {
             bodyRegionAdminService.save($scope.selectedBodyRegion).$promise.then(function () {
-                notifierService.notify('Creeate Successfully!');
+                notifierService.notify('Created Successfully!');
                 getBodyRegionList();
             });
         }

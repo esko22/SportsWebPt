@@ -58,12 +58,12 @@ bodyPartModule.controller('BodyPartController', ['$scope', 'bodyPartAdminService
     $scope.submit = function () {
         if ($scope.selectedBodyPart.id > 0) {
             bodyPartAdminService.update($scope.selectedBodyPart).$promise.then(function () {
-                notifierService.notify('Update Successfully!');
+                notifierService.notify('Update Success!');
                 getBodyPartList();
             });
         } else {
             bodyPartAdminService.save($scope.selectedBodyPart).$promise.then(function () {
-                notifierService.notify('Creeate Successfully!');
+                notifierService.notify('Created Successfully!');
                 getBodyPartList();
             });
         }
