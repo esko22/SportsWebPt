@@ -1,0 +1,19 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Provider</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="treatment in treatments">
+        <tr>
+            <td ng-bind="treatment.name"></td>
+            <td ng-bind-html="treatment.description"></td>
+            <td ng-bind="treatment.category"></td>
+            <td ng-bind="treatment.provider"></td>
+            <td><button class="btn-primary" ng-click="bindSelectedTreatment(treatment)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

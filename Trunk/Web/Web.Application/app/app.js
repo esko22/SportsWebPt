@@ -81,6 +81,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             })
+            .state('admin.dashboard.treatment',
+            {
+                url: "/treatment",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/entities/prtl.treatment.htm',
+                        controller: 'TreatmentController'
+                    }
+                }
+            })
             .state('public',
             {
                 abstract: true,

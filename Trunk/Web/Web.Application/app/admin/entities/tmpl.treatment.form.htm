@@ -1,0 +1,48 @@
+﻿<form class="form-horizontal" novalidate rc-submit="submit()" name="treatmentForm">
+    <div class="form-group">
+        <label class="control-label col-lg-3">Name</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.treatmentForm.needsAttention(treatmentForm.name)}">
+            <input type="text" class="form-control" name="name" ng-model="selectedTreatment.name" placeholder="Name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Description</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.treatmentForm.needsAttention(treatmentForm.description)}">
+            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedTreatment.description" placeholder="Description" required></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Category</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.treatmentForm.needsAttention(treatmentForm.category)}">
+            <select name="category" class="form-control" ng-model="selectedTreatment.category" ng-options="treatmentCategory for treatmentCategory in categories" required>
+                <option value="">-- choose category --</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Provider</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.treatmentForm.needsAttention(treatmentForm.provider)}">
+            <select name="provider" class="form-control" ng-model="selectedTreatment.provider" ng-options="treatmentProvider for treatmentProvider in providers" required>
+                <option value="">-- choose provider --</option>
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <div ng-show="treatmentForm.name.$error.required && rc.treatmentForm.attempted">
+            <strong><span class="help-block">Name Required</span></strong>
+        </div>
+        <div ng-show="treatmentForm.description.$error.required && rc.treatmentForm.attempted">
+            <strong><span class="help-block">Description Required</span></strong>
+        </div>
+        <div ng-show="treatmentForm.category.$error.required && rc.treatmentForm.attempted">
+            <strong><span class="help-block">Category Required</span></strong>
+        </div>
+        <div ng-show="treatmentForm.provider.$error.required && rc.treatmentForm.attempted">
+            <strong><span class="help-block">Provider Required</span></strong>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+    </div>
+</form>
