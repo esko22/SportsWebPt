@@ -137,7 +137,17 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 views: {
                     "admin-app-view": {
                         templateUrl: '/app/admin/content/prtl.exercise.htm',
-                        controller: 'ExerciseController'
+                        controller: 'ExerciseAdminController'
+                    }
+                }
+            })
+            .state('admin.dashboard.plan',
+            {
+                url: "/plan",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/content/prtl.plan.htm',
+                        controller: 'PlanAdminController'
                     }
                 }
             })

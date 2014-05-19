@@ -2,7 +2,7 @@
 
 var exerciseAdminModule = angular.module('exercise.admin.module', []);
 
-exerciseAdminModule.directive('exerciseList', [function () {
+exerciseAdminModule.directive('adminExerciseList', [function () {
     return {
         restrict: 'EA',
         scope: true,
@@ -84,7 +84,7 @@ exerciseAdminModule.controller('ExerciseModalController', [
     }
 ]);
 
-exerciseAdminModule.controller('ExerciseController', ['$scope', 'exerciseAdminService', 'configService', '$modal', function ($scope, exerciseAdminService, configService, $modal) {
+exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAdminService', 'configService', '$modal', function ($scope, exerciseAdminService, configService, $modal) {
 
     function getExerciseList() {
         exerciseAdminService.getAll().$promise.then(function (results) {
