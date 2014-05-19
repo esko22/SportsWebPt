@@ -177,10 +177,14 @@
     <Content Include="app\about\tmpl.terms.htm" />
     <Content Include="app\about\tmpl.contact.htm" />
     <Content Include="app\about\tmpl.us.htm" />
+    <Content Include="app\admin\content\mod.injury.js" />
     <Content Include="app\admin\content\mod.plan.js" />
     <Content Include="app\admin\content\mod.exercise.js" />
+    <Content Include="app\admin\content\prtl.injury.htm" />
     <Content Include="app\admin\content\prtl.plan.htm" />
     <Content Include="app\admin\content\prtl.exercise.htm" />
+    <Content Include="app\admin\content\tmpl.injury.list.htm" />
+    <Content Include="app\admin\content\tmpl.injury.modal.htm" />
     <Content Include="app\admin\content\tmpl.plan.list.htm" />
     <Content Include="app\admin\content\tmpl.plan.modal.htm" />
     <Content Include="app\admin\content\tmpl.exercise.modal.htm" />

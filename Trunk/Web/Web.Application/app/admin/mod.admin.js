@@ -10,5 +10,6 @@ var adminModule = angular.module('admin.module', [
     'sign.admin.module',
     'video.admin.module',
     'exercise.admin.module',
-    'plan.admin.module'
+    'plan.admin.module',
+    'injury.admin.module'
 ]);

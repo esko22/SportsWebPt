@@ -1,0 +1,121 @@
+﻿<table class="table table-striped">
+    <tbody ng-repeat="injury in injuries">
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Injury Id: </strong><span ng-bind="injury.id"></span></label>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <button class="btn-danger" ng-click="bindSelectedInjury(injury)">Edit</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Common Name: </strong><span ng-bind="injury.commonName"></span></label>
+                    </div>
+                    <div class="col-md-5">
+                        <label><strong>Medical Name: </strong><span ng-bind="injury.medicalName"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Opening Statement: </label> <span ng-bind-html="injury.openingStatement"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Description: </label><span ng-bind-html="injury.description"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Recovery: </label> <span ng-bind-html="injury.recovery"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Tags: </strong><span ng-bind="injury.tags"></span></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>PageName: </strong><span ng-bind="injury.pageName"></span></label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><strong>Animation: </strong><span ng-bind="injury.animationTag"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Causes: </strong></label>
+                            <ul>
+                                <li ng-repeat="cause in injury.causes" ng-bind="cause.description"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Signs: </strong></label>
+                            <ul>
+                                <li ng-repeat="sign in injury.signs" ng-bind="sign.description"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Plans: </strong></label>
+                            <ul>
+                                <li ng-repeat="plan in injury.plans" ng-bind="plan.routineName + ' [' + plan.id + ']'"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>BodyRegions: </strong></label>
+                            <ul>
+                                <li ng-repeat="bodyRegion in injury.bodyRegions" ng-bind="bodyRegion.name"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Symptoms: </strong></label>
+                            <ul>
+                                <li ng-repeat="symptom in injury.injurySymptoms">
+                                    <span ng-bind="symptom.bodyPartMatrixItemName"></span> :
+                                    <span ng-bind="symptom.name"></span>
+                                    (<span ng-bind="symptom.givenResponse"></span> - RF: <span ng-bind="symptom.isRedFlag"></span>)
+                                    <span ng-bind="symptom.renderType"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Treatments: </strong></label>
+                            <ul>
+                                <li ng-repeat="treatment in injury.treatments" ng-bind="treatment.name"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Prognoses: </strong></label>
+                            <ul>
+                                <li ng-repeat="prognosis in injury.injuryPrognoses">
+                                    <span ng-bind="prognosis.name + ' [' + prognosis.prognosisId + ']'"> </span>
+                                    <span ng-bind="prognosis.duration"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>  
+        </tr>
+    </tbody>
+</table>

@@ -151,6 +151,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             })
+            .state('admin.dashboard.injury',
+            {
+                url: "/injury",
+                views: {
+                    "admin-app-view": {
+                        templateUrl: '/app/admin/content/prtl.injury.htm',
+                        controller: 'InjuryAdminController'
+                    }
+                }
+            })
             .state('public',
             {
                 abstract: true,

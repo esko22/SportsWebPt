@@ -87,6 +87,9 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
     var signFilterProxy = $resource(window.location.origin + '/' + apiUris.signFilters);
     var causeFilterProxy = $resource(window.location.origin + '/' + apiUris.causeFilters);
     var symptomaticRegionsProxy = $resource(window.location.origin + '/' + apiUris.symptomaticRegions);
+    //these should be moved out
+    var bodyPartMatrixProxy = $resource(window.location.origin + '/' + apiUris.adminBodyPartMatrix);
+    var availableSymptomsProxy = $resource(window.location.origin + '/' + apiUris.adminSymptoms);
 
     var equipment = equipmentProxy.query();
     var bodyRegions = bodyRegionProxy.query();
@@ -142,7 +145,9 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
         likelyHoodThresholds: likelyHoodThresholds,
         lookups: lookups,
         kendoEditorOptions: kendoEditorOptions,
-        kendoEditorIgnores: kendoEditorIgnores
+        kendoEditorIgnores: kendoEditorIgnores,
+        bodyPartMatrixProxy: bodyPartMatrixProxy,
+        availableSymptomsProxy: availableSymptomsProxy
     };
 
 
