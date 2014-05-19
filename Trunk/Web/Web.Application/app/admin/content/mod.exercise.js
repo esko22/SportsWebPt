@@ -17,6 +17,11 @@ exerciseAdminModule.controller('ExerciseModalController', [
     'configService', 'equipmentAdminService', 'bodyRegionAdminService', 'videoAdminService',
     function ($scope, exerciseAdminService, $modalInstance, selectedExercise, notifierService, configService, equipmentAdminService, bodyRegionAdminService, videoAdminService) {
 
+        $scope.exercise = {};
+        if (selectedExercise) {
+            $scope.exercise = selectedExercise;
+        }
+
         //lookups
         $scope.categories = configService.lookups.functionExerciseCategories;
         $scope.holdTypes = configService.lookups.holdTypes;
@@ -27,35 +32,39 @@ exerciseAdminModule.controller('ExerciseModalController', [
         equipmentAdminService.getAll().$promise.then(function (results){
             $scope.availableEquipment = results;
             //have to get items from available collection
-            var currentEquipment = [];
-            _.each(selectedExercise.equipment, function (equipment) {
-                currentEquipment.push(_.findWhere($scope.availableEquipment, { id: equipment.id }));
-            });
-            selectedExercise.equipment = currentEquipment;
+            if (selectedExercise) {
+                var currentEquipment = [];
+                _.each(selectedExercise.equipment, function(equipment) {
+                    currentEquipment.push(_.findWhere($scope.availableEquipment, { id: equipment.id }));
+                });
+                selectedExercise.equipment = currentEquipment;
+            }
         });
 
         bodyRegionAdminService.getAll().$promise.then(function (results) {
             $scope.availableBodyRegions = results;
-            var currentBodyRegions = [];
-            _.each(selectedExercise.bodyRegions, function (bodyRegion) {
-                currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
-            });
-            selectedExercise.bodyRegions = currentBodyRegions;
+            if (selectedExercise) {
+                var currentBodyRegions = [];
+                _.each(selectedExercise.bodyRegions, function (bodyRegion) {
+                    currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
+                });
+                selectedExercise.bodyRegions = currentBodyRegions;
+            }
         });
 
         videoAdminService.getAll().$promise.then(function (results) {
             $scope.availableVideos = results;
-            var currentVideos = [];
-            _.each(selectedExercise.videos, function (video) {
-                currentVideos.push(_.findWhere($scope.availableVideos, { id: video.id }));
-            });
-            selectedExercise.videos = currentVideos;
+            if (selectedExercise) {
+                var currentVideos = [];
+                _.each(selectedExercise.videos, function(video) {
+                    currentVideos.push(_.findWhere($scope.availableVideos, { id: video.id }));
+                });
+                selectedExercise.videos = currentVideos;
+            }
         });
 
-        $scope.exercise = selectedExercise;
-
         $scope.submit = function () {
-            if ($scope.exercise.id > 0) {
+            if ($scope.exercise && $scope.exercise.id > 0) {
                 exerciseAdminService.update($scope.exercise).$promise.then(function () {
                     notifierService.notify('Update Success!');
                     $modalInstance.close($scope.exercise);

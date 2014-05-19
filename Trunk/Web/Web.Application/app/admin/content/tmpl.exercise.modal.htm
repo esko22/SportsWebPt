@@ -9,14 +9,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label col-lg-3">Common Name</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.name)}">
+                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Medical Name</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.medicalName)}">
+                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,9 +33,9 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Difficulty</label>
-                    <div class="col-lg-9">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.medicalName)}">
                         <select class="form-control" name="difficulty"
-                                ng-options="difficulty for difficulty in difficulties" ng-model="exercise.difficulty">
+                                ng-options="difficulty for difficulty in difficulties" ng-model="exercise.difficulty" required>
                             <option value="">-- Select Difficulty-- </option>
                         </select>
                     </div>
@@ -45,14 +45,13 @@
                     <div class="col-lg-9">
                         <select class="form-control" name="category" multiple="multiple" size="8" 
                                 ng-options="category for category in categories" ng-model="exercise.categories">
-                            <option value="">-- Select Category-- </option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Page Name</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.pageName)}">
+                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -120,14 +119,17 @@
             </div>
         </div>
         <div class="text-center">
-            <div ng-show="equipmentForm.name.$error.required && rc.equipmentForm.attempted">
+            <div ng-show="exerciseForm.name.$error.required && rc.exerciseForm.attempted">
                 <strong><span class="help-block">Name Required</span></strong>
             </div>
-            <div ng-show="equipmentForm.productInformation.$error.required && rc.equipmentForm.attempted">
-                <strong><span class="help-block">Description Required</span></strong>
+            <div ng-show="exerciseForm.medicalName.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Medical Name Required</span></strong>
             </div>
-            <div ng-show="equipmentForm.category.$error.required && rc.equipmentForm.attempted">
-                <strong><span class="help-block">Category Required</span></strong>
+            <div ng-show="exerciseForm.difficulty.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Difficulty Required</span></strong>
+            </div>
+            <div ng-show="exerciseForm.pageName.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
             </div>
         </div>
         <div class="text-center">
