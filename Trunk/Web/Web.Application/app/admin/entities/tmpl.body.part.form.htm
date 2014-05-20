@@ -2,13 +2,13 @@
     <div class="form-group">
         <label class="control-label col-lg-3">Common Name</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.bodyPartForm.needsAttention(bodyPartForm.commonName)}">
-            <input type="text" class="form-control" name="commonName" ng-model="selectedBodyPart.commonName" placeholder="Common Name" required>
+            <input type="text" class="form-control" name="commonName" ng-model="selectedBodyPart.commonName" placeholder="Common Name" required ng-minlength="1" ng-maxlength="100">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">Scientific Name</label>
         <div class="col-lg-9">
-            <input type="text" class="form-control" name="scientificName" ng-model="selectedBodyPart.scientificName" placeholder="Scientific Name">
+            <input type="text" class="form-control" name="scientificName" ng-model="selectedBodyPart.scientificName" placeholder="Scientific Name" ng-minlength="3" ng-maxlength="100">
         </div>
     </div>
     <div class="form-group">
@@ -34,6 +34,12 @@
     <div class="text-center">
         <div ng-show="bodyPartForm.commonName.$error.required && rc.bodyPartForm.attempted">
             <strong><span class="help-block">Common Name Required</span></strong>
+        </div>
+        <div ng-show="(bodyPartForm.commonName.$error.minlength || bodyPartForm.commonName.$error.maxlength)  && rc.bodyPartForm.attempted">
+            <strong><span class="help-block">Name must be between 1 and 100 characters</span></strong>
+        </div>
+        <div ng-show="(bodyPartForm.scientificName.$error.minlength || bodyPartForm.scientificName.$error.maxlength)  && rc.bodyPartForm.attempted">
+            <strong><span class="help-block">Scientific Name must be between 1 and 100 characters</span></strong>
         </div>
         <div ng-show="bodyPartForm.primaryAreas.$error.required && rc.bodyPartForm.attempted">
             <strong><span class="help-block">Primary Area Required</span></strong>

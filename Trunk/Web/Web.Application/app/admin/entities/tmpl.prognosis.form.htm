@@ -2,13 +2,13 @@
     <div class="form-group">
         <label class="control-label col-lg-3">Name</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.prognosisForm.needsAttention(prognosisForm.name)}">
-            <input type="text" class="form-control" name="name" ng-model="selectedPrognosis.name" placeholder="Name" required>
+            <input type="text" class="form-control" name="name" ng-model="selectedPrognosis.name" placeholder="Name" required ng-minlength="4" ng-maxlength="50">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">Description</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.prognosisForm.needsAttention(prognosisForm.description)}">
-            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedPrognosis.description" placeholder="Description" required></textarea>
+            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedPrognosis.description" placeholder="Description" required ng-minlength="1" ng-maxlength="10000"></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -23,8 +23,14 @@
         <div ng-show="prognosisForm.name.$error.required && rc.prognosisForm.attempted">
             <strong><span class="help-block">Name Required</span></strong>
         </div>
+        <div ng-show="(prognosisForm.name.$error.minlength || prognosisForm.name.$error.maxlength)  && rc.prognosisForm.attempted">
+            <strong><span class="help-block">Name must be between 1 and 50 characters</span></strong>
+        </div>
         <div ng-show="prognosisForm.description.$error.required && rc.prognosisForm.attempted">
             <strong><span class="help-block">Description Required</span></strong>
+        </div>
+        <div ng-show="(prognosisForm.description.$error.minlength || prognosisForm.description.$error.maxlength)  && rc.prognosisForm.attempted">
+            <strong><span class="help-block">Description must be between 1 and 10000 characters</span></strong>
         </div>
         <div ng-show="prognosisForm.category.$error.required && rc.prognosisForm.attempted">
             <strong><span class="help-block">Category Required</span></strong>

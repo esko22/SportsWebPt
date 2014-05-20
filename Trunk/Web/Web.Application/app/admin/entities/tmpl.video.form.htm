@@ -2,19 +2,19 @@
     <div class="form-group">
         <label class="control-label col-lg-3">Name</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.name)}">
-            <input type="text" class="form-control" name="name" ng-model="selectedVideo.name" placeholder="Name" required>
+            <input type="text" class="form-control" name="name" ng-model="selectedVideo.name" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">Medical Name</label>
         <div class="col-lg-9">
-            <input type="text" class="form-control" name="medicalName" ng-model="selectedVideo.medicalName" placeholder="Medical Name">
+            <input type="text" class="form-control" name="medicalName" ng-model="selectedVideo.medicalName" placeholder="Medical Name" required ng-minlength="4" ng-maxlength="100">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">Description</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.description)}">
-            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedVideo.description" required></textarea>
+            <textarea class="form-control" name="description" rows="5" kendo-editor k-tools="editorOptions" ng-model="selectedVideo.description" required ng-minlength="1" ng-maxlength="60000"></textarea>
         </div>
     </div>
     <div class="form-group">
@@ -25,24 +25,42 @@
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">File Name</label>
-        <div class="col-lg-9">
-            <input type="text" class="form-control" name="fileName" ng-model="selectedVideo.fileName" placeholder="File Name">
+        <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.fileName)}">
+            <input type="text" class="form-control" name="fileName" ng-model="selectedVideo.fileName" placeholder="File Name" ng-minlength="6" ng-maxlength="40">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-lg-3">Youtube Video Id</label>
-        <div class="col-lg-9">
-            <input type="text" class="form-control" name="youtubeVideoId" ng-model="selectedVideo.youtubeVideoId" placeholder="Youtube Video Id">
+        <div class="col-lg-9" ng-class="{'has-error': rc.videoForm.needsAttention(videoForm.youtubeVideoId)}">
+            <input type="text" class="form-control" name="youtubeVideoId" ng-model="selectedVideo.youtubeVideoId" placeholder="Youtube Video Id" ng-minlength="12" ng-maxlength="12">
         </div>
     </div>
     <div class="text-center">
-        <div ng-show="equipmentForm.name.$error.required && rc.equipmentForm.attempted">
+        <div ng-show="videoForm.name.$error.required && rc.videoForm.attempted">
             <strong><span class="help-block">Name Required</span></strong>
         </div>
-        <div ng-show="equipmentForm.productInformation.$error.required && rc.equipmentForm.attempted">
+        <div ng-show="(videoForm.name.$error.minlength || videoForm.name.$error.maxlength)  && rc.videoForm.attempted">
+            <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+        </div>
+        <div ng-show="videoForm.medicalName.$error.required && rc.videoForm.attempted">
+            <strong><span class="help-block">Medical Name Required</span></strong>
+        </div>
+        <div ng-show="(videoForm.medicalName.$error.minlength || videoForm.medicalName.$error.maxlength)  && rc.videoForm.attempted">
+            <strong><span class="help-block">Medical Name must be between 4 and 100 characters</span></strong>
+        </div>
+        <div ng-show="videoForm.description.$error.required && rc.videoForm.attempted">
             <strong><span class="help-block">Description Required</span></strong>
         </div>
-        <div ng-show="equipmentForm.category.$error.required && rc.equipmentForm.attempted">
+        <div ng-show="(videoForm.description.$error.minlength || videoForm.description.$error.maxlength)  && rc.videoForm.attempted">
+            <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>
+        </div>
+        <div ng-show="(videoForm.fileName.$error.minlength || videoForm.fileName.$error.maxlength)  && rc.videoForm.attempted">
+            <strong><span class="help-block">Filename must be between 5 and 50 characters</span></strong>
+        </div>
+        <div ng-show="(videoForm.youtubeVideoId.$error.minlength || videoForm.youtubeVideoId.$error.maxlength)  && rc.videoForm.attempted">
+            <strong><span class="help-block">Youtbue video id must be 12 characters</span></strong>
+        </div>
+        <div ng-show="videoForm.category.$error.required && rc.videoForm.attempted">
             <strong><span class="help-block">Category Required</span></strong>
         </div>
     </div>

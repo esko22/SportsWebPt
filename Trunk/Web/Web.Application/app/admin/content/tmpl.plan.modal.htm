@@ -10,19 +10,19 @@
                 <div class="form-group">
                     <label class="control-label col-lg-2">Name</label>
                     <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.name)}">
-                        <input type="text" class="form-control" name="name" ng-model="plan.routineName" placeholder="Name" required>
+                        <input type="text" class="form-control" name="name" ng-model="plan.routineName" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-2">Description</label>
-                    <div class="col-lg-10">
-                        <textarea rows="5 " class="form-control" name="description" ng-model="plan.description" kendo-editor k-tools="editorOptions" placeholder="Description"></textarea>
+                    <label class="control-label col-lg-2" >Description</label>
+                    <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" ng-model="plan.description" kendo-editor k-tools="editorOptions" placeholder="Description" ng-minlength="2" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-2">Workout Instructions</label>
-                    <div class="col-lg-10">
-                        <textarea rows="5" class="form-control" name="instructions" ng-model="plan.instructions" kendo-editor k-tools="editorOptions" placeholder="Instructions"></textarea>
+                    <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.instructions)}">
+                        <textarea rows="5" class="form-control" name="instructions" ng-model="plan.instructions" kendo-editor k-tools="editorOptions" placeholder="Instructions" ng-minlength="2" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -35,20 +35,20 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Structures Involved</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="structuresInvolved" ng-model="plan.structuresInvolved" placeholder="Structures">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.structuresInvolved)}">
+                        <input type="text" class="form-control" name="structuresInvolved" ng-model="plan.structuresInvolved" placeholder="Structures" ng-minlength="2" ng-maxlength="10000">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Page Name</label>
                     <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.pageName)}">
-                        <input type="text" class="form-control" name="pageName" ng-model="plan.pageName" placeholder="Page Name" required>
+                        <input type="text" class="form-control" name="pageName" ng-model="plan.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Tags</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="tags" ng-model="plan.tags" placeholder="Tags">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.tags)}">
+                        <input type="text" class="form-control" name="tags" ng-model="plan.tags" placeholder="Tags" ng-minlength="2" ng-maxlength="10000">
                     </div>
                 </div>
                 <div class="form-group">
@@ -145,11 +145,32 @@
             <div ng-show="planForm.name.$error.required && rc.planForm.attempted">
                 <strong><span class="help-block">Name Required</span></strong>
             </div>
+            <div ng-show="(planForm.name.$error.minlength || planForm.name.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.instructions.$error.minlength || planForm.instructions.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Instructions must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.description.$error.minlength || planForm.description.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>
+            </div>
             <div ng-show="planForm.category.$error.required && rc.planForm.attempted">
                 <strong><span class="help-block">Category Required</span></strong>
             </div>
             <div ng-show="planForm.pageName.$error.required && rc.planForm.attempted">
                 <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(planForm.structuresInvolved.$error.minlength || planForm.structuresInvolved.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Structures must be between 2 and 10000 characters</span></strong>
+            </div>
+            <div ng-show="planForm.pageName.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(planForm.pageName.$error.minlength || planForm.pageName.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.tags.$error.minlength || planForm.tags.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Tags must be between 1 and 10000 characters</span></strong>
             </div>
         </div>
         <div class="text-center">

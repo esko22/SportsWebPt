@@ -2,7 +2,7 @@
     <div class="form-group">
         <label class="control-label col-lg-3">Name</label>
         <div class="col-lg-9" ng-class="{'has-error': rc.signForm.needsAttention(signForm.description)}">
-            <input type="text" class="form-control" name="description" ng-model="selectedSign.description" placeholder="Description" required>
+            <input type="text" class="form-control" name="description" ng-model="selectedSign.description" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
         </div>
     </div>
     <div class="form-group">
@@ -24,6 +24,9 @@
     <div class="text-center">
         <div ng-show="signForm.description.$error.required && rc.signForm.attempted">
             <strong><span class="help-block">Name Required</span></strong>
+        </div>
+        <div ng-show="(signForm.description.$error.minlength || signForm.description.$error.maxlength)  && rc.signForm.attempted">
+            <strong><span class="help-block">Description must be between 4 and 100 characters</span></strong>
         </div>
         <div ng-show="signForm.category.$error.required && rc.signForm.attempted">
             <strong><span class="help-block">Category Required</span></strong>

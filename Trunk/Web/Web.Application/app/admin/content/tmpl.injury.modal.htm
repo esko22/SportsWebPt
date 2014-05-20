@@ -9,38 +9,38 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label col-lg-3">Common Name</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="commonName" ng-model="injury.commonName" placeholder="Common Name">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.commonName)}">
+                        <input type="text" class="form-control" name="commonName" ng-model="injury.commonName" placeholder="Common Name" required ng-minlength="4" ng-maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Medical Name</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="medicalName" ng-model="injury.medicalName" placeholder="Medical Name">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.medicalName)}">
+                        <input type="text" class="form-control" name="medicalName" ng-model="injury.medicalName" placeholder="Medical Name" required ng-minlength="4" ng-maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Opening Statement</label>
-                    <div class="col-lg-9">
-                        <textarea class="form-control" name="openingStatement" rows="5" ng-model="injury.openingStatement" kendo-editor k-tools="editorOptions" placeholder="Opening Statement"></textarea>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.openingStatement)}">
+                        <textarea class="form-control" name="openingStatement" rows="5" ng-model="injury.openingStatement" kendo-editor k-tools="editorOptions" placeholder="Opening Statement" required ng-minlength="1" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Description</label>
-                    <div class="col-lg-9">
-                        <textarea rows="5 " class="form-control" name="description" ng-model="injury.description" kendo-editor k-tools="editorOptions" placeholder="Description"></textarea>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" ng-model="injury.description" kendo-editor k-tools="editorOptions" placeholder="Description" required ng-minlength="1" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Recovery</label>
-                    <div class="col-lg-9">
-                        <textarea rows="5" class="form-control" name="recovery" ng-model="injury.recovery" kendo-editor k-tools="editorOptions" placeholder="Recovery"></textarea>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.recovery)}">
+                        <textarea rows="5" class="form-control" name="recovery" ng-model="injury.recovery" kendo-editor k-tools="editorOptions" placeholder="Recovery" required ng-minlength="1" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-lg-3">Page Name</label>
+                    <label class="control-label col-lg-3" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.pageName)}">Page Name</label>
                     <div class="col-lg-9">
-                        <input type="text" class="form-control" name="pageName" ng-model="injury.pageName" placeholder="Page Name">
+                        <input type="text" class="form-control" name="pageName" ng-model="injury.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
@@ -163,17 +163,41 @@
             </div>
         </div>
         <div class="text-center">
-            <div ng-show="exerciseForm.name.$error.required && rc.exerciseForm.attempted">
+            <div ng-show="injuryForm.commonName.$error.required && rc.injuryForm.attempted">
                 <strong><span class="help-block">Name Required</span></strong>
             </div>
-            <div ng-show="exerciseForm.medicalName.$error.required && rc.exerciseForm.attempted">
+            <div ng-show="(injuryForm.commonName.$error.minlength || injuryForm.commonName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.medicalName.$error.required && rc.injuryForm.attempted">
                 <strong><span class="help-block">Medical Name Required</span></strong>
             </div>
-            <div ng-show="exerciseForm.difficulty.$error.required && rc.exerciseForm.attempted">
-                <strong><span class="help-block">Difficulty Required</span></strong>
+            <div ng-show="(injuryForm.medicalName.$error.minlength || injuryForm.medicalName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Medical Name must be between 4 and 100 characters</span></strong>
             </div>
-            <div ng-show="exerciseForm.pageName.$error.required && rc.exerciseForm.attempted">
+            <div ng-show="injuryForm.description.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.description.$error.minlength || injuryForm.description.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.recovery.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Recovery Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.recovery.$error.minlength || injuryForm.recovery.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Recovery must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.openingStatement.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Opening Statement Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.openingStatement.$error.minlength || injuryForm.openingStatement.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Opening must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.pageName.$error.required && rc.injuryForm.attempted">
                 <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.pageName.$error.minlength || injuryForm.pageName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
             </div>
         </div>
         <div class="text-center">

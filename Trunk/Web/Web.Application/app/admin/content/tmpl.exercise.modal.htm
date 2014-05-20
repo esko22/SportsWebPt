@@ -10,30 +10,30 @@
                 <div class="form-group">
                     <label class="control-label col-lg-3">Common Name</label>
                     <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.name)}">
-                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name" required>
+                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name" required ng-minlength="2" ng-maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Medical Name</label>
                     <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.medicalName)}">
-                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name" required>
+                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name" required ng-minlength="2" ng-maxlength="100">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Description</label>
-                    <div class="col-lg-9">
-                        <textarea rows="5 " class="form-control" name="description" kendo-editor k-tools="editorOptions" ng-model="exercise.description" placeholder="Description"></textarea>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" kendo-editor k-tools="editorOptions" ng-model="exercise.description" placeholder="Description" required ng-minlength="1" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Structures Involved</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="structuresInvolved" ng-model="exercise.structuresInvolved" placeholder="Structures">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.structuresInvolved)}">
+                        <input type="text" class="form-control" name="structuresInvolved" ng-model="exercise.structuresInvolved" placeholder="Structures" ng-minlength="2" ng-maxlength="10000">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Difficulty</label>
-                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.medicalName)}">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.difficulty)}">
                         <select class="form-control" name="difficulty"
                                 ng-options="difficulty for difficulty in difficulties" ng-model="exercise.difficulty" required>
                             <option value="">-- Select Difficulty-- </option>
@@ -51,13 +51,13 @@
                 <div class="form-group">
                     <label class="control-label col-lg-3">Page Name</label>
                     <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.pageName)}">
-                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name" required>
+                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-lg-3">Tags</label>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" name="tags" ng-model="exercise.tags" placeholder="Tags">
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.tags)}">
+                        <input type="text" class="form-control" name="tags" ng-model="exercise.tags" placeholder="Tags" ng-minlength="2" ng-maxlength="10000">
                     </div>
                 </div>
                 <div>
@@ -122,14 +122,35 @@
             <div ng-show="exerciseForm.name.$error.required && rc.exerciseForm.attempted">
                 <strong><span class="help-block">Name Required</span></strong>
             </div>
+            <div ng-show="(exerciseForm.name.$error.minlength || exerciseForm.name.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Name must be between 2 and 100 characters</span></strong>
+            </div>
             <div ng-show="exerciseForm.medicalName.$error.required && rc.exerciseForm.attempted">
                 <strong><span class="help-block">Medical Name Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.medicalName.$error.minlength || exerciseForm.medicalName.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Medical Name must be between 2 and 100 characters</span></strong>
             </div>
             <div ng-show="exerciseForm.difficulty.$error.required && rc.exerciseForm.attempted">
                 <strong><span class="help-block">Difficulty Required</span></strong>
             </div>
+            <div ng-show="exerciseForm.description.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.description.$error.minlength || exerciseForm.description.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Description must be between 4 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.structuresInvolved.$error.minlength || exerciseForm.structuresInvolved.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Structures must be between 4 and 10000 characters</span></strong>
+            </div>
             <div ng-show="exerciseForm.pageName.$error.required && rc.exerciseForm.attempted">
                 <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.pageName.$error.minlength || exerciseForm.pageName.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.tags.$error.minlength || exerciseForm.tags.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Tags must be between 1 and 10000 characters</span></strong>
             </div>
         </div>
         <div class="text-center">
