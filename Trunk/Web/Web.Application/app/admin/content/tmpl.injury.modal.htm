@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label>Symptoms</label>
                     <div>
-                        <button class="btn btn-primary" ng-click="addNewSymptom()">Add</button>
+                        <button class="btn btn-primary" ng-click="addSymptom()" type="button">Add</button>
                     </div>
                     <div>
                         <table class="table table-striped">
@@ -74,25 +74,24 @@
                                 <tr>
                                     <td>
                                         <select class="form-control" name="symptom"
-                                                ng-options="symptom.id as (symptom.displayName) for symptom in availableSymptoms" ng-model="injurySymptom.symptomId"></select>
+                                                ng-options="symptom.id as (symptom.displayName) for symptom in availableSymptoms" ng-model="injurySymptom.symptomId" ng-change="symptomChanged(injurySymptom)"></select>
                                     </td>
                                     <td>
                                         <select class="form-control" name="adminInjuryBodyPart"
                                                 ng-options="item.id as (item.displayName) for item in availableBodyPartMatrix" ng-model="injurySymptom.bodyPartMatrixItemId"></select>
                                     </td>
                                     <td>
-                                        <div class="animate-switch-container" ng-switch on="getTemplateName(injurySymptom.symptomId)">
-                                            <small-scale-slider ng-switch-when="examine.slider.five" given-response="injurySymptom.givenResponse"></small-scale-slider>
-                                            <medium-scale-slider ng-switch-when="examine.slider.ten" given-response="injurySymptom.givenResponse"></medium-scale-slider>
-                                            <duration-list ng-switch-when="examine.duration.dropdown" given-response="injurySymptom.givenResponse"></duration-list>
-                                            <feels-like-list ng-switch-when="examine.feels.multi" given-response="injurySymptom.givenResponse"></feels-like-list>
-                                            <while-list ng-switch-when="examine.while.multi" given-response="injurySymptom.givenResponse"></while-list>
-                                            <boolean-response ng-switch-when="examine.radio.bool" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
-                                            <div ng-switch-default></div>
+                                        <div class="animate-switch-container">
+                                            <small-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.five'" given-response="injurySymptom.givenResponse"></small-scale-slider>
+                                            <medium-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.ten'" given-response="injurySymptom.givenResponse"></medium-scale-slider>
+                                            <duration-list ng-show="injurySymptom.renderTemplate == 'examine.duration.dropdown'" given-response="injurySymptom.givenResponse"></duration-list>
+                                            <feels-like-list ng-show="injurySymptom.renderTemplate == 'examine.feels.multi'" given-response="injurySymptom.givenResponse"></feels-like-list>
+                                            <while-list ng-show="injurySymptom.renderTemplate == 'examine.while.multi'" given-response="injurySymptom.givenResponse"></while-list>
+                                            <boolean-response ng-show="injurySymptom.renderTemplate == 'examine.radio.bool'" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
                                         </div>
                                     </td>
                     <td><input type="checkbox" ng-model="injurySymptom.isRedFlag" name="adminIsRedFlag"></td>
-                    <td><button class="btn btn-primary" ng-click="removeSymptom($index)">Remove</button></td>
+                    <td><button class="btn btn-primary" ng-click="removeSymptom($index)" type="button">Remove</button></td>
                     </tr>
                     </tbody>
                     </table>
@@ -138,7 +137,7 @@
                 <div class="form-group">
                     <label>Prognoses</label>
                     <div>
-                        <button class="btn btn-primary" id="btn-admin-add-prognosis" ng-click="addNewPrognosis()">Add</button>
+                        <button class="btn btn-primary" id="btn-admin-add-prognosis" type="button" ng-click="addPrognosis()">Add</button>
                     </div>
                     <div>
                         <table class="table table-striped">
@@ -155,7 +154,7 @@
                                                 ng-options="prognosis.id as (prognosis.name + ' : ' + prognosis.id) for prognosis in availablePrognoses" ng-model="prognosis.prognosisId"></select>
                                     </td>
                                     <td><input class="form-control" type="text" name="adminInjuryPrognosisDuration" ng-model="prognosis.duration" /></td>
-                                    <td><button class="btn btn-primary" ng-click="removePrognosis($index)">Remove</button></td>
+                                    <td><button class="btn btn-primary" type="button" ng-click="removePrognosis($index)">Remove</button></td>
                                 </tr>
                             </tbody>
                         </table>

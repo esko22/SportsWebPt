@@ -110,14 +110,46 @@ injuryAdminModule.controller('InjuryModalController', [
             }
         };
 
-        $scope.getTemplateName = function(symptomId) {
-            var symptom = _.findWhere($scope.availableSymptoms, { id: symptomId });
-            if (symptom) {
-                return symptom.renderTemplate;
+        $scope.symptomChanged = function(injurySymptom) {
+            if (injurySymptom) {
+                injurySymptom.renderTemplate = '';
+                injurySymptom.givenResponse = [];
+                var symptom = _.findWhere($scope.availableSymptoms, { id: injurySymptom.symptomId });
+                if (symptom) {
+                    injurySymptom.renderTemplate = symptom.renderTemplate;
+                    //TODO: hack... kendo not adding value correctly for dropdowns, need to set initially
+                    if (injurySymptom.renderTemplate === 'examine.duration.dropdown') {
+                        injurySymptom.givenResponse.push(0);
+                    }
+                }
+            }
+        }
+
+        $scope.addSymptom = function () {
+            if (!$scope.injury.injurySymptoms) {
+                $scope.injury.injurySymptoms = [];
             }
 
-            return '';
-        };
+            $scope.injury.injurySymptoms.push({ givenResponse: [] });
+        }
+
+        $scope.removeSymptom = function (index) {
+            $scope.injury.injurySymptoms.splice(index, 1);
+        }
+
+        $scope.addPrognosis = function () {
+            if (!$scope.injury.injuryPrognoses) {
+                $scope.injury.injuryPrognoses = [];
+            }
+
+            $scope.injury.injuryPrognoses.push({});
+        }
+
+        $scope.removePrognosis = function (index) {
+            $scope.injury.injuryPrognoses.splice(index, 1);
+        }
+
+
 
         $scope.reset = function () {
             $scope.injury = null;

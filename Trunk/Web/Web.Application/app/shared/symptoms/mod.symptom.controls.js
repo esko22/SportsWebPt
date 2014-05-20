@@ -18,7 +18,7 @@ angular.module('symptom.controls', [])
             scope: {
                 givenResponse: '='
             },
-            template: '<div id="slider" ng-model="givenResponse[0]" kendo-slider k-options="{ min : 0, max : 10, value : 0}"></div>'
+            template: '<div ng-model="givenResponse[0]" kendo-slider k-options="{ min : 0, max : 10, value : 0}"></div>'
         };
     })
     .directive("durationList", function() {
@@ -65,17 +65,17 @@ angular.module('symptom.controls', [])
             },
             link: function(scope, element, attrs) {
                 scope.whileItems = [
-                    { name: 'Sleeping', value: 1 },
-                    { name: 'Prolonged Sitting', value: 2 },
-                    { name: 'Sitting to Standing', value: 3 },
-                    { name: 'Getting Dressed', value: 4 },
-                    { name: 'Bending Over', value: 5 },
-                    { name: 'Squatting / Kneeling', value: 6 },
-                    { name: 'Lifting / Carrying', value: 7 },
-                    { name: 'Reach / Throw / Swing', value: 8 },
-                    { name: 'Walking', value: 9 },
-                    { name: 'Running', value: 10 },
-                    { name: 'Up / Down Stairs', value: 11 }
+                    { name: 'Sleeping', value: '1' },
+                    { name: 'Prolonged Sitting', value: '2' },
+                    { name: 'Sitting to Standing', value: '3' },
+                    { name: 'Getting Dressed', value: '4' },
+                    { name: 'Bending Over', value: '5' },
+                    { name: 'Squatting / Kneeling', value: '6' },
+                    { name: 'Lifting / Carrying', value: '7' },
+                    { name: 'Reach / Throw / Swing', value: '8' },
+                    { name: 'Walking', value: '9' },
+                    { name: 'Running', value: '10' },
+                    { name: 'Up / Down Stairs', value: '11' }
                 ];
 
                 scope.toggleSelection = function toggleSelection(whileItem) {
@@ -102,15 +102,15 @@ angular.module('symptom.controls', [])
             },
             link: function(scope, element, attrs) {
                 scope.feelItems = [
-                    { name: 'Sharp / Stabbing ', value: 1 },
-                    { name: 'Dull / Aching', value: 2 },
-                    { name: 'Throbbing Pain', value: 3 },
-                    { name: 'Stiff / Tight', value: 4 },
-                    { name: 'Tingling / Numbness / Burning', value: 5 },
-                    { name: 'Weak / Tired', value: 6 },
-                    { name: 'Clicks / Snaps', value: 7 },
-                    { name: 'Grinding / Bone-On-Bone', value: 8 },
-                    { name: 'Buckles / Gives Out', value: 9 }
+                    { name: 'Sharp / Stabbing ', value: '1' },
+                    { name: 'Dull / Aching', value: '2' },
+                    { name: 'Throbbing Pain', value: '3' },
+                    { name: 'Stiff / Tight', value: '4' },
+                    { name: 'Tingling / Numbness / Burning', value: '5' },
+                    { name: 'Weak / Tired', value: '6' },
+                    { name: 'Clicks / Snaps', value: '7' },
+                    { name: 'Grinding / Bone-On-Bone', value: '8' },
+                    { name: 'Buckles / Gives Out', value: '9' }
                 ];
 
                 scope.toggleSelection = function toggleSelection(item) {
