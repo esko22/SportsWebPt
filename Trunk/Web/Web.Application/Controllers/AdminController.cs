@@ -14,7 +14,8 @@ using SportsWebPt.Platform.Web.Services;
 namespace SportsWebPt.Platform.Web.Admin
 {
     [RouteArea("Admin")]
-    public class IndexController : BaseController
+    [AdminAccessAttribute]
+    public class AdminController : BaseController
     {
 
         #region Fields
@@ -26,7 +27,7 @@ namespace SportsWebPt.Platform.Web.Admin
 
         #region Construction
 
-        public IndexController(IResearchService researchService, IAdminService adminService)
+        public AdminController(IResearchService researchService, IAdminService adminService)
         {
             Check.Argument.IsNotNull(researchService, "Research Service");
             Check.Argument.IsNotNull(adminService, "Admin Service");
@@ -38,17 +39,6 @@ namespace SportsWebPt.Platform.Web.Admin
         #endregion
 
         #region Methods
-        
-        [GET("Admin", IsAbsoluteUrl = true)]
-        public ActionResult Index()
-        {
-            var viewModel = CreateViewModel<AdminIndexViewModel>();
-            
-            if(!viewModel.User.isAdmin)
-                return new HttpNotFoundResult("Page Not Found");
-            
-            return View(viewModel);
-        }
 
         [GET("admin/equipment", IsAbsoluteUrl = true)]
         public ActionResult GetEquipment()
@@ -347,6 +337,38 @@ namespace SportsWebPt.Platform.Web.Admin
 
         #endregion
 
+
+    }
+
+    public class AdminAccessAttribute : AuthorizeAttribute
+    {
+
+        #region MyRegion
+        
+        #endregion
+
+        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        {
+            Check.Argument.IsNotNull(httpContext,"HttpContext");
+
+            if (!httpContext.User.Identity.IsAuthenticated)
+                return false;
+
+            var userManagementService = DependencyResolver.Current.GetService<IUserManagementService>();
+            var user = userManagementService.GetUser(Convert.ToInt32(httpContext.User.Identity.Name));
+
+            if(user == null)
+                return false;
+
+            return user.isAdmin && base.AuthorizeCore(httpContext);
+        }
+
+        //var viewModel = CreateViewModel<AdminIndexViewModel>();
+
+            //if (!viewModel.User.isAdmin)
+            //    return new HttpNotFoundResult("Page Not Found");
+
+            //filterContext.HttpContext.User
 
     }
 }

@@ -8,16 +8,24 @@
     @Styles.Render("~/content/kendo/bundle")
     @Styles.Render("~/content/theme/css/appstrap")
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
 </head>
-    <body>
-        @{Html.RenderPartial("/Views/Shared/_noAuthHeader.cshtml"); }
-        <div class="container body-content">
-            @RenderBody()
-        </div>
-        @{Html.RenderPartial("/Views/Shared/_masterFooter-r.cshtml"); }
-        
-        @Scripts.Render(
+<body ng-app="swptApp">
+    @{Html.RenderPartial("/Views/Shared/_noAuthHeader.cshtml"); }
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <master-footer></master-footer>
+
+    @Scripts.Render(
             "~/bundles/jquery",
-            "~/bundles/jsextlibs")   
-    </body>
+            "~/bundles/jslibs")
+
+    @Scripts.Render(
+            "~/bundles/angular",
+            "~/bundles/angularApp")
+
+</body>
 </html>

@@ -57,7 +57,7 @@
 
             angular.forEach(region.bodyParts, function (bodyPart) {
                 if (!bodyPart.isSecondary)
-                    html = $.validator.format('{0}<div>{1}</div>', html, bodyPart.commonName);
+                    html = html + '<div>' + bodyPart.commonName + '</div>';
             });
 
             return html;

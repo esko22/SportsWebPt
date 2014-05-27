@@ -30,8 +30,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/libs/jquery-{version}.js",
-                        "~/Scripts/libs/jquery.validate*"));
+                        "~/Scripts/libs/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/libs/angular/angular.js",
@@ -47,29 +46,6 @@ namespace SportsWebPt.Platform.Web
 
             bundles.Add(new ScriptBundle("~/bundles/angularApp").IncludeDirectory("~/App/", "*.js", searchSubdirectories: true));
 
-            bundles.Add(new ScriptBundle("~/bundles/jsextlibs").Include(
-                        "~/Scripts/libs/Uri.js",
-                        "~/Scripts/libs/TrafficCop.js",
-                        "~/Scripts/libs/infuser.js", // depends on TrafficCop
-                        "~/Scripts/libs/knockout-{version}.js",
-                        "~/Scripts/libs/extentsions/knockout-extensions.js",
-                        "~/Scripts/libs/underscore.js",
-                        "~/Scripts/libs/backbone.js", // depends on underscore
-                        "~/Scripts/libs/backbone.relational.js", // depends on underscore
-                        "~/Scripts/libs/bootstrap.js", 
-                        "~/Scripts/libs/knockback.js", // depends on backbone, knockout
-                        "~/Scripts/libs/koExternalTemplateEngine.js",
-                        "~/Scripts/libs/kendo/kendo.web.min.js",
-                        "~/Scripts/libs/extentsions/knockout-kendo.min.js",
-                        "~/Scripts/libs/toastr.js",
-                        "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
-                        "~/Content/theme/plugins/clingify/jquery.clingify.js",
-                        "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
-                        "~/Content/theme/plugins/jRespond/js/jrespond.js",
-                        "~/Scripts/libs/jquery.quicksand.js",
-                        "~/Content/theme/js/appstrap.script.js"
-                        ));
-
             bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
             "~/Scripts/libs/Uri.js",
             "~/Scripts/libs/underscore.js",
@@ -82,39 +58,6 @@ namespace SportsWebPt.Platform.Web
             "~/Content/theme/plugins/jRespond/js/jrespond.js"
             ));
 
-
-            bundles.Add(new ScriptBundle("~/bundles/utils")
-                .IncludeDirectory("~/Scripts/utils/", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/models")
-                .IncludeDirectory("~/Scripts/models/", "*.js", searchSubdirectories: false));
-
-
-            bundles.Add(new ScriptBundle("~/bundles/baseapplib")
-                    .IncludeDirectory("~/Scripts/app/", "*.js", searchSubdirectories: false)
-                    .IncludeDirectory("~/Scripts/viewModels/", "*.js", searchSubdirectories: true));
-
-            bundles.Add(new ScriptBundle("~/bundles/masterapplib")
-                            .IncludeDirectory("~/Scripts/app/master", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/sharedapplib")
-                    .IncludeDirectory("~/Scripts/shared", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/researchexercisepage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/exercise", "*.js", searchSubdirectories: false)
-                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/researchplanpage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/plan", "*.js", searchSubdirectories: false)
-                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
-
-            bundles.Add(new ScriptBundle("~/bundles/researchinjurypage")
-                    .IncludeDirectory("~/Areas/Research/Scripts/injury", "*.js", searchSubdirectories: false)
-                    .IncludeDirectory("~/Scripts/viewModels/research", "*.js", searchSubdirectories: false));
-
-
-            bundles.Add(new ScriptBundle("~/bundles/adminapplib")
-                    .IncludeDirectory("~/Areas/Admin/Scripts", "*.js", searchSubdirectories: true));
 
 
             bundles.Add(new StyleBundle("~/content/kendo/bundle").Include(
