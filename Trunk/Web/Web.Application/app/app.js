@@ -178,6 +178,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     "core-app-view": { templateUrl: '/app/splash/prtl.splash.htm' }
                 }
             })
+            .state('public.sitemap',
+            {
+                url: "/sitemap",
+                views: {
+                    "core-app-view": {
+                        templateUrl: '/app/about/prtl.site.map.htm',
+                        controller: 'SiteMapController'
+                    }
+                }
+            })
             .state('public.about',
             {
                 url: "/about/:aboutType",

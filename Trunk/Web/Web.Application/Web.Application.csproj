@@ -172,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\about\mod.about.js" />
+    <Content Include="app\about\prtl.site.map.htm" />
     <Content Include="app\about\tmpl.team.htm" />
     <Content Include="app\about\tmpl.privacy.htm" />
     <Content Include="app\about\tmpl.terms.htm" />

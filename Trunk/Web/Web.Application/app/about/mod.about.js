@@ -57,5 +57,22 @@ aboutModule.directive('aboutTeam', [function () {
     };
 }]);
 
+aboutModule.controller('SiteMapController', ['$scope', 'planListService', 'injuryListService', 'exerciseListService',
+    function ($scope, planListService, injuryListService, exerciseListService) {
+
+        planListService.planList.$promise.then(function (plans) {
+            $scope.plans = plans;
+        });
+
+        exerciseListService.exerciseList.$promise.then(function (exercises) {
+            $scope.exercises = exercises;
+        });
+
+        injuryListService.injuryList.$promise.then(function (injuries) {
+            $scope.injuries = injuries;
+        });
+
+    }]);
+
 
 
