@@ -31,7 +31,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         #endregion
 
-        [GET("Examine/symptomaticregions", IsAbsoluteUrl = true)]
+        [GET("data/examine/symptomaticregions", IsAbsoluteUrl = true)]
         public ActionResult GetSymptomaticRegions()
         {
             var symptomaticRegions = _examineService.GetSymptomaticRegions();
@@ -39,7 +39,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(symptomaticRegions, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Examine/potentialsymptoms/{bodyPartMatrixId}", IsAbsoluteUrl = true)]
+        [GET("data/examine/potentialsymptoms/{bodyPartMatrixId}", IsAbsoluteUrl = true)]
         public ActionResult GetPotentialSymptoms(string bodyPartMatrixId)
         {
             var matrixId = 0;
@@ -51,7 +51,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(potentialSymptoms, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Examine/diagnosisreport/{diffDiagId}", IsAbsoluteUrl = true)]
+        [GET("data/examine/diagnosisreport/{diffDiagId}", IsAbsoluteUrl = true)]
         public ActionResult GetDiagnosisReport(string diffDiagId)
         {
             var differentialDiagnosisId = 0;
@@ -63,7 +63,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(diagnosisReport, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("examine/diffdiag", IsAbsoluteUrl = true)]
+        [POST("data/examine/diffdiag", IsAbsoluteUrl = true)]
         public ActionResult SubmitDifferentialDiagnosis(DifferentialDiagnosis details)
         {
             var diffDiagId = _examineService.SubmitDifferentialDiagnosis(details);

@@ -123,7 +123,7 @@ planAdminModule.controller('PlanAdminController', ['$scope', 'planAdminService',
 
 planAdminModule.factory('planAdminService', ['$resource', function ($resource) {
 
-    var adminPlanPath = '/admin/plans';
+    var adminPlanPath = '/data/admin/plans';
 
 
     return {

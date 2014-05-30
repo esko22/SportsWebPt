@@ -97,7 +97,7 @@
             "symptomDetails": symptomsForReport
         };
 
-        return $http.post("/examine/diffdiag", diffDiagSubmission);
+        return $http.post("/data/examine/diffdiag", diffDiagSubmission);
     };
 
     var getReport = function(reportId) {

@@ -59,7 +59,7 @@ prognosisAdminModule.controller('PrognosisController', ['$scope', 'prognosisAdmi
 
 prognosisAdminModule.factory('prognosisAdminService', ['$resource', function ($resource) {
 
-    var adminPronosisPath = '/admin/prognoses/';
+    var adminPronosisPath = '/data/admin/prognoses/';
 
 
     return {

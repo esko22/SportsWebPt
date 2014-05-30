@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Application", "Web.Application\Web.Application.csproj", "{6D42DF22-06AF-4786-90D9-6FB06D833D9A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Application.Tests", "Web.Application.Tests\Web.Application.Tests.csproj", "{710ED042-6F31-48A4-851E-60BE381CE14D}"
@@ -31,6 +33,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Web", "Common.Web\Common.Web.csproj", "{384F69B9-E154-4845-A9B9-5B71406E50FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.ServiceStack.Base", "..\Common\Common.ServiceStack.Base\Common.ServiceStack.Base.csproj", "{C13F4C43-687F-4D3C-970D-9394BB8989E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.PreRender", "..\Common\Common.PreRender\Common.PreRender.csproj", "{EA80D503-3412-421B-BF8C-C4960E04E44D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +102,12 @@ Global
 		{C13F4C43-687F-4D3C-970D-9394BB8989E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C13F4C43-687F-4D3C-970D-9394BB8989E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C13F4C43-687F-4D3C-970D-9394BB8989E5}.Release|x64.ActiveCfg = Release|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA80D503-3412-421B-BF8C-C4960E04E44D}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +121,7 @@ Global
 		{053E6DED-C0E3-46F7-A8C9-442517F7CB2F} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
 		{384F69B9-E154-4845-A9B9-5B71406E50FE} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
 		{C13F4C43-687F-4D3C-970D-9394BB8989E5} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
+		{EA80D503-3412-421B-BF8C-C4960E04E44D} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
 		{1AFE645D-A08F-4B96-B6D8-D47FFFD8486F} = {A2205E94-76E7-4D91-A4A2-A09910E8C7C8}
 	EndGlobalSection
 EndGlobal

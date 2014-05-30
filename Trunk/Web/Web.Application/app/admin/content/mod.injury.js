@@ -197,7 +197,7 @@ injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminSer
 
 injuryAdminModule.factory('injuryAdminService', ['$resource', function ($resource) {
 
-    var adminInjuryPath = '/admin/injuries';
+    var adminInjuryPath = '/data/admin/injuries';
 
 
     return {

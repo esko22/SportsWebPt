@@ -124,7 +124,7 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
 
 exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($resource) {
 
-    var adminExercisePath = '/admin/exercises';
+    var adminExercisePath = '/data/admin/exercises';
 
 
     return {

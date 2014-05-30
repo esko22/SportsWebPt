@@ -40,7 +40,7 @@ namespace SportsWebPt.Platform.Web.Admin
 
         #region Methods
 
-        [GET("admin/equipment", IsAbsoluteUrl = true)]
+        [GET("data/admin/equipment", IsAbsoluteUrl = true)]
         public ActionResult GetEquipment()
         {
             var equipment = _adminService.GetEquipment();
@@ -48,7 +48,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(equipment, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/equipment", IsAbsoluteUrl = true)]
+        [POST("data/admin/equipment", IsAbsoluteUrl = true)]
         public ActionResult AddEquipment(Equipment equipment)
         {
             var response = _adminService.AddEquipment(equipment);
@@ -57,7 +57,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(equipment, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/equipment/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/equipment/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateEquipment(Equipment equipment)
         {
             _adminService.UpdateEquipment(equipment);
@@ -65,7 +65,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(equipment, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/videos", IsAbsoluteUrl = true)]
+        [GET("data/admin/videos", IsAbsoluteUrl = true)]
         public ActionResult GetVideos()
         {
             var videos = _adminService.GetVideos();
@@ -73,7 +73,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(videos, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/videos", IsAbsoluteUrl = true)]
+        [POST("data/admin/videos", IsAbsoluteUrl = true)]
         public ActionResult AddVideo(Video video)
         {
             var response = _adminService.AddVideo(video);
@@ -82,7 +82,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(video, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/videos/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/videos/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateVideo(Video video)
         {
             _adminService.UpdateVideo(video);
@@ -90,14 +90,14 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(video, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/exercises", IsAbsoluteUrl = true)]
+        [GET("data/admin/exercises", IsAbsoluteUrl = true)]
         public ActionResult GetExercises()
         {
             return Json(_adminService.GetExercises(), JsonRequestBehavior.AllowGet);
         }
 
 
-        [POST("admin/exercises", IsAbsoluteUrl = true)]
+        [POST("data/admin/exercises", IsAbsoluteUrl = true)]
         public ActionResult AddExercise(Exercise exercise)
         {
             var result = _adminService.AddExercise(exercise);
@@ -105,38 +105,38 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(exercise, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/exercises/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/exercises/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateExercise(Exercise exercise)
         {
             _adminService.UpdateExercise(exercise);
             return Json(exercise, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/bodyregions", IsAbsoluteUrl = true)]
+        [GET("data/admin/bodyregions", IsAbsoluteUrl = true)]
         public ActionResult GetBodyRegions()
         {
             return Json(_researchService.GetBodyRegions(), JsonRequestBehavior.AllowGet);
         }
 
-        [GET("admin/plans", IsAbsoluteUrl = true)]
+        [GET("data/admin/plans", IsAbsoluteUrl = true)]
         public ActionResult GetPlans()
         {
             return Json(_adminService.GetPlans(), JsonRequestBehavior.AllowGet);
         }
 
-        [GET("admin/bodypartmatrix", IsAbsoluteUrl = true)]
+        [GET("data/admin/bodypartmatrix", IsAbsoluteUrl = true)]
         public ActionResult GetBodyPartMatrix()
         {
             return Json(_adminService.GetBodyPartMatrix(), JsonRequestBehavior.AllowGet);
         }
 
-        [GET("admin/symptoms", IsAbsoluteUrl = true)]
+        [GET("data/admin/symptoms", IsAbsoluteUrl = true)]
         public ActionResult GetSymptoms()
         {
             return Json(_adminService.GetSymtpoms(), JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/plans", IsAbsoluteUrl = true)]
+        [POST("data/admin/plans", IsAbsoluteUrl = true)]
         public ActionResult AddPlan(Plan plan)
         {
             var result = _adminService.AddPlan(plan);
@@ -145,14 +145,14 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/plans/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/plans/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdatePlan(Plan plan)
         {
             _adminService.UpdatePlan(plan);
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/signs", IsAbsoluteUrl = true)]
+        [GET("data/admin/signs", IsAbsoluteUrl = true)]
         public ActionResult GetSigns()
         {
             var signs = _adminService.GetSigns();
@@ -160,7 +160,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(signs, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/signs", IsAbsoluteUrl = true)]
+        [POST("data/admin/signs", IsAbsoluteUrl = true)]
         public ActionResult AddSign(Sign sign)
         {
             var response = _adminService.AddSign(sign);
@@ -169,7 +169,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(sign, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/signs/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/signs/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateSign(Sign sign)
         {
             _adminService.UpdateSign(sign);
@@ -178,7 +178,7 @@ namespace SportsWebPt.Platform.Web.Admin
         }
 
 
-        [GET("admin/causes", IsAbsoluteUrl = true)]
+        [GET("data/admin/causes", IsAbsoluteUrl = true)]
         public ActionResult GetCauses()
         {
             var causes = _adminService.GetCauses();
@@ -186,7 +186,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(causes, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/causes", IsAbsoluteUrl = true)]
+        [POST("data/admin/causes", IsAbsoluteUrl = true)]
         public ActionResult AddCause(Cause cause)
         {
             var response = _adminService.AddCause(cause);
@@ -195,7 +195,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(cause, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/causes/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/causes/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateCause(Cause cause)
         {
             _adminService.UpdateCause(cause);
@@ -203,7 +203,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(cause, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/injuries", IsAbsoluteUrl = true)]
+        [GET("data/admin/injuries", IsAbsoluteUrl = true)]
         public ActionResult GetInjuries()
         {
             var injuries = _adminService.GetInjuries();
@@ -211,7 +211,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(injuries, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/injuries", IsAbsoluteUrl = true)]
+        [POST("data/admin/injuries", IsAbsoluteUrl = true)]
         public ActionResult AddInjury(Injury injury)
         {
             var response = _adminService.AddInjury(injury);
@@ -220,7 +220,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(injury, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/injuries/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/injuries/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateInjury(Injury injury)
         {
             _adminService.UpdateInjury(injury);
@@ -228,7 +228,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(injury, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/bodyparts", IsAbsoluteUrl = true)]
+        [GET("data/admin/bodyparts", IsAbsoluteUrl = true)]
         public ActionResult GetBodyParts()
         {
             var bodyParts = _adminService.GetBodyParts();
@@ -236,7 +236,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(bodyParts, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("admin/skeletonareas", IsAbsoluteUrl = true)]
+        [GET("data/admin/skeletonareas", IsAbsoluteUrl = true)]
         public ActionResult GetSkeletonAreas()
         {
             var skeletonAreas = _adminService.GetSkeletonAreas();
@@ -244,7 +244,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(skeletonAreas, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/bodyparts", IsAbsoluteUrl = true)]
+        [POST("data/admin/bodyparts", IsAbsoluteUrl = true)]
         public ActionResult AddBodyPart(BodyPart bodyPart)
         {
             var response = _adminService.AddBodyPart(bodyPart);
@@ -253,7 +253,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(bodyPart, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/bodyparts/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/bodyparts/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateBodyPart(BodyPart bodyPart)
         {
             _adminService.UpdateBodyPart(bodyPart);
@@ -261,7 +261,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(bodyPart, JsonRequestBehavior.DenyGet);
         }
 
-        [POST("admin/bodyregions", IsAbsoluteUrl = true)]
+        [POST("data/admin/bodyregions", IsAbsoluteUrl = true)]
         public ActionResult AddBodyRegion(BodyRegion bodyRegion)
         {
             var response = _adminService.AddBodyRegion(bodyRegion);
@@ -270,7 +270,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(bodyRegion, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/bodyregions/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/bodyregions/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateBodyRegion(BodyRegion bodyRegion)
         {
             _adminService.UpdateBodyRegion(bodyRegion);
@@ -284,7 +284,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(_adminService.ValidatePageName(pageName), JsonRequestBehavior.AllowGet);
         }
 
-        [GET("admin/treatments", IsAbsoluteUrl = true)]
+        [GET("data/admin/treatments", IsAbsoluteUrl = true)]
         public ActionResult GetTreatments()
         {
             var treatments = _adminService.GetTreatments();
@@ -292,7 +292,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(treatments, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/treatments", IsAbsoluteUrl = true)]
+        [POST("data/admin/treatments", IsAbsoluteUrl = true)]
         public ActionResult AddTreatment(Treatment treatment)
         {
             var response = _adminService.AddTreatment(treatment);
@@ -301,7 +301,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(treatment, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/treatments/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/treatments/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdateTreatment(Treatment treatment)
         {
             _adminService.UpdateTreatment(treatment);
@@ -309,7 +309,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(treatment, JsonRequestBehavior.DenyGet);
         }
 
-        [GET("admin/prognoses", IsAbsoluteUrl = true)]
+        [GET("data/admin/prognoses", IsAbsoluteUrl = true)]
         public ActionResult GetPrognoses()
         {
             var prognosis = _adminService.GetPrognoses();
@@ -317,7 +317,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(prognosis, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("admin/prognoses", IsAbsoluteUrl = true)]
+        [POST("data/admin/prognoses", IsAbsoluteUrl = true)]
         public ActionResult AddPrognosis(Prognosis prognosis)
         {
             var response = _adminService.AddPrognosis(prognosis);
@@ -326,7 +326,7 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(prognosis, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("admin/prognoses/{Id}", IsAbsoluteUrl = true)]
+        [PUT("data/admin/prognoses/{Id}", IsAbsoluteUrl = true)]
         public ActionResult UpdatePrognosis(Prognosis prognosis)
         {
             _adminService.UpdatePrognosis(prognosis);
@@ -362,13 +362,5 @@ namespace SportsWebPt.Platform.Web.Admin
 
             return user.isAdmin && base.AuthorizeCore(httpContext);
         }
-
-        //var viewModel = CreateViewModel<AdminIndexViewModel>();
-
-            //if (!viewModel.User.isAdmin)
-            //    return new HttpNotFoundResult("Page Not Found");
-
-            //filterContext.HttpContext.User
-
     }
 }

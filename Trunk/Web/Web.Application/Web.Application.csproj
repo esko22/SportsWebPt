@@ -15,7 +15,7 @@
     <AssemblyName>Platform.Web.Application</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -274,6 +274,7 @@
     <Content Include="app\shared\auth\tmpl.login.dialog.htm" />
     <Content Include="app\shared\auth\tmpl.signup.modal.htm" />
     <Content Include="app\shared\auth\tmpl.signup.dialog.htm" />
+    <Content Include="app\shared\prtl.not.found.htm" />
     <Content Include="app\shared\shared.ui.js" />
     <Content Include="app\shared\symptoms\mod.symptom.controls.js" />
     <Content Include="app\research\exercises\detail\tmpl.equipment.list.modal.htm" />
@@ -282,11 +283,7 @@
     <Content Include="app\about\prtl.about.htm" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />
-    <Compile Include="Areas\Research\Models\ResearchExerciseViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchInjuryViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchPlanViewModel.cs" />
-    <Compile Include="Areas\Research\Models\ResearchViewModel.cs" />
-    <Compile Include="Areas\Research\ResearchAreaRegistration.cs" />
+    <Compile Include="App_Start\PrerenderConfig.cs" />
     <Compile Include="Attributes\AjaxHandleErrorAttribute.cs" />
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -313,9 +310,6 @@
     <Content Include="app\splash\prtl.splash.htm" />
     <Content Include="app\utils\filters\filters.js" />
     <Content Include="app\utils\util.module.js" />
-    <Content Include="Areas\Research\Scripts\exercise\research.exercise.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\injury\research.injury.bootstrapper.js" />
-    <Content Include="Areas\Research\Scripts\plan\research.plan.bootstrapper.js" />
     <Content Include="Content\fonts\icomoon.svg" />
     <Content Include="Content\images\comb.png" />
     <Content Include="Content\images\comb404.gif" />
@@ -347,7 +341,7 @@
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\AuthFormViewModel.cs" />
-    <Compile Include="Areas\Research\Controllers\ResearchController.cs" />
+    <Compile Include="Controllers\ResearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -684,11 +678,6 @@
     <Content Include="Content\theme\plugins\respond\README.md" />
     <Content Include="Content\theme\plugins\retina\less\retina-1.1.0.less" />
     <Content Include="Content\theme\plugins\retina\README.md" />
-    <Content Include="Areas\Research\Views\Research\Exercise.cshtml" />
-    <Content Include="Areas\Research\Views\Research\Injury.cshtml" />
-    <Content Include="Areas\Research\Views\Research\Plan.cshtml" />
-    <Content Include="Areas\Research\Views\Web.config" />
-    <Content Include="Areas\Research\Views\Research\_researchStaticLayout.cshtml" />
     <Content Include="Content\fonts\icomoon.eot" />
     <Content Include="Content\fonts\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon.woff" />
@@ -800,6 +789,10 @@
       <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
       <Name>Common.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.PreRender\Common.PreRender.csproj">
+      <Project>{ea80d503-3412-421b-bf8c-c4960e04e44d}</Project>
+      <Name>Common.PreRender</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.ServiceStack.Base\Common.ServiceStack.Base.csproj">
       <Project>{c13f4c43-687f-4d3c-970d-9394bb8989e5}</Project>
       <Name>Common.ServiceStack.Base</Name>
@@ -839,7 +832,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51782</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8022</IISUrl>
+          <IISUrl>http://localhost:51782/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

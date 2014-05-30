@@ -35,81 +35,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         #region Methods
 
-        //[GET("Research/plans/{Id}", IsAbsoluteUrl = true)]
-        //public ActionResult GetPlan(string Id)
-        //{
-        //    var planId = 0;
-        //    if (!String.IsNullOrEmpty(Id))
-        //        int.TryParse(Id, out planId);
-
-        //    if (planId == 0)
-        //        return Plan(Id);
-
-        //    var plan = _researchService.GetPlan(planId);
-
-        //    return Json(plan, JsonRequestBehavior.AllowGet);
-        //}
-
-
-        [GET("Research/exercises/{pageName}", IsAbsoluteUrl = true)]
-        public ActionResult Exercise(String pageName)
-        {
-            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
-
-            var viewModel = CreateViewModel<ResearchExerciseViewModel>();
-            var exercise = _researchService.GetExerciseByPageName(pageName);
-
-            //TODO: throw page not found
-            Check.Argument.IsNotNull(exercise, "Exercise");
-
-            viewModel.Tags = exercise.tags;
-            viewModel.Title = exercise.name;
-            viewModel.Exercise = exercise;
-
-            return View(viewModel);
-        }
-
-        [GET("Research/plans/{pageName}", IsAbsoluteUrl = true)]
-        public ActionResult Plan(String pageName)
-        {
-            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
-
-            var viewModel = CreateViewModel<ResearchPlanViewModel>();
-            var plan = _researchService.GetPlanByPageName(pageName);
-
-            //TODO: throw page not found
-            Check.Argument.IsNotNull(plan, "Plan");
-
-            viewModel.Tags = plan.tags;
-            viewModel.Title = plan.routineName;
-            viewModel.Plan = plan;
-
-            return View(viewModel);
-        }
-
-        [GET("Research/injuries/{pageName}", IsAbsoluteUrl = true)]
-        public ActionResult Injury(String pageName)
-        {
-            Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
-
-            var viewModel = CreateViewModel<ResearchInjuryViewModel>();
-            var injury = _researchService.GetInjuryByPageName(pageName);
-
-            var fullPlans = injury.plans.Select(plan => _researchService.GetPlan(plan.id)).ToList();
-            injury.plans = fullPlans;
-
-            //TODO: throw page not found
-            Check.Argument.IsNotNull(injury, "Injury");
-
-            viewModel.Tags = injury.tags;
-            viewModel.Title = injury.commonName;
-            viewModel.Injury = injury;
-
-            return View(viewModel);
-        }
-
-
-        [GET("Research/injury/detail/{pageName}", IsAbsoluteUrl = true)]
+        [GET("data/research/injury/detail/{pageName}", IsAbsoluteUrl = true)]
         public ActionResult InjuryDetail(String pageName)
         {
             Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
@@ -119,7 +45,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(injury, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/plan/detail/{pageName}", IsAbsoluteUrl = true)]
+        [GET("data/research/plan/detail/{pageName}", IsAbsoluteUrl = true)]
         public ActionResult PlanDetail(String pageName)
         {
             Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
@@ -129,7 +55,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(plan, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/exercise/detail/{pageName}", IsAbsoluteUrl = true)]
+        [GET("data/research/exercise/detail/{pageName}", IsAbsoluteUrl = true)]
         public ActionResult ExerciseDetail(String pageName)
         {
             Check.Argument.IsNotNullOrEmpty(pageName, "pageName");
@@ -139,7 +65,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(exercise, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/bodyparts", IsAbsoluteUrl = true)]
+        [GET("data/research/bodyparts", IsAbsoluteUrl = true)]
         public ActionResult GetBodyParts()
         {
             var areaComponents = _researchService.GetBodyParts();
@@ -147,7 +73,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/bodyregions", IsAbsoluteUrl = true)]
+        [GET("data/research/bodyregions", IsAbsoluteUrl = true)]
         public ActionResult GetBodyRegions()
         {
             var areaComponents = _researchService.GetBodyRegions();
@@ -155,7 +81,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(areaComponents, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/signs", IsAbsoluteUrl = true)]
+        [GET("data/research/signs", IsAbsoluteUrl = true)]
         public ActionResult GetSigns()
         {
             var signs = _researchService.GetSigns();
@@ -163,13 +89,13 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(signs, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/symptoms", IsAbsoluteUrl = true)]
+        [GET("data/research/symptoms", IsAbsoluteUrl = true)]
         public ActionResult GetSymptoms()
         {
             throw new NotImplementedException();
         }
 
-        [GET("Research/exercises", IsAbsoluteUrl = true)]
+        [GET("data/research/exercises", IsAbsoluteUrl = true)]
         public ActionResult GetExercises()
         {
             var exercises = _researchService.GetExercises();
@@ -177,7 +103,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(exercises, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/plans", IsAbsoluteUrl = true)]
+        [GET("data/research/plans", IsAbsoluteUrl = true)]
         public ActionResult GetPlans()
         {
             var plans = _researchService.GetPlans();
@@ -185,7 +111,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(plans, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/injuries", IsAbsoluteUrl = true)]
+        [GET("data/research/injuries", IsAbsoluteUrl = true)]
         public ActionResult GetInjuries()
         {
             var injuries = _researchService.GetInjuries();
@@ -201,7 +127,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(exercises, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Data/plans/brief", IsAbsoluteUrl = true)]
+        [GET("data/plans/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefPlans()
         {
             var plans = _researchService.GetBriefPlans();
@@ -217,7 +143,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(injuries, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/locate/{zipcode}", IsAbsoluteUrl = true)]
+        [GET("data/research/locate/{zipcode}", IsAbsoluteUrl = true)]
         public ActionResult GetTherapyByLocation(String zipcode)
         {
             var yelpProxy = new Yelp(WebPlatformConfigSettings.Instance.YelpOptions);
@@ -226,7 +152,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(results.businesses,JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/equipment", IsAbsoluteUrl = true)]
+        [GET("data/research/equipment", IsAbsoluteUrl = true)]
         public ActionResult GetEquipment()
         {
             var equipment = _researchService.GetEquipment();
@@ -234,7 +160,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(equipment, JsonRequestBehavior.AllowGet);
         }
 
-        [GET("Research/equipment/brief", IsAbsoluteUrl = true)]
+        [GET("data/research/equipment/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefEquipment()
         {
             var equipment = _researchService.GetBriefEquipment();

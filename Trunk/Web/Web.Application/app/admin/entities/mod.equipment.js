@@ -59,7 +59,7 @@ equipmentAdminModule.controller('EquipmentController', ['$scope', 'equipmentAdmi
 
 equipmentAdminModule.factory('equipmentAdminService', ['$resource', function ($resource) {
 
-    var adminEquipmentPath = '/admin/equipment/';
+    var adminEquipmentPath = '/data/admin/equipment/';
 
 
     return {

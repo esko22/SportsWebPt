@@ -59,7 +59,7 @@ signModule.controller('SignController', ['$scope', 'signAdminService', 'configSe
 
 signModule.factory('signAdminService', ['$resource', function ($resource) {
     
-    var adminSignPath = '/admin/signs';
+    var adminSignPath = '/data/admin/signs';
 
 
 return {

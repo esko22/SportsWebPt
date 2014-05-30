@@ -21,6 +21,12 @@ namespace SportsWebPt.Platform.Web.Application
                     c.AddRoutesFromAssembly(Assembly.GetExecutingAssembly());
                 });
 
+            routes.MapRoute(
+                "Default", // Route name
+                "{*catchall}", // URL with parameters
+                new { controller = "Index", action = "Index" } // Parameter defaults
+            );
+
         }
     }
 }

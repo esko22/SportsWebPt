@@ -1,4 +1,4 @@
-﻿swptApp.service('userManagementService', ['$resource', 'configService', function ($resource, configService) {
+﻿swptApp.service('userManagementService', ['$resource', 'configService', '$state', function ($resource, configService, $state) {
         var resource = $resource(configService.apiUris.users + '/:id', { id: '@id' });
         var user = null;
 
@@ -24,12 +24,20 @@
             return userId > 0;
         };
 
+        var logOut = function() {
+            user = null;
+            $('#userid').val(0);
+            $resource('/logout').get();
+            $state.go('public.splash');
+        };
+
 
 
         return {
             getUser: getUser,
             refreshUser : refreshUser,
-            isAuthenticated: isAuthenticated
+            isAuthenticated: isAuthenticated,
+            logOut: logOut
         };
     }
 ]);

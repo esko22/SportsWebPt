@@ -6,7 +6,7 @@
                 <div class="header-inner container">
                     <div class="row">
                         <div class="col-md-8">
-                            <a class="navbar-brand" href="/"><img class="header-logo" style="padding-right: 16px;" src="../../Content/images/logoFooterDark.png" /></a>
+                            <a class="navbar-brand" href="/#!"><img class="header-logo" style="padding-right: 16px;" src="../../Content/images/logoFooterDark.png" /></a>
                             <div class="slogan" style="margin-top: 16px;">Guided, effective, always accessible</div>
                         </div>
                     </div>
@@ -34,10 +34,10 @@
                                     <span class="nav-icon"><i class="icon-sportswebpt-caret-down"></i>&nbsp;<span ng-bind="currentUser.emailAddress"></span></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/#/dashboard">My Dashboard</a></li>
+                                    <li><a href="/#!/dashboard">My Dashboard</a></li>
                                     <li class="divider"></li>
                                     <li ng-show="currentUser.isAdmin"><a ui-sref="admin.dashboard">Admin Section</a></li>
-                                    <li><a href="/logout">Log Out</a></li>
+                                    <li><a ng-click="logOut()">Log Out</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -49,9 +49,9 @@
                         <!--main navigation-->
                         <ul class="nav navbar-nav">
                                 <li class="home-link"><a href="/"><img id="menu-logo" src="../../Content/images/logoMenu.png" class="menu-logo" /></a></li>
-                                <li><a href="/#/examine"><span class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></li>
-                                <li><a href="/#/research"><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Research</span></a></li>
-                                <li><a href="/#/research/locations"><span class="nav-icon"><i class="icon-sportswebpt-city-scape1 "></i> Locate</span></a></li>
+                                <li><a href="/#!/examine"><span class="nav-icon"><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></li>
+                                <li><a href="/#!/research"><span class="nav-icon"><i class="icon-sportswebpt-magnifier"></i> Research</span></a></li>
+                                <li><a href="/#!/research/locations"><span class="nav-icon"><i class="icon-sportswebpt-city-scape1 "></i> Locate</span></a></li>
                             </ul>
                     </div>
                 </div>

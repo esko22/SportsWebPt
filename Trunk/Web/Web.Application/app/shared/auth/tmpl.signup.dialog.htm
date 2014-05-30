@@ -10,10 +10,10 @@
         <div class="form-group" ng-class="{'has-error': rc.signUpForm.needsAttention(signUpForm.username)}">
             <div class="input-group">
                 <span class="input-group-addon icon-sportswebpt-user"></span>
-                <input class="form-control" name="username" type="text" ng-model="user.username" placeholder="User Name" ng-minlength="6" ng-maxlength="12" required>
+                <input class="form-control" name="username" type="text" ng-model="user.username" placeholder="First name" ng-minlength="6" ng-maxlength="12" required>
             </div>
             <span class="help-block" ng-show="signUpForm.username.$error.required && rc.signUpForm.attempted">Required</span>
-            <span class="help-block" ng-show="signUpForm.username.$error.minlength && rc.signUpForm.attempted">Username must be between 6 and 12 characters</span>
+            <span class="help-block" ng-show="signUpForm.username.$error.minlength && rc.signUpForm.attempted">First name must be between 6 and 12 characters</span>
         </div>
         <div class="form-group" ng-class="{'has-error': rc.signUpForm.needsAttention(signUpForm.signupEmail)}">
             <div class="input-group ">

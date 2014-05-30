@@ -15,7 +15,7 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
                 'entityId': $scope.navBarService.entityId
             };
 
-            $http.post("/users/favorites", messageKeys).
+            $http.post("/data/users/favorites", messageKeys).
                 success(function() {
                     notifierService.notify('Favorite Added Successfully!');
                     $scope.isFavorite = true;

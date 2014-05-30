@@ -5,7 +5,7 @@
             <h3>Favorite Exercises</h3>
             <table class="table table-striped">
                 <tr ng-repeat="exercise in currentUser.exercises">
-                    <td><a ng-href="#/research/exercises/{{exercise.entityId}}">{{exercise.entityName}}</a></td>
+                    <td><a ng-href="/#!/research/exercises/{{exercise.entityId}}">{{exercise.entityName}}</a></td>
                 </tr>
             </table>
         </div>
@@ -13,7 +13,7 @@
             <h3>Favorite Plans</h3>
             <table class="table table-striped">
                 <tr ng-repeat="plan in currentUser.plans">
-                    <td><a ng-href="#/research/plans/{{plan.entityId}}">{{plan.entityName}}</a></td>
+                    <td><a ng-href="/#!/research/plans/{{plan.entityId}}">{{plan.entityName}}</a></td>
                 </tr>
             </table>
         </div>
@@ -21,7 +21,7 @@
             <h3>Favorite Injuries</h3>
             <table class="table table-striped">
                 <tr ng-repeat="injury in currentUser.injuries">
-                    <td><a ng-href="#/research/injuries/{{injury.entityId}}">{{injury.entityName}}</a></td>
+                    <td><a ng-href="/#!/research/injuries/{{injury.entityId}}">{{injury.entityName}}</a></td>
                 </tr>
             </table>
         </div>

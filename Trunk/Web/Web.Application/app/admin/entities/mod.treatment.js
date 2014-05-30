@@ -60,7 +60,7 @@ treatmentAdminModule.controller('TreatmentController', ['$scope', 'treatmentAdmi
 
 treatmentAdminModule.factory('treatmentAdminService', ['$resource', function ($resource) {
 
-    var adminTreatmentPath = '/admin/treatments/';
+    var adminTreatmentPath = '/data/admin/treatments/';
 
 
     return {

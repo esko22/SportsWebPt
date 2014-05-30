@@ -32,28 +32,28 @@ namespace SportsWebPt.Platform.Web.Application
         #endregion
 
 
-        [GET("Users/{id}")]
+        [GET("data/users/{id}")]
         public ActionResult GetUser(int id)
         {
             var user = _userManagementService.GetUser(id);
             return Json(user, JsonRequestBehavior.AllowGet);
         }
 
-        [POST("Users/")]
+        [POST("data/users/")]
         public ActionResult CreateUser(User user)
         {
             var response = _userManagementService.AddUser(user);
             return Json(response, JsonRequestBehavior.DenyGet);
         }
 
-        [PUT("Users/{id}")]
+        [PUT("data/users/{id}")]
         public ActionResult UpdateUser(User user)
         {
             var response = _userManagementService.AddUser(user);
             return Json(response, JsonRequestBehavior.DenyGet);
         }
 
-        [POST("users/favorites")]
+        [POST("data/users/favorites")]
         public ActionResult AddFavorites(Favorite favorite)
         {
             if (User.Identity.IsAuthenticated)

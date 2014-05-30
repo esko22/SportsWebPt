@@ -59,7 +59,7 @@ videoAdminModule.controller('VideoController', ['$scope', 'videoAdminService', '
 
 videoAdminModule.factory('videoAdminService', ['$resource', function ($resource) {
 
-    var adminVideoPath = '/admin/videos/';
+    var adminVideoPath = '/data/admin/videos/';
 
 
     return {

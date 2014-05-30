@@ -3,7 +3,8 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module','admin.module'])
-    .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider) {
+    .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
+        function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
         AnalyticsProvider.setAccount('UA-39296197-3');
         AnalyticsProvider.trackPages(true);
@@ -171,6 +172,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     access: 'access.anon'
                 }
             })
+            .state('public.notfound',
+            {
+                url: "/404",
+                views: {
+                    "core-app-view": { templateUrl: '/app/shared/prtl.not.found.htm' }
+                },
+                data: {
+                    access: 'access.anon'
+                }
+            })
             .state('public.splash',
             {
                 url: "/",
@@ -324,7 +335,10 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     }
                 }
             });
-        $urlRouterProvider.otherwise('/');
+
+            $urlRouterProvider.otherwise('/404');
+            $locationProvider.html5Mode(true);
+            $locationProvider.hashPrefix('!');
 
         //NOTE: this may impact CORS requests, but we should not have any
         //https://github.com/angular/angular.js/commit/3a75b1124d062f64093a90b26630938558909e8d

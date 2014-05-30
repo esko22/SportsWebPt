@@ -42,6 +42,12 @@ sharedUi.controller('HeaderController', [
             });
         };
 
+        $scope.logOut = function () {
+            $scope.currentUser = null;
+            userManagementService.logOut();
+            $scope.isAuthenticated = userManagementService.isAuthenticated();
+        };
+
         $scope.showLogin = function () {
             currentModal =$modal.open({
                 templateUrl: '/app/shared/auth/tmpl.login.modal.htm',

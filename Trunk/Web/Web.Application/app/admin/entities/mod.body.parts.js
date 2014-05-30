@@ -73,8 +73,8 @@ bodyPartModule.controller('BodyPartController', ['$scope', 'bodyPartAdminService
 
 bodyPartModule.factory('bodyPartAdminService', ['$resource', function ($resource) {
 
-    var adminBodyPartPath = '/admin/bodyparts';
-    var skeletonAreas = '/admin/skeletonareas';
+    var adminBodyPartPath = '/data/admin/bodyparts';
+    var skeletonAreas = '/data/admin/skeletonareas';
 
     return {
         get: function (id) {

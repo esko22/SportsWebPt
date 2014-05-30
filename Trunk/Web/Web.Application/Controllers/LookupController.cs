@@ -29,13 +29,13 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         #region Methods
 
-        [GET("lookup/signfilters")]
+        [GET("data/lookup/signfilters")]
         public ActionResult GetSignFilters()
         {
             return Json(_lookupService.GetSignFilters(), JsonRequestBehavior.AllowGet);
         }
 
-        [GET("lookup/causefilters")]
+        [GET("data/lookup/causefilters")]
         public ActionResult GetCauseFilters()
         {
             return Json(_lookupService.GetCauseFilters(), JsonRequestBehavior.AllowGet);

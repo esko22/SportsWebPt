@@ -59,7 +59,7 @@ causeModule.controller('CauseController', ['$scope', 'causeAdminService', 'confi
 
 causeModule.factory('causeAdminService', ['$resource', function ($resource) {
     
-    var adminCausePath = '/admin/causes';
+    var adminCausePath = '/data/admin/causes';
 
 
 return {

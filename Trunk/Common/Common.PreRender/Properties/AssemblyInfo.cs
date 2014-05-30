@@ -5,15 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-using System.Web;
-using SportsWebPt.Platform.Web.Application;
-
-[assembly: AssemblyTitle("Web.ApplicationHost")]
+[assembly: AssemblyTitle("Common.PreRender")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Web.ApplicationHost")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("Common.PreRender")]
+[assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,7 +20,7 @@ using SportsWebPt.Platform.Web.Application;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1ffe1fb0-da3d-4732-9c3c-5c98af29d346")]
+[assembly: Guid("627bdb0f-8ed6-49ff-9d8e-a432363ea9fa")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,9 +29,8 @@ using SportsWebPt.Platform.Web.Application;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Revision and Build Numbers 
+// You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: PreApplicationStartMethod(typeof(PrerenderConfig), "PreStart")]
-

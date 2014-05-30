@@ -57,7 +57,7 @@ bodyRegionModule.controller('BodyRegionController', ['$scope', 'bodyRegionAdminS
 
 bodyRegionModule.factory('bodyRegionAdminService', ['$resource', function($resource) {
     
-    var adminBodyRegionPath = '/admin/bodyregions';
+    var adminBodyRegionPath = '/data/admin/bodyregions';
 
 
 return {
