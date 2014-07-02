@@ -23,8 +23,11 @@ namespace SportsWebPt.Platform.DataAccess.EntityConfiguration
             Property(u => u.Gender).HasColumnName("gender").HasMaxLength(10);
             Property(p => p.Id).HasColumnName("user_id");
             Property(p => p.IsAdmin).HasColumnName("is_admin").HasColumnType("bit");
+            Property(p => p.Credentials).HasColumnName("credentials").HasMaxLength(1000);
+            Property(p => p.Licenses).HasColumnName("licenses").HasMaxLength(1000);
         }
 
         #endregion
     }
+
 }

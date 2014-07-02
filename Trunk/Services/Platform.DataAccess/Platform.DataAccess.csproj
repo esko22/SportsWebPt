@@ -43,10 +43,10 @@
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
       <HintPath>..\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="mysql.data.entity.EF6">
+    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -65,6 +65,7 @@
     <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
+    <Compile Include="EntityConfiguration\ClinicConfiguration.cs" />
     <Compile Include="EntityConfiguration\PrognosisConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryPrognosisMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryTreatmentMatrixConfiguration.cs" />
@@ -118,6 +119,10 @@
     <Compile Include="Migrations\201404040556326_Exercise-Structures.cs" />
     <Compile Include="Migrations\201404040556326_Exercise-Structures.Designer.cs">
       <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407020556039_ClinicSetup.cs" />
+    <Compile Include="Migrations\201407020556039_ClinicSetup.Designer.cs">
+      <DependentUpon>201407020556039_ClinicSetup.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
@@ -176,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404040556326_Exercise-Structures.resx">
       <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407020556039_ClinicSetup.resx">
+      <DependentUpon>201407020556039_ClinicSetup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

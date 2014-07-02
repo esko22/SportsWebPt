@@ -33,17 +33,21 @@ namespace SportsWebPt.Platform.Core.Models
 
         public Boolean IsAdmin { get; set; }
 
+        public String Credentials { get; set; }
+
+        public String Licenses { get; set; }
+
         #endregion
 
         #region Navigation Properties
 
         public ICollection<Video> VideoFavorites { get; set; }
-
         public ICollection<Exercise> ExerciseFavorites { get; set; }
-
         public ICollection<Plan> PlanFavorites { get; set; }
-
-        public ICollection<Injury> InjuryFavorites { get; set; }  
+        public ICollection<Injury> InjuryFavorites { get; set; }
+        public ICollection<ClinicTherapistMatrixItem> ClinicTherapistMatrixItems { get; set; }
+        public ICollection<ClinicAdminMatrixItem> ClinicAdminMatrixItems { get; set; }
+        public ICollection<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; } 
 
         #endregion
 

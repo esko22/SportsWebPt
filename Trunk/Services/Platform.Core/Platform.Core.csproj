@@ -44,6 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CauseCategory.cs" />
+    <Compile Include="Models\Clinic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ClinicMatrixItems.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\InjuryPrognosisMatrixItem.cs" />
     <Compile Include="Models\Prognosis.cs" />
     <Compile Include="Models\InjuryTreatmentMatrixItem.cs" />
