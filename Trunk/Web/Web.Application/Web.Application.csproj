@@ -224,6 +224,7 @@
     <Content Include="app\admin\entities\tmpl.body.region.list.htm" />
     <Content Include="app\admin\mod.admin.js" />
     <Content Include="app\admin\prtl.admin.dashboard.htm" />
+    <Content Include="app\clinic\prtl.clinic.manager.htm" />
     <Content Include="app\dashboard\prtl.user.dashboard.htm" />
     <Content Include="app\dashboard\user.dashboard.module.js" />
     <Content Include="app\examine\mod.examine.js" />
@@ -308,6 +309,7 @@
     <Content Include="app\shared\tmpl.master.footer.htm" />
     <Content Include="app\shared\tmpl.master.header.htm" />
     <Content Include="app\splash\prtl.splash.htm" />
+    <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
     <Content Include="app\utils\filters\filters.js" />
     <Content Include="app\utils\util.module.js" />
     <Content Include="Content\fonts\icomoon.svg" />

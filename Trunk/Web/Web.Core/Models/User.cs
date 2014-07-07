@@ -33,6 +33,10 @@ namespace SportsWebPt.Platform.Web.Core
 
         public Boolean isAdmin { get; set; }
 
+        public Boolean isTherapist { get; set; }
+
+        public Boolean isClinicManager { get; set; }
+
         public IEnumerable<Favorite> videos { get; set; }
 
         public IEnumerable<Favorite> plans { get; set; }

@@ -14,327 +14,366 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         //Optional set domain (Use 'none' for testing on localhost)
         //AnalyticsProvider.setDomainName('none');
 
-        $stateProvider
-            .state('user',
-            {
-                abstract: true,
-                views: {
-                    "core-view": { templateUrl: '/app/prtl.core.htm' }
-                },
-                data: {
-                    access: 'access.user'
-                }
-            })
-            .state('user.dashboard',
-            {
-                url: "/dashboard",
-                views: {
-                    "core-app-view": {
-                        templateUrl: '/app/dashboard/prtl.user.dashboard.htm',
-                        controller: 'UserDashboardController'
-                    }
-                }
-            })
-            .state('admin',
-            {
-                abstract: true,
-                views: {
-                    "core-view": { templateUrl: '/app/prtl.core.htm' }
-                },
-                data: {
-                    access: 'access.admin'
-                }
-            })
-            .state('admin.dashboard',
-            {
-                url: "/admin",
-                views: {
-                    "core-app-view": { templateUrl: '/app/admin/prtl.admin.dashboard.htm' }
-                }
-            })
-            .state('admin.dashboard.bodyregion',
-            {
-                url: "/bodyregion",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.body.region.htm',
-                        controller: 'BodyRegionController'
-                    }
-                }
-            })
-            .state('admin.dashboard.bodypart',
-            {
-                url: "/bodypart",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.body.part.htm',
-                        controller: 'BodyPartController'
-                    }
-                }
-            })
-            .state('admin.dashboard.prognosis',
-            {
-                url: "/prognosis",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.prognosis.htm',
-                        controller: 'PrognosisController'
-                    }
-                }
-            })
-            .state('admin.dashboard.treatment',
-            {
-                url: "/treatment",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.treatment.htm',
-                        controller: 'TreatmentController'
-                    }
-                }
-            })
-            .state('admin.dashboard.equipment',
-            {
-                url: "/equipment",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.equipment.htm',
-                        controller: 'EquipmentController'
-                    }
-                }
-            })
-            .state('admin.dashboard.cause',
-            {
-                url: "/cause",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.cause.htm',
-                        controller: 'CauseController'
-                    }
-                }
-            })
-            .state('admin.dashboard.sign',
-            {
-                url: "/sign",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.sign.htm',
-                        controller: 'SignController'
-                    }
-                }
-            })
-            .state('admin.dashboard.video',
-            {
-                url: "/video",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/entities/prtl.video.htm',
-                        controller: 'VideoController'
-                    }
-                }
-            })
-            .state('admin.dashboard.exercise',
-            {
-                url: "/exercise",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/content/prtl.exercise.htm',
-                        controller: 'ExerciseAdminController'
-                    }
-                }
-            })
-            .state('admin.dashboard.plan',
-            {
-                url: "/plan",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/content/prtl.plan.htm',
-                        controller: 'PlanAdminController'
-                    }
-                }
-            })
-            .state('admin.dashboard.injury',
-            {
-                url: "/injury",
-                views: {
-                    "admin-app-view": {
-                        templateUrl: '/app/admin/content/prtl.injury.htm',
-                        controller: 'InjuryAdminController'
-                    }
-                }
-            })
-            .state('public',
-            {
-                abstract: true,
-                views: {
-                    "core-view": { templateUrl: '/app/prtl.core.htm' }
-                },
-                data: {
-                    access: 'access.anon'
-                }
-            })
-            .state('public.notfound',
-            {
-                url: "/404",
-                views: {
-                    "core-app-view": { templateUrl: '/app/shared/prtl.not.found.htm' }
-                },
-                data: {
-                    access: 'access.anon'
-                }
-            })
-            .state('public.splash',
-            {
-                url: "/",
-                views: {
-                    "core-app-view": { templateUrl: '/app/splash/prtl.splash.htm' }
-                }
-            })
-            .state('public.sitemap',
-            {
-                url: "/sitemap",
-                views: {
-                    "core-app-view": {
-                        templateUrl: '/app/about/prtl.site.map.htm',
-                        controller: 'SiteMapController'
-                    }
-                }
-            })
-            .state('public.about',
-            {
-                url: "/about/:aboutType",
-                views: {
-                    "core-app-view": { templateUrl: '/app/about/prtl.about.htm', controller: 'AboutController' }
-                }
-            })
-            .state('public.examine',
-            {
-                abstract: true,
-                views: {
-                    "core-app-view": {
-                        templateUrl: '/app/examine/prtl.examine.htm',
-                        controller: 'ExamineController'
-                    }
-                }
-            })
-            .state('public.examine.skeleton',
-            {
-                url: "/examine",
-                views: {
-                    "examine-app-view": {
-                        templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm',
-                        controller: 'ExamineSkeletonController'
-                    }
-                }
-            })
-            .state('public.examine.symptoms',
-            {
-                url: "/examine/symptoms",
-                views: {
-                    "examine-app-view": {
-                        templateUrl: '/app/examine/symptoms/prtl.examine.symptoms.htm',
-                        controller: 'ExamineSymptomsController'
-                    }
-                }
-            })
-            .state('public.examine.report',
-            {
-                url: "/examine/report",
-                views: {
-                    "examine-app-view": {
-                        templateUrl: '/app/examine/report/prtl.examine.report.htm',
-                        controller: 'ExamineReportController'
-                    }
-                }
-            })
-            .state('public.research',
-            {
-                abstract: true,
-                views: {
-                    "core-app-view": {
-                        templateUrl: '/app/research/prtl.research.htm',
-                        controller: 'ResearchController'
+            $stateProvider
+                .state('user',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
                     },
-                }
-            })
-            .state('public.research.nav',
-            {
-                url: "/research",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/prtl.research.nav.htm'
+                    data: {
+                        access: 'access.user'
                     }
-                }
-            })
-            .state('public.research.plans',
-            {
-                url: "/research/plans",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/plans/prtl.research.plans.htm',
-                        controller: 'PlanController'
+                })
+                .state('user.dashboard',
+                {
+                    url: "/dashboard",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/dashboard/prtl.user.dashboard.htm',
+                            controller: 'UserDashboardController'
+                        }
                     }
-                }
-            })
-            .state('public.research.injuries',
-            {
-                url: "/research/injuries",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/injuries/prtl.research.injuries.htm',
-                        controller: 'InjuryController'
+                })
+                .state('admin',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.admin'
                     }
-                }
-            })
-            .state('public.research.locations',
-            {
-                url: "/research/locations",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/prtl.research.locations.htm',
-                        controller: 'ResearchLocateController'
+                })
+                .state('admin.dashboard',
+                {
+                    url: "/admin",
+                    views: {
+                        "core-app-view": { templateUrl: '/app/admin/prtl.admin.dashboard.htm' }
                     }
-                }
-            })
-            .state('public.research.exercises',
-            {
-                url: "/research/exercises",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/exercises/prtl.research.exercises.htm',
-                        controller: 'ExerciseListingController'
-                }
-            }
-            })
-          .state('public.research.exerciseDetail',
-            {
-                url: "/research/exercises/:exerciseId",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/exercises/detail/prtl.exercise.view.htm',
-                        controller: 'ExerciseViewController'
+                })
+                .state('admin.dashboard.bodyregion',
+                {
+                    url: "/bodyregion",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.body.region.htm',
+                            controller: 'BodyRegionController'
+                        }
                     }
-                }
-            })
-            .state('public.research.planDetail',
-            {
-                url: "/research/plans/:planId",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
-                        controller: 'PlanViewController'
+                })
+                .state('admin.dashboard.bodypart',
+                {
+                    url: "/bodypart",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.body.part.htm',
+                            controller: 'BodyPartController'
+                        }
                     }
-                }
-            })
-            .state('public.research.injuryDetail',
-            {
-                url: "/research/injuries/:injuryId",
-                views: {
-                    "research-app-view": {
-                        templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
-                        controller: 'InjuryViewController'
+                })
+                .state('admin.dashboard.prognosis',
+                {
+                    url: "/prognosis",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.prognosis.htm',
+                            controller: 'PrognosisController'
+                        }
                     }
-                }
-            });
+                })
+                .state('admin.dashboard.treatment',
+                {
+                    url: "/treatment",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.treatment.htm',
+                            controller: 'TreatmentController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.equipment',
+                {
+                    url: "/equipment",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.equipment.htm',
+                            controller: 'EquipmentController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.cause',
+                {
+                    url: "/cause",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.cause.htm',
+                            controller: 'CauseController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.sign',
+                {
+                    url: "/sign",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.sign.htm',
+                            controller: 'SignController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.video',
+                {
+                    url: "/video",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/entities/prtl.video.htm',
+                            controller: 'VideoController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.exercise',
+                {
+                    url: "/exercise",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/content/prtl.exercise.htm',
+                            controller: 'ExerciseAdminController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.plan',
+                {
+                    url: "/plan",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/content/prtl.plan.htm',
+                            controller: 'PlanAdminController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.injury',
+                {
+                    url: "/injury",
+                    views: {
+                        "admin-app-view": {
+                            templateUrl: '/app/admin/content/prtl.injury.htm',
+                            controller: 'InjuryAdminController'
+                        }
+                    }
+                })
+                .state('public',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.anon'
+                    }
+                })
+                .state('public.notfound',
+                {
+                    url: "/404",
+                    views: {
+                        "core-app-view": { templateUrl: '/app/shared/prtl.not.found.htm' }
+                    },
+                    data: {
+                        access: 'access.anon'
+                    }
+                })
+                .state('public.splash',
+                {
+                    url: "/",
+                    views: {
+                        "core-app-view": { templateUrl: '/app/splash/prtl.splash.htm' }
+                    }
+                })
+                .state('public.sitemap',
+                {
+                    url: "/sitemap",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/about/prtl.site.map.htm',
+                            controller: 'SiteMapController'
+                        }
+                    }
+                })
+                .state('public.about',
+                {
+                    url: "/about/:aboutType",
+                    views: {
+                        "core-app-view": { templateUrl: '/app/about/prtl.about.htm', controller: 'AboutController' }
+                    }
+                })
+                .state('public.examine',
+                {
+                    abstract: true,
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/examine/prtl.examine.htm',
+                            controller: 'ExamineController'
+                        }
+                    }
+                })
+                .state('public.examine.skeleton',
+                {
+                    url: "/examine",
+                    views: {
+                        "examine-app-view": {
+                            templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm',
+                            controller: 'ExamineSkeletonController'
+                        }
+                    }
+                })
+                .state('public.examine.symptoms',
+                {
+                    url: "/examine/symptoms",
+                    views: {
+                        "examine-app-view": {
+                            templateUrl: '/app/examine/symptoms/prtl.examine.symptoms.htm',
+                            controller: 'ExamineSymptomsController'
+                        }
+                    }
+                })
+                .state('public.examine.report',
+                {
+                    url: "/examine/report",
+                    views: {
+                        "examine-app-view": {
+                            templateUrl: '/app/examine/report/prtl.examine.report.htm',
+                            controller: 'ExamineReportController'
+                        }
+                    }
+                })
+                .state('public.research',
+                {
+                    abstract: true,
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/research/prtl.research.htm',
+                            controller: 'ResearchController'
+                        },
+                    }
+                })
+                .state('public.research.nav',
+                {
+                    url: "/research",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/prtl.research.nav.htm'
+                        }
+                    }
+                })
+                .state('public.research.plans',
+                {
+                    url: "/research/plans",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/plans/prtl.research.plans.htm',
+                            controller: 'PlanController'
+                        }
+                    }
+                })
+                .state('public.research.injuries',
+                {
+                    url: "/research/injuries",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/injuries/prtl.research.injuries.htm',
+                            controller: 'InjuryController'
+                        }
+                    }
+                })
+                .state('public.research.locations',
+                {
+                    url: "/research/locations",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/prtl.research.locations.htm',
+                            controller: 'ResearchLocateController'
+                        }
+                    }
+                })
+                .state('public.research.exercises',
+                {
+                    url: "/research/exercises",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/exercises/prtl.research.exercises.htm',
+                            controller: 'ExerciseListingController'
+                        }
+                    }
+                })
+                .state('public.research.exerciseDetail',
+                {
+                    url: "/research/exercises/:exerciseId",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/exercises/detail/prtl.exercise.view.htm',
+                            controller: 'ExerciseViewController'
+                        }
+                    }
+                })
+                .state('public.research.planDetail',
+                {
+                    url: "/research/plans/:planId",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
+                            controller: 'PlanViewController'
+                        }
+                    }
+                })
+                .state('public.research.injuryDetail',
+                {
+                    url: "/research/injuries/:injuryId",
+                    views: {
+                        "research-app-view": {
+                            templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
+                            controller: 'InjuryViewController'
+                        }
+                    }
+                })
+                .state('therapist',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.therapist'
+                    }
+                })
+                .state('therapist.dashboard',
+                {
+                    url: "/therapist/dashboard",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.dashboard.htm'
+                        }
+                    }
+                })
+                .state('clinic',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.clinic.manager'
+                    }
+                })
+                .state('clinic.manager',
+                {
+                    url: "/clinic/manager",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/clinic/prtl.clinic.manager.htm'
+                        }
+                    }
+                })
+            ;
 
             $urlRouterProvider.otherwise('/404');
             $locationProvider.html5Mode(true);
@@ -393,7 +432,13 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                             if (accessLevel === 'access.admin' && (!currentUser || !currentUser.isAdmin)) {
                                 $location.path('/');
                             }
-                        }, function() {
+                            if (accessLevel === 'access.therapist' && (!currentUser || !currentUser.isTherapist)) {
+                                $location.path('/');
+                            }
+                            if (accessLevel === 'access.clinic.manager' && (!currentUser || !currentUser.isClinicManager)) {
+                                $location.path('/');
+                            }
+                        }, function () {
                             $location.path('/');
                         });
                     } else {

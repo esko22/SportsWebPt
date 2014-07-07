@@ -12,7 +12,11 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Fields
 
-        private readonly string[] _userIncludes = { "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites" };
+        private readonly string[] _userIncludes =
+        {
+            "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites",
+            "ClinicTherapistMatrixItems", "ClinicAdminMatrixItems"
+        };
 
         #endregion
 
@@ -49,6 +53,14 @@ namespace SportsWebPt.Platform.DataAccess
                                     p.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase));
         }
 
+        public User AddUser(User user)
+        {
+            UserRepository.Add(user);
+            Commit();
+
+            return user;
+        }
+
         #endregion
 
     }
@@ -63,5 +75,6 @@ namespace SportsWebPt.Platform.DataAccess
 
         User GetUserById(int userId);
         User GetUserByEmail(string emailAddress);
+        User AddUser(User user);
     }
 }

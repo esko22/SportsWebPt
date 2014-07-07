@@ -33,6 +33,25 @@ namespace SportsWebPt.Platform.Core.Models
 	    #endregion
     }
 
+    public class ClinicAdmin
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public String EmergencyContact { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        public ICollection<ClinicAdminMatrixItem> ClinicAdminMatrixItems { get; set; }
+
+        public virtual User User { get; set; }
+
+        #endregion
+    }
+
     public class Location
     {
         #region Properties

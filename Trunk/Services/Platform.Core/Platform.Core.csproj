@@ -92,6 +92,7 @@
     <Compile Include="Models\Symptom.cs" />
     <Compile Include="Models\SymptomRenderType.cs" />
     <Compile Include="Models\SymptomResponseType.cs" />
+    <Compile Include="Models\Therapist.cs" />
     <Compile Include="Models\Treatment.cs" />
     <Compile Include="Models\TreatmentCategory.cs" />
     <Compile Include="Models\User.cs" />

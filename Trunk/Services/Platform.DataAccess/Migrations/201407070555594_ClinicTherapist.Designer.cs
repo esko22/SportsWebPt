@@ -7,13 +7,13 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class ClinicSetup : IMigrationMetadata
+    public sealed partial class ClinicTherapist : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ClinicSetup));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ClinicTherapist));
         
         string IMigrationMetadata.Id
         {
-            get { return "201407020556039_ClinicSetup"; }
+            get { return "201407070555594_ClinicTherapist"; }
         }
         
         string IMigrationMetadata.Source

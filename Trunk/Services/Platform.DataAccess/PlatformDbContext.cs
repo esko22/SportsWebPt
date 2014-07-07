@@ -55,6 +55,8 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<Location> Locations { get; set; }
         public DbSet<ClinicAdminMatrixItem> ClinicAdminMatrixItems { get; set; }
         public DbSet<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; }
+        public DbSet<ClinicAdmin> ClinicAdmins { get; set; }
+        public DbSet<Therapist> Therapists { get; set; } 
 
         #endregion
 
@@ -121,6 +123,8 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ClinicPatientMatrixConfiguration());
             modelBuilder.Configurations.Add(new ClinicAdminMatrixConfiguration());
             modelBuilder.Configurations.Add(new LocationConfiguration());
+            modelBuilder.Configurations.Add(new ClinicAdminConfiguration());
+            modelBuilder.Configurations.Add(new TherapistConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

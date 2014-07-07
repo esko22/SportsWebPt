@@ -343,10 +343,6 @@ namespace SportsWebPt.Platform.Web.Admin
     public class AdminAccessAttribute : AuthorizeAttribute
     {
 
-        #region MyRegion
-        
-        #endregion
-
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             Check.Argument.IsNotNull(httpContext,"HttpContext");

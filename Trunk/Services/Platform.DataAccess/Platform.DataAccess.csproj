@@ -70,6 +70,7 @@
     <Compile Include="EntityConfiguration\InjuryPrognosisMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryTreatmentMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\FilterConfiguration.cs" />
+    <Compile Include="EntityConfiguration\TherapistConfiguration.cs" />
     <Compile Include="EntityConfiguration\TreatmentConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoCategoryMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\PlanCategoryMatrixConfiguration.cs" />
@@ -120,9 +121,9 @@
     <Compile Include="Migrations\201404040556326_Exercise-Structures.Designer.cs">
       <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407020556039_ClinicSetup.cs" />
-    <Compile Include="Migrations\201407020556039_ClinicSetup.Designer.cs">
-      <DependentUpon>201407020556039_ClinicSetup.cs</DependentUpon>
+    <Compile Include="Migrations\201407070555594_ClinicTherapist.cs" />
+    <Compile Include="Migrations\201407070555594_ClinicTherapist.Designer.cs">
+      <DependentUpon>201407070555594_ClinicTherapist.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
@@ -182,8 +183,8 @@
     <EmbeddedResource Include="Migrations\201404040556326_Exercise-Structures.resx">
       <DependentUpon>201404040556326_Exercise-Structures.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407020556039_ClinicSetup.resx">
-      <DependentUpon>201407020556039_ClinicSetup.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407070555594_ClinicTherapist.resx">
+      <DependentUpon>201407070555594_ClinicTherapist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

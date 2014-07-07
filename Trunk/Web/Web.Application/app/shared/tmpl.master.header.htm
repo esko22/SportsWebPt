@@ -35,8 +35,12 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/#!/dashboard">My Dashboard</a></li>
-                                    <li class="divider"></li>
+                                    <li ng-show="currentUser.isTherapist || currentUser.isClinicManager" class="divider"></li>
+                                    <li ng-show="currentUser.isTherapist"><a ui-sref="therapist.dashboard">Therapist Dashboard</a></li>
+                                    <li ng-show="currentUser.isClinicManager"><a ui-sref="clinic.manager">Clinic Management</a></li>
+                                    <li ng-show="currentUser.isAdmin" class="divider"></li>
                                     <li ng-show="currentUser.isAdmin"><a ui-sref="admin.dashboard">Admin Section</a></li>
+                                    <li class="divider"></li>
                                     <li><a ng-click="logOut()">Log Out</a></li>
                                 </ul>
                             </li>

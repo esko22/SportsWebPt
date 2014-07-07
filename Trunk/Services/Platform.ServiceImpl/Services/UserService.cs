@@ -14,7 +14,6 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
     public class UserService : RestService
     {
 
-
         #region Properties
 
         public IUserUnitOfWork UserUnitOfWork { get; set; }
@@ -45,9 +44,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var userToAdd = request;
             Check.Argument.IsNotNull(userToAdd,"UserToAdd");
 
-            var userEntity = Mapper.Map<User>(userToAdd);
-            UserUnitOfWork.UserRepository.Add(userEntity);
-            UserUnitOfWork.Commit();
+            var userEntity = UserUnitOfWork.AddUser(Mapper.Map<User>(userToAdd));
 
             return Ok(new ApiResponse<UserDto>()
                 {
