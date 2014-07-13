@@ -5,6 +5,7 @@ using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -68,16 +69,22 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             //TODO: this needs to moved into the UOW... Nav paths do not belong in service layer
             var results =
-                ResearchUnitOfWork.InjuryRepo.GetAll(new[]
+                ResearchUnitOfWork.ClinicInjuryRepo.GetAll(new[]
                     {
-                        "InjurySignMatrixItems",
-                        "InjurySignMatrixItems.Sign", 
-                        "InjurySignMatrixItems.Sign.Filter", 
-                        "InjuryBodyRegionMatrixItems", 
-                        "InjuryBodyRegionMatrixItems.BodyRegion",
-                    }).OrderBy(p => p.Id);
+                        "Injury",
+                        "Injury.PublishDetail",
+                        "Injury.InjurySignMatrixItems",
+                        "Injury.InjurySignMatrixItems.Sign", 
+                        "Injury.InjurySignMatrixItems.Sign.Filter", 
+                        "Injury.InjuryBodyRegionMatrixItems", 
+                        "Injury.InjuryBodyRegionMatrixItems.BodyRegion",
+                    }).Where(p => p.IsPublic && p.ClinicId == PlatformServiceConfiguration.Instance.ClinicId).OrderBy(p => p.Id);
 
-            Mapper.Map(results, responseList);
+            //projecting out here since projection from join loses includes
+            var injuries = new List<Injury>();
+            results.ForEach(c => injuries.Add(c.Injury));
+
+            Mapper.Map(injuries, responseList);
 
             return
                 Ok(new ApiListResponse<BriefInjuryDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -97,7 +104,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             
             var injury = request.IdAsInt > 0
                 ? injuryQuery.FirstOrDefault(p => p.Id == request.IdAsInt)
-                : injuryQuery.FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+                : injuryQuery.FirstOrDefault(p => p.PublishDetail.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<InjuryDto>() { Response = Mapper.Map<InjuryDto>(injury) });
         }

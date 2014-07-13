@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
@@ -15,7 +17,8 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<SymptomDetail> SymptomResponseRepo { get { return GetStandardRepo<SymptomDetail>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixItemRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
-        public IRepository<Injury> InjuryRepo { get { return GetStandardRepo<Injury>(); } } 
+        public IRepository<Injury> InjuryRepo { get { return GetStandardRepo<Injury>(); } }
+        public IRepository<ClinicInjuryMatrixItem> ClinicInjuryRepo { get { return GetStandardRepo<ClinicInjuryMatrixItem>();}}
 
         #endregion
 
@@ -39,21 +42,33 @@ namespace SportsWebPt.Platform.DataAccess
                 }).SingleOrDefault(p => p.Id == diffDiagId);
         }
 
-        public IQueryable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds)
+        public IEnumerable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds, int clinicId)
         {
-            return
-                InjuryRepo.GetAll(new[]
-                    {
-                        "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySymptomMatrixItems",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.Symptom",
-                        "InjurySignMatrixItems", "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems",
-                        "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem",
-                        "InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart","InjuryTreatmentMatrixItems", "InjuryPrognosisMatrixItems", 
-                        "InjuryPrognosisMatrixItems.Prognosis", "InjuryTreatmentMatrixItems.Treatment"
-                    })
-                          .Where(
-                              p => p.InjurySymptomMatrixItems.Any(s => symptomMatrixIds.Contains(s.SymptomMatrixItemId)));
+            var clinicInjuries = ClinicInjuryRepo.GetAll(new[]
+            {
+                "Injury.InjuryPlanMatrixItems",
+                "Injury.InjuryPlanMatrixItems.Plan",
+                "Injury.InjurySymptomMatrixItems",
+                "Injury.InjurySymptomMatrixItems.SymptomMatrixItem.Symptom",
+                "Injury.InjurySignMatrixItems",
+                "Injury.InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems",
+                "Injury.InjurySignMatrixItems.Sign",
+                "Injury.InjuryCauseMatrixItems",
+                "Injury.InjuryCauseMatrixItems.Cause",
+                "Injury.InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem",
+                "Injury.InjurySymptomMatrixItems.SymptomMatrixItem.BodyPartMatrixItem.BodyPart",
+                "Injury.InjuryTreatmentMatrixItems",
+                "Injury.InjuryPrognosisMatrixItems",
+                "Injury.InjuryPrognosisMatrixItems.Prognosis",
+                "Injury.InjuryTreatmentMatrixItems.Treatment"
+            })
+                .Where(
+                    p => (p.IsPublic && p.ClinicId == clinicId) && p.Injury.InjurySymptomMatrixItems.Any(s => symptomMatrixIds.Contains(s.SymptomMatrixItemId)));
+
+            var injuries = new List<Injury>();
+            clinicInjuries.ForEach(p => injuries.Add(p.Injury));
+
+            return injuries;
         } 
 
         #endregion
@@ -61,18 +76,22 @@ namespace SportsWebPt.Platform.DataAccess
 
     public interface IDiffDiagUnitOfWork : IBaseUnitOfWork
     {
+        #region Properties
+        
         IRepository<DifferentialDiagnosis> DiffDiagRepo { get; }
-
         IRepository<SymptomDetail> SymptomResponseRepo { get; }
-
         IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get; }
-
         IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixItemRepo { get; }
-
         IRepository<Injury> InjuryRepo { get; }
+        IRepository<ClinicInjuryMatrixItem> ClinicInjuryRepo { get; }
 
+        #endregion
+
+        #region Methods
+		
         DifferentialDiagnosis GetDiffDiagWithDetails(Int64 diffDiagId);
+        IEnumerable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds, int clinicId);
 
-        IQueryable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds);
+	    #endregion    
     }
 }

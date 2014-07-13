@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201407130506144_OwnerEntities2.Designer.cs">
       <DependentUpon>201407130506144_OwnerEntities2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407132235081_DropPublishData.cs" />
+    <Compile Include="Migrations\201407132235081_DropPublishData.Designer.cs">
+      <DependentUpon>201407132235081_DropPublishData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -200,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407130506144_OwnerEntities2.resx">
       <DependentUpon>201407130506144_OwnerEntities2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407132235081_DropPublishData.resx">
+      <DependentUpon>201407132235081_DropPublishData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

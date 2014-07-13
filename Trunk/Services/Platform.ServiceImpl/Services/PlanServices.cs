@@ -5,6 +5,7 @@ using System.Linq;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -75,7 +76,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                      "Plan.PlanBodyRegionMatrixItems",
                      "Plan.PlanBodyRegionMatrixItems.BodyRegion",
                      "Plan.PlanCategoryMatrixItems"
-                    }).Where(p => p.IsPublic && p.ClinicId == 2).OrderBy(p => p.PlanId);
+                    }).Where(p => p.IsPublic && p.ClinicId == PlatformServiceConfiguration.Instance.ClinicId).OrderBy(p => p.PlanId);
 
 
             var exerciseIds =  clinicPlans.SelectMany(p => p.Plan.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
@@ -83,7 +84,11 @@ namespace SportsWebPt.Platform.ServiceImpl
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
-            Mapper.Map(clinicPlans, responseList);
+            //projecting out here since projection from join loses includes
+            var plans = new List<Plan>();
+            clinicPlans.ForEach(c => plans.Add(c.Plan));
+
+            Mapper.Map(plans, responseList);
 
             return
                 Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -106,7 +111,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                                     "PlanBodyRegionMatrixItems.BodyRegion",
                                     "PlanCategoryMatrixItems",
                                     "PublishDetail"
-                                }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+                                }).FirstOrDefault(p => p.PublishDetail.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             if (planEntity == null)
                 return NotFound("Plan Not Found");

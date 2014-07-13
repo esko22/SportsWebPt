@@ -1,6 +1,10 @@
 ﻿<div id="examine-report-container" class="tab-content examine-tab-pane col-md-9">
-    <div class="well-sm">
+    <div class="well-sm" ng-if="report.potentialInjuries.length > 0">
         <injury-description></injury-description>
         <injury-plan-listing></injury-plan-listing>
+    </div>
+    <div class="well-sm" ng-if="report.potentialInjuries.length == 0">
+        <h4 class="text-center">Sorry, We currently have no detailed injuries for your symptoms listed. <br /><br/>
+        Please feel free to edit your symptoms on the previous page and resubmit.</h4>
     </div>
 </div>

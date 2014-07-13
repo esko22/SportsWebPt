@@ -265,8 +265,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Duration = 5,
                             AnimationTag = "xyz12345dssf",
                             StructuresInvolved = "Plantar Fascia, Gastroc/Soleus",
-                            Tags = "Pain, Swelling",
-                            PageName = "Plantar-Fascia-Rehab-1",
                             Instructions = "Do some shit"
                         },
                      new Plan()
@@ -276,8 +274,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Duration = 5,
                             AnimationTag = "xyz12345dssf",
                             StructuresInvolved = "Ankle Joint/Ligaments, Soleus",
-                            Tags = "Pain, Weakness",
-                            PageName = "Sprained-Ankle-Stretching",
                             Instructions = "Do some shit"
                         },
                      new Plan()
@@ -286,8 +282,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for stretching the muscles that lead to shin splints if they become overly tight. ",
                             Duration = 5,
                             StructuresInvolved = "Ankle/Toe Extensors, Deep Toe Flexors, gastrocnemius, soleus",
-                            Tags = "Pain, Weakness",
-                            PageName = "General-Shin-Splint-Stretching",
                             Instructions = "Do some shit"
                         },
                      new Plan()
@@ -296,8 +290,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed for athletes to stretch their soleus muscle.",
                             Duration = 5,
                             StructuresInvolved = "Soleus",
-                            Tags = "Pain, Weakness",
-                            PageName = "Soleus-Stretching",
                             Instructions = "Do some shit"
                         },
                      new Plan()
@@ -306,8 +298,6 @@ namespace SportsWebPt.Platform.DataAccess
                             Description = "This program is designed to be used for athletes with an acute calf muscle.",
                             Duration = 5,
                             StructuresInvolved = "Gastrocnemius, Soleus, Hamstrings",
-                            Tags = "Pain, Tingle",
-                            PageName = "Calf-Strain-Rehab",
                             Instructions = "Do some shit"
                         }
                 };
@@ -345,13 +335,13 @@ namespace SportsWebPt.Platform.DataAccess
 
             var exercises = new List<Exercise>()
                 {
-                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "heel-self-massage"},
-                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10,Tags = "pain, tightness", PageName = "seated-plantar-fascis-strech"},
-                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5,Tags = "pain, tightness", PageName = "standing-calf-strech"},
-                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3,Tags = "pain, tightness", PageName = "standing-wall-calf-strech"},
-                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "standing-soleus-strech-1"},
-                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7, Tags = "pain, tightness", PageName = "standing-soleus-strech-2"},
-                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5, Tags = "pain, tightness", PageName = "calf-knee-massage"}
+                    new Exercise() {Name = "Heel Self Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Seated Plantar Fascis Stretch", Description = "Strech yo self", Difficulty = ExerciseDifficulty.Advanced, Duration = 10},
+                    new Exercise() {Name = "Standing calf Stretch", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Standing Wall Calf Stretch", Difficulty = ExerciseDifficulty.Intermediate, Duration = 3},
+                    new Exercise() {Name = "Standing Soleus Stretch 1", Difficulty = ExerciseDifficulty.Beginner, Duration = 5},
+                    new Exercise() {Name = "Standing Soleus Stretch 2", Difficulty = ExerciseDifficulty.Advanced, Duration = 7},
+                    new Exercise() {Name = "Calf Knee Massage", Description = "Touch yo self", Difficulty = ExerciseDifficulty.Beginner, Duration = 5}
                 };
 
             exercises.ForEach(p => _dbContext.Exercises.Add(p));
@@ -643,58 +633,42 @@ namespace SportsWebPt.Platform.DataAccess
                     new Injury()
                         {
                             Severity = InjurySeverity.Minor,
-                            Tags = "Pain, Tingle",
-                            PageName = "Sprained-Ankle",
                             CommonName = "Sprained Ankle",
                             AnimationTag = "xyz12345dssf",
                             Description =
                                 "An Ankle strain/sprain is easily one of the most common and easily identified injuries in any sport.  An athlete knows they sprained their ankle the instant they do it and the next couple days are predictable with rehabilitation. This is a bad sentence.  I understand what you’re trying to say, but can you rephrase?  The timetable for return to activity is heavily dependent on severity of the strain or sprain.  It is very important to ICE the ankle within the first 48-72 hours of the sprain.  Consistent icing can have a significant impact in expediting the rehabilitation time. There has to be more information for you to add!!!  What about adding a recommendation to have an X-ray for severe injuries to asure there is not a break????  Also, is there any way to strengthen the tendons and muscles to HELP prevent the injury???  ",
                             MedicalName = "Ankle Sprain",
-                            OpeningStatement =
-                                "Almost every athlete that plays some type of lateral sport (basketball, soccer, football, etc.) and even runners have experienced some type of ankle strain/sprain. Ankle strain/sprain may be minor to severe.",
                             Prognosis = "Prognosis Negative",
                             Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {                         
                             Severity = InjurySeverity.Minor,
-                            Tags = "Pain, Bruise",
-                            PageName = "Shin-Splints",
                             CommonName = "Shin Splints",
                             AnimationTag = "xfg5345dssf",
                             Description =
                                 "Shin splints can manifest in two different forms, one coming from the muscles in the front of the shin (ankle/toe extensors) and the other coming from the back of the shin (deep toe flexors).  Here we will focus on the anterior shin splints.  The muscles on the front of your shin (anterior tibialis, extensor hallucis and digitorum longus) are responsible for controlling the foot and ankle during the landing phase of running or walking.  With continued use, the muscles continue to experience stress and begin to shorten and form pockets of scar tissue.  If not take care of properly, this process will continue and eventually the athlete will begin to experience pain and tightness in the front of the shin.  As symptoms progress, they can eventually lead to difficulty with walking and running activities.  Anterior shin splints can be prevented with regular self -massage, stretching, and minor activity modification.",
                             MedicalName = "Anterior Tbialis",
-                            OpeningStatement =
-                                "Suffering from shin splints?  Many athletes have suffered from some form of shin splints at some point in there training.  Shin splints can be very painful and can sideline the most veteran and toughest athletes.",
                             Prognosis = "Prognosis Negative",
                             Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {
                             Severity = InjurySeverity.Major,
-                            Tags = "Pain, Pressure",
-                            PageName = "Plantar-Faciitis",
                             CommonName = "Plantar Faciitis",
                             Description =
                                 "Plantar Fasciitis is the name given to describe the inflammatory condition of the Plantar Fascia, the thick band of ligament that runs along the bottom of the foot and connects the heel bone to the toes. This tissue provides support to the arch of the foot.  With each step, the plantar fascia undergoes a moderate stretching tension as the arch compresses. Plantar Fasciitis occurs when a repeatedly excessive stretch causes small tears in the plantar fascia.  There are a variety of causes for plantar fasciitis.  As we age, our bodies adapt to our lifestyles, and asymmetries arise between the left and right sides of our body.  Many people notice they are stronger on one side or more flexible on the other side.  This natural adaptation to your lifestyle may contribute to this injury affecting only one of your feet.  Commonly experienced by men and women in their middle ages, the condition may also affect young people, especially recreational athletes, such as runners. ",
                             MedicalName = "Plantar Faciitis",
-                            OpeningStatement =
-                                "Plantar fasciitis is the most common cause of heel pain.  Those affected by this condition most often describe a stiffness or sharp pain in their heel or along the bottom of their foot.",
                             Prognosis = "Prognosis Negative",
                             Recovery = "Do what we tell you to"
                         },
                     new Injury()
                         {
                             Severity = InjurySeverity.Moderate,
-                            Tags = "Pain, Pinch",
-                            PageName = "Calf-Strain",
                             CommonName = "Calf Strain",
                             Description =
                                 "The calf is constructed of three main structures: Gastrocnemius, Soleus, and Achilles tendon.  This unit is vital in pushing off to running, jumping, pedaling, and any exercise that involves pushing off with the legs.  A calf strain occurs when a portion of the muscle is contracted to forcefully during activity and goes into spasm or 'freaks out'.  This is known as the 'oh crap' moment.  When this event occurs, the athlete will experience sharp pain each time the muscle is contracted, usually with pushing off during running and walking.  The injured area needs to go through the healing process, which is usually between 2-4 weeks (although can be much longer with severe strains).  Light stretching and light soft tissue work can dramatically increase the healing process and get the athlete back to training sooner.",
                             MedicalName = "Gastrocnemius/Soleus Strain",
-                            OpeningStatement =
-                                "Suffering from calf strain?  A calf strain will make it hard for any person to walk, run, or complete any exercise that involves pushing off with the legs.  Some athletes may be able to push thorough the pain and continue exercise.  Others may not be able to fight through the pain.  Calf strains typically happen to athletes during high intensity workouts or races. ",
                             Prognosis = "Prognosis Negative",
                             Recovery = "Do what we tell you to"
                         },

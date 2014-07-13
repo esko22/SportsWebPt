@@ -24,13 +24,14 @@
         var modal = showModal();
 
             examineSymptomsService.submitReport($scope.selectedArea.bodyParts).then(function(response) {
-
+                $scope.report.success = false;
                 $q.all([
-                    examineSymptomsService.getReport(response.data).$promise,
-                    $timeout(function() {}, 5000)
+                        examineSymptomsService.getReport(response.data).$promise,
+                        $timeout(function() {}, 5000)
                     ])
                     .then(function(results) {
                         $scope.report.potentialInjuries = results[0].potentialInjuries;
+                        $scope.report.success = true;
                         $state.go('public.examine.report');
                         modal.dismiss('complete');
                     }).catch(function() {

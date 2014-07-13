@@ -25,6 +25,8 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<Cause> CauseRepo { get { return GetStandardRepo<Cause>(); } }
         public IRepository<Injury> InjuryRepo { get { return GetStandardRepo<Injury>(); } }
         public IRepository<ClinicPlanMatrixItem> ClinicPlanRepo { get { return GetStandardRepo<ClinicPlanMatrixItem>(); } }
+        public IRepository<ClinicExerciseMatrixItem> ClinicExerciseRepo { get { return GetStandardRepo<ClinicExerciseMatrixItem>(); } }
+        public IRepository<ClinicInjuryMatrixItem> ClinicInjuryRepo { get { return GetStandardRepo<ClinicInjuryMatrixItem>(); } }
         public IPlanRepo PlanRepo { get { return GetRepo<IPlanRepo>(); } }
         public IRepository<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixRepo { get { return GetStandardRepo<InjuryBodyRegionMatrixItem>(); } }
         public IRepository<InjuryCauseMatrixItem> InjuryCauseMatrixRepo { get { return GetStandardRepo<InjuryCauseMatrixItem>(); } }
@@ -388,7 +390,9 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Sign> SignRepo { get; }
         IRepository<Cause> CauseRepo { get; }
         IRepository<Injury> InjuryRepo { get; }
-        IRepository<ClinicPlanMatrixItem> ClinicPlanRepo { get; } 
+        IRepository<ClinicPlanMatrixItem> ClinicPlanRepo { get; }
+        IRepository<ClinicExerciseMatrixItem> ClinicExerciseRepo { get; }
+        IRepository<ClinicInjuryMatrixItem> ClinicInjuryRepo { get; }
         IPlanRepo PlanRepo { get; }
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }

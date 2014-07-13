@@ -17,6 +17,11 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
 
         protected override void Seed(PlatformDbContext context)
         {
+            //DoSeed(context);
+        }
+
+        private void DoSeed(PlatformDbContext context)
+        {
             //  This method will be called after migrating to the latest version.
 
             context.Clinics.AddOrUpdate(p => new { p.Name, p.Website, p.Phone },

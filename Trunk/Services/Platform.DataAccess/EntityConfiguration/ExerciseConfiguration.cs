@@ -17,8 +17,6 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Duration).HasColumnName("duration").IsRequired();
             Property(p => p.Name).IsRequired().HasColumnName("name").HasMaxLength(100);
             Property(p => p.MedicalName).IsOptional().HasColumnName("medical_name").HasMaxLength(100);
-            Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
-            Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
             Property(p => p.Sets).HasColumnName("sets");
             Property(p => p.Repititions).HasColumnName("repititions");
             Property(p => p.PerDay).HasColumnName("per_day");

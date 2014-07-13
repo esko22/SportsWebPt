@@ -1,7 +1,7 @@
 ﻿angular.module('examine.report', [])
     .controller('ExamineReportController', ['$scope', '$state', 'configService', function ($scope, $state, configService) {
 
-        if ($scope.report.potentialInjuries.length === 0) {
+        if (!$scope.report.success) {
             $state.go('public.examine.skeleton');
             return;
         }

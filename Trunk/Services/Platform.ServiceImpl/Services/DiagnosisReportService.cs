@@ -6,6 +6,7 @@ using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -30,7 +31,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             var potentialInjuryDtos = new List<PotentialInjuryDto>();
             var potentialInjuries =
                 DiffDiagUnitOfWork.GetPotentialInjuries(
-                    differentialDiagEntity.SymptomDetails.Select(s => s.SymptomMatrixItemId));
+                    differentialDiagEntity.SymptomDetails.Select(s => s.SymptomMatrixItemId), PlatformServiceConfiguration.Instance.ClinicId);
 
             //TODO: MONEY MAKER, can use some love but it works for now...
 

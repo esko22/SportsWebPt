@@ -13,19 +13,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String MedicalName { get; set; }
 
-        public String OpeningStatement { get; set; }
-
         public String Description { get; set; }
 
         public String Prognosis { get; set; }
 
         public String Recovery { get; set; }
 
-        public String PageName { get; set; }
-
         public String AnimationTag { get; set; }
-
-        public String Tags { get; set; }
 
         public InjurySeverity Severity { get; set; }
 

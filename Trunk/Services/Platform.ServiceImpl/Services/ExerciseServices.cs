@@ -5,6 +5,7 @@ using System.Linq;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -40,17 +41,25 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(BriefExerciseListRequest request)
         {
             var responseList = new List<BriefExerciseDto>();
-            Mapper.Map(
-                ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
-                    {
-                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart",
-                        "ExerciseCategoryMatrixItems"
-                    }).OrderBy(p => p.Id), responseList);
+            var results = ResearchUnitOfWork.ClinicExerciseRepo.GetAll(new[]
+            {
+                "Exercise",
+                "Exercise.PublishDetail",
+                "Exercise.ExerciseEquipmentMatrixItems.Equipment",
+                "Exercise.ExerciseBodyRegionMatrixItems.BodyRegion",
+                "Exercise.ExerciseBodyPartMatrixItems.BodyPart",
+                "Exercise.ExerciseCategoryMatrixItems"
+            }).Where(p => p.IsPublic && p.ClinicId == PlatformServiceConfiguration.Instance.ClinicId).OrderBy(p => p.Id);
+
+            //projecting out here since projection from join loses includes
+            var exercises = new List<Exercise>();
+            results.ForEach(c => exercises.Add(c.Exercise));
+
+            Mapper.Map(exercises, responseList);
 
             return
                 Ok(new ApiListResponse<BriefExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-
         }
 
 
@@ -65,7 +74,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             var exercise = request.IdAsInt > 0
                 ? exerciseQuery.FirstOrDefault(p => p.Id == request.IdAsInt)
-                : exerciseQuery.FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
+                : exerciseQuery.FirstOrDefault(p => p.PublishDetail.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             return Ok(new ApiResponse<ExerciseDto>() {Response = Mapper.Map<ExerciseDto>(exercise)});
 

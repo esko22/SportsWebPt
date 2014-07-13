@@ -60,7 +60,9 @@ namespace SportsWebPt.Platform.Web.Services
         public DiagnosisReport GetDiagnosisReport(int differntialDiagnosisId)
         {
             var request = GetSync(new DiagnosisReportRequest() { Id = differntialDiagnosisId.ToString()});
-            request.Response.PotentialInjuries = request.Response.PotentialInjuries.OrderByDescending(p => p.Likelyhood).ToArray();
+
+            if(request.Response.PotentialInjuries != null)
+                request.Response.PotentialInjuries = request.Response.PotentialInjuries.OrderByDescending(p => p.Likelyhood).ToArray();
 
             return Mapper.Map<DiagnosisReport>(request.Response);
         }

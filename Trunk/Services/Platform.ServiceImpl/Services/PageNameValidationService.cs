@@ -18,16 +18,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(PageNameValidationRequest request)
         {
-            if (String.IsNullOrEmpty(request.PageName))
                 return true;
-
-            if (ResearchUnitOfWork.ExerciseRepo.GetAll().Any(p => p.PageName.Equals(request.PageName, StringComparison.OrdinalIgnoreCase)))
-                return false;
-
-            if (ResearchUnitOfWork.InjuryRepo.GetAll().Any(p => p.PageName.Equals(request.PageName, StringComparison.OrdinalIgnoreCase)))
-                return false;
-
-            return !ResearchUnitOfWork.PlanRepo.GetAll().Any(p => p.PageName.Equals(request.PageName, StringComparison.OrdinalIgnoreCase));
         }
 
         #endregion

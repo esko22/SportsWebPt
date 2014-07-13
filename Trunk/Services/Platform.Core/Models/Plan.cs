@@ -19,10 +19,6 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Duration { get; set; }
 
-        public String PageName { get; set; }
-
-        public String Tags { get; set; }
-
         public String AnimationTag { get; set; }
          
         #endregion

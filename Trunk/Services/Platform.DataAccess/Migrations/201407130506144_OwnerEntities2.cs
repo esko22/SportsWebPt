@@ -7,14 +7,14 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
     {
         public override void Up()
         {
-            //RenameTable(name: "dbo.UserExercise", newName: "ExerciseUser");
-            //RenameTable(name: "dbo.UserVideo", newName: "VideoUser");
+            RenameTable(name: "UserExercise", newName: "ExerciseUser");
+            RenameTable(name: "UserVideo", newName: "VideoUser");
         }
         
         public override void Down()
         {
-            //RenameTable(name: "dbo.VideoUser", newName: "UserVideo");
-            //RenameTable(name: "dbo.ExerciseUser", newName: "UserExercise");
+            RenameTable(name: "dbo.VideoUser", newName: "UserVideo");
+            RenameTable(name: "dbo.ExerciseUser", newName: "UserExercise");
         }
     }
 }
