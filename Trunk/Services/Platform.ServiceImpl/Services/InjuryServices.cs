@@ -92,7 +92,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                         "InjuryPlanMatrixItems", "InjuryPlanMatrixItems.Plan", "InjurySignMatrixItems",
                         "InjurySignMatrixItems.Sign", "InjuryCauseMatrixItems", "InjuryCauseMatrixItems.Cause","InjuryTreatmentMatrixItems", "InjuryPrognosisMatrixItems", 
                         "InjuryPrognosisMatrixItems.Prognosis", "InjuryTreatmentMatrixItems.Treatment","InjuryBodyRegionMatrixItems", "InjuryBodyRegionMatrixItems.BodyRegion",
-                        "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems"
+                        "InjuryPlanMatrixItems.Plan.PlanCategoryMatrixItems", "PublishDetail"
                     });
             
             var injury = request.IdAsInt > 0

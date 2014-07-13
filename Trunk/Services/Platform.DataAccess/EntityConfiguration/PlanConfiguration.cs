@@ -28,4 +28,22 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
     }
+
+    public class PlanPublishDetailConfiguration : EntityTypeConfiguration<PlanPublishDetail>
+    {
+        #region Construction
+
+        public PlanPublishDetailConfiguration()
+        {
+            ToTable("PlanPublishDetail");
+            HasKey(p => p.Id);
+            Property(p => p.Id).HasColumnName("plan_id");
+            Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
+            Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
+
+            HasRequired(r => r.Plan).WithOptional(o => o.PublishDetail);
+        }
+
+        #endregion
+    }
 }

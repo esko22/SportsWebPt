@@ -15,7 +15,7 @@ namespace SportsWebPt.Platform.DataAccess
         private readonly string[] _userIncludes =
         {
             "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites",
-            "ClinicTherapistMatrixItems", "ClinicAdminMatrixItems"
+            "Therapist", "ClinicAdmin"
         };
 
         #endregion

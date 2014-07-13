@@ -26,4 +26,24 @@ namespace SportsWebPt.Platform.DataAccess
         
         #endregion
     }
+
+
+    public class InjuryPublishDetailConfiguration : EntityTypeConfiguration<InjuryPublishDetail>
+    {
+        #region Construction
+
+        public InjuryPublishDetailConfiguration()
+        {
+            ToTable("InjuryPublishDetail");
+            HasKey(p => p.Id);
+            Property(p => p.Id).HasColumnName("injury_id");
+            Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
+            Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
+            Property(p => p.OpeningStatement).IsRequired().HasColumnName("opening_statement").HasColumnType("TEXT");
+
+            HasRequired(r => r.Injury).WithOptional(o => o.PublishDetail);
+        }
+
+        #endregion
+    }
 }

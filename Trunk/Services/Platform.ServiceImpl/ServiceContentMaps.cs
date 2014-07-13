@@ -32,6 +32,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                       opt.Condition(s => s.ExerciseFavorites != null);
                       opt.MapFrom(s => s.ExerciseFavorites);
                   })
+                  .ForMember(d => d.IsTherapist, opt => opt.MapFrom(s => s.Therapist != null))
+                  .ForMember(d => d.IsClinicManager, opt => opt.MapFrom(s => s.ClinicAdmin != null))
                   .ForMember(d => d.Hash, opt => opt.Ignore());
 
             Mapper.CreateMap<Plan, FavoriteDto>()
@@ -144,16 +146,22 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<PotentialSymptomDto, SymptomDetail>()
                   .ForMember(d => d.SymptomMatrixItemId, opt => opt.MapFrom(s => s.Id));
 
-            Mapper.CreateMap<Plan, BriefPlanDto>()
+
+            Mapper.CreateMap<ClinicPlanMatrixItem, BriefPlanDto>()
+                  .ForMember(d => d.Description, opt => opt.MapFrom(s => s.Plan.Description))
+                  .ForMember(d => d.Id, opt => opt.MapFrom(s => s.PlanId))
+                  .ForMember(d => d.PageName, opt => opt.MapFrom(s => s.Plan.PageName))
+                  .ForMember(d => d.RoutineName, opt => opt.MapFrom(s => s.Plan.RoutineName))
+                  .ForMember(d => d.StructuresInvolved, opt => opt.MapFrom(s => s.Plan.StructuresInvolved))
                   .ForMember(d => d.BodyRegions, opt =>
                   {
-                      opt.Condition(s => s.PlanBodyRegionMatrixItems != null);
-                      opt.MapFrom(s => s.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
+                      opt.Condition(s => s.Plan.PlanBodyRegionMatrixItems != null);
+                      opt.MapFrom(s => s.Plan.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
                   })
                   .ForMember(d => d.Categories, opt =>
                   {
-                      opt.Condition(s => s.PlanCategoryMatrixItems != null);
-                      opt.MapFrom(s => s.PlanCategoryMatrixItems.Select(p => p.Category));
+                      opt.Condition(s => s.Plan.PlanCategoryMatrixItems != null);
+                      opt.MapFrom(s => s.Plan.PlanCategoryMatrixItems.Select(p => p.Category));
                   });
 
             Mapper.CreateMap<Plan, PlanDto>()
@@ -169,6 +177,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                           opt.Condition(s => s.PlanBodyRegionMatrixItems != null);
                           opt.MapFrom(s => s.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
                       })
+                  .ForMember(d => d.Tags, opt =>
+                  {
+                      opt.Condition(s => s.PublishDetail != null);
+                      opt.MapFrom(s => s.Tags);
+                  })
+                   .ForMember(d => d.PageName, opt =>
+                   {
+                       opt.Condition(s => s.PublishDetail != null);
+                       opt.MapFrom(s => s.PageName);
+                   })
                   .ForMember(d => d.Categories, opt =>
                       {
                           opt.Condition(s => s.PlanCategoryMatrixItems != null);
@@ -215,6 +233,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                   .ForMember(d => d.PerDay, opt => opt.MapFrom(s => s.PerDay))
                   .ForMember(d => d.PerWeek, opt => opt.MapFrom(s => s.PerWeek))
                   .ForMember(d => d.HoldFor, opt => opt.MapFrom(s => s.HoldFor))
+                    .ForMember(d => d.Tags, opt =>
+                    {
+                        opt.Condition(s => s.PublishDetail != null);
+                        opt.MapFrom(s => s.Tags);
+                    })
+                   .ForMember(d => d.PageName, opt =>
+                   {
+                       opt.Condition(s => s.PublishDetail != null);
+                       opt.MapFrom(s => s.PageName);
+                   })
                   .ForMember(d => d.Videos, opt =>
                       {
                           opt.Condition(s => s.ExerciseVideoMatrixItems != null);
@@ -385,25 +413,40 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt => opt.MapFrom(s => s.InjuryBodyRegionMatrixItems.Select(p => p.BodyRegion)));
 
             Mapper.CreateMap<Injury, InjuryDto>()
-                  .ForMember(d => d.Plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
-                  .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
-                  .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)))
-                  .ForMember(d => d.Treatments,
-                             opt => opt.MapFrom(s => s.InjuryTreatmentMatrixItems.Select(p => p.Treatment)))
-                  .ForMember(d => d.InjuryPrognoses,
-                             opt => opt.MapFrom(s => s.InjuryPrognosisMatrixItems.Select(p => p.Prognosis)))
-                  .ForMember(d => d.BodyRegions,
-                             opt => opt.MapFrom(s => s.InjuryBodyRegionMatrixItems.Select(p => p.BodyRegion)))
-                  .ForMember(d => d.InjurySymptoms, opt =>
-                      {
-                          opt.Condition(s => s.InjurySymptomMatrixItems != null);
-                          opt.MapFrom(s => s.InjurySymptomMatrixItems);
-                      })
-                  .ForMember(d => d.InjuryPrognoses, opt =>
-                      {
-                          opt.Condition(s => s.InjuryPrognosisMatrixItems != null);
-                          opt.MapFrom(s => s.InjuryPrognosisMatrixItems);
-                      });
+                .ForMember(d => d.Plans, opt => opt.MapFrom(s => s.InjuryPlanMatrixItems.Select(p => p.Plan)))
+                .ForMember(d => d.Causes, opt => opt.MapFrom(s => s.InjuryCauseMatrixItems.Select(p => p.Cause)))
+                .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)))
+                .ForMember(d => d.Treatments,
+                    opt => opt.MapFrom(s => s.InjuryTreatmentMatrixItems.Select(p => p.Treatment)))
+                .ForMember(d => d.InjuryPrognoses,
+                    opt => opt.MapFrom(s => s.InjuryPrognosisMatrixItems.Select(p => p.Prognosis)))
+                .ForMember(d => d.BodyRegions,
+                    opt => opt.MapFrom(s => s.InjuryBodyRegionMatrixItems.Select(p => p.BodyRegion)))
+                .ForMember(d => d.Tags, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.Tags);
+                })
+                .ForMember(d => d.PageName, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PageName);
+                })
+                .ForMember(d => d.OpeningStatement, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.OpeningStatement);
+                })
+                .ForMember(d => d.InjurySymptoms, opt =>
+                {
+                    opt.Condition(s => s.InjurySymptomMatrixItems != null);
+                    opt.MapFrom(s => s.InjurySymptomMatrixItems);
+                })
+                .ForMember(d => d.InjuryPrognoses, opt =>
+                {
+                    opt.Condition(s => s.InjuryPrognosisMatrixItems != null);
+                    opt.MapFrom(s => s.InjuryPrognosisMatrixItems);
+                });
                   
             Mapper.CreateMap<InjurySymptomMatrixItem, InjurySymptomDto>()
                   .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.SymptomMatrixItem.SymptomId))

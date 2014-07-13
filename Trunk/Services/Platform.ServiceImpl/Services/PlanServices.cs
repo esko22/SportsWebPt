@@ -67,23 +67,23 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var responseList = new List<BriefPlanDto>();
 
-            var plans = ResearchUnitOfWork.PlanRepo.GetAll(new[]
+            var clinicPlans = ResearchUnitOfWork.ClinicPlanRepo.GetAll(new[]
                     {
-                     "PlanExerciseMatrixItems",
-                     "PlanExerciseMatrixItems.Exercise",
-                     "PlanBodyRegionMatrixItems",
-                     "PlanBodyRegionMatrixItems.BodyRegion",
-                     "PlanCategoryMatrixItems"
-                    }).OrderBy(p => p.Id);
+                     "Plan.PublishDetail",
+                     "Plan.PlanExerciseMatrixItems",
+                     "Plan.PlanExerciseMatrixItems.Exercise",
+                     "Plan.PlanBodyRegionMatrixItems",
+                     "Plan.PlanBodyRegionMatrixItems.BodyRegion",
+                     "Plan.PlanCategoryMatrixItems"
+                    }).Where(p => p.IsPublic && p.ClinicId == 2).OrderBy(p => p.PlanId);
 
 
-
-            var exerciseIds = plans.SelectMany(p => p.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
+            var exerciseIds =  clinicPlans.SelectMany(p => p.Plan.PlanExerciseMatrixItems).Select(s => s.ExerciseId);
             var exerciseEntities =
                 ResearchUnitOfWork.ExerciseRepo.GetAll(new[] { "ExerciseEquipmentMatrixItems", "ExerciseEquipmentMatrixItems.Equipment" })
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
-            Mapper.Map(plans, responseList);
+            Mapper.Map(clinicPlans, responseList);
 
             return
                 Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -104,7 +104,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                                     "PlanExerciseMatrixItems.Exercise",
                                     "PlanBodyRegionMatrixItems",
                                     "PlanBodyRegionMatrixItems.BodyRegion",
-                                    "PlanCategoryMatrixItems"
+                                    "PlanCategoryMatrixItems",
+                                    "PublishDetail"
                                 }).FirstOrDefault(p => p.PageName.Equals(request.Id, StringComparison.OrdinalIgnoreCase));
 
             if (planEntity == null)

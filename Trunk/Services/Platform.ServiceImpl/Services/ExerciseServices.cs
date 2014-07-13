@@ -60,7 +60,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             {
                 "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
                 "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart",
-                "ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
+                "ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems", "PublishDetail"
             });
 
             var exercise = request.IdAsInt > 0

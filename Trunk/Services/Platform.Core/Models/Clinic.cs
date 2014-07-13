@@ -28,9 +28,80 @@ namespace SportsWebPt.Platform.Core.Models
         public ICollection<Location> Locations { get; set; } 
         public ICollection<ClinicTherapistMatrixItem> ClinicTherapistMatrixItems { get; set; }
         public ICollection<ClinicAdminMatrixItem> ClinicAdminMatrixItems { get; set; }
-        public ICollection<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; } 
+        public ICollection<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; }
+        public ICollection<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; }
+        public ICollection<ClinicExerciseMatrixItem> ClinicExerciseMatrixItems { get; set; }
 		 
 	    #endregion
+    }
+
+    public class ClinicPlanMatrixItem
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public int ClinicId { get; set; }
+
+        public int PlanId { get; set; }
+
+        public Boolean IsPublic { get; set; }
+		 
+    	#endregion
+
+        #region Naviagtion Properties
+
+        public virtual Plan Plan { get; set; }
+
+        public virtual Clinic Clinic { get; set; }
+
+    	#endregion
+    }
+
+    public class ClinicExerciseMatrixItem
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public int ClinicId { get; set; }
+
+        public int ExerciseId { get; set; }
+
+        public Boolean IsPublic { get; set; }
+		 
+    	#endregion
+
+        #region Naviagtion Properties
+
+        public virtual Exercise Exercise { get; set; }
+
+        public virtual Clinic Clinic { get; set; }
+
+    	#endregion
+    }
+
+    public class ClinicInjuryMatrixItem
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public int ClinicId { get; set; }
+
+        public int InjuryId { get; set; }
+
+        public Boolean IsPublic { get; set; }
+
+        #endregion
+
+        #region Naviagtion Properties
+
+        public virtual Injury Injury { get; set; }
+
+        public virtual Clinic Clinic { get; set; }
+
+        #endregion
     }
 
     public class ClinicAdmin

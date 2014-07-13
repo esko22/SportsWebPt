@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
@@ -24,8 +24,12 @@ namespace SportsWebPt.Platform.Core.Models
         public String Tags { get; set; }
 
         public String AnimationTag { get; set; }
+         
+        #endregion
 
-        public ICollection<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; } 
+        #region Naviagtion Properties
+
+        public ICollection<PlanCategoryMatrixItem> PlanCategoryMatrixItems { get; set; }
 
         public ICollection<InjuryPlanMatrixItem> InjuryPlanMatrixItems { get; set; }
 
@@ -33,7 +37,30 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<PlanBodyRegionMatrixItem> PlanBodyRegionMatrixItems { get; set; }
 
-        public ICollection<User> Users { get; set; } 
+        public ICollection<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; } 
+
+        public ICollection<User> Users { get; set; }
+
+        public virtual PlanPublishDetail PublishDetail { get; set; }
+
+        #endregion
+    }
+
+    public class PlanPublishDetail
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
+        #endregion
+
+        #region Naviagation Properties
+
+        public virtual Plan Plan { get; set; }
 
         #endregion
     }

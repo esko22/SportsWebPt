@@ -23,4 +23,36 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
     }
+
+    public class TherapistPlanMatrixConfiguration : EntityTypeConfiguration<TherapistPlanMatrixItem>
+    {
+        #region Construction
+
+        public TherapistPlanMatrixConfiguration()
+        {
+            ToTable("TherapistPlanMatrix");
+            Property(p => p.IsActive).HasColumnName("is_active");
+            Property(p => p.PlanId).HasColumnName("plan_id");
+            Property(p => p.TherapistId).HasColumnName("therapist_id");
+            Property(p => p.Id).HasColumnName("therapist_plan_matrix_item_id");
+        }
+
+        #endregion
+    }
+
+    public class TherapistExerciseMatrixConfiguration : EntityTypeConfiguration<TherapistExerciseMatrixItem>
+    {
+        #region Construction
+
+        public TherapistExerciseMatrixConfiguration()
+        {
+            ToTable("TherapistExerciseMatrix");
+            Property(p => p.IsActive).HasColumnName("is_active");
+            Property(p => p.ExerciseId).HasColumnName("exercise_id");
+            Property(p => p.TherapistId).HasColumnName("therapist_id");
+            Property(p => p.Id).HasColumnName("therapist_exercise_matrix_item_id");
+        }
+
+        #endregion
+    }
 }

@@ -103,4 +103,52 @@ namespace SportsWebPt.Platform.DataAccess
 
         #endregion
     }
+
+    public class ClinicPlanMatrixConfiguration : EntityTypeConfiguration<ClinicPlanMatrixItem>
+    {
+        #region Construction
+
+        public ClinicPlanMatrixConfiguration()
+        {
+            ToTable("ClinicPlanMatrix");
+            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.PlanId).HasColumnName("plan_id");
+            Property(p => p.ClinicId).HasColumnName("clinic_id");
+            Property(p => p.Id).HasColumnName("clinic_plan_matrix_item_id");
+        }
+
+        #endregion
+    }
+
+    public class ClinicExerciseMatrixConfiguration : EntityTypeConfiguration<ClinicExerciseMatrixItem>
+    {
+        #region Construction
+
+        public ClinicExerciseMatrixConfiguration()
+        {
+            ToTable("ClinicExerciseMatrix");
+            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.ExerciseId).HasColumnName("exercise_id");
+            Property(p => p.ClinicId).HasColumnName("clinic_id");
+            Property(p => p.Id).HasColumnName("clinic_exercise_matrix_item_id");
+        }
+
+        #endregion
+    }
+
+    public class ClinicInjurtyMatrixConfiguration : EntityTypeConfiguration<ClinicInjuryMatrixItem>
+    {
+        #region Construction
+
+        public ClinicInjurtyMatrixConfiguration()
+        {
+            ToTable("ClinicInjuryMatrix");
+            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.InjuryId).HasColumnName("injury_id");
+            Property(p => p.ClinicId).HasColumnName("clinic_id");
+            Property(p => p.Id).HasColumnName("clinic_injury_matrix_item_id");
+        }
+
+        #endregion
+    }
 }

@@ -49,6 +49,30 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<User> Users { get; set; }
 
+        public InjuryPublishDetail PublishDetail { get; set; }
+
+        #endregion
+
+    }
+
+    public class InjuryPublishDetail
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
+        public String OpeningStatement { get; set; }
+
+        #endregion   
+
+        #region Navigation Properties
+
+        public virtual Injury Injury { get; set; }
+
         #endregion
 
     }

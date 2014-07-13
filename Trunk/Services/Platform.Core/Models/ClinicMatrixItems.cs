@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
@@ -19,7 +21,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual Therapist Therapist { get; set; }
 
-        public virtual Clinic Clinic { get; set; } 
+        public virtual Clinic Clinic { get; set; }
+
+        public ICollection<Case> Cases { get; set; }
 
         #endregion
     }

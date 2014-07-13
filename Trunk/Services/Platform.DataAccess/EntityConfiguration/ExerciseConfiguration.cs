@@ -35,4 +35,22 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
     }
+
+    public class ExercisePublishDetailConfiguration : EntityTypeConfiguration<ExercisePublishDetail>
+    {
+        #region Construction
+
+        public ExercisePublishDetailConfiguration()
+        {
+            ToTable("ExercisePublishDetail");
+            HasKey(p => p.Id);
+            Property(p => p.Id).HasColumnName("exercise_id");
+            Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
+            Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
+
+            HasRequired(r => r.Exercise).WithOptional(o => o.PublishDetail);
+        }
+
+        #endregion
+    }
 }

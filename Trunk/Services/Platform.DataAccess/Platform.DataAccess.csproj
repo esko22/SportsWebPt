@@ -64,6 +64,7 @@
     <Compile Include="Contracts\ISymptomMatrixRepo.cs" />
     <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
+    <Compile Include="EntityConfiguration\CaseConfiguration.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ClinicConfiguration.cs" />
     <Compile Include="EntityConfiguration\PrognosisConfiguration.cs" />
@@ -125,6 +126,14 @@
     <Compile Include="Migrations\201407070555594_ClinicTherapist.Designer.cs">
       <DependentUpon>201407070555594_ClinicTherapist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407130306166_OwnerEntities.cs" />
+    <Compile Include="Migrations\201407130306166_OwnerEntities.Designer.cs">
+      <DependentUpon>201407130306166_OwnerEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407130506144_OwnerEntities2.cs" />
+    <Compile Include="Migrations\201407130506144_OwnerEntities2.Designer.cs">
+      <DependentUpon>201407130506144_OwnerEntities2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -185,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407070555594_ClinicTherapist.resx">
       <DependentUpon>201407070555594_ClinicTherapist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407130306166_OwnerEntities.resx">
+      <DependentUpon>201407130306166_OwnerEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407130506144_OwnerEntities2.resx">
+      <DependentUpon>201407130506144_OwnerEntities2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

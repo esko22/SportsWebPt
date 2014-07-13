@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Case.cs" />
     <Compile Include="Models\CauseCategory.cs" />
     <Compile Include="Models\Clinic.cs">
       <SubType>Code</SubType>

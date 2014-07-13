@@ -37,6 +37,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ExerciseDifficulty Difficulty { get; set; }
 
+        #endregion
+
+        #region Navigation Propertes
+
         public ICollection<ExerciseCategoryMatrixItem> ExerciseCategoryMatrixItems { get; set; }
 
         public ICollection<ExerciseEquipmentMatrixItem> ExerciseEquipmentMatrixItems { get; set; }
@@ -49,8 +53,30 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<PlanExerciseMatrixItem> PlanExerciseMatrixItemItems { get; set; }
 
-        public ICollection<User> Users { get; set; } 
+        public ICollection<User> Users { get; set; }
+
+        public ExercisePublishDetail PublishDetail { get; set; }
 
         #endregion
+    }
+
+    public class ExercisePublishDetail
+    {
+        #region Properties
+
+        public int Id { get; set; }
+
+        public String PageName { get; set; }
+
+        public String Tags { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        public virtual Exercise Exercise { get; set; }
+
+        #endregion
+        
     }
 }
