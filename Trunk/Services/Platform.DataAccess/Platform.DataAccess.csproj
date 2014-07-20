@@ -138,17 +138,27 @@
     <Compile Include="Migrations\201407132235081_DropPublishData.Designer.cs">
       <DependentUpon>201407132235081_DropPublishData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407200455424_ClinicNavs.cs" />
+    <Compile Include="Migrations\201407200455424_ClinicNavs.Designer.cs">
+      <DependentUpon>201407200455424_ClinicNavs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
     <Compile Include="PlatformRepositoryFactory.cs" />
     <Compile Include="PlatformRepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BodyPartRepo.cs" />
     <Compile Include="Repositories\ExerciseRepo.cs" />
+    <Compile Include="Repositories\InjuryRepo.cs" />
     <Compile Include="Repositories\SkeletonRepo.cs" />
     <Compile Include="Repositories\SymptomMatrixRepo.cs" />
     <Compile Include="Repositories\PlanRepo.cs" />
+    <Compile Include="Repositories\SymptomRepo.cs" />
+    <Compile Include="Repositories\UserRepo.cs" />
+    <Compile Include="Repositories\VideoRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
     <Compile Include="UnitOfWork\LookupUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
@@ -207,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407132235081_DropPublishData.resx">
       <DependentUpon>201407132235081_DropPublishData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407200455424_ClinicNavs.resx">
+      <DependentUpon>201407200455424_ClinicNavs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var symptoms = new List<Symptom>();
 
-            symptoms.AddRange(SkeletonUnitOfWork.SymptomRepo.GetAll(new [] { "RenderType" }));
+            symptoms.AddRange(SkeletonUnitOfWork.SymptomRepo.GetAll());
 
             var responseList = new List<SymptomDto>();
             Mapper.Map(symptoms, responseList);

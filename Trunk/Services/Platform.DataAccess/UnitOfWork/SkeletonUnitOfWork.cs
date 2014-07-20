@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 using SportsWebPt.Common.Utilities;
@@ -14,10 +15,10 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public ISkeletonRepo SkeletonAreaRepo { get { return GetRepo<ISkeletonRepo>(); } }
-        public IRepository<BodyPart> BodyPartRepo { get { return GetStandardRepo<BodyPart>(); } }
+        public IBodyPartRepo BodyPartRepo { get { return GetRepo<IBodyPartRepo>(); } }
         public IRepository<BodyRegion> BodyRegionRepo { get { return GetStandardRepo<BodyRegion>(); } }
-        public IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get { return GetStandardRepo<BodyPartMatrixItem>(); } } 
-        public IRepository<Symptom> SymptomRepo { get { return GetStandardRepo<Symptom>(); } }
+        public IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get { return GetStandardRepo<BodyPartMatrixItem>(); } }
+        public ISymptomRepo SymptomRepo { get { return GetRepo<ISymptomRepo>(); } }
         public ISymptomMatrixRepo SymptomMatrixRepo { get { return GetRepo<ISymptomMatrixRepo>(); } }
         
         #endregion
@@ -35,7 +36,9 @@ namespace SportsWebPt.Platform.DataAccess
 
         public void UpdateBodyPart(BodyPart bodyPart)
         {
-            var bodyPartInDb = BodyPartRepo.GetAll(new[] { "BodyPartMatrix" }).SingleOrDefault(p => p.Id == bodyPart.Id);
+            var bodyPartInDb = BodyPartRepo.GetAll()
+                .Include(i => i.BodyPartMatrix)
+                .SingleOrDefault(p => p.Id == bodyPart.Id);
 
             if (bodyPartInDb == null)
                 throw new ArgumentNullException("body part id", "part does not exist");
@@ -68,18 +71,28 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
+        public IQueryable<BodyPartMatrixItem> GetBodyPartMatrixItems()
+        {
+            return BodyPartMatrixRepo.GetAll()
+                .Include(i => i.BodyPart)
+                .Include(i => i.SkeletonArea.Orientation)
+                .Include(i => i.SkeletonArea.Region)
+                .Include(i => i.SkeletonArea.Side);
+        }
+
         #endregion
     }
 
     public interface ISkeletonUnitOfWork : IBaseUnitOfWork
     {
         ISkeletonRepo SkeletonAreaRepo { get; }
-        IRepository<BodyPart> BodyPartRepo { get; }
-        IRepository<Symptom> SymptomRepo { get; }
+        IBodyPartRepo BodyPartRepo { get; }
+        ISymptomRepo SymptomRepo { get; }
         IRepository<BodyRegion> BodyRegionRepo { get; } 
         ISymptomMatrixRepo SymptomMatrixRepo { get; }
         IRepository<BodyPartMatrixItem> BodyPartMatrixRepo { get; }
 
         void UpdateBodyPart(BodyPart bodyPart);
+        IQueryable<BodyPartMatrixItem> GetBodyPartMatrixItems();
     }
 }

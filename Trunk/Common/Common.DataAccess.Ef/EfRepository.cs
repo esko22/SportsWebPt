@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 
 using SportsWebPt.Common.Utilities;
@@ -21,6 +22,8 @@ namespace SportsWebPt.Common.DataAccess.Ef
                 throw new ArgumentNullException("dbContext");
             DbContext = dbContext;
             DbSet = DbContext.Set<T>();
+
+            dbContext.Database.Log = (s) => Debug.Write(s);
         }
 
         protected DbContext DbContext { get; set; }

@@ -27,7 +27,6 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.StructuresInvolved).HasColumnName("structures_involved").HasColumnType("TEXT");
 
             HasMany(m => m.ExerciseCategoryMatrixItems).WithRequired(r => r.Exercise).HasForeignKey(fk => fk.ExerciseId);
-
         }
 
         #endregion

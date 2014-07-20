@@ -18,17 +18,15 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public Plan GetFullPlanGraphById(int planId)
+        public IQueryable<Plan> GetPlanDetails()
         {
-            //TODO: investigate why I cant do both joins to equip and video in one query
-            return DbSet
-                .Include("PlanExerciseMatrixItems")
-                .Include("PlanCategoryMatrixItems")
-                .Include("PlanExerciseMatrixItems.Exercise")
-                .SingleOrDefault(w => w.Id == planId);
+            return GetAll()
+                .Include(i => i.PlanCategoryMatrixItems)
+                .Include(i => i.PlanExerciseMatrixItems.Select(l2 => l2.Exercise))
+                .Include(i => i.PlanBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))
+                .Include(i => i.PublishDetail);                
         }
-
-
+       
         #endregion
     }
 }

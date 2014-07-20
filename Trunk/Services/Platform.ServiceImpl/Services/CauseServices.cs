@@ -23,7 +23,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(CauseListRequest request)
         {
             var responseList = new List<CauseDto>();
-            Mapper.Map(ResearchUnitOfWork.CauseRepo.GetAll(new [] { "Filter" }).OrderBy(o => o.Description), responseList);
+            Mapper.Map(ResearchUnitOfWork.GetCauses().OrderBy(o => o.Description), responseList);
 
             return
                 Ok(new ApiListResponse<CauseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

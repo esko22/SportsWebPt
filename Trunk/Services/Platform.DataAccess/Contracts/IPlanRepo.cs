@@ -7,7 +7,6 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public interface IPlanRepo : IRepository<Plan>
     {
-        Plan GetFullPlanGraphById(int planId);
-
+        IQueryable<Plan> GetPlanDetails();
     }
 }

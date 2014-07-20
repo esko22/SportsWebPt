@@ -10,19 +10,9 @@ namespace SportsWebPt.Platform.DataAccess
     public class UserUnitOfWork : BaseUnitOfWork, IUserUnitOfWork
     {
 
-        #region Fields
-
-        private readonly string[] _userIncludes =
-        {
-            "VideoFavorites", "ExerciseFavorites", "PlanFavorites", "InjuryFavorites",
-            "Therapist", "ClinicAdmin"
-        };
-
-        #endregion
-
         #region Properties
 
-        public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } }
+        public IUserRepo UserRepository { get { return GetRepo<IUserRepo>(); } }
         public IRepository<Injury> InjuryRepository { get { return GetStandardRepo<Injury>(); } }
         public IRepository<Plan> PlanRepository { get { return GetStandardRepo<Plan>(); } }
         public IRepository<Video> VideoRepository { get { return GetStandardRepo<Video>(); } }
@@ -42,12 +32,12 @@ namespace SportsWebPt.Platform.DataAccess
 
         public User GetUserById(int userId)
         {
-            return UserRepository.GetAll(_userIncludes).SingleOrDefault(w => w.Id == userId);
+            return UserRepository.GetUserDetails().SingleOrDefault(w => w.Id == userId);
         }
         
         public User GetUserByEmail(string emailAddress)
         {
-            return UserRepository.GetAll(_userIncludes)
+            return UserRepository.GetUserDetails()
                                 .SingleOrDefault(
                                     p =>
                                     p.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase));
@@ -67,7 +57,7 @@ namespace SportsWebPt.Platform.DataAccess
 
     public interface IUserUnitOfWork : IBaseUnitOfWork
     {
-        IRepository<User> UserRepository { get; }
+        IUserRepo UserRepository { get; }
         IRepository<Injury> InjuryRepository { get; }
         IRepository<Plan> PlanRepository { get; }
         IRepository<Video> VideoRepository { get; }

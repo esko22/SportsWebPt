@@ -76,7 +76,7 @@ namespace SportsWebPt.Platform.DataAccess
         {}
 
         public PlatformDbContext(String connectionStringName)
-            :base(connectionStringName)
+            : base(connectionStringName)
         {}
 
         #endregion

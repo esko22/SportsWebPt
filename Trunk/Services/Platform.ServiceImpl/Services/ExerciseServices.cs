@@ -21,41 +21,30 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         #endregion
 
         #region Methods
-
-        public object Get(ExerciseListRequest request)
-        {
-            var responseList = new List<ExerciseDto>();
-            Mapper.Map(
-                ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
-                    {
-                        "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                        "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart","ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems"
-                    }).OrderBy(p => p.Id), responseList);
-
-            return
-                Ok(new ApiListResponse<ExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
-                                                                        null, null));
-
-        }
+       
 
         public object Get(BriefExerciseListRequest request)
         {
             var responseList = new List<BriefExerciseDto>();
-            var results = ResearchUnitOfWork.ClinicExerciseRepo.GetAll(new[]
-            {
-                "Exercise",
-                "Exercise.PublishDetail",
-                "Exercise.ExerciseEquipmentMatrixItems.Equipment",
-                "Exercise.ExerciseBodyRegionMatrixItems.BodyRegion",
-                "Exercise.ExerciseBodyPartMatrixItems.BodyPart",
-                "Exercise.ExerciseCategoryMatrixItems"
-            }).Where(p => p.IsPublic && p.ClinicId == PlatformServiceConfiguration.Instance.ClinicId).OrderBy(p => p.Id);
+            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll().OrderBy(p => p.Id);
 
-            //projecting out here since projection from join loses includes
-            var exercises = new List<Exercise>();
-            results.ForEach(c => exercises.Add(c.Exercise));
+            var predicate = PredicateBuilder.True<Exercise>();
 
-            Mapper.Map(exercises, responseList);
+            if (request.ClinicId > 0 && request.IsPublic != null)
+                predicate = predicate.And(
+                    p =>
+                        p.ClinicExerciseMatrixItems.Any(
+                            f => f.IsPublic == request.IsPublic && f.ClinicId == request.ClinicId));
+            else if (request.ClinicId > 0)
+                predicate = predicate.And(
+                    p =>
+                        p.ClinicExerciseMatrixItems.Any(f => f.ClinicId == request.ClinicId));
+            else if (request.IsPublic != null)
+                predicate = predicate.And(
+                    p =>
+                        p.ClinicExerciseMatrixItems.Any(f => f.IsPublic == request.IsPublic));
+
+            Mapper.Map(exercises.AsExpandable().Where(predicate), responseList);
 
             return
                 Ok(new ApiListResponse<BriefExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -65,12 +54,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Get(ExerciseRequest request)
         {
-            var exerciseQuery = ResearchUnitOfWork.ExerciseRepo.GetAll(new[]
-            {
-                "ExerciseEquipmentMatrixItems.Equipment", "ExerciseVideoMatrixItems.Video",
-                "ExerciseBodyRegionMatrixItems.BodyRegion", "ExerciseBodyPartMatrixItems.BodyPart",
-                "ExerciseCategoryMatrixItems", "ExerciseVideoMatrixItems.Video.VideoCategoryMatrixItems", "PublishDetail"
-            });
+            var exerciseQuery = ResearchUnitOfWork.ExerciseRepo.GetAll();
 
             var exercise = request.IdAsInt > 0
                 ? exerciseQuery.FirstOrDefault(p => p.Id == request.IdAsInt)

@@ -41,6 +41,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<InjuryPrognosisMatrixItem> InjuryPrognosisMatrixItems { get; set; }
 
+        public ICollection<ClinicInjuryMatrixItem> ClinicInjuryMatrixItems { get; set; } 
+
         public ICollection<User> Users { get; set; }
 
         public InjuryPublishDetail PublishDetail { get; set; }

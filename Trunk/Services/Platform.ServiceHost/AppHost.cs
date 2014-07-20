@@ -120,6 +120,7 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IResearchUnitOfWork>(c => new ResearchUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
+            container.Register<IPlanUnitOfWork>(c => new PlanUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ILookupUnitOfWork>(c => new LookupUnitOfWork(c.Resolve<IRepositoryProvider>()))
                      .ReusedWithin(ReuseScope.Request);
         }

@@ -1,4 +1,5 @@
-﻿using ServiceStack.ServiceHost;
+﻿using System;
+using ServiceStack.ServiceHost;
 using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
@@ -8,8 +9,18 @@ namespace SportsWebPt.Platform.ServiceModels
     {}
 
     [Route("/injuries/brief", "GET")]
-    public class BriefInjuryListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<BriefInjuryDto, BasicSortBy>>
-    { }
+    public class BriefInjuryListRequest : AbstractResourceListRequest,
+        IReturn<ApiListResponse<BriefInjuryDto, BasicSortBy>>
+    {
+        #region Properties
+
+        public int ClinicId { get; set; }
+
+        public Boolean? IsPublic { get; set; }
+
+        #endregion
+
+    }
 
 
     [Route("/injuries", "POST")]

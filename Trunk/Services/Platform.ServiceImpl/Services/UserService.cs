@@ -58,7 +58,9 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             Check.Argument.IsNotNull(favoriteToAdd, "FavoriteToAdd");
 
             var user =
-                UserUnitOfWork.UserRepository.GetAll(new[] { "InjuryFavorites", "ExerciseFavorites", "VideoFavorites", "PlanFavorites" }).SingleOrDefault(p => p.Id == favoriteToAdd.Id);
+                UserUnitOfWork.UserRepository
+                .GetUserDetails()
+                .SingleOrDefault(p => p.Id == favoriteToAdd.Id);
 
             if (user == null)
                 return BadRequest("Invalid User Id");

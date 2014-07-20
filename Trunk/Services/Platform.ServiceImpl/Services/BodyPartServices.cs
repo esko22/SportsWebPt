@@ -26,8 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             var areaComponents = new List<BodyPart>();
 
             if (request.SkeletonAreaId == 0)
-                areaComponents.AddRange(SkeletonUnitOfWork.BodyPartRepo.GetAll(new[] { "BodyPartMatrix", "BodyPartMatrix.SkeletonArea", "BodyPartMatrix.SkeletonArea.Region",
-                                                                                       "BodyPartMatrix.SkeletonArea.Side","BodyPartMatrix.SkeletonArea.Orientation"}));
+                areaComponents.AddRange(SkeletonUnitOfWork.BodyPartRepo.GetAll());
             else
                 areaComponents = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll().Where(s => s.SkeletonAreaId == request.SkeletonAreaId).Select(p => p.BodyPart).ToList();
 
@@ -81,14 +80,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(BodyPartMatrixListRequest request)
         {
-            var bodyPartMatrixItems = SkeletonUnitOfWork.BodyPartMatrixRepo.GetAll(new[]
-                {
-                    "BodyPart",
-                    "SkeletonArea",
-                    "SkeletonArea.Region",
-                    "SkeletonArea.Side",
-                    "SkeletonArea.Orientation"
-                });
+            var bodyPartMatrixItems = SkeletonUnitOfWork.GetBodyPartMatrixItems();
 
             var responseList = new List<BodyPartMatrixItemDto>();
 
