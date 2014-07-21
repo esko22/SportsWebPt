@@ -6,34 +6,21 @@ namespace SportsWebPt.Platform.Web.Services
     public interface IResearchService
     {
         Plan GetPlan(int planId);
-
         IEnumerable<BodyPart> GetBodyParts();
-
         IEnumerable<BodyRegion> GetBodyRegions();
-
-        IEnumerable<Exercise> GetExercises();
-
-        IEnumerable<BriefExercise> GetBriefExercises();
-
-        IEnumerable<Plan> GetPlans();
-        
-        IEnumerable<Injury> GetInjuries();
-
-        IEnumerable<BriefPlan> GetBriefPlans();
-
-        IEnumerable<BriefInjury> GetBriefInjuries();
-
+        IEnumerable<BriefExercise> GetResearchExercises();
+        IEnumerable<BriefPlan> GetResearchPlans();
+        IEnumerable<BriefInjury> GetResearchInjuries();
         IEnumerable<Sign> GetSigns();
-
         IEnumerable<Equipment> GetEquipment();
-
         IEnumerable<BriefEquipment> GetBriefEquipment();
-
         Exercise GetExerciseByPageName(string pageName);
-
         Injury GetInjuryByPageName(string pageName);
-
         Plan GetPlanByPageName(string pageName);
 
+
+
+
+        IEnumerable<BriefPlan> GetClinicPlans(int clinicId);
     }
 }

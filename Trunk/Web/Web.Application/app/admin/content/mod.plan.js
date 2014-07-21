@@ -91,8 +91,36 @@ planAdminModule.controller('PlanAdminController', ['$scope', 'planAdminService',
         });
     }
 
+    $scope.gridOptions = {
+        data: 'plans',
+        showGroupPanel: true,
+        columnDefs: [{ field: 'id', displayName: 'Id' },
+            { field: 'routineName', displayName: 'Name' },
+            { field: 'bodyRegions', displayName: 'Body Regions' },
+        { field: 'categories', displayName: 'Category' },
+        { field: 'visible', displayName: 'Visible' },
+        { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishPlan(row.entity)" >Edit</button> ' }]
+    };
+
     $scope.categories = configService.lookups.functionPlanCategories;
     getPlanList();
+
+    $scope.bindPublishPlan = function (plan) {
+        $scope.selectedPlan = plan;
+
+        $modal.open({
+            templateUrl: '/app/admin/content/tmpl.plan.publish.modal.htm',
+            controller: 'PublishPlanAdminController',
+            windowClass: 'x-dialog',
+            resolve: {
+                selectedPlan: function () {
+                    return $scope.selectedPlan;
+                }
+            }
+        });
+    }
+
+
 
 
     $scope.bindSelectedPlan = function (plan) {
@@ -120,6 +148,15 @@ planAdminModule.controller('PlanAdminController', ['$scope', 'planAdminService',
 
 }]);
 
+planAdminModule.controller('PublishPlanAdminController', [
+    '$scope', 'planAdminService', 'configService', '$modal','selectedPlan', function($scope, planAdminService, configService, $modal, selectedPlan) {
+
+        $scope.plan = {};
+        if (selectedPlan) {
+            $scope.plan = selectedPlan;
+        }
+
+    }]);
 
 planAdminModule.factory('planAdminService', ['$resource', function ($resource) {
 

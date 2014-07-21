@@ -23,20 +23,14 @@ namespace SportsWebPt.Common.DataAccess.Ef
             DbContext = dbContext;
             DbSet = DbContext.Set<T>();
 
-            dbContext.Database.Log = (s) => Debug.Write(s);
+            #if DEBUG
+                dbContext.Database.Log = (s) => Debug.Write(s);
+            #endif  
         }
 
         protected DbContext DbContext { get; set; }
 
         protected DbSet<T> DbSet { get; set; }
-
-        public IQueryable<T> GetAll(IEnumerable<String> includes)
-        {
-            var dynamicIncludeQuery = DbSet.AsQueryable();
-            includes.ForEach(i => dynamicIncludeQuery = dynamicIncludeQuery.Include(i));
-
-            return dynamicIncludeQuery;
-        }
 
         public virtual IQueryable<T> GetAll()
         {
@@ -45,7 +39,6 @@ namespace SportsWebPt.Common.DataAccess.Ef
 
         public virtual T GetById(int id)
         {
-            //return DbSet.FirstOrDefault(PredicateBuilder.GetByIdPredicate<T>(id));
             return DbSet.Find(id);
         }
 

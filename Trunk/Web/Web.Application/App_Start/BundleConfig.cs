@@ -38,6 +38,7 @@ namespace SportsWebPt.Platform.Web
                         "~/Scripts/libs/angular/angular-sanitize.js",
                         "~/Scripts/libs/angular/angular-resource.js",
                         "~/Scripts/libs/angular/angular-touch.js",
+                        "~/Scripts/libs/angular/ng-grid.js",
                         "~/Scripts/libs/angular/angular-google-analytics.js",
                         "~/Scripts/libs/angular-ui/ui-router.js",
                         "~/Scripts/libs/angular/angular-animate.js",
@@ -78,6 +79,7 @@ namespace SportsWebPt.Platform.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
+                "~/Content/ng-grid.css",
                 "~/Content/sportsweb-pt.css"
                             ));
 

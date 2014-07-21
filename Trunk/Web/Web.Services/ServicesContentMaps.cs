@@ -131,6 +131,10 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.delayedRecovery, opt => opt.MapFrom(s => s.InjuryPrognoses.FirstOrDefault(p => p.Category.Equals("delayedrecovery", StringComparison.OrdinalIgnoreCase))));
 
 
+            Mapper.CreateMap<BriefPlanDto, GridPlan>()
+                .ForMember(d => d.categories, opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
+                .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+
             Mapper.CreateMap<BriefPlanDto, BriefPlan>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
 

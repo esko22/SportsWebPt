@@ -2,7 +2,8 @@
 
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module','admin.module'])
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
+    'ngGrid'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -56,7 +57,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/bodyregion",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.body.region.htm',
                             controller: 'BodyRegionController'
                         }
@@ -66,7 +67,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/bodypart",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.body.part.htm',
                             controller: 'BodyPartController'
                         }
@@ -76,7 +77,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/prognosis",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.prognosis.htm',
                             controller: 'PrognosisController'
                         }
@@ -86,7 +87,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/treatment",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.treatment.htm',
                             controller: 'TreatmentController'
                         }
@@ -96,7 +97,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/equipment",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.equipment.htm',
                             controller: 'EquipmentController'
                         }
@@ -106,7 +107,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/cause",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.cause.htm',
                             controller: 'CauseController'
                         }
@@ -116,7 +117,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/sign",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.sign.htm',
                             controller: 'SignController'
                         }
@@ -126,7 +127,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/video",
                     views: {
-                        "admin-app-view": {
+                        "admin-entity-view": {
                             templateUrl: '/app/admin/entities/prtl.video.htm',
                             controller: 'VideoController'
                         }
@@ -136,7 +137,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/exercise",
                     views: {
-                        "admin-app-view": {
+                        "admin-content-view": {
                             templateUrl: '/app/admin/content/prtl.exercise.htm',
                             controller: 'ExerciseAdminController'
                         }
@@ -146,7 +147,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/plan",
                     views: {
-                        "admin-app-view": {
+                        "admin-content-view": {
                             templateUrl: '/app/admin/content/prtl.plan.htm',
                             controller: 'PlanAdminController'
                         }
@@ -156,7 +157,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/injury",
                     views: {
-                        "admin-app-view": {
+                        "admin-content-view": {
                             templateUrl: '/app/admin/content/prtl.injury.htm',
                             controller: 'InjuryAdminController'
                         }

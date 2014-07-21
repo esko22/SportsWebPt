@@ -190,6 +190,7 @@
     <Content Include="app\admin\content\tmpl.plan.modal.htm" />
     <Content Include="app\admin\content\tmpl.exercise.modal.htm" />
     <Content Include="app\admin\content\tmpl.exercise.list.htm" />
+    <Content Include="app\admin\content\tmpl.plan.publish.modal.htm" />
     <Content Include="app\admin\entities\mod.body.parts.js" />
     <Content Include="app\admin\entities\mod.video.js" />
     <Content Include="app\admin\entities\mod.sign.js" />
@@ -322,6 +323,7 @@
     <Content Include="Content\images\non-beta\logoHeader_small.png" />
     <Content Include="Content\images\non-beta\logoMenu.png" />
     <Content Include="Content\images\skeletorWShades.png" />
+    <Content Include="Content\ng-grid.css" />
     <Content Include="Content\theme\plugins\animate\animate.css" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
@@ -684,6 +686,7 @@
     <Content Include="Content\fonts\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon.woff" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\libs\angular\ng-grid.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Content\kendo\blueopal\editor.png" />

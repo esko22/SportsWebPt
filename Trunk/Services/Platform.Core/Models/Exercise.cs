@@ -68,6 +68,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Tags { get; set; }
 
+        public Boolean Visible { get; set; }
+
         #endregion
 
         #region Navigation Properties

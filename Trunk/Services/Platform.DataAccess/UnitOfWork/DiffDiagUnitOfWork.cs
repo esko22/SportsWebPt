@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
-using SportsWebPt.Common.Utilities;
-using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
@@ -42,7 +41,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IEnumerable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds, int clinicId)
         {
             return InjuryRepo.GetInjuryDetails()
-                .Where(p => p.ClinicInjuryMatrixItems.Any(s => s.IsPublic && s.ClinicId == clinicId) && p.InjurySymptomMatrixItems.Any(s => symptomMatrixIds.Contains(s.SymptomMatrixItemId)));
+                .Where(p => p.ClinicInjuryMatrixItems.Any(s => s.IsActive && s.ClinicId == clinicId) && p.InjurySymptomMatrixItems.Any(s => symptomMatrixIds.Contains(s.SymptomMatrixItemId)));
         } 
 
         #endregion

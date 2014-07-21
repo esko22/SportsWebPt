@@ -21,6 +21,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IQueryable<Plan> GetPlanDetails()
         {
             return GetAll()
+                .Include(i => i.ClinicPlanMatrixItems)
                 .Include(i => i.PlanCategoryMatrixItems)
                 .Include(i => i.PlanExerciseMatrixItems.Select(l2 => l2.Exercise))
                 .Include(i => i.PlanBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))

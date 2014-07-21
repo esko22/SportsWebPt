@@ -42,6 +42,7 @@ namespace SportsWebPt.Platform.Web.Core
         public String GoogleClientSecret { get; private set; }
         public Options YelpOptions { get; private set; }
         public String YelpSearchTerm { get; private set; }
+        public int SportsWebPtClinicId { get; private set; }
 
         #endregion
 
@@ -74,8 +75,8 @@ namespace SportsWebPt.Platform.Web.Core
             FacebookClientSecret = ConfigurationManager.AppSettings["facebookClientSecret"];
             GoogleClientKey = ConfigurationManager.AppSettings["googleClientKey"];
             GoogleClientSecret = ConfigurationManager.AppSettings["googleClientSecret"];
+            SportsWebPtClinicId = int.Parse(ConfigurationManager.AppSettings["sportsWebPtClinicId"]);
             YelpSearchTerm = ConfigurationManager.AppSettings["yelpSearchTerm"];
-
 
             YelpOptions = new Options()
             {

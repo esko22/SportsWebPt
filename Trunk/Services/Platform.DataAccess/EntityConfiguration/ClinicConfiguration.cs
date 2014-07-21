@@ -111,7 +111,7 @@ namespace SportsWebPt.Platform.DataAccess
         public ClinicPlanMatrixConfiguration()
         {
             ToTable("ClinicPlanMatrix");
-            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.IsActive).HasColumnName("is_active");
             Property(p => p.PlanId).HasColumnName("plan_id");
             Property(p => p.ClinicId).HasColumnName("clinic_id");
             Property(p => p.Id).HasColumnName("clinic_plan_matrix_item_id");
@@ -127,7 +127,7 @@ namespace SportsWebPt.Platform.DataAccess
         public ClinicExerciseMatrixConfiguration()
         {
             ToTable("ClinicExerciseMatrix");
-            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.IsActive).HasColumnName("is_active");
             Property(p => p.ExerciseId).HasColumnName("exercise_id");
             Property(p => p.ClinicId).HasColumnName("clinic_id");
             Property(p => p.Id).HasColumnName("clinic_exercise_matrix_item_id");
@@ -143,7 +143,7 @@ namespace SportsWebPt.Platform.DataAccess
         public ClinicInjurtyMatrixConfiguration()
         {
             ToTable("ClinicInjuryMatrix");
-            Property(p => p.IsPublic).HasColumnName("is_public");
+            Property(p => p.IsActive).HasColumnName("is_active");
             Property(p => p.InjuryId).HasColumnName("injury_id");
             Property(p => p.ClinicId).HasColumnName("clinic_id");
             Property(p => p.Id).HasColumnName("clinic_injury_matrix_item_id");

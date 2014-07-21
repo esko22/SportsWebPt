@@ -66,16 +66,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Exercise>>(request.Response.Items);
         }
 
-        public IEnumerable<Plan> GetPlans()
+        public IEnumerable<BriefExercise> GetResearchExercises()
         {
-            var request = GetSync(new PlanListRequest());
-
-            return request.Response == null ? null : Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
-        }
-
-        public IEnumerable<BriefExercise> GetBriefExercises()
-        {
-            var request = GetSync(new BriefExerciseListRequest());
+            var request = GetSync(new BriefExerciseListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId, IsPublic = true });
 
             //TODO: hack due to angular not filtering on nulls
             request.Response.Items.ForEach(e =>
@@ -87,13 +80,20 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items.OrderBy(p => p.Name));
         }
 
-        public IEnumerable<BriefPlan> GetBriefPlans()
+        public IEnumerable<BriefPlan> GetResearchPlans()
         {
-            var request = GetSync(new BriefPlanListRequest());
+            var request = GetSync(new BriefPlanListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId, IsPublic = true });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
+
+        public IEnumerable<BriefPlan> GetClinicPlans(int clinicId)
+        {
+            var request = GetSync(new BriefPlanListRequest() { ClinicId = clinicId });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
+        }
 
         public IEnumerable<Equipment> GetEquipment()
         {
@@ -116,9 +116,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Injury>>(request.Response.Items);
         }
 
-        public IEnumerable<BriefInjury> GetBriefInjuries()
+        public IEnumerable<BriefInjury> GetResearchInjuries()
         {
-            var request = GetSync(new BriefInjuryListRequest());
+            var request = GetSync(new BriefInjuryListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId, IsPublic = true});
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<BriefInjury>>(request.Response.Items.OrderBy(p => p.CommonName));
         }

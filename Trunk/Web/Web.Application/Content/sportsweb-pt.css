@@ -1,4 +1,11 @@
-﻿
+﻿.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 900px; 
+    height: 200px
+}
+
+
+
 #btn-splash-get-started {
     margin-top: 10px;
 }

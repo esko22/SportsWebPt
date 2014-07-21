@@ -4,18 +4,13 @@
     </div>
     <div class="row content-container-panel">
         <div>
+            <h4>Entities</h4>
             <div class="row">
                 <div class="col-md-1">
                     <a ui-sref="admin.dashboard.video">Videos</a>
                 </div>
                 <div class="col-md-1">
                     <a ui-sref="admin.dashboard.equipment">Equipment</a>
-                </div>
-                <div class="col-md-1">
-                    <a ui-sref="admin.dashboard.exercise">Exercises</a>
-                </div>
-                <div class="col-md-1">
-                    <a ui-sref="admin.dashboard.plan">Plans</a>
                 </div>
                 <div class="col-md-1">
                     <a ui-sref="admin.dashboard.injury">Injuries</a>
@@ -41,7 +36,26 @@
             </div>
         </div>
         <div class="row">
-            <div class="core-view-container" ui-view="admin-app-view" autoscroll="false"></div>
+            <div class="core-view-container" ui-view="admin-entity-view" autoscroll="false"></div>
+        </div>
+    </div>
+    <div class="row content-container-panel">
+        <div>
+            <h4>Publish Content</h4>
+            <div class="row">
+                <div class="col-md-1">
+                    <a ui-sref="admin.dashboard.exercise">Exercises</a>
+                </div>
+                <div class="col-md-1">
+                    <a ui-sref="admin.dashboard.plan">Plans</a>
+                </div>
+                <div class="col-md-1">
+                    <a ui-sref="admin.dashboard.injury">Injuries</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="core-view-container" ui-view="admin-content-view" autoscroll="false"></div>
         </div>
     </div>
 </div>

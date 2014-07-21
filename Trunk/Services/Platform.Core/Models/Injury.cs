@@ -63,6 +63,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String OpeningStatement { get; set; }
 
+        public Boolean Visible { get; set; }
+
         #endregion   
 
         #region Navigation Properties

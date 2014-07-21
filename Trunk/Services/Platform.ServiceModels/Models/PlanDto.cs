@@ -21,6 +21,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String PageName { get; set; }
 
+        public Boolean Visible { get; set; }
+
+        public String Tags { get; set; }
+
         #endregion
     }
 
@@ -34,8 +38,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public String Instructions { get; set; }
 
         public int Duration { get; set; }
-
-        public String Tags { get; set; }
 
         public String AnimationTag { get; set; }
 

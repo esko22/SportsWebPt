@@ -37,15 +37,15 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                 predicate = predicate.And(
                     p =>
                         p.ClinicInjuryMatrixItems.Any(
-                            f => f.IsPublic == request.IsPublic && f.ClinicId == request.ClinicId));
+                            f => f.IsActive && f.ClinicId == request.ClinicId) && p.PublishDetail.Visible == request.IsPublic);
             else if (request.ClinicId > 0)
                 predicate = predicate.And(
                     p =>
-                        p.ClinicInjuryMatrixItems.Any(f => f.ClinicId == request.ClinicId));
+                        p.ClinicInjuryMatrixItems.Any(f => f.ClinicId == request.ClinicId && f.IsActive));
             else if (request.IsPublic != null)
                 predicate = predicate.And(
                     p =>
-                        p.ClinicInjuryMatrixItems.Any(f => f.IsPublic == request.IsPublic));
+                        p.ClinicInjuryMatrixItems.Any(f => f.IsActive) && p.PublishDetail.Visible == request.IsPublic);
 
             Mapper.Map(injuries.AsExpandable().Where(predicate), responseList);
 

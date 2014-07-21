@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateExercise(Exercise exercise);
 
-        IEnumerable<Plan> GetPlans();
+        IEnumerable<GridPlan> GetPlans();
 
         int AddPlan(Plan plan);
 

@@ -95,34 +95,10 @@ namespace SportsWebPt.Platform.Web.Application
             throw new NotImplementedException();
         }
 
-        [GET("data/research/exercises", IsAbsoluteUrl = true)]
-        public ActionResult GetExercises()
-        {
-            var exercises = _researchService.GetExercises();
-
-            return Json(exercises, JsonRequestBehavior.AllowGet);
-        }
-
-        [GET("data/research/plans", IsAbsoluteUrl = true)]
-        public ActionResult GetPlans()
-        {
-            var plans = _researchService.GetPlans();
-
-            return Json(plans, JsonRequestBehavior.AllowGet);
-        }
-
-        [GET("data/research/injuries", IsAbsoluteUrl = true)]
-        public ActionResult GetInjuries()
-        {
-            var injuries = _researchService.GetInjuries();
-
-            return Json(injuries, JsonRequestBehavior.AllowGet);
-        }
-
         [GET("data/exercises/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefExercises()
         {
-            var exercises = _researchService.GetBriefExercises();
+            var exercises = _researchService.GetResearchExercises();
 
             return Json(exercises, JsonRequestBehavior.AllowGet);
         }
@@ -130,7 +106,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("data/plans/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefPlans()
         {
-            var plans = _researchService.GetBriefPlans();
+            var plans = _researchService.GetResearchPlans();
 
             return Json(plans, JsonRequestBehavior.AllowGet);
         }
@@ -138,7 +114,7 @@ namespace SportsWebPt.Platform.Web.Application
         [GET("data/injuries/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefInjuries()
         {
-            var injuries = _researchService.GetBriefInjuries();
+            var injuries = _researchService.GetResearchInjuries();
 
             return Json(injuries, JsonRequestBehavior.AllowGet);
         }

@@ -1,0 +1,47 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Plan Publish Detail</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="planForm">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Name</label>
+                    <span ng-bind="plan.routineName"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Page Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.pageName)}">
+                        <input type="text" class="form-control" name="pageName" ng-model="plan.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Tags</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.tags)}">
+                        <input type="text" class="form-control" name="tags" ng-model="plan.tags" placeholder="Tags" ng-minlength="2" ng-maxlength="10000">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="planForm.pageName.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="planForm.pageName.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(planForm.pageName.$error.minlength || planForm.pageName.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.tags.$error.minlength || planForm.tags.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Tags must be between 1 and 10000 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

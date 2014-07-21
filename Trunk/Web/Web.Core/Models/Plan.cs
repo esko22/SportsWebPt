@@ -25,6 +25,27 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
     }
 
+    public class GridPlan
+    {
+        #region Properties
+
+        public String routineName { get; set; }
+
+        public int id { get; set; }
+
+        public string bodyRegions { get; set; }
+
+        public string categories { get; set; }
+
+        public bool visible { get; set; }
+
+        public String pageName { get; set; }
+
+        public String tags { get; set; }
+
+        #endregion        
+    }
+
     public class Plan : BriefPlan
     {
         #region Properties

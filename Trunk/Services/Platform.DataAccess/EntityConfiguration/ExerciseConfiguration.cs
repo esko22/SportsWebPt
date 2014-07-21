@@ -44,6 +44,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.Id).HasColumnName("exercise_id");
             Property(p => p.PageName).IsRequired().HasColumnName("page_name").HasMaxLength(50);
             Property(p => p.Tags).HasColumnName("tags").HasColumnType("TEXT").IsOptional();
+            Property(p => p.Visible).HasColumnName("visible");
 
             HasRequired(r => r.Exercise).WithOptional(o => o.PublishDetail);
         }

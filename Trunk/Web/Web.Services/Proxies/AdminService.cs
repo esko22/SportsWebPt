@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
@@ -86,11 +86,11 @@ namespace SportsWebPt.Platform.Web.Services
             Put(Mapper.Map<UpdateExerciseRequest>(exercise));
         }
 
-        public IEnumerable<Plan> GetPlans()
+        public IEnumerable<GridPlan> GetPlans()
         {
-            var request = GetSync(new PlanListRequest());
+            var request = GetSync(new BriefPlanListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
 
-            return Mapper.Map<IEnumerable<Plan>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
         public int AddPlan(Plan plan)

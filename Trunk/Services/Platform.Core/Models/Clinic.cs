@@ -45,7 +45,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int PlanId { get; set; }
 
-        public Boolean IsPublic { get; set; }
+        public Boolean IsActive { get; set; }
 		 
     	#endregion
 
@@ -68,7 +68,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int ExerciseId { get; set; }
 
-        public Boolean IsPublic { get; set; }
+        public Boolean IsActive { get; set; }
 		 
     	#endregion
 
@@ -91,7 +91,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int InjuryId { get; set; }
 
-        public Boolean IsPublic { get; set; }
+        public Boolean IsActive { get; set; }
 
         #endregion
 

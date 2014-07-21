@@ -148,10 +148,20 @@ namespace SportsWebPt.Platform.ServiceImpl
 
 
             Mapper.CreateMap<Plan, BriefPlanDto>()
+                .ForMember(d => d.Visible, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Visible);
+                })
                 .ForMember(d => d.PageName, opt =>
                 {
                     opt.Condition(s => s.PublishDetail != null);
                     opt.MapFrom(s => s.PublishDetail.PageName);
+                })
+                .ForMember(d => d.Tags, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Tags);
                 })
                 .ForMember(d => d.BodyRegions, opt =>
                 {
