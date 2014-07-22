@@ -20,7 +20,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get { return GetStandardRepo<PlanBodyRegionMatrixItem>(); } }
         public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
-
+        public IRepository<PlanPublishDetail> PlanPublishRepo { get { return GetStandardRepo<PlanPublishDetail>(); } } 
         #endregion
 
         #region Construction
@@ -86,7 +86,6 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
-
         #endregion
 
     }
@@ -101,14 +100,14 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get; }
         IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get; }
         IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get; }
-        IExerciseRepo ExerciseRepo { get; } 
+        IExerciseRepo ExerciseRepo { get; }
+        IRepository<PlanPublishDetail> PlanPublishRepo { get; }
 
         #endregion
 
         #region Methods
 
-        void UpdatePlan(Plan exercise);
-
+        void UpdatePlan(Plan plan);
 
         #endregion
     }

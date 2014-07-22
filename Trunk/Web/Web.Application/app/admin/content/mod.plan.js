@@ -149,39 +149,53 @@ planAdminModule.controller('PlanAdminController', ['$scope', 'planAdminService',
 }]);
 
 planAdminModule.controller('PublishPlanAdminController', [
-    '$scope', 'planAdminService', 'configService', '$modal','selectedPlan', function($scope, planAdminService, configService, $modal, selectedPlan) {
+    '$scope', 'planAdminService', 'configService', '$modal','selectedPlan', 'notifierService', '$modalInstance', function($scope, planAdminService, configService, $modal, selectedPlan, notifierService, $modalInstance) {
 
         $scope.plan = {};
         if (selectedPlan) {
             $scope.plan = selectedPlan;
         }
 
-    }]);
+        $scope.submit = function() {
+            if ($scope.plan && $scope.plan.id > 0) {
+                planAdminService.publish($scope.plan).$promise.then(function() {
+                    notifierService.notify('Update Success!');
+                    $modalInstance.close($scope.plan);
+                });
+            }
+        }
 
-planAdminModule.factory('planAdminService', ['$resource', function ($resource) {
+}]);
+
+planAdminModule.factory('planAdminService', ['$resource', function($resource) {
 
     var adminPlanPath = '/data/admin/plans';
 
 
     return {
-        get: function (id) {
+        get: function(id) {
             var resource = $resource(adminPlanPath + '/:id');
             return resource.get({ id: id });
         },
-        getAll: function () {
+        getAll: function() {
             return $resource(adminPlanPath).query();
         },
-        save: function (plan) {
+        save: function(plan) {
             return $resource(adminPlanPath).save(plan);
         },
-        update: function (plan) {
+        update: function(plan) {
             var resource = $resource(adminPlanPath + '/:id', null, {
                 'update': { method: 'PUT' }
             });
             return resource.update({ id: plan.id }, plan);
+        },
+        publish: function(plan) {
+            var resource = $resource(adminPlanPath + '/:id/publish', null, {
+                'update': { method: 'PUT' }
+            });
+            return resource.update({ id: plan.id }, plan);
         }
+
+
     }
-
-
-
 }]);

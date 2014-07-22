@@ -28,6 +28,8 @@ namespace SportsWebPt.Platform.Web.Services
 
         int AddPlan(Plan plan);
 
+        void PublishPlan(Plan plan);
+
         void UpdatePlan(Plan plan);
 
         IEnumerable<Injury> GetInjuries();

@@ -149,7 +149,9 @@ namespace SportsWebPt.Platform.Web.Services
 
             Mapper.CreateMap<Plan, UpdatePlanRequest>()
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
-            
+
+            Mapper.CreateMap<Plan, PublishPlanRequest>();
+
             //TODO: this is still ghetto hack... for some reason this inheritance map is not working
             Mapper.CreateMap<BriefExerciseDto, BriefExercise>()
                 .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));

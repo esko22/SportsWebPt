@@ -152,6 +152,14 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
 
+        [PUT("data/admin/plans/{Id}/publish", IsAbsoluteUrl = true)]
+        public ActionResult PublishPlan(Plan plan)
+        {
+            _adminService.PublishPlan(plan);
+            return Json(plan, JsonRequestBehavior.DenyGet);
+        }
+
+
         [GET("data/admin/signs", IsAbsoluteUrl = true)]
         public ActionResult GetSigns()
         {

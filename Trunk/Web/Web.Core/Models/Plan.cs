@@ -22,6 +22,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String pageName { get; set; }
 
+        public bool visible { get; set; }
+
         #endregion
     }
 

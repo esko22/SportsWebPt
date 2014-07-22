@@ -174,6 +174,12 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt.MapFrom(s => s.PlanCategoryMatrixItems.Select(p => p.Category));
                 });
 
+            Mapper.CreateMap<PublishPlanRequest, PlanPublishDetail>()
+                .ForMember(d => d.PageName, opt => opt.MapFrom(s => s.PageName))
+                .ForMember(d => d.Tags, opt => opt.MapFrom(s => s.Tags))
+                .ForMember(d => d.Visible, opt => opt.MapFrom(s => s.Visible))
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdAsInt));
+
             Mapper.CreateMap<Plan, PlanDto>()
                   .Include<Plan, CreatePlanRequest>()
                   .Include<Plan, UpdatePlanRequest>()

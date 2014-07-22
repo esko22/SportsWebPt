@@ -94,6 +94,16 @@ namespace SportsWebPt.Platform.ServiceImpl
             return Ok(new ApiResponse<PlanDto>(request));
         }
 
+        public object Patch(PublishPlanRequest request)
+        {
+            var publishDetail = Mapper.Map<PlanPublishDetail>(request);
+            
+            PlanUnitOfWork.PlanPublishRepo.Update(publishDetail);
+            PlanUnitOfWork.Commit();
+
+            return Ok();
+        }
+
         public object Put(UpdatePlanRequest request)
         {
             Check.Argument.IsNotNull(request, "PlanDto");

@@ -32,6 +32,20 @@ namespace SportsWebPt.Platform.ServiceModels
     {
     }
 
+    [Route("/plans/{id}/publish", "PATCH")]
+    public class PublishPlanRequest : AbstractResourceRequest, IReturn<ApiResponse<PlanDto>>
+    {
+        #region Properties
+
+        public String Tags { get; set; }
+
+        public String PageName { get; set; }
+
+        public Boolean Visible { get; set; }
+
+        #endregion
+    }
+
     [Route("/plans/{id}", "GET")]
     public class PlanRequest : AbstractResourceRequest, IReturn<ApiResponse<PlanDto>>
     {
@@ -40,5 +54,7 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/clinics/{id}/plans")]
     public class ClinicPlanRequest : AbstractResourceRequest, IReturn<ApiResponse<PlanDto>>
     {}
+
+
 
 }

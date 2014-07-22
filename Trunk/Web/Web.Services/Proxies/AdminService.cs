@@ -105,6 +105,11 @@ namespace SportsWebPt.Platform.Web.Services
             Put(Mapper.Map<UpdatePlanRequest>(plan));
         }
 
+        public void PublishPlan(Plan plan)
+        {
+            Patch(Mapper.Map<PublishPlanRequest>(plan));
+        }
+
         public IEnumerable<Injury> GetInjuries()
         {
             var request = GetSync(new InjuryListRequest());
