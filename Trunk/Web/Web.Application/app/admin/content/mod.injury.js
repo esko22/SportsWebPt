@@ -168,6 +168,16 @@ injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminSer
 
     getInjuryList();
 
+    $scope.gridOptions = {
+        data: 'injuries',
+        showGroupPanel: true,
+        columnDefs: [{ field: 'id', displayName: 'Id' },
+            { field: 'medicalName', displayName: 'Name' },
+            { field: 'commonName', displayName: 'Common Name' },
+        { field: 'visible', displayName: 'Visible' },
+        { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishInjury(row.entity)" >Edit</button> ' }]
+    };
+
 
     $scope.bindSelectedInjury = function (injury) {
         $scope.selectedInjury = injury;
@@ -189,10 +199,45 @@ injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminSer
         });
     }
 
+    $scope.bindPublishInjury = function (injury) {
+        $scope.selectedInjury = injury;
+
+        $modal.open({
+            templateUrl: '/app/admin/content/tmpl.injury.publish.modal.htm',
+            controller: 'PublishInjuryAdminController',
+            windowClass: 'x-dialog',
+            resolve: {
+                selectedInjury: function () {
+                    return $scope.selectedInjury;
+                }
+            }
+        });
+    }
 
 
 
 }]);
+
+injuryAdminModule.controller('PublishInjuryAdminController', [
+    '$scope', 'injuryAdminService', 'configService', '$modal', 'selectedInjury', 'notifierService', '$modalInstance', function ($scope, injuryAdminService, configService, $modal, selectedInjury, notifierService, $modalInstance) {
+
+        $scope.injury = {};
+        if (selectedInjury) {
+            $scope.injury = selectedInjury;
+        }
+
+        $scope.submit = function () {
+            if ($scope.injury && $scope.injury.id > 0) {
+                injuryAdminService.publish($scope.injury).$promise.then(function () {
+                    notifierService.notify('Update Success!');
+                    $modalInstance.close($scope.injury);
+                });
+            }
+        }
+
+    }]);
+
+
 
 
 injuryAdminModule.factory('injuryAdminService', ['$resource', function ($resource) {
@@ -216,7 +261,13 @@ injuryAdminModule.factory('injuryAdminService', ['$resource', function ($resourc
                 'update': { method: 'PUT' }
             });
             return resource.update({ id: injury.id }, injury);
-        }
+        },
+        publish: function (injury) {
+            var resource = $resource(adminInjuryPath + '/:id/publish', null, {
+            'update': { method: 'PUT' }
+        });
+        return resource.update({ id: injury.id }, injury);
+    }
     }
 
 

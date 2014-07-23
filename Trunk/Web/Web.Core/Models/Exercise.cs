@@ -57,4 +57,25 @@ namespace SportsWebPt.Platform.Web.Core
 
         #endregion
     }
+
+    public class GridExercise
+    {
+        #region Properties
+
+        public int id { get; set; }
+
+        public String bodyRegions { get; set; }
+
+        public String name { get; set; }
+
+        public String pageName { get; set; }
+
+        public string categories { get; set; }
+
+        public bool visible { get; set; }
+
+        public String tags { get; set; }
+
+        #endregion
+    }
 }

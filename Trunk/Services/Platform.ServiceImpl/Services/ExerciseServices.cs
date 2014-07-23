@@ -88,6 +88,16 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             return Ok(new ApiResponse<ExerciseDto>(request));
         }
 
+        public object Patch(PublishExerciseRequest request)
+        {
+            var publishDetail = Mapper.Map<ExercisePublishDetail>(request);
+
+            ResearchUnitOfWork.ExercisePublishDetailRepo.Update(publishDetail);
+            ResearchUnitOfWork.Commit();
+
+            return Ok();
+        }
+
         #endregion
     }
 }

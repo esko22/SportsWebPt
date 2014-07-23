@@ -180,6 +180,19 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.Visible, opt => opt.MapFrom(s => s.Visible))
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdAsInt));
 
+            Mapper.CreateMap<PublishExerciseRequest, ExercisePublishDetail>()
+              .ForMember(d => d.PageName, opt => opt.MapFrom(s => s.PageName))
+              .ForMember(d => d.Tags, opt => opt.MapFrom(s => s.Tags))
+              .ForMember(d => d.Visible, opt => opt.MapFrom(s => s.Visible))
+              .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdAsInt));
+
+            Mapper.CreateMap<PublishInjuryRequest, InjuryPublishDetail>()
+                .ForMember(d => d.PageName, opt => opt.MapFrom(s => s.PageName))
+                .ForMember(d => d.OpeningStatement, opt => opt.MapFrom(s => s.OpeningStatement))
+                .ForMember(d => d.Tags, opt => opt.MapFrom(s => s.Tags))
+                .ForMember(d => d.Visible, opt => opt.MapFrom(s => s.Visible))
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdAsInt));
+
             Mapper.CreateMap<Plan, PlanDto>()
                   .Include<Plan, CreatePlanRequest>()
                   .Include<Plan, UpdatePlanRequest>()
@@ -308,7 +321,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt.Condition(s => s.PublishDetail != null);
                     opt.MapFrom(s => s.PublishDetail.PageName);
                 })
-                ;
+                .ForMember(d => d.Visible, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Visible);
+                })
+                .ForMember(d => d.Tags, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Tags);
+                });
 
 
 
@@ -439,6 +461,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                 {
                     opt.Condition(s => s.PublishDetail != null);
                     opt.MapFrom(s => s.PublishDetail.OpeningStatement);
+                })
+                .ForMember(d => d.Visible, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Visible);
+                })
+                .ForMember(d => d.Tags, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Tags);
                 })
                 .ForMember(d => d.Signs, opt => opt.MapFrom(s => s.InjurySignMatrixItems.Select(p => p.Sign)))
                 .ForMember(d => d.BodyRegions,

@@ -39,6 +39,9 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<Prognosis> PrognosisRepo { get { return GetStandardRepo<Prognosis>(); } }
         public IRepository<InjuryPrognosisMatrixItem> InjuryPrognosisMatrixRepo { get { return GetStandardRepo<InjuryPrognosisMatrixItem>(); } }
         public IRepository<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixRepo { get { return GetStandardRepo<InjuryTreatmentMatrixItem>(); } }
+        public IRepository<InjuryPublishDetail> InjuryPublishDetailRepo { get { return GetStandardRepo<InjuryPublishDetail>(); } }
+        public IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get { return GetStandardRepo<ExercisePublishDetail>(); } }
+
         #endregion
 
         #region Construction
@@ -345,7 +348,9 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get; }
         IRepository<Treatment> TreatmentRepo { get; }
-        IRepository<Prognosis> PrognosisRepo { get; } 
+        IRepository<Prognosis> PrognosisRepo { get; }
+        IRepository<InjuryPublishDetail> InjuryPublishDetailRepo { get; }
+        IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get; }
 
         void UpdateExercise(Exercise exercise);
         void UpdateInjury(Injury injury);

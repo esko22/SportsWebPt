@@ -95,6 +95,17 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
     $scope.categories = configService.lookups.functionExerciseCategories;
     getExerciseList();
 
+    $scope.gridOptions = {
+        data: 'exercises',
+        showGroupPanel: true,
+        columnDefs: [{ field: 'id', displayName: 'Id' },
+            { field: 'name', displayName: 'Name' },
+            { field: 'bodyRegions', displayName: 'Body Regions' },
+        { field: 'categories', displayName: 'Category' },
+        { field: 'visible', displayName: 'Visible' },
+        { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishExercise(row.entity)" >Edit</button> ' }]
+    };
+
 
     $scope.bindSelectedExercise = function (exercise) {
         $scope.selectedExercise = exercise;
@@ -116,10 +127,42 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
         });
     }
 
+    $scope.bindPublishExercise = function (exercise) {
+        $scope.selectedExercise = exercise;
 
+        $modal.open({
+            templateUrl: '/app/admin/content/tmpl.exercise.publish.modal.htm',
+            controller: 'PublishExerciseAdminController',
+            windowClass: 'x-dialog',
+            resolve: {
+                selectedExercise: function () {
+                    return $scope.selectedExercise;
+                }
+            }
+        });
+    }
 
 
 }]);
+
+exerciseAdminModule.controller('PublishExerciseAdminController', [
+    '$scope', 'exerciseAdminService', 'configService', '$modal', 'selectedExercise', 'notifierService', '$modalInstance', function ($scope, exerciseAdminService, configService, $modal, selectedExercise, notifierService, $modalInstance) {
+
+        $scope.plan = {};
+        if (selectedExercise) {
+            $scope.exercise = selectedExercise;
+        }
+
+        $scope.submit = function () {
+            if ($scope.exercise && $scope.exercise.id > 0) {
+                exerciseAdminService.publish($scope.exercise).$promise.then(function () {
+                    notifierService.notify('Update Success!');
+                    $modalInstance.close($scope.exercise);
+                });
+            }
+        }
+
+    }]);
 
 
 exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($resource) {
@@ -143,7 +186,14 @@ exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($res
                 'update': { method: 'PUT' }
             });
             return resource.update({ id: exercise.id }, exercise);
+        },
+        publish: function (exercise) {
+            var resource = $resource(adminExercisePath + '/:id/publish', null, {
+                'update': { method: 'PUT' }
+            });
+            return resource.update({ id: exercise.id }, exercise);
         }
+
     }
 
 

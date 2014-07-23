@@ -93,7 +93,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [GET("data/admin/exercises", IsAbsoluteUrl = true)]
         public ActionResult GetExercises()
         {
-            return Json(_adminService.GetExercises(), JsonRequestBehavior.AllowGet);
+            return Json(_adminService.GetClinicExercises(), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -121,7 +121,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [GET("data/admin/plans", IsAbsoluteUrl = true)]
         public ActionResult GetPlans()
         {
-            return Json(_adminService.GetPlans(), JsonRequestBehavior.AllowGet);
+            return Json(_adminService.GetClinicPlans(), JsonRequestBehavior.AllowGet);
         }
 
         [GET("data/admin/bodypartmatrix", IsAbsoluteUrl = true)]
@@ -159,6 +159,19 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(plan, JsonRequestBehavior.DenyGet);
         }
 
+        [PUT("data/admin/injuries/{Id}/publish", IsAbsoluteUrl = true)]
+        public ActionResult PublishInjury(Injury injury)
+        {
+            _adminService.PublishInjury(injury);
+            return Json(injury, JsonRequestBehavior.DenyGet);
+        }
+
+        [PUT("data/admin/exercises/{Id}/publish", IsAbsoluteUrl = true)]
+        public ActionResult PublishExercise(Exercise exercise)
+        {
+            _adminService.PublishExercise(exercise);
+            return Json(exercise, JsonRequestBehavior.DenyGet);
+        }
 
         [GET("data/admin/signs", IsAbsoluteUrl = true)]
         public ActionResult GetSigns()
@@ -214,7 +227,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [GET("data/admin/injuries", IsAbsoluteUrl = true)]
         public ActionResult GetInjuries()
         {
-            var injuries = _adminService.GetInjuries();
+            var injuries = _adminService.GetClinicInjuries();
 
             return Json(injuries, JsonRequestBehavior.AllowGet);
         }

@@ -18,21 +18,21 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateVideo(Video video);
 
-        IEnumerable<Exercise> GetExercises();
-
         int AddExercise(Exercise exercise);
 
         void UpdateExercise(Exercise exercise);
 
-        IEnumerable<GridPlan> GetPlans();
+        IEnumerable<GridPlan> GetClinicPlans();
+        IEnumerable<GridInjury> GetClinicInjuries();
+        IEnumerable<GridExercise> GetClinicExercises();
 
         int AddPlan(Plan plan);
 
         void PublishPlan(Plan plan);
+        void PublishInjury(Injury injury);
+        void PublishExercise(Exercise exercise);
 
         void UpdatePlan(Plan plan);
-
-        IEnumerable<Injury> GetInjuries();
 
         int AddInjury(Injury injury);
 

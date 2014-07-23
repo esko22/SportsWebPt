@@ -135,6 +135,13 @@ namespace SportsWebPt.Platform.Web.Services
                 .ForMember(d => d.categories, opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
                 .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
 
+            Mapper.CreateMap<BriefInjuryDto, GridInjury>()
+                .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+
+            Mapper.CreateMap<BriefExerciseDto, GridExercise>()
+                .ForMember(d => d.categories, opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
+                .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+
             Mapper.CreateMap<BriefPlanDto, BriefPlan>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
 
@@ -151,6 +158,8 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
 
             Mapper.CreateMap<Plan, PublishPlanRequest>();
+            Mapper.CreateMap<Injury, PublishInjuryRequest>();
+            Mapper.CreateMap<Exercise, PublishExerciseRequest>();
 
             //TODO: this is still ghetto hack... for some reason this inheritance map is not working
             Mapper.CreateMap<BriefExerciseDto, BriefExercise>()

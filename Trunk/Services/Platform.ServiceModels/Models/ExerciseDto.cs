@@ -24,6 +24,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String StructuresInvolved { get; set; }
 
+        public String Tags { get; set; }
+
+        public Boolean Visible { get; set; }
+
         #endregion
         
     }
@@ -35,8 +39,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public VideoDto[] Videos { get; set; }
 
         public BodyPartDto[] BodyParts { get; set; }
-
-        public String Tags { get; set; }
 
         public int Duration { get; set; }
 

@@ -66,13 +66,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             Put(Mapper.Map<UpdateVideoRequest>(video));
         }
-
-        public IEnumerable<Exercise> GetExercises()
-        {
-            var request = GetSync(new ExerciseListRequest());
-
-            return Mapper.Map<IEnumerable<Exercise>>(request.Response.Items);
-        }
+       
 
         public int AddExercise(Exercise exercise)
         {
@@ -86,11 +80,25 @@ namespace SportsWebPt.Platform.Web.Services
             Put(Mapper.Map<UpdateExerciseRequest>(exercise));
         }
 
-        public IEnumerable<GridPlan> GetPlans()
+        public IEnumerable<GridPlan> GetClinicPlans()
         {
             var request = GetSync(new BriefPlanListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
+        }
+
+        public IEnumerable<GridExercise> GetClinicExercises()
+        {
+            var request = GetSync(new BriefExerciseListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<GridExercise>>(request.Response.Items.OrderBy(p => p.Name));
+        }
+
+        public IEnumerable<GridInjury> GetClinicInjuries()
+        {
+            var request = GetSync(new BriefInjuryListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<GridInjury>>(request.Response.Items.OrderBy(p => p.CommonName));
         }
 
         public int AddPlan(Plan plan)
@@ -110,13 +118,16 @@ namespace SportsWebPt.Platform.Web.Services
             Patch(Mapper.Map<PublishPlanRequest>(plan));
         }
 
-        public IEnumerable<Injury> GetInjuries()
+        public void PublishInjury(Injury injury)
         {
-            var request = GetSync(new InjuryListRequest());
-
-            return Mapper.Map<IEnumerable<Injury>>(request.Response.Items);
+            Patch(Mapper.Map<PublishInjuryRequest>(injury));
         }
 
+        public void PublishExercise(Exercise exercise)
+        {
+            Patch(Mapper.Map<PublishExerciseRequest>(exercise));
+        }
+       
         public int AddInjury(Injury injury)
         {
             var request = PostSync(Mapper.Map<CreateInjuryRequest>(injury));

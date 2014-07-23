@@ -36,4 +36,18 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/exercises/{id}", "GET")]
     public class ExerciseRequest : AbstractResourceRequest, IReturn<ApiResponse<ExerciseDto>>
     {}
+
+    [Route("/exercises/{id}/publish", "PATCH")]
+    public class PublishExerciseRequest : AbstractResourceRequest, IReturn<ApiResponse<ExerciseDto>>
+    {
+        #region Properties
+
+        public String Tags { get; set; }
+
+        public String PageName { get; set; }
+
+        public Boolean Visible { get; set; }
+
+        #endregion
+    }
 }

@@ -190,6 +190,8 @@
     <Content Include="app\admin\content\tmpl.plan.modal.htm" />
     <Content Include="app\admin\content\tmpl.exercise.modal.htm" />
     <Content Include="app\admin\content\tmpl.exercise.list.htm" />
+    <Content Include="app\admin\content\tmpl.injury.publish.modal.htm" />
+    <Content Include="app\admin\content\tmpl.exercise.publish.modal.htm" />
     <Content Include="app\admin\content\tmpl.plan.publish.modal.htm" />
     <Content Include="app\admin\entities\mod.body.parts.js" />
     <Content Include="app\admin\entities\mod.video.js" />

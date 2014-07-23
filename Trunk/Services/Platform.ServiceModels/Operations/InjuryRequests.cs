@@ -34,4 +34,20 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/injuries/{id}", "GET")]
     public class InjuryRequest : AbstractResourceRequest, IReturn<ApiResponse<InjuryDto>>
     {}
+
+    [Route("/injuries/{id}/publish", "PATCH")]
+    public class PublishInjuryRequest : AbstractResourceRequest, IReturn<ApiResponse<InjuryDto>>
+    {
+        #region Properties
+
+        public String Tags { get; set; }
+
+        public String PageName { get; set; }
+
+        public String OpeningStatement { get; set; }
+
+        public Boolean Visible { get; set; }
+
+        #endregion
+    }
 }

@@ -22,8 +22,33 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String pageName { get; set; }
 
+        public bool visible { get; set; }
+
         #endregion
         
+    }
+
+    public class GridInjury
+    {
+        #region Properties
+
+        public int id { get; set; }
+
+        public String bodyRegions { get; set; }
+
+        public String commonName { get; set; }
+
+        public String medicalName { get; set; }
+
+        public String openingStatement { get; set; }
+
+        public String pageName { get; set; }
+
+        public bool visible { get; set; }
+
+        public String tags { get; set; }
+
+        #endregion
     }
 
     public class Injury : BriefInjury
