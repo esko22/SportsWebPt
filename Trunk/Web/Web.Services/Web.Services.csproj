@@ -66,9 +66,11 @@
     <Compile Include="Interfaces\ILookupService.cs" />
     <Compile Include="Interfaces\IResearchService.cs" />
     <Compile Include="Proxies\AdminService.cs" />
+    <Compile Include="Proxies\ClinicService.cs" />
     <Compile Include="Proxies\ExamineService.cs" />
     <Compile Include="Proxies\LookupService.cs" />
     <Compile Include="Proxies\ResearchService.cs" />
+    <Compile Include="Proxies\TherapistService.cs" />
     <Compile Include="ServicesContentMaps.cs" />
     <Compile Include="Interfaces\IUserManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

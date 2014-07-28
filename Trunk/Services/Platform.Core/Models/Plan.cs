@@ -33,7 +33,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public ICollection<PlanBodyRegionMatrixItem> PlanBodyRegionMatrixItems { get; set; }
 
-        public ICollection<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; } 
+        public ICollection<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; }
+
+        public ICollection<TherapistPlanMatrixItem> TherapistPlanMatrixItems { get; set; }
 
         public ICollection<User> Users { get; set; }
 

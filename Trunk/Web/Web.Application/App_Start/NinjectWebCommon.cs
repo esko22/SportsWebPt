@@ -65,6 +65,14 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
                   .To<AdminService>().InRequestScope()
                   .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
+            kernel.Bind<IClinicService>()
+                .To<ClinicService>().InRequestScope()
+                .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+
+            kernel.Bind<ITherapistService>()
+                .To<TherapistService>().InRequestScope()
+                .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+
             kernel.Bind<ILookupService>()
                   .To<LookupService>().InRequestScope()
                   .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);

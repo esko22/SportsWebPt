@@ -118,6 +118,7 @@
     <Compile Include="Operations\SignRequests.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />
+    <Compile Include="Operations\TherapistRequests.cs" />
     <Compile Include="Operations\TreatmentRequest.cs" />
     <Compile Include="Operations\UserRequest.cs" />
     <Compile Include="Operations\ValidationRequests.cs" />

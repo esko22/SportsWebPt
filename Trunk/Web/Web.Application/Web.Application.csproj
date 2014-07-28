@@ -293,12 +293,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClinicController.cs" />
     <Compile Include="Controllers\ExamineController.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LookupController.cs" />
+    <Compile Include="Controllers\TherapistController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Content Include="app\app.js" />

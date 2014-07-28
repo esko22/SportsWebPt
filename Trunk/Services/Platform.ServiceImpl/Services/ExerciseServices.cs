@@ -51,6 +51,18 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
                                                                         null, null));
         }
 
+        public object Get(TherapistExerciseListRequest request)
+        {
+            var responseList = new List<BriefExerciseDto>();
+            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll().Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == request.IdAsLong));
+
+            Mapper.Map(exercises, responseList);
+
+            return
+                Ok(new ApiListResponse<BriefExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
 
         public object Get(ExerciseRequest request)
         {

@@ -53,6 +53,21 @@ namespace SportsWebPt.Platform.ServiceImpl
                                                                         null, null));
         }
 
+
+        public object Get(TherapistPlanListRequest request)
+        {
+            var responseList = new List<BriefPlanDto>();
+            var plans = PlanUnitOfWork.PlanRepo.GetPlanDetails()
+                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == request.IdAsLong))        
+                .OrderBy(p => p.Id);
+
+            Mapper.Map(plans, responseList);
+
+            return
+                Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
         public object Get(PlanRequest request)
         {
             var planEntity = request.IdAsInt > 0

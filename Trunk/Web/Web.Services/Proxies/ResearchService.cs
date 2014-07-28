@@ -86,15 +86,7 @@ namespace SportsWebPt.Platform.Web.Services
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
-
-
-        public IEnumerable<BriefPlan> GetClinicPlans(int clinicId)
-        {
-            var request = GetSync(new BriefPlanListRequest() { ClinicId = clinicId });
-
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
-        }
-
+     
         public IEnumerable<Equipment> GetEquipment()
         {
             var request = GetSync(new EquipmentListRequest());

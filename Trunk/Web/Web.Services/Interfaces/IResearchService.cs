@@ -17,10 +17,5 @@ namespace SportsWebPt.Platform.Web.Services
         Exercise GetExerciseByPageName(string pageName);
         Injury GetInjuryByPageName(string pageName);
         Plan GetPlanByPageName(string pageName);
-
-
-
-
-        IEnumerable<BriefPlan> GetClinicPlans(int clinicId);
     }
 }
