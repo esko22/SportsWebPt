@@ -54,7 +54,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(TherapistExerciseListRequest request)
         {
             var responseList = new List<BriefExerciseDto>();
-            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll().Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == request.IdAsLong));
+            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll()
+                .Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == request.IdAsLong && w.IsOwner == request.IsOwner));
 
             Mapper.Map(exercises, responseList);
 

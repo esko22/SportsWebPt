@@ -9,22 +9,13 @@
                 </tr>
             </table>
         </div>
-        <div class="well col-md-3 col-md-offset-1">
-            <h3>My Plans</h3>
-            <table class="table table-striped">
-                <tr ng-repeat="plan in currentUser.plans">
-                    <td><a ng-href="/#!/research/plans/{{plan.entityId}}">{{plan.entityName}}</a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="well col-md-3 col-md-offset-1">
-            <h3>My Exercises</h3>
-            <table class="table table-striped">
-                <tr ng-repeat="injury in currentUser.injuries">
-                    <td><a ng-href="/#!/research/injuries/{{injury.entityId}}">{{injury.entityName}}</a></td>
-                </tr>
-            </table>
-        </div>
+    </div>
+    <div class="row push-down-md">
+        <h3>My Plans</h3>
+        <div class="gridStyle" ng-grid="planGridOptions"></div>
+    </div>
+    <div class="row push-down-md">
+        <h3>My Exercises</h3>
+        <div class="gridStyle" ng-grid="exerciseGridOptions"></div>
     </div>
 </div>
-

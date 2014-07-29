@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201407210242214_PublicActiveSwitch.Designer.cs">
       <DependentUpon>201407210242214_PublicActiveSwitch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407290350324_TherapistShare.cs" />
+    <Compile Include="Migrations\201407290350324_TherapistShare.Designer.cs">
+      <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407210242214_PublicActiveSwitch.resx">
       <DependentUpon>201407210242214_PublicActiveSwitch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407290350324_TherapistShare.resx">
+      <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

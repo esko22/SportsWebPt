@@ -43,7 +43,9 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             treatments: '/data/research/treatments/',
             adminTreatments: '/data/admin/treatments/',
             prognoses: '/data/research/prognoses/',
-            adminPrognoses: '/data/admin/prognoses/'
+            adminPrognoses: '/data/admin/prognoses/',
+            therapistPlans: '/data/therapists/:id/plans',
+            therapistExercises: '/data/therapists/:id/exercises'
         };
 
 

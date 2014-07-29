@@ -58,7 +58,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var responseList = new List<BriefPlanDto>();
             var plans = PlanUnitOfWork.PlanRepo.GetPlanDetails()
-                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == request.IdAsLong))        
+                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == request.IdAsLong && a.IsOwner == request.IsOwner))        
                 .OrderBy(p => p.Id);
 
             Mapper.Map(plans, responseList);

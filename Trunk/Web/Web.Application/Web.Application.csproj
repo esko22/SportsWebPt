@@ -314,6 +314,7 @@
     <Content Include="app\shared\tmpl.master.footer.htm" />
     <Content Include="app\shared\tmpl.master.header.htm" />
     <Content Include="app\splash\prtl.splash.htm" />
+    <Content Include="app\therapist\mod.therapist.js" />
     <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
     <Content Include="app\utils\filters\filters.js" />
     <Content Include="app\utils\util.module.js" />

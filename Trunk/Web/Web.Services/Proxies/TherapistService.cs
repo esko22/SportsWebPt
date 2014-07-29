@@ -10,8 +10,8 @@ namespace SportsWebPt.Platform.Web.Services
 {
     public interface ITherapistService
     {
-        IEnumerable<BriefExercise> GetExercises(String therapistId);
-        IEnumerable<BriefPlan> GetPlans(String therapistId);
+        IEnumerable<GridExercise> GetExercises(String therapistId);
+        IEnumerable<GridPlan> GetPlans(String therapistId);
     }
 
 
@@ -36,19 +36,19 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Methods
         
-        public IEnumerable<BriefExercise> GetExercises(String therapistId)
+        public IEnumerable<GridExercise> GetExercises(String therapistId)
         {
-            var request = GetSync(new TherapistExerciseListRequest() { Id = therapistId });
+            var request = GetSync(new TherapistExerciseListRequest() { Id = therapistId, IsOwner = true});
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items.OrderBy(p => p.Name));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<GridExercise>>(request.Response.Items.OrderBy(p => p.Name));
 
         }
 
-        public IEnumerable<BriefPlan> GetPlans(String therapistId)
+        public IEnumerable<GridPlan> GetPlans(String therapistId)
         {
-            var request = GetSync(new TherapistPlanListRequest() { Id = therapistId });
+            var request = GetSync(new TherapistPlanListRequest() { Id = therapistId, IsOwner = true });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         } 
 
         #endregion

@@ -34,6 +34,8 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.IsActive).HasColumnName("is_active");
             Property(p => p.PlanId).HasColumnName("plan_id");
             Property(p => p.TherapistId).HasColumnName("therapist_id");
+            Property(p => p.CanEdit).HasColumnName("can_edit");
+            Property(p => p.IsOwner).HasColumnName("is_owner");
             Property(p => p.Id).HasColumnName("therapist_plan_matrix_item_id");
         }
 
@@ -50,6 +52,8 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.IsActive).HasColumnName("is_active");
             Property(p => p.ExerciseId).HasColumnName("exercise_id");
             Property(p => p.TherapistId).HasColumnName("therapist_id");
+            Property(p => p.CanEdit).HasColumnName("can_edit");
+            Property(p => p.IsOwner).HasColumnName("is_owner");
             Property(p => p.Id).HasColumnName("therapist_exercise_matrix_item_id");
         }
 

@@ -3,7 +3,7 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
-    'ngGrid'])
+    'ngGrid', 'therapist.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -351,7 +351,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     url: "/therapist/dashboard",
                     views: {
                         "core-app-view": {
-                            templateUrl: '/app/therapist/prtl.therapist.dashboard.htm'
+                            templateUrl: '/app/therapist/prtl.therapist.dashboard.htm',
+                            controller: 'TherapistDashboardController'
                         }
                     }
                 })

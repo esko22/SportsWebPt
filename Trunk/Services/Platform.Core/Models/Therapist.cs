@@ -43,6 +43,10 @@ namespace SportsWebPt.Platform.Core.Models
 
         public Boolean IsActive { get; set; }
 
+        public Boolean IsOwner { get; set; }
+
+        public Boolean CanEdit { get; set; }
+
         #endregion
 
         #region Naviagtion Properties
@@ -65,6 +69,10 @@ namespace SportsWebPt.Platform.Core.Models
         public int ExerciseId { get; set; }
 
         public Boolean IsActive { get; set; }
+
+        public Boolean IsOwner { get; set; }
+
+        public Boolean CanEdit { get; set; }
 
         #endregion
 
