@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<GridInjury> GetClinicInjuries();
         IEnumerable<GridExercise> GetClinicExercises();
 
-        int AddPlan(Plan plan);
+        int AddPlan(Plan plan, int therapistId);
 
         void PublishPlan(Plan plan);
         void PublishInjury(Injury injury);

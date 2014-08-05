@@ -101,9 +101,12 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridInjury>>(request.Response.Items.OrderBy(p => p.CommonName));
         }
 
-        public int AddPlan(Plan plan)
+        public int AddPlan(Plan plan, int therapistId)
         {
-            var request = PostSync(Mapper.Map<CreatePlanRequest>(plan));
+            var requestMessage = Mapper.Map<CreatePlanRequest>(plan);
+            requestMessage.TherapistId = therapistId;
+
+            var request = PostSync(requestMessage);
 
             return request.Response.Id;
         }

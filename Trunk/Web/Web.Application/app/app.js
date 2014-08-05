@@ -423,34 +423,34 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         // In case you are relying on automatic page tracking, you need to inject Analytics
         // at least once in your application (for example in the main run() block)
 
-        $rootScope.$on('$stateChangeStart', function (ev, to, toParams, from, fromParams) {
+    $rootScope.$on('$stateChangeStart', function(ev, to, toParams, from, fromParams) {
 
-            if (to.data && to.data.access) {
-                var accessLevel = to.data.access.toLowerCase();
-                if (accessLevel !== 'access.anon') {
-                    var currentUser = userManagementService.getUser();
-                    if (currentUser) {
-                        currentUser.$promise.then(function() {
-                            if (accessLevel === 'access.admin' && (!currentUser || !currentUser.isAdmin)) {
+        if (userManagementService.getUser()) {
+            userManagementService.getUser().$promise.then(function(user) {
+                $rootScope.currentUser = user;
+                if (to.data && to.data.access) {
+                    var accessLevel = to.data.access.toLowerCase();
+                    if (accessLevel !== 'access.anon') {
+                        if ($rootScope.currentUser) {
+                            if (accessLevel === 'access.admin' && (!$rootScope.currentUser.isAdmin)) {
                                 $location.path('/');
                             }
-                            if (accessLevel === 'access.therapist' && (!currentUser || !currentUser.isTherapist)) {
+                            if (accessLevel === 'access.therapist' && (!$rootScope.currentUser.isTherapist)) {
                                 $location.path('/');
                             }
-                            if (accessLevel === 'access.clinic.manager' && (!currentUser || !currentUser.isClinicManager)) {
+                            if (accessLevel === 'access.clinic.manager' && (!$rootScope.currentUser.isClinicManager)) {
                                 $location.path('/');
                             }
-                        }, function () {
+                        } else {
                             $location.path('/');
-                        });
-                    } else {
-                        $location.path('/');
-                    }
+                        }
+                    } 
                 }
-            }
-        });
+            });
+        };
+    });
 
-    }]);
+}]);
 
 
 var jQueryPluginModule = angular.module('jquery.plugin.module', []);
@@ -460,6 +460,7 @@ swptApp.factory('$exceptionHandler', ['notifierService', function (notifierServi
     return function (exception) {
         notifierService.error(exception.message);
         console.log("exception handled: " + exception.message);
+        console.log("exception handled: " + exception.stack);
     };
 }]);
 

@@ -29,10 +29,10 @@ sharedUi.directive('modalHeader', [ function () {
 
 
 sharedUi.controller('HeaderController', [
-    '$scope', '$modal', 'userManagementService', function ($scope, $modal, userManagementService) {
+    '$scope', '$modal', 'userManagementService', '$rootScope', function ($scope, $modal, userManagementService, $rootScope) {
 
         var currentModal = null;
-        $scope.currentUser = null;
+        $scope.currentUser = $rootScope.currentUser;
         $scope.isAuthenticated = userManagementService.isAuthenticated();
 
         $scope.showSignUp = function () {
@@ -43,9 +43,10 @@ sharedUi.controller('HeaderController', [
         };
 
         $scope.logOut = function () {
+            $rootScope.currentUser = null;
             $scope.currentUser = null;
             userManagementService.logOut();
-            $scope.isAuthenticated = userManagementService.isAuthenticated();
+            $scope.isAuthenticated = false;
         };
 
         $scope.showLogin = function () {
@@ -68,13 +69,7 @@ sharedUi.controller('HeaderController', [
 
             $scope.showSignUp();
         };
-
-        if (userManagementService.isAuthenticated()) {
-            userManagementService.getUser().$promise.then(function(user) {
-                $scope.currentUser = user;
-            });
-        }
-
+       
         $scope.$onRootScope('signup-dialog-prompt', function() {
             $scope.showSignUp();
         });

@@ -139,7 +139,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [POST("data/admin/plans", IsAbsoluteUrl = true)]
         public ActionResult AddPlan(Plan plan)
         {
-            var result = _adminService.AddPlan(plan);
+            var result = _adminService.AddPlan(plan, Convert.ToInt32(User.Identity.Name));
             plan.id = result;
 
             return Json(plan, JsonRequestBehavior.DenyGet);

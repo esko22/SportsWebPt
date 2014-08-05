@@ -105,27 +105,7 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
         { field: 'visible', displayName: 'Visible' },
         { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishExercise(row.entity)" >Edit</button> ' }]
     };
-
-
-    $scope.bindSelectedExercise = function (exercise) {
-        $scope.selectedExercise = exercise;
-
-        var modalInstance = $modal.open({
-            templateUrl: '/app/admin/content/tmpl.exercise.modal.htm',
-            controller: 'ExerciseModalController',
-            windowClass: 'xx-dialog',
-            resolve: {
-                selectedExercise: function () {
-                    return $scope.selectedExercise;
-                }
-            }
-        });
-
-        modalInstance.result.then(function (exerciseReturned) {
-            getExerciseList();
-            $scope.selectedExercise = exerciseReturned;
-        });
-    }
+   
 
     $scope.bindPublishExercise = function (exercise) {
         $scope.selectedExercise = exercise;
