@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.DataAccess
         public override IQueryable<Video> GetAll()
         {
             return base.GetAll()
-                .Include(i => i.VideoCategoryMatrixItems.Select(l2 => l2.Category));
+                .Include(i => i.VideoCategoryMatrixItems);
         }
 
         #endregion

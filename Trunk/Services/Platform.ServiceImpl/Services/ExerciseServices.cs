@@ -82,6 +82,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             Check.Argument.IsNotNull(request, "ExerciseDto");
 
             var exercise = Mapper.Map<Exercise>(request);
+            exercise.TherapistExerciseMatrixItems = new List<TherapistExerciseMatrixItem>() { new TherapistExerciseMatrixItem() { TherapistId = request.TherapistId, IsOwner = true, IsActive = true } };
 
             ResearchUnitOfWork.ExerciseRepo.Add(exercise);
             ResearchUnitOfWork.Commit();

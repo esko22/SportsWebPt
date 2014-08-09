@@ -2,15 +2,6 @@
 
 var exerciseAdminModule = angular.module('exercise.admin.module', []);
 
-exerciseAdminModule.directive('adminExerciseList', [function () {
-    return {
-        restrict: 'EA',
-        scope: true,
-        replace: 'true',
-        templateUrl: '/app/admin/content/tmpl.exercise.list.htm'
-    };
-}]);
-
 
 exerciseAdminModule.controller('ExerciseModalController', [
     '$scope', 'exerciseAdminService', '$modalInstance', 'selectedExercise', 'notifierService',
@@ -19,7 +10,10 @@ exerciseAdminModule.controller('ExerciseModalController', [
 
         $scope.exercise = {};
         if (selectedExercise) {
-            $scope.exercise = selectedExercise;
+            exerciseAdminService.get(selectedExercise.id).$promise.then(function (result) {
+                $scope.exercise = result;
+                setSelectedItems();
+            });
         }
 
         //lookups
@@ -29,39 +23,42 @@ exerciseAdminModule.controller('ExerciseModalController', [
         $scope.editorOptions = configService.kendoEditorOptions;
         $scope.difficulties = configService.lookups.difficulties;
 
-        equipmentAdminService.getAll().$promise.then(function (results){
-            $scope.availableEquipment = results;
-            //have to get items from available collection
-            if (selectedExercise) {
-                var currentEquipment = [];
-                _.each(selectedExercise.equipment, function(equipment) {
-                    currentEquipment.push(_.findWhere($scope.availableEquipment, { id: equipment.id }));
-                });
-                selectedExercise.equipment = currentEquipment;
-            }
-        });
 
-        bodyRegionAdminService.getAll().$promise.then(function (results) {
-            $scope.availableBodyRegions = results;
-            if (selectedExercise) {
-                var currentBodyRegions = [];
-                _.each(selectedExercise.bodyRegions, function (bodyRegion) {
-                    currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
-                });
-                selectedExercise.bodyRegions = currentBodyRegions;
-            }
-        });
+        function setSelectedItems() {
+            equipmentAdminService.getAll().$promise.then(function(results) {
+                $scope.availableEquipment = results;
+                //have to get items from available collection
+                if ($scope.exercise) {
+                    var currentEquipment = [];
+                    _.each($scope.exercise.equipment, function (equipment) {
+                        currentEquipment.push(_.findWhere($scope.availableEquipment, { id: equipment.id }));
+                    });
+                    $scope.exercise.equipment = currentEquipment;
+                }
+            });
 
-        videoAdminService.getAll().$promise.then(function (results) {
-            $scope.availableVideos = results;
-            if (selectedExercise) {
-                var currentVideos = [];
-                _.each(selectedExercise.videos, function(video) {
-                    currentVideos.push(_.findWhere($scope.availableVideos, { id: video.id }));
-                });
-                selectedExercise.videos = currentVideos;
-            }
-        });
+            bodyRegionAdminService.getAll().$promise.then(function(results) {
+                $scope.availableBodyRegions = results;
+                if ($scope.exercise) {
+                    var currentBodyRegions = [];
+                    _.each($scope.exercise.bodyRegions, function (bodyRegion) {
+                        currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
+                    });
+                    $scope.exercise.bodyRegions = currentBodyRegions;
+                }
+            });
+
+            videoAdminService.getAll().$promise.then(function(results) {
+                $scope.availableVideos = results;
+                if ($scope.exercise) {
+                    var currentVideos = [];
+                    _.each($scope.exercise.videos, function (video) {
+                        currentVideos.push(_.findWhere($scope.availableVideos, { id: video.id }));
+                    });
+                    $scope.exercise.videos = currentVideos;
+                }
+            });
+        };
 
         $scope.submit = function () {
             if ($scope.exercise && $scope.exercise.id > 0) {
@@ -111,7 +108,7 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
         $scope.selectedExercise = exercise;
 
         $modal.open({
-            templateUrl: '/app/admin/content/tmpl.exercise.publish.modal.htm',
+            templateUrl: '/app/admin/exercises/tmpl.exercise.publish.modal.htm',
             controller: 'PublishExerciseAdminController',
             windowClass: 'x-dialog',
             resolve: {
@@ -144,11 +141,62 @@ exerciseAdminModule.controller('PublishExerciseAdminController', [
 
     }]);
 
+exerciseAdminModule.controller('TherapistExerciseController', [
+    '$scope', 'exerciseAdminService', '$modal',
+    function ($scope, exerciseAdminService, $modal) {
 
-exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($resource) {
+        getExerciseList();
 
-    var adminExercisePath = '/data/admin/exercises';
+        $scope.exerciseGridOptions = {
+            data: 'exercises',
+            showGroupPanel: true,
+            columnDefs: [{ field: 'id', displayName: 'Id' },
+                { field: 'name', displayName: 'Name' },
+                { field: 'bodyRegions', displayName: 'Body Regions' },
+            { field: 'categories', displayName: 'Category' },
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedExercise(row.entity)" >Edit</button> ' }]
+        };
 
+        $scope.bindSelectedExercise = function (exercise) {
+            $scope.selectedExercise = exercise;
+
+            var modalInstance = $modal.open({
+                templateUrl: '/app/admin/exercises/tmpl.exercise.modal.htm',
+                controller: 'ExerciseModalController',
+                windowClass: 'xx-dialog',
+                resolve: {
+                    selectedExercise: function () {
+                        return $scope.selectedExercise;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (exerciseReturned) {
+                getExerciseList();
+                $scope.selectedExercise = exerciseReturned;
+            });
+        }
+
+        function getExerciseList() {
+            exerciseAdminService.getExercisesForTherapist($scope.currentUser.id).$promise.then(function (exercises) {
+                $scope.exercises = exercises;
+            });
+        }
+    }
+]);
+
+exerciseAdminModule.directive('therapistExerciseList', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/admin/exercises/tmpl.therapist.exercise.list.htm',
+        controller: 'TherapistExerciseController'
+    };
+}]);
+
+exerciseAdminModule.factory('exerciseAdminService', ['$resource', 'configService', function ($resource, configService) {
+
+    var adminExercisePath = configService.apiUris.adminExercises;
 
     return {
         get: function (id) {
@@ -157,6 +205,10 @@ exerciseAdminModule.factory('exerciseAdminService', ['$resource', function ($res
         },
         getAll: function () {
             return $resource(adminExercisePath).query();
+        },
+        getExercisesForTherapist : function (therapistId) {
+            var resource = $resource(configService.apiUris.therapistExercises, { id: '@id' });
+            return resource.query({ id: therapistId });
         },
         save: function (exercise) {
             return $resource(adminExercisePath).save(exercise);

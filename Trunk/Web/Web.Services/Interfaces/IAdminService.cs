@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateVideo(Video video);
 
-        int AddExercise(Exercise exercise);
+        int AddExercise(Exercise exercise, int therapistId);
 
         void UpdateExercise(Exercise exercise);
 

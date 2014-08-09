@@ -138,7 +138,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     url: "/exercise",
                     views: {
                         "admin-content-view": {
-                            templateUrl: '/app/admin/content/prtl.exercise.htm',
+                            templateUrl: '/app/admin/exercises/prtl.exercise.publish.htm',
                             controller: 'ExerciseAdminController'
                         }
                     }
@@ -148,8 +148,18 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     url: "/plan",
                     views: {
                         "admin-content-view": {
-                            templateUrl: '/app/admin/content/prtl.plan.htm',
+                            templateUrl: '/app/admin/plans/prtl.plan.publish.htm',
                             controller: 'PlanAdminController'
+                        }
+                    }
+                })
+                .state('admin.dashboard.pubinjury',
+                {
+                    url: "/injury/publish",
+                    views: {
+                        "admin-content-view": {
+                            templateUrl: '/app/admin/injuries/prtl.injury.publish.htm',
+                            controller: 'InjuryPublishController'
                         }
                     }
                 })
@@ -157,8 +167,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 {
                     url: "/injury",
                     views: {
-                        "admin-content-view": {
-                            templateUrl: '/app/admin/content/prtl.injury.htm',
+                        "admin-entity-view": {
+                            templateUrl: '/app/admin/injuries/prtl.injury.htm',
                             controller: 'InjuryAdminController'
                         }
                     }

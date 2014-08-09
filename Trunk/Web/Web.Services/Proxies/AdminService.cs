@@ -66,11 +66,14 @@ namespace SportsWebPt.Platform.Web.Services
         {
             Put(Mapper.Map<UpdateVideoRequest>(video));
         }
-       
 
-        public int AddExercise(Exercise exercise)
+
+        public int AddExercise(Exercise exercise, int therapistId)
         {
-            var request = PostSync(Mapper.Map<CreateExerciseRequest>(exercise));
+            var requestMessage = Mapper.Map<CreateExerciseRequest>(exercise);
+            requestMessage.TherapistId = therapistId;
+
+            var request = PostSync(requestMessage);
 
             return request.Response.Id;
         }

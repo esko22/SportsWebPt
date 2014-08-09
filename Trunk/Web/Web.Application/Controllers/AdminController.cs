@@ -96,11 +96,26 @@ namespace SportsWebPt.Platform.Web.Admin
             return Json(_adminService.GetClinicExercises(), JsonRequestBehavior.AllowGet);
         }
 
+        [GET("data/admin/exercises/{id}", IsAbsoluteUrl = true)]
+        public ActionResult GetExercise(Int32 id)
+        {
+            var exercise = _researchService.GetExercise(id);
+
+            return Json(exercise, JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("data/admin/injuries/{id}", IsAbsoluteUrl = true)]
+        public ActionResult GetInjury(Int32 id)
+        {
+            var injury = _researchService.GetInjury(id);
+
+            return Json(injury, JsonRequestBehavior.AllowGet);
+        }
 
         [POST("data/admin/exercises", IsAbsoluteUrl = true)]
         public ActionResult AddExercise(Exercise exercise)
         {
-            var result = _adminService.AddExercise(exercise);
+            var result = _adminService.AddExercise(exercise, Convert.ToInt32(User.Identity.Name));
             exercise.id = result;
             return Json(exercise, JsonRequestBehavior.DenyGet);
         }
@@ -122,6 +137,14 @@ namespace SportsWebPt.Platform.Web.Admin
         public ActionResult GetPlans()
         {
             return Json(_adminService.GetClinicPlans(), JsonRequestBehavior.AllowGet);
+        }
+
+        [GET("data/admin/plans/{id}", IsAbsoluteUrl = true)]
+        public ActionResult GetPlan(Int32 id)
+        {
+            var plans = _researchService.GetPlan(id);
+
+            return Json(plans, JsonRequestBehavior.AllowGet);
         }
 
         [GET("data/admin/bodypartmatrix", IsAbsoluteUrl = true)]

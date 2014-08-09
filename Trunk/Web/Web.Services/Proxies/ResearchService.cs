@@ -38,6 +38,27 @@ namespace SportsWebPt.Platform.Web.Services
             return plan;
         }
 
+        public Exercise GetExercise(int exerciseId)
+        {
+            var request =
+                GetSync(new ExerciseRequest() { Id = exerciseId.ToString() });
+
+            var exercise = Mapper.Map<Exercise>(request.Response);
+
+            return exercise;
+        }
+
+        public Injury GetInjury(int injuryId)
+        {
+            var request =
+                GetSync(new InjuryRequest() { Id = injuryId.ToString() });
+
+            var injury = Mapper.Map<Injury>(request.Response);
+
+            return injury;
+        }
+
+
         public IEnumerable<BodyPart> GetBodyParts()
         {
             var request = GetSync(new BodyPartListRequest());

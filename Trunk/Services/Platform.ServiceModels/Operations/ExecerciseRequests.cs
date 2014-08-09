@@ -26,6 +26,12 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/exercises", "POST")]
     public class CreateExerciseRequest : ExerciseDto, IReturn<ApiResponse<ExerciseDto>>
     {
+        #region Properties
+
+        public int TherapistId { get; set; }
+
+        #endregion
+
     }
 
     [Route("/exercises/{id}", "PUT")]

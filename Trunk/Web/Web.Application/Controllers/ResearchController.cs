@@ -111,6 +111,7 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(plans, JsonRequestBehavior.AllowGet);
         }
 
+
         [GET("data/injuries/brief", IsAbsoluteUrl = true)]
         public ActionResult GetBriefInjuries()
         {

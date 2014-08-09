@@ -36,7 +36,8 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.InjurySignMatrixItems.Select(l2 => l2.Sign))
                 .Include(i => i.InjuryCauseMatrixItems.Select(l2 => l2.Cause))
                 .Include(i => i.InjuryBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))
-                .Include(i => i.InjurySymptomMatrixItems.Select(l2 => l2.SymptomMatrixItem))
+                .Include(i => i.InjurySymptomMatrixItems.Select(l2 => l2.SymptomMatrixItem).Select(l3 => l3.BodyPartMatrixItem))
+                .Include(i => i.InjurySymptomMatrixItems.Select(l2 => l2.SymptomMatrixItem).Select(l3 => l3.Symptom.RenderType))
                 .Include(i => i.InjuryTreatmentMatrixItems.Select(l2 => l2.Treatment))
                 .Include(i => i.InjuryPrognosisMatrixItems.Select(l2 => l2.Prognosis));
         }

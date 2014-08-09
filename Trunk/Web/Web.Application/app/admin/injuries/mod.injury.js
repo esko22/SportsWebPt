@@ -2,15 +2,6 @@
 
 var injuryAdminModule = angular.module('injury.admin.module', []);
 
-injuryAdminModule.directive('adminInjuryList', [function () {
-    return {
-        restrict: 'EA',
-        scope: true,
-        replace: 'true',
-        templateUrl: '/app/admin/content/tmpl.injury.list.htm'
-    };
-}]);
-
 
 injuryAdminModule.controller('InjuryModalController', [
     '$scope', 'injuryAdminService', '$modalInstance', 'selectedInjury', 'notifierService',
@@ -19,7 +10,10 @@ injuryAdminModule.controller('InjuryModalController', [
 
         $scope.injury = {};
         if (selectedInjury) {
-            $scope.injury = selectedInjury;
+            injuryAdminService.get(selectedInjury.id).$promise.then(function (result) {
+                $scope.injury = result;
+                setSelectedItems();
+            });
         }
 
         //lookups
@@ -35,66 +29,70 @@ injuryAdminModule.controller('InjuryModalController', [
         });
 
 
+        function setSelectedItems() {
 
-        causeAdminService.getAll().$promise.then(function (results) {
-            $scope.availableCauses = results;
-            //have to get items from available collection
-            if (selectedInjury) {
-                var currentCauses = [];
-                _.each(selectedInjury.causes, function (cause) {
-                    currentCauses.push(_.findWhere($scope.availableCauses, { id: cause.id }));
-                });
-                selectedInjury.causes = currentCauses;
-            }
-        });
+            causeAdminService.getAll().$promise.then(function(results) {
+                $scope.availableCauses = results;
+                //have to get items from available collection
+                if ($scope.injury) {
+                    var currentCauses = [];
+                    _.each($scope.injury.causes, function (cause) {
+                        currentCauses.push(_.findWhere($scope.availableCauses, { id: cause.id }));
+                    });
+                    $scope.injury.causes = currentCauses;
+                }
+            });
 
-        bodyRegionAdminService.getAll().$promise.then(function (results) {
-            $scope.availableBodyRegions = results;
-            if (selectedInjury) {
-                var currentBodyRegions = [];
-                _.each(selectedInjury.bodyRegions, function (bodyRegion) {
-                    currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
-                });
-                selectedInjury.bodyRegions = currentBodyRegions;
-            }
-        });
+            bodyRegionAdminService.getAll().$promise.then(function(results) {
+                $scope.availableBodyRegions = results;
+                if ($scope.injury) {
+                    var currentBodyRegions = [];
+                    _.each($scope.injury.bodyRegions, function (bodyRegion) {
+                        currentBodyRegions.push(_.findWhere($scope.availableBodyRegions, { id: bodyRegion.id }));
+                    });
+                    $scope.injury.bodyRegions = currentBodyRegions;
+                }
+            });
 
-        signAdminService.getAll().$promise.then(function (results) {
-            $scope.availableSigns = results;
-            if (selectedInjury) {
-                var currentSigns = [];
-                _.each(selectedInjury.signs, function (sign) {
-                    currentSigns.push(_.findWhere($scope.availableSigns, { id: sign.id }));
-                });
-                selectedInjury.signs = currentSigns;
-            }
-        });
+            signAdminService.getAll().$promise.then(function(results) {
+                $scope.availableSigns = results;
+                if ($scope.injury) {
+                    var currentSigns = [];
+                    _.each($scope.injury.signs, function (sign) {
+                        currentSigns.push(_.findWhere($scope.availableSigns, { id: sign.id }));
+                    });
+                    $scope.injury.signs = currentSigns;
+                }
+            });
 
-        planAdminService.getAll().$promise.then(function (results) {
-            $scope.availablePlans = results;
-            if (selectedInjury) {
-                var currentPlans = [];
-                _.each(selectedInjury.plans, function (plan) {
-                    currentPlans.push(_.findWhere($scope.availablePlans, { id: plan.id }));
-                });
-                selectedInjury.plans = currentPlans;
-            }
-        });
+            planAdminService.getAll().$promise.then(function(results) {
+                $scope.availablePlans = results;
+                if ($scope.injury) {
+                    var currentPlans = [];
+                    _.each($scope.injury.plans, function (plan) {
+                        currentPlans.push(_.findWhere($scope.availablePlans, { id: plan.id }));
+                    });
+                    $scope.injury.plans = currentPlans;
+                }
+            });
 
-        treatmentAdminService.getAll().$promise.then(function (results) {
-            $scope.availableTreatments = results;
-            if (selectedInjury) {
-                var currentTreatments = [];
-                _.each(selectedInjury.treatments, function (treatment) {
-                    currentTreatments.push(_.findWhere($scope.availableTreatments, { id: treatment.id }));
-                });
-                selectedInjury.treatments = currentTreatments;
-            }
-        });
+            treatmentAdminService.getAll().$promise.then(function(results) {
+                $scope.availableTreatments = results;
+                if ($scope.injury) {
+                    var currentTreatments = [];
+                    _.each($scope.injury.treatments, function (treatment) {
+                        currentTreatments.push(_.findWhere($scope.availableTreatments, { id: treatment.id }));
+                    });
+                    $scope.injury.treatments = currentTreatments;
+                }
+            });
 
-        prognosisAdminService.getAll().$promise.then(function(results) {
-            $scope.availablePrognoses = results;
-        });
+            prognosisAdminService.getAll().$promise.then(function (results) {
+                $scope.availablePrognoses = results;
+            });
+
+        }
+
 
         $scope.submit = function () {
             if ($scope.injury && $scope.injury.id > 0) {
@@ -158,7 +156,7 @@ injuryAdminModule.controller('InjuryModalController', [
     }
 ]);
 
-injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminService', 'configService', '$modal', function ($scope, injuryAdminService, configService, $modal) {
+injuryAdminModule.controller('InjuryPublishController', ['$scope', 'injuryAdminService', 'configService', '$modal', function ($scope, injuryAdminService, configService, $modal) {
 
     function getInjuryList() {
         injuryAdminService.getAll().$promise.then(function (results) {
@@ -178,12 +176,50 @@ injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminSer
         { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishInjury(row.entity)" >Edit</button> ' }]
     };
 
+    $scope.bindPublishInjury = function (injury) {
+        $scope.selectedInjury = injury;
+
+        $modal.open({
+            templateUrl: '/app/admin/injuries/tmpl.injury.publish.modal.htm',
+            controller: 'PublishInjuryAdminController',
+            windowClass: 'x-dialog',
+            resolve: {
+                selectedInjury: function () {
+                    return $scope.selectedInjury;
+                }
+            }
+        });
+    }
+
+}]);
+
+
+injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminService', 'configService', '$modal', function ($scope, injuryAdminService, configService, $modal) {
+
+    function getInjuryList() {
+        injuryAdminService.getAll().$promise.then(function (results) {
+            $scope.injuries = results;
+        });
+    }
+
+    getInjuryList();
+
+    $scope.gridOptions = {
+        data: 'injuries',
+        showGroupPanel: true,
+        columnDefs: [{ field: 'id', displayName: 'Id' },
+            { field: 'medicalName', displayName: 'Name' },
+            { field: 'commonName', displayName: 'Common Name' },
+        { field: 'visible', displayName: 'Visible' },
+        { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedInjury(row.entity)" >Edit</button> ' }]
+    };
+
 
     $scope.bindSelectedInjury = function (injury) {
         $scope.selectedInjury = injury;
 
         var modalInstance = $modal.open({
-            templateUrl: '/app/admin/content/tmpl.injury.modal.htm',
+            templateUrl: '/app/admin/injuries/tmpl.injury.modal.htm',
             controller: 'InjuryModalController',
             windowClass: 'xx-dialog',
             resolve: {
@@ -199,24 +235,8 @@ injuryAdminModule.controller('InjuryAdminController', ['$scope', 'injuryAdminSer
         });
     }
 
-    $scope.bindPublishInjury = function (injury) {
-        $scope.selectedInjury = injury;
-
-        $modal.open({
-            templateUrl: '/app/admin/content/tmpl.injury.publish.modal.htm',
-            controller: 'PublishInjuryAdminController',
-            windowClass: 'x-dialog',
-            resolve: {
-                selectedInjury: function () {
-                    return $scope.selectedInjury;
-                }
-            }
-        });
-    }
-
-
-
 }]);
+
 
 injuryAdminModule.controller('PublishInjuryAdminController', [
     '$scope', 'injuryAdminService', 'configService', '$modal', 'selectedInjury', 'notifierService', '$modalInstance', function ($scope, injuryAdminService, configService, $modal, selectedInjury, notifierService, $modalInstance) {
