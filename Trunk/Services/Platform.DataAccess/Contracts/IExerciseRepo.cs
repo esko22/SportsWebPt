@@ -6,6 +6,7 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public interface IExerciseRepo : IRepository<Exercise>
     {
+        IQueryable<Exercise> GetExerciseDetails();
         IQueryable<Exercise> GetExerciseDetailForUpdate();
     }
 }

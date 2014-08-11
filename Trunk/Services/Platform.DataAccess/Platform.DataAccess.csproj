@@ -166,6 +166,7 @@
     <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="Repositories\VideoRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ExeciseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
     <Compile Include="UnitOfWork\LookupUnitOfWork.cs" />

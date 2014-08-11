@@ -33,6 +33,12 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.InjuryFavorites);
         }
 
+        public IQueryable<User> GetTherapistDetails()
+        {
+            return GetAll()
+                .Include(i => i.Therapist.ClinicTherapistMatrixItems.Select(l2 => l2.Clinic));
+        } 
+
 
         #endregion
     }
@@ -40,5 +46,6 @@ namespace SportsWebPt.Platform.DataAccess
     public interface IUserRepo : IRepository<User>
     {
        IQueryable<User> GetUserDetails();
+       IQueryable<User> GetTherapistDetails();
     }
 }

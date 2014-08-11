@@ -15,11 +15,6 @@ namespace SportsWebPt.Platform.DataAccess
 
         public IRepository<Equipment> EquipmentRepo { get { return GetStandardRepo<Equipment>(); } }
         public IVideoRepo VideoRepo { get { return GetRepo<IVideoRepo>(); } }
-        public IExerciseRepo ExerciseRepo { get { return GetRepo<IExerciseRepo>(); } }
-        public IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get { return GetStandardRepo<ExerciseEquipmentMatrixItem>(); } }
-        public IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get { return GetStandardRepo<ExerciseVideoMatrixItem>(); } }
-        public IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get { return GetStandardRepo<ExerciseBodyRegionMatrixItem>(); } }
-        public IRepository<ExerciseBodyPartMatrixItem> ExerciseBodyPartRepo { get { return GetStandardRepo<ExerciseBodyPartMatrixItem>(); } }
         public IRepository<Sign> SignRepo { get { return GetStandardRepo<Sign>(); } }
         public IRepository<Cause> CauseRepo { get { return GetStandardRepo<Cause>(); } }
         public IInjuryRepo InjuryRepo { get { return GetRepo<IInjuryRepo>(); } }
@@ -33,14 +28,12 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
         public IRepository<SymptomMatrixItem> SymptomMatrixRepo { get { return GetStandardRepo<SymptomMatrixItem>(); } }
-        public IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get { return GetStandardRepo<ExerciseCategoryMatrixItem>(); } }
         public IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get { return GetStandardRepo<VideoCategoryMatrixItem>(); } }
         public IRepository<Treatment> TreatmentRepo { get { return GetStandardRepo<Treatment>(); } }
         public IRepository<Prognosis> PrognosisRepo { get { return GetStandardRepo<Prognosis>(); } }
         public IRepository<InjuryPrognosisMatrixItem> InjuryPrognosisMatrixRepo { get { return GetStandardRepo<InjuryPrognosisMatrixItem>(); } }
         public IRepository<InjuryTreatmentMatrixItem> InjuryTreatmentMatrixRepo { get { return GetStandardRepo<InjuryTreatmentMatrixItem>(); } }
         public IRepository<InjuryPublishDetail> InjuryPublishDetailRepo { get { return GetStandardRepo<InjuryPublishDetail>(); } }
-        public IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get { return GetStandardRepo<ExercisePublishDetail>(); } }
 
         #endregion
 
@@ -83,89 +76,6 @@ namespace SportsWebPt.Platform.DataAccess
 
             Commit();
         }
-
-        public void UpdateExercise(Exercise exercise)
-        {
-            var execiseInDb =
-                ExerciseRepo.GetExerciseDetailForUpdate()
-                            .SingleOrDefault(p => p.Id == exercise.Id);
-
-            if(execiseInDb == null)
-                throw new ArgumentNullException("exercise id", "exercise does not exist");
-
-            var deletedCategories = execiseInDb.ExerciseCategoryMatrixItems.Except(
-                exercise.ExerciseCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
-
-            var addedCategories = exercise.ExerciseCategoryMatrixItems.Except(
-                execiseInDb.ExerciseCategoryMatrixItems, (item, matrixItem) => item.Category == matrixItem.Category).ToList();
-
-            deletedCategories.ForEach(e => ExerciseCategoryRepo.Delete(e));
-            addedCategories.ForEach(e =>
-            {
-                e.ExerciseId = exercise.Id;
-                ExerciseCategoryRepo.Add(e);
-            });
-
-            var deletedEquipment = execiseInDb.ExerciseEquipmentMatrixItems.Except(
-                exercise.ExerciseEquipmentMatrixItems, (item, matrixItem) => item.EquipmentId == matrixItem.EquipmentId).ToList();
-
-            var addedEquipment = exercise.ExerciseEquipmentMatrixItems.Except(
-                execiseInDb.ExerciseEquipmentMatrixItems, (item, matrixItem) => item.EquipmentId == matrixItem.EquipmentId).ToList();
-
-            deletedEquipment.ForEach(e => ExerciseEquipmentRepo.Delete(e));
-            addedEquipment.ForEach(e =>
-            {
-                e.ExerciseId = exercise.Id;
-                ExerciseEquipmentRepo.Add(e);
-            });
-
-            var deletedVideos = execiseInDb.ExerciseVideoMatrixItems.Except(
-                exercise.ExerciseVideoMatrixItems, (item, matrixItem) => item.VideoId == matrixItem.VideoId).ToList();
-
-            var addedVideos = exercise.ExerciseVideoMatrixItems.Except(
-                execiseInDb.ExerciseVideoMatrixItems, (item, matrixItem) => item.VideoId == matrixItem.VideoId).ToList();
-
-            deletedVideos.ForEach(e => ExerciseVideoRepo.Delete(e));
-            addedVideos.ForEach(e =>
-            {
-                e.ExerciseId = exercise.Id;
-                ExerciseVideoRepo.Add(e);
-            });
-
-            var deletedBodyRegions = execiseInDb.ExerciseBodyRegionMatrixItems.Except(
-                exercise.ExerciseBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
-
-            var addedBodyRegions = exercise.ExerciseBodyRegionMatrixItems.Except(
-                execiseInDb.ExerciseBodyRegionMatrixItems, (item, matrixItem) => item.BodyRegionId == matrixItem.BodyRegionId).ToList();
-
-            deletedBodyRegions.ForEach(e => ExerciseBodyRegionRepo.Delete(e));
-            addedBodyRegions.ForEach(e =>
-            {
-                e.ExerciseId = exercise.Id;
-                ExerciseBodyRegionRepo.Add(e);
-            });
-
-            var deletedBodyParts = execiseInDb.ExerciseBodyPartMatrixItems.Except(
-                exercise.ExerciseBodyPartMatrixItems, (item, matrixItem) => item.BodyPartId == matrixItem.BodyPartId).ToList();
-
-            var addedBodyParts = exercise.ExerciseBodyPartMatrixItems.Except(
-                execiseInDb.ExerciseBodyPartMatrixItems, (item, matrixItem) => item.BodyPartId == matrixItem.BodyPartId).ToList();
-
-            deletedBodyParts.ForEach(e => ExerciseBodyPartRepo.Delete(e));
-            addedBodyParts.ForEach(e =>
-            {
-                e.ExerciseId = exercise.Id;
-                ExerciseBodyPartRepo.Add(e);
-            });
-
-            var exerciseEntry = _context.Entry(execiseInDb);
-            exerciseEntry.CurrentValues.SetValues(exercise);
-
-            Commit();
-        }
-
-      
-
 
         public void UpdateVideo(Video video)
         {
@@ -330,10 +240,6 @@ namespace SportsWebPt.Platform.DataAccess
         //this needs to get broken down...
         IRepository<Equipment> EquipmentRepo { get; }
         IVideoRepo VideoRepo { get; }
-        IExerciseRepo ExerciseRepo { get; }
-        IRepository<ExerciseEquipmentMatrixItem> ExerciseEquipmentRepo { get; }
-        IRepository<ExerciseVideoMatrixItem> ExerciseVideoRepo { get; }
-        IRepository<ExerciseBodyRegionMatrixItem> ExerciseBodyRegionRepo { get; }
         IRepository<InjuryBodyRegionMatrixItem> InjuryBodyRegionMatrixRepo { get; }
         IRepository<InjuryCauseMatrixItem> InjuryCauseMatrixRepo { get; }
         IRepository<InjurySignMatrixItem> InjurySignMatrixRepo { get; }
@@ -345,14 +251,11 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ClinicExerciseMatrixItem> ClinicExerciseRepo { get; }
         IRepository<ClinicInjuryMatrixItem> ClinicInjuryRepo { get; }
         IPlanRepo PlanRepo { get; }
-        IRepository<ExerciseCategoryMatrixItem> ExerciseCategoryRepo { get ; }
         IRepository<VideoCategoryMatrixItem> VideoCategoryRepo { get; }
         IRepository<Treatment> TreatmentRepo { get; }
         IRepository<Prognosis> PrognosisRepo { get; }
         IRepository<InjuryPublishDetail> InjuryPublishDetailRepo { get; }
-        IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get; }
 
-        void UpdateExercise(Exercise exercise);
         void UpdateInjury(Injury injury);
         void UpdateVideo(Video video);
         void MapSymptomMatrixItems(Injury injury);

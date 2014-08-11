@@ -16,7 +16,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
     {
         #region Properties
 
-        public IResearchUnitOfWork ResearchUnitOfWork { get; set; }
+        public IExerciseUnitOfWork ExerciseUnitOfWork { get; set; }
 
         #endregion
 
@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(BriefExerciseListRequest request)
         {
             var responseList = new List<BriefExerciseDto>();
-            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll().OrderBy(p => p.Id);
+            var exercises = ExerciseUnitOfWork.ExerciseRepo.GetExerciseDetails().OrderBy(p => p.Id);
 
             var predicate = PredicateBuilder.True<Exercise>();
 
@@ -54,7 +54,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(TherapistExerciseListRequest request)
         {
             var responseList = new List<BriefExerciseDto>();
-            var exercises = ResearchUnitOfWork.ExerciseRepo.GetAll()
+            var exercises = ExerciseUnitOfWork.ExerciseRepo.GetExerciseDetails()
                 .Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == request.IdAsLong && w.IsOwner == request.IsOwner));
 
             Mapper.Map(exercises, responseList);
@@ -67,7 +67,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Get(ExerciseRequest request)
         {
-            var exerciseQuery = ResearchUnitOfWork.ExerciseRepo.GetAll();
+            var exerciseQuery = ExerciseUnitOfWork.ExerciseRepo.GetExerciseDetails();
 
             var exercise = request.IdAsInt > 0
                 ? exerciseQuery.FirstOrDefault(p => p.Id == request.IdAsInt)
@@ -84,8 +84,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var exercise = Mapper.Map<Exercise>(request);
             exercise.TherapistExerciseMatrixItems = new List<TherapistExerciseMatrixItem>() { new TherapistExerciseMatrixItem() { TherapistId = request.TherapistId, IsOwner = true, IsActive = true } };
 
-            ResearchUnitOfWork.ExerciseRepo.Add(exercise);
-            ResearchUnitOfWork.Commit();
+            ExerciseUnitOfWork.ExerciseRepo.Add(exercise);
+            ExerciseUnitOfWork.Commit();
 
             request.Id = exercise.Id;
 
@@ -97,7 +97,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             Check.Argument.IsNotNull(request, "ExerciseDto");
 
-            ResearchUnitOfWork.UpdateExercise(Mapper.Map<Exercise>(request));
+            ExerciseUnitOfWork.UpdateExercise(Mapper.Map<Exercise>(request));
 
             return Ok(new ApiResponse<ExerciseDto>(request));
         }
@@ -106,8 +106,8 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             var publishDetail = Mapper.Map<ExercisePublishDetail>(request);
 
-            ResearchUnitOfWork.ExercisePublishDetailRepo.Update(publishDetail);
-            ResearchUnitOfWork.Commit();
+            ExerciseUnitOfWork.ExercisePublishDetailRepo.Update(publishDetail);
+            ExerciseUnitOfWork.Commit();
 
             return Ok();
         }

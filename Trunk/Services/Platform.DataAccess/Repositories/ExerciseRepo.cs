@@ -19,15 +19,15 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public override IQueryable<Exercise> GetAll()
+        public IQueryable<Exercise> GetExerciseDetails()
         {
             return base.GetAll()
-                .Include(i => i.ExerciseEquipmentMatrixItems.Select(l2 => l2.Equipment))
-                .Include(i => i.ExerciseVideoMatrixItems.Select(l2 => l2.Video.VideoCategoryMatrixItems))
-                .Include(i => i.ExerciseBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))
-                .Include(i => i.ExerciseCategoryMatrixItems)
-                .Include(i => i.PublishDetail)
-                .Include(i => i.ExerciseBodyPartMatrixItems.Select(l2 => l2.BodyPart));
+            .Include(i => i.ExerciseEquipmentMatrixItems.Select(l2 => l2.Equipment))
+            .Include(i => i.ExerciseVideoMatrixItems.Select(l2 => l2.Video.VideoCategoryMatrixItems))
+            .Include(i => i.ExerciseBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))
+            .Include(i => i.ExerciseCategoryMatrixItems)
+            .Include(i => i.PublishDetail)
+            .Include(i => i.ExerciseBodyPartMatrixItems.Select(l2 => l2.BodyPart));
         }
 
         public IQueryable<Exercise> GetExerciseDetailForUpdate()

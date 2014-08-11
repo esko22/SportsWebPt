@@ -83,6 +83,7 @@
     <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BodyRegionDto.cs" />
     <Compile Include="Models\CauseDto.cs" />
+    <Compile Include="Models\ClinicDto.cs" />
     <Compile Include="Models\DifferentialDiagnosisDto.cs" />
     <Compile Include="Models\DiagnosisReportDto.cs" />
     <Compile Include="Models\EquipmentDto.cs" />

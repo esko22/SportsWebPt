@@ -626,6 +626,40 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<PrognosisDto, Prognosis>();
 
 
+            #region Therapist Maps
+
+            Mapper.CreateMap<User, TherapistDto>()
+                .ForMember(d => d.Clinics,
+                    opt =>
+                    {
+                        opt.Condition(s => s.Therapist != null && s.Therapist.ClinicTherapistMatrixItems != null);
+                        opt.MapFrom(s => s.Therapist.ClinicTherapistMatrixItems.Select(l2 => l2.Clinic));
+                    });
+
+            Mapper.CreateMap<ClinicPlanMatrixItem, TherapistSharedPlanDto>()
+                .ForMember(d => d.ClinicId, opt => opt.MapFrom(s => s.Clinic.Id))
+                .ForMember(d => d.PlanId, opt => opt.MapFrom(s => s.Plan.Id))
+                .ForMember(d => d.ClinicName, opt => opt.MapFrom(s => s.Clinic.Name))
+                .ForMember(d => d.PlanName, opt => opt.MapFrom(s => s.Plan.RoutineName))
+                .ForMember(d => d.IsActive, opt => opt.MapFrom(s => s.IsActive));
+
+            Mapper.CreateMap<ClinicExerciseMatrixItem, TherapistSharedExerciseDto>()
+                .ForMember(d => d.ClinicId, opt => opt.MapFrom(s => s.Clinic.Id))
+                .ForMember(d => d.ExerciseId, opt => opt.MapFrom(s => s.Exercise.Id))
+                .ForMember(d => d.ClinicName, opt => opt.MapFrom(s => s.Clinic.Name))
+                .ForMember(d => d.ExerciseName, opt => opt.MapFrom(s => s.Exercise.Name))
+                .ForMember(d => d.IsActive, opt => opt.MapFrom(s => s.IsActive));
+
+
+            #endregion
+
+            #region Clinic Maps
+
+
+            Mapper.CreateMap<Clinic, ClinicDto>();
+
+            #endregion
+
         }
     }
 }

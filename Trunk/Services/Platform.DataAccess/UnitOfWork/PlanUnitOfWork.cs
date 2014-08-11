@@ -86,6 +86,14 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
+        public IQueryable<Plan> GetSharedPlansByTherapist(int therapistId)
+        {
+            return PlanRepo.GetAll()
+                .Include(i => i.ClinicPlanMatrixItems.Select(l2 => l2.Clinic))
+                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == therapistId && a.IsOwner))
+                .OrderBy(p => p.Id);
+        }
+
         #endregion
 
     }
@@ -108,6 +116,8 @@ namespace SportsWebPt.Platform.DataAccess
         #region Methods
 
         void UpdatePlan(Plan plan);
+
+        IQueryable<Plan> GetSharedPlansByTherapist(int therapistId);
 
         #endregion
     }

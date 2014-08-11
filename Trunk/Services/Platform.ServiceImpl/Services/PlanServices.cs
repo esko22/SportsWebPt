@@ -54,19 +54,6 @@ namespace SportsWebPt.Platform.ServiceImpl
         }
 
 
-        public object Get(TherapistPlanListRequest request)
-        {
-            var responseList = new List<BriefPlanDto>();
-            var plans = PlanUnitOfWork.PlanRepo.GetPlanDetails()
-                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == request.IdAsLong && a.IsOwner == request.IsOwner))        
-                .OrderBy(p => p.Id);
-
-            Mapper.Map(plans, responseList);
-
-            return
-                Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
-                                                                        null, null));
-        }
 
         public object Get(PlanRequest request)
         {
@@ -81,7 +68,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             planEntity.PlanExerciseMatrixItems = planEntity.PlanExerciseMatrixItems.OrderBy(p => p.Order).ToList();
             var exerciseIds = planEntity.PlanExerciseMatrixItems.Select(s => s.ExerciseId);
             var exerciseEntities =
-                PlanUnitOfWork.ExerciseRepo.GetAll()
+                PlanUnitOfWork.ExerciseRepo.GetExerciseDetails()
                                  .Where(p => exerciseIds.Contains(p.Id)).ToList();
 
             foreach (var planExercise in planEntity.PlanExerciseMatrixItems)

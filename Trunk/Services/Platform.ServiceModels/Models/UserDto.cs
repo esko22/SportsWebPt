@@ -46,4 +46,47 @@ namespace SportsWebPt.Platform.ServiceModels
 
         #endregion
     }
+
+    public class TherapistDto : UserDto
+    {
+        #region Properties
+
+        public ClinicDto[] Clinics { get; set; }
+
+        #endregion
+    }
+
+    public class TherapistSharedPlanDto
+    {
+        #region Prorperties
+
+        public int ClinicId { get; set; }
+
+        public int PlanId { get; set; }
+
+        public String ClinicName { get; set; }
+
+        public String PlanName { get; set; }
+
+        public Boolean IsActive { get; set; }
+
+        #endregion
+    }
+
+    public class TherapistSharedExerciseDto
+    {
+        #region Prorperties
+
+        public int ClinicId { get; set; }
+
+        public int ExerciseId { get; set; }
+
+        public String ClinicName { get; set; }
+
+        public String ExerciseName { get; set; }
+
+        public Boolean IsActive { get; set; }
+
+        #endregion
+    }
 }
