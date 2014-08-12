@@ -21,6 +21,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
         public IRepository<PlanPublishDetail> PlanPublishRepo { get { return GetStandardRepo<PlanPublishDetail>(); } } 
+
         #endregion
 
         #region Construction
@@ -94,6 +95,22 @@ namespace SportsWebPt.Platform.DataAccess
                 .OrderBy(p => p.Id);
         }
 
+        public void UpdateSharedPlans(IEnumerable<ClinicPlanMatrixItem> sharedPlans)
+        {
+            foreach (var clinicPlanMatrixItem in sharedPlans)
+            {
+                if (clinicPlanMatrixItem.Id > 0)
+                {
+                    var clinicPlan = ClinicPlanRepo.GetById(clinicPlanMatrixItem.Id);
+                    clinicPlan.IsActive = clinicPlanMatrixItem.IsActive;
+                }
+                else
+                    ClinicPlanRepo.Add(clinicPlanMatrixItem);
+            }
+
+            Commit();
+        }
+
         #endregion
 
     }
@@ -118,6 +135,9 @@ namespace SportsWebPt.Platform.DataAccess
         void UpdatePlan(Plan plan);
 
         IQueryable<Plan> GetSharedPlansByTherapist(int therapistId);
+
+        void UpdateSharedPlans(IEnumerable<ClinicPlanMatrixItem> sharedPlans);
+
 
         #endregion
     }

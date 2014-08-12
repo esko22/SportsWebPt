@@ -48,4 +48,57 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
 
     }
+
+    public class Therapist : User
+    {
+        #region Properties
+
+        public IEnumerable<Clinic> clinics { get; set; }
+
+        public IEnumerable<TherapistSharedPlan> sharedPlans { get; set; }
+
+        public IEnumerable<TherapistSharedExercise> sharedExercises { get; set; } 
+
+        #endregion
+    }
+
+    public class TherapistSharedPlan
+    {
+        #region Prorperties
+
+        public int id { get; set; }
+
+        public int clinicId { get; set; }
+
+        public int planId { get; set; }
+
+        public String clinicName { get; set; }
+
+        public String planName { get; set; }
+
+        public Boolean isActive { get; set; }
+
+        #endregion
+    }
+
+    public class TherapistSharedExercise
+    {
+        #region Prorperties
+
+        public int id { get; set; }
+
+        public int clinicId { get; set; }
+
+        public int exerciseId { get; set; }
+
+        public String clinicName { get; set; }
+
+        public String exerciseName { get; set; }
+
+        public Boolean isActive { get; set; }
+
+        #endregion
+    }
+
+
 }

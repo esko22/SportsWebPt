@@ -60,6 +60,8 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Prorperties
 
+        public int Id { get; set; }
+
         public int ClinicId { get; set; }
 
         public int PlanId { get; set; }
@@ -76,6 +78,8 @@ namespace SportsWebPt.Platform.ServiceModels
     public class TherapistSharedExerciseDto
     {
         #region Prorperties
+
+        public int Id { get; set; }
 
         public int ClinicId { get; set; }
 

@@ -141,58 +141,6 @@ exerciseAdminModule.controller('PublishExerciseAdminController', [
 
     }]);
 
-exerciseAdminModule.controller('TherapistExerciseController', [
-    '$scope', 'exerciseAdminService', '$modal',
-    function ($scope, exerciseAdminService, $modal) {
-
-        getExerciseList();
-
-        $scope.exerciseGridOptions = {
-            data: 'exercises',
-            showGroupPanel: true,
-            columnDefs: [{ field: 'id', displayName: 'Id' },
-                { field: 'name', displayName: 'Name' },
-                { field: 'bodyRegions', displayName: 'Body Regions' },
-            { field: 'categories', displayName: 'Category' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedExercise(row.entity)" >Edit</button> ' }]
-        };
-
-        $scope.bindSelectedExercise = function (exercise) {
-            $scope.selectedExercise = exercise;
-
-            var modalInstance = $modal.open({
-                templateUrl: '/app/admin/exercises/tmpl.exercise.modal.htm',
-                controller: 'ExerciseModalController',
-                windowClass: 'xx-dialog',
-                resolve: {
-                    selectedExercise: function () {
-                        return $scope.selectedExercise;
-                    }
-                }
-            });
-
-            modalInstance.result.then(function (exerciseReturned) {
-                getExerciseList();
-                $scope.selectedExercise = exerciseReturned;
-            });
-        }
-
-        function getExerciseList() {
-            exerciseAdminService.getExercisesForTherapist($scope.currentUser.id).$promise.then(function (exercises) {
-                $scope.exercises = exercises;
-            });
-        }
-    }
-]);
-
-exerciseAdminModule.directive('therapistExerciseList', [function () {
-    return {
-        restrict: 'E',
-        replace: 'true',
-        templateUrl: '/app/admin/exercises/tmpl.therapist.exercise.list.htm',
-        controller: 'TherapistExerciseController'
-    };
-}]);
 
 exerciseAdminModule.factory('exerciseAdminService', ['$resource', 'configService', function ($resource, configService) {
 

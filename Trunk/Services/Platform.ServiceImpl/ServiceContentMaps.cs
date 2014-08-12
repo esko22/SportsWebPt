@@ -650,6 +650,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.ExerciseName, opt => opt.MapFrom(s => s.Exercise.Name))
                 .ForMember(d => d.IsActive, opt => opt.MapFrom(s => s.IsActive));
 
+            Mapper.CreateMap<TherapistSharedPlanDto, ClinicPlanMatrixItem>();
+            Mapper.CreateMap<TherapistSharedExerciseDto, ClinicExerciseMatrixItem>();
 
             #endregion
 

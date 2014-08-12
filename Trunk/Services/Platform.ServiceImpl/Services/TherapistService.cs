@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
@@ -76,6 +77,27 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return Ok(new ApiListResponse<TherapistSharedExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
+
+        }
+
+        public object Put(UpdateTherapistSharedPlanRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+
+            if (request.SharedPlans.Any())
+                PlanUnitOfWork.UpdateSharedPlans(Mapper.Map<IEnumerable<ClinicPlanMatrixItem>>(request.SharedPlans));
+
+            return Ok();
+        }
+
+        public object Put(UpdateTherapistSharedExerciseRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+
+            if (request.SharedExercises.Any())
+                ExerciseUnitOfWork.UpdateSharedExercises(Mapper.Map<IEnumerable<ClinicExerciseMatrixItem>>(request.SharedExercises));
+
+            return Ok();
         }
 
         #endregion

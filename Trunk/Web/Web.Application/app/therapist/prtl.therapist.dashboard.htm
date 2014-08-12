@@ -2,10 +2,10 @@
     <h2>Therapist Dashboard</h2>
     <div class="row push-down-md">
         <div class="well col-md-3">
-            <h3>My Patients</h3>
+            <h3>My Clinics</h3>
             <table class="table table-striped">
-                <tr ng-repeat="exercise in currentUser.exercises">
-                    <td><a ng-href="/#!/research/exercises/{{exercise.entityId}}">{{exercise.entityName}}</a></td>
+                <tr ng-repeat="clinic in clinics">
+                    <td>{{clinic.name}}</td>
                 </tr>
             </table>
         </div>

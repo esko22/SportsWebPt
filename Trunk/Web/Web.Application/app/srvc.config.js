@@ -44,9 +44,12 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             adminTreatments: '/data/admin/treatments/',
             prognoses: '/data/research/prognoses/',
             adminPrognoses: '/data/admin/prognoses/',
+            therapists: '/data/therapists/:id',
             therapistPlans: '/data/therapists/:id/plans',
-            therapistExercises: '/data/therapists/:id/exercises'
-        };
+            therapistExercises: '/data/therapists/:id/exercises',
+            therapistSharedPlans: '/data/therapists/:id/sharedplans',
+            therapistSharedExercises: '/data/therapists/:id/sharedexercises'
+};
 
 
         var repetitionRangeValues = [];

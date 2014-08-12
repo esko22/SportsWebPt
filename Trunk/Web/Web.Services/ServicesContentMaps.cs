@@ -249,6 +249,16 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Prognosis, CreatePrognosisRequest>();
             Mapper.CreateMap<Prognosis, UpdatePrognosisRequest>();
 
+            Mapper.CreateMap<Therapist, TherapistDto>();
+            Mapper.CreateMap<TherapistDto, Therapist>();
+            Mapper.CreateMap<Clinic, ClinicDto>();
+            Mapper.CreateMap<ClinicDto, Clinic>();
+            Mapper.CreateMap<TherapistSharedExercise, TherapistSharedExerciseDto>();
+            Mapper.CreateMap<TherapistSharedExerciseDto, TherapistSharedExercise>();
+            Mapper.CreateMap<TherapistSharedPlan, TherapistSharedPlanDto>();
+            Mapper.CreateMap<TherapistSharedPlanDto, TherapistSharedPlan>();
+
+
 
         }
     }

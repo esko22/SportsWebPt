@@ -100,9 +100,22 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Patch(PublishPlanRequest request)
         {
-            var publishDetail = Mapper.Map<PlanPublishDetail>(request);
-            
-            PlanUnitOfWork.PlanPublishRepo.Update(publishDetail);
+            var publishDetail = PlanUnitOfWork.PlanPublishRepo.GetById(request.IdAsInt);
+
+            if (publishDetail == null)
+            {
+                publishDetail = Mapper.Map<PlanPublishDetail>(request);
+                PlanUnitOfWork.PlanPublishRepo.Add(publishDetail);
+            }
+            else
+            {
+                publishDetail.Tags = request.Tags;
+                publishDetail.PageName = request.PageName;
+                publishDetail.Visible = request.Visible;
+
+                PlanUnitOfWork.PlanPublishRepo.Update(publishDetail);
+            }
+
             PlanUnitOfWork.Commit();
 
             return Ok();

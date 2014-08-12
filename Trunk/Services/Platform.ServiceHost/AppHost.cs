@@ -115,7 +115,7 @@ namespace SportsWebPt.Platform.ServiceHost
             container.Register<RepositoryFactory>(c => new PlatformRepositoryFactory())
                      .ReusedWithin(ReuseScope.Container);
             container.Register<IRepositoryProvider>(c => new PlatformRepositoryProvider(c.Resolve<RepositoryFactory>()))
-                     .ReusedWithin(ReuseScope.Request);
+                     .ReusedWithin(ReuseScope.None);
             container.Register<IUserUnitOfWork>(c => new UserUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<ISkeletonUnitOfWork>(c => new SkeletonUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);
             container.Register<IDiffDiagUnitOfWork>(c => new DiffDiagUnitOfWork(c.Resolve<IRepositoryProvider>())).ReusedWithin(ReuseScope.Request);

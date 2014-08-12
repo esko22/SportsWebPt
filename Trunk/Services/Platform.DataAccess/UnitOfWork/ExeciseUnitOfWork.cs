@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SportsWebPt.Common.DataAccess;
@@ -13,6 +14,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Properties
 
+        public IRepository<ClinicExerciseMatrixItem> ClinicExerciseRepo { get { return GetStandardRepo<ClinicExerciseMatrixItem>(); } }
         public IExerciseRepo ExerciseRepo { get { return GetRepo<IExerciseRepo>(); } }
         public IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get { return GetStandardRepo<ExercisePublishDetail>(); } }
 
@@ -126,6 +128,22 @@ namespace SportsWebPt.Platform.DataAccess
                 .OrderBy(p => p.Id);
         }
 
+        public void UpdateSharedExercises(IEnumerable<ClinicExerciseMatrixItem> sharedExercises)
+        {
+            foreach (var clinicExerciseMatrixItem in sharedExercises)
+            {
+                if (clinicExerciseMatrixItem.Id > 0)
+                {
+                    var clinicExercise = ClinicExerciseRepo.GetById(clinicExerciseMatrixItem.Id);
+                    clinicExercise.IsActive = clinicExerciseMatrixItem.IsActive;
+                }
+                else
+                    ClinicExerciseRepo.Add(clinicExerciseMatrixItem);
+            }
+
+            Commit();
+        }
+
         #endregion
     }
 
@@ -136,6 +154,6 @@ namespace SportsWebPt.Platform.DataAccess
 
         void UpdateExercise(Exercise exercise);
         IQueryable<Exercise> GetSharedExercisesByTherapist(int therapistId);
-
+        void UpdateSharedExercises(IEnumerable<ClinicExerciseMatrixItem> sharedExercises);
     }
 }

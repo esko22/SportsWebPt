@@ -12,6 +12,11 @@ namespace SportsWebPt.Platform.Web.Services
     {
         IEnumerable<GridExercise> GetExercises(String therapistId);
         IEnumerable<GridPlan> GetPlans(String therapistId);
+        Therapist GetTherapistDetail(int therapistId);
+        IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int therapistId, int? exerciseId);
+        IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int therapistId, int? planId);
+        bool UpdateTherapistSharedExercises(int therapistId, TherapistSharedExercise[] sharedExercises);
+        bool UpdateTherapistSharedPlans(int therapistId, TherapistSharedPlan[] sharedPlans);
     }
 
 
@@ -49,7 +54,54 @@ namespace SportsWebPt.Platform.Web.Services
             var request = GetSync(new TherapistPlanListRequest() { Id = therapistId, IsOwner = true });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
-        } 
+        }
+
+        public Therapist GetTherapistDetail(int therapistId)
+        {
+            var request = GetSync(new TherapistRequest() { Id = therapistId.ToString() });
+
+            return request.Response == null ? null : Mapper.Map<Therapist>(request.Response);
+        }
+
+        public IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int therapistId, int? exerciseId)
+        {
+            var request = GetSync(new TherapistSharedExerciseListRequest() { Id = therapistId.ToString(), ExerciseId = exerciseId ?? 0});
+            return request.Response == null ? null : Mapper.Map<IEnumerable<TherapistSharedExercise>>(request.Response.Items);
+        }
+
+        public IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int therapistId, int? planId)
+        {
+            var request = GetSync(new TherapistSharedPlanListRequest() { Id = therapistId.ToString(), PlanId = planId ?? 0 });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<TherapistSharedPlan>>(request.Response.Items);
+        }
+
+        public bool UpdateTherapistSharedExercises(int therapistId, TherapistSharedExercise[] sharedExercises)
+        {
+            var request = new UpdateTherapistSharedExerciseRequest()
+            {
+                Id = therapistId.ToString(),
+                SharedExercises = Mapper.Map<TherapistSharedExerciseDto[]>(sharedExercises)
+            };
+
+            Put(request);
+
+            return true;
+        }
+
+        public bool UpdateTherapistSharedPlans(int therapistId, TherapistSharedPlan[] sharedPlans)
+        {
+            var request = new UpdateTherapistSharedPlanRequest()
+            {
+                Id = therapistId.ToString(),
+                SharedPlans = Mapper.Map<TherapistSharedPlanDto[]>(sharedPlans)
+            };
+
+            Put(request);
+
+            return true;
+        }
+
 
         #endregion
 
