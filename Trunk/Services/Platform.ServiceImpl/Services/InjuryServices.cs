@@ -95,9 +95,23 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Patch(PublishInjuryRequest request)
         {
-            var publishDetail = Mapper.Map<InjuryPublishDetail>(request);
+            var publishDetail = ResearchUnitOfWork.InjuryPublishDetailRepo.GetById(request.IdAsInt);
 
-            ResearchUnitOfWork.InjuryPublishDetailRepo.Update(publishDetail);
+            if (publishDetail == null)
+            {
+                publishDetail = Mapper.Map<InjuryPublishDetail>(request);
+                ResearchUnitOfWork.InjuryPublishDetailRepo.Add(publishDetail);
+            }
+            else
+            {
+                publishDetail.OpeningStatement = request.OpeningStatement;
+                publishDetail.PageName = request.PageName;
+                publishDetail.Tags = request.Tags;
+                publishDetail.Visible = request.Visible;
+
+                ResearchUnitOfWork.InjuryPublishDetailRepo.Update(publishDetail);
+            }
+
             ResearchUnitOfWork.Commit();
 
             return Ok();
