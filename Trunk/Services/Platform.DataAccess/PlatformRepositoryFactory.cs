@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Platform.DataAccess.Repositories;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -20,7 +21,8 @@ namespace SportsWebPt.Platform.DataAccess
                    {typeof(IBodyPartRepo), dbContext => new BodyPartRepo(dbContext)},
                    {typeof(IExerciseRepo), dbContext => new ExerciseRepo(dbContext)},
                    {typeof(IInjuryRepo), dbContext => new InjuryRepo(dbContext)},
-                   {typeof(IVideoRepo), dbContext => new VideoRepo(dbContext)}
+                   {typeof(IVideoRepo), dbContext => new VideoRepo(dbContext)},
+                   {typeof(IEpisodeRepo), dbContext => new EpisodeRepo(dbContext)}
                 };
         }
 

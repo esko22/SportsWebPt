@@ -66,8 +66,8 @@ namespace SportsWebPt.Platform.Core.Models
 
     public enum SessionType
     {
-        Video,
-        Audio,
-        Physical
+        Physical =1,
+        Video =2,
+        Audio =3
     }
 }

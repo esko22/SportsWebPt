@@ -91,6 +91,7 @@
     <Compile Include="Services\BodyRegionServices.cs" />
     <Compile Include="Services\CauseServices.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
+    <Compile Include="Services\EpisodeService.cs" />
     <Compile Include="Services\EquipmentServices.cs" />
     <Compile Include="Services\ExerciseServices.cs" />
     <Compile Include="Services\InjuryServices.cs" />

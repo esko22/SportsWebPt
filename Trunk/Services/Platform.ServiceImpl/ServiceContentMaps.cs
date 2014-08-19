@@ -655,6 +655,13 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             #endregion
 
+            #region Episode Maps
+
+            Mapper.CreateMap<EpisodeDto, Episode>();
+            Mapper.CreateMap<Episode, EpisodeDto>();
+
+            #endregion
+
             #region Clinic Maps
 
 

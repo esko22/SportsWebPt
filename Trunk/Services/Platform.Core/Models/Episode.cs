@@ -14,7 +14,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public DateTime CreatedOn { get; set; }
 
-        public int PrognosisId { get; set; }
+        public int? PrognosisId { get; set; }
 
         public int ClinicPatientId { get; set; }
 
@@ -37,10 +37,10 @@ namespace SportsWebPt.Platform.Core.Models
 
     public enum EpisodeState
     {
-        Pending,
-        Active,
-        InActive,
-        ReferredOn,
-        Recovered
+        Pending = 1,
+        Active = 2,
+        InActive = 3,
+        ReferredOn = 4,
+        Recovered = 5
     }
 }
