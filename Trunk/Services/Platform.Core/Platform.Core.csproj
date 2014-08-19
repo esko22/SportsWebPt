@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Case.cs" />
     <Compile Include="Models\CauseCategory.cs" />
     <Compile Include="Models\Clinic.cs">
       <SubType>Code</SubType>
@@ -51,6 +50,7 @@
     <Compile Include="Models\ClinicMatrixItems.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\InjuryPrognosisMatrixItem.cs" />
     <Compile Include="Models\Prognosis.cs" />
     <Compile Include="Models\InjuryTreatmentMatrixItem.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Models\PlanCategoryMatrixItem.cs" />
     <Compile Include="Models\PrognosisCategory.cs" />
     <Compile Include="Models\ProviderType.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Side.cs" />
     <Compile Include="Models\BodyPart.cs" />
     <Compile Include="Models\Sign.cs" />

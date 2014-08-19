@@ -57,7 +57,6 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; }
         public DbSet<ClinicAdmin> ClinicAdmins { get; set; }
         public DbSet<Therapist> Therapists { get; set; }
-        public DbSet<Case> Cases { get; set; }
         public DbSet<ClinicExerciseMatrixItem> ClinicExerciseMatrixItems { get; set; }
         public DbSet<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; }
         public DbSet<ClinicInjuryMatrixItem> ClinicInjuryMatrixItems { get; set; }
@@ -65,7 +64,10 @@ namespace SportsWebPt.Platform.DataAccess
         public DbSet<TherapistPlanMatrixItem> TherapistPlanMatrixItems { get; set; }
         public DbSet<ExercisePublishDetail> ExercisePublishDetails { get; set; }
         public DbSet<PlanPublishDetail> PlanPublishDetails { get; set; }
-        public DbSet<InjuryPublishDetail> InjuryPublishDetails { get; set; } 
+        public DbSet<InjuryPublishDetail> InjuryPublishDetails { get; set; }
+        public DbSet<Episode> Episodes { get; set; }
+        public DbSet<Session> Sessions { get; set; }
+        public DbSet<SessionPlanMatrixItem> SessionPlanMatrixItems { get; set; } 
 
         #endregion
 
@@ -142,8 +144,9 @@ namespace SportsWebPt.Platform.DataAccess
             modelBuilder.Configurations.Add(new ExercisePublishDetailConfiguration());
             modelBuilder.Configurations.Add(new InjuryPublishDetailConfiguration());
             modelBuilder.Configurations.Add(new PlanPublishDetailConfiguration());
-            modelBuilder.Configurations.Add(new CaseConfiguration());
-
+            modelBuilder.Configurations.Add(new EpisodeConfiguration()); 
+            modelBuilder.Configurations.Add(new SessionConfiguration()); 
+            modelBuilder.Configurations.Add(new SessionPlanMatrixConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 

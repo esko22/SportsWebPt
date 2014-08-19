@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
@@ -13,6 +14,12 @@ namespace SportsWebPt.Platform.Core.Models
         public String Description { get; set; }
 
         public PrognosisCategory Category { get; set; }
+
+        #endregion
+
+        #region Navigation Properties
+
+        public ICollection<Episode> Episodes { get; set; } 
 
         #endregion
     }

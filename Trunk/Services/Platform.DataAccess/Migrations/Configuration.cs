@@ -13,6 +13,7 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
         {
             AutomaticMigrationsEnabled = false;
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
+            CodeGenerator = new MySql.Data.Entity.MySqlMigrationCodeGenerator();
         }
 
         protected override void Seed(PlatformDbContext context)

@@ -23,7 +23,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual Clinic Clinic { get; set; }
 
-        public ICollection<Case> Cases { get; set; }
+        public ICollection<Episode> Episodes { get; set; }
+
+        public ICollection<Session> Sessions { get; set; } 
 
         #endregion
     }
@@ -69,6 +71,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual Clinic Clinic { get; set; }
 
+        public virtual ICollection<Episode> Episodes { get; set; }
+
         #endregion
     }
+
 }

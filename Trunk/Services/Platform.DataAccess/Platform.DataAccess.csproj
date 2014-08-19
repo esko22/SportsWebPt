@@ -64,13 +64,14 @@
     <Compile Include="Contracts\ISymptomMatrixRepo.cs" />
     <Compile Include="Contracts\IPlanRepo.cs" />
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
-    <Compile Include="EntityConfiguration\CaseConfiguration.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ClinicConfiguration.cs" />
+    <Compile Include="EntityConfiguration\EpisodeConfiguration.cs" />
     <Compile Include="EntityConfiguration\PrognosisConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryPrognosisMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryTreatmentMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\FilterConfiguration.cs" />
+    <Compile Include="EntityConfiguration\SessionConfigurations.cs" />
     <Compile Include="EntityConfiguration\TherapistConfiguration.cs" />
     <Compile Include="EntityConfiguration\TreatmentConfiguration.cs" />
     <Compile Include="EntityConfiguration\VideoCategoryMatrixConfiguration.cs" />
@@ -149,6 +150,10 @@
     <Compile Include="Migrations\201407290350324_TherapistShare.cs" />
     <Compile Include="Migrations\201407290350324_TherapistShare.Designer.cs">
       <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408192042424_Episodes.cs" />
+    <Compile Include="Migrations\201408192042424_Episodes.Designer.cs">
+      <DependentUpon>201408192042424_Episodes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
@@ -235,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407290350324_TherapistShare.resx">
       <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408192042424_Episodes.resx">
+      <DependentUpon>201408192042424_Episodes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
