@@ -151,9 +151,9 @@
     <Compile Include="Migrations\201407290350324_TherapistShare.Designer.cs">
       <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201408192042424_Episodes.cs" />
-    <Compile Include="Migrations\201408192042424_Episodes.Designer.cs">
-      <DependentUpon>201408192042424_Episodes.cs</DependentUpon>
+    <Compile Include="Migrations\201408220442356_Episodes.cs" />
+    <Compile Include="Migrations\201408220442356_Episodes.Designer.cs">
+      <DependentUpon>201408220442356_Episodes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
@@ -162,6 +162,7 @@
     <Compile Include="PlatformRepositoryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BodyPartRepo.cs" />
+    <Compile Include="Repositories\ClinicRepo.cs" />
     <Compile Include="Repositories\EpisodeRepo.cs" />
     <Compile Include="Repositories\ExerciseRepo.cs" />
     <Compile Include="Repositories\InjuryRepo.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="Repositories\VideoRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ClinicUnitOfWork.cs" />
     <Compile Include="UnitOfWork\EpisodeUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ExeciseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
@@ -243,8 +245,8 @@
     <EmbeddedResource Include="Migrations\201407290350324_TherapistShare.resx">
       <DependentUpon>201407290350324_TherapistShare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201408192042424_Episodes.resx">
-      <DependentUpon>201408192042424_Episodes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408220442356_Episodes.resx">
+      <DependentUpon>201408220442356_Episodes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

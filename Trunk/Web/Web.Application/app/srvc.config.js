@@ -45,10 +45,18 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             prognoses: '/data/research/prognoses/',
             adminPrognoses: '/data/admin/prognoses/',
             therapists: '/data/therapists/:id',
+            therapistEpisodes: '/data/therapists/:id/episodes',
             therapistPlans: '/data/therapists/:id/plans',
             therapistExercises: '/data/therapists/:id/exercises',
             therapistSharedPlans: '/data/therapists/:id/sharedplans',
-            therapistSharedExercises: '/data/therapists/:id/sharedexercises'
+            therapistSharedExercises: '/data/therapists/:id/sharedexercises',
+            patients: '/data/patients/:id',
+            patientEpisodes: '/data/patients/:id/episodes',
+            episodes: '/data/episodes',
+            clinic: '/data/clinics/:id',
+            clinicTherapists: '/data/clinics/:id/therapists',
+            clinicPatients: '/data/clinics/:id/patients',
+            managedClinics: '/data/clinics/managers/:id'
 };
 
 

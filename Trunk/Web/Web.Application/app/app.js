@@ -2,8 +2,8 @@
 
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'user.dashboard', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
-    'ngGrid', 'therapist.module'])
+    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
+    'ngGrid', 'therapist.module', 'clinic.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -16,7 +16,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         //AnalyticsProvider.setDomainName('none');
 
             $stateProvider
-                .state('user',
+                .state('patient',
                 {
                     abstract: true,
                     views: {
@@ -26,13 +26,13 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         access: 'access.user'
                     }
                 })
-                .state('user.dashboard',
+                .state('patient.dashboard',
                 {
-                    url: "/dashboard",
+                    url: "/patient/dashboard",
                     views: {
                         "core-app-view": {
-                            templateUrl: '/app/dashboard/prtl.user.dashboard.htm',
-                            controller: 'UserDashboardController'
+                            templateUrl: '/app/patient/prtl.patient.dashboard.htm',
+                            controller: 'PatientDashboardController'
                         }
                     }
                 })
@@ -376,12 +376,23 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         access: 'access.clinic.manager'
                     }
                 })
+                .state('clinic.dashboard',
+                {
+                    url: "/clinic/:clinicId/dashboard",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/clinic/prtl.clinic.dashboard.htm',
+                            controller: 'ClinicDashboardController'
+                        }
+                    }
+                })
                 .state('clinic.manager',
                 {
                     url: "/clinic/manager",
                     views: {
                         "core-app-view": {
-                            templateUrl: '/app/clinic/prtl.clinic.manager.htm'
+                            templateUrl: '/app/clinic/prtl.clinic.manager.htm',
+                            controller: 'ClinicManagerController'
                         }
                     }
                 })

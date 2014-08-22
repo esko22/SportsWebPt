@@ -31,7 +31,8 @@ namespace SportsWebPt.Platform.Core.Models
         public ICollection<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; }
         public ICollection<ClinicPlanMatrixItem> ClinicPlanMatrixItems { get; set; }
         public ICollection<ClinicExerciseMatrixItem> ClinicExerciseMatrixItems { get; set; }
-		 
+        public ICollection<Episode> Episodes { get; set; }
+
 	    #endregion
     }
 

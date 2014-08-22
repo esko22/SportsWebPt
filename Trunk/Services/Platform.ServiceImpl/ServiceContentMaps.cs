@@ -658,12 +658,17 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Episode Maps
 
             Mapper.CreateMap<EpisodeDto, Episode>();
-            Mapper.CreateMap<Episode, EpisodeDto>();
+            Mapper.CreateMap<Episode, EpisodeDto>()
+                .ForMember(d => d.PatientEmail, opt => opt.MapFrom(s => s.Patient.EmailAddress))
+                .ForMember(d => d.Clinic, opt => opt.MapFrom(s => s.Clinic.Name))
+                .ForMember(d => d.TherapistEmail, opt => opt.MapFrom(s => s.Therapist.User.EmailAddress));
 
             #endregion
 
             #region Clinic Maps
 
+            Mapper.CreateMap<Therapist, TherapistDto>()
+                .ForMember(d => d.EmailAddress, opt => opt.MapFrom(s => s.User.EmailAddress));
 
             Mapper.CreateMap<Clinic, ClinicDto>();
 

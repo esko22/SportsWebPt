@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public IUserUnitOfWork UserUnitOfWork { get; set; }
         public IPlanUnitOfWork PlanUnitOfWork { get; set; }
         public IExerciseUnitOfWork ExerciseUnitOfWork { get; set; }
+        public IEpisodeUnitOfWork EpisodeUnitOfWork { get; set; }
 
         #endregion
 
@@ -42,6 +43,18 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return
                 Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
+        public object Get(TherapistEpisodeListRequest request)
+        {
+            var responseList = new List<EpisodeDto>();
+            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(request.IdAsInt, state: request.State.ToString());
+
+            Mapper.Map(episodes, responseList);
+
+            return
+                Ok(new ApiListResponse<EpisodeDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 

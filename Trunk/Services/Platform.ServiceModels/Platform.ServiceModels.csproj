@@ -116,6 +116,7 @@
     <Compile Include="Operations\ExecerciseRequests.cs" />
     <Compile Include="Operations\InjuryRequests.cs" />
     <Compile Include="Operations\LookupRequests.cs" />
+    <Compile Include="Operations\PatientRequests.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
     <Compile Include="Operations\PrognosisRequests.cs" />
     <Compile Include="Operations\SignRequests.cs" />

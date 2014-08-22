@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int therapistId, int? planId);
         bool UpdateTherapistSharedExercises(int therapistId, TherapistSharedExercise[] sharedExercises);
         bool UpdateTherapistSharedPlans(int therapistId, TherapistSharedPlan[] sharedPlans);
+        IEnumerable<Episode> GetEpisodes(int therapistId, String state);
     }
 
 
@@ -47,6 +48,17 @@ namespace SportsWebPt.Platform.Web.Services
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridExercise>>(request.Response.Items.OrderBy(p => p.Name));
 
+        }
+
+        public IEnumerable<Episode> GetEpisodes(int therapistId, String state)
+        {
+            EpisodeStateDto? episodeState = null;
+            if (!String.IsNullOrEmpty(state))
+                episodeState = (EpisodeStateDto) Enum.Parse(typeof (EpisodeStateDto), state, true);
+
+            var request = GetSync(new TherapistEpisodeListRequest() { Id = therapistId.ToString(), State = episodeState });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
         public IEnumerable<GridPlan> GetPlans(String therapistId)

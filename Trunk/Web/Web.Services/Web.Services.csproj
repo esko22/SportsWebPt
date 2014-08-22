@@ -72,7 +72,6 @@
     <Compile Include="Proxies\ResearchService.cs" />
     <Compile Include="Proxies\TherapistService.cs" />
     <Compile Include="ServicesContentMaps.cs" />
-    <Compile Include="Interfaces\IUserManagementService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxies\UserManagementService.cs" />
   </ItemGroup>

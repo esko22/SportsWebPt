@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 using AutoMapper;
@@ -65,7 +67,31 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
+        public IEnumerable<Episode> GetEpisodes(int patientId, String state)
+        {
+            EpisodeStateDto? episodeState = null;
+            if (!String.IsNullOrEmpty(state))
+                episodeState = (EpisodeStateDto)Enum.Parse(typeof(EpisodeStateDto), state, true);
+
+            var request = GetSync(new PatientEpisodeListRequest() { Id = patientId.ToString(), State = episodeState });
+
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
+        }
+
         #endregion
 
     }
+
+    public interface IUserManagementService : IDisposable
+    {
+        User GetUser(String emailAddress);
+        User GetUser(int id);
+        int AddUser(User user);
+        User Auth(String emailAddress, String hash);
+        void AddFavorite(Favorite favorite, int userId);
+        IEnumerable<Episode> GetEpisodes(int patientId, String state);
+
+    }
+
+
 }

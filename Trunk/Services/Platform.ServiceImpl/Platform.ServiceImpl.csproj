@@ -90,6 +90,7 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\BodyRegionServices.cs" />
     <Compile Include="Services\CauseServices.cs" />
+    <Compile Include="Services\ClinicService.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
     <Compile Include="Services\EpisodeService.cs" />
     <Compile Include="Services\EquipmentServices.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Services\InjuryServices.cs" />
     <Compile Include="Services\LookupService.cs" />
     <Compile Include="Services\PageNameValidationService.cs" />
+    <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PotentialSymptomListService.cs" />
     <Compile Include="Services\PrognosisService.cs" />
     <Compile Include="Services\SignServices.cs" />

@@ -6,14 +6,14 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.8.3")]
+    [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
     public sealed partial class Episodes : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(Episodes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201408192042424_Episodes"; }
+            get { return "201408220442356_Episodes"; }
         }
         
         string IMigrationMetadata.Source

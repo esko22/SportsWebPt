@@ -1,7 +1,11 @@
 ﻿<div class="container" id="user-dashboard-page">
     <h2>My Dashboard</h2>
+    <div class="push-down-md">
+        <patient-episode-list />
+    </div>
+
     <div class="row push-down-md">
-        <div class="well col-md-3">
+        <div class="col-md-3">
             <h3>Favorite Exercises</h3>
             <table class="table table-striped">
                 <tr ng-repeat="exercise in currentUser.exercises">
@@ -9,7 +13,7 @@
                 </tr>
             </table>
         </div>
-        <div class="well col-md-3 col-md-offset-1">
+        <div class="col-md-3 col-md-offset-1">
             <h3>Favorite Plans</h3>
             <table class="table table-striped">
                 <tr ng-repeat="plan in currentUser.plans">
@@ -17,7 +21,7 @@
                 </tr>
             </table>
         </div>
-        <div class="well col-md-3 col-md-offset-1">
+        <div class="col-md-3 col-md-offset-1">
             <h3>Favorite Injuries</h3>
             <table class="table table-striped">
                 <tr ng-repeat="injury in currentUser.injuries">
@@ -26,5 +30,6 @@
             </table>
         </div>
     </div>
+
 </div>
 

@@ -213,31 +213,58 @@ therapistModule.directive('therapistExerciseList', [function () {
 }]);
 
 
-therapistModule.factory('therapistService', ['$resource', 'configService', function ($resource, configService) {
-
-    var therapistPath = configService.apiUris.therapists;
-
+therapistModule.directive('therapistEpisodeList', [function () {
     return {
-        get: function (id) {
-            var resource = $resource(therapistPath);
-            return resource.get({ id: id });
-        },
-        getSharedPlansForTherapist: function (therapistId, planId) {
-            var resource = $resource(configService.apiUris.therapistSharedPlans);
-            return resource.query({ id: therapistId, planId: planId });
-        },
-        getSharedExercisesForTherapist: function (therapistId, exerciseId) {
-            var resource = $resource(configService.apiUris.therapistSharedExercises);
-            return resource.query({ id: therapistId, exerciseId: exerciseId });
-        },
-        updateSharedPlans: function (therapistId, sharedPlans) {
-            var resource = $resource(configService.apiUris.therapistSharedPlans, null, {'update': { method: 'PUT' }});
-            return resource.update({ id: therapistId }, sharedPlans);
-        },
-        updateSharedExercises: function (therapistId, sharedExercises) {
-            var resource = $resource(configService.apiUris.therapistSharedExercises, null, {'update': { method: 'PUT' }});
-            return resource.update({ id: therapistId }, sharedExercises);
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/therapist/tmpl.therapist.episode.list.htm',
+        controller: 'TherapistEpisodeController'
+    };
+}]);
+
+therapistModule.controller('TherapistEpisodeController', [
+    '$scope', 'therapistService', '$modal',
+    function ($scope, therapistService, $modal) {
+
+        getActiveEpisodeList();
+
+        $scope.episodeGridOptions = {
+            data: 'episodes',
+            showGroupPanel: true,
+            columnDefs: [
+                { field: 'patientEmail', displayName: 'Patient' },
+                { field: 'name', displayName: 'Name' },
+                { field: 'clinic', displayName: 'Clinic' },
+            { field: 'createdOn', displayName: 'Created' },
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedExercise(row.entity)" >Edit</button>' }]
+        };
+
+        $scope.bindSelectedExercise = function (exercise) {
+            //$scope.selectedExercise = exercise;
+
+            //var modalInstance = $modal.open({
+            //    templateUrl: '/app/admin/exercises/tmpl.exercise.modal.htm',
+            //    controller: 'ExerciseModalController',
+            //    windowClass: 'xx-dialog',
+            //    resolve: {
+            //        selectedExercise: function () {
+            //            return $scope.selectedExercise;
+            //        }
+            //    }
+            //});
+
+            //modalInstance.result.then(function (exerciseReturned) {
+            //    getExerciseList();
+            //    $scope.selectedExercise = exerciseReturned;
+            //});
+        }
+
+        function getActiveEpisodeList() {
+            therapistService.getEpisodesForTherapist($scope.currentUser.id, 'active').$promise.then(function (episodes) {
+                $scope.episodes = episodes;
+            });
         }
     }
-}]);
+]);
+
 

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
@@ -13,6 +9,10 @@ namespace SportsWebPt.Platform.ServiceModels
         public int Id { get; set; }
 
         public EpisodeStateDto State { get; set; }
+
+        public String Name { get; set; }
+
+        public String Description { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -33,9 +33,11 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public PrognosisDto Prognosis { get; set; }
 
-        public UserDto Patient { get; set; }
+        public String PatientEmail { get; set; }
 
-        public TherapistDto Therapist { get; set; }
+        public String TherapistEmail { get; set; }
+
+        public String Clinic { get; set; }
 
         #endregion
     }

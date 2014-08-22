@@ -62,6 +62,12 @@ namespace SportsWebPt.Platform.Web.Application
             return Json(favorite, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("data/patients/{id}/episodes", IsAbsoluteUrl = true)]
+        public ActionResult GetPatientEpisodes(int id, String state)
+        {
+            return Json(_userManagementService.GetEpisodes(id, state), JsonRequestBehavior.AllowGet);
+        }
+
         //[DELETE("Users/{id}")]
         //public ActionResult DeleteUser(int id)
         //{

@@ -4,8 +4,8 @@
         <div class="well col-md-3">
             <h3>My Clinics</h3>
             <table class="table table-striped">
-                <tr ng-repeat="exercise in currentUser.exercises">
-                    <td><a ng-href="/#!/research/exercises/{{exercise.entityId}}">{{exercise.entityName}}</a></td>
+                <tr ng-repeat="clinic in clinics">
+                    <td><a ui-sref="clinic.dashboard({ clinicId: clinic.id })">{{clinic.name}}</a></td>
                 </tr>
             </table>
         </div>

@@ -34,7 +34,7 @@
                                     <span class="nav-icon"><i class="icon-sportswebpt-caret-down"></i>&nbsp;<span ng-bind="currentUser.emailAddress"></span></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/#!/dashboard">My Dashboard</a></li>
+                                    <li><a href="/#!/patient/dashboard">My Dashboard</a></li>
                                     <li ng-show="currentUser.isTherapist || currentUser.isClinicManager" class="divider"></li>
                                     <li ng-show="currentUser.isTherapist"><a ui-sref="therapist.dashboard">Therapist Dashboard</a></li>
                                     <li ng-show="currentUser.isClinicManager"><a ui-sref="clinic.manager">Clinic Management</a></li>

@@ -225,9 +225,14 @@
     <Content Include="app\admin\entities\tmpl.body.region.list.htm" />
     <Content Include="app\admin\mod.admin.js" />
     <Content Include="app\admin\prtl.admin.dashboard.htm" />
+    <Content Include="app\clinic\mod.clinic.js" />
+    <Content Include="app\clinic\prtl.clinic.dashboard.htm" />
     <Content Include="app\clinic\prtl.clinic.manager.htm" />
-    <Content Include="app\dashboard\prtl.user.dashboard.htm" />
-    <Content Include="app\dashboard\user.dashboard.module.js" />
+    <Content Include="app\clinic\tmpl.clinic.therapist.list.htm" />
+    <Content Include="app\clinic\tmpl.clinic.patient.list.htm" />
+    <Content Include="app\patient\prtl.patient.dashboard.htm" />
+    <Content Include="app\patient\tmpl.patient.episode.list.htm" />
+    <Content Include="app\patient\mod.patient.js" />
     <Content Include="app\examine\mod.examine.js" />
     <Content Include="app\examine\prtl.examine.htm" />
     <Content Include="app\examine\report\mod.examine.report.js" />
@@ -269,7 +274,11 @@
     <Content Include="app\research\plans\mod.research.plans.js" />
     <Content Include="app\research\tmpl.research.nav.bar.htm" />
     <Content Include="app\research\mod.research.js" />
+    <Content Include="app\services\clinic.service.js" />
+    <Content Include="app\services\episode.service.js" />
     <Content Include="app\services\favorites.service.js" />
+    <Content Include="app\services\patient.service.js" />
+    <Content Include="app\services\therapist.service.js" />
     <Content Include="app\services\user.managment.service.js" />
     <Content Include="app\shared\auth\auth.dialogs.js" />
     <Content Include="app\shared\auth\tmpl.login.modal.htm" />
@@ -314,6 +323,7 @@
     <Content Include="app\splash\prtl.splash.htm" />
     <Content Include="app\therapist\mod.therapist.js" />
     <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
+    <Content Include="app\therapist\tmpl.therapist.episode.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.exercise.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.plan.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.shard.exercise.modal.htm" />

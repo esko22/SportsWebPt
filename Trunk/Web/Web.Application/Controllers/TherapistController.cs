@@ -76,5 +76,12 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         {
             return Json(_therapistService.GetTherapistSharedExercises(id, exerciseId), JsonRequestBehavior.AllowGet);
         }
+
+        [GET("data/therapists/{id}/episodes", IsAbsoluteUrl = true)]
+        public ActionResult GetTherapistEpisodes(int id, String state)
+        {
+            return Json(_therapistService.GetEpisodes(id, state), JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

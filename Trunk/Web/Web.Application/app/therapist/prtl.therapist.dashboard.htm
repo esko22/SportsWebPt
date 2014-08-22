@@ -1,7 +1,7 @@
 ﻿<div class="container" id="user-dashboard-page">
     <h2>Therapist Dashboard</h2>
     <div class="row push-down-md">
-        <div class="well col-md-3">
+        <div class="col-md-3">
             <h3>My Clinics</h3>
             <table class="table table-striped">
                 <tr ng-repeat="clinic in clinics">
@@ -10,10 +10,13 @@
             </table>
         </div>
     </div>
-    <div class="row push-down-md">
+    <div class="push-down-md">
+        <therapist-episode-list />
+    </div>
+    <div class="push-down-md">
         <therapist-plan-list />
     </div>
-    <div class="row push-down-md">
+    <div class="push-down-md">
         <therapist-exercise-list />
     </div>
 </div>

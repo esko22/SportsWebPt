@@ -30,7 +30,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         #region Navigation Properties
 
-        public virtual ClinicTherapistMatrixItem ScheduledWith { get; set; }
+        public virtual Therapist ScheduledWith { get; set; }
 
         public virtual DifferentialDiagnosis DifferentialDiagnosis { get; set; }
 

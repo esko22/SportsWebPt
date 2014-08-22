@@ -57,6 +57,7 @@
     <Compile Include="Models\Cause.cs" />
     <Compile Include="Models\Clinic.cs" />
     <Compile Include="Models\DiagnosisReport.cs" />
+    <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Injury.cs" />

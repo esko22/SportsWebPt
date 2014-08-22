@@ -24,8 +24,9 @@ namespace SportsWebPt.Platform.DataAccess.Repositories
         public IQueryable<Episode> GetEpisodeDetails()
         {
             return GetAll()
-                .Include(i => i.ClinicTherapist.Therapist)
-                .Include(i => i.ClinicPatient.Patient)
+                .Include(i => i.Therapist.User)
+                .Include(i => i.Patient)
+                .Include(i => i.Clinic)
                 .Include(i => i.Prognosis);
         }
 

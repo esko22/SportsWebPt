@@ -16,16 +16,15 @@ namespace SportsWebPt.Platform.Core.Models
 
         #endregion
 
-
         #region Navigation Props
 
         public virtual User User { get; set; }
 
         public ICollection<ClinicTherapistMatrixItem> ClinicTherapistMatrixItems { get; set; }
-
         public ICollection<TherapistPlanMatrixItem> TherapistPlanMatrixItems { get; set; }
-
         public ICollection<TherapistExerciseMatrixItem> TherapistExerciseMatrixItems { get; set; }
+        public ICollection<Episode> Episodes { get; set; }
+        public ICollection<Session> Sessions { get; set; }
         
         #endregion
 
@@ -52,7 +51,6 @@ namespace SportsWebPt.Platform.Core.Models
         #region Naviagtion Properties
 
         public virtual Plan Plan { get; set; }
-
         public virtual Therapist Therapist { get; set; }
 
         #endregion
@@ -79,7 +77,6 @@ namespace SportsWebPt.Platform.Core.Models
         #region Naviagtion Properties
 
         public virtual Exercise Exercise { get; set; }
-
         public virtual Therapist Therapist { get; set; }
 
         #endregion

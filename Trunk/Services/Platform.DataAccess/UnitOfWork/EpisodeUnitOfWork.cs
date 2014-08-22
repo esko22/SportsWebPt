@@ -28,24 +28,25 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IQueryable<Episode> GetFilteredEpisodes(int clinicTherapistId, int clinicPatientId, String state = "")
+        public IQueryable<Episode> GetFilteredEpisodes(int therapistId, int patientId, string state)
         {
             var episodes = EpisodeRepo.GetEpisodeDetails();
             var predicate = PredicateBuilder.True<Episode>();
 
-            if (clinicPatientId > 0)
-                predicate = predicate.And(p => p.ClinicPatientId == clinicPatientId);
+            if (patientId > 0)
+                predicate = predicate.And(p => p.Patient.Id == patientId);
 
-            if (clinicTherapistId > 0)
-                predicate = predicate.And(p => p.ClinicTherapistId == clinicTherapistId);
+            if (therapistId > 0)
+                predicate = predicate.And(p => p.Therapist.Id == therapistId);
 
             if (!String.IsNullOrEmpty(state))
             {
-                var episodeState = (EpisodeState) Enum.Parse(typeof (EpisodeState), state, true);
+                var episodeState = (EpisodeState)Enum.Parse(typeof(EpisodeState), state, true);
                 predicate = predicate.And(p => p.State == episodeState);
             }
             return episodes.AsExpandable().Where(predicate);
         }
+
 
         #endregion
 
@@ -53,6 +54,6 @@ namespace SportsWebPt.Platform.DataAccess
 
     public interface IEpisodeUnitOfWork
     {
-        IQueryable<Episode> GetFilteredEpisodes(int clinicTherapistId, int clinicPatientId, string state = "");
+        IQueryable<Episode> GetFilteredEpisodes(int therapistId = 0, int patientId = 0, string state = "");
     }
 }

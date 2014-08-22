@@ -12,13 +12,19 @@ namespace SportsWebPt.Platform.Core.Models
 
         public EpisodeState State { get; set; }
 
+        public String Name { get; set; }
+
+        public String Description { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public int? PrognosisId { get; set; }
 
-        public int ClinicPatientId { get; set; }
+        public int PatientId { get; set; }
 
-        public int ClinicTherapistId { get; set; }
+        public int TherapistId { get; set; }
+
+        public int ClinicId { get; set; }
 
         #endregion
 
@@ -26,9 +32,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual Prognosis Prognosis { get; set; }
 
-        public virtual ClinicPatientMatrixItem ClinicPatient { get; set; }
+        public virtual User Patient { get; set; }
 
-        public virtual ClinicTherapistMatrixItem ClinicTherapist { get; set; }
+        public virtual Therapist Therapist { get; set; }
+
+        public virtual Clinic Clinic { get; set; }
 
         public ICollection<Session> Sessions { get; set; }
 
