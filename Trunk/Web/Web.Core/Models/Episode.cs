@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public int id { get; set; }
+        public Int64 id { get; set; }
 
         public String state { get; set; }
 
@@ -22,9 +22,11 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int prognosisId { get; set; }
 
-        public int clinicPatientId { get; set; }
+        public int patientId { get; set; }
 
-        public int clinicTherapistId { get; set; }
+        public int therapistId { get; set; }
+
+        public int clinicId { get; set; }
 
         public Prognosis prognosis { get; set; }
 

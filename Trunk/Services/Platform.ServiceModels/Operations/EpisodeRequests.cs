@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ServiceStack.ServiceHost;
 using SportsWebPt.Common.ServiceStack;
 
-namespace SportsWebPt.Platform.ServiceModels.Operations
+namespace SportsWebPt.Platform.ServiceModels
 {
     [Route("/episodes", "GET")]
     public class EpisodeListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<EpisodeDto, BasicSortBy>>
@@ -22,17 +22,15 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
         #endregion
     }
 
+    [Route("/episodes/{id}/sessions", "GET")]
+    public class EpisodeSessionListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<SessionDto, BasicSortBy>>
+    {
+    }
+
+
     [Route("/episodes", "POST")]
     public class CreateEpisodeRequest : EpisodeDto, IReturn<ApiResponse<EpisodeDto>>
     {
-        #region Properties
-
-        public int ClinicTherapistId { get; set; }
-
-        public int ClinicPatientId { get; set; }
-
-        #endregion
-
     }
 
     [Route("/episodes/{id}", "PUT")]

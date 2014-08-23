@@ -155,6 +155,10 @@
     <Compile Include="Migrations\201408220442356_Episodes.Designer.cs">
       <DependentUpon>201408220442356_Episodes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408230411222_SessionType.cs" />
+    <Compile Include="Migrations\201408230411222_SessionType.Designer.cs">
+      <DependentUpon>201408230411222_SessionType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
     <Compile Include="UnitOfWork\LookupUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ResearchUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\SessionUnitOfWork.cs" />
     <Compile Include="UnitOfWork\SkeletonUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UserUnitOfWork.cs" />
   </ItemGroup>
@@ -247,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201408220442356_Episodes.resx">
       <DependentUpon>201408220442356_Episodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408230411222_SessionType.resx">
+      <DependentUpon>201408230411222_SessionType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

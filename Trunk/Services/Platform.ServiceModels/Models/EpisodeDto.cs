@@ -18,9 +18,11 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public int PrognosisId { get; set; }
 
-        public int ClinicPatientId { get; set; }
+        public int PatientId { get; set; }
 
-        public int ClinicTherapistId { get; set; }
+        public int TherapistId { get; set; }
+
+        public int ClinicId { get; set; }
 
         #endregion
 

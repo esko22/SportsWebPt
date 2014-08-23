@@ -258,7 +258,9 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<TherapistSharedPlan, TherapistSharedPlanDto>();
             Mapper.CreateMap<TherapistSharedPlanDto, TherapistSharedPlan>();
             Mapper.CreateMap<EpisodeDto, Episode>();
-
+            Mapper.CreateMap<SessionDto, Session>();
+            Mapper.CreateMap<Session, CreateSessionRequest>();
+            Mapper.CreateMap<Episode, CreateEpisodeRequest>();
 
         }
     }

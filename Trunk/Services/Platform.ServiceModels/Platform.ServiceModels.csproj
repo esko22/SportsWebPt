@@ -94,6 +94,7 @@
     <Compile Include="Models\InjurySymptomDto.cs" />
     <Compile Include="Models\PotentialSymptomDto.cs" />
     <Compile Include="Models\PrognosisDto.cs" />
+    <Compile Include="Models\SessionDto.cs" />
     <Compile Include="Models\SignDto.cs" />
     <Compile Include="Models\FilterDto.cs" />
     <Compile Include="Models\SymptomaticBodyPartDto.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Operations\PatientRequests.cs" />
     <Compile Include="Operations\PotentialSymptomListRequest.cs" />
     <Compile Include="Operations\PrognosisRequests.cs" />
+    <Compile Include="Operations\SessionRequests.cs" />
     <Compile Include="Operations\SignRequests.cs" />
     <Compile Include="Operations\SkeletorAreaListRequest.cs" />
     <Compile Include="Operations\SymptomaticRegionListRequest.cs" />

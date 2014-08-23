@@ -126,6 +126,8 @@ namespace SportsWebPt.Platform.ServiceHost
                 .ReusedWithin(ReuseScope.Request);
             container.Register<IClinicUnitOfWork>(c => new ClinicUnitOfWork(c.Resolve<IRepositoryProvider>()))
                 .ReusedWithin(ReuseScope.Request);
+            container.Register<ISessionUnitOfWork>(c => new SessionUnitOfWork(c.Resolve<IRepositoryProvider>()))
+                .ReusedWithin(ReuseScope.Request);
             container.Register<ILookupUnitOfWork>(c => new LookupUnitOfWork(c.Resolve<IRepositoryProvider>()))
                      .ReusedWithin(ReuseScope.Request);
         }

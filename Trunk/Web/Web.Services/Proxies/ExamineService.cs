@@ -67,4 +67,17 @@ namespace SportsWebPt.Platform.Web.Services
             return Mapper.Map<DiagnosisReport>(request.Response);
         }
     }
+
+    public interface IExamineService
+    {
+        IEnumerable<SkeletonArea> GetSkeletonAreas();
+
+        IEnumerable<SymptomaticRegion> GetSymptomaticRegions();
+
+        IEnumerable<PotentialSymptom> GetPotentialSymptoms(int bodyPartMatrixId);
+
+        int SubmitDifferentialDiagnosis(DifferentialDiagnosis symptomResponse);
+
+        DiagnosisReport GetDiagnosisReport(int differntialDiagnosisId);
+    }
 }

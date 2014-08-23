@@ -13,6 +13,18 @@ therapistModule.controller('TherapistDashboardController', [
     }
 ]);
 
+therapistModule.controller('TherapistEpisodeController', [
+    '$scope', 'episodeService', '$stateParams',
+    function ($scope, episodeService, $stateParams) {
+
+        $scope.episodeId = $stateParams.episodeId;
+
+        episodeService.get($stateParams.episodeId).$promise.then(function (episode) {
+            $scope.episode = episode;
+        });
+    }
+]);
+
 therapistModule.directive('therapistPlanList', [function () {
     return {
         restrict: 'E',
@@ -218,13 +230,124 @@ therapistModule.directive('therapistEpisodeList', [function () {
         restrict: 'E',
         replace: 'true',
         templateUrl: '/app/therapist/tmpl.therapist.episode.list.htm',
-        controller: 'TherapistEpisodeController'
+        controller: 'TherapistEpisodeListController'
     };
 }]);
 
-therapistModule.controller('TherapistEpisodeController', [
-    '$scope', 'therapistService', '$modal',
-    function ($scope, therapistService, $modal) {
+therapistModule.directive('therapistEpisodeSessionList', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/therapist/tmpl.therapist.episode.session.list.htm',
+        controller: 'TherapistEpisodeSessionListController',
+        scope: {
+            episodeId : '='
+        }
+    };
+}]);
+
+therapistModule.controller('TherapistEpisodeSessionListController', [
+    '$scope', 'episodeService', '$modal',
+    function ($scope, episodeService, $modal) {
+
+        getSessionList();
+
+        $scope.sessionGridOptions = {
+            data: 'sessions',
+            showGroupPanel: true,
+            columnDefs: [
+                { field: 'sessionType', displayName: 'Type' },
+                { field: 'scheduledAt', displayName: 'Scheduled' },
+                { field: 'executed', displayName: 'Executed At' },
+                { field: 'notes', displayName: 'notes' },
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showSession(row.entity)" > View </button>' }]
+        };
+
+        $scope.addSession = function() {
+            var modalInstance = $modal.open({
+                templateUrl: '/app/therapist/tmpl.therapist.session.modal.htm',
+                controller: 'TherapistSessionModalController',
+                resolve: {
+                    episodeId: function () {
+                        return $scope.episodeId;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                getSessionList();
+            });
+        }
+
+        function getSessionList() {
+            episodeService.getSessions($scope.episodeId).$promise.then(function (sessions) {
+                $scope.sessions = sessions;
+            });
+        };
+    }
+]);
+
+
+therapistModule.controller('TherapistSessionModalController', [
+    '$scope', 'sessionService', '$modal', 'episodeId', '$rootScope', 'notifierService', '$modalInstance',
+    function ($scope, sessionService, $modal, episodeId, $rootScope, notifierService, $modalInstance) {
+
+        $scope.session = {};
+
+        $scope.submit = function () {
+            if ($scope.session) {
+                $scope.session.episodeId = episodeId;
+                $scope.session.scheduledWithId = $rootScope.currentUser.id;
+                sessionService.addSession($scope.session).$promise.then(function () {
+                    notifierService.notify('Session Create Success!');
+                    $modalInstance.close();
+                });
+            }
+        }
+    }
+]);
+
+therapistModule.controller('TherapistEpisodeModalController', [
+    '$scope', 'episodeService', '$modal', '$rootScope', 'notifierService', '$modalInstance', 'clinics', 'clinicService',
+    function ($scope, episodeService, $modal, $rootScope, notifierService, $modalInstance, clinics, clinicService) {
+
+        $scope.clinics = clinics;
+        $scope.episode = {};
+        $scope.selectedPatients = [];
+
+        $scope.onClinicChange = function() {
+            clinicService.getClinicPatients($scope.episode.clinic.id).$promise.then(function(patients) {
+                $scope.patients = patients;
+            });
+        }
+
+        $scope.patientGridOptions = {
+            data: 'patients',
+            showGroupPanel: true,
+            selectedItems: $scope.selectedPatients,
+            multiSelect: false,
+            columnDefs: [
+                { field: 'emailAddress', displayName: 'Email' }]
+        };
+
+        $scope.submit = function () {
+            if ($scope.episode) {
+                $scope.episode.clinicId = $scope.episode.clinic.id;
+                $scope.episode.patientId = $scope.selectedPatients[0].id;
+                $scope.episode.therapistId = $rootScope.currentUser.id;
+
+                episodeService.addEpisode($scope.episode).$promise.then(function () {
+                    notifierService.notify('Episode Create Success!');
+                    $modalInstance.close();
+                });
+            }
+        }
+    }
+]);
+
+therapistModule.controller('TherapistEpisodeListController', [
+    '$scope', 'therapistService', '$modal','$state',
+    function ($scope, therapistService, $modal, $state) {
 
         getActiveEpisodeList();
 
@@ -236,27 +359,28 @@ therapistModule.controller('TherapistEpisodeController', [
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedExercise(row.entity)" >Edit</button>' }]
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showEpisode(row.entity)" > View </button>' }]
         };
 
-        $scope.bindSelectedExercise = function (exercise) {
-            //$scope.selectedExercise = exercise;
+        $scope.addEpisode = function() {
+            var modalInstance = $modal.open({
+                templateUrl: '/app/therapist/tmpl.therapist.episode.modal.htm',
+                controller: 'TherapistEpisodeModalController',
+                resolve: {
+                    clinics: function () {
+                        return $scope.clinics;
+                    }
+                }
+            });
 
-            //var modalInstance = $modal.open({
-            //    templateUrl: '/app/admin/exercises/tmpl.exercise.modal.htm',
-            //    controller: 'ExerciseModalController',
-            //    windowClass: 'xx-dialog',
-            //    resolve: {
-            //        selectedExercise: function () {
-            //            return $scope.selectedExercise;
-            //        }
-            //    }
-            //});
+            modalInstance.result.then(function () {
+                getActiveEpisodeList();
+            });
 
-            //modalInstance.result.then(function (exerciseReturned) {
-            //    getExerciseList();
-            //    $scope.selectedExercise = exerciseReturned;
-            //});
+        }
+
+        $scope.showEpisode = function (episode) {
+            $state.go('therapist.episode', { episodeId: episode.id });
         }
 
         function getActiveEpisodeList() {

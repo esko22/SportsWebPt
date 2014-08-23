@@ -24,7 +24,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public Int64 EpisodeId { get; set; }
 
-        public int DifferentialDiagnosisId { get; set; }
+        public int? DifferentialDiagnosisId { get; set; }
+
+        public SessionType SessionType { get; set; }
 
         #endregion
 

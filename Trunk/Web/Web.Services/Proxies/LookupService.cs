@@ -47,4 +47,15 @@ namespace SportsWebPt.Platform.Web.Services
 
         #endregion
     }
+
+    public interface ILookupService
+    {
+        #region Methods
+
+        IEnumerable<Filter> GetSignFilters();
+
+        IEnumerable<Filter> GetCauseFilters();
+
+        #endregion
+    }
 }

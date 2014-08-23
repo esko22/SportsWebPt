@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
@@ -15,6 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public IEpisodeRepo EpisodeRepo { get { return GetRepo<IEpisodeRepo>(); } }
+        public IRepository<Session> SessionRepo { get { return GetStandardRepo<Session>(); } }
 
         #endregion
 
@@ -47,13 +50,24 @@ namespace SportsWebPt.Platform.DataAccess
             return episodes.AsExpandable().Where(predicate);
         }
 
+        public IQueryable<Session> GetEpisodeSessions()
+        {
+            return SessionRepo.GetAll()
+                .Include(p => p.SessionPlans)
+                .Include(p => p.ScheduledWith.User);
+        }
+
+
 
         #endregion
 
     }
 
-    public interface IEpisodeUnitOfWork
+    public interface IEpisodeUnitOfWork :  IBaseUnitOfWork
     {
+        IEpisodeRepo EpisodeRepo { get; }
+
         IQueryable<Episode> GetFilteredEpisodes(int therapistId = 0, int patientId = 0, string state = "");
+        IQueryable<Session> GetEpisodeSessions();
     }
 }

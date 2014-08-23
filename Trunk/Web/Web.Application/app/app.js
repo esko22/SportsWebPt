@@ -358,11 +358,21 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
                 .state('therapist.dashboard',
                 {
-                    url: "/therapist/dashboard",
+                    url: "/therapist",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/therapist/prtl.therapist.dashboard.htm',
                             controller: 'TherapistDashboardController'
+                        }
+                    }
+                })
+                .state('therapist.episode',
+                {
+                    url: "/therapist/episode/:episodeId",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.episode.htm',
+                            controller: 'TherapistEpisodeController'
                         }
                     }
                 })
@@ -406,23 +416,24 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         //https://github.com/angular/angular.js/commit/3a75b1124d062f64093a90b26630938558909e8d
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
-        //$httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
-        //    return {
-        //        'responseError': function(response) {
-        //            if (response.status === 401 || response.status === 403) {
-        //                $location.path('/login');
-        //                return $q.reject(response);
-        //            } else {
-        //                return $q.reject(response);
-        //            }
-        //        }
-        //    };
-        //}]);
+        $httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
+            return {
+                'responseError': function(response) {
+                    if (response.status === 401 || response.status === 403) {
+                        $location.path('/');
+                        return $q.reject(response);
+                    } else {
+                        return $q.reject(response);
+                    }
+                }
+            };
+        }]);
 
         // This is for using $rootScope.$emit and $scope.$on as a global event bus.
         // Creates an $onRootScope method that you can call from a local $scope to bind to events.
         // This will automatically take care of destroying the event binding if the $scope is destroyed.
         // See: http://stackoverflow.com/a/19498009
+
 
         $provide.decorator('$rootScope', [
             '$delegate', function ($delegate) {

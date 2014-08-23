@@ -52,11 +52,13 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             therapistSharedExercises: '/data/therapists/:id/sharedexercises',
             patients: '/data/patients/:id',
             patientEpisodes: '/data/patients/:id/episodes',
-            episodes: '/data/episodes',
+            episodes: '/data/episodes/:id',
+            episodeSessions: '/data/episodes/:id/sessions',
             clinic: '/data/clinics/:id',
             clinicTherapists: '/data/clinics/:id/therapists',
             clinicPatients: '/data/clinics/:id/patients',
-            managedClinics: '/data/clinics/managers/:id'
+            managedClinics: '/data/clinics/managers/:id',
+            sessions: '/data/sessions/:id'
 };
 
 

@@ -4,6 +4,7 @@ using AutoMapper;
 
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.ServiceModels;
+using SportsWebPt.Platform.ServiceModels.Operations;
 
 namespace SportsWebPt.Platform.ServiceImpl
 {
@@ -662,6 +663,10 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.PatientEmail, opt => opt.MapFrom(s => s.Patient.EmailAddress))
                 .ForMember(d => d.Clinic, opt => opt.MapFrom(s => s.Clinic.Name))
                 .ForMember(d => d.TherapistEmail, opt => opt.MapFrom(s => s.Therapist.User.EmailAddress));
+
+            Mapper.CreateMap<Session, SessionDto>();
+            Mapper.CreateMap<CreateSessionRequest, Session>();
+            Mapper.CreateMap<CreateEpisodeRequest, Episode>();
 
             #endregion
 
