@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
+using ServiceStack.Redis;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
@@ -25,6 +27,30 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNegativeOrZero(request.ScheduledWithId, "Scheduled With Id");
 
             var session = SessionUnitOfWork.AddSession(Mapper.Map<Session>(request));
+
+            return Ok(new ApiResponse<SessionDto>() { Response = Mapper.Map<SessionDto>(session) });
+        }
+
+        public object Post(CreateSessionPlanRequest request)
+        {
+            Check.Argument.IsNotNull(request, "Session Cannot Be Null");
+            Check.Argument.IsNotEmpty(request.PlanIds, "Plan Ids");
+
+            SessionUnitOfWork.AddSessionPlans(request.Id, request.PlanIds);
+
+            return Ok();
+        }
+
+
+        public object Get(SessionRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsLong, "SessionId");
+
+            var session =
+                SessionUnitOfWork.SessionRepo.GetSessionDetails().SingleOrDefault(p => p.Id == request.IdAsLong);
+
+            if (session == null)
+                NotFound("Session Not Found");
 
             return Ok(new ApiResponse<SessionDto>() { Response = Mapper.Map<SessionDto>(session) });
         }

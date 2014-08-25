@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Web.Core
 {
@@ -23,6 +24,10 @@ namespace SportsWebPt.Platform.Web.Core
         public int differentialDiagnosisId { get; set; }
 
         public string sessionType { get; set; }
+
+        public IEnumerable<Plan> plans { get; set; }
+
+        public DifferentialDiagnosis diagnosis { get; set; }
 
         #endregion
     }

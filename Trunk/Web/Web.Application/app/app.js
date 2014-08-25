@@ -376,6 +376,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     }
                 })
+                .state('therapist.session',
+                {
+                    url: "/therapist/session/:sessionId",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.session.htm',
+                            controller: 'TherapistSessionController'
+                        }
+                    }
+                })
                 .state('clinic',
                 {
                     abstract: true,

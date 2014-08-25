@@ -4,6 +4,7 @@ using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
+using SportsWebPt.Platform.DataAccess.Repositories;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -11,8 +12,9 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IRepository<Session> SessionRepo { get { return GetStandardRepo<Session>(); } }
-        public IRepository<Episode> EpisodeRepo { get { return GetStandardRepo<Episode>(); } } 
+        public ISessionRepo SessionRepo { get { return GetRepo<ISessionRepo>(); } }
+        public IRepository<Episode> EpisodeRepo { get { return GetStandardRepo<Episode>(); } }
+        public IRepository<SessionPlanMatrixItem> SessionPlanMatrixRepo { get { return GetStandardRepo<SessionPlanMatrixItem>();} } 
 
         #endregion
 
@@ -43,13 +45,28 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
 
             return session;
-        } 
+        }
+
+        public void AddSessionPlans(Int64 sessionId, int[] planIds)
+        {
+
+            foreach (int planId in planIds)
+            {
+                SessionPlanMatrixRepo.Add(new SessionPlanMatrixItem() { SessionId = sessionId, PlanId = planId, Name = String.Empty} );    
+            }
+
+            Commit();
+        }
+
 
         #endregion
     }
 
     public interface ISessionUnitOfWork : IBaseUnitOfWork
     {
+        ISessionRepo SessionRepo { get; }
+
         Session AddSession(Session session);
+        void AddSessionPlans(Int64 sessionId, int[] planIds);
     }
 }

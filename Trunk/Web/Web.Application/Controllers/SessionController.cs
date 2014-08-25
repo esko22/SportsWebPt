@@ -42,6 +42,22 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return Json(session, JsonRequestBehavior.DenyGet);
         }
 
+        [GET("data/sessions/{sessionId}", IsAbsoluteUrl = true)]
+        public ActionResult GetSession(Int64 sessionId)
+        {
+            return Json(_sessionService.GetSession(sessionId), JsonRequestBehavior.AllowGet);
+        }
+
+        [POST("data/sessions/{sessionId}/plans", IsAbsoluteUrl = true)]
+        public ActionResult AddSessionPlan(Int64 sessionId, int[] planIds)
+        {
+            _sessionService.AddSessionPlans(sessionId,planIds);
+          
+            return Json(null, JsonRequestBehavior.DenyGet);
+        }
+
+
+
         #endregion
     }
 

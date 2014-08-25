@@ -14,9 +14,21 @@ namespace SportsWebPt.Platform.ServiceModels
     {
     }
 
+    [Route("/sessions/{id}/plans", "POST")]
+    public class CreateSessionPlanRequest : SessionDto, IReturn<ApiResponse<Boolean>>
+    {
+        #region Properties
+
+        public int[] PlanIds { get; set; }
+
+        #endregion
+    }
+
     [Route("/sessions/{id}", "GET")]
     public class SessionRequest : AbstractResourceRequest, IReturn<ApiResponse<SessionDto>>
     {
     }
+
+
 
 }

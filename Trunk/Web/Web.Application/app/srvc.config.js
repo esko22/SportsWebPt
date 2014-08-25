@@ -58,7 +58,8 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             clinicTherapists: '/data/clinics/:id/therapists',
             clinicPatients: '/data/clinics/:id/patients',
             managedClinics: '/data/clinics/managers/:id',
-            sessions: '/data/sessions/:id'
+            sessions: '/data/sessions/:id',
+            sessionPlans: '/data/sessions/:id/plans'
 };
 
 

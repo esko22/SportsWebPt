@@ -247,8 +247,8 @@ therapistModule.directive('therapistEpisodeSessionList', [function () {
 }]);
 
 therapistModule.controller('TherapistEpisodeSessionListController', [
-    '$scope', 'episodeService', '$modal',
-    function ($scope, episodeService, $modal) {
+    '$scope', 'episodeService', '$modal','$state',
+    function ($scope, episodeService, $modal, $state) {
 
         getSessionList();
 
@@ -279,6 +279,10 @@ therapistModule.controller('TherapistEpisodeSessionListController', [
             });
         }
 
+        $scope.showSession = function (session) {
+            $state.go('therapist.session', { sessionId: session.id });
+        }
+
         function getSessionList() {
             episodeService.getSessions($scope.episodeId).$promise.then(function (sessions) {
                 $scope.sessions = sessions;
@@ -303,6 +307,41 @@ therapistModule.controller('TherapistSessionModalController', [
                     $modalInstance.close();
                 });
             }
+        }
+    }
+]);
+
+therapistModule.controller('TherapistSessionPlanModalController', [
+    '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'planAdminService',
+function ($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, planAdminService) {
+
+    $scope.selectedPlans = [];
+    $scope.sessionId = sessionId;
+        getPlanList();
+
+        $scope.planGridOptions = {
+            data: 'plans',
+            selectedItems: $scope.selectedPlans,
+            showGroupPanel: true,
+            columnDefs: [{ field: 'id', displayName: 'Id' },
+                { field: 'routineName', displayName: 'Name' },
+                { field: 'bodyRegions', displayName: 'Body Regions' },
+            { field: 'categories', displayName: 'Category' }]
+        };
+
+        $scope.submit = function () {
+            if ($scope.sessionId > 0) {
+                sessionService.addSessionPlans($scope.sessionId, _.pluck($scope.selectedPlans, 'id')).$promise.then(function () {
+                    notifierService.notify('Session Plans Added!');
+                    $modalInstance.close();
+                });
+            }
+        }
+
+        function getPlanList() {
+            planAdminService.getPlansForTherapist($rootScope.currentUser.id).$promise.then(function (plans) {
+                $scope.plans = plans;
+            });
         }
     }
 ]);
@@ -341,6 +380,39 @@ therapistModule.controller('TherapistEpisodeModalController', [
                     $modalInstance.close();
                 });
             }
+        }
+    }
+]);
+
+therapistModule.controller('TherapistSessionController', [
+    '$scope', 'sessionService', '$stateParams','$modal',
+    function ($scope, sessionService, $stateParams,$modal) {
+
+        $scope.sessionId = $stateParams.sessionId;
+        getSessionDetail();
+
+        $scope.addSessionPlan = function () {
+            var modalInstance = $modal.open({
+                templateUrl: '/app/therapist/tmpl.therapist.session.plan.modal.htm',
+                controller: 'TherapistSessionPlanModalController',
+                resolve: {
+                    sessionId: function () {
+                        return $scope.sessionId;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function () {
+                getSessionDetail();
+            });
+
+        }
+
+
+        function getSessionDetail() {
+            sessionService.get($stateParams.sessionId).$promise.then(function(session) {
+                $scope.session = session;
+            });
         }
     }
 ]);

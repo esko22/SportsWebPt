@@ -170,6 +170,7 @@
     <Compile Include="Repositories\EpisodeRepo.cs" />
     <Compile Include="Repositories\ExerciseRepo.cs" />
     <Compile Include="Repositories\InjuryRepo.cs" />
+    <Compile Include="Repositories\SessionRepo.cs" />
     <Compile Include="Repositories\SkeletonRepo.cs" />
     <Compile Include="Repositories\SymptomMatrixRepo.cs" />
     <Compile Include="Repositories\PlanRepo.cs" />

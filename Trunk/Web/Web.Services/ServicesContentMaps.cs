@@ -71,6 +71,7 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.GivenResponse, opt => opt.MapFrom(s => String.Join(",", s.givenResponse ?? new[] { "0" })));
             Mapper.CreateMap<DifferentialDiagnosis, CreateDiagnosisReportRequest>()
                   .ForMember(d => d.SubmittedFor, opt => opt.MapFrom(s => s.submittedFor));
+            Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>();
             Mapper.CreateMap<DiagnosisReportDto, DiagnosisReport>();
             Mapper.CreateMap<InjurySymptomDto, InjurySymptom>()
                   .ForMember(d => d.bodyPartMatrixItemName, opt => opt.MapFrom(s => s.BodyPartMatrixItemName))
@@ -146,7 +147,11 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
 
             Mapper.CreateMap<PlanDto, Plan>()
-                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
+                  .ForMember(d => d.categories, opt =>
+                  {
+                      opt.Condition(s => s.Categories != null && s.Categories.Any());
+                      opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " ")));
+                  });
             Mapper.CreateMap<Plan, PlanDto>()
                   .Include<Plan, CreatePlanRequest>()
                   .Include<Plan, UpdatePlanRequest>()
@@ -166,7 +171,11 @@ namespace SportsWebPt.Platform.Web.Services
                 .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
 
             Mapper.CreateMap<ExerciseDto, Exercise>()
-                  .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
+                  .ForMember(d => d.categories, opt =>
+                  {
+                      opt.Condition(s => s.Categories != null &&  s.Categories.Any());
+                      opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " ")));
+                  });
             Mapper.CreateMap<Exercise, ExerciseDto>()
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
             Mapper.CreateMap<Exercise, CreateExerciseRequest>()

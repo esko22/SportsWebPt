@@ -1,0 +1,88 @@
+﻿<div class="container" id="therapist-session-page">
+    <h2>Session Detail: </h2>
+    <div class="row">
+        <div class="well col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Type: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.sessionType"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Scheduled At: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.scheduledAt"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Notes: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.notes"></span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-3"><h3>Plans</h3></div>
+        <div class="col-md-3 col-md-offset-6">
+            <button ng-click="addSessionPlan()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i>  Add Plan</button>
+        </div>
+    </div>
+    <div ng-repeat="plan in session.plans" class="push-down-md">
+        <h4 ng-bind="plan.routineName"></h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                    <th>Per Week</th>
+                    <th>Per Day</th>
+                    <th>Hold</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="exercise in plan.exercises">
+                <tr>
+                    <td ng-bind="exercise.name"></td>
+                    <td ng-bind="exercise.sets"></td>
+                    <td ng-bind="exercise.repititions"></td>
+                    <td ng-bind="exercise.perWeek"></td>
+                    <td ng-bind="exercise.perDay"></td>
+                    <td>
+                        <span ng-bind="exercise.holdFor"></span>
+                        <span ng-bind="exercise.holdType"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <h3>Diagnosis</h3>
+    <div class="push-down-md">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Body Part</th>
+                    <th>Name</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="symptomDetail in session.diagnosis.symptomDetails">
+                <tr>
+                    <td ng-bind="symptomDetail.bodyPart"></td>
+                    <td ng-bind="symptomDetail.name"></td>
+                    <td ng-bind="symptomDetail.givenResponse[0]"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

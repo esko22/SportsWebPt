@@ -37,11 +37,26 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response.Id;
         }
 
+        public Session GetSession(Int64 sessionId)
+        {
+            var request = GetSync(new SessionRequest { Id = sessionId.ToString() });
+
+            return Mapper.Map<Session>(request.Response);
+        }
+
+        public void AddSessionPlans(Int64 sessionId, int[] planIds)
+        {
+            PostSync(new CreateSessionPlanRequest {Id = sessionId, PlanIds = planIds});
+        }
+
+
         #endregion
     }
 
     public interface ISessionService
     {
         Int64 AddSession(Session session);
+        Session GetSession(Int64 sessionId);
+        void AddSessionPlans(Int64 sessionId, int[] planIds);
     }
 }

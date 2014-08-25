@@ -24,6 +24,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public SessionTypeDto SessionType { get; set; }
 
+        public PlanDto[] Plans { get; set; }
+
+        public DifferentialDiagnosisDto Diagnosis { get; set; }
+
         #endregion
     }
 
