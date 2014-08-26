@@ -1,0 +1,43 @@
+﻿<div class="container" id="therapist-session-page">
+    <h2>Session Detail: </h2>
+    <div class="row">
+        <div class="well col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Type: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.sessionType"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Scheduled At: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.scheduledAt"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Notes: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.notes"></span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-1">
+            <div ng-repeat="plan in session.plans">
+                <a ui-sref="patient.episode.session.plan({ planId : plan.id })">{{plan.routineName}}</a>
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div class="core-view-container" ui-view="patient-session-plan-view" autoscroll="false"></div>
+        </div>
+    </div>
+   
+</div>

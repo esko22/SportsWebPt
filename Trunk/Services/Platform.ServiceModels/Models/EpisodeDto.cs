@@ -39,7 +39,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String TherapistEmail { get; set; }
 
-        public String Clinic { get; set; }
+        public ClinicDto Clinic { get; set; }
 
         #endregion
     }

@@ -34,7 +34,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String therapistEmail { get; set; }
 
-        public String clinic { get; set; }
+        public Clinic clinic { get; set; }
 
         #endregion
 

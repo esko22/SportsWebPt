@@ -231,6 +231,8 @@
     <Content Include="app\clinic\tmpl.clinic.therapist.list.htm" />
     <Content Include="app\clinic\tmpl.clinic.patient.list.htm" />
     <Content Include="app\patient\prtl.patient.dashboard.htm" />
+    <Content Include="app\patient\prtl.patient.episode.htm" />
+    <Content Include="app\patient\prtl.patient.session.htm" />
     <Content Include="app\patient\tmpl.patient.episode.list.htm" />
     <Content Include="app\patient\mod.patient.js" />
     <Content Include="app\examine\mod.examine.js" />
@@ -246,6 +248,7 @@
     <Content Include="app\examine\symptoms\tmpl.report.progress.modal.htm" />
     <Content Include="app\examine\symptoms\tmpl.symptom.details.htm" />
     <Content Include="app\examine\symptoms\tmpl.symptom.listing.htm" />
+    <Content Include="app\patient\tmpl.patient.episode.session.list.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\drct.view.medica.js" />
     <Content Include="app\plugins\drct.youtbue.player.js" />

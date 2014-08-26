@@ -1,5 +1,12 @@
 ﻿<div class="row push-down-md">
-    <h3>Therapists</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Therapists</h3>
+        </div>
+        <div class="col-md-6">
+            <button class="button">Add Therapists</button>
+        </div>
+    </div>
     <table class="table table-striped">
         <tr ng-repeat="therapist in therapists">
             <td><a>{{therapist.emailAddress}}</a></td>

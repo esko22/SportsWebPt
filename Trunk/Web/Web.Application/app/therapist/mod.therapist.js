@@ -429,7 +429,7 @@ therapistModule.controller('TherapistEpisodeListController', [
             columnDefs: [
                 { field: 'patientEmail', displayName: 'Patient' },
                 { field: 'name', displayName: 'Name' },
-                { field: 'clinic', displayName: 'Clinic' },
+                { field: 'clinic.name', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created' },
             { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showEpisode(row.entity)" > View </button>' }]
         };

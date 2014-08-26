@@ -16,26 +16,6 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         //AnalyticsProvider.setDomainName('none');
 
             $stateProvider
-                .state('patient',
-                {
-                    abstract: true,
-                    views: {
-                        "core-view": { templateUrl: '/app/prtl.core.htm' }
-                    },
-                    data: {
-                        access: 'access.user'
-                    }
-                })
-                .state('patient.dashboard',
-                {
-                    url: "/patient/dashboard",
-                    views: {
-                        "core-app-view": {
-                            templateUrl: '/app/patient/prtl.patient.dashboard.htm',
-                            controller: 'PatientDashboardController'
-                        }
-                    }
-                })
                 .state('admin',
                 {
                     abstract: true,
@@ -343,6 +323,56 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         "research-app-view": {
                             templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
                             controller: 'InjuryViewController'
+                        }
+                    }
+                })
+                .state('patient',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.user'
+                    }
+                })
+                .state('patient.dashboard',
+                {
+                    url: "/patient",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/patient/prtl.patient.dashboard.htm',
+                            controller: 'PatientDashboardController'
+                        }
+                    }
+                })
+                .state('patient.episode',
+                {
+                    url: "/patient/episode/:episodeId",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/patient/prtl.patient.episode.htm',
+                            controller: 'PatientEpisodeController'
+                        }
+                    }
+                })
+                .state('patient.episode.session',
+                {
+                    url: "/session/:sessionId",
+                    views: {
+                        "patient-session-view": {
+                            templateUrl: '/app/patient/prtl.patient.session.htm',
+                            controller: 'PatientSessionController'
+                        }
+                    }
+                })
+                .state('patient.episode.session.plan',
+                {
+                    url: "/plan/:planId",
+                    views: {
+                        "patient-session-plan-view": {
+                            templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
+                            controller: 'PlanViewController'
                         }
                     }
                 })

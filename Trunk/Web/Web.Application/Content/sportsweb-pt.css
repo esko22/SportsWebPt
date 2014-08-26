@@ -4,6 +4,11 @@
     height: 200px
 }
 
+.smallGridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 500px; 
+    height: 200px
+}
 
 
 #btn-splash-get-started {

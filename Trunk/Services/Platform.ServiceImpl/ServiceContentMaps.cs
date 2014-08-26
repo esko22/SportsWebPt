@@ -675,7 +675,6 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<EpisodeDto, Episode>();
             Mapper.CreateMap<Episode, EpisodeDto>()
                 .ForMember(d => d.PatientEmail, opt => opt.MapFrom(s => s.Patient.EmailAddress))
-                .ForMember(d => d.Clinic, opt => opt.MapFrom(s => s.Clinic.Name))
                 .ForMember(d => d.TherapistEmail, opt => opt.MapFrom(s => s.Therapist.User.EmailAddress));
 
             Mapper.CreateMap<Session, SessionDto>()
