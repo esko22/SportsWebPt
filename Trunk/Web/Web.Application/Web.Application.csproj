@@ -259,6 +259,9 @@
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.jpanel.js" />
     <Content Include="app\prtl.core.htm" />
+    <Content Include="app\registration\mod.registration.js" />
+    <Content Include="app\registration\prtl.registration.therapist.htm" />
+    <Content Include="app\registration\prtl.registration.patient.htm" />
     <Content Include="app\research\exercises\detail\mod.exercise.detail.js" />
     <Content Include="app\research\exercises\detail\tmpl.exercise.description.htm" />
     <Content Include="app\research\exercises\detail\tmpl.exercise.detail.htm" />
@@ -283,6 +286,7 @@
     <Content Include="app\services\episode.service.js" />
     <Content Include="app\services\favorites.service.js" />
     <Content Include="app\services\patient.service.js" />
+    <Content Include="app\services\registration.service.js" />
     <Content Include="app\services\session.service.js" />
     <Content Include="app\services\therapist.service.js" />
     <Content Include="app\services\user.managment.service.js" />
@@ -314,6 +318,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LookupController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TherapistController.cs" />
     <Compile Include="Controllers\UserController.cs" />

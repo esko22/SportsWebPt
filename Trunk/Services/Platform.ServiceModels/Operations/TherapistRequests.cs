@@ -87,4 +87,17 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
 
     }
+
+    [Route("/register/therapist", "PUT")]
+    public class RegisterTherapistRequest : AbstractResourceRequest, IReturn<ApiResponse<TherapistDto>>
+    {
+        #region Properties
+
+        public int RegistrationId { get; set; }
+
+        public UserDto Therapist { get; set; }
+
+        #endregion
+    }
+
 }

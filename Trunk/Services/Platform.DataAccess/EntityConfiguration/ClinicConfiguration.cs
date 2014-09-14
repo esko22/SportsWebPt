@@ -33,6 +33,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.ClinicId).HasColumnName("clinic_id");
             Property(p => p.TherapistId).HasColumnName("therapist_id");
             Property(p => p.UserConfirmed).HasColumnName("user_confirmed");
+            Property(p => p.Pin).HasColumnName("pin").HasMaxLength(50);
             Property(p => p.Id).HasColumnName("clinic_therapist_matrix_item_id");
         }
 
@@ -81,6 +82,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.ClinicId).HasColumnName("clinic_id");
             Property(p => p.UserId).HasColumnName("user_id");
             Property(p => p.UserConfirmed).HasColumnName("user_confirmed");
+            Property(p => p.Pin).HasColumnName("pin").HasMaxLength(50);
             Property(p => p.Id).HasColumnName("clinic_patient_matrix_item_id");
         }
 

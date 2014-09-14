@@ -46,6 +46,7 @@ namespace SportsWebPt.Platform.Web.Application
             return View(new AuthFormViewModel() { oAuthError = TempData["authError"] as string });
         }
 
+
         [GET("OAuth", IsAbsoluteUrl = true)]
         public ActionResult OAuth(string code, string returnUrl, string provider, string error)
         {
@@ -57,22 +58,41 @@ namespace SportsWebPt.Platform.Web.Application
                 return Redirect(String.Format("/logon?ReturnUrl={0}", returnUrl));
             }
 
-
             if (string.IsNullOrEmpty(code))
-            {
-                var authWebServerClient = GetOAuthWebServerClient(provider);
-                var redirectTokens = String.Format("{0}|{1}", returnUrl, provider);
-                var encryptedValue = Convert.ToBase64String(MachineKey.Protect(redirectTokens.ToUtf8ByteArray(), null));
-                Response.Cookies.Add(new HttpCookie(_redirectCookieName)
-                    {
-                        Value = encryptedValue,
-                        Expires = DateTime.Now.AddSeconds(300)
-                    });
-
-                return authWebServerClient.PrepareRequestUserAuthorization().AsActionResult();
-            }
+                return PrepareOAuthrRedirect(returnUrl, provider, 0, String.Empty);
 
             return OAuthCallback();
+        }
+
+        [GET("OAuthReg", IsAbsoluteUrl = true)]
+        public ActionResult OAuthRegistration(string code, string returnUrl, string provider, string error, int? registrationId, string registrationType)
+        {
+            if (!String.IsNullOrWhiteSpace(error))
+            {
+                var redirectTokens = GetRedirectTokens();
+                return Redirect(String.Format("/register/{0}?errId=2", redirectTokens[3]));
+            }
+
+            if (string.IsNullOrEmpty(code))
+                return PrepareOAuthrRedirect(returnUrl, provider, registrationId, registrationType);
+
+            return OAuthCallback();
+        }
+
+
+        private ActionResult PrepareOAuthrRedirect(string returnUrl, string provider, int? registrationId, string registrationType)
+        {
+            var authWebServerClient = GetOAuthWebServerClient(provider);
+            var redirectTokens = String.Format("{0}|{1}|{2}|{3}",
+                new object[] {returnUrl, provider, registrationId, registrationType});
+            var encryptedValue = Convert.ToBase64String(MachineKey.Protect(redirectTokens.ToUtf8ByteArray(), null));
+            Response.Cookies.Add(new HttpCookie(_redirectCookieName)
+            {
+                Value = encryptedValue,
+                Expires = DateTime.Now.AddSeconds(300)
+            });
+
+            return authWebServerClient.PrepareRequestUserAuthorization().AsActionResult();
         }
 
         [GET("Logout", IsAbsoluteUrl = true)]
@@ -129,6 +149,52 @@ namespace SportsWebPt.Platform.Web.Application
             return Redirect("/");
         }
 
+        [POST("/register/{registrationId}/patient")]
+        public ActionResult RegisterPatient(int registrationId, LoginCommand loginCommand)
+        {
+            //TODO: relying on client side validation right now
+            var userId = _userManagementService.RegisterPatient(new User()
+            {
+                emailAddress = loginCommand.signupEmail,
+                userName = loginCommand.username,
+                hash = PasswordHashHelper.CreateHash(loginCommand.signupPassword),
+                provider = "SWPT"
+            }, registrationId);
+
+            if (userId == 0)
+                return Redirect(String.Format("/registration/patient?errId=1"));
+
+            FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+
+            if (Url.IsLocalUrl(loginCommand.returnUrl))
+                return Redirect(loginCommand.returnUrl);
+
+            return Redirect("/");
+        }
+
+        [POST("/register/{registrationId}/therapist")]
+        public ActionResult RegisterTherapist(int registrationId, LoginCommand loginCommand)
+        {
+            //TODO: relying on client side validation right now
+            var userId = _userManagementService.RegisterTherapist(new User()
+            {
+                emailAddress = loginCommand.signupEmail,
+                userName = loginCommand.username,
+                hash = PasswordHashHelper.CreateHash(loginCommand.signupPassword),
+                provider = "SWPT"
+            }, registrationId);
+
+            if (userId == 0)
+                return Redirect(String.Format("/registration/therapist?errId=1"));
+
+            FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+
+            if (Url.IsLocalUrl(loginCommand.returnUrl))
+                return Redirect(loginCommand.returnUrl);
+
+            return Redirect("/");
+        }
+
         [POST("Login", IsAbsoluteUrl = true)]
         public ActionResult LoginSwptAccount(LoginCommand loginCommand)
         {
@@ -168,6 +234,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         private ActionResult OAuthCallback()
         {
+            //HACK: This is a mess
             var redirectTokens = GetRedirectTokens();
             var redirectUri = redirectTokens[0];
             var authWebServerClient = GetOAuthWebServerClient(redirectTokens[1]);
@@ -177,24 +244,8 @@ namespace SportsWebPt.Platform.Web.Application
 
             if (userInfo != null)
             {
-                var existingUser = _userManagementService.GetUser(userInfo.EmailAddress);
-                var userId = existingUser != null ? existingUser.id : 0;
-
-                if (userId > 0)
-                {
-                    if (!existingUser.provider.Equals(redirectTokens[1], StringComparison.OrdinalIgnoreCase))
-                    {
-                        //TODO: Move to resource file
-                        TempData["authError"] =
-                            String.Format(
-                                "The email address used for your {0} account is already being used. Please try another login provider or your SportsWebPt account",
-                                redirectTokens[1]);
-                        return Redirect(String.Format("/logon?ReturnUrl={0}", redirectUri));
-                    }
-                }
-                else
-                    userId =
-                        _userManagementService.AddUser(new User()
+                var registrationId = Convert.ToInt32(redirectTokens[2]);
+                var user = new User()
                             {
                                 emailAddress = userInfo.EmailAddress,
                                 firstName = userInfo.FirstName,
@@ -203,9 +254,41 @@ namespace SportsWebPt.Platform.Web.Application
                                 locale = userInfo.Locale,
                                 provider = userInfo.Provider.ToString(),
                                 providerId = userInfo.ProviderId
-                            });
+                            };
 
-                FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+                if (registrationId == 0)
+                {
+                    var existingUser = _userManagementService.GetUser(userInfo.EmailAddress);
+                    var userId = existingUser != null ? existingUser.id : 0;
+
+                    if (userId > 0)
+                    {
+                        if (!existingUser.provider.Equals(redirectTokens[1], StringComparison.OrdinalIgnoreCase))
+                        {
+                            //TODO: Move to resource file
+                            TempData["authError"] =
+                                String.Format(
+                                    "The email address used for your {0} account is already being used. Please try another login provider or your SportsWebPt account",
+                                    redirectTokens[1]);
+                            return Redirect(String.Format("/logon?ReturnUrl={0}", redirectUri));
+                        }
+                    }
+                    else
+                        userId = _userManagementService.AddUser(user);
+
+                    FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+                }
+                else
+                {
+                    var userId = redirectTokens[3].Equals("patient", StringComparison.OrdinalIgnoreCase)
+                        ? _userManagementService.RegisterPatient(user, registrationId)
+                        : _userManagementService.RegisterTherapist(user, registrationId);
+
+                    if(userId == 0)
+                        return Redirect(String.Format("/registration/{0}?errId=1", redirectTokens[3]));
+
+                    FormsAuthentication.SetAuthCookie(Convert.ToString(userId), false);
+                }
             }
 
             if (Url.IsLocalUrl(redirectUri))

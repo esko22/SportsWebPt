@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
@@ -91,9 +92,31 @@ namespace SportsWebPt.Platform.ServiceImpl
             if (userToAdd.Id == 0)
                 userToAdd = UserUnitOfWork.AddUser(userToAdd);
 
-            ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
+            var token = ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
 
-            return userToAdd;
+            using (var mailClient = new NetSmtpClient())
+            {
+                var mailMessage = new MailMessage();
+                if (!String.IsNullOrWhiteSpace(token))
+                {
+                    mailMessage.Subject = "SportsWebPt Patient Registration";
+                    mailMessage.Body = String.Format("Register here: {0}", token);
+                }
+                else
+                {
+                    mailMessage.Subject = "New Clinic Confirmation Request";
+                    mailMessage.Body = String.Format("Login to SportsWebPt to see your new clinic request");
+                }
+
+                mailMessage.To.Add(new MailAddress(userToAdd.EmailAddress));
+                mailClient.Send(mailMessage);
+            }
+
+            return Ok(new ApiResponse<UserDto>()
+            {
+                Response = Mapper.Map<UserDto>(userToAdd)
+            });
+
         }
 
         public object Post(AddClinicTherapistRequest request)
@@ -110,9 +133,117 @@ namespace SportsWebPt.Platform.ServiceImpl
             if (UserUnitOfWork.GetTherapistById(userToAdd.Id) == null)
                 UserUnitOfWork.AddTherapist(userToAdd);
 
-            ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
+            var token = ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
 
-            return userToAdd;
+            using (var mailClient = new NetSmtpClient())
+            {
+                var mailMessage = new MailMessage();
+                if (!String.IsNullOrWhiteSpace(token))
+                {
+                    mailMessage.Subject = "SportsWebPt Therapist Registration";
+                    mailMessage.Body = String.Format("Register here: {0}", token);
+                }
+                else
+                {
+                    mailMessage.Subject = "New Clinic Confirmation Request";
+                    mailMessage.Body = String.Format("Login to SportsWebPt to see your new clinic request");
+                }
+
+                mailMessage.To.Add(new MailAddress(userToAdd.EmailAddress));
+                mailClient.Send(mailMessage);
+            }
+
+            return Ok(new ApiResponse<UserDto>()
+            {
+                Response = Mapper.Map<UserDto>(userToAdd)
+            });
+        }
+
+
+        public object Get(ValidatePatientRegistrationRequest request)
+        {
+            Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
+            Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
+
+            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin);
+
+            return Ok(new ApiResponse<ClinicPatientDto>()
+            {
+                Response = Mapper.Map<ClinicPatientDto>(clinicPatient)
+            });
+
+        }
+
+        public object Get(ValidateTherapistRegistrationRequest request)
+        {
+            Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
+            Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
+
+            var clinicTherapist = ClinicUnitOfWork.ValidateClinicTherapist(request.EmailAddress, request.Pin);
+
+            return Ok(new ApiResponse<ClinicTherapistDto>()
+            {
+                Response = Mapper.Map<ClinicTherapistDto>(clinicTherapist)
+            });
+
+        }
+
+        public object Put(RegisterPatientRequest request)
+        {
+            var clinicPatient = ClinicUnitOfWork.GetClinicPatients()
+                .SingleOrDefault(p => p.Id == request.RegistrationId);
+
+            var newUser = Mapper.Map<User>(request.User);
+
+            if (clinicPatient != null)
+            {
+                var existingUser = UserUnitOfWork.GetUserByEmail(newUser.EmailAddress);
+
+                if (existingUser != null)
+                {
+                    if (existingUser.EmailAddress != clinicPatient.Patient.EmailAddress)
+                        return Ok(new ApiResponse<UserDto>() {Response = new UserDto() {Id = 0}});
+                }
+                else
+                    existingUser = clinicPatient.Patient;
+
+                newUser = UserUnitOfWork.UpdateUser(newUser, existingUser.Id);
+                ClinicUnitOfWork.SetPatientConfirmation(request.RegistrationId);
+            }
+
+            return Ok(new ApiResponse<UserDto>()
+            {
+                Response = Mapper.Map<UserDto>(newUser)
+            });
+        }
+
+        public object Put(RegisterTherapistRequest request)
+        {
+            var clinicTherapist = ClinicUnitOfWork.GetClinicTherapists()
+                .SingleOrDefault(p => p.Id == request.RegistrationId);
+
+            var newUser = Mapper.Map<User>(request.Therapist);
+
+            if (clinicTherapist != null)
+            {
+                var existingUser = UserUnitOfWork.GetUserByEmail(newUser.EmailAddress);
+
+                if (existingUser != null)
+                {
+                    if (existingUser.EmailAddress != clinicTherapist.Therapist.User.EmailAddress)
+                        return Ok(new ApiResponse<UserDto>() {Response = new UserDto() {Id = 0}});
+                }
+                else
+                    existingUser = clinicTherapist.Therapist.User;
+
+                newUser = UserUnitOfWork.UpdateUser(newUser, existingUser.Id);
+                ClinicUnitOfWork.SetTherapistConfirmation(request.RegistrationId);
+            }
+
+            return Ok(new ApiResponse<UserDto>()
+            {
+                Response = Mapper.Map<UserDto>(newUser)
+            });
         }
 
 

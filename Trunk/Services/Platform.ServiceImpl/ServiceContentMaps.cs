@@ -700,6 +700,14 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             Mapper.CreateMap<Clinic, ClinicDto>();
 
+            Mapper.CreateMap<ClinicPatientMatrixItem, ClinicPatientDto>()
+                .ForMember(d => d.User, opt => opt.MapFrom(s => s.Patient))
+                .ForMember(d => d.Clinic, opt => opt.MapFrom(s => s.Clinic));
+
+            Mapper.CreateMap<ClinicTherapistMatrixItem, ClinicTherapistDto>()
+                .ForMember(d => d.Therapist, opt => opt.MapFrom(s => s.Therapist))
+                .ForMember(d => d.Clinic, opt => opt.MapFrom(s => s.Clinic));
+
             #endregion
 
         }

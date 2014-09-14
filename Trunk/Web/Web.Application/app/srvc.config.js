@@ -59,8 +59,10 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             clinicPatients: '/data/clinics/:id/patients',
             managedClinics: '/data/clinics/managers/:id',
             sessions: '/data/sessions/:id',
-            sessionPlans: '/data/sessions/:id/plans'
-};
+            sessionPlans: '/data/sessions/:id/plans',
+            registerPatient: '/data/registration/patient',
+            registerTherapist: '/data/registration/therapist',
+        };
 
 
         var repetitionRangeValues = [];

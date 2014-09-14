@@ -271,6 +271,9 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Session, CreateSessionRequest>();
             Mapper.CreateMap<Episode, CreateEpisodeRequest>();
 
+            Mapper.CreateMap<ClinicPatientDto, ClinicPatient>();
+            Mapper.CreateMap<ClinicTherapistDto, ClinicTherapist>();
+
         }
     }
 }

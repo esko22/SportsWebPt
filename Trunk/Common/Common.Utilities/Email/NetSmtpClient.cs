@@ -24,5 +24,11 @@ namespace SportsWebPt.Common.Utilities
         {
             get { return client.Host; }
         }
+
+        public void Dispose()
+        {
+            if(client != null)
+                client.Dispose();
+        }
     }
 }

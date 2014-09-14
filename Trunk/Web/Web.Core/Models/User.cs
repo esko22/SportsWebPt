@@ -100,5 +100,34 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
     }
 
+    public class ClinicPatient
+    {
+        #region Properties
+
+        public int id { get; set; }
+
+        public Boolean userConfirmed { get; set; }
+
+        public User user { get; set; }
+
+        public Clinic clinic { get; set; }
+
+        #endregion
+    }
+
+    public class ClinicTherapist
+    {
+        #region Properties
+
+        public int id { get; set; }
+
+        public Boolean userConfirmed { get; set; }
+
+        public Therapist therapist { get; set; }
+
+        public Clinic clinic { get; set; }
+
+        #endregion
+    }
 
 }

@@ -159,9 +159,9 @@
     <Compile Include="Migrations\201408230411222_SessionType.Designer.cs">
       <DependentUpon>201408230411222_SessionType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201409140214284_UserConfirmation.cs" />
-    <Compile Include="Migrations\201409140214284_UserConfirmation.Designer.cs">
-      <DependentUpon>201409140214284_UserConfirmation.cs</DependentUpon>
+    <Compile Include="Migrations\201409141651028_UserConfirmation.cs" />
+    <Compile Include="Migrations\201409141651028_UserConfirmation.Designer.cs">
+      <DependentUpon>201409141651028_UserConfirmation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
@@ -261,8 +261,8 @@
     <EmbeddedResource Include="Migrations\201408230411222_SessionType.resx">
       <DependentUpon>201408230411222_SessionType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409140214284_UserConfirmation.resx">
-      <DependentUpon>201409140214284_UserConfirmation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409141651028_UserConfirmation.resx">
+      <DependentUpon>201409141651028_UserConfirmation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

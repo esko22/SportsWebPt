@@ -65,7 +65,23 @@ namespace SportsWebPt.Platform.DataAccess
             return TherapistRepository.GetById(therapistId);
         }
 
+        public User UpdateUser(User newUser, int originalUserId)
+        {
+            var userInDb =
+                UserRepository.GetById(originalUserId);
 
+            if (userInDb == null)
+                throw new ArgumentNullException("user id", "user id does not exist");
+
+            newUser.Id = originalUserId;
+
+            var userEntry = _context.Entry(userInDb);
+            userEntry.CurrentValues.SetValues(newUser);
+
+            Commit();
+
+            return newUser;
+        }
 
         #endregion
 
@@ -82,6 +98,7 @@ namespace SportsWebPt.Platform.DataAccess
         User GetUserById(int userId);
         User GetUserByEmail(string emailAddress);
         User AddUser(User user);
+        User UpdateUser(User newUser, int originalUserId);
         Therapist AddTherapist(User user);
         Therapist GetTherapistById(int therapistId);
     }

@@ -3,7 +3,7 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
-    'ngGrid', 'therapist.module', 'clinic.module'])
+    'ngGrid', 'therapist.module', 'clinic.module', 'registration.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -413,6 +413,36 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         "core-app-view": {
                             templateUrl: '/app/therapist/prtl.therapist.session.htm',
                             controller: 'TherapistSessionController'
+                        }
+                    }
+                })
+                .state('registration',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.anon'
+                    }
+                })
+                .state('registration.patient',
+                {
+                    url: "/registration/patient?errId",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/registration/prtl.registration.patient.htm',
+                            controller: 'RegistrationPatientController'
+                        }
+                    }
+                })
+                .state('registration.therapist',
+                {
+                    url: "/registration/therapist?errId",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/registration/prtl.registration.therapist.htm',
+                            controller: 'RegistrationTherapistController'
                         }
                     }
                 })

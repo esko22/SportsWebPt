@@ -20,6 +20,7 @@ authDialogModule.directive('signUpDialog', [function () {
     };
 }]);
 
+
 authDialogModule.controller('LoginController', [
     '$scope', 'returnUrlService', '$http', function ($scope, returnUrlService, $http) {
         $scope.showOAuthProvider = returnUrlService.getOAuthUrl;
@@ -33,6 +34,7 @@ authDialogModule.controller('LoginController', [
 authDialogModule.controller('SignupController', [
     '$scope', 'returnUrlService', function ($scope, returnUrlService) {
         $scope.showOAuthProvider = returnUrlService.getOAuthUrl;
+        $scope.actionPath = '/createuser';
 
         $scope.signUp = function () {
             return true;
@@ -80,10 +82,15 @@ authDialogModule.factory("returnUrlService", [
         },
         getOAuthUrl = function (provider) {
             window.location.href = '/oauth?provider=' + provider + '&ReturnUrl=' + getReturnUrl();
+        },
+        getOAuthRegUrl = function (provider, registrationId, registrationType) {
+            window.location.href = '/oauthreg?provider=' + provider + '&ReturnUrl=' + '/' + '&RegistrationId=' + registrationId + '&RegistrationType=' + registrationType;
         };
 
+
         return {
-            getOAuthUrl: getOAuthUrl
+            getOAuthUrl: getOAuthUrl,
+            getOAuthRegUrl: getOAuthRegUrl
         };
     }
 ]);

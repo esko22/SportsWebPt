@@ -6,7 +6,7 @@
         <a class="login-google login-btn" ng-click="showOAuthProvider('google')"><i class="icon-sportswebpt-google-plus login-icon"></i>Sign up using Google</a>
     </div>
     <div class="top-border-header text-center"><strong>or create a SportsWebPt account</strong></div>
-    <form novalidate class="text-center" action="/createuser" rc-submit="signUp()" method="POST" name="signUpForm">
+    <form novalidate class="text-center" action="{{actionPath}}" rc-submit="signUp()" method="POST" name="signUpForm">
         <div class="form-group" ng-class="{'has-error': rc.signUpForm.needsAttention(signUpForm.username)}">
             <div class="input-group">
                 <span class="input-group-addon icon-sportswebpt-user"></span>

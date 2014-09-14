@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public Boolean UserConfirmed { get; set; }
 
+        public String Pin { get; set; }
+
         #endregion
 
         #region Navigation Properties
@@ -62,6 +64,8 @@ namespace SportsWebPt.Platform.Core.Models
         public int UserId { get; set; }
 
         public Boolean UserConfirmed { get; set; }
+
+        public String Pin { get; set; }
 
         #endregion
 

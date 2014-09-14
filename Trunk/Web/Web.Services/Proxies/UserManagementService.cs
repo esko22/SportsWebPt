@@ -7,6 +7,7 @@ using AutoMapper;
 
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
+using SportsWebPt.Platform.ServiceModels.Operations;
 using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services
@@ -71,6 +72,36 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
+        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin)
+        {
+            var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin });
+
+            return request.Response == null ? null : Mapper.Map<ClinicPatient>(request.Response);
+        }
+
+        public ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin)
+        {
+            var request = GetSync(new ValidateTherapistRegistrationRequest () { EmailAddress = emailAddress, Pin = pin });
+
+            return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);
+        }
+
+        public int RegisterPatient(User user, int registrationId)
+        {
+            var request =
+                Put(new RegisterPatientRequest() {RegistrationId = registrationId, User = Mapper.Map<UserDto>(user)});
+
+            return request.Response == null ? 0 : request.Response.Id;
+        }
+
+        public int RegisterTherapist(User therapist, int registrationId)
+        {
+            var request =
+                Put(new RegisterTherapistRequest() { RegistrationId = registrationId, Therapist = Mapper.Map<UserDto>(therapist) });
+
+            return request.Response == null ? 0 : request.Response.Id;
+        }
+
         #endregion
 
     }
@@ -83,6 +114,11 @@ namespace SportsWebPt.Platform.Web.Services
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
 
+        ClinicPatient ValidatePatientRegistration(String emailAddress, String pin);
+        ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin);
+
+        int RegisterPatient(User user, int registrationId);
+        int RegisterTherapist(User user, int registrationId);
     }
 
 

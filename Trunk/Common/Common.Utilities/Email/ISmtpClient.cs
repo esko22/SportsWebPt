@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SportsWebPt.Common.Utilities
 {
-    public interface ISmtpClient
+    public interface ISmtpClient : IDisposable
     {
         void Send(MailMessage message);
         string Host { get; }

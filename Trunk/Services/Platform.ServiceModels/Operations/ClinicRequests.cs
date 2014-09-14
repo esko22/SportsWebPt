@@ -23,6 +23,31 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
         public UserDto User { get; set; }
     }
 
+    [Route("/patients/validate", "GET")]
+    public class ValidatePatientRegistrationRequest : AbstractResourceListRequest, IReturn<ApiResponse<ClinicPatientDto>>
+    {
+        #region Properties
+
+        public String EmailAddress { get; set; }
+
+        public String Pin { get; set; }
+
+        #endregion
+    }
+
+    [Route("/therapists/validate", "GET")]
+    public class ValidateTherapistRegistrationRequest : AbstractResourceListRequest, IReturn<ApiResponse<ClinicTherapistDto>>
+    {
+        #region Properties
+
+        public String EmailAddress { get; set; }
+
+        public String Pin { get; set; }
+
+        #endregion
+
+    }
+
     [Route("/clinics/{id}/therapists", "POST")]
     public class AddClinicTherapistRequest : AbstractResourceListRequest, IReturn<ApiResponse<UserDto>>
     {
@@ -40,4 +65,6 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
     [Route("/clinics/managers/{id}")]
     public class ManagerClinicListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<ClinicDto, BasicSortBy>>
     {}
+
+
 }
