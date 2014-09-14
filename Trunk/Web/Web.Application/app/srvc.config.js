@@ -1,7 +1,7 @@
 ﻿
 swptApp.service('configService', ['$resource', '$location', function ($resource, $location) {
         var apiUris = {
-            users: '/data/users',
+            users: '/data/users/:id',
             favorites: '/data/users/favorites',
             skeletonAreas: '/data/examine/areas',
             symptomaticRegions: '/data/examine/symptomaticregions',

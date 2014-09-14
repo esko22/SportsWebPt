@@ -18,7 +18,20 @@
         getClinicPatients: function (clinicId) {
             var resource = $resource(configService.apiUris.clinicPatients);
             return resource.query({ id: clinicId });
+        },
+        getUserByEmail: function(emailAddress) {
+            var resource = $resource(configService.apiUris.users);
+            return resource.get({ id: emailAddress });
+        },
+        addPatientToClinic: function(clinicId, user) {
+            var resource = $resource(configService.apiUris.clinicPatients);
+            return resource.save({ id: clinicId }, user);
+        },
+        addTherapistToClinic: function(clinicId, therapist) {
+            var resource = $resource(configService.apiUris.clinicTherapists);
+            return resource.save({ id: clinicId }, therapist);
         }
+
     }
 }]);
 

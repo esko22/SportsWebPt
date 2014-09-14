@@ -395,7 +395,7 @@ namespace SportsWebPt.Platform.Web.Admin
                 return false;
 
             var userManagementService = DependencyResolver.Current.GetService<IUserManagementService>();
-            var user = userManagementService.GetUser(Convert.ToInt32(httpContext.User.Identity.Name));
+            var user = userManagementService.GetUser(httpContext.User.Identity.Name);
 
             if(user == null)
                 return false;

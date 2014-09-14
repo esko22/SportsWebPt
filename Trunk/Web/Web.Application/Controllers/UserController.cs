@@ -33,7 +33,7 @@ namespace SportsWebPt.Platform.Web.Application
 
 
         [GET("data/users/{id}")]
-        public ActionResult GetUser(int id)
+        public ActionResult GetUser(String id)
         {
             var user = _userManagementService.GetUser(id);
             return Json(user, JsonRequestBehavior.AllowGet);

@@ -29,16 +29,9 @@ namespace SportsWebPt.Platform.Web.Services
             _sportsWebPtClientSettings = clientSettings;
         }
 
-        public User GetUser(String emailAddress)
+        public User GetUser(String id)
         {
-            var request = GetSync(new UserRequest() { Id = emailAddress });
-
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
-        }
-
-        public User GetUser(int id)
-        {
-            var request = GetSync(new UserRequest() { Id = id.ToString()} );
+            var request = GetSync(new UserRequest() { Id = id} );
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
@@ -84,8 +77,7 @@ namespace SportsWebPt.Platform.Web.Services
 
     public interface IUserManagementService : IDisposable
     {
-        User GetUser(String emailAddress);
-        User GetUser(int id);
+        User GetUser(String id);
         int AddUser(User user);
         User Auth(String emailAddress, String hash);
         void AddFavorite(Favorite favorite, int userId);

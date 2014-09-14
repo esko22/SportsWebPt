@@ -13,9 +13,21 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
     public class ClinicPlanRequest : AbstractResourceRequest, IReturn<ApiResponse<PlanDto>>
     { }
 
-    [Route("/clinics/{id}/patients")]
+    [Route("/clinics/{id}/patients", "GET")]
     public class ClinicPatientListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<UserDto, BasicSortBy>>
     { }
+
+    [Route("/clinics/{id}/patients", "POST")]
+    public class AddClinicPatientRequest : AbstractResourceListRequest, IReturn<ApiResponse<UserDto>>
+    {
+        public UserDto User { get; set; }
+    }
+
+    [Route("/clinics/{id}/therapists", "POST")]
+    public class AddClinicTherapistRequest : AbstractResourceListRequest, IReturn<ApiResponse<UserDto>>
+    {
+        public UserDto Therapist { get; set; }
+    }
 
     [Route("/clinics/{id}/therapists")]
     public class ClinicTherapistListRequest : AbstractResourceListRequest, IReturn<ApiListResponse<TherapistDto, BasicSortBy>>

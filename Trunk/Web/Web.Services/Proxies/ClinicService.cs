@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
+using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
 using SportsWebPt.Platform.Web.Core;
 
@@ -13,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<User> GetClinicPatients(int clinicId);
         IEnumerable<Therapist> GetClinicTherapists(int clinicId);
         Clinic GetClinic(int clinicId);
+        User AddPatientToClinic(int clinicId, User user);
+        User AddTherapistToClinic(int clinicId, User user);
 
     }
 
@@ -64,6 +67,21 @@ namespace SportsWebPt.Platform.Web.Services
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<Therapist>>(request.Response.Items);
         }
+
+        public User AddPatientToClinic(int clinicId, User user)
+        {
+            var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
+
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+        }
+
+        public User AddTherapistToClinic(int clinicId, User user)
+        {
+            var request = PostSync(new AddClinicTherapistRequest { Id = clinicId.ToString(), Therapist = Mapper.Map<UserDto>(user) });
+
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+        }
+
 
 
         #endregion

@@ -51,6 +51,24 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.Patient);
         }
 
+        public void AddPatientToClinic(int clinicId, int userId)
+        {
+            if (!ClinicPatientRepository.GetAll().Any(p => p.ClinicId == clinicId && p.UserId == userId))
+            {
+                ClinicPatientRepository.Add(new ClinicPatientMatrixItem() {ClinicId = clinicId, UserId = userId});
+                Commit();
+            }
+        }
+
+        public void AddTherapistToClinic(int clinicId, int therapistId)
+        {
+            if (!ClinicTherapistRepository.GetAll().Any(p => p.ClinicId == clinicId && p.TherapistId == therapistId))
+            {
+                ClinicTherapistRepository.Add(new ClinicTherapistMatrixItem() { ClinicId = clinicId, TherapistId = therapistId });
+                Commit();
+            }
+        }
+
         #endregion
 
     }
@@ -62,5 +80,7 @@ namespace SportsWebPt.Platform.DataAccess
         IQueryable<ClinicTherapistMatrixItem> GetClinicTherapists();
         IQueryable<ClinicPatientMatrixItem> GetClinicPatients();
 
+        void AddPatientToClinic(int clinicId, int userId);
+        void AddTherapistToClinic(int clinicId, int therapistId);
     }
 }

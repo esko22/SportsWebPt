@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AttributeRouting;
 using AttributeRouting.Web.Mvc;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application.Controllers
@@ -50,11 +51,24 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return Json(_clinicService.GetClinicPatients(clinicId), JsonRequestBehavior.AllowGet);
         }
 
+        [POST("data/clinics/{clinicId}/patients", IsAbsoluteUrl = true)]
+        public ActionResult AddClinicPatient(int clinicId, User user)
+        {
+            return Json(_clinicService.AddPatientToClinic(clinicId,user), JsonRequestBehavior.AllowGet);
+        }
+
         [GET("data/clinics/{clinicId}/therapists", IsAbsoluteUrl = true)]
         public ActionResult GetClinicTherapists(int clinicId)
         {
             return Json(_clinicService.GetClinicTherapists(clinicId), JsonRequestBehavior.AllowGet);
         }
+
+        [POST("data/clinics/{clinicId}/therapists", IsAbsoluteUrl = true)]
+        public ActionResult AddClinicTherapist(int clinicId, User therapist)
+        {
+            return Json(_clinicService.AddTherapistToClinic(clinicId,therapist), JsonRequestBehavior.AllowGet);
+        }
+
 
         #endregion
     }

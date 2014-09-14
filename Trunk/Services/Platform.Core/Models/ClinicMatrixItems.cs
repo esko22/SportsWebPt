@@ -15,6 +15,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int TherapistId { get; set; }
 
+        public Boolean UserConfirmed { get; set; }
+
         #endregion
 
         #region Navigation Properties
@@ -58,6 +60,8 @@ namespace SportsWebPt.Platform.Core.Models
         public int ClinicId { get; set; }
 
         public int UserId { get; set; }
+
+        public Boolean UserConfirmed { get; set; }
 
         #endregion
 

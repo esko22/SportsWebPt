@@ -228,6 +228,8 @@
     <Content Include="app\clinic\mod.clinic.js" />
     <Content Include="app\clinic\prtl.clinic.dashboard.htm" />
     <Content Include="app\clinic\prtl.clinic.manager.htm" />
+    <Content Include="app\clinic\tmpl.clinic.add.therapist.modal.htm" />
+    <Content Include="app\clinic\tmpl.clinic.add.patient.modal.htm" />
     <Content Include="app\clinic\tmpl.clinic.therapist.list.htm" />
     <Content Include="app\clinic\tmpl.clinic.patient.list.htm" />
     <Content Include="app\patient\prtl.patient.dashboard.htm" />

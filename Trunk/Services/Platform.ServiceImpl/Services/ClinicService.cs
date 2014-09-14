@@ -16,6 +16,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         #region Properties
 
         public IClinicUnitOfWork ClinicUnitOfWork { get; set; }
+        public IUserUnitOfWork UserUnitOfWork { get; set; }
 
         #endregion
 
@@ -77,6 +78,41 @@ namespace SportsWebPt.Platform.ServiceImpl
             {
                 Response = Mapper.Map<ClinicDto>(clinic)
             });
+        }
+
+        public object Post(AddClinicPatientRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "ClinicId" );
+            Check.Argument.IsNotNull(request.User, "User cannot be null");
+            Check.Argument.IsNotNullOrEmpty(request.User.EmailAddress, "Email Address cannot be empty");
+
+            var userToAdd = Mapper.Map<User>(request.User);
+
+            if (userToAdd.Id == 0)
+                userToAdd = UserUnitOfWork.AddUser(userToAdd);
+
+            ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
+
+            return userToAdd;
+        }
+
+        public object Post(AddClinicTherapistRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "ClinicId");
+            Check.Argument.IsNotNull(request.Therapist, "Therapist cannot be null");
+            Check.Argument.IsNotNullOrEmpty(request.Therapist.EmailAddress, "Email Address cannot be empty");
+
+            var userToAdd = Mapper.Map<User>(request.Therapist);
+
+            if (userToAdd.Id == 0)
+                userToAdd = UserUnitOfWork.AddUser(userToAdd);
+
+            if (UserUnitOfWork.GetTherapistById(userToAdd.Id) == null)
+                UserUnitOfWork.AddTherapist(userToAdd);
+
+            ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
+
+            return userToAdd;
         }
 
 

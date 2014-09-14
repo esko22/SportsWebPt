@@ -1,5 +1,5 @@
 ﻿swptApp.service('userManagementService', ['$resource', 'configService', '$state', function ($resource, configService, $state) {
-        var resource = $resource(configService.apiUris.users + '/:id', { id: '@id' });
+        var resource = $resource(configService.apiUris.users);
         var user = null;
 
         var getUser = function() {

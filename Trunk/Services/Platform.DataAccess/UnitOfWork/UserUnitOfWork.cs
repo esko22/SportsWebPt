@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<Plan> PlanRepository { get { return GetStandardRepo<Plan>(); } }
         public IRepository<Video> VideoRepository { get { return GetStandardRepo<Video>(); } }
         public IRepository<Exercise> ExerciseRepository { get { return GetStandardRepo<Exercise>(); } }
+        public IRepository<Therapist> TherapistRepository { get { return GetStandardRepo<Therapist>(); } } 
 
         #endregion
 
@@ -51,6 +52,21 @@ namespace SportsWebPt.Platform.DataAccess
             return user;
         }
 
+        public Therapist AddTherapist(User user)
+        {
+            TherapistRepository.Add(new Therapist() { Id = user.Id} );
+            Commit();
+
+            return TherapistRepository.GetById(user.Id);
+        }
+
+        public Therapist GetTherapistById(int therapistId)
+        {
+            return TherapistRepository.GetById(therapistId);
+        }
+
+
+
         #endregion
 
     }
@@ -66,5 +82,7 @@ namespace SportsWebPt.Platform.DataAccess
         User GetUserById(int userId);
         User GetUserByEmail(string emailAddress);
         User AddUser(User user);
+        Therapist AddTherapist(User user);
+        Therapist GetTherapistById(int therapistId);
     }
 }

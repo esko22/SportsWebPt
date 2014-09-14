@@ -59,7 +59,7 @@ namespace SportsWebPt.Platform.Web.Application
         private User GetUser()
         {
             if (HttpContext.User != null && HttpContext.User.Identity.IsAuthenticated)
-                return _userManagementService.GetUser(Convert.ToInt32(HttpContext.User.Identity.Name));
+                return _userManagementService.GetUser(HttpContext.User.Identity.Name);
 
             return new User();
         }

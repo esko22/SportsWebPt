@@ -34,13 +34,89 @@ clinicModule.directive('clinicPatientList', [function () {
     };
 }]);
 
+clinicModule.controller('ClinicAddPatientModalController', [
+    '$scope', 'clinicService', '$modal', 'clinicId', '$rootScope', 'notifierService', '$modalInstance',
+    function ($scope, clinicService, $modal, clinicId, $rootScope, notifierService, $modalInstance) {
+
+        $scope.formData = {};
+
+        $scope.validateUser = function() {
+            $scope.userToAdd = null;
+
+            if ($scope.formData.lookupEmail) {
+                clinicService.getUserByEmail($scope.formData.lookupEmail).$promise.then(function (user) {
+
+                    if (!user.id) {
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, id: 0, firstName: '', lastName: '' }
+                    } else {
+                        $scope.userToAdd = user;
+                    }
+                });
+            }
+        }
+
+        $scope.submit = function () {
+            if ($scope.userToAdd) {
+                clinicService.addPatientToClinic(clinicId, $scope.userToAdd).$promise.then(function () {
+                    notifierService.notify('Patient Added To Clinic!');
+                    $modalInstance.close();
+                });
+            }
+        }
+    }
+]);
+
+clinicModule.controller('ClinicAddTherapistModalController', [
+    '$scope', 'clinicService', '$modal', 'clinicId', '$rootScope', 'notifierService', '$modalInstance',
+    function ($scope, clinicService, $modal, clinicId, $rootScope, notifierService, $modalInstance) {
+
+        $scope.formData = {};
+
+        $scope.validateUser = function () {
+            $scope.userToAdd = null;
+
+            if ($scope.formData.lookupEmail) {
+                clinicService.getUserByEmail($scope.formData.lookupEmail).$promise.then(function (user) {
+
+                    if (!user.id) {
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, id: 0, firstName: '', lastName: '' }
+                    } else {
+                        $scope.userToAdd = user;
+                    }
+                });
+            }
+        }
+
+        $scope.submit = function () {
+            if ($scope.userToAdd) {
+                clinicService.addTherapistToClinic(clinicId, $scope.userToAdd).$promise.then(function () {
+                    notifierService.notify('Therapist Added To Clinic!');
+                    $modalInstance.close();
+                });
+            }
+        }
+    }
+]);
+
 clinicModule.controller('ClniicPatientListController', [
-    '$scope', 'clinicService',
-    function ($scope, clinicService) {
+    '$scope', 'clinicService', '$modal',
+    function ($scope, clinicService, $modal) {
 
         clinicService.getClinicPatients($scope.clinicId).$promise.then(function (patients) {
             $scope.patients = patients;
         });
+
+        $scope.showAddPatientModal = function() {
+            $modal.open({
+                templateUrl: '/app/clinic/tmpl.clinic.add.patient.modal.htm',
+                controller: 'ClinicAddPatientModalController',
+                resolve: {
+                    clinicId: function() {
+                        return $scope.clinicId;
+                    }
+                }
+            });
+        };
     }
 ]);
 
@@ -58,11 +134,24 @@ clinicModule.directive('clinicTherapistList', [function () {
 }]);
 
 clinicModule.controller('ClniicTherapistListController', [
-    '$scope', 'clinicService',
-    function ($scope, clinicService) {
+    '$scope', 'clinicService', '$modal',
+    function ($scope, clinicService, $modal) {
 
         clinicService.getClinicTherapists($scope.clinicId).$promise.then(function (therapists) {
             $scope.therapists = therapists;
         });
+
+        $scope.showAddTherapistModal = function() {
+            $modal.open({
+                templateUrl: '/app/clinic/tmpl.clinic.add.therapist.modal.htm',
+                controller: 'ClinicAddTherapistModalController',
+                size: 'sm',
+                resolve: {
+                    clinicId: function() {
+                        return $scope.clinicId;
+                    }
+                }
+            });
+        };
     }
 ]);
