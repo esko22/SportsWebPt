@@ -293,10 +293,74 @@ therapistModule.controller('TherapistEpisodeSessionListController', [
 
 
 therapistModule.controller('TherapistSessionModalController', [
-    '$scope', 'sessionService', '$modal', 'episodeId', '$rootScope', 'notifierService', '$modalInstance',
-    function ($scope, sessionService, $modal, episodeId, $rootScope, notifierService, $modalInstance) {
+    '$scope', 'sessionService', '$modal', 'episodeId', '$rootScope', 'notifierService', '$modalInstance', '$http','$timeout',
+    function ($scope, sessionService, $modal, episodeId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
 
         $scope.session = {};
+        $scope.gtmData = {}; 
+
+        $scope.launchGTM = function() {
+            var authWindow = window.open('https://api.citrixonline.com/oauth/authorize?client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp', 'gtmAuthWindow', 'width=800, height=600');
+
+            var pollTimer   =   window.setInterval(function () {
+                try {
+                    if (authWindow.document.URL.indexOf('code') != -1) {
+                        window.clearInterval(pollTimer);
+                        var url = authWindow.document.URL;
+                        var responseKey = gup(url, 'code');
+                        authWindow.close();
+
+                        $scope.getAccessToken(responseKey);
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+            }, 500);
+        }
+
+
+
+
+        $scope.getAccessToken = function(responseKey) {
+            $http({ method: 'GET', url: 'https://api.citrixonline.com/oauth/access_token?grant_type=authorization_code&code=' + responseKey + '&client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp' }).
+                success(function (data, status, headers, config) {
+                    $scope.gtmData.access = data;
+
+
+                    $http.defaults.headers.common['Authorization'] = 'OAuth oauth_token=' + data.access_token;
+                    $http.defaults.headers.common['Accept'] = 'application/json';
+                    $http.defaults.headers.common['Content-type'] = 'application/json';
+                    var meeting = {
+                        "subject": "test",
+                        "starttime": "2014-12-01T09:00:00",
+                        "endtime": "2014-12-01T10:00:00",
+                        "passwordrequired": "false",
+                        "conferencecallinfo": "Hybrid",
+                        "timezonekey": "",
+                        "meetingtype": "Scheduled"
+                    }
+
+                    $http.post('https://api.citrixonline.com/G2M/rest/meetings', meeting).success(function(data2) {
+                        $scope.meetingtype = data2;
+                    });
+
+
+                }).
+                error(function(data, status, headers, config) {
+                });
+        };
+
+        //credits: http://www.netlobo.com/url_query_string_javascript.html
+        function gup(url, name) {
+            name = name.replace(/[[]/, "\[").replace(/[]]/, "\]");
+            var regexS = "[\?&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(url);
+            if (results == null)
+                return "";
+            else
+                return results[1];
+        }
 
         $scope.submit = function () {
             if ($scope.session) {
