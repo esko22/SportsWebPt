@@ -69,10 +69,12 @@ planAdminModule.controller('PlanModalController', [
 
         $scope.plan = {};
         if (selectedPlan) {
-            planAdminService.get(selectedPlan.id).$promise.then(function (result) {
+            planAdminService.get(selectedPlan.id).$promise.then(function(result) {
                 $scope.plan = result;
                 setSelectedItems();
             });
+        } else {
+            setSelectedItems();
         }
 
         //lookups

@@ -10,10 +10,12 @@ exerciseAdminModule.controller('ExerciseModalController', [
 
         $scope.exercise = {};
         if (selectedExercise) {
-            exerciseAdminService.get(selectedExercise.id).$promise.then(function (result) {
+            exerciseAdminService.get(selectedExercise.id).$promise.then(function(result) {
                 $scope.exercise = result;
                 setSelectedItems();
             });
+        } else {
+            setSelectedItems();
         }
 
         //lookups
