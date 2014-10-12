@@ -1,0 +1,15 @@
+﻿<div class="row push-down-md">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Patients</h3>
+        </div>
+        <div class="col-md-6">
+            <button class="button" ng-click="showAddPatientModal()">Add Patients</button>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tr ng-repeat="patient in patients">
+            <td><a>{{patient.emailAddress}}</a></td>
+        </tr>
+    </table>
+</div>

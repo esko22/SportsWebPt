@@ -1,0 +1,38 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Create New Session</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="createSessionForm">
+        <div class="form-group">
+            <label class="control-label col-lg-3">Session Type</label>
+            <div class="col-lg-9">
+                <select class="input-sm" name="sessionType"  ng-model="session.sessionType">
+                    <option value="">-- Select Type -- </option>
+                    <option value="Physical">Physical</option>
+                    <option value="Video">Video</option>
+                    <option value="Audio">Audio</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-3">Session Notes</label>
+            <div class="col-lg-9" ng-class="{'has-error': rc.createSessionForm.needsAttention(createSessionForm.sessionNotes)}">
+                <input type="text" class="form-control" name="sessionNotes" ng-model="session.notes" placeholder="Notes" ng-minlength="2" ng-maxlength="10000">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+
+    </form>
+    <div ng-show="session.sessionType === 'Video'">
+        <div>
+            <button class="btn btn-info" ng-click="launchGTM()">Log into GoToMeeting</button>
+        </div>
+    </div>
+
+</div>

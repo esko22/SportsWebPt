@@ -1,0 +1,17 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Filter</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="cause in causes">
+        <tr>
+            <td ng-bind="cause.description"></td>
+            <td ng-bind="cause.category"></td>
+            <td ng-bind="cause.filter.filterCategory"></td>
+            <td><button class="btn-primary" ng-click="bindSelectedCause(cause)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

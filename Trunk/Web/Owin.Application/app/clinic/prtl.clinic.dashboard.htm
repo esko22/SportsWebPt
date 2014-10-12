@@ -1,0 +1,14 @@
+﻿<div class="container">
+    <h2>{{clinic.name}}</h2>
+    <div>
+        <img height="100" ng-src={{clinic.displayImage}} />
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <clinic-patient-list clinic-id="clinicId"></clinic-patient-list>
+        </div>
+        <div class="col-md-6">
+            <clinic-therapist-list clinic-id="clinicId"></clinic-therapist-list>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(VideoListRequest request)
         {
             var responseList = new List<VideoDto>();
-            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll(), responseList);
+            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll().OrderBy(o => o.MedicalName) , responseList);
 
             return
                 Ok(new ApiListResponse<VideoDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

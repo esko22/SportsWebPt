@@ -1,0 +1,41 @@
+﻿<div class="container" ng-show="!isValidated">
+    <div>
+        <span ng-bind="error"></span>
+    </div>
+    <h2>Therapist Registration</h2>
+    <div class="row push-down-lg">
+        <div class="col-md-3">
+            <label> Email Address:</label>
+        </div>
+        <div class="col-md-5">
+            <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label> Registration PIN:</label>
+        </div>
+        <div class="col-md-5">
+            <input type="text" class="form-control" ng-model="registrationDetails.pin" />
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-warning" ng-click="validate()">Start Registration</button>
+    </div>
+</div>
+<div class="container" ng-show="isValidated">
+    <div class="row" ng-show="!isConfirmed">
+        <div class="col-md-6">
+            <h2>{{clinic.name}}</h2>
+            <div>
+                <img height="100" ng-src={{clinic.displayImage}} />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <register-therapist-dialog></register-therapist-dialog>
+        </div>
+    </div>
+    <div ng-show="isConfirmed">
+        <h2>This Pin is already confirmed</h2>
+    </div>
+</div>

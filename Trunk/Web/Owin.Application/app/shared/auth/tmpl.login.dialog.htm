@@ -1,0 +1,30 @@
+﻿<section>
+    <div>
+        <a class="login-facebook login-btn" ng-click="showOAuthProvider('facebook')"><i class="icon-sportswebpt-facebook login-icon"></i>Log in using Facebook</a>
+    </div>
+    <div>
+        <a class="login-google login-btn" ng-click="showOAuthProvider('google')"><i class="icon-sportswebpt-google-plus login-icon"></i>Log in using Google</a>
+    </div>
+    <div class="top-border-header text-center"><strong>or using a SportsWebPT account</strong></div>
+    <form novalidate action="/login" method="post" class="text-center" rc-submit="login()" name="loginForm">
+        <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.userEmail)}">
+            <div class="input-group ">
+                <span class="input-group-addon icon-sportswebpt-envelope"></span>
+                <input class="form-control" type="email" ng-model="user.email" name="userEmail" placeholder="Email Address" required>
+            </div>
+            <span class="help-block" ng-show="loginForm.userEmail.$error.required && rc.loginForm.attempted">Required</span>
+            <span class="help-block" ng-show="loginForm.userEmail.$error.email && rc.loginForm.attempted">Please enter a valid email address</span>
+        </div>
+        <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.userPassword)}">
+            <div class="input-group ">
+                <span class="input-group-addon icon-sportswebpt-suitcase"></span>
+                <input class="form-control" name="userPassword" type="password" ng-model="user.password" placeholder="Password" required>
+            </div>
+            <span class="help-block" ng-show="loginForm.userPassword.$error.required  && rc.loginForm.attempted">Required</span>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-default" type="submit"><span>Log in >></span></button>
+        </div>
+    </form>
+</section>
+

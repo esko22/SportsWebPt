@@ -49,58 +49,58 @@ namespace SportsWebPt.Platform.Web.Application.App_Start
         private static void RegisterServices(IKernel kernel)
         {
 
-            kernel.Bind<IUserManagementService>()
-                  .To<UserManagementService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IUserManagementService>()
+            //      .To<UserManagementService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<IExamineService>()
-                  .To<ExamineService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IExamineService>()
+            //      .To<ExamineService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<IResearchService>()
-                  .To<ResearchService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IResearchService>()
+            //      .To<ResearchService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<IAdminService>()
-                  .To<AdminService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IAdminService>()
+            //      .To<AdminService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<IClinicService>()
-                .To<ClinicService>().InRequestScope()
-                .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IClinicService>()
+            //    .To<ClinicService>().InRequestScope()
+            //    .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<ITherapistService>()
-                .To<TherapistService>().InRequestScope()
-                .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<ITherapistService>()
+            //    .To<TherapistService>().InRequestScope()
+            //    .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<ILookupService>()
-                  .To<LookupService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<ILookupService>()
+            //      .To<LookupService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<IEpisodeService>()
-                  .To<EpisodeService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<IEpisodeService>()
+            //      .To<EpisodeService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<ISessionService>()
-                  .To<SessionService>().InRequestScope()
-                  .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+            //kernel.Bind<ISessionService>()
+            //      .To<SessionService>().InRequestScope()
+            //      .WithConstructorArgument("clientSettings", WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
 
-            kernel.Bind<Func<OAuthProvider, String, AuthWebServerClient>>().ToConstant(
-                new Func<OAuthProvider, String, AuthWebServerClient>((oauthProvider, uri) =>
-                    {
-                        switch (oauthProvider)
-                        {
-                            case OAuthProvider.Facebook:
-                                return new FacebookAuthWebClient(WebPlatformConfigSettings.Instance.FacebookClientKey, WebPlatformConfigSettings.Instance.FacebookClientSecret);
-                            case OAuthProvider.Google:
-                                return new GoogleAuthWebClient(WebPlatformConfigSettings.Instance.GoogleClientKey, WebPlatformConfigSettings.Instance.GoogleClientSecret,uri);
-                            default:
-                                throw new ArgumentException(
-                                    String.Format("{0} OAuth Provider does not have a web client", oauthProvider));
+            //kernel.Bind<Func<OAuthProvider, String, AuthWebServerClient>>().ToConstant(
+            //    new Func<OAuthProvider, String, AuthWebServerClient>((oauthProvider, uri) =>
+            //        {
+            //            switch (oauthProvider)
+            //            {
+            //                case OAuthProvider.Facebook:
+            //                    return new FacebookAuthWebClient(WebPlatformConfigSettings.Instance.FacebookClientKey, WebPlatformConfigSettings.Instance.FacebookClientSecret);
+            //                case OAuthProvider.Google:
+            //                    return new GoogleAuthWebClient(WebPlatformConfigSettings.Instance.GoogleClientKey, WebPlatformConfigSettings.Instance.GoogleClientSecret,uri);
+            //                default:
+            //                    throw new ArgumentException(
+            //                        String.Format("{0} OAuth Provider does not have a web client", oauthProvider));
 
-                        }
-                    })
-                );
+            //            }
+            //        })
+            //    );
 
         }        
     }

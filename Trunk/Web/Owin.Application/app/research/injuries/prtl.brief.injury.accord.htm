@@ -1,0 +1,40 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="injury in filteredInjuries | startFrom:firstItemPosition | limitTo:pageSize">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-medkit"></i>
+                    <span ng-bind-template="{{injury.commonName}} | {{injury.medicalName}}"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </span>
+            </accordion-heading>
+            
+            <div class="well-small">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span ng-bind-html="injury.openingStatement"></span>
+                    </div>
+                </div>
+                <div class="text-right push-down-lg">
+                    <a class="btn btn-primary" ng-href="/#!/research/injuries/{{injury.pageName}}">Learn / Watch More >></a>
+                </div>
+            </div>
+        </accordion-group>
+        <div ng-hide="filteredInjuries.length !== 0">
+            <div class="push-down-lg text-center">
+                <h3>No Results Found</h3>
+            </div>
+            <div class="push-down-md text-center">
+                <h4>Please change your filter selections</h4>
+            </div>
+        </div>
+    </accordion>
+    <div>
+        <div class="pull-right" ng-show="filteredInjuries.length > 0">
+            <pagination page="currentPage" total-items="filteredInjuries.length" items-per-page="pageSize" max-size="5"
+                        on-select-page="onPageChanged(page)">
+            </pagination>
+        </div>
+    </div>
+
+</div>

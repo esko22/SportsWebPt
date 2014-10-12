@@ -1,0 +1,19 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add Session Plan</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="addSessionPlanForm">
+        <div class="gridStyle" ng-grid="planGridOptions"></div>
+        <div>
+            <ul>
+                <li ng-repeat="plan in selectedPlans"><span ng-bind="plan.routineName"></span></li>
+            </ul>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

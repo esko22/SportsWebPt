@@ -1,0 +1,47 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Exercise Publish Detail</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="exerciseForm">
+        <div class="row">
+            <div>
+                <h4 ng-bind="exercise.name"></h4>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Page Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.pageName)}">
+                        <input type="text" class="form-control" name="pageName" ng-model="exercise.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Tags</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.tags)}">
+                        <input type="text" class="form-control" name="tags" ng-model="exercise.tags" placeholder="Tags" ng-minlength="2" ng-maxlength="10000">
+                    </div>
+                </div>
+                <div>
+                    <label class="control-label col-lg-3">Visible</label>
+                    <div class="col-lg-9">
+                        <input type="checkbox" ng-model="exercise.visible" name="exerciseVisibile">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="exerciseForm.pageName.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.pageName.$error.minlength || exerciseForm.pageName.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.tags.$error.minlength || exerciseForm.tags.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Tags must be between 1 and 10000 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

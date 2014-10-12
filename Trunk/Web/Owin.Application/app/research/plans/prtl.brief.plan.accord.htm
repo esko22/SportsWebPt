@@ -1,0 +1,46 @@
+﻿<div>
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="false" ng-repeat="plan in filteredPlans | startFrom:firstItemPosition | limitTo:pageSize">
+            <accordion-heading>
+                <span class="research-accordian-icon">
+                    <i class="icon-sportswebpt-clipboard3"></i>
+                    <span ng-bind="plan.routineName"></span>
+                    <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </span>
+            </accordion-heading>
+
+            <div class="well-small">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5>Description: </h5>
+                        <span ng-bind-html="plan.description"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Categories: </h5>
+                        <div ng-bind="category" ng-repeat="category in plan.categories">
+                            <span ng-bind="category"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right push-down-lg">
+                    <a class="btn btn-primary" ng-href="/research/plans/{{plan.pageName}}">Learn / Watch More >></a>
+                </div>
+            </div>
+        </accordion-group>
+        <div ng-hide="filteredPlans.length !== 0">
+            <div class="push-down-lg text-center">
+                <h3>No Results Found</h3>
+            </div>
+            <div class="push-down-md text-center">
+                <h4>Please change your filter selections</h4>
+            </div>
+        </div>
+    </accordion>
+    <div>
+        <div class="pull-right" ng-show="filteredPlans.length > 0">
+            <pagination page="currentPage" total-items="filteredPlans.length" items-per-page="pageSize" max-size="5"
+                        on-select-page="onPageChanged(page)">
+            </pagination>
+        </div>
+    </div>
+</div>

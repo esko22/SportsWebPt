@@ -680,7 +680,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Mapper.CreateMap<Session, SessionDto>()
                 .ForMember(d => d.Plans, opt =>
                 {
-                    opt.Condition(s => s.SessionPlans.Any());
+                    opt.Condition(s => s.SessionPlans != null && s.SessionPlans.Any());
                     opt.MapFrom(s => s.SessionPlans.Select(p => p.Plan));
                 })
                 .ForMember(d => d.Diagnosis, opt =>
@@ -699,6 +699,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.EmailAddress, opt => opt.MapFrom(s => s.User.EmailAddress));
 
             Mapper.CreateMap<Clinic, ClinicDto>();
+            Mapper.CreateMap<ClinicDto, Clinic>();
 
             Mapper.CreateMap<ClinicPatientMatrixItem, ClinicPatientDto>()
                 .ForMember(d => d.User, opt => opt.MapFrom(s => s.Patient))

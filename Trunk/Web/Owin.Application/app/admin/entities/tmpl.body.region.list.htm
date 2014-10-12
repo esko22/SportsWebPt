@@ -1,0 +1,15 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Region Name</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="bodyRegion in bodyRegions">
+        <tr>
+            <td ng-bind="bodyRegion.name"></td>
+            <td ng-bind="bodyRegion.regionCategory"></td>
+            <td><button class="btn-primary" ng-click="bindSelectedBodyRegion(bodyRegion)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

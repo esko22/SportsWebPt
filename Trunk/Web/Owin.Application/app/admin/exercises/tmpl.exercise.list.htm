@@ -1,0 +1,107 @@
+﻿<table class="table table-striped">
+    <tbody ng-repeat="exercise in exercises">
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Exercise Id: </strong><span ng-bind="exercise.id"></span></label>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <button class="btn-danger" ng-click="bindSelectedExercise(exercise)">Edit</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Name: </strong><span ng-bind="exercise.name"></span></label>
+                    </div>
+                    <div class="col-md-5">
+                        <label><strong>Medical Name: </strong><span ng-bind="exercise.medicalName"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Tags: </strong><span ng-bind="exercise.tags"></span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <label><strong>PageName: </strong><span ng-bind="exercise.pageName"></span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Description:</label><span ng-bind-html="exercise.description"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><strong>Difficulty: </strong><span ng-bind="exercise.difficulty"></span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Category: </strong></label>
+                            <ul>
+                                <li ng-repeat="category in exercise.categories" ng-bind="category"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Videos: </strong></label>
+                            <ul>
+                                <li ng-repeat="video in exercise.videos">{{video.name + '[' + video.id + ']'}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>Equipment: </strong></label>
+                            <ul>
+                                <li ng-repeat="item in exercise.equipment">{{item.commonName + '[' + item.id + ']'}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label><strong>BodyRegions: </strong></label>
+                            <ul data-bind="foreach: bodyRegions">
+                                <li ng-repeat="region in exercise.bodyRegions">{{region.name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Structures: </label> <span ng-bind="exercise.structuresInvolved"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                <th>Sets</th>
+                                <th>Reps</th>
+                                <th>Per Day</th>
+                                <th>Per Week</th>
+                                <th>Hold</th>
+                                <th>Type</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ng-bind="exercise.sets"></td>
+                                        <td ng-bind="exercise.repititions"></td>
+                                        <td ng-bind="exercise.perDay"></td>
+                                        <td ng-bind="exercise.perWeek"></td>
+                                        <td ng-bind="exercise.holdFor"></td>
+                                        <td ng-bind="exercise.holdType"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

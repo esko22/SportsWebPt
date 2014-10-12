@@ -1,0 +1,31 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Common Name</th>
+            <th>Scientific Name</th>
+            <th>Description</th>
+            <th>Primary Areas</th>
+            <th>Secondary Areas</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="bodyPart in bodyParts">
+        <tr>
+            <td ng-bind="bodyPart.commonName"></td>
+            <td ng-bind="bodyPart.scientificName"></td>
+            <td ng-bind="bodyPart.description"></td>
+            <td>
+                <ul>
+                    <li ng-repeat="area in bodyPart.primaryAreas" ng-bind="area.displayName"></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li ng-repeat="area in bodyPart.secondaryAreas" ng-bind="area.displayName"></li>
+                </ul>
+            </td>
+            <td><button class="btn-primary" ng-click="bindSelectedBodyPart(bodyPart)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>
+

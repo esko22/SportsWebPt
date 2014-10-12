@@ -1,0 +1,21 @@
+﻿<div class="row push-down-lg">
+    <!-- sidebar -->
+    <div class="col-md-3 sidebar">
+        <div class="section-menu">
+            <div data-bind="attr: { id: 'plan-exercises-' + id() }">
+                <ul class="nav nav-list">
+                    <li ng-repeat="exercise in exercises track by $index" ng-class="{true: 'active'}[$index === 0]">
+                        <a class="exercise-tab-item" ng-click="onSelectExercise($index)" data-toggle="tab"><span>Exercise {{$index + 1}}</span><small ng-bind="exercise.name"></small></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <exercise-detail></exercise-detail>
+            </div>
+        </div>
+    </div>
+</div>

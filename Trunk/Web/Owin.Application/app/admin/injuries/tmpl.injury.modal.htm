@@ -1,0 +1,208 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add / Edit Injury</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="injuryForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Common Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.commonName)}">
+                        <input type="text" class="form-control" name="commonName" ng-model="injury.commonName" placeholder="Common Name" required ng-minlength="4" ng-maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Medical Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.medicalName)}">
+                        <input type="text" class="form-control" name="medicalName" ng-model="injury.medicalName" placeholder="Medical Name" required ng-minlength="4" ng-maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Opening Statement</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.openingStatement)}">
+                        <textarea class="form-control" name="openingStatement" rows="5" ng-model="injury.openingStatement" kendo-editor k-tools="editorOptions" placeholder="Opening Statement" required ng-minlength="1" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Description</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" ng-model="injury.description" kendo-editor k-tools="editorOptions" placeholder="Description" required ng-minlength="1" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Recovery</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.recovery)}">
+                        <textarea rows="5" class="form-control" name="recovery" ng-model="injury.recovery" kendo-editor k-tools="editorOptions" placeholder="Recovery" required ng-minlength="1" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.pageName)}">Page Name</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="pageName" ng-model="injury.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Tags</label>
+                    <div class="col-lg-9">
+                        <input type="text" name="tags" class="form-control" ng-model="injury.tags" placeholder="Tags">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Animation Tag</label>
+                    <div class="col-lg-9">
+                        <input type="text" name="animationTag" class="form-control" ng-model="injury.animationtag" placeholder="Animation Tag">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Symptoms</label>
+                    <div>
+                        <button class="btn btn-primary" ng-click="addSymptom()" type="button">Add</button>
+                    </div>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Symptom</th>
+                            <th>BodyPart</th>
+                            <th>Response</th>
+                            <th>Red Flag</th>
+                            <th>Action</th>
+                            <th></th>
+                            </thead>
+                            <tbody ng-repeat="injurySymptom in injury.injurySymptoms">
+                                <tr>
+                                    <td>
+                                        <select class="form-control" name="symptom"
+                                                ng-options="symptom.id as (symptom.displayName) for symptom in availableSymptoms" ng-model="injurySymptom.symptomId" ng-change="symptomChanged(injurySymptom)"></select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" name="adminInjuryBodyPart"
+                                                ng-options="item.id as (item.displayName) for item in availableBodyPartMatrix" ng-model="injurySymptom.bodyPartMatrixItemId"></select>
+                                    </td>
+                                    <td>
+                                        <div class="animate-switch-container">
+                                            <small-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.five'" given-response="injurySymptom.givenResponse"></small-scale-slider>
+                                            <medium-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.ten'" given-response="injurySymptom.givenResponse"></medium-scale-slider>
+                                            <duration-list ng-show="injurySymptom.renderTemplate == 'examine.duration.dropdown'" given-response="injurySymptom.givenResponse"></duration-list>
+                                            <feels-like-list ng-show="injurySymptom.renderTemplate == 'examine.feels.multi'" given-response="injurySymptom.givenResponse"></feels-like-list>
+                                            <while-list ng-show="injurySymptom.renderTemplate == 'examine.while.multi'" given-response="injurySymptom.givenResponse"></while-list>
+                                            <boolean-response ng-show="injurySymptom.renderTemplate == 'examine.radio.bool'" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
+                                        </div>
+                                    </td>
+                    <td><input type="checkbox" ng-model="injurySymptom.isRedFlag" name="adminIsRedFlag"></td>
+                    <td><button class="btn btn-primary" ng-click="removeSymptom($index)" type="button">Remove</button></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Causes</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="causes" multiple="multiple" size="8"
+                                ng-options="(cause.description + ' : ' + cause.category) for cause in availableCauses" ng-model="injury.causes"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Signs</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="signs" multiple="multiple" size="8"
+                                ng-options="(sign.description + ' : ' + sign.category) for sign in availableSigns" ng-model="injury.signs"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Plans</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="plans" multiple="multiple" size="8"
+                                ng-options="(plan.routineName + ' [ ' + plan.id + ']') for plan in availablePlans" ng-model="injury.plans"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Treatments</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="treatments" multiple="multiple" size="8" ng-model="injury.treatments"
+                                ng-options="treatment.name for treatment in availableTreatments"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">BodyRegions</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" ng-model="injury.bodyRegions"
+                                ng-options="bodyRegion.name for bodyRegion in availableBodyRegions"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Prognoses</label>
+                    <div>
+                        <button class="btn btn-primary" id="btn-admin-add-prognosis" type="button" ng-click="addPrognosis()">Add</button>
+                    </div>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Prognosis</th>
+                            <th>Duration</th>
+                            <th>Action</th>
+                            <th></th>
+                            </thead>
+                            <tbody ng-repeat="prognosis in injury.injuryPrognoses">
+                                <tr>
+                                    <td>
+                                        <select class="form-control" name="progs"
+                                                ng-options="prognosis.id as (prognosis.name + ' : ' + prognosis.id) for prognosis in availablePrognoses" ng-model="prognosis.prognosisId"></select>
+                                    </td>
+                                    <td><input class="form-control" type="text" name="adminInjuryPrognosisDuration" ng-model="prognosis.duration" /></td>
+                                    <td><button class="btn btn-primary" type="button" ng-click="removePrognosis($index)">Remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="injuryForm.commonName.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Name Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.commonName.$error.minlength || injuryForm.commonName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.medicalName.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Medical Name Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.medicalName.$error.minlength || injuryForm.medicalName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Medical Name must be between 4 and 100 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.description.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.description.$error.minlength || injuryForm.description.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.recovery.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Recovery Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.recovery.$error.minlength || injuryForm.recovery.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Recovery must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.openingStatement.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Opening Statement Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.openingStatement.$error.minlength || injuryForm.openingStatement.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Opening must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="injuryForm.pageName.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.pageName.$error.minlength || injuryForm.pageName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

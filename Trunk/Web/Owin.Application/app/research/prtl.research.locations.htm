@@ -1,0 +1,58 @@
+﻿<div id="research-locate-panel">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <h1 class="title-divider-research-header"><i class="icon-sportswebpt-city-scape1"></i><span> Locate<span class="de-em"></span></span><small>Search for a physical therapy clinic near you.</small></h1>
+        </div>
+    </div>
+    <hr class="examine-report-hr" />
+    <form name="locateClinicForm" novalidate rc-submit="onSearchSubmit()">
+        <div class="row">
+            <div class="col-md-2 form-group" ng-class="{'has-error': rc.locateClinicForm.needsAttention(locateClinicForm.zipcode)}">
+                <input type="text" class="form-control" id="zipcode" name="zipcode" ng-model="zipcode" ng-pattern="/^[0-9]{1,5}$/" placeholder="Zipcode" required>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary" type="submit">Search for Clinics</button>
+            </div>
+        </div>
+        <div>
+            <span class="help-block" ng-show="locateClinicForm.zipcode.$error.required  && rc.locateClinicForm.attempted">Zipcode Required</span>
+            <span class="help-block" ng-show="locateClinicForm.zipcode.$error.pattern  && rc.locateClinicForm.attempted">Not a valid zipcode</span>
+        </div>
+    </form>
+
+    <div ng-show="clinics.length > 0">
+        <h3>Clinics</h3>
+        <table class="table table-striped">
+            <tr ng-repeat="clinic in clinics">
+                <td>
+                    <div>
+                        <h4><span ng-bind="clinic.name"></span></h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <address>
+                                    <table>
+                                        <tr>
+                                            <td><abbr title="Phone"><i class="fa fa-phone"></i></abbr> </td>
+                                            <td><span ng-bind="clinic.display_phone"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><abbr title="Address"><i class="fa fa-home"></i></abbr></td>
+                                            <td><div ng-repeat="addyLine in clinic.location.display_address">{{addyLine}}</div></td>
+                                        </tr>
+                                    </table>
+                                </address>
+                            </div>
+                            <div class="col-md-6">
+                                <div><img ng-src="{{clinic.image_url}}" /></div>
+                                <div><a ng-href="{{clinic.url}}" target="_blank">Listing on Yelp.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div ng-show="clinics.length == 0 && rc.locateClinicForm.attempted">
+        <h4>Your search produced no results. Please try different criteria</h4>
+    </div>
+</div>

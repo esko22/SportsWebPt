@@ -36,13 +36,12 @@ namespace SportsWebPt.Platform.Web.Core
         }
 
         public SportsWebPtClientSettings ServiceStackClientSettings { get; private set; }
-        public String FacebookClientKey { get; private set; }
-        public String FacebookClientSecret { get; private set; }
-        public String GoogleClientKey { get; private set; }
-        public String GoogleClientSecret { get; private set; }
         public Options YelpOptions { get; private set; }
         public String YelpSearchTerm { get; private set; }
         public int SportsWebPtClinicId { get; private set; }
+        public String ClientId { get; private set; }
+        public String AuthorityUri { get; private set; }
+        public String CallbackUri { get; private set; }
 
         #endregion
 
@@ -71,12 +70,13 @@ namespace SportsWebPt.Platform.Web.Core
                 BaseUri = ConfigurationManager.AppSettings["platofrmServiceUri"]
             };
 
-            FacebookClientKey = ConfigurationManager.AppSettings["facebookClientKey"];
-            FacebookClientSecret = ConfigurationManager.AppSettings["facebookClientSecret"];
-            GoogleClientKey = ConfigurationManager.AppSettings["googleClientKey"];
-            GoogleClientSecret = ConfigurationManager.AppSettings["googleClientSecret"];
             SportsWebPtClinicId = int.Parse(ConfigurationManager.AppSettings["sportsWebPtClinicId"]);
             YelpSearchTerm = ConfigurationManager.AppSettings["yelpSearchTerm"];
+
+            ClientId = ConfigurationManager.AppSettings["clientId"];
+            AuthorityUri = ConfigurationManager.AppSettings["authorityUri"];
+            CallbackUri = ConfigurationManager.AppSettings["callbackUri"];
+
 
             YelpOptions = new Options()
             {

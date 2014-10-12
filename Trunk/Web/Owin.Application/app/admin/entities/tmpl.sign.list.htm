@@ -1,0 +1,17 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Filter</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="sign in signs">
+        <tr>
+            <td ng-bind="sign.description"></td>
+            <td ng-bind="sign.category"></td>
+            <td ng-bind="sign.filter.filterCategory"></td>
+            <td><button class="btn-primary" ng-click="bindSelectedSign(sign)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

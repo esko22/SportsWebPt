@@ -1,0 +1,59 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Injury Publish Detail</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="injuryForm">
+        <div class="row">
+            <div>
+                <h4 ng-bind="injury.medicalName"></h4>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Opening Statement</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.openingStatement)}">
+                        <input type="text" class="form-control" name="openingStatement" ng-model="injury.openingStatement" placeholder="Opening Statement" required ng-minlength="10" ng-maxlength="500">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Page Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.pageName)}">
+                        <input type="text" class="form-control" name="pageName" ng-model="injury.pageName" placeholder="Page Name" required ng-minlength="4" ng-maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Tags</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.injuryForm.needsAttention(injuryForm.tags)}">
+                        <input type="text" class="form-control" name="tags" ng-model="injury.tags" placeholder="Tags" ng-minlength="2" ng-maxlength="10000">
+                    </div>
+                </div>
+                <div>
+                    <label class="control-label col-lg-3">Visible</label>
+                    <div class="col-lg-9">
+                        <input type="checkbox" ng-model="injury.visible" name="injuryVisibile">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="injuryForm.pageName.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name Required</span></strong>
+            </div>
+            <div ng-show="injuryForm.openingStatement.$error.required && rc.injuryForm.attempted">
+                <strong><span class="help-block">Opening Statement Required</span></strong>
+            </div>
+            <div ng-show="(injuryForm.pageName.$error.minlength || injuryForm.pageName.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name must be between 4 and 50 characters</span></strong>
+            </div>
+            <div ng-show="(injuryForm.openingStatement.$error.minlength || injuryForm.openingStatement.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Page Name must be between 10 and 500 characters</span></strong>
+            </div>
+            <div ng-show="(injuryForm.tags.$error.minlength || injuryForm.tags.$error.maxlength)  && rc.injuryForm.attempted">
+                <strong><span class="help-block">Tags must be between 1 and 10000 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,157 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add / Edit Plans</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="planForm">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Name</label>
+                    <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.name)}">
+                        <input type="text" class="form-control" name="name" ng-model="plan.routineName" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-2" >Description</label>
+                    <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" ng-model="plan.description" kendo-editor k-tools="editorOptions" placeholder="Description" ng-minlength="2" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Workout Instructions</label>
+                    <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.instructions)}">
+                        <textarea rows="5" class="form-control" name="instructions" ng-model="plan.instructions" kendo-editor k-tools="editorOptions" placeholder="Instructions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Workout Time</label>
+                    <div class="col-lg-9">
+                        <select class="input-sm" name="sets" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="plan.duration">
+                            <option value="">-- Range -- </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Structures Involved</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.planForm.needsAttention(planForm.structuresInvolved)}">
+                        <input type="text" class="form-control" name="structuresInvolved" ng-model="plan.structuresInvolved" placeholder="Structures" ng-minlength="2" ng-maxlength="10000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Animation Tag</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" name="animationTags" ng-model="plan.animationTag" placeholder="Animation Tag">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Category</label>
+                    <div class="col-lg-3" ng-class="{'has-error': rc.planForm.needsAttention(planForm.category)}">
+                        <select class="form-control" name="category" multiple="multiple" size="8"
+                                ng-options="category for category in categories" ng-model="plan.categories" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-2">BodyRegions</label>
+                    <div class="col-lg-3">
+                        <select class="form-control" name="planBodyRegions" multiple="multiple" size="8" ng-model="plan.bodyRegions"
+                                ng-options="bodyRegion.name for bodyRegion in availableBodyRegions"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Exercises</label>
+                    <div>
+                        <button type="button" class="btn btn-primary" ng-click="addExercise()" >Add</button>
+                    </div>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                            <th>Name</th>
+                            <th>Order</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Per Day</th>
+                            <th>Per Week</th>
+                            <th>Hold</th>
+                            <th>Action</th>
+                            </thead>
+                            <tbody ng-repeat="exercise in plan.exercises">
+                                <tr>
+                                    <td>
+                                        <select class="form-control" name="planExercises" ng-model="exercise.exerciseId"
+                                                ng-options="exercise.id as exercise.name for exercise in availableExercises">
+                                            <option value="">-- Select Exercise -- </option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="order" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.order">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="sets" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.sets">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="reps" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.repititions">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="perday" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perDay">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="perweek" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perWeek">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="adminHoldForSeconds" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.holdFor">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="input-sm" name="adminHoldType" ng-options="holdType for holdType in holdTypes" ng-model="exercise.holdType">
+                                            <option value="">--</option>
+                                        </select>
+                                    </td>
+                                    <td><button class="btn btn-primary" ng-click="removeExercise($index)" type="button">Remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="planForm.name.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Name Required</span></strong>
+            </div>
+            <div ng-show="(planForm.name.$error.minlength || planForm.name.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.instructions.$error.minlength || planForm.instructions.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Instructions must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="(planForm.description.$error.minlength || planForm.description.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="planForm.category.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Category Required</span></strong>
+            </div>
+            <div ng-show="(planForm.structuresInvolved.$error.minlength || planForm.structuresInvolved.$error.maxlength)  && rc.planForm.attempted">
+                <strong><span class="help-block">Structures must be between 2 and 10000 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

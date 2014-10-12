@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03EC6330-6A00-43A8-9511-66EE7AAB8195}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SportsWebPt.Platform.Web.Application</RootNamespace>
+    <AssemblyName>Platform.Owin.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Protocol.Extensions">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocol.Extensions.1.0.0\lib\net45\Microsoft.IdentityModel.Protocol.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OpenIdConnect">
+      <HintPath>..\packages\Microsoft.Owin.Security.OpenIdConnect.3.0.0\lib\net45\Microsoft.Owin.Security.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy, Version=0.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.0.23.2\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Owin, Version=0.16.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Hosting.Owin.0.16.0\lib\net40\Nancy.Hosting.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Owin, Version=0.23.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.Owin.0.23.2\lib\net40\Nancy.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.23.2\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.64\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="YelpSharp">
+      <HintPath>..\packages\YelpSharp.1.1.0.0\lib\net4\YelpSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\about\mod.about.js" />
+    <Content Include="app\about\prtl.about.htm" />
+    <Content Include="app\about\prtl.site.map.htm" />
+    <Content Include="app\about\tmpl.contact.htm" />
+    <Content Include="app\about\tmpl.privacy.htm" />
+    <Content Include="app\about\tmpl.team.htm" />
+    <Content Include="app\about\tmpl.terms.htm" />
+    <Content Include="app\about\tmpl.us.htm" />
+    <Content Include="app\admin\entities\mod.body.parts.js" />
+    <Content Include="app\admin\entities\mod.body.region.js" />
+    <Content Include="app\admin\entities\mod.cause.js" />
+    <Content Include="app\admin\entities\mod.equipment.js" />
+    <Content Include="app\admin\entities\mod.prognosis.js" />
+    <Content Include="app\admin\entities\mod.sign.js" />
+    <Content Include="app\admin\entities\mod.treatment.js" />
+    <Content Include="app\admin\entities\mod.video.js" />
+    <Content Include="app\admin\entities\prtl.body.part.htm" />
+    <Content Include="app\admin\entities\prtl.body.region.htm" />
+    <Content Include="app\admin\entities\prtl.cause.htm" />
+    <Content Include="app\admin\entities\prtl.equipment.htm" />
+    <Content Include="app\admin\entities\prtl.prognosis.htm" />
+    <Content Include="app\admin\entities\prtl.sign.htm" />
+    <Content Include="app\admin\entities\prtl.treatment.htm" />
+    <Content Include="app\admin\entities\prtl.video.htm" />
+    <Content Include="app\admin\entities\tmpl.body.part.form.htm" />
+    <Content Include="app\admin\entities\tmpl.body.part.list.htm" />
+    <Content Include="app\admin\entities\tmpl.body.region.form.htm" />
+    <Content Include="app\admin\entities\tmpl.body.region.list.htm" />
+    <Content Include="app\admin\entities\tmpl.cause.form.htm" />
+    <Content Include="app\admin\entities\tmpl.cause.list.htm" />
+    <Content Include="app\admin\entities\tmpl.equipment.form.htm" />
+    <Content Include="app\admin\entities\tmpl.equipment.list.htm" />
+    <Content Include="app\admin\entities\tmpl.prognosis.form.htm" />
+    <Content Include="app\admin\entities\tmpl.prognosis.list.htm" />
+    <Content Include="app\admin\entities\tmpl.sign.form.htm" />
+    <Content Include="app\admin\entities\tmpl.sign.list.htm" />
+    <Content Include="app\admin\entities\tmpl.treatment.form.htm" />
+    <Content Include="app\admin\entities\tmpl.treatment.list.htm" />
+    <Content Include="app\admin\entities\tmpl.video.form.htm" />
+    <Content Include="app\admin\entities\tmpl.video.list.htm" />
+    <Content Include="app\admin\exercises\mod.exercise.js" />
+    <Content Include="app\admin\exercises\prtl.exercise.publish.htm" />
+    <Content Include="app\admin\exercises\tmpl.exercise.list.htm" />
+    <Content Include="app\admin\exercises\tmpl.exercise.modal.htm" />
+    <Content Include="app\admin\exercises\tmpl.exercise.publish.modal.htm" />
+    <Content Include="app\admin\injuries\mod.injury.js" />
+    <Content Include="app\admin\injuries\prtl.injury.htm" />
+    <Content Include="app\admin\injuries\prtl.injury.publish.htm" />
+    <Content Include="app\admin\injuries\tmpl.injury.modal.htm" />
+    <Content Include="app\admin\injuries\tmpl.injury.publish.modal.htm" />
+    <Content Include="app\admin\mod.admin.js" />
+    <Content Include="app\admin\plans\mod.plan.js" />
+    <Content Include="app\admin\plans\prtl.plan.publish.htm" />
+    <Content Include="app\admin\plans\tmpl.plan.modal.htm" />
+    <Content Include="app\admin\plans\tmpl.plan.publish.modal.htm" />
+    <Content Include="app\admin\prtl.admin.dashboard.htm" />
+    <Content Include="app\app.js" />
+    <Content Include="app\clinic\mod.clinic.js" />
+    <Content Include="app\clinic\prtl.clinic.dashboard.htm" />
+    <Content Include="app\clinic\prtl.clinic.manager.htm" />
+    <Content Include="app\clinic\tmpl.clinic.add.patient.modal.htm" />
+    <Content Include="app\clinic\tmpl.clinic.add.therapist.modal.htm" />
+    <Content Include="app\clinic\tmpl.clinic.patient.list.htm" />
+    <Content Include="app\clinic\tmpl.clinic.therapist.list.htm" />
+    <Content Include="app\examine\mod.examine.js" />
+    <Content Include="app\examine\prtl.examine.htm" />
+    <Content Include="app\examine\report\mod.examine.report.js" />
+    <Content Include="app\examine\report\prtl.examine.report.htm" />
+    <Content Include="app\examine\report\tmpl.examine.report.injury.listing.htm" />
+    <Content Include="app\examine\report\tmpl.examine.report.injury.nav.htm" />
+    <Content Include="app\examine\skeleton\mod.examine.skeleton.js" />
+    <Content Include="app\examine\skeleton\prtl.examine.skeleton.htm" />
+    <Content Include="app\examine\symptoms\mod.examine.symptoms.js" />
+    <Content Include="app\examine\symptoms\prtl.examine.symptoms.htm" />
+    <Content Include="app\examine\symptoms\tmpl.report.progress.modal.htm" />
+    <Content Include="app\examine\symptoms\tmpl.symptom.details.htm" />
+    <Content Include="app\examine\symptoms\tmpl.symptom.listing.htm" />
+    <Content Include="app\patient\mod.patient.js" />
+    <Content Include="app\patient\prtl.patient.dashboard.htm" />
+    <Content Include="app\patient\prtl.patient.episode.htm" />
+    <Content Include="app\patient\prtl.patient.session.htm" />
+    <Content Include="app\patient\tmpl.patient.episode.list.htm" />
+    <Content Include="app\patient\tmpl.patient.episode.session.list.htm" />
+    <Content Include="app\plugins\dctc.add.this.toolbox.js" />
+    <Content Include="app\plugins\dctv.clingify.js" />
+    <Content Include="app\plugins\dctv.flex.slider.js" />
+    <Content Include="app\plugins\dctv.jpanel.js" />
+    <Content Include="app\plugins\drct.view.medica.js" />
+    <Content Include="app\plugins\drct.youtbue.player.js" />
+    <Content Include="app\plugins\kendo.cloak.js" />
+    <Content Include="app\plugins\notification.js" />
+    <Content Include="app\prtl.core.htm" />
+    <Content Include="app\registration\mod.registration.js" />
+    <Content Include="app\registration\prtl.registration.patient.htm" />
+    <Content Include="app\registration\prtl.registration.therapist.htm" />
+    <Content Include="app\research\exercises\detail\mod.exercise.detail.js" />
+    <Content Include="app\research\exercises\detail\prtl.exercise.view.htm" />
+    <Content Include="app\research\exercises\detail\tmpl.equipment.list.modal.htm" />
+    <Content Include="app\research\exercises\detail\tmpl.exercise.description.htm" />
+    <Content Include="app\research\exercises\detail\tmpl.exercise.detail.htm" />
+    <Content Include="app\research\exercises\mod.research.exercises.js" />
+    <Content Include="app\research\exercises\prtl.brief.exercise.accord.htm" />
+    <Content Include="app\research\exercises\prtl.research.exercises.htm" />
+    <Content Include="app\research\injuries\detail\mod.injury.detail.js" />
+    <Content Include="app\research\injuries\detail\prtl.injury.view.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.description.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.plan.detail.htm" />
+    <Content Include="app\research\injuries\detail\tmpl.injury.plan.listing.htm" />
+    <Content Include="app\research\injuries\mod.research.injuries.js" />
+    <Content Include="app\research\injuries\prtl.brief.injury.accord.htm" />
+    <Content Include="app\research\injuries\prtl.research.injuries.htm" />
+    <Content Include="app\research\mod.research.js" />
+    <Content Include="app\research\plans\detail\mod.plan.detail.js" />
+    <Content Include="app\research\plans\detail\prtl.plan.view.htm" />
+    <Content Include="app\research\plans\detail\tmpl.plan.description.htm" />
+    <Content Include="app\research\plans\detail\tmpl.plan.exercise.listing.htm" />
+    <Content Include="app\research\plans\mod.research.plans.js" />
+    <Content Include="app\research\plans\prtl.brief.plan.accord.htm" />
+    <Content Include="app\research\plans\prtl.research.plans.htm" />
+    <Content Include="app\research\prtl.research.htm" />
+    <Content Include="app\research\prtl.research.locations.htm" />
+    <Content Include="app\research\prtl.research.nav.htm" />
+    <Content Include="app\research\tmpl.research.nav.bar.htm" />
+    <Content Include="app\services\clinic.service.js" />
+    <Content Include="app\services\episode.service.js" />
+    <Content Include="app\services\favorites.service.js" />
+    <Content Include="app\services\patient.service.js" />
+    <Content Include="app\services\registration.service.js" />
+    <Content Include="app\services\session.service.js" />
+    <Content Include="app\services\therapist.service.js" />
+    <Content Include="app\services\user.managment.service.js" />
+    <Content Include="app\shared\auth\auth.dialogs.js" />
+    <Content Include="app\shared\auth\tmpl.login.dialog.htm" />
+    <Content Include="app\shared\auth\tmpl.login.modal.htm" />
+    <Content Include="app\shared\auth\tmpl.signup.dialog.htm" />
+    <Content Include="app\shared\auth\tmpl.signup.modal.htm" />
+    <Content Include="app\shared\prtl.not.found.htm" />
+    <Content Include="app\shared\shared.ui.js" />
+    <Content Include="app\shared\symptoms\mod.symptom.controls.js" />
+    <Content Include="app\shared\symptoms\tmpl.feels.symptom.htm" />
+    <Content Include="app\shared\symptoms\tmpl.while.symptom.htm" />
+    <Content Include="app\shared\tmpl.master.footer.htm" />
+    <Content Include="app\shared\tmpl.master.header.htm" />
+    <Content Include="app\splash\prtl.splash.htm" />
+    <Content Include="app\srvc.config.js" />
+    <Content Include="app\therapist\mod.therapist.js" />
+    <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
+    <Content Include="app\therapist\prtl.therapist.episode.htm" />
+    <Content Include="app\therapist\prtl.therapist.session.htm" />
+    <Content Include="app\therapist\tmpl.therapist.episode.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.episode.modal.htm" />
+    <Content Include="app\therapist\tmpl.therapist.episode.session.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.exercise.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.plan.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.session.modal.htm" />
+    <Content Include="app\therapist\tmpl.therapist.session.plan.modal.htm" />
+    <Content Include="app\therapist\tmpl.therapist.shard.exercise.modal.htm" />
+    <Content Include="app\therapist\tmpl.therapist.shard.plan.modal.htm" />
+    <Content Include="app\utils\filters\filters.js" />
+    <Content Include="app\utils\util.module.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\icomoon.svg" />
+    <Content Include="Content\fonts\sportswebpt.svg" />
+    <Content Include="Content\icon-fonts-old.css" />
+    <Content Include="Content\icon-fonts.css" />
+    <Content Include="Content\images\comb.png" />
+    <Content Include="Content\images\comb404.gif" />
+    <Content Include="Content\images\jamed.gif" />
+    <Content Include="Content\images\logoFooter.png" />
+    <Content Include="Content\images\logoFooterDark.png" />
+    <Content Include="Content\images\logoHeader.png" />
+    <Content Include="Content\images\logoHeader_small.png" />
+    <Content Include="Content\images\logoMenu.png" />
+    <Content Include="Content\images\non-beta\logoFooter.png" />
+    <Content Include="Content\images\non-beta\logoFooterDark.png" />
+    <Content Include="Content\images\non-beta\logoHeader.png" />
+    <Content Include="Content\images\non-beta\logoHeader_small.png" />
+    <Content Include="Content\images\non-beta\logoMenu.png" />
+    <Content Include="Content\images\skeletor.jpg" />
+    <Content Include="Content\images\skeletorWShades.png" />
+    <Content Include="Content\images\swpt_splash-org.png" />
+    <Content Include="Content\images\swpt_splash.png" />
+    <Content Include="Content\images\swpt_splash_2.png" />
+    <Content Include="Content\images\swpt_splash_3.png" />
+    <Content Include="Content\images\swpt_splash_fade.png" />
+    <Content Include="Content\kendo\blueopal\editor.png" />
+    <Content Include="Content\kendo\blueopal\imagebrowser.png" />
+    <Content Include="Content\kendo\blueopal\loading-image.gif" />
+    <Content Include="Content\kendo\blueopal\loading.gif" />
+    <Content Include="Content\kendo\blueopal\loading_2x.gif" />
+    <Content Include="Content\kendo\blueopal\slider-h.gif" />
+    <Content Include="Content\kendo\blueopal\slider-v.gif" />
+    <Content Include="Content\kendo\blueopal\sprite.png" />
+    <Content Include="Content\kendo\blueopal\sprite_2x.png" />
+    <Content Include="Content\kendo\default\editor.png" />
+    <Content Include="Content\kendo\default\imagebrowser.png" />
+    <Content Include="Content\kendo\default\loading-image.gif" />
+    <Content Include="Content\kendo\default\loading.gif" />
+    <Content Include="Content\kendo\default\loading_2x.gif" />
+    <Content Include="Content\kendo\default\slider-h.gif" />
+    <Content Include="Content\kendo\default\slider-v.gif" />
+    <Content Include="Content\kendo\default\sprite.png" />
+    <Content Include="Content\kendo\default\sprite_2x.png" />
+    <Content Include="Content\kendo\images\back.png" />
+    <Content Include="Content\kendo\images\wp8_icons.png" />
+    <Content Include="Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.default.min.css" />
+    <Content Include="Content\kendo\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\textures\dots1.png" />
+    <Content Include="Content\kendo\textures\dots10.png" />
+    <Content Include="Content\kendo\textures\dots11.png" />
+    <Content Include="Content\kendo\textures\dots12.png" />
+    <Content Include="Content\kendo\textures\dots13.png" />
+    <Content Include="Content\kendo\textures\dots2.png" />
+    <Content Include="Content\kendo\textures\dots3.png" />
+    <Content Include="Content\kendo\textures\dots4.png" />
+    <Content Include="Content\kendo\textures\dots5.png" />
+    <Content Include="Content\kendo\textures\dots6.png" />
+    <Content Include="Content\kendo\textures\dots7.png" />
+    <Content Include="Content\kendo\textures\dots8.png" />
+    <Content Include="Content\kendo\textures\dots9.png" />
+    <Content Include="Content\kendo\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\textures\glass.png" />
+    <Content Include="Content\kendo\textures\highlight.png" />
+    <Content Include="Content\kendo\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\textures\hue.png" />
+    <Content Include="Content\kendo\textures\leather1.png" />
+    <Content Include="Content\kendo\textures\leather2.png" />
+    <Content Include="Content\kendo\textures\noise.png" />
+    <Content Include="Content\kendo\textures\stripe1.png" />
+    <Content Include="Content\kendo\textures\stripe2.png" />
+    <Content Include="Content\kendo\textures\stripe3.png" />
+    <Content Include="Content\kendo\textures\stripe4.png" />
+    <Content Include="Content\kendo\textures\stripe5.png" />
+    <Content Include="Content\kendo\textures\stripe6.png" />
+    <Content Include="Content\kendo\textures\transparency.png" />
+    <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Content\kendo\uniform\editor.png" />
+    <Content Include="Content\kendo\uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\uniform\loading-image.gif" />
+    <Content Include="Content\kendo\uniform\loading.gif" />
+    <Content Include="Content\kendo\uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\uniform\slider-h.gif" />
+    <Content Include="Content\kendo\uniform\slider-v.gif" />
+    <Content Include="Content\kendo\uniform\sprite.png" />
+    <Content Include="Content\kendo\uniform\sprite_2x.png" />
+    <Content Include="Content\ng-grid.css" />
+    <Content Include="Content\sportsweb-pt.css" />
+    <Content Include="Content\theme\css\custom-style.css" />
+    <Content Include="Content\theme\css\font-awesome.css" />
+    <Content Include="Content\theme\css\swpt-colorway.css" />
+    <Content Include="Content\theme\css\theme-style.css" />
+    <Content Include="Content\theme\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\theme\img\bg_diamond.png" />
+    <Content Include="Content\theme\img\bg_divider.png" />
+    <Content Include="Content\theme\img\bg_noise-2.png" />
+    <Content Include="Content\theme\img\bg_noise-5.png" />
+    <Content Include="Content\theme\img\patterns\back_pattern.png" />
+    <Content Include="Content\theme\img\patterns\back_pattern_%402X.png" />
+    <Content Include="Content\theme\img\patterns\cubes.png" />
+    <Content Include="Content\theme\img\patterns\cubes_%402X.png" />
+    <Content Include="Content\theme\img\patterns\lightpaperfibers.png" />
+    <Content Include="Content\theme\img\patterns\lightpaperfibers_%402X.png" />
+    <Content Include="Content\theme\img\patterns\light_wool.png" />
+    <Content Include="Content\theme\img\patterns\light_wool_%402X.png" />
+    <Content Include="Content\theme\img\patterns\p6.png" />
+    <Content Include="Content\theme\img\patterns\p6_%402X.png" />
+    <Content Include="Content\theme\img\patterns\white_wall_hash.png" />
+    <Content Include="Content\theme\img\patterns\white_wall_hash_%402X.png" />
+    <Content Include="Content\theme\img\slides\slide1%402x.png" />
+    <Content Include="Content\theme\img\slides\slide1.png" />
+    <Content Include="Content\theme\img\slides\slide2%402x.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer1%402x.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer1.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer2%402x.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer2.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer3%402x.png" />
+    <Content Include="Content\theme\img\slides\slide2-layer3.png" />
+    <Content Include="Content\theme\img\slides\slide2.png" />
+    <Content Include="Content\theme\js\appstrap.script.js" />
+    <Content Include="Content\theme\plugins\animate\animate.css" />
+    <Content Include="Content\theme\plugins\animate\animate.minp.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounce.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceIn.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceInDown.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceInLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceInRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceInUp.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceOut.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceOutDown.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceOutLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceOutRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\bounceOutUp.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeIn.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInDown.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInDownBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInLeftBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInRightBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInUp.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeInUpBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOut.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutDown.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutDownBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutLeftBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutRightBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutUp.css" />
+    <Content Include="Content\theme\plugins\animate\source\fadeOutUpBig.css" />
+    <Content Include="Content\theme\plugins\animate\source\flash.css" />
+    <Content Include="Content\theme\plugins\animate\source\flip.css" />
+    <Content Include="Content\theme\plugins\animate\source\flipInX.css" />
+    <Content Include="Content\theme\plugins\animate\source\flipInY.css" />
+    <Content Include="Content\theme\plugins\animate\source\flipOutX.css" />
+    <Content Include="Content\theme\plugins\animate\source\flipOutY.css" />
+    <Content Include="Content\theme\plugins\animate\source\hinge.css" />
+    <Content Include="Content\theme\plugins\animate\source\lightSpeedIn.css" />
+    <Content Include="Content\theme\plugins\animate\source\lightSpeedOut.css" />
+    <Content Include="Content\theme\plugins\animate\source\pulse.css" />
+    <Content Include="Content\theme\plugins\animate\source\rollIn.css" />
+    <Content Include="Content\theme\plugins\animate\source\rollOut.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateIn.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateInDownLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateInDownRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateInUpLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateInUpRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateOut.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateOutDownLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateOutDownRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateOutUpLeft.css" />
+    <Content Include="Content\theme\plugins\animate\source\rotateOutUpRight.css" />
+    <Content Include="Content\theme\plugins\animate\source\shake.css" />
+    <Content Include="Content\theme\plugins\animate\source\swing.css" />
+    <Content Include="Content\theme\plugins\animate\source\tada.css" />
+    <Content Include="Content\theme\plugins\animate\source\wiggle.css" />
+    <Content Include="Content\theme\plugins\animate\source\wobble.css" />
+    <Content Include="Content\theme\plugins\clingify\clingify.css" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\.gitattributes" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\index.html" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\scripts\demo.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\scripts\jquery.clingify.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\dist\index.html" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\dist\scripts\cf49e2ca.main.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\dist\scripts\vendor\f7f27360.modernizr.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\dist\styles\cd6c2411.main.css" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\Gruntfile.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\index.html" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\lib\chai.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\lib\expect.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\lib\mocha\mocha.css" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\lib\mocha\mocha.js" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\test\spec\test.js" />
+    <Content Include="Content\theme\plugins\clingify\jquery.clingify.js" />
+    <Content Include="Content\theme\plugins\clingify\jquery.clingify.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\changelog.txt" />
+    <Content Include="Content\theme\plugins\flexslider\demo\basic-carousel.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\carousel-min-max.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\css\demo.css" />
+    <Content Include="Content\theme\plugins\flexslider\demo\dynamic-carousel-min-max.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-medium\svg\1110FC_0.svg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-medium\svg\svg_test.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-regular\svg\11014B_0.svg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-regular\svg\svg_test.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-semibold\svg\index.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-semibold\svg\style_169898.svg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\images\kitchen_adventurer_caramel.jpg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\images\kitchen_adventurer_cheesecake_brownie.jpg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\images\kitchen_adventurer_donut.jpg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\images\kitchen_adventurer_lemon.jpg" />
+    <Content Include="Content\theme\plugins\flexslider\demo\images\logo.png" />
+    <Content Include="Content\theme\plugins\flexslider\demo\index.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\demo.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\demo.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\froogaloop.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\froogaloop.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.easing.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.easing.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.fitvid.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.fitvid.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.mousewheel.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\jquery.mousewheel.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\modernizr.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\modernizr.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushCss.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushCss.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushJScript.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushJScript.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushXml.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shBrushXml.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shCore.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\js\shCore.min.js" />
+    <Content Include="Content\theme\plugins\flexslider\demo\thumbnail-controlnav.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\thumbnail-slider.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\video-wistia.html" />
+    <Content Include="Content\theme\plugins\flexslider\demo\video.html" />
+    <Content Include="Content\theme\plugins\flexslider\flexslider.css" />
+    <Content Include="Content\theme\plugins\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="Content\theme\plugins\flexslider\images\bg_play_pause.png" />
+    <Content Include="Content\theme\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="Content\theme\plugins\flexslider\jquery.flexslider.js" />
+    <Content Include="Content\theme\plugins\html5shiv\.gitattributes" />
+    <Content Include="Content\theme\plugins\html5shiv\build.xml" />
+    <Content Include="Content\theme\plugins\html5shiv\build\compiler.jar" />
+    <Content Include="Content\theme\plugins\html5shiv\dist\html5shiv-printshiv.js" />
+    <Content Include="Content\theme\plugins\html5shiv\dist\html5shiv.js" />
+    <Content Include="Content\theme\plugins\html5shiv\src\html5shiv-printshiv.js" />
+    <Content Include="Content\theme\plugins\html5shiv\src\html5shiv.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\body-crash.jpg" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\iframed-tests.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\inline-mixed-media.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\inline-print-media.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\no-print.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\paramtracer.swf" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\print-styles.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\print.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\data\screen.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\highcharts\area-basic.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\highcharts\highcharts.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\html5shiv.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\iframe.1-1.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\iframe.1-2.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\iframe.1.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\index.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\dashboard.xml" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\iframe.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\test.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\testinit.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\testrunner.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\testsuite.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\data\versioncheck.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\index.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\unit\core.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\unit\manipulation.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\jquery-1.7.1\unit\traversing.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\mixed-test.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\object-test.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\perf.1.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\perf.2.html" />
+    <Content Include="Content\theme\plugins\html5shiv\test\qunit\qunit.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\qunit\qunit.js" />
+    <Content Include="Content\theme\plugins\html5shiv\test\style.all.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\style.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\style.print.css" />
+    <Content Include="Content\theme\plugins\html5shiv\test\unit\tests.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\apple-touch-icon-144x144-precomposed.png" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\apple-touch-icon.png" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\css\style.css" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\examples\jrespond\index.html" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\favicon.ico" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.svg" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\index.html" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\example-jRespond.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\example-jRespond.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\highlight.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\jquery-1.9.0.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\jquery.jpanelmenu.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\jRespond.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\modernizr-2.6.1.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\plugins.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\lib\respond.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\script.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\js\script.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\jquery.jpanelmenu-transform-build.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\jquery.jpanelmenu-transform-build.min.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\jquery.jpanelmenu.js" />
+    <Content Include="Content\theme\plugins\jPanelMenu\jquery.jpanelmenu.min.js" />
+    <Content Include="Content\theme\plugins\jRespond\index.html" />
+    <Content Include="Content\theme\plugins\jRespond\js\jRespond.js" />
+    <Content Include="Content\theme\plugins\jRespond\js\util.js" />
+    <Content Include="Content\theme\plugins\quicksand\jquery-animate-css-rotate-scale.js" />
+    <Content Include="Content\theme\plugins\quicksand\jquery-css-transform.js" />
+    <Content Include="Content\theme\plugins\quicksand\jquery.easing.1.3.js" />
+    <Content Include="Content\theme\plugins\quicksand\jquery.quicksand.js" />
+    <Content Include="Content\theme\plugins\respond\cross-domain\example.html" />
+    <Content Include="Content\theme\plugins\respond\cross-domain\respond-proxy.html" />
+    <Content Include="Content\theme\plugins\respond\cross-domain\respond.proxy.gif" />
+    <Content Include="Content\theme\plugins\respond\cross-domain\respond.proxy.js" />
+    <Content Include="Content\theme\plugins\respond\respond.min.js" />
+    <Content Include="Content\theme\plugins\respond\respond.src.js" />
+    <Content Include="Content\theme\plugins\respond\test\test.css" />
+    <Content Include="Content\theme\plugins\respond\test\test.html" />
+    <Content Include="Content\theme\plugins\respond\test\test2.css" />
+    <Content Include="Content\theme\plugins\respond\test\unit\index.html" />
+    <Content Include="Content\theme\plugins\respond\test\unit\qunit\qunit.css" />
+    <Content Include="Content\theme\plugins\respond\test\unit\qunit\qunit.js" />
+    <Content Include="Content\theme\plugins\respond\test\unit\test.css" />
+    <Content Include="Content\theme\plugins\respond\test\unit\test2.css" />
+    <Content Include="Content\theme\plugins\respond\test\unit\test3.css" />
+    <Content Include="Content\theme\plugins\respond\test\unit\tests.js" />
+    <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.js" />
+    <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.min.js" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
+    <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
+    <Content Include="Scripts\libs\angular-ui\ui-router.js" />
+    <Content Include="Scripts\libs\angular-ui\ui-router.min.js" />
+    <Content Include="Scripts\libs\angular\angular-animate.js" />
+    <Content Include="Scripts\libs\angular\angular-cookies.js" />
+    <Content Include="Scripts\libs\angular\angular-google-analytics.js" />
+    <Content Include="Scripts\libs\angular\angular-loader.js" />
+    <Content Include="Scripts\libs\angular\angular-mocks.js" />
+    <Content Include="Scripts\libs\angular\angular-resource.js" />
+    <Content Include="Scripts\libs\angular\angular-route.js" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.js" />
+    <Content Include="Scripts\libs\angular\angular-scenario.js" />
+    <Content Include="Scripts\libs\angular\angular-touch.js" />
+    <Content Include="Scripts\libs\angular\angular.js" />
+    <Content Include="Scripts\libs\angular\ng-grid.js" />
+    <Content Include="Scripts\libs\bootstrap.js" />
+    <Content Include="Scripts\libs\extentsions\knockout-extensions.js" />
+    <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
+    <Content Include="Scripts\libs\html5shiv.js" />
+    <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\libs\jquery-2.0.3.js" />
+    <Content Include="Scripts\libs\kendo\kendo.web.min.js" />
+    <Content Include="Scripts\libs\modernizr-2.6.2.js" />
+    <Content Include="Scripts\libs\respond.js" />
+    <Content Include="Scripts\libs\respond.min.js" />
+    <Content Include="Scripts\libs\toastr.js" />
+    <Content Include="Scripts\libs\underscore.js" />
+    <Content Include="Scripts\libs\Uri.js" />
+    <None Include="Views\_addThisSDK.cshtml" />
+    <None Include="Views\_masterLayout.cshtml" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ClinicController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\EpisodeController.cs" />
+    <Compile Include="Controllers\ExamineController.cs" />
+    <Compile Include="Controllers\LookupController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\RegistrationController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ResearchController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\SessionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\TherapistController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\UserController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\IndexModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup\PlatformStartup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
+    <Content Include="Content\fonts\sportswebpt.eot" />
+    <Content Include="Content\fonts\sportswebpt.ttf" />
+    <Content Include="Content\fonts\sportswebpt.woff" />
+    <Content Include="Content\images\shades.psd" />
+    <Content Include="Content\images\skeletorWShades.psd" />
+    <Content Include="Content\kendo\images\kendoui.ttf" />
+    <Content Include="Content\kendo\images\kendoui.woff" />
+    <Content Include="Content\theme\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\theme\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\theme\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\theme\fonts\FontAwesome.otf" />
+    <Content Include="Content\theme\plugins\animate\bower.json" />
+    <Content Include="Content\theme\plugins\animate\README.md" />
+    <Content Include="Content\theme\plugins\clingify\clingify.jquery.json" />
+    <Content Include="Content\theme\plugins\clingify\clingify.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\.bowerrc" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\.editorconfig" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\.jshintrc" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\clingify.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\demo.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\partials\_base.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\partials\_clingify.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\partials\_rainbows.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\app\styles\partials\_table.scss" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\bower.json" />
+    <Content Include="Content\theme\plugins\clingify\demo-page\package.json" />
+    <Content Include="Content\theme\plugins\clingify\LICENSE" />
+    <Content Include="Content\theme\plugins\clingify\README.md" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-medium\eot\1110FC_0.eot" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-medium\ttf\1110FC_0.ttf" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-medium\woff\1110FC_0.woff" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-regular\eot\11014B_0.eot" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-regular\ttf\11014B_0.ttf" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-regular\woff\11014B_0.woff" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-semibold\eot\style_169898.eot" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-semibold\ttf\style_169898.ttf" />
+    <Content Include="Content\theme\plugins\flexslider\demo\fonts\webfonts\geo-semibold\woff\style_169898.woff" />
+    <Content Include="Content\theme\plugins\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="Content\theme\plugins\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\theme\plugins\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="Content\theme\plugins\flexslider\README.mdown" />
+    <Content Include="Content\theme\plugins\html5shiv\bower.json" />
+    <Content Include="Content\theme\plugins\html5shiv\composer.json" />
+    <Content Include="Content\theme\plugins\html5shiv\readme.md" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.eot" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.ttf" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\fonts\ss-standard\ss-standard.woff" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\base.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\blackboard.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\style.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_content.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_footer.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_general.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_header.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_jPanelMenu.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_reset.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\docs\sass\_setup.scss" />
+    <Content Include="Content\theme\plugins\jPanelMenu\README.md" />
+    <Content Include="Content\theme\plugins\jRespond\README.md" />
+    <Content Include="Content\theme\plugins\quicksand\CHANGELOG.textile" />
+    <Content Include="Content\theme\plugins\quicksand\README.textile" />
+    <Content Include="Content\theme\plugins\respond\README.md" />
+    <Content Include="Content\theme\plugins\retina\less\retina-1.1.0.less" />
+    <Content Include="Content\theme\plugins\retina\README.md" />
+    <None Include="Views\index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Nancy\Common.Nancy.csproj">
+      <Project>{b2a00b43-287f-419b-b3c8-16fe2a5f3386}</Project>
+      <Name>Common.Nancy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.PreRender\Common.PreRender.csproj">
+      <Project>{ea80d503-3412-421b-bf8c-c4960e04e44d}</Project>
+      <Name>Common.PreRender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.ServiceStack.Base\Common.ServiceStack.Base.csproj">
+      <Project>{c13f4c43-687f-4d3c-970d-9394bb8989e5}</Project>
+      <Name>Common.ServiceStack.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Common.Utilities\Common.Utilities.csproj">
+      <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
+      <Name>Common.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Platform.ServiceModels\Platform.ServiceModels.csproj">
+      <Project>{1afe645d-a08f-4b96-b6d8-d47fffd8486f}</Project>
+      <Name>Platform.ServiceModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Core\Web.Core.csproj">
+      <Project>{6e825362-1bf2-4828-b57d-6a238a8e8df4}</Project>
+      <Name>Web.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Services\Web.Services.csproj">
+      <Project>{80e0d6a5-3d24-409e-8d8d-8011e434af34}</Project>
+      <Name>Web.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\videos\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50084</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8090</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.2\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

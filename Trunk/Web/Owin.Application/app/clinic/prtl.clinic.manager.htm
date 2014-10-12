@@ -1,0 +1,14 @@
+﻿<div class="container" id="user-dashboard-page">
+    <h2>Clinic Manager</h2>
+    <div class="row push-down-md">
+        <div class="well col-md-3">
+            <h3>My Clinics</h3>
+            <table class="table table-striped">
+                <tr ng-repeat="clinic in clinics">
+                    <td><a ui-sref="clinic.dashboard({ clinicId: clinic.id })">{{clinic.name}}</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

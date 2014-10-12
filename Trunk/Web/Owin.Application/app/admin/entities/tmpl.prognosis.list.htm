@@ -1,0 +1,17 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="prognosis in prognoses">
+        <tr>
+            <td ng-bind="prognosis.name"></td>
+            <td ng-bind-html="prognosis.description"></td>
+            <td ng-bind="prognosis.category"></td>
+            <td><button class="btn-primary" ng-click="bindSelectedPrognosis(prognosis)">Edit</button></td>
+        </tr>
+    </tbody>
+</table>

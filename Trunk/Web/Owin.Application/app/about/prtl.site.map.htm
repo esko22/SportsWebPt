@@ -1,0 +1,27 @@
+﻿<div class="container">
+    <h2>Site Content Listing</h2>
+    <div class="well">
+        <h4>Plans</h4>
+        <ul>
+            <li ng-repeat="plan in plans">
+                <a href="/#!/research/plans/{{plan.pageName}}">{{plan.pageName}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="well">
+        <h4>Exercises</h4>
+        <ul>
+            <li ng-repeat="exercise in exercises">
+                <a href="/#!/research/exercises/{{exercise.pageName}}">{{exercise.pageName}}</a>
+            </li>
+        </ul>
+    </div>    
+    <div class="well">
+        <h4>Injuries</h4>
+        <ul>
+            <li ng-repeat="injury in injuries">
+                <a href="/#!/research/injuries/{{injury.pageName}}">{{injury.pageName}}</a>
+            </li>
+        </ul>
+    </div>    
+</div>

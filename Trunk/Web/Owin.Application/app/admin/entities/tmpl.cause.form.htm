@@ -1,0 +1,43 @@
+﻿<form novalidate rc-submit="submit()" name="causeForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-lg-3">Name</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.causeForm.needsAttention(causeForm.description)}">
+            <input type="text" class="form-control" name="description" ng-model="selectedCause.description" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Category</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.causeForm.needsAttention(causeForm.category)}">
+            <select name="category" class="form-control" ng-model="selectedCause.category" ng-options="category for category in categories" required>
+                <option value="">-- choose category --</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Filter</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.causeForm.needsAttention(causeForm.filter)}">
+            <select name="filter" class="form-control" ng-model="selectedCause.filterId" ng-options="filter.id as filter.filterCategory for filter in filters" required>
+                <option value="">-- choose filter --</option>
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <div ng-show="causeForm.description.$error.required && rc.causeForm.attempted">
+            <strong><span class="help-block">Name Required</span></strong>
+        </div>
+        <div ng-show="(causeForm.description.$error.minlength || causeForm.description.$error.maxlength)  && rc.causeForm.attempted">
+            <strong><span class="help-block">Name must be between 4 and 100 characters</span></strong>
+        </div>
+        <div ng-show="causeForm.category.$error.required && rc.causeForm.attempted">
+            <strong><span class="help-block">Category Required</span></strong>
+        </div>
+        <div ng-show="causeForm.filter.$error.required && rc.causeForm.attempted">
+            <strong><span class="help-block">Filter Required</span></strong>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+    </div>
+</form>
+

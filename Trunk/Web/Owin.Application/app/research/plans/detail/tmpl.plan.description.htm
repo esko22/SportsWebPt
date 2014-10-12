@@ -1,0 +1,65 @@
+﻿<div class="push-down-md">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title-divider"><i class="icon-sportswebpt-clipboard3"></i> <span ng-bind="plan.routineName"><span class="de-em"></span></span></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="title-divider"><span>Desciption <span class="de-em"></span></span> <small>Informative write up describing plan</small></h2>
+        </div>
+        <div class="col-md-5">
+            <h2 class="title-divider"><span>Animation <span class="de-em"></span></span> <small>Medical animation for the affected area</small></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <span ng-bind-html="plan.description"></span>
+        </div>
+        <div class="col-md-5">
+            <div view-medica-display class="viewmedica-container" ng-show="hasAnimationTag()"></div>
+            <h5 ng-hide="hasAnimationTag()">No animation currently availble</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <h2 class="title-divider"><span>Instructions <span class="de-em"></span></span> <small>Detailed overview</small></h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="title-divider"><span>Structures<span class="de-em"></span></span> <small>Involved body areas</small></h2>
+        </div>
+        <div class="col-md-3">
+            <h2 class="title-divider"><span>Categories <span class="de-em"></span></span> <small>Functional purpose</small></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <span ng-bind-html="plan.instructions"></span>
+        </div>
+        <div class="col-md-4">
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="structures in structuresInvolved track by $index">
+                        <td ng-bind="structures"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped">
+                <tbody ng-repeat="category in plan.categories track by $index">
+                    <tr>
+                        <td ng-bind="category"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="title-divider"><span>Exercise Listing <span class="de-em"></span></span> <small>Detailed steps for plan execution</small></h2>
+        </div>
+    </div>
+</div>

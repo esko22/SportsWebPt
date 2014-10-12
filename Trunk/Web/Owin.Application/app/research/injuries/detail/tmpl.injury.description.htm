@@ -1,0 +1,149 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title-divider"><i class="icon-sportswebpt-medkit"></i> <span ng-bind="injury.commonName"><span class="de-em"></span></span> <small ng-bind="injury.medicalName"></small></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="title-divider"><span>Description <span class="de-em"></span></span> <small>Informative write up describing injury</small></h2>
+        </div>
+        <div class="col-md-5">
+            <h2 class="title-divider"><span>Animation <span class="de-em"></span></span> <small>Medical animation for the affected area</small></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7"><span ng-bind-html="injury.description"></span></div>
+        <div class="col-md-5">
+            <div view-medica-display class="viewmedica-container" ng-show="hasAnimationTag()"></div>
+            <h5 ng-hide="hasAnimationTag()">No animation currently availble</h5>
+        </div>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-7">
+            <h2 class="title-divider"><span>Potential <span class="de-em">Causes</span></span> <small>Common causes known to contribute</small></h2>
+            <div class="well-sm">
+                <div ng-show="lifestyleCauses.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Lifestyle <span class="de-em">Contributors</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="cause in lifestyleCauses = ( injury.causes |  filter: { category : 'lifestyle'})">
+                                <td ng-bind="cause.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-show="physiologicalCauses.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Physiological <span class="de-em">Contributors</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="cause in physiologicalCauses = ( injury.causes |  filter: { category : 'physiological'})">
+                                <td ng-bind="cause.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h2 class="title-divider"><span>Common <span class="de-em">Signs</span></span> <small>Common signs for injury</small></h2>
+            <div class="well-sm">
+                <div class="push-up-md" ng-show="visualSigns.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Looks <span class="de-em">Like</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="sign in visualSigns = ( injury.signs |  filter: { category : 'visual'})">
+                                <td ng-bind="sign.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="push-up-md" ng-show="subjectiveSigns.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Feels <span class="de-em">Like</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="sign in subjectiveSigns = ( injury.signs |  filter: { category : 'subjective'})">
+                                <td ng-bind="sign.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="push-up-md" ng-show="functionalSigns.length > 0">
+                    <h4 class="title-divider-no-bar"><span>Difficulty <span class="de-em">While</span></span> <small></small></h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr ng-repeat="sign in functionalSigns = ( injury.signs |  filter: { category : 'functional'})">
+                                <td ng-bind="sign.description"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-7">
+            <h2 class="title-divider"><span>Recovery <span class="de-em"> Recommendation</span></span><small>Our thoughts on how to get better</small></h2>
+        </div>
+        <div class="col-md-5">
+            <h2 class="title-divider"><span>Optional <span class="de-em"> Treatments</span></span><small>Other types of treatments you can try</small></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <span ng-bind-html="injury.recovery | unsafe"></span>
+        </div>
+        <div class="col-md-5">
+            <table class="table table-striped">
+                <tbody>
+                    <tr ng-repeat="treatment in injury.treatments | orderBy : treatmentSortFunc">
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><span ng-bind="treatment.name"></span>&nbsp;<i popover="{{treatment.description}}" popover-trigger="mouseenter" class="fa fa-question-circle"></i></h5>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row push-down-md">
+        <div class="col-md-12">
+            <h2 class="title-divider"><span>Prognosis <span class="de-em"></span></span> <small>How to gauge your injury severity</small></h2>
+            <div class="row pricing-stack">
+                <div class="col-md-4">
+                    <div class="well" ng-hide="injury.bestCase  == null">
+                        <h6 class="title"><span class="em">Best Case</span></h6>
+                        <p class="price prognosis-best"><span class="prognosis" ng-bind="injury.bestCase.duration"></span></p>
+                        <div ng-bind-html="injury.bestCase.description"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="well" ng-hide="injury.delayedRecovery  == null">
+                        <h6 class="title"><span class="em">Delayed Recovery</span></h6>
+                        <p class="price prognosis-delayed"><span class="prognosis" ng-bind="injury.delayedRecovery.duration"></span></p>
+                        <div ng-bind-html="injury.delayedRecovery.description"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="well" ng-hide="injury.worstCase == null ">
+                        <h6 class="title"><span class="em">Worst Case</span></h6>
+                        <p class="price prognosis-worst"><span class="prognosis" ng-bind="injury.worstCase.duration"></span></p>
+                        <div ng-bind-html="injury.worstCase.description"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="recovery-plans">
+        <div class="col-md-12">
+            <h2 class="title-divider"><span>Recovery <span class="de-em"></span> Plans</span> <small>Optimized routines for your recovery</small></h2>
+        </div>
+    </div>
+</div>
+

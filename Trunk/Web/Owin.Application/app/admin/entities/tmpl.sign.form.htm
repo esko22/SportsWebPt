@@ -1,0 +1,43 @@
+﻿<form novalidate rc-submit="submit()" name="signForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-lg-3">Name</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.signForm.needsAttention(signForm.description)}">
+            <input type="text" class="form-control" name="description" ng-model="selectedSign.description" placeholder="Name" required ng-minlength="4" ng-maxlength="100">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Category</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.signForm.needsAttention(signForm.category)}">
+            <select name="category" class="form-control" ng-model="selectedSign.category" ng-options="category for category in categories" required>
+                <option value="">-- choose category --</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-lg-3">Filter</label>
+        <div class="col-lg-9" ng-class="{'has-error': rc.signForm.needsAttention(signForm.filter)}">
+            <select name="filter" class="form-control" ng-model="selectedSign.filterId" ng-options="filter.id as filter.filterCategory for filter in filters" required>
+                <option value="">-- choose filter --</option>
+            </select>
+        </div>
+    </div>
+    <div class="text-center">
+        <div ng-show="signForm.description.$error.required && rc.signForm.attempted">
+            <strong><span class="help-block">Name Required</span></strong>
+        </div>
+        <div ng-show="(signForm.description.$error.minlength || signForm.description.$error.maxlength)  && rc.signForm.attempted">
+            <strong><span class="help-block">Description must be between 4 and 100 characters</span></strong>
+        </div>
+        <div ng-show="signForm.category.$error.required && rc.signForm.attempted">
+            <strong><span class="help-block">Category Required</span></strong>
+        </div>
+        <div ng-show="signForm.filter.$error.required && rc.signForm.attempted">
+            <strong><span class="help-block">Filter Required</span></strong>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button ng-click="reset()" type="reset" class="btn btn-primary">Clear</button>
+    </div>
+</form>
+

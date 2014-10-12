@@ -1,0 +1,20 @@
+﻿<div id="examine-view" class="container push-down-sm">
+    <div>
+        <h1><a href="/#!/examine" class="href-no-underline header-icon"><span><i class="icon-sportswebpt-stethoscope"></i> Examine</span></a></h1>
+    </div>
+        <div id="examine-nav" class="text-center">
+            <ul class="breacrumb">
+                <li ng-class="{'selected' : currentStep.order >= 1}"><a ui-sref="public.examine.skeleton" id="skeleton-nav">Select area(s) on skeleton</a></li>
+                <li ng-class="{'selected' : currentStep.order >= 2, 'nonactive' : selectedAreas.length == 0}">
+                    <a ng-show="selectedAreas.length > 0" ui-sref="public.examine.symptoms" id="detail-nav">Describe discomfort for each area</a>
+                    <span ng-show="selectedAreas.length == 0">Describe discomfort for each area</span>
+                </li>
+                <li ng-class="{'selected' : currentStep.order >= 3}" class="nonactive"><span id="report-nav">View potential injuries</span></li>
+            </ul>
+        </div>
+    <div class="sub-view-panel">
+        <div id="examine-main-panel">
+            <div ui-view="examine-app-view" class="sub-view-container" autoscroll="false"></div>
+        </div>
+    </div>
+</div>

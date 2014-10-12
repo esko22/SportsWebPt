@@ -1,0 +1,41 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en" ng-app="swptApp">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="fragment" content="!">
+    <title>SportsWebPT - @Model.title</title>
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+    <script type="text/javascript" src="http://www.swarminteractive.com/js/vm.js"></script>
+    @Html.Raw(Styles.Render("~/content/kendo/bundle").ToString())
+    @Html.Raw(Styles.Render("~/content/theme/css/appstrap").ToString())
+    @Html.Raw(Styles.Render("~/Content/css").ToString())
+    @Html.Partial("_addThisSDK.cshtml")
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="~/scripts/libs/html5shiv.js"></script>
+      <script src="~/scripts/libs/respond.min.js"></script>
+    <![endif]-->
+    @Html.Raw(Scripts.Render("~/bundles/modernizr").ToString())
+</head>
+<body id="body-content">
+    <input type="hidden" id="authTime" value="@Model.authTime" />
+
+    @RenderBody()
+
+    @Html.AntiForgeryToken()
+    @Html.Raw(Scripts.Render(
+    "~/bundles/jquery",
+    "~/bundles/jslibs"
+    ).ToString())
+
+    @Html.Raw(Scripts.Render(
+    "~/bundles/angular",
+    "~/bundles/angularApp").ToString())
+</body>
+</html>
+
+

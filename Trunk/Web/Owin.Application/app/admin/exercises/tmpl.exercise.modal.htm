@@ -1,0 +1,140 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add / Edit Exercise</h3>
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="exerciseForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Common Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.name)}">
+                        <input type="text" class="form-control" name="name" ng-model="exercise.name" placeholder="Common Name" required ng-minlength="2" ng-maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Medical Name</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.medicalName)}">
+                        <input type="text" class="form-control" name="medicalName" ng-model="exercise.medicalName" placeholder="Medical Name" required ng-minlength="2" ng-maxlength="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Description</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.description)}">
+                        <textarea rows="5 " class="form-control" name="description" kendo-editor k-tools="editorOptions" ng-model="exercise.description" placeholder="Description" required ng-minlength="1" ng-maxlength="60000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Structures Involved</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.structuresInvolved)}">
+                        <input type="text" class="form-control" name="structuresInvolved" ng-model="exercise.structuresInvolved" placeholder="Structures" ng-minlength="2" ng-maxlength="10000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Difficulty</label>
+                    <div class="col-lg-9" ng-class="{'has-error': rc.exerciseForm.needsAttention(exerciseForm.difficulty)}">
+                        <select class="form-control" name="difficulty"
+                                ng-options="difficulty for difficulty in difficulties" ng-model="exercise.difficulty" required>
+                            <option value="">-- Select Difficulty-- </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Category</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="category" multiple="multiple" size="8" 
+                                ng-options="category for category in categories" ng-model="exercise.categories">
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                        <th>Per Day</th>
+                        <th>Per Week</th>
+                        <th>Hold</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><select class="input-sm" name="sets" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.sets">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="reps" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.repititions">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="perday" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perDay">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="perweek" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.perWeek">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="adminHoldForSeconds" ng-options="rangeValue for rangeValue in repetitionRangeValues" ng-model="exercise.holdFor">
+                                        <option value="">-- Range -- </option>
+                                    </select></td>
+                                <td><select class="input-sm" name="adminHoldType" ng-options="holdType for holdType in holdTypes" ng-model="exercise.holdType">
+                                        <option value="">-- Type -- </option>
+                                    </select></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Videos</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="exerciseVideos" multiple="multiple" size="8" ng-model="exercise.videos"
+                                ng-options="(video.medicalName + ' [' + video.id +']') for video in availableVideos"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">Equipment</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="exerciseEquipment" multiple="multiple" size="8"
+                                ng-options="(equipment.commonName + ' [' + equipment.id +']') for equipment in availableEquipment" ng-model="exercise.equipment"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-3">BodyRegions</label>
+                    <div class="col-lg-9">
+                        <select class="form-control" name="exerciseBodyRegions" multiple="multiple" size="8" ng-model="exercise.bodyRegions"
+                                ng-options="bodyRegion.name for bodyRegion in availableBodyRegions"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div ng-show="exerciseForm.name.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Name Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.name.$error.minlength || exerciseForm.name.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Name must be between 2 and 100 characters</span></strong>
+            </div>
+            <div ng-show="exerciseForm.medicalName.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Medical Name Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.medicalName.$error.minlength || exerciseForm.medicalName.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Medical Name must be between 2 and 100 characters</span></strong>
+            </div>
+            <div ng-show="exerciseForm.difficulty.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Difficulty Required</span></strong>
+            </div>
+            <div ng-show="exerciseForm.description.$error.required && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.description.$error.minlength || exerciseForm.description.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Description must be between 4 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="(exerciseForm.structuresInvolved.$error.minlength || exerciseForm.structuresInvolved.$error.maxlength)  && rc.exerciseForm.attempted">
+                <strong><span class="help-block">Structures must be between 4 and 10000 characters</span></strong>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>

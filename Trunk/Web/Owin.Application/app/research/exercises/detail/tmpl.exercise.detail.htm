@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <td><strong>Sets: </strong></td>
+                    <td><span class="badge" ng-bind="exercise.sets"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Reps: </strong></td>
+                    <td><span class="badge" ng-bind="exercise.repititions"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>Hold for: </strong></td>
+                    <td><span class="badge" ng-bind-template="{{exercise.holdFor}} {{exercise.holdType}}"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <td><span class="badge" ng-bind="exercise.perDay"></span></td>
+                    <td><strong>(x) per day: </strong></td>
+                </tr>
+                <tr>
+                    <td><span class="badge" ng-bind="exercise.perWeek"></span></td>
+                    <td><strong>(x) per week: </strong></td>
+                </tr>
+
+            </table>
+        </div>
+        <button ng-click="showEquipmentList()" class="btn btn-primary" ng-show="hasEquipment">Equipment</button>
+    </div>
+
+    <div class="col-md-9">
+        <youtube-player code="code"></youtube-player>
+    </div>
+</div>

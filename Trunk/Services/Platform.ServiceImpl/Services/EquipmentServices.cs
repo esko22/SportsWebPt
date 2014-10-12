@@ -25,7 +25,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(EquipmentListRequest request)
         {
             var responseList = new List<EquipmentDto>();
-            Mapper.Map(ResearchUnitOfWork.EquipmentRepo.GetAll().OrderBy(p => p.Id), responseList);
+            Mapper.Map(ResearchUnitOfWork.EquipmentRepo.GetAll().OrderBy(p => p.CommonName), responseList);
 
             return
                 Ok(new ApiListResponse<EquipmentDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

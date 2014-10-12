@@ -1,0 +1,41 @@
+﻿<div class="container" id="therapist-episode-page">
+    <h2>Episode Detail: {{episode.name}}</h2>
+    <div class="row">
+        <div class="well col-md-6">
+            <div class="row">
+                <h4>{{episode.clinic.name}}</h4>
+                <img height="100" ng-src={{episode.clinic.displayImage}} />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Therapist: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="episode.therapistEmail"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Created On: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="episode.createdOn"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Description: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="episode.description"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <patient-episode-session-list episode-id="episodeId" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="core-view-container" ui-view="patient-session-view" autoscroll="false"></div>
+    </div>
+</div>

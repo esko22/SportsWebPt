@@ -1,0 +1,49 @@
+﻿
+<div class="container push-down-sm">
+    <div>
+        <div class="row push-down-lg">
+            <!-- sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-class="{'active' : selectedTab == 'us' }">
+                            <a ng-click="onTabSelect('us')" class="first"><span>About Us</span><small>Our Story</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'team' }">
+                            <a ng-click="onTabSelect('team')"><span>The Team</span><small>Who are we</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'contact' }">
+                            <a ng-click="onTabSelect('contact')"><span>Contact Us</span><small>How to get in touch</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'privacy' }">
+                            <a ng-click="onTabSelect('privacy')"><span>Privacy</span><small>Your information</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'terms' }">
+                            <a ng-click="onTabSelect('terms')"><span>Terms</span><small>Disclaimer</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'us' }">
+                        <div about-us></div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'team' }">
+                        <div about-team></div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'contact' }">
+                        <div about-contact></div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'privacy' }">
+                        <div about-privacy></div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'terms' }">
+                        <div about-terms></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
