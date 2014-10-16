@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Models;
 
@@ -30,14 +31,24 @@ namespace Thinktecture.IdentityServer.Host.Config
 
                     Claims = new[]
                     {
-                        new ScopeClaim(Constants.ClaimTypes.Role, alwaysInclude: true)
+                        new ScopeClaim(Constants.ClaimTypes.Role, alwaysInclude: true),
                     }
                 },
 
                 ////////////////////////
                 // resource scopes
                 ////////////////////////
-
+                new Scope
+                {
+                    Name = "userDetail",
+                    DisplayName = "Username",
+                    Description = "What you call yourself",
+                    Type = ScopeType.Identity,
+                    Claims = new []
+                    {
+                        new ScopeClaim("username", true) 
+                    }
+                },
                 new Scope
                 {
                     Name = "read",

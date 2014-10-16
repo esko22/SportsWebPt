@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Web.Http;
 using BrockAllen.MembershipReboot;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
@@ -48,15 +49,14 @@ namespace Thinktecture.IdentityServer.Host
                             new LoginPageLink
                             {
                                 Text = "Register",
-                                Href = "/register"
+                                Href = "/core/register"
                             }
                         }
                     }
                 };
                 coreApp.UseIdentityServer(idsrvOptions);
+                coreApp.UseNancy(new NancyOptions() { });
             });
-
-            app.UseNancy(new NancyOptions() { });
         }
 
         public static void ConfigureAdditionalIdentityProviders(IAppBuilder app, string signInAsType)

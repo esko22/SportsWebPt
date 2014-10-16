@@ -101,6 +101,9 @@
     <Reference Include="Nancy.Hosting.Owin">
       <HintPath>..\..\..\packages\Nancy.Hosting.Owin.0.16.0\lib\net40\Nancy.Hosting.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.MSOwinSecurity">
+      <HintPath>..\..\..\packages\Nancy.MSOwinSecurity.1.0.1\lib\net45\Nancy.MSOwinSecurity.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy.Owin">
       <HintPath>..\..\..\packages\Nancy.Owin.0.23.2\lib\net40\Nancy.Owin.dll</HintPath>
     </Reference>
@@ -178,6 +181,7 @@
     <Content Include="Content\libs\bootstrap\less\bootstrap.min.css" />
     <Content Include="Content\libs\jquery\jquery-1.11.0.js" />
     <Content Include="Content\libs\jquery\jquery-1.11.0.min.js" />
+    <Content Include="Views\externalRegistration.html" />
     <Content Include="Views\registration.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
