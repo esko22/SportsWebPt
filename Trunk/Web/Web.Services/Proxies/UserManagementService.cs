@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 
 using AutoMapper;
-
+using BrockAllen.MembershipReboot;
+using BrockAllen.MembershipReboot.Ef;
+using BrockAllen.MembershipReboot.Relational;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
@@ -32,9 +34,13 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User GetUser(String id)
         {
-            var request = GetSync(new UserRequest() { Id = id} );
+            //var request = GetSync(new UserRequest() { Id = id} );
 
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+            //return request.Response == null ? null : Mapper.Map<User>(request.Response);
+
+            var user = UserAccountServiceFactory().GetByID(new Guid(id));
+
+            return new User();
         }
 
         public int AddUser(User user)
@@ -100,6 +106,18 @@ namespace SportsWebPt.Platform.Web.Services
                 Put(new RegisterTherapistRequest() { RegistrationId = registrationId, Therapist = Mapper.Map<UserDto>(therapist) });
 
             return request.Response == null ? 0 : request.Response.Id;
+        }
+
+        private static UserAccountService<RelationalUserAccount> UserAccountServiceFactory()
+        {
+            var userRepo = new DefaultUserAccountRepository(WebPlatformConfigSettings.Instance.IdentityStore);
+            var configuration = new MembershipRebootConfiguration<RelationalUserAccount>
+            {
+                PasswordHashingIterationCount = 10000,
+                RequireAccountVerification = false
+            };
+
+            return new UserAccountService<RelationalUserAccount>(configuration, userRepo);
         }
 
         #endregion

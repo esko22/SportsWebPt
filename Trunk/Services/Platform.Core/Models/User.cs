@@ -11,27 +11,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String EmailAddress { get; set; }
 
-        public String FirstName { get; set; }
-
-        public String LastName { get; set; }
-
-        public String UserName { get; set; }
-
         public String Hash { get; set; }
 
-        public String Phone { get; set; }
-
-        public String SkypeHandle { get; set; }
-
-        public String ProviderId { get; set; }
-
-        public String Provider { get; set; }
-
-        public String Locale { get; set; }
-
-        public String Gender { get; set; }
-
-        public Boolean IsAdmin { get; set; }
+        public Boolean AccountLinked { get; set; }
 
 
         #endregion

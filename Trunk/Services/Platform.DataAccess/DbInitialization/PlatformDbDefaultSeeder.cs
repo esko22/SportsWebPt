@@ -29,7 +29,6 @@ namespace SportsWebPt.Platform.DataAccess
 
             _dbContext = dbContext as PlatformDbContext;
 
-            var users = AddUsers();
             var components = AddComponents();
             var regions = AddRegions();
             var orientations = AddOrientations();
@@ -66,7 +65,6 @@ namespace SportsWebPt.Platform.DataAccess
             AssociateEquipmentToVendor(equipment,vendors);
             AssociatePlanCategories(plans);
             AssociateVideoCategory(videos);
-            AddUserFavorites(users, videos, plans, injuries, exercises);
             AssociateInjuryTreatment(treatments,injuries);
             AssociateInjuryPrognosis(prognoses, injuries);
         }
@@ -680,21 +678,6 @@ namespace SportsWebPt.Platform.DataAccess
             return injuries;
         }
 
-        private List<User> AddUsers()
-        {
-            var users = new List<User>()
-                {
-                    new User() {EmailAddress = "kdot@swpt.com", FirstName = "Kendrick", LastName = "Lamar", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "k dot", IsAdmin = true},
-                    new User() {EmailAddress = "anut@swpt.com", FirstName = "Alexander", LastName = "Nut", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "anut"},
-                    new User() {EmailAddress = "jdee@swpt.com", FirstName = "Jay", LastName = "Dee", Hash = PasswordHashHelper.CreateHash("123456"), UserName = "jdilla", IsAdmin = true}
-                };
-
-            users.ForEach(u => _dbContext.Users.Add(u));
-            _dbContext.SaveChanges();
-
-            return users;
-        }
-
         private List<BodyPart> AddComponents()
         {
             var parts = new List<BodyPart>()
@@ -967,16 +950,7 @@ namespace SportsWebPt.Platform.DataAccess
             return symptoms;
         }
 
-        private void AddUserFavorites(IList<User> users, IList<Video> videos, IList<Plan> plans, IList<Injury> injuries, IList<Exercise> exercises)
-        {
-             users[0].VideoFavorites  = videos;
-             users[0].PlanFavorites = plans;
-             users[0].InjuryFavorites = injuries;
-             users[0].ExerciseFavorites = exercises;
-
-            _dbContext.SaveChanges();
-        }
-
+       
         private void AssociateEquipmentToVendor(IList<Equipment> equipment, IList<Vendor> vendors)
         {
             equipment.ForEach(e => e.Vendors = vendors);

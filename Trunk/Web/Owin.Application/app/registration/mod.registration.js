@@ -4,14 +4,19 @@ var registrationModule = angular.module('registration.module', []);
 
 
 registrationModule.controller('RegistrationPatientController', [
-    '$scope', 'registrationService','$stateParams',
-    function ($scope, registrationService, $stateParams) {
+    '$scope', 'registrationService','$stateParams','$rootScope',
+    function ($scope, registrationService, $stateParams, $rootScope) {
 
+        $scope.user = $rootScope.currentUser;
         $scope.registrationDetails = {};
         $scope.isValidated = false;
         $scope.actionPath = '/register/';
         $scope.error = $stateParams.errId;
         $scope.registrationId = 0;
+
+        $scope.startRegistration = function() {
+            window.location.assign('/auth?returnUrl=/registration/patient');
+        };
 
         $scope.validate = function() {
             $scope.isValidated = false;

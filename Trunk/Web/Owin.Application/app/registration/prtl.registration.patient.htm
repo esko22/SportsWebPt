@@ -3,26 +3,44 @@
         <span ng-bind="error"></span>
     </div>
     <h2>Patient Registration</h2>
-    <div class="row push-down-lg">
-        <div class="col-md-3">
-            <label> Email Address:</label>
+    
+    <div ng-if="!user" class="row push-down-lg">
+        <div>
+            <h4>You have been requested by Clinic X to register on SportsWebPt.</h4>
+            <h4>First, you will need to sign in or create an account before we can sync you up.</h4>
         </div>
-        <div class="col-md-5">
-            <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <label> Registration PIN:</label>
-        </div>
-        <div class="col-md-5">
-            <input type="text" class="form-control" ng-model="registrationDetails.pin" />
+        <div>
+            <button class="btn btn-warning" ng-click="startRegistration()">Get Started!</button>
         </div>
     </div>
-    <div>
-        <button class="btn btn-warning" ng-click="validate()">Start Registration</button>
+    
+    <div ng-if="user" class="row push-down-lg">
+        <div>
+            <div class="col-md-3">
+                <label> Email Address:</label>
+            </div>
+            <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label> Registration PIN:</label>
+            </div>
+            <div class="col-md-5">
+                <input type="text" class="form-control" ng-model="registrationDetails.pin" />
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-warning" ng-click="validate()">Start Registration</button>
+        </div>
     </div>
 </div>
+
+
+
+
+
 <div class="container" ng-show="isValidated">
     <div class="row" ng-show="!isConfirmed">
         <div class="col-md-6">

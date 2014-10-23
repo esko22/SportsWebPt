@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess
@@ -51,7 +52,7 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.Patient);
         }
 
-        public String AddPatientToClinic(int clinicId, int userId)
+        public String AddPatientToClinic(int clinicId, int userId, string emailAddress)
         {
             var clinicPatientMatrixItem =
                 ClinicPatientRepository.GetAll().SingleOrDefault(p => p.ClinicId == clinicId && p.UserId == userId);
@@ -66,8 +67,8 @@ namespace SportsWebPt.Platform.DataAccess
                 };
                 ClinicPatientRepository.Add(clinicPatientMatrixItem);
                 Commit();
-    
-                return clinicPatientMatrixItem.Pin;
+
+                return SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, emailAddress);
             }
 
             return String.Empty;
@@ -96,8 +97,10 @@ namespace SportsWebPt.Platform.DataAccess
             return String.Empty;
         }
 
-        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin)
+        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin)
         {
+            var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
+
             return ClinicPatientRepository.GetAll()
                 .Include(i => i.Patient)
                 .Include(i => i.Clinic)
@@ -156,7 +159,7 @@ namespace SportsWebPt.Platform.DataAccess
         IQueryable<ClinicTherapistMatrixItem> GetClinicTherapists();
         IQueryable<ClinicPatientMatrixItem> GetClinicPatients();
 
-        String AddPatientToClinic(int clinicId, int userId);
+        String AddPatientToClinic(int clinicId, int userId, String emailAddress);
         String AddTherapistToClinic(int clinicId, int therapistId);
         ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin);
         ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin);

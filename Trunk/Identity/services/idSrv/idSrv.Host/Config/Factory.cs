@@ -1,8 +1,8 @@
 ﻿using SportsWebPt.Identity.Services;
 using SportsWebPt.Identity.Services.Core;
 using Thinktecture.IdentityServer.Core.Configuration;
+using Thinktecture.IdentityServer.Core.EntityFramework;
 using Thinktecture.IdentityServer.Core.Services;
-using Thinktecture.IdentityServer.Core.Services.InMemory;
 
 namespace Thinktecture.IdentityServer.Host.Config
 {
@@ -10,14 +10,22 @@ namespace Thinktecture.IdentityServer.Host.Config
     {
         public static IdentityServerServiceFactory Configure()
         {
+            var svcFactory = new ServiceFactory(IdentityServerConfigSettings.Instance.ConfigConnection);
+            svcFactory.ConfigureClients(Clients.Get());
+            svcFactory.ConfigureScopes(Scopes.Get());
+
             return new IdentityServerServiceFactory
             {
-                UserService = Registration<IUserService>.RegisterFactory(
-                    () => MembershipRebootUserServiceFactory.Factory()),
-                ScopeStore = Registration.RegisterFactory<IScopeStore>(() => new InMemoryScopeStore(Scopes.Get())),
-                ClientStore = Registration.RegisterFactory<IClientStore>(() => new InMemoryClientStore(Clients.Get())),
+                UserService = Registration.RegisterFactory(MembershipRebootUserServiceFactory.Factory),
+                ScopeStore = Registration.RegisterFactory(svcFactory.CreateScopeStore),
+                ClientStore = Registration.RegisterFactory(svcFactory.CreateClientStore),
+                AuthorizationCodeStore = Registration.RegisterFactory(svcFactory.CreateAuthorizationCodeStore),
+                TokenHandleStore = Registration.RegisterFactory(svcFactory.CreateTokenHandleStore),
+                ConsentStore = Registration.RegisterFactory(svcFactory.CreateConsentStore),
+                RefreshTokenStore = Registration.RegisterFactory(svcFactory.CreateRefreshTokenStore),
                 ViewService = Registration.RegisterType<IViewService>(typeof(ViewService))
             };
         }
+
     }
 }

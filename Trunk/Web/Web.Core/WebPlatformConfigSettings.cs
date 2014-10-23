@@ -42,6 +42,7 @@ namespace SportsWebPt.Platform.Web.Core
         public String ClientId { get; private set; }
         public String AuthorityUri { get; private set; }
         public String CallbackUri { get; private set; }
+        public String IdentityStore { get; private set; }
 
         #endregion
 
@@ -76,7 +77,7 @@ namespace SportsWebPt.Platform.Web.Core
             ClientId = ConfigurationManager.AppSettings["clientId"];
             AuthorityUri = ConfigurationManager.AppSettings["authorityUri"];
             CallbackUri = ConfigurationManager.AppSettings["callbackUri"];
-
+            IdentityStore = ConfigurationManager.AppSettings["identityStore"];
 
             YelpOptions = new Options()
             {

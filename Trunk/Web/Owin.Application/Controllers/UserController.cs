@@ -38,6 +38,18 @@ namespace SportsWebPt.Platform.Web.Application
             {
                 var email = principle.FindFirst("email") == null ? "Unknown" : principle.FindFirst("email").Value;
 
+                var user = _userManagementService.GetUser(principle.FindFirst("sub").Value);
+
+
+                //if user does not have a claim of the key in the service db create new user
+                //then I would add a claim of the services db id for user
+                //set flag of user to accountLinked
+
+                //in situation to validate
+                //after successful validation on web side
+                //I get user for that registration row, I can check if account is linked
+                //if account is not linked, I add claim for service db id for user and set flag
+
                 return new User()
                 {
                     emailAddress = email,

@@ -90,9 +90,9 @@ namespace SportsWebPt.Platform.ServiceImpl
             var userToAdd = Mapper.Map<User>(request.User);
 
             if (userToAdd.Id == 0)
-                userToAdd = UserUnitOfWork.AddUser(userToAdd);
+                userToAdd = UserUnitOfWork.AddUser(new User());
 
-            var token = ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
+            var token = ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id, request.User.EmailAddress);
 
             using (var mailClient = new NetSmtpClient())
             {

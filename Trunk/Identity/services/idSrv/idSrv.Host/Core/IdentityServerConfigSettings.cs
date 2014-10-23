@@ -38,6 +38,8 @@ namespace SportsWebPt.Identity.Services.Core
 
         public string PersistanceConnection { get; private set; }
 
+        public string ConfigConnection { get; private set; }
+
         public string PublicHostName { get; private set; }
 
 
@@ -67,6 +69,7 @@ namespace SportsWebPt.Identity.Services.Core
             GoogleClientId = ConfigurationManager.AppSettings["googleClientId"];
             GoogleClientSecret = ConfigurationManager.AppSettings["googleClientSecret"];
             PersistanceConnection = ConfigurationManager.AppSettings["persistanceConnection"];
+            ConfigConnection = ConfigurationManager.AppSettings["configConnection"];
             PublicHostName = ConfigurationManager.AppSettings["publicHostName"];
         }
 

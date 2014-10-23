@@ -188,6 +188,7 @@
     <Compile Include="RegularExpressions\CommonRegEx.cs" />
     <Compile Include="Search\StringSimilarity.cs" />
     <Compile Include="Security\PasswordHashHelper.cs" />
+    <Compile Include="Security\SymmetricCryptography.cs" />
     <Compile Include="Serialization\IGenericSerializer.cs" />
     <Compile Include="Serialization\XmlGenericSerializer.cs" />
     <Compile Include="Serialization\XmlSerializationStorageExtension.cs" />
