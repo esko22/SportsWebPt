@@ -6,6 +6,7 @@ using System.Web;
 using Nancy;
 using Nancy.ErrorHandling;
 using Nancy.Owin;
+using Nancy.Security;
 using Nancy.ViewEngines;
 
 
@@ -51,8 +52,7 @@ namespace SportsWebPt.Platform.Web.Application
     {
         public static dynamic BuildIndexModel(this NancyContext context)
         {
-            var environment = context.GetOwinEnvironment();
-            var user = (ClaimsPrincipal)environment["server.User"];
+            var user = context.GetAuthenticationManager().User;
             var tokenClaim = user.FindFirst("auth_time");
 
             return new { title = "Accessible Physical Therapy", authTime = tokenClaim == null ? "" : tokenClaim.Value };

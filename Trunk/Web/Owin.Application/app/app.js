@@ -527,31 +527,37 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
 
     $rootScope.$on('$stateChangeStart', function(ev, to, toParams, from, fromParams) {
 
-        if (userManagementService.getUser()) {
+        if ($rootScope.currentUser || !userManagementService.isAuthenticated()) {
+            processRouteLogic();
+        } else {
             userManagementService.getUser().$promise.then(function(user) {
                 $rootScope.currentUser = user;
-                if (to.data && to.data.access) {
-                    var accessLevel = to.data.access.toLowerCase();
-                    if (accessLevel !== 'access.anon') {
-                        if ($rootScope.currentUser) {
-                            if (accessLevel === 'access.admin' && (!$rootScope.currentUser.isAdmin)) {
-                                //todo: change this to a access denied page
-                                $location.path('/');
-                            }
-                            if (accessLevel === 'access.therapist' && (!$rootScope.currentUser.isTherapist)) {
-                                $location.path('/');
-                            }
-                            if (accessLevel === 'access.clinic.manager' && (!$rootScope.currentUser.isClinicManager)) {
-                                $location.path('/');
-                            }
-                        } else {
-                            event.preventDefault();
-                            window.location.assign('/auth?returnUrl=' + encodeURIComponent('#' + to.url));
-                        }
-                    } 
-                }
+                processRouteLogic();
             });
-        };
+        } 
+
+        function processRouteLogic() {
+            if (to.data && to.data.access) {
+                var accessLevel = to.data.access.toLowerCase();
+                if (accessLevel !== 'access.anon') {
+                    if ($rootScope.currentUser) {
+                        if (accessLevel === 'access.admin' && (!$rootScope.currentUser.isAdmin)) {
+                            //todo: change this to a access denied page
+                            $location.path('/');
+                        }
+                        if (accessLevel === 'access.therapist' && (!$rootScope.currentUser.isTherapist)) {
+                            $location.path('/');
+                        }
+                        if (accessLevel === 'access.clinic.manager' && (!$rootScope.currentUser.isClinicManager)) {
+                            $location.path('/');
+                        }
+                    } else {
+                        event.preventDefault();
+                        window.location.assign('/auth?returnUrl=' + encodeURIComponent('#' + to.url));
+                    }
+                }
+            }
+        }
     });
 
 }]);

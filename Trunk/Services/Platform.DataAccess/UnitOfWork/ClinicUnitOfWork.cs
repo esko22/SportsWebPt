@@ -67,11 +67,9 @@ namespace SportsWebPt.Platform.DataAccess
                 };
                 ClinicPatientRepository.Add(clinicPatientMatrixItem);
                 Commit();
-
-                return SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, emailAddress);
             }
 
-            return String.Empty;
+            return !clinicPatientMatrixItem.UserConfirmed ? SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, emailAddress) : String.Empty;
         }
 
         public String AddTherapistToClinic(int clinicId, int therapistId)

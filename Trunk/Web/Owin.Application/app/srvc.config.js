@@ -1,7 +1,9 @@
 ﻿
 swptApp.service('configService', ['$resource', '$location', function ($resource, $location) {
-        var apiUris = {
+    var apiUris = {
+            currentUser: '/data/users/current',
             users: '/data/users/:id',
+            validateByEmail: '/data/users/validate',
             favorites: '/data/users/favorites',
             skeletonAreas: '/data/examine/areas',
             symptomaticRegions: '/data/examine/symptomaticregions',
@@ -57,7 +59,7 @@ swptApp.service('configService', ['$resource', '$location', function ($resource,
             clinic: '/data/clinics/:id',
             clinicTherapists: '/data/clinics/:id/therapists',
             clinicPatients: '/data/clinics/:id/patients',
-            managedClinics: '/data/clinics/managers/:id',
+            managedClinics: '/data/users/current/managedclinics',
             sessions: '/data/sessions/:id',
             sessionPlans: '/data/sessions/:id/plans',
             registerPatient: '/data/registration/patient',

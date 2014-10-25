@@ -34,13 +34,20 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User GetUser(String id)
         {
-            //var request = GetSync(new UserRequest() { Id = id} );
+            var relationUser = UserAccountServiceFactory().GetByID(new Guid(id));
+            return Mapper.Map<User>(relationUser);
+        }
 
-            //return request.Response == null ? null : Mapper.Map<User>(request.Response);
+        public Boolean ValidateUserByEmail(String emailAddress)
+        {
+            return UserAccountServiceFactory().GetByEmail(emailAddress) != null;
+        }
 
-            var user = UserAccountServiceFactory().GetByID(new Guid(id));
+        public User GetServiceUser(String id)
+        {
+            var request = GetSync(new UserRequest() { Id = id });
 
-            return new User();
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
         public int AddUser(User user)
@@ -108,7 +115,7 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? 0 : request.Response.Id;
         }
 
-        private static UserAccountService<RelationalUserAccount> UserAccountServiceFactory()
+        public static UserAccountService<RelationalUserAccount> UserAccountServiceFactory()
         {
             var userRepo = new DefaultUserAccountRepository(WebPlatformConfigSettings.Instance.IdentityStore);
             var configuration = new MembershipRebootConfiguration<RelationalUserAccount>
@@ -126,7 +133,9 @@ namespace SportsWebPt.Platform.Web.Services
 
     public interface IUserManagementService : IDisposable
     {
-        User GetUser(String id);
+        Boolean ValidateUserByEmail(String emailAddress);
+        User GetUser(String subjectId);
+        User GetServiceUser(String id);
         int AddUser(User user);
         User Auth(String emailAddress, String hash);
         void AddFavorite(Favorite favorite, int userId);

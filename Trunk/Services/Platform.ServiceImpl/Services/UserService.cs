@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             var user = request.IdAsInt > 0
                            ? UserUnitOfWork.GetUserById(request.IdAsInt)
-                           : UserUnitOfWork.GetUserByEmail(request.Id);
+                           : UserUnitOfWork.GetUserBySubject(request.Id);
 
             UserDto userDto = null;
 

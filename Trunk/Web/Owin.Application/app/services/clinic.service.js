@@ -1,4 +1,4 @@
-﻿swptApp.factory('clinicService', ['$resource', 'configService', function ($resource, configService) {
+﻿swptApp.factory('clinicService', ['$resource', 'configService','$http', function ($resource, configService,$http) {
 
     var clinicPath = configService.apiUris.clinic;
 
@@ -7,9 +7,9 @@
             var resource = $resource(clinicPath);
             return resource.get({ id: id });
         },
-        getManagedClinics: function (managerId) {
+        getManagedClinics: function () {
             var resource = $resource(configService.apiUris.managedClinics);
-            return resource.query({ id: managerId});
+            return resource.query();
         },
         getClinicTherapists: function (clinicId) {
             var resource = $resource(configService.apiUris.clinicTherapists);
@@ -19,9 +19,8 @@
             var resource = $resource(configService.apiUris.clinicPatients);
             return resource.query({ id: clinicId });
         },
-        getUserByEmail: function(emailAddress) {
-            var resource = $resource(configService.apiUris.users);
-            return resource.get({ id: emailAddress });
+        validateUserByEmail: function(emailAddress) {
+            return $http.post(configService.apiUris.validateByEmail, '"' + emailAddress + '"');
         },
         addPatientToClinic: function(clinicId, user) {
             var resource = $resource(configService.apiUris.clinicPatients);

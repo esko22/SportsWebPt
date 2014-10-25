@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Web.Http;
 
 using SportsWebPt.Common.Utilities;
@@ -35,13 +36,6 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return _clinicService.GetClinic(clinicId);
         }
 
-
-        [HttpGet]
-        [Route("data/clinics/managers/{clinicManagerId}")]
-        public IEnumerable<Clinic> GetManagedClinics(int clinicManagerId)
-        {
-            return _clinicService.GetManagedClinics(clinicManagerId);
-        }
 
         [HttpGet]
         [Route("data/clinics/{clinicId}/patients")]

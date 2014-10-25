@@ -13,29 +13,28 @@ namespace SportsWebPt.Platform.ServiceImpl
         public static void CreateContentMaps()
         {
             Mapper.CreateMap<User, UserDto>()
-                  .ForMember(d => d.VideoFavorites, opt =>
-                      {
-                          opt.Condition(s => s.VideoFavorites != null);
-                          opt.MapFrom(s => s.VideoFavorites);
-                      })
-                  .ForMember(d => d.PlanFavorites, opt =>
-                      {
-                          opt.Condition(s => s.PlanFavorites != null);
-                          opt.MapFrom(s => s.PlanFavorites);
-                      })
-                  .ForMember(d => d.InjuryFavorites, opt =>
-                  {
-                      opt.Condition(s => s.InjuryFavorites != null);
-                      opt.MapFrom(s => s.InjuryFavorites);
-                  })
-                  .ForMember(d => d.ExerciseFavorites, opt =>
-                  {
-                      opt.Condition(s => s.ExerciseFavorites != null);
-                      opt.MapFrom(s => s.ExerciseFavorites);
-                  })
-                  .ForMember(d => d.IsTherapist, opt => opt.MapFrom(s => s.Therapist != null))
-                  .ForMember(d => d.IsClinicManager, opt => opt.MapFrom(s => s.ClinicAdmin != null))
-                  .ForMember(d => d.Hash, opt => opt.Ignore());
+                .ForMember(d => d.VideoFavorites, opt =>
+                {
+                    opt.Condition(s => s.VideoFavorites != null);
+                    opt.MapFrom(s => s.VideoFavorites);
+                })
+                .ForMember(d => d.PlanFavorites, opt =>
+                {
+                    opt.Condition(s => s.PlanFavorites != null);
+                    opt.MapFrom(s => s.PlanFavorites);
+                })
+                .ForMember(d => d.InjuryFavorites, opt =>
+                {
+                    opt.Condition(s => s.InjuryFavorites != null);
+                    opt.MapFrom(s => s.InjuryFavorites);
+                })
+                .ForMember(d => d.ExerciseFavorites, opt =>
+                {
+                    opt.Condition(s => s.ExerciseFavorites != null);
+                    opt.MapFrom(s => s.ExerciseFavorites);
+                })
+                .ForMember(d => d.IsTherapist, opt => opt.MapFrom(s => s.Therapist != null))
+                .ForMember(d => d.IsClinicManager, opt => opt.MapFrom(s => s.ClinicAdmin != null));
 
             Mapper.CreateMap<Plan, FavoriteDto>()
                   .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Plan))
@@ -696,6 +695,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Clinic Maps
 
             Mapper.CreateMap<Therapist, TherapistDto>()
+                .ForMember(d => d.Hash, opt => opt.MapFrom(s => s.User.Hash))
                 .ForMember(d => d.EmailAddress, opt => opt.MapFrom(s => s.User.EmailAddress));
 
             Mapper.CreateMap<Clinic, ClinicDto>();

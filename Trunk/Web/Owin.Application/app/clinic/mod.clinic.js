@@ -6,7 +6,7 @@ clinicModule.controller('ClinicManagerController', [
     '$scope', 'clinicService',
     function ($scope, clinicService) {
 
-        clinicService.getManagedClinics($scope.currentUser.id).$promise.then(function (clinics) {
+        clinicService.getManagedClinics().$promise.then(function (clinics) {
             $scope.clinics = clinics;
         });
     }
@@ -27,7 +27,7 @@ clinicModule.directive('clinicPatientList', [function () {
         restrict: 'E',
         replace: 'true',
         templateUrl: '/app/clinic/tmpl.clinic.patient.list.htm',
-        controller: 'ClniicPatientListController',
+        controller: 'ClinicPatientListController',
         scope: {
             clinicId : '='
         }
@@ -44,12 +44,11 @@ clinicModule.controller('ClinicAddPatientModalController', [
             $scope.userToAdd = null;
 
             if ($scope.formData.lookupEmail) {
-                clinicService.getUserByEmail($scope.formData.lookupEmail).$promise.then(function (user) {
-
-                    if (!user.id) {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, id: 0, firstName: '', lastName: '' }
+                clinicService.validateUserByEmail($scope.formData.lookupEmail).then(function (userValid) {
+                    if (userValid.data === 'false') {
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: false };
                     } else {
-                        $scope.userToAdd = user;
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: true };
                     }
                 });
             }
@@ -76,12 +75,12 @@ clinicModule.controller('ClinicAddTherapistModalController', [
             $scope.userToAdd = null;
 
             if ($scope.formData.lookupEmail) {
-                clinicService.getUserByEmail($scope.formData.lookupEmail).$promise.then(function (user) {
+                clinicService.validateUserByEmail($scope.formData.lookupEmail).$promise.then(function (userValid) {
 
-                    if (!user.id) {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, id: 0, firstName: '', lastName: '' }
+                    if (!userValid) {
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: false}
                     } else {
-                        $scope.userToAdd = user;
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: true };
                     }
                 });
             }
@@ -98,7 +97,7 @@ clinicModule.controller('ClinicAddTherapistModalController', [
     }
 ]);
 
-clinicModule.controller('ClniicPatientListController', [
+clinicModule.controller('ClinicPatientListController', [
     '$scope', 'clinicService', '$modal',
     function ($scope, clinicService, $modal) {
 

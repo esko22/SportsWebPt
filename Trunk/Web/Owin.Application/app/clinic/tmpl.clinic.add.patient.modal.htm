@@ -14,7 +14,8 @@
                 <button ng-click="validateUser()">Search</button>
             </div>
         </div>
-        <div ng-show="userToAdd && userToAdd.id > 0">
+        <div ng-show="userToAdd && userToAdd.accountLinked">
+            <h3>User exists in the system</h3>
             <div class="row">
                 <div class="col-md-3">
                     <label> Email Address:</label>
@@ -23,27 +24,11 @@
                     <span ng-bind="userToAdd.emailAddress"></span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> First Name:</label>
-                </div>
-                <div class="col-md-5">
-                    <span ng-bind="userToAdd.firstName"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> Last Name:</label>
-                </div>
-                <div class="col-md-5">
-                    <span ng-bind="userToAdd.lastName"></span>
-                </div>
-            </div>
             <div class="text-center">
                 <button class="btn btn-primary">Add User</button>
             </div>
         </div>
-        <div ng-show="userToAdd && userToAdd.id == 0">
+        <div ng-show="userToAdd && !userToAdd.accountLinked">
             <div class="row">
                 <div class="col-md-3">
                     <label> Email Address:</label>

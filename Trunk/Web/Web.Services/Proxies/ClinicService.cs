@@ -10,7 +10,7 @@ namespace SportsWebPt.Platform.Web.Services
 {
     public interface IClinicService
     {
-        IEnumerable<Clinic> GetManagedClinics(int clinicManagerId);
+        IEnumerable<Clinic> GetManagedClinics(String clinicManagerId);
         IEnumerable<User> GetClinicPatients(int clinicId);
         IEnumerable<Therapist> GetClinicTherapists(int clinicId);
         Clinic GetClinic(int clinicId);
@@ -47,9 +47,9 @@ namespace SportsWebPt.Platform.Web.Services
         }
 
 
-        public IEnumerable<Clinic> GetManagedClinics(int clinicManagerId)
+        public IEnumerable<Clinic> GetManagedClinics(String clinicManagerId)
         {
-            var request = GetSync(new ManagerClinicListRequest() { Id = clinicManagerId.ToString() });
+            var request = GetSync(new ManagerClinicListRequest() { Id = clinicManagerId });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<Clinic>>(request.Response.Items);
         }
@@ -70,6 +70,12 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User AddPatientToClinic(int clinicId, User user)
         {
+            if (user.accountLinked)
+            {
+                var userToAdd = UserManagementService.UserAccountServiceFactory().GetByEmail(user.emailAddress);
+                user.hash = userToAdd.ID.ToString();
+            }
+
             var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);

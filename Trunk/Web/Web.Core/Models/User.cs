@@ -6,7 +6,11 @@ namespace SportsWebPt.Platform.Web.Core
     public class User
     {
         #region Properties
-        
+
+        public int id { get; set; }
+
+        public String hash { get; set; }
+
         public String emailAddress { get; set; }
 
         public String firstName { get; set; }
@@ -15,27 +19,15 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String phone { get; set; }
 
-        public String hash { get; set; }
-
-        public String skypeHandle { get; set; }
-
         public String userName { get; set; }
-
-        public int id { get; set; }
-
-        public String providerId { get; set; }
-
-        public String provider { get; set; }
-
-        public String locale { get; set; }
-
-        public String gender { get; set; }
 
         public Boolean isAdmin { get; set; }
 
         public Boolean isTherapist { get; set; }
 
         public Boolean isClinicManager { get; set; }
+
+        public Boolean accountLinked { get; set; }
 
         public IEnumerable<Favorite> videos { get; set; }
 

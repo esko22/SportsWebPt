@@ -36,12 +36,12 @@ namespace SportsWebPt.Platform.DataAccess
             return UserRepository.GetUserDetails().SingleOrDefault(w => w.Id == userId);
         }
         
-        public User GetUserByEmail(string emailAddress)
+        public User GetUserBySubject(string subjectId)
         {
             return UserRepository.GetUserDetails()
                                 .SingleOrDefault(
                                     p =>
-                                    p.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase));
+                                    p.Hash.Equals(subjectId, StringComparison.OrdinalIgnoreCase));
         }
 
         public User AddUser(User user)
@@ -96,7 +96,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Exercise> ExerciseRepository { get; }
 
         User GetUserById(int userId);
-        User GetUserByEmail(string emailAddress);
+        User GetUserBySubject(string subjectId);
         User AddUser(User user);
         User UpdateUser(User newUser, int originalUserId);
         Therapist AddTherapist(User user);

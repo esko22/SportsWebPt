@@ -25,10 +25,10 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(ManagerClinicListRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "Clinic Manager Id must be listed");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "Clinic Manager Id must be listed");
 
             var responseList = new List<ClinicDto>();
-            var clinicAdmin = ClinicUnitOfWork.GetClinicAdminList().SingleOrDefault(p => p.Id == request.IdAsInt);
+            var clinicAdmin = ClinicUnitOfWork.GetClinicAdminList().SingleOrDefault(p => p.User.Hash == request.Id);
     
             if(clinicAdmin != null)
                 Mapper.Map(clinicAdmin.ClinicAdminMatrixItems.Select(s => s.Clinic), responseList);
@@ -89,27 +89,45 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var userToAdd = Mapper.Map<User>(request.User);
 
-            if (userToAdd.Id == 0)
+            if (!userToAdd.AccountLinked)
                 userToAdd = UserUnitOfWork.AddUser(new User());
+            else
+            {
+                userToAdd =
+                    UserUnitOfWork.UserRepository.GetAll()
+                        .SingleOrDefault(
+                            s => s.Hash.Equals(request.User.Hash, StringComparison.OrdinalIgnoreCase));
+            }
+
+            var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
 
             var token = ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id, request.User.EmailAddress);
-
-            using (var mailClient = new NetSmtpClient())
+            //if token is returned, user is newly created or has not confirmed registration yet
+            if (!String.IsNullOrWhiteSpace(token))
             {
-                var mailMessage = new MailMessage();
-                if (!String.IsNullOrWhiteSpace(token))
+                using (var mailClient = new NetSmtpClient())
                 {
-                    mailMessage.Subject = "SportsWebPt Patient Registration";
-                    mailMessage.Body = String.Format("Register here: {0}", token);
-                }
-                else
-                {
-                    mailMessage.Subject = "New Clinic Confirmation Request";
-                    mailMessage.Body = String.Format("Login to SportsWebPt to see your new clinic request");
-                }
+                    var messageBody =
+                        String.Format(
+                            "Hello, you have requested by {0} to create an account on SportsWebPt to access your physical therapy information {1}", clinic.Name, Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format(
+                                      "Please click on the following link to start the registration process: http://localhost:8022/clinic/{0}/register/patient/ {1}",
+                                      clinic.Id, Environment.NewLine);
 
-                mailMessage.To.Add(new MailAddress(userToAdd.EmailAddress));
-                mailClient.Send(mailMessage);
+                    messageBody = messageBody + Environment.NewLine + Environment.NewLine;
+                    messageBody = messageBody +
+                                  String.Format("You will need to following information to register: {0}",
+                                      Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format("Registration Email Given: {0}{1}",request.User.EmailAddress,Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format("Registration Pin: {0}{1}", token, Environment.NewLine);
+
+                    var mailMessage = new MailMessage {Subject = "SportsWebPt Patient Registration", Body = messageBody};
+                    mailMessage.To.Add(new MailAddress(request.User.EmailAddress));
+                    mailClient.Send(mailMessage);
+                }
             }
 
             return Ok(new ApiResponse<UserDto>()
@@ -197,7 +215,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             if (clinicPatient != null)
             {
-                var existingUser = UserUnitOfWork.GetUserByEmail(newUser.EmailAddress);
+                var existingUser = UserUnitOfWork.GetUserBySubject(newUser.EmailAddress);
 
                 if (existingUser != null)
                 {
@@ -226,7 +244,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             if (clinicTherapist != null)
             {
-                var existingUser = UserUnitOfWork.GetUserByEmail(newUser.EmailAddress);
+                var existingUser = UserUnitOfWork.GetUserBySubject(newUser.EmailAddress);
 
                 if (existingUser != null)
                 {

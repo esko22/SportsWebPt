@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using AutoMapper;
 using SportsWebPt.Common.Utilities;
 using System.Web.Http;
 
@@ -13,34 +14,55 @@ namespace SportsWebPt.Platform.Web.Application
     {
         #region Fields
 
-        private IUserManagementService _userManagementService;
+        private readonly IUserManagementService _userManagementService;
+        private readonly IClinicService _clinicService;
 
         #endregion
 
         #region Construction
 
-        public UserController(IUserManagementService userManagementService)
+        public UserController(IUserManagementService userManagementService, IClinicService clinicService)
         {
             Check.Argument.IsNotNull(userManagementService, "User Management Service");
+            Check.Argument.IsNotNull(userManagementService, "User Management Service");
             _userManagementService = userManagementService;
+            _clinicService = clinicService;
         }
 
         #endregion
 
 
         [HttpGet]
-        [Route("data/users/{id}")]
-        public User GetUser(String id)
+        [Route("data/users/current")]
+        public User GetUser()
         {
-            var principle = User as ClaimsPrincipal;
 
-            if (principle != null)
+            if (User.Identity.IsAuthenticated)
             {
-                var email = principle.FindFirst("email") == null ? "Unknown" : principle.FindFirst("email").Value;
+                var principle = (ClaimsPrincipal)User;
+                var subjectId = principle.FindFirst("sub") == null ? String.Empty : principle.FindFirst("sub").Value;
+                var user = Mapper.Map<User>(_userManagementService.GetServiceUser(subjectId));
 
-                var user = _userManagementService.GetUser(principle.FindFirst("sub").Value);
+                if (user == null)
+                {
+                    user = new User()
+                    {
+                        emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value,
+                        isAdmin = true,
+                        isClinicManager = true,
+                        isTherapist = true
+                    };
+                }
+                else
+                {
+                    user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
+                    user.isAdmin = true;
+                    user.isTherapist = true;
+                    user.isClinicManager = true;
+                }
 
 
+                return user;
                 //if user does not have a claim of the key in the service db create new user
                 //then I would add a claim of the services db id for user
                 //set flag of user to accountLinked
@@ -50,18 +72,17 @@ namespace SportsWebPt.Platform.Web.Application
                 //I get user for that registration row, I can check if account is linked
                 //if account is not linked, I add claim for service db id for user and set flag
 
-                return new User()
-                {
-                    emailAddress = email,
-                    isAdmin = true,
-                    isClinicManager = true,
-                    isTherapist = true
-                };
             }
 
             return null;
+        }
 
-            //return _userManagementService.GetUser(id);
+        [HttpPost]
+        [Authorize]
+        [Route("data/users/validate")]
+        public Boolean UserExistsByEmail([FromBody]String emailAddress)
+        {
+            return _userManagementService.ValidateUserByEmail(emailAddress);
         }
 
         [HttpPost]
@@ -72,14 +93,14 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [HttpPut]
-        [Route("data/users/{id}")]
+        [Route("data/users/current")]
         public int UpdateUser(User user)
         {
             return _userManagementService.AddUser(user);
         }
 
         [HttpPost]
-        [Route("data/users/favorites")]
+        [Route("data/users/current/favorites")]
         public Favorite AddFavorites(Favorite favorite)
         {
             if (User.Identity.IsAuthenticated)
@@ -95,7 +116,21 @@ namespace SportsWebPt.Platform.Web.Application
             return _userManagementService.GetEpisodes(id, state);
         }
 
-
-
+        [HttpGet]
+        [Authorize]
+        [Route("data/users/current/managedclinics")]
+        public IEnumerable<Clinic> GetManagedClinics()
+        {
+            return _clinicService.GetManagedClinics(((ClaimsPrincipal)User).GetSubjectId());
+        }
     }
+
+    public static class ClaimsPrincipalExtensions
+    {
+        public static String GetSubjectId(this ClaimsPrincipal principal)
+        {
+            return principal.FindFirst("sub") == null ? String.Empty : principal.FindFirst("sub").Value;
+        }
+    }
+
 }

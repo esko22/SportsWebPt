@@ -32,7 +32,11 @@ sharedUi.controller('HeaderController', [
     '$scope', '$modal', 'userManagementService', '$rootScope', function ($scope, $modal, userManagementService, $rootScope) {
 
         var currentModal = null;
-        $scope.currentUser = $rootScope.currentUser;
+
+        userManagementService.getUser().$promise.then(function(user) {
+            $scope.currentUser = user;
+        });
+
         $scope.isAuthenticated = userManagementService.isAuthenticated();
 
         $scope.showSignUp = function () {

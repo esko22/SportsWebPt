@@ -1,39 +1,22 @@
-﻿swptApp.service('userManagementService', ['$resource', 'configService', '$state', function ($resource, configService, $state) {
-        var resource = $resource(configService.apiUris.users);
-        var user = null;
+﻿swptApp.service('userManagementService', ['$resource', 'configService', '$state', function ($resource, configService, $rootScope) {
+        var resource = $resource(configService.apiUris.currentUser);
 
         var getUser = function() {
-            var userId = $('#authTime').val();
-
-            if (user == null && userId > 0) {
-                user = resource.get({ id: userId });
-                return user;
-            }
-            else {
-                return user;
-            }
+            return resource.get();
         };
-
-        var refreshUser = function() {
-            user = resource.get({ id: user.id });
-        }
 
         var isAuthenticated = function() {
-            var userId = $('#authTime').val();
-
-            return userId > 0;
+            var authTime = $('#authTime').val();
+            return authTime > 0;
         };
 
-        var logOut = function() {
-            user = null;
+        var logOut = function () {
             window.location.assign('/signout');
         };
 
-
-
         return {
             getUser: getUser,
-            refreshUser : refreshUser,
+            refreshUser: getUser,
             isAuthenticated: isAuthenticated,
             logOut: logOut
         };

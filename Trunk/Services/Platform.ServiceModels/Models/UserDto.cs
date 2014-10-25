@@ -44,6 +44,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public FavoriteDto[] ExerciseFavorites { get; set; }
 
+        public Boolean AccountLinked { get; set; }
+
         #endregion
     }
 
