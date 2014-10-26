@@ -35,7 +35,9 @@ namespace SportsWebPt.Platform.Web.Services
         public User GetUser(String id)
         {
             var relationUser = UserAccountServiceFactory().GetByID(new Guid(id));
-            return Mapper.Map<User>(relationUser);
+            var user = new User {hash = relationUser.GetClaimValue("service_account")};
+
+            return user;
         }
 
         public Boolean ValidateUserByEmail(String emailAddress)
@@ -47,7 +49,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var request = GetSync(new UserRequest() { Id = id });
 
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+            return request.Response == null ? new User() { hash = id, accountLinked = false} : Mapper.Map<User>(request.Response);
         }
 
         public int AddUser(User user)
@@ -57,6 +59,24 @@ namespace SportsWebPt.Platform.Web.Services
             var request = PostSync(userResuest);
 
             return request.Response.Id;
+        }
+
+        public void CreateServiceAccount(String subjectId)
+        {
+            var userAccountService = UserAccountServiceFactory();
+            var relationUser = userAccountService.GetByID(new Guid(subjectId));
+
+            if (!relationUser.HasClaim("service_account"))
+            {
+                var request = PostSync(new CreateUserRequest { AccountLinked = true });
+                userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
+            }
+        }
+
+        public void LinkServiceAccount(String subjectId, String existingServiceAccount)
+        {
+            var userAccountService = UserAccountServiceFactory();
+            userAccountService.AddClaim(new Guid(subjectId), "service_account", existingServiceAccount);
         }
 
         public void AddFavorite(Favorite userFavorite, int userId)
@@ -136,11 +156,11 @@ namespace SportsWebPt.Platform.Web.Services
         Boolean ValidateUserByEmail(String emailAddress);
         User GetUser(String subjectId);
         User GetServiceUser(String id);
-        int AddUser(User user);
         User Auth(String emailAddress, String hash);
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
-
+        void LinkServiceAccount(String subjectId, String existingServiceAccount);
+        void CreateServiceAccount(String subjectId);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin);
 

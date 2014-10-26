@@ -4,7 +4,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Net;
 using System.Web.Http;
-using Microsoft.Owin.Security.Infrastructure;
+
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application
 {
@@ -12,11 +14,18 @@ namespace SportsWebPt.Platform.Web.Application
     public class AuthController : ApiController
     {
 
+        #region Fields
+
+        private readonly IUserManagementService _userManagementService;
+
+        #endregion
+
         #region Construction
 
-        public AuthController()
+        public AuthController(IUserManagementService userManagementService)
         {
-            
+            Check.Argument.IsNotNull(userManagementService, "UserManagementService");
+            _userManagementService = userManagementService;
         }
 
         #endregion
@@ -43,6 +52,7 @@ namespace SportsWebPt.Platform.Web.Application
         {
             var subjectId = User.GetSubjectId();
             //do some logic to create a linked account with service
+            _userManagementService.CreateServiceAccount(subjectId);
 
             var response = Request.CreateResponse(HttpStatusCode.Moved);
             response.Headers.Location = new Uri(Request.RequestUri.GetLeftPart(UriPartial.Authority) + returnUrl);

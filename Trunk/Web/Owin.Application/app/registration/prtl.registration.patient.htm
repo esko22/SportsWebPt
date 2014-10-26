@@ -4,7 +4,7 @@
     </div>
     <h2>Patient Registration</h2>
     
-    <div ng-if="!user" class="row push-down-lg">
+    <div ng-if="user.emailAddress == null" class="row push-down-lg">
         <div>
             <h4>You have been requested by Clinic X to register on SportsWebPt.</h4>
             <h4>First, you will need to sign in or create an account before we can sync you up.</h4>
@@ -14,7 +14,7 @@
         </div>
     </div>
     
-    <div ng-if="user" class="row push-down-lg">
+    <div ng-if="user.emailAddress != null" class="row push-down-lg">
         <div>
             <div class="col-md-3">
                 <label> Email Address:</label>

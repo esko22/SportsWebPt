@@ -111,11 +111,15 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicPatientRepository.Update(clinicPatient);
 
                 var user = UserRepository.GetById(clinicPatient.UserId);
-                if(!String.IsNullOrEmpty(user.Hash) && user.Hash != subjectId)
-                    throw new Exception("Subject Id - Registration Conflict");
+                //if(!String.IsNullOrEmpty(user.Hash) && user.Hash != subjectId)
+                //    throw new Exception("Subject Id - Registration Conflict");
 
-                user.Hash = subjectId;
-                UserRepository.Update(user);
+                if (String.IsNullOrEmpty(user.Hash) || !user.AccountLinked)
+                {
+                    user.Hash = subjectId;
+                    user.AccountLinked = true;
+                    UserRepository.Update(user);
+                }
 
                 Commit();
             }

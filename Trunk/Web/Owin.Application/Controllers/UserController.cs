@@ -41,10 +41,23 @@ namespace SportsWebPt.Platform.Web.Application
             if (User.Identity.IsAuthenticated)
             {
                 var principle = (ClaimsPrincipal)User;
-                var subjectId = principle.FindFirst("sub") == null ? String.Empty : principle.FindFirst("sub").Value;
-                var user = Mapper.Map<User>(_userManagementService.GetServiceUser(subjectId));
 
-                if (user == null)
+                var identityUser = _userManagementService.GetUser(principle.GetSubjectId());
+
+                //todo: need to get claim
+
+
+                User user;
+
+                if (!String.IsNullOrEmpty(identityUser.hash))
+                {
+                    user = Mapper.Map<User>(_userManagementService.GetServiceUser(identityUser.hash));
+                    user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
+                    user.isAdmin = true;
+                    user.isTherapist = true;
+                    user.isClinicManager = true;
+                }
+                else
                 {
                     user = new User()
                     {
@@ -53,13 +66,6 @@ namespace SportsWebPt.Platform.Web.Application
                         isClinicManager = true,
                         isTherapist = true
                     };
-                }
-                else
-                {
-                    user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
-                    user.isAdmin = true;
-                    user.isTherapist = true;
-                    user.isClinicManager = true;
                 }
 
 
@@ -75,7 +81,7 @@ namespace SportsWebPt.Platform.Web.Application
 
             }
 
-            return null;
+            return new User();
         }
 
         [HttpPost]
@@ -84,20 +90,6 @@ namespace SportsWebPt.Platform.Web.Application
         public Boolean UserExistsByEmail([FromBody]String emailAddress)
         {
             return _userManagementService.ValidateUserByEmail(emailAddress);
-        }
-
-        [HttpPost]
-        [Route("data/users/")]
-        public int CreateUser(User user)
-        {
-            return _userManagementService.AddUser(user);
-        }
-
-        [HttpPut]
-        [Route("data/users/current")]
-        public int UpdateUser(User user)
-        {
-            return _userManagementService.AddUser(user);
         }
 
         [HttpPost]

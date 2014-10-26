@@ -46,6 +46,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         public User AddUser(User user)
         {
+            user.Hash = Guid.NewGuid().ToString();
             UserRepository.Add(user);
             Commit();
 

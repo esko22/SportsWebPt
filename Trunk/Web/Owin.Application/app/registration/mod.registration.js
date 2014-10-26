@@ -7,8 +7,8 @@ registrationModule.controller('RegistrationPatientController', [
     '$scope', 'registrationService','$stateParams','$rootScope','userManagementService','$state',
     function ($scope, registrationService, $stateParams, $rootScope, userManagementService, $state) {
 
-        userManagementService.getUser().$promise.then(function(result) {
-            $scope.user = result;
+        userManagementService.getUser().$promise.then(function(user) {
+            $scope.user = user;
         }); 
         $scope.registrationDetails = {};
         $scope.isValidated = false;

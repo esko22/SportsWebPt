@@ -28,18 +28,25 @@ namespace SportsWebPt.Platform.Web.Application
 
         #region Methods
 
-        [HttpGet]
+        [HttpPost]
         [Authorize]
         [Route("data/registration/patient")]
-        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin)
+        public ClinicPatient ValidatePatientRegistration([FromBody] RegistrationDetails registrationDetails)
         {
-            Check.Argument.IsNotNullOrEmpty(emailAddress, "Email Address");
-            Check.Argument.IsNotNullOrEmpty(pin, "Pin");
+            Check.Argument.IsNotNullOrEmpty(registrationDetails.emailAddress, "Email Address");
+            Check.Argument.IsNotNullOrEmpty(registrationDetails.pin, "Pin");
 
-            return _userManagementService.ValidatePatientRegistration(emailAddress, pin, User.GetSubjectId());
+            var clinicPatient = _userManagementService.ValidatePatientRegistration(registrationDetails.emailAddress,
+                registrationDetails.pin, User.GetSubjectId());
+
+            //TODO:check user hash is set on the way back
+
+            _userManagementService.LinkServiceAccount(User.GetSubjectId(), clinicPatient.user.hash);
+
+            return clinicPatient;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("data/registration/therapist")]
         public ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin)
         {
@@ -52,5 +59,12 @@ namespace SportsWebPt.Platform.Web.Application
         
 
         #endregion
+    }
+
+    public class RegistrationDetails
+    {
+        public String emailAddress { get; set; }
+
+        public String pin { get; set; }
     }
 }
