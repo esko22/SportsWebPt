@@ -112,7 +112,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                             "Hello, you have requested by {0} to create an account on SportsWebPt to access your physical therapy information {1}", clinic.Name, Environment.NewLine);
                     messageBody = messageBody +
                                   String.Format(
-                                      "Please click on the following link to start the registration process: http://localhost:8022/clinic/{0}/register/patient/ {1}",
+                                      "Please click on the following link to start the registration process: http://localhost:8022/register/{0}/patient {1}",
                                       clinic.Id, Environment.NewLine);
 
                     messageBody = messageBody + Environment.NewLine + Environment.NewLine;
@@ -182,8 +182,9 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
             Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
+            Check.Argument.IsNotNullOrEmpty(request.SubjectId, "SubjectId Cannot Be Empty");
 
-            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin);
+            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin, request.SubjectId);
 
             return Ok(new ApiResponse<ClinicPatientDto>()
             {

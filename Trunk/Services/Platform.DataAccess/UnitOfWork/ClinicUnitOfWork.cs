@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<ClinicAdmin> ClinicAdminRepository { get { return GetStandardRepo<ClinicAdmin>(); } }
         public IRepository<ClinicTherapistMatrixItem> ClinicTherapistRepository { get { return GetStandardRepo<ClinicTherapistMatrixItem>(); } }
         public IRepository<ClinicPatientMatrixItem> ClinicPatientRepository { get { return GetStandardRepo<ClinicPatientMatrixItem>(); } }
-
+        public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } } 
         public IClinicRepo ClinicRepository { get { return GetRepo<IClinicRepo>(); } } 
 
         #endregion
@@ -95,18 +95,32 @@ namespace SportsWebPt.Platform.DataAccess
             return String.Empty;
         }
 
-        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin)
+        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String subjectId)
         {
             var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
 
-            return ClinicPatientRepository.GetAll()
+            var clinicPatient = ClinicPatientRepository.GetAll()
                 .Include(i => i.Patient)
                 .Include(i => i.Clinic)
                 .SingleOrDefault(
-                    p =>
-                        p.Patient.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase) &&
-                        p.Pin.Equals(pin, StringComparison.OrdinalIgnoreCase));
-            //TODO: need to think about case sensitivity for security
+                    p => p.Pin.Equals(pin, StringComparison.OrdinalIgnoreCase));
+
+            if (clinicPatient != null)
+            {
+                clinicPatient.UserConfirmed = true;
+                ClinicPatientRepository.Update(clinicPatient);
+
+                var user = UserRepository.GetById(clinicPatient.UserId);
+                if(!String.IsNullOrEmpty(user.Hash) && user.Hash != subjectId)
+                    throw new Exception("Subject Id - Registration Conflict");
+
+                user.Hash = subjectId;
+                UserRepository.Update(user);
+
+                Commit();
+            }
+
+            return clinicPatient;
         }
 
         public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin)
@@ -159,7 +173,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         String AddPatientToClinic(int clinicId, int userId, String emailAddress);
         String AddTherapistToClinic(int clinicId, int therapistId);
-        ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin);
+        ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, String subjectId);
         ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin);
         void SetPatientConfirmation(int clientPatientMatrixId);
         void SetTherapistConfirmation(int clientTherapistMatrixId);

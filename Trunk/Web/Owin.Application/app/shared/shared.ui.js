@@ -40,7 +40,7 @@ sharedUi.controller('HeaderController', [
         $scope.isAuthenticated = userManagementService.isAuthenticated();
 
         $scope.showSignUp = function () {
-            window.location.assign('/auth?returnUrl=');
+            window.location.assign('/register?returnUrl=');
         };
 
         $scope.logOut = function () {

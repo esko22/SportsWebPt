@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using System.Security.Principal;
 using AutoMapper;
 using SportsWebPt.Common.Utilities;
 using System.Web.Http;
@@ -121,15 +122,17 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/users/current/managedclinics")]
         public IEnumerable<Clinic> GetManagedClinics()
         {
-            return _clinicService.GetManagedClinics(((ClaimsPrincipal)User).GetSubjectId());
+            return _clinicService.GetManagedClinics((User).GetSubjectId());
         }
     }
 
     public static class ClaimsPrincipalExtensions
     {
-        public static String GetSubjectId(this ClaimsPrincipal principal)
+        //TODO: move this out to a more common location for visibility
+        public static String GetSubjectId(this IPrincipal principal)
         {
-            return principal.FindFirst("sub") == null ? String.Empty : principal.FindFirst("sub").Value;
+            var user = (ClaimsPrincipal) principal;
+            return user.FindFirst("sub") == null ? String.Empty : user.FindFirst("sub").Value;
         }
     }
 

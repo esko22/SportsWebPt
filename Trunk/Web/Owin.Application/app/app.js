@@ -428,7 +428,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
                 .state('registration.patient',
                 {
-                    url: "/registration/patient?errId",
+                    url: "/register/:clinicId/patient",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.patient.htm',

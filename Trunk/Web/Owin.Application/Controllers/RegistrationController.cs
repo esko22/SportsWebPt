@@ -29,13 +29,14 @@ namespace SportsWebPt.Platform.Web.Application
         #region Methods
 
         [HttpGet]
+        [Authorize]
         [Route("data/registration/patient")]
         public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin)
         {
             Check.Argument.IsNotNullOrEmpty(emailAddress, "Email Address");
             Check.Argument.IsNotNullOrEmpty(pin, "Pin");
 
-            return _userManagementService.ValidatePatientRegistration(emailAddress, pin);
+            return _userManagementService.ValidatePatientRegistration(emailAddress, pin, User.GetSubjectId());
         }
 
         [HttpGet]

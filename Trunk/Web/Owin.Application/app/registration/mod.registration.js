@@ -4,10 +4,12 @@ var registrationModule = angular.module('registration.module', []);
 
 
 registrationModule.controller('RegistrationPatientController', [
-    '$scope', 'registrationService','$stateParams','$rootScope',
-    function ($scope, registrationService, $stateParams, $rootScope) {
+    '$scope', 'registrationService','$stateParams','$rootScope','userManagementService','$state',
+    function ($scope, registrationService, $stateParams, $rootScope, userManagementService, $state) {
 
-        $scope.user = $rootScope.currentUser;
+        userManagementService.getUser().$promise.then(function(result) {
+            $scope.user = result;
+        }); 
         $scope.registrationDetails = {};
         $scope.isValidated = false;
         $scope.actionPath = '/register/';
@@ -15,17 +17,17 @@ registrationModule.controller('RegistrationPatientController', [
         $scope.registrationId = 0;
 
         $scope.startRegistration = function() {
-            window.location.assign('/auth?returnUrl=/registration/patient');
+            window.location.assign('/auth?returnUrl=/register/' + $stateParams.clinicId + '/patient');
         };
 
         $scope.validate = function() {
             $scope.isValidated = false;
             registrationService.validatePatient($scope.registrationDetails.emailAddress, $scope.registrationDetails.pin).$promise.then(function (clinicPatient) {
                 $scope.clinic = clinicPatient.clinic;
-                $scope.actionPath = '/register/' + clinicPatient.id + '/patient';
                 $scope.registrationId = clinicPatient.id;
                 $scope.isConfirmed = clinicPatient.userConfirmed;
                 $scope.isValidated = true;
+                $state.go('patient.dashboard');
             });
         }
     }

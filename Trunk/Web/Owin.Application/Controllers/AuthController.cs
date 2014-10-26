@@ -12,6 +12,15 @@ namespace SportsWebPt.Platform.Web.Application
     public class AuthController : ApiController
     {
 
+        #region Construction
+
+        public AuthController()
+        {
+            
+        }
+
+        #endregion
+
         [HttpGet]
         [Route("auth")]
         public object Get(String returnUrl)
@@ -28,5 +37,16 @@ namespace SportsWebPt.Platform.Web.Application
             Request.GetOwinContext().Authentication.SignOut();
         }
 
+        [HttpGet]
+        [Route("register")]
+        public object Register(String returnUrl)
+        {
+            var subjectId = User.GetSubjectId();
+            //do some logic to create a linked account with service
+
+            var response = Request.CreateResponse(HttpStatusCode.Moved);
+            response.Headers.Location = new Uri(Request.RequestUri.GetLeftPart(UriPartial.Authority) + returnUrl);
+            return response;
+        }
     }
 }

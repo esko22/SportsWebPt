@@ -85,9 +85,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
-        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin)
+        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId)
         {
-            var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin });
+            var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin, SubjectId = subjectId});
 
             return request.Response == null ? null : Mapper.Map<ClinicPatient>(request.Response);
         }
@@ -141,7 +141,7 @@ namespace SportsWebPt.Platform.Web.Services
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
 
-        ClinicPatient ValidatePatientRegistration(String emailAddress, String pin);
+        ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin);
 
         int RegisterPatient(User user, int registrationId);
