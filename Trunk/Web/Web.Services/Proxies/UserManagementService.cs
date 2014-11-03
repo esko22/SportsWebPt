@@ -9,6 +9,7 @@ using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Relational;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Identity.Core;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
 using SportsWebPt.Platform.Web.Core;
@@ -68,6 +69,8 @@ namespace SportsWebPt.Platform.Web.Services
             var request = PostSync(new CreateUserRequest { AccountLinked = true });
             userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
 
+            UpdateServiceAccount(subjectId, request.Response.Hash, userAccountService);
+
             return request.Response.Hash;
         }
 
@@ -77,7 +80,19 @@ namespace SportsWebPt.Platform.Web.Services
             userAccountService.RemoveClaim(new Guid(subjectId), "service_account");
             userAccountService.AddClaim(new Guid(subjectId), "service_account", serviceAccount);
 
+            UpdateServiceAccount(subjectId, serviceAccount, userAccountService);
+
             return serviceAccount;
+        }
+
+        private void UpdateServiceAccount(String subjectId, String serviceAccount, UserAccountService<SportsWebUser> userAccountService)
+        {
+            var userToEdit = userAccountService.GetByID(new Guid(subjectId));
+            if (userToEdit != null)
+            {
+                userToEdit.ServiceAccount = serviceAccount;
+                userAccountService.Update(userToEdit);
+            }
         }
 
         public void AddFavorite(Favorite userFavorite, int userId)
@@ -136,18 +151,38 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? 0 : request.Response.Id;
         }
 
-        public static UserAccountService<RelationalUserAccount> UserAccountServiceFactory()
+        public IEnumerable<UserAccountQueryResult> GetUserList(String filter)
         {
-            var database = new DefaultMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
-            var userRepo = new DefaultUserAccountRepository(database);
+            var service = UserAccountServiceFactory();
+            var count = 0;
+            var accounts = service.Query.Query(list =>
+            {
+                if (filter != null)
+                {
+                    list = list.Where(x => x.Username.Contains(filter));
+                }
+                return list;
+            },
+            null,
+                //list => list.OrderBy(x=>x.Username),
+            0, 1000, out count);
 
-            var configuration = new MembershipRebootConfiguration<RelationalUserAccount>
+            return accounts;
+        } 
+
+        public static UserAccountService<SportsWebUser> UserAccountServiceFactory()
+        {
+            var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
+            var userRepo = new SportsWebUserAccountRepo(database);
+
+            var configuration = new MembershipRebootConfiguration<SportsWebUser>
             {
                 PasswordHashingIterationCount = 10000,
                 RequireAccountVerification = false
             };
 
-            var service = new UserAccountService<RelationalUserAccount>(configuration, userRepo);
+            var service = new UserAccountService<SportsWebUser>(configuration, userRepo);
+
 
             return service;
         }

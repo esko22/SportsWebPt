@@ -81,8 +81,12 @@ namespace SportsWebPt.Platform.Web.Services
 
             var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
 
-            if(userToAdd != null && !user.accountLinked)
+            if (userToAdd != null && !user.accountLinked)
+            {
                 userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
+                userToAdd.ServiceAccount = request.Response.Hash;
+                userService.Update(userToAdd);
+            }
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }

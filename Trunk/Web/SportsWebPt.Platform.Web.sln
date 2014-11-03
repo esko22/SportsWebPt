@@ -38,6 +38,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Application", "Owin.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Nancy", "..\Common\Common.Nancy\Common.Nancy.csproj", "{B2A00B43-287F-419B-B3C8-16FE2A5F3386}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{20DA2205-8773-40E6-A1B3-0B8E7783C4FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Core", "..\Identity\Identity.Core\Identity.Core.csproj", "{AF4C143B-BD7C-48D0-883A-4498B40DBA67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +120,12 @@ Global
 		{B2A00B43-287F-419B-B3C8-16FE2A5F3386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A00B43-287F-419B-B3C8-16FE2A5F3386}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2A00B43-287F-419B-B3C8-16FE2A5F3386}.Release|x64.ActiveCfg = Release|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,5 +142,6 @@ Global
 		{EA80D503-3412-421B-BF8C-C4960E04E44D} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
 		{03EC6330-6A00-43A8-9511-66EE7AAB8195} = {6B59B226-1B38-41D4-9C51-D78413E40BF4}
 		{B2A00B43-287F-419B-B3C8-16FE2A5F3386} = {7D529F2A-A079-41FB-AE1F-8D8B027F068B}
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67} = {20DA2205-8773-40E6-A1B3-0B8E7783C4FB}
 	EndGlobalSection
 EndGlobal
