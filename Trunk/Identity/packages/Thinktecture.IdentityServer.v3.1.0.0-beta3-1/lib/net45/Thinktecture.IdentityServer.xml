@@ -1,0 +1,644 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Thinktecture.IdentityServer.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Thinktecture.IdentityServer.Core.Resources.Scopes">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.AddressDisplayName">
+            <summary>
+              Looks up a localized string similar to Your postal address.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.AllClaimsDisplayName">
+            <summary>
+              Looks up a localized string similar to All user information.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.EmailDisplayName">
+            <summary>
+              Looks up a localized string similar to Your email address.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.OfflineAccessDisplayName">
+            <summary>
+              Looks up a localized string similar to Offline access.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.OpenIdDisplayName">
+            <summary>
+              Looks up a localized string similar to Your user identifier.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.PhoneDisplayName">
+            <summary>
+              Looks up a localized string similar to Your phone number.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.ProfileDescription">
+            <summary>
+              Looks up a localized string similar to Your user profile information (first name, last name, etc.).
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.ProfileDisplayName">
+            <summary>
+              Looks up a localized string similar to User profile.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Scopes.RolesDisplayName">
+            <summary>
+              Looks up a localized string similar to User roles.
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IClientPermissionsService">
+            <summary>
+            Service to manage client permissions (refresh and access tokens, consent)
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IClientPermissionsService.GetClientPermissionsAsync(System.String)">
+            <summary>
+            Gets the client permissions asynchronous.
+            </summary>
+            <param name="subject">The subject identifier.</param>
+            <returns>A list of client permissions</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IClientPermissionsService.RevokeClientPermissionsAsync(System.String,System.String)">
+            <summary>
+            Revokes the client permissions asynchronous.
+            </summary>
+            <param name="subject">The subject identifier.</param>
+            <param name="clientId">The client identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1">
+            <summary>
+            Abstraction for storing transient data (e.g. authorization codes, refresh and reference tokens)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1.StoreAsync(System.String,`0)">
+            <summary>
+            Stores the data.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1.GetAsync(System.String)">
+            <summary>
+            Retrieves the data.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1.RemoveAsync(System.String)">
+            <summary>
+            Removes the data.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1.GetAllAsync(System.String)">
+            <summary>
+            Retrieves all data for a subject identifier.
+            </summary>
+            <param name="subject">The subject identifier.</param>
+            <returns>A list of token metadata</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITransientDataRepository`1.RevokeAsync(System.String,System.String)">
+            <summary>
+            Revokes all data for a client and subject id combination.
+            </summary>
+            <param name="subject">The subject.</param>
+            <param name="client">The client.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IRefreshTokenStore">
+            <summary>
+            Refresh token storage
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IAuthorizationCodeStore">
+            <summary>
+            Abstraction for storing authorization codes
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ITokenHandleStore">
+            <summary>
+            Token handle storage
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IRefreshTokenService">
+            <summary>
+            Implements refresh token creation and validation
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IRefreshTokenService.CreateRefreshTokenAsync(Thinktecture.IdentityServer.Core.Models.Token,Thinktecture.IdentityServer.Core.Models.Client)">
+            <summary>
+            Creates the refresh token.
+            </summary>
+            <param name="accessToken">The access token.</param>
+            <param name="client">The client.</param>
+            <returns>The refresh token handle</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IRefreshTokenService.UpdateRefreshTokenAsync(System.String,Thinktecture.IdentityServer.Core.Models.RefreshToken,Thinktecture.IdentityServer.Core.Models.Client)">
+            <summary>
+            Updates the refresh token.
+            </summary>
+            <param name="handle">The handle.</param>
+            <param name="refreshToken">The refresh token.</param>
+            <param name="client">The client.</param>
+            <returns>The refresh token handle</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ITokenSigningService">
+            <summary>
+            Logic for signing security tokens
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITokenSigningService.SignTokenAsync(Thinktecture.IdentityServer.Core.Models.Token)">
+            <summary>
+            Signs the token.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>A protected and serialized security token</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ICustomGrantValidator">
+            <summary>
+            Handles validation of token requests using custom grant types
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ICustomGrantValidator.ValidateAsync(Thinktecture.IdentityServer.Core.Validation.ValidatedTokenRequest)">
+            <summary>
+            Validates the custom grant request.
+            </summary>
+            <param name="request">The validated token request.</param>
+            <returns>A principal</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ICustomRequestValidator">
+            <summary>
+            Allows inserting custom validation logic into authorize and token requests
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ICustomRequestValidator.ValidateAuthorizeRequestAsync(Thinktecture.IdentityServer.Core.Validation.ValidatedAuthorizeRequest)">
+            <summary>
+            Custom validation logic for the authorize request.
+            </summary>
+            <param name="request">The validated request.</param>
+            <returns>The validation result</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ICustomRequestValidator.ValidateTokenRequestAsync(Thinktecture.IdentityServer.Core.Validation.ValidatedTokenRequest)">
+            <summary>
+            Custom validation logic for the token request.
+            </summary>
+            <param name="request">The validated request.</param>
+            <returns>The validation result</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ICustomTokenValidator">
+            <summary>
+            Allows inserting custom token validation logic
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ICustomTokenValidator.ValidateAccessTokenAsync(Thinktecture.IdentityServer.Core.Validation.TokenValidationResult)">
+            <summary>
+            Custom validation logic for access tokens.
+            </summary>
+            <param name="result">The validation result so far.</param>
+            <returns>The validation result</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ICustomTokenValidator.ValidateIdentityTokenAsync(Thinktecture.IdentityServer.Core.Validation.TokenValidationResult)">
+            <summary>
+            Custom validation logic for identity tokens.
+            </summary>
+            <param name="result">The validation result so far.</param>
+            <returns>The validation result</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.ITokenService">
+            <summary>
+            Logic for creating security tokens
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITokenService.CreateIdentityTokenAsync(Thinktecture.IdentityServer.Core.Models.TokenCreationRequest)">
+            <summary>
+            Creates an identity token.
+            </summary>
+            <param name="request">The token creation request.</param>
+            <returns>An identity token</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITokenService.CreateAccessTokenAsync(Thinktecture.IdentityServer.Core.Models.TokenCreationRequest)">
+            <summary>
+            Creates an access token.
+            </summary>
+            <param name="request">The token creation request.</param>
+            <returns>An access token</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.ITokenService.CreateSecurityTokenAsync(Thinktecture.IdentityServer.Core.Models.Token)">
+            <summary>
+            Creates a serialized and protected security token.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>A security token in serialized form</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IClaimsProvider">
+            <summary>
+            The claims provider is responsible for determining which claims to include in tokens
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IClaimsProvider.GetIdentityTokenClaimsAsync(System.Security.Claims.ClaimsPrincipal,Thinktecture.IdentityServer.Core.Models.Client,System.Collections.Generic.IEnumerable{Thinktecture.IdentityServer.Core.Models.Scope},System.Boolean,Thinktecture.IdentityServer.Core.Validation.ValidatedRequest)">
+            <summary>
+            Returns claims for an identity token
+            </summary>
+            <param name="subject">The subject</param>
+            <param name="client">The client</param>
+            <param name="scopes">The requested scopes</param>
+            <param name="includeAllIdentityClaims">Specifies if all claims should be included in the token, or if the userinfo endpoint can be used to retrieve them</param>
+            <param name="request">The raw request</param>
+            <returns>Claims for the identity token</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IClaimsProvider.GetAccessTokenClaimsAsync(System.Security.Claims.ClaimsPrincipal,Thinktecture.IdentityServer.Core.Models.Client,System.Collections.Generic.IEnumerable{Thinktecture.IdentityServer.Core.Models.Scope},Thinktecture.IdentityServer.Core.Validation.ValidatedRequest)">
+            <summary>
+            Returns claims for an identity token.
+            </summary>
+            <param name="subject">The subject.</param>
+            <param name="client">The client.</param>
+            <param name="scopes">The requested scopes.</param>
+            <param name="request">The raw request.</param>
+            <returns>Claims for the access token</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Models.Client">
+            <summary>
+            Models an OpenID Connect or OAuth2 client
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Models.Client.#ctor">
+            <summary>
+            Creates a Client with default values
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.Enabled">
+            <summary>
+            Specifies if client is enabled (defaults to false)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.ClientId">
+            <summary>
+            Unique ID of the client
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.ClientSecret">
+            <summary>
+            Client secret - only relevant for flows that require a secret
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.ClientName">
+            <summary>
+            Client display name (used for logging and consent screen)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.ClientUri">
+            <summary>
+            URI to further information about client (used on consent screen)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.LogoUri">
+            <summary>
+            URI to client logo (used on consent screen)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.RequireConsent">
+            <summary>
+            Specifies whether a consent screen is required (defaults to false)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AllowRememberConsent">
+            <summary>
+            Specifies whether user can choose to store consent decisions (defaults to false)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.Flow">
+            <summary>
+            Specifies allowed flow for client (either AuthorizationCode, Implicit, Hybrid, ResourceOwner, ClientCredentials or Custom). Defaults to Implicit.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.RedirectUris">
+            <summary>
+            Specifies allowed URIs to return tokens or authorization codes to
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.PostLogoutRedirectUris">
+            <summary>
+            Specifies allowed URIs to redirect to after logout
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.ScopeRestrictions">
+            <summary>
+            Specifies the scopes that the client is allowed to request. If empty, the client can request all scopes (defaults to empty)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.IdentityTokenLifetime">
+            <summary>
+            Lifetime of identity token in seconds (defaults to 300 seconds / 5 minutes)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AccessTokenLifetime">
+            <summary>
+            Lifetime of access token in seconds (defaults to 3600 seconds / 1 hour)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AuthorizationCodeLifetime">
+            <summary>
+            Lifetime of authorization code in seconds (defaults to 300 seconds / 5 minutes)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AbsoluteRefreshTokenLifetime">
+            <summary>
+            Maximum lifetime of a refresh token in seconds. Defaults to 2592000 seconds / 30 days
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.SlidingRefreshTokenLifetime">
+            <summary>
+            Sliding lifetime of a refresh token in seconds. Defaults to 1296000 seconds / 15 days
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.RefreshTokenUsage">
+            <summary>
+            Absolute: the refresh token will expire on a fixed point in time (specified by the AbsoluteRefreshTokenLifetime)
+            Sliding: when refreshing the token, the lifetime of the refresh token will be renewed (by the amount specified in SlidingRefreshTokenLifetime). The lifetime will not exceed 
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.RefreshTokenExpiration">
+            <summary>
+            ReUse: the refresh token handle will stay the same when refreshing tokens
+            OneTime: the refresh token handle will be updated when refreshing tokens
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.IdentityTokenSigningKeyType">
+            <summary>
+            Specifies the key material used to sign the identity token. Default for the primary X.509 certificate, ClientSecret for using the client secret as a symmetric key (must be 256 bits in length). Defaults to Default.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AccessTokenType">
+            <summary>
+            Specifies whether the access token is a reference token or a self contained JWT token (defaults to Jwt).
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.AllowLocalLogin">
+            <summary>
+            Specifies if this client can use local accounts, or external IdPs only
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Client.IdentityProviderRestrictions">
+            <summary>
+            Specifies which external IdPs can be used with this client (if list is empty all IdPs are allowed). Defaults to empty.
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Resources.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.ClientIdRequired">
+            <summary>
+              Looks up a localized string similar to Client Identifier is required.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.invalid_scope">
+            <summary>
+              Looks up a localized string similar to The client application tried to access a resource it does not have access to.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.InvalidUsernameOrPassword">
+            <summary>
+              Looks up a localized string similar to Invalid Username or Password.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.MissingClientId">
+            <summary>
+              Looks up a localized string similar to client_id is missing.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.MissingToken">
+            <summary>
+              Looks up a localized string similar to Token is missing.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.MustSelectAtLeastOnePermission">
+            <summary>
+              Looks up a localized string similar to Must select at least one permission..
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.NoMatchingExternalAccount">
+            <summary>
+              Looks up a localized string similar to Invalid Account.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.NoSubjectFromExternalProvider">
+            <summary>
+              Looks up a localized string similar to Error authenticating with external provider.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.PasswordRequired">
+            <summary>
+              Looks up a localized string similar to Password is required.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.SslRequired">
+            <summary>
+              Looks up a localized string similar to SSL is required.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.unauthorized_client">
+            <summary>
+              Looks up a localized string similar to The client application tried to access a resource it does not have access to.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.UnexpectedError">
+            <summary>
+              Looks up a localized string similar to There was an unexpected error.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.unsupported_response_type">
+            <summary>
+              Looks up a localized string similar to The authorization server does not support the requested response type.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.UnsupportedMediaType">
+            <summary>
+              Looks up a localized string similar to Unsupported Media Type.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Resources.Messages.UsernameRequired">
+            <summary>
+              Looks up a localized string similar to Username is required.
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IClientStore">
+            <summary>
+            Retrieval of client configuration
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IClientStore.FindClientByIdAsync(System.String)">
+            <summary>
+            Finds a client by id
+            </summary>
+            <param name="clientId">The client id</param>
+            <returns>The client</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IConsentService">
+            <summary>
+            Service to retrieve and update consent.
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IConsentService.RequiresConsentAsync(Thinktecture.IdentityServer.Core.Models.Client,System.Security.Claims.ClaimsPrincipal,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Checks if consent is required.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="subject">The user.</param>
+            <param name="scopes">The scopes.</param>
+            <returns>Boolean if consent is required.</returns>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IConsentService.UpdateConsentAsync(Thinktecture.IdentityServer.Core.Models.Client,System.Security.Claims.ClaimsPrincipal,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Updates the consent.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="subject">The subject.</param>
+            <param name="scopes">The scopes.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Services.IScopeStore">
+            <summary>
+            Scope retrieval
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Services.IScopeStore.GetScopesAsync">
+            <summary>
+            Gets all scopes.
+            </summary>
+            <returns>List of scopes</returns>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Models.Scope">
+            <summary>
+            Models are resource (either identity resource or web api resource)
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Models.Scope.#ctor">
+            <summary>
+            Creates a Scope with default values
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Enabled">
+            <summary>
+            Scope enabled
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Name">
+            <summary>
+            Name of the scope. This is the value a client will use to request the scope.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.DisplayName">
+            <summary>
+            Display name. This value will be used e.g. on the consent screen.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Description">
+            <summary>
+            Description. This value will be used e.g. on the consent screen.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Required">
+            <summary>
+            Specifies whether the user can de-select the scope on the consent screen.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Emphasize">
+            <summary>
+            Specifies whether the consent screen will emphasize this scope. Use this setting for sensitive or important scopes.
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Type">
+            <summary>
+            Specifies whether this scope is about identity information from the userinfo endpoint, or a resource (e.g. a Web API)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.Claims">
+            <summary>
+            List of user claims that should be included in the identity (identity scope) or access token (resource scope). 
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.IncludeAllClaimsForUser">
+            <summary>
+            If enabled, all claims for the user will be included in the token
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.ClaimsRule">
+            <summary>
+            Rule for determining which claims should be included in the token (this is implementation specific)
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.Scope.ShowInDiscoveryDocument">
+            <summary>
+            Specifies whether this scope is shown in the discovery document (defaults to true)
+            </summary>
+        </member>
+        <member name="T:Thinktecture.IdentityServer.Core.Models.ScopeClaim">
+            <summary>
+            Models a claim that should be emitted in a token
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Models.ScopeClaim.#ctor">
+            <summary>
+            Creates an empty ScopeClaim
+            </summary>
+        </member>
+        <member name="M:Thinktecture.IdentityServer.Core.Models.ScopeClaim.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a ScopeClaim with parameters
+            </summary>
+            <param name="name">Name of the claim</param>
+            <param name="alwaysInclude">Specifies whether this claim should always be present in the identity token (even if an access token has been requested as well). Applies to identity scopes only.</param>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.ScopeClaim.Name">
+            <summary>
+            Name of the claim
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.ScopeClaim.Description">
+            <summary>
+            Description of the claim
+            </summary>
+        </member>
+        <member name="P:Thinktecture.IdentityServer.Core.Models.ScopeClaim.AlwaysIncludeInIdToken">
+            <summary>
+            Specifies whether this claim should always be present in the identity token (even if an access token has been requested as well). Applies to identity scopes only.
+            </summary>
+        </member>
+    </members>
+</doc>

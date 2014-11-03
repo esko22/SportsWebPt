@@ -11,21 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "management", "management", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "idAdmin.Host", "management\idAdmin.Host\idAdmin.Host.csproj", "{9DFD1226-8049-4953-A23F-C5140F534D19}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{7F72029C-1F37-403B-A174-A32EFB471E5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Core", "Identity.Core\Identity.Core.csproj", "{AF4C143B-BD7C-48D0-883A-4498B40DBA67}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://ussd-prd-tfsa01:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = services\\idSrv\\idSrv.Host\\idSrv.Host.csproj
-		SccProjectTopLevelParentUniqueName1 = Stargate.Identity.sln
-		SccProjectName1 = services/idSrv/idSrv.Host
-		SccLocalPath1 = services\\idSrv\\idSrv.Host
-		SccProjectUniqueName2 = management\\idAdmin.Host\\idAdmin.Host.csproj
-		SccProjectTopLevelParentUniqueName2 = Stargate.Identity.sln
-		SccProjectName2 = management/idAdmin.Host
-		SccLocalPath2 = management\\idAdmin.Host
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -39,6 +29,10 @@ Global
 		{9DFD1226-8049-4953-A23F-C5140F534D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFD1226-8049-4953-A23F-C5140F534D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DFD1226-8049-4953-A23F-C5140F534D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{037C8D5A-8FD0-4581-8BE5-31155C0B894E} = {8FE4E7DB-4BF4-48DB-9B41-4C4668383109}
 		{9DFD1226-8049-4953-A23F-C5140F534D19} = {5BE75C61-5AB5-437D-BB21-3F962C80393F}
+		{AF4C143B-BD7C-48D0-883A-4498B40DBA67} = {7F72029C-1F37-403B-A174-A32EFB471E5B}
 	EndGlobalSection
 EndGlobal

@@ -672,10 +672,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Episode Maps
 
             Mapper.CreateMap<EpisodeDto, Episode>();
-            Mapper.CreateMap<Episode, EpisodeDto>()
-                .ForMember(d => d.PatientEmail, opt => opt.MapFrom(s => s.Patient.EmailAddress))
-                .ForMember(d => d.TherapistEmail, opt => opt.MapFrom(s => s.Therapist.User.EmailAddress));
-
+            Mapper.CreateMap<Episode, EpisodeDto>();
             Mapper.CreateMap<Session, SessionDto>()
                 .ForMember(d => d.Plans, opt =>
                 {
@@ -695,8 +692,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Clinic Maps
 
             Mapper.CreateMap<Therapist, TherapistDto>()
-                .ForMember(d => d.Hash, opt => opt.MapFrom(s => s.User.Hash))
-                .ForMember(d => d.EmailAddress, opt => opt.MapFrom(s => s.User.EmailAddress));
+                .ForMember(d => d.Hash, opt => opt.MapFrom(s => s.User.Hash));
 
             Mapper.CreateMap<Clinic, ClinicDto>();
             Mapper.CreateMap<ClinicDto, Clinic>();

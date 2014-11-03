@@ -167,7 +167,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     mailMessage.Body = String.Format("Login to SportsWebPt to see your new clinic request");
                 }
 
-                mailMessage.To.Add(new MailAddress(userToAdd.EmailAddress));
+                mailMessage.To.Add(new MailAddress(request.Therapist.EmailAddress));
                 mailClient.Send(mailMessage);
             }
 
@@ -182,9 +182,9 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
             Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
-            Check.Argument.IsNotNullOrEmpty(request.SubjectId, "SubjectId Cannot Be Empty");
+            Check.Argument.IsNotNullOrEmpty(request.ServiceAccount, "Service Account Cannot Be Empty");
 
-            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin, request.SubjectId);
+            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin, request.ServiceAccount);
 
             return Ok(new ApiResponse<ClinicPatientDto>()
             {
@@ -205,64 +205,6 @@ namespace SportsWebPt.Platform.ServiceImpl
                 Response = Mapper.Map<ClinicTherapistDto>(clinicTherapist)
             });
 
-        }
-
-        public object Put(RegisterPatientRequest request)
-        {
-            var clinicPatient = ClinicUnitOfWork.GetClinicPatients()
-                .SingleOrDefault(p => p.Id == request.RegistrationId);
-
-            var newUser = Mapper.Map<User>(request.User);
-
-            if (clinicPatient != null)
-            {
-                var existingUser = UserUnitOfWork.GetUserBySubject(newUser.EmailAddress);
-
-                if (existingUser != null)
-                {
-                    if (existingUser.EmailAddress != clinicPatient.Patient.EmailAddress)
-                        return Ok(new ApiResponse<UserDto>() {Response = new UserDto() {Id = 0}});
-                }
-                else
-                    existingUser = clinicPatient.Patient;
-
-                newUser = UserUnitOfWork.UpdateUser(newUser, existingUser.Id);
-                ClinicUnitOfWork.SetPatientConfirmation(request.RegistrationId);
-            }
-
-            return Ok(new ApiResponse<UserDto>()
-            {
-                Response = Mapper.Map<UserDto>(newUser)
-            });
-        }
-
-        public object Put(RegisterTherapistRequest request)
-        {
-            var clinicTherapist = ClinicUnitOfWork.GetClinicTherapists()
-                .SingleOrDefault(p => p.Id == request.RegistrationId);
-
-            var newUser = Mapper.Map<User>(request.Therapist);
-
-            if (clinicTherapist != null)
-            {
-                var existingUser = UserUnitOfWork.GetUserBySubject(newUser.EmailAddress);
-
-                if (existingUser != null)
-                {
-                    if (existingUser.EmailAddress != clinicTherapist.Therapist.User.EmailAddress)
-                        return Ok(new ApiResponse<UserDto>() {Response = new UserDto() {Id = 0}});
-                }
-                else
-                    existingUser = clinicTherapist.Therapist.User;
-
-                newUser = UserUnitOfWork.UpdateUser(newUser, existingUser.Id);
-                ClinicUnitOfWork.SetTherapistConfirmation(request.RegistrationId);
-            }
-
-            return Ok(new ApiResponse<UserDto>()
-            {
-                Response = Mapper.Map<UserDto>(newUser)
-            });
         }
 
 

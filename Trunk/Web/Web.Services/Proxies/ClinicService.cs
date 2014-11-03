@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AutoMapper;
+using BrockAllen.MembershipReboot;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
@@ -70,13 +71,18 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User AddPatientToClinic(int clinicId, User user)
         {
-            if (user.accountLinked)
+            var userService = UserManagementService.UserAccountServiceFactory(); 
+            var userToAdd = userService.GetByEmail(user.emailAddress);
+            if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
-                var userToAdd = UserManagementService.UserAccountServiceFactory().GetByEmail(user.emailAddress);
-                user.hash = userToAdd.ID.ToString();
+                user.hash = userToAdd.GetClaimValue("service_account");
+                user.accountLinked = true;
             }
 
             var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
+
+            if(userToAdd != null && !user.accountLinked)
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }

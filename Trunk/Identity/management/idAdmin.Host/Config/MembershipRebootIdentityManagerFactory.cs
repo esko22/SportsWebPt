@@ -1,6 +1,7 @@
-﻿using BrockAllen.MembershipReboot;
+﻿using System.Data.Entity;
+using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
-using BrockAllen.MembershipReboot.Relational;
+using SportsWebPt.Identity.Core;
 using Thinktecture.IdentityManager;
 using Thinktecture.IdentityManager.MembershipReboot;
 
@@ -16,19 +17,15 @@ namespace SportsWebPt.Identity.Admin
         
         public IIdentityManagerService Create()
         {
-
-            var userRepo = new DefaultUserAccountRepository(connString)
-            {
-                QueryFilter = RelationalUserAccountQuery<RelationalUserAccount>.Filter,
-                QuerySort = RelationalUserAccountQuery<RelationalUserAccount>.Sort
-            };
-
-            var userSvc = new UserAccountService<RelationalUserAccount>(MRConfig.config, userRepo);
-            var groupRepo = new DefaultGroupRepository();
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SportsWebMembershipRebootDatabase, SportsWebMigrationConfig>());
+            var db = new SportsWebMembershipRebootDatabase(connString);
+            var userRepo = new SportsWebUserAccountRepo(db);
+            userRepo.QueryFilter = RelationalUserAccountQuery<SportsWebUser>.Filter;
+            userRepo.QuerySort = RelationalUserAccountQuery<SportsWebUser>.Sort;
+            var userSvc = new UserAccountService<SportsWebUser>(MRConfig.config, userRepo);
+            var groupRepo = new DbContextGroupRepository<SportsWebMembershipRebootDatabase, RelationalGroup>(db);
             var groupSvc = new GroupService<RelationalGroup>(MRConfig.config.DefaultTenant, groupRepo);
-
-            MembershipRebootIdentityManagerService<RelationalUserAccount, RelationalGroup> idMgr = null;
-            idMgr = new MembershipRebootIdentityManagerService<RelationalUserAccount, RelationalGroup>(userSvc, userRepo, groupSvc, groupRepo);
+            var idMgr = new MembershipRebootIdentityManagerService<SportsWebUser, RelationalGroup>(userSvc, groupSvc);
             
             // uncomment to allow additional properties mapped to claims
             //idMgr = new MembershipRebootIdentityManagerService<CustomUser, CustomGroup>(userSvc, userRepo, groupSvc, groupRepo, () =>
@@ -43,7 +40,8 @@ namespace SportsWebPt.Identity.Admin
             //    return Task.FromResult(meta);
             //});
 
-            return new DisposableIdentityManagerService(idMgr, userRepo);
+            return new DisposableIdentityManagerService(idMgr, db);
         }
     }
+
 }

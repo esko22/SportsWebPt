@@ -95,7 +95,7 @@ namespace SportsWebPt.Platform.DataAccess
             return String.Empty;
         }
 
-        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String subjectId)
+        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String serviceAccount)
         {
             var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
 
@@ -111,20 +111,26 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicPatientRepository.Update(clinicPatient);
 
                 var user = UserRepository.GetById(clinicPatient.UserId);
-                //if(!String.IsNullOrEmpty(user.Hash) && user.Hash != subjectId)
-                //    throw new Exception("Subject Id - Registration Conflict");
-
-                if (String.IsNullOrEmpty(user.Hash) || !user.AccountLinked)
+                if (!user.Hash.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
                 {
-                    user.Hash = subjectId;
                     user.AccountLinked = true;
-                    UserRepository.Update(user);
+                    //TODO: this remapping / drop is ghetto but I am at a loss right now...
+                    //there is a chance that a user can create an account after the clinic AddsPatient, 
+                    //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
+                    //to sync them up... if they go through registration process after, this will associate the accounts together
+                    AssocaiteExistingServiceAccounts(clinicPatient.Patient.Hash, serviceAccount);
                 }
 
                 Commit();
             }
 
             return clinicPatient;
+        }
+
+        private void AssocaiteExistingServiceAccounts(String mapToAccount, String mapFromAccount)
+        {
+            var user = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
+            UserRepository.Delete(user);
         }
 
         public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin)
@@ -134,7 +140,6 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.Clinic)
                 .SingleOrDefault(
                     p =>
-                        p.Therapist.User.EmailAddress.Equals(emailAddress, StringComparison.OrdinalIgnoreCase) &&
                         p.Pin.Equals(pin, StringComparison.OrdinalIgnoreCase));
             //TODO: need to think about case sensitivity for security
         }

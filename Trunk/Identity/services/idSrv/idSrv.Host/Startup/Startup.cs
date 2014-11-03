@@ -31,19 +31,20 @@ namespace Thinktecture.IdentityServer.Host
 
             app.Map("/core", coreApp =>
             {
+
+                LogProvider.SetCurrentLogProvider(new DiagnosticsTraceLogProvider());
                 var idsrvOptions = new IdentityServerOptions
                 {
                     IssuerUri = "https://idsrv3.com",
                     SiteName = "SportsWebPt",
                     SigningCertificate = Cert.Load(),
                     RequireSsl = false,
-                    AccessTokenValidationEndpoint = EndpointSettings.Enabled,
                     PublicHostName = IdentityServerConfigSettings.Instance.PublicHostName,
                     Factory = factory,
-                    AdditionalIdentityProviderConfiguration = ConfigureAdditionalIdentityProviders,
                     CorsPolicy = CorsPolicy.AllowAll,
                     AuthenticationOptions = new AuthenticationOptions()
                     {
+                        IdentityProviders = ConfigureIdentityProviders,
                         LoginPageLinks = new[]
                         {
                             new LoginPageLink
@@ -59,7 +60,7 @@ namespace Thinktecture.IdentityServer.Host
             });
         }
 
-        public static void ConfigureAdditionalIdentityProviders(IAppBuilder app, string signInAsType)
+        public static void ConfigureIdentityProviders(IAppBuilder app, string signInAsType)
         {
             var google = new GoogleOAuth2AuthenticationOptions()
             {

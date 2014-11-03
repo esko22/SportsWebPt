@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net;
+using System.Security.Claims;
 using System.Web.Http;
 
 using SportsWebPt.Common.Utilities;
@@ -34,6 +35,12 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("auth")]
         public object Get(String returnUrl)
         {
+            //TODO:
+            //can maybe looking at exposing a service on web to create service user and build it into the post registration process 
+            //on the identity server so we don't have to do this check on every auth attempt
+            if (String.IsNullOrEmpty(User.GetServiceAccount()))
+                _userManagementService.CreateServiceAccount(User.GetSubjectId());
+
             var response = Request.CreateResponse(HttpStatusCode.Moved);
             response.Headers.Location = new Uri(Request.RequestUri.GetLeftPart(UriPartial.Authority) + returnUrl);
             return response;
@@ -45,18 +52,6 @@ namespace SportsWebPt.Platform.Web.Application
         {
             Request.GetOwinContext().Authentication.SignOut();
         }
-
-        [HttpGet]
-        [Route("register")]
-        public object Register(String returnUrl)
-        {
-            var subjectId = User.GetSubjectId();
-            //do some logic to create a linked account with service
-            _userManagementService.CreateServiceAccount(subjectId);
-
-            var response = Request.CreateResponse(HttpStatusCode.Moved);
-            response.Headers.Location = new Uri(Request.RequestUri.GetLeftPart(UriPartial.Authority) + returnUrl);
-            return response;
-        }
+     
     }
 }

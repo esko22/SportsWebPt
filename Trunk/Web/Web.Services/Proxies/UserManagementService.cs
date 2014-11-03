@@ -8,6 +8,7 @@ using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Relational;
 using SportsWebPt.Common.ServiceStack;
+using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
 using SportsWebPt.Platform.Web.Core;
@@ -61,22 +62,22 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response.Id;
         }
 
-        public void CreateServiceAccount(String subjectId)
+        public String CreateServiceAccount(String subjectId)
         {
             var userAccountService = UserAccountServiceFactory();
-            var relationUser = userAccountService.GetByID(new Guid(subjectId));
+            var request = PostSync(new CreateUserRequest { AccountLinked = true });
+            userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
 
-            if (!relationUser.HasClaim("service_account"))
-            {
-                var request = PostSync(new CreateUserRequest { AccountLinked = true });
-                userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
-            }
+            return request.Response.Hash;
         }
 
-        public void LinkServiceAccount(String subjectId, String existingServiceAccount)
+        public String ResetServiceAccount(String subjectId, String serviceAccount)
         {
             var userAccountService = UserAccountServiceFactory();
-            userAccountService.AddClaim(new Guid(subjectId), "service_account", existingServiceAccount);
+            userAccountService.RemoveClaim(new Guid(subjectId), "service_account");
+            userAccountService.AddClaim(new Guid(subjectId), "service_account", serviceAccount);
+
+            return serviceAccount;
         }
 
         public void AddFavorite(Favorite userFavorite, int userId)
@@ -105,9 +106,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
-        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId)
+        public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String serviceAccount)
         {
-            var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin, SubjectId = subjectId});
+            var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin, ServiceAccount = serviceAccount});
 
             return request.Response == null ? null : Mapper.Map<ClinicPatient>(request.Response);
         }
@@ -137,14 +138,18 @@ namespace SportsWebPt.Platform.Web.Services
 
         public static UserAccountService<RelationalUserAccount> UserAccountServiceFactory()
         {
-            var userRepo = new DefaultUserAccountRepository(WebPlatformConfigSettings.Instance.IdentityStore);
+            var database = new DefaultMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
+            var userRepo = new DefaultUserAccountRepository(database);
+
             var configuration = new MembershipRebootConfiguration<RelationalUserAccount>
             {
                 PasswordHashingIterationCount = 10000,
                 RequireAccountVerification = false
             };
 
-            return new UserAccountService<RelationalUserAccount>(configuration, userRepo);
+            var service = new UserAccountService<RelationalUserAccount>(configuration, userRepo);
+
+            return service;
         }
 
         #endregion
@@ -159,8 +164,8 @@ namespace SportsWebPt.Platform.Web.Services
         User Auth(String emailAddress, String hash);
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
-        void LinkServiceAccount(String subjectId, String existingServiceAccount);
-        void CreateServiceAccount(String subjectId);
+        String CreateServiceAccount(String subjectId);
+        String ResetServiceAccount(String subjectId, String serviceAccount);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin);
 

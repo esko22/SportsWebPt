@@ -171,7 +171,7 @@ namespace SportsWebPt.Platform.Web.Application
                 Authority = WebPlatformConfigSettings.Instance.AuthorityUri,
                 RedirectUri = WebPlatformConfigSettings.Instance.CallbackUri,
                 ResponseType = "id_token",
-                Scope = "openid email profile",
+                Scope = "openid email profile user_detail",
                 SignInAsAuthenticationType = "Cookies"
             });
 

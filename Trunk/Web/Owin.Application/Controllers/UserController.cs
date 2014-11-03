@@ -41,17 +41,11 @@ namespace SportsWebPt.Platform.Web.Application
             if (User.Identity.IsAuthenticated)
             {
                 var principle = (ClaimsPrincipal)User;
-
-                var identityUser = _userManagementService.GetUser(principle.GetSubjectId());
-
-                //todo: need to get claim
-
-
                 User user;
 
-                if (!String.IsNullOrEmpty(identityUser.hash))
+                if (principle.FindFirst("service_account") != null)
                 {
-                    user = Mapper.Map<User>(_userManagementService.GetServiceUser(identityUser.hash));
+                    user = Mapper.Map<User>(_userManagementService.GetServiceUser(principle.FindFirst("service_account").Value));
                     user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
                     user.isAdmin = true;
                     user.isTherapist = true;
@@ -114,7 +108,7 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/users/current/managedclinics")]
         public IEnumerable<Clinic> GetManagedClinics()
         {
-            return _clinicService.GetManagedClinics((User).GetSubjectId());
+            return _clinicService.GetManagedClinics((User).GetServiceAccount());
         }
     }
 
@@ -125,6 +119,12 @@ namespace SportsWebPt.Platform.Web.Application
         {
             var user = (ClaimsPrincipal) principal;
             return user.FindFirst("sub") == null ? String.Empty : user.FindFirst("sub").Value;
+        }
+
+        public static String GetServiceAccount(this IPrincipal principal)
+        {
+            var user = (ClaimsPrincipal)principal;
+            return user.FindFirst("service_account") == null ? String.Empty : user.FindFirst("service_account").Value;
         }
     }
 

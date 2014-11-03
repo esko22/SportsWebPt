@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Ef.Migrations;
+using SportsWebPt.Identity.Core;
 using SportsWebPt.Identity.Services.Core;
 using Thinktecture.IdentityServer.Core;
-using Thinktecture.IdentityServer.Core.Authentication;
 using Thinktecture.IdentityServer.Core.Models;
-using Thinktecture.IdentityServer.Core.Plumbing;
 using Thinktecture.IdentityServer.Core.Services;
 using Thinktecture.IdentityServer.MembershipReboot;
 
@@ -21,9 +20,10 @@ namespace SportsWebPt.Identity.Services
     {
         public static IUserService Factory()
         {
-            var repo = new DefaultUserAccountRepository(IdentityServerConfigSettings.Instance.PersistanceConnection);
+            var db = new SportsWebMembershipRebootDatabase(IdentityServerConfigSettings.Instance.PersistanceConnection);
+            var repo = new SportsWebUserAccountRepo(db);
             var userAccountService = new UserAccountService(Config, repo);
-            var userSvc = new SportsWebPtUserService(userAccountService, repo);
+            var userSvc = new SportsWebPtUserService(userAccountService, db);
 
             return userSvc;
         }
@@ -31,7 +31,6 @@ namespace SportsWebPt.Identity.Services
         public static MembershipRebootConfiguration Config;
         static MembershipRebootUserServiceFactory()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultMembershipRebootDatabase, Configuration>());
 
             Config = new MembershipRebootConfiguration
             {
@@ -46,7 +45,8 @@ namespace SportsWebPt.Identity.Services
     {
         public static UserAccountService<UserAccount> GetUserAccountService()
         {
-            var repo = new DefaultUserAccountRepository(IdentityServerConfigSettings.Instance.PersistanceConnection);
+            var db = new SportsWebMembershipRebootDatabase(IdentityServerConfigSettings.Instance.PersistanceConnection);
+            var repo = new SportsWebUserAccountRepo(db);
             return new UserAccountService(MembershipRebootUserServiceFactory.Config, repo);
         } 
     }
@@ -65,17 +65,17 @@ namespace SportsWebPt.Identity.Services
             if (externalUser == null)
                 throw new ArgumentNullException("externalUser");
 
-            var acct = userAccountService.GetByLinkedAccount(externalUser.Provider.Name, externalUser.ProviderId);
+            var acct = userAccountService.GetByLinkedAccount(externalUser.Provider, externalUser.ProviderId);
 
             if (acct == null)
             {
-                var createAccountResult = ProcessNewExternalAccountAsync(externalUser.Provider.Name, externalUser.ProviderId,
+                var createAccountResult = ProcessNewExternalAccountAsync(externalUser.Provider, externalUser.ProviderId,
                      externalUser.Claims).Result;
 
                 return Task.FromResult(new AuthenticateResult("/core/register/external", externalUser));
             }
 
-            return ProcessExistingExternalAccountAsync(acct.ID, externalUser.Provider.Name,
+            return ProcessExistingExternalAccountAsync(acct.ID, externalUser.Provider,
                 externalUser.ProviderId, GetClaimsFromAccount(acct));
 
         }

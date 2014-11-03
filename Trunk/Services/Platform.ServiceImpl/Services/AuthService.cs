@@ -19,26 +19,6 @@ namespace SportsWebPt.Platform.ServiceImpl
         #endregion
 
 
-        public object Post(AuthRequest request)
-        {
-            UserDto userDto = null;
-            var user = UserUnitOfWork.UserRepository.GetAll()
-                                           .FirstOrDefault(
-                                               p =>
-                                               p.EmailAddress.Equals(request.EmailAddress,
-                                                   StringComparison.OrdinalIgnoreCase));
-                
-            if (user != null)
-            {
-                if(PasswordHashHelper.ValidatePassword(request.Hash,user.Hash))
-                    userDto = Mapper.Map<UserDto>(user);
-            }
-
-            return Ok(new ApiResponse<UserDto>()
-            {
-                Response = userDto
-            });
-
-        }
+      
     }
 }

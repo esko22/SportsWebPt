@@ -35,8 +35,7 @@ namespace Thinktecture.IdentityServer.Host.Config
 
                         // OWIN middleware client
                         new Uri("http://localhost:2671/"),
-                        new Uri("http://localhost:8090/auth"),
-                        new Uri("http://localhost:8022")
+                        new Uri("http://localhost:8022/auth")
                     },
                     
                     ScopeRestrictions = new List<string>
@@ -44,12 +43,10 @@ namespace Thinktecture.IdentityServer.Host.Config
                         Constants.StandardScopes.OpenId,
                         Constants.StandardScopes.Profile,
                         Constants.StandardScopes.Email,
-                        "read",
-                        "write"
+                        "user_detail"
                     },
 
                     IdentityTokenSigningKeyType = SigningKeyTypes.Default,
-                    SubjectType = SubjectTypes.Global,
                     AccessTokenType = AccessTokenType.Jwt,
                     
                     IdentityTokenLifetime = 360,

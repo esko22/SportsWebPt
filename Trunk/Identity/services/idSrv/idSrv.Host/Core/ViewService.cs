@@ -5,17 +5,25 @@ using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
 
-using Thinktecture.IdentityServer.Core.Authentication;
+using Thinktecture.IdentityServer.Core.Models;
 using Thinktecture.IdentityServer.Core.Services;
-using Thinktecture.IdentityServer.Core.Views;
+using Thinktecture.IdentityServer.Core.ViewModels;
 
 namespace SportsWebPt.Identity.Services.Core
 {
     public class ViewService : IViewService
     {
-        public virtual Task<System.IO.Stream> Login(IDictionary<string, object> env, LoginViewModel model, SignInMessage message)
+        IClientStore clientStore;
+        public ViewService(IClientStore clientStore)
         {
-            return Render(model, "login");
+            this.clientStore = clientStore;
+        }
+
+        public virtual async Task<System.IO.Stream> Login(IDictionary<string, object> env, LoginViewModel model, SignInMessage message)
+        {
+            var client = await clientStore.FindClientByIdAsync(message.ClientId);
+            var name = client != null ? client.ClientName : null;
+            return await Render(model, "login", name);
         }
 
         public virtual Task<System.IO.Stream> Logout(IDictionary<string, object> env, LogoutViewModel model)
@@ -33,21 +41,28 @@ namespace SportsWebPt.Identity.Services.Core
             return Render(model, "consent");
         }
 
+        public Task<Stream> ClientPermissions(IDictionary<string, object> env, ClientPermissionsViewModel model)
+        {
+            return Render(model, "permissions");
+        }
+
         public virtual Task<System.IO.Stream> Error(IDictionary<string, object> env, ErrorViewModel model)
         {
             return Render(model, "error");
         }
 
-        protected virtual Task<System.IO.Stream> Render(CommonViewModel model, string page)
+        protected virtual Task<System.IO.Stream> Render(CommonViewModel model, string page, string clientName = null)
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(model, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() });
 
             string html = LoadHtml(page);
-            html = Replace(html, new {
+            html = Replace(html, new
+            {
                 siteName = model.SiteName,
                 model = json,
+                clientName = clientName
             });
-            
+
             return Task.FromResult(StringToStream(html));
         }
 
@@ -62,7 +77,12 @@ namespace SportsWebPt.Identity.Services.Core
         {
             foreach (var key in values.Keys)
             {
-                value = value.Replace("{" + key + "}", values[key].ToString());
+                var val = values[key];
+                val = val ?? String.Empty;
+                if (val != null)
+                {
+                    value = value.Replace("{" + key + "}", val.ToString());
+                }
             }
             return value;
         }
@@ -87,7 +107,7 @@ namespace SportsWebPt.Identity.Services.Core
 
             return dictionary;
         }
-        
+
         Stream StringToStream(string s)
         {
             var ms = new MemoryStream();
@@ -97,7 +117,5 @@ namespace SportsWebPt.Identity.Services.Core
             ms.Seek(0, SeekOrigin.Begin);
             return ms;
         }
-
-
     }
 }

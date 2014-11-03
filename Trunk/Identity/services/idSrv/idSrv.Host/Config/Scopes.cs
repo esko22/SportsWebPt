@@ -17,10 +17,10 @@ namespace Thinktecture.IdentityServer.Host.Config
                 // identity scopes
                 ////////////////////////
 
-                Scope.OpenId,
-                Scope.Profile,
-                Scope.Email,
-                Scope.OfflineAccess,
+                StandardScopes.OpenId,
+                StandardScopes.Profile,
+                StandardScopes.Email,
+                StandardScopes.OfflineAccess,
 
                 new Scope
                 {
@@ -31,7 +31,7 @@ namespace Thinktecture.IdentityServer.Host.Config
 
                     Claims = new[]
                     {
-                        new ScopeClaim(Constants.ClaimTypes.Role, alwaysInclude: true),
+                        new ScopeClaim(Constants.ClaimTypes.Role, true)
                     }
                 },
 
@@ -40,13 +40,14 @@ namespace Thinktecture.IdentityServer.Host.Config
                 ////////////////////////
                 new Scope
                 {
-                    Name = "userDetail",
-                    DisplayName = "Username",
-                    Description = "What you call yourself",
+                    Name = "user_detail",
+                    DisplayName = "User Details",
+                    Description = "Our info about you",
                     Type = ScopeType.Identity,
                     Claims = new []
                     {
-                        new ScopeClaim("username", true) 
+                        new ScopeClaim("username"),
+                        new ScopeClaim("service_account")
                     }
                 },
                 new Scope

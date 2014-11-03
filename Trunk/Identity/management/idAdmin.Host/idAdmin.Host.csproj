@@ -42,12 +42,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BrockAllen.MembershipReboot, Version=7.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="BrockAllen.MembershipReboot, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\BrockAllen.MembershipReboot.7.5.0\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+      <HintPath>..\..\packages\BrockAllen.MembershipReboot.8.1.0\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
     </Reference>
-    <Reference Include="BrockAllen.MembershipReboot.Ef">
-      <HintPath>..\..\packages\BrockAllen.MembershipReboot.Ef.7.1.1\lib\net45\BrockAllen.MembershipReboot.Ef.dll</HintPath>
+    <Reference Include="BrockAllen.MembershipReboot.Ef, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\BrockAllen.MembershipReboot.Ef.8.0.0\lib\net45\BrockAllen.MembershipReboot.Ef.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -91,13 +92,11 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Thinktecture.IdentityManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Thinktecture.IdentityManager.1.0.0-beta2\lib\net45\Thinktecture.IdentityManager.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityManager">
+      <HintPath>..\..\packages\Thinktecture.IdentityManager.1.0.0-beta2-1\lib\net45\Thinktecture.IdentityManager.dll</HintPath>
     </Reference>
-    <Reference Include="Thinktecture.IdentityManager.MembershipReboot, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Thinktecture.IdentityManager.MembershipReboot.1.0.0-beta2\lib\net45\Thinktecture.IdentityManager.MembershipReboot.dll</HintPath>
+    <Reference Include="Thinktecture.IdentityManager.MembershipReboot">
+      <HintPath>..\..\packages\Thinktecture.IdentityManager.MembershipReboot\Thinktecture.IdentityManager.MembershipReboot.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +119,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Identity.Core\Identity.Core.csproj">
+      <Project>{af4c143b-bd7c-48d0-883a-4498b40dba67}</Project>
+      <Name>Identity.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

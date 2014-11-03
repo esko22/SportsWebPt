@@ -46,9 +46,9 @@ clinicModule.controller('ClinicAddPatientModalController', [
             if ($scope.formData.lookupEmail) {
                 clinicService.validateUserByEmail($scope.formData.lookupEmail).then(function (userValid) {
                     if (userValid.data === 'false') {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: false };
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
                     } else {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: true };
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
                     }
                 });
             }
@@ -78,9 +78,9 @@ clinicModule.controller('ClinicAddTherapistModalController', [
                 clinicService.validateUserByEmail($scope.formData.lookupEmail).$promise.then(function (userValid) {
 
                     if (!userValid) {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: false}
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail}
                     } else {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked: true };
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
                     }
                 });
             }
