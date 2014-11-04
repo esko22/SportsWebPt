@@ -28,10 +28,9 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Id, "Clinic Manager Id must be listed");
 
             var responseList = new List<ClinicDto>();
-            var clinicAdmin = ClinicUnitOfWork.GetClinicAdminList().SingleOrDefault(p => p.User.Hash == request.Id);
+            var clinicAdminMatrixItems = ClinicUnitOfWork.GetClinicAdminMatrixList().Where(p => p.User.Hash == request.Id);
     
-            if(clinicAdmin != null)
-                Mapper.Map(clinicAdmin.ClinicAdminMatrixItems.Select(s => s.Clinic), responseList);
+            Mapper.Map(clinicAdminMatrixItems.Select(s => s.Clinic), responseList);
 
             return
                 Ok(new ApiListResponse<ClinicDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

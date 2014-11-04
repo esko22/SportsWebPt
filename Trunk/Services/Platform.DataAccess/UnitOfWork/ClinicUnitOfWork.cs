@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Platform.Core.Models;
 
@@ -15,11 +16,12 @@ namespace SportsWebPt.Platform.DataAccess
     {
         #region Properties
 
-        public IRepository<ClinicAdmin> ClinicAdminRepository { get { return GetStandardRepo<ClinicAdmin>(); } }
+        public IRepository<ClinicAdminMatrixItem> ClinicAdminMatrixRepository { get { return GetStandardRepo<ClinicAdminMatrixItem>(); } }
         public IRepository<ClinicTherapistMatrixItem> ClinicTherapistRepository { get { return GetStandardRepo<ClinicTherapistMatrixItem>(); } }
         public IRepository<ClinicPatientMatrixItem> ClinicPatientRepository { get { return GetStandardRepo<ClinicPatientMatrixItem>(); } }
         public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } } 
-        public IClinicRepo ClinicRepository { get { return GetRepo<IClinicRepo>(); } } 
+        public IClinicRepo ClinicRepository { get { return GetRepo<IClinicRepo>(); } }
+        public IRepository<Episode> EpisodeRepository { get { return GetStandardRepo<Episode>(); } } 
 
         #endregion
 
@@ -34,10 +36,10 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IQueryable<ClinicAdmin> GetClinicAdminList()
+        public IQueryable<ClinicAdminMatrixItem> GetClinicAdminMatrixList()
         {
-            return ClinicAdminRepository.GetAll()
-                .Include(i => i.ClinicAdminMatrixItems.Select(l2 => l2.Clinic));
+            return ClinicAdminMatrixRepository.GetAll()
+                .Include(i => i.Clinic).Include(i => i.User);
         }
 
         public IQueryable<ClinicTherapistMatrixItem> GetClinicTherapists()
@@ -118,7 +120,7 @@ namespace SportsWebPt.Platform.DataAccess
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingServiceAccounts(clinicPatient.Patient.Hash, serviceAccount);
+                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.Hash);
                 }
 
                 Commit();
@@ -129,8 +131,27 @@ namespace SportsWebPt.Platform.DataAccess
 
         private void AssocaiteExistingServiceAccounts(String mapToAccount, String mapFromAccount)
         {
-            var user = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
-            UserRepository.Delete(user);
+            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapToAccount,StringComparison.OrdinalIgnoreCase));
+            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
+
+            Check.Argument.IsNotNull(mapToUser, "MapToUser");
+            Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
+
+            ClinicPatientRepository.GetAll().Where(p => p.UserId == mapFromUser.Id).ForEach(f =>
+            {
+                f.Patient = mapToUser;
+                ClinicPatientRepository.Update(f);
+            });
+
+            EpisodeRepository.GetAll().Where(p => p.PatientId == mapFromUser.Id).ForEach(f =>
+            {
+                f.Patient = mapToUser;
+                EpisodeRepository.Update(f);
+            });
+
+            Commit();
+
+            UserRepository.Delete(mapFromUser);
         }
 
         public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin)
@@ -176,9 +197,9 @@ namespace SportsWebPt.Platform.DataAccess
     {
         IClinicRepo ClinicRepository { get; }
 
-        IQueryable<ClinicAdmin> GetClinicAdminList();
         IQueryable<ClinicTherapistMatrixItem> GetClinicTherapists();
         IQueryable<ClinicPatientMatrixItem> GetClinicPatients();
+        IQueryable<ClinicAdminMatrixItem> GetClinicAdminMatrixList();
 
         String AddPatientToClinic(int clinicId, int userId, String emailAddress);
         String AddTherapistToClinic(int clinicId, int therapistId);

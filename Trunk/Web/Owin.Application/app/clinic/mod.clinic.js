@@ -75,12 +75,12 @@ clinicModule.controller('ClinicAddTherapistModalController', [
             $scope.userToAdd = null;
 
             if ($scope.formData.lookupEmail) {
-                clinicService.validateUserByEmail($scope.formData.lookupEmail).$promise.then(function (userValid) {
+                clinicService.validateUserByEmail($scope.formData.lookupEmail).then(function (userValid) {
 
-                    if (!userValid) {
+                    if (userValid.data === 'false') {
                         $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail}
                     } else {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
+                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked : true};
                     }
                 });
             }

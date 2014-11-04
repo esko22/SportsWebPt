@@ -39,13 +39,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int ClinicId { get; set; }
 
-        public int ClinicAdminId { get; set; }
+        public int UserId { get; set; }
 
         #endregion
 
         #region Navigation Properties
 
-        public virtual ClinicAdmin Admin { get; set; }
+        public virtual User User { get; set; }
 
         public virtual Clinic Clinic { get; set; }
 

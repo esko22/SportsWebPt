@@ -158,7 +158,9 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void ConfigureAuthMiddleware(IAppBuilder appBuilder)
         {
-            JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
+            JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>(){ 
+                {"role",        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"}
+            };
 
             appBuilder.UseCookieAuthentication(new CookieAuthenticationOptions
             {
@@ -171,7 +173,7 @@ namespace SportsWebPt.Platform.Web.Application
                 Authority = WebPlatformConfigSettings.Instance.AuthorityUri,
                 RedirectUri = WebPlatformConfigSettings.Instance.CallbackUri,
                 ResponseType = "id_token",
-                Scope = "openid email profile user_detail",
+                Scope = "openid email profile user_detail roles",
                 SignInAsAuthenticationType = "Cookies"
             });
 

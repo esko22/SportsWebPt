@@ -48,25 +48,8 @@ namespace SportsWebPt.Platform.DataAccess
         {
             ToTable("ClinicAdminMatrix");
             Property(p => p.ClinicId).HasColumnName("clinic_id");
-            Property(p => p.ClinicAdminId).HasColumnName("clinic_admin_id");
+            Property(p => p.UserId).HasColumnName("user_id");
             Property(p => p.Id).HasColumnName("clinic_admin_matrix_item_id");
-        }
-
-        #endregion
-    }
-
-    public class ClinicAdminConfiguration : EntityTypeConfiguration<ClinicAdmin>
-    {
-        #region Construction
-
-        public ClinicAdminConfiguration()
-        {
-            ToTable("ClinicAdmin");
-            HasKey(k => k.Id);
-            Property(p => p.EmergencyContact).HasColumnName("emergency_contact");
-            Property(p => p.Id).HasColumnName("clinic_admin_id");
-
-            HasRequired(p => p.User).WithOptional(o => o.ClinicAdmin);
         }
 
         #endregion

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using AutoMapper;
 using BrockAllen.MembershipReboot;
+using ServiceStack.ServiceHost;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
@@ -93,10 +95,30 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User AddTherapistToClinic(int clinicId, User user)
         {
-            var request = PostSync(new AddClinicTherapistRequest { Id = clinicId.ToString(), Therapist = Mapper.Map<UserDto>(user) });
+            return AddUserToClinic(clinicId, user, new AddClinicTherapistRequest { Id = clinicId.ToString(), Therapist = Mapper.Map<UserDto>(user) });
+        }
+
+        private User AddUserToClinic(int clinicId, User user, IReturn<ApiResponse<UserDto>> requestDto)
+        {
+            var userService = UserManagementService.UserAccountServiceFactory();
+            var userToAdd = userService.GetByEmail(user.emailAddress);
+            if (userToAdd != null && userToAdd.HasClaim("service_account"))
+            {
+                user.hash = userToAdd.GetClaimValue("service_account");
+                user.accountLinked = true;
+            }
+
+            var request = PostSync(requestDto);
+            
+            if (userToAdd != null && !user.accountLinked)
+            {
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
+                userToAdd.ServiceAccount = request.Response.Hash;
+                userService.Update(userToAdd);
+            }
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
-        }
+        } 
 
 
 

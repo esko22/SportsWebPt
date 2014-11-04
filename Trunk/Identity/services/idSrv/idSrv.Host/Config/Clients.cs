@@ -43,6 +43,7 @@ namespace Thinktecture.IdentityServer.Host.Config
                         Constants.StandardScopes.OpenId,
                         Constants.StandardScopes.Profile,
                         Constants.StandardScopes.Email,
+                        Constants.StandardScopes.Roles,
                         "user_detail"
                     },
 

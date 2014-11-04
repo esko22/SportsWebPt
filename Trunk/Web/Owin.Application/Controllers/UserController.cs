@@ -47,18 +47,15 @@ namespace SportsWebPt.Platform.Web.Application
                 {
                     user = Mapper.Map<User>(_userManagementService.GetServiceUser(principle.FindFirst("service_account").Value));
                     user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
-                    user.isAdmin = true;
-                    user.isTherapist = true;
-                    user.isClinicManager = true;
+                    user.isAdmin = principle.IsInRole("admin");
+                    user.isTherapist = principle.IsInRole("therapist");
+                    user.isClinicManager = principle.IsInRole("manager");
                 }
                 else
                 {
                     user = new User()
                     {
-                        emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value,
-                        isAdmin = true,
-                        isClinicManager = true,
-                        isTherapist = true
+                        emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value
                     };
                 }
 

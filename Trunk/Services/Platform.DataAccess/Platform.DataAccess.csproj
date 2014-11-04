@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201410270244341_User-EmailDrop.Designer.cs">
       <DependentUpon>201410270244341_User-EmailDrop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411040451497_DropClinicAdmin.cs" />
+    <Compile Include="Migrations\201411040451497_DropClinicAdmin.Designer.cs">
+      <DependentUpon>201411040451497_DropClinicAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -277,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410270244341_User-EmailDrop.resx">
       <DependentUpon>201410270244341_User-EmailDrop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411040451497_DropClinicAdmin.resx">
+      <DependentUpon>201411040451497_DropClinicAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -26,7 +26,6 @@ namespace SportsWebPt.Platform.DataAccess
         {
             return GetAll()
                 .Include(i => i.Therapist)
-                .Include(i => i.ClinicAdmin)
                 .Include(i => i.VideoFavorites)
                 .Include(i => i.PlanFavorites)
                 .Include(i => i.ExerciseFavorites)

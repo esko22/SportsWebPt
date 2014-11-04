@@ -33,8 +33,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt.Condition(s => s.ExerciseFavorites != null);
                     opt.MapFrom(s => s.ExerciseFavorites);
                 })
-                .ForMember(d => d.IsTherapist, opt => opt.MapFrom(s => s.Therapist != null))
-                .ForMember(d => d.IsClinicManager, opt => opt.MapFrom(s => s.ClinicAdmin != null));
+                .ForMember(d => d.IsTherapist, opt => opt.MapFrom(s => s.Therapist != null));
 
             Mapper.CreateMap<Plan, FavoriteDto>()
                   .ForMember(d => d.Entity, opt => opt.UseValue(FavoriteTypeDto.Plan))

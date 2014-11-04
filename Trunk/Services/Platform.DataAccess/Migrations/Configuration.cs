@@ -42,22 +42,11 @@ namespace SportsWebPt.Platform.DataAccess.Migrations
                 Licenses = "Not so Super Licenses"
             });
 
-            context.ClinicAdmins.AddOrUpdate(p => p.Id,
-                new ClinicAdmin
-                {
-                    EmergencyContact = "99999",
-                    Id = 4
-                },
-                new ClinicAdmin
-                {
-                    EmergencyContact = "6655443",
-                    Id = 5
-                });
-
-            context.ClinicAdminMatrixItems.AddOrUpdate(p => new { p.ClinicId, p.ClinicAdminId },
-                new ClinicAdminMatrixItem { ClinicId = 1, ClinicAdminId = 4 },
-                new ClinicAdminMatrixItem { ClinicId = 2, ClinicAdminId = 4 },
-                new ClinicAdminMatrixItem { ClinicId = 1, ClinicAdminId = 5 });
+           
+            context.ClinicAdminMatrixItems.AddOrUpdate(p => new { p.ClinicId, ClinicAdminId = p.UserId },
+                new ClinicAdminMatrixItem { ClinicId = 1, UserId = 4 },
+                new ClinicAdminMatrixItem { ClinicId = 2, UserId = 4 },
+                new ClinicAdminMatrixItem { ClinicId = 1, UserId = 5 });
 
             context.ClinicTherapistMatrixItems.AddOrUpdate(p => new { p.ClinicId, p.TherapistId },
                 new ClinicTherapistMatrixItem { ClinicId = 1, TherapistId = 4 },
