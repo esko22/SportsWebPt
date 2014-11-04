@@ -73,24 +73,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User AddPatientToClinic(int clinicId, User user)
         {
-            var userService = UserManagementService.UserAccountServiceFactory(); 
-            var userToAdd = userService.GetByEmail(user.emailAddress);
-            if (userToAdd != null && userToAdd.HasClaim("service_account"))
-            {
-                user.hash = userToAdd.GetClaimValue("service_account");
-                user.accountLinked = true;
-            }
-
-            var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
-
-            if (userToAdd != null && !user.accountLinked)
-            {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
-                userToAdd.ServiceAccount = request.Response.Hash;
-                userService.Update(userToAdd);
-            }
-
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+            return AddUserToClinic(clinicId, user, new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
         }
 
         public User AddTherapistToClinic(int clinicId, User user)
