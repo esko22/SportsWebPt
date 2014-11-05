@@ -44,20 +44,25 @@ namespace SportsWebPt.Platform.Web.Application
             var clinicPatient = _userManagementService.ValidatePatientRegistration(registrationDetails.emailAddress,
                 registrationDetails.pin, serviceAccount);
 
-            if (clinicPatient != null)
-                _userManagementService.ResetServiceAccount(User.GetSubjectId(), clinicPatient.user.hash);
-
             return clinicPatient;
         }
 
         [HttpPost]
         [Route("data/registration/therapist")]
-        public ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin)
+        public ClinicTherapist ValidateTherapistRegistration([FromBody] RegistrationDetails registrationDetails)
         {
-            Check.Argument.IsNotNullOrEmpty(emailAddress, "Email Address");
-            Check.Argument.IsNotNullOrEmpty(pin, "Pin");
+            Check.Argument.IsNotNullOrEmpty(registrationDetails.emailAddress, "Email Address");
+            Check.Argument.IsNotNullOrEmpty(registrationDetails.pin, "Pin");
 
-            return _userManagementService.ValidateTherapistRegistration(emailAddress, pin);
+            //assuming this has been created already... should be but is not in principal yet, only in db
+            var serviceAccount = User.GetServiceAccount();
+            if (String.IsNullOrEmpty(serviceAccount))
+                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).hash;
+
+            var clinicTherapist = _userManagementService.ValidateTherapistRegistration(registrationDetails.emailAddress,
+                registrationDetails.pin, serviceAccount);
+
+            return clinicTherapist;
         }
 
         

@@ -144,30 +144,49 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var userToAdd = Mapper.Map<User>(request.Therapist);
 
-            if (userToAdd.Id == 0)
-                userToAdd = UserUnitOfWork.AddUser(userToAdd);
-
-            if (UserUnitOfWork.GetTherapistById(userToAdd.Id) == null)
-                UserUnitOfWork.AddTherapist(userToAdd);
-
-            var token = ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
-
-            using (var mailClient = new NetSmtpClient())
+            if (!userToAdd.AccountLinked)
             {
-                var mailMessage = new MailMessage();
-                if (!String.IsNullOrWhiteSpace(token))
-                {
-                    mailMessage.Subject = "SportsWebPt Therapist Registration";
-                    mailMessage.Body = String.Format("Register here: {0}", token);
-                }
-                else
-                {
-                    mailMessage.Subject = "New Clinic Confirmation Request";
-                    mailMessage.Body = String.Format("Login to SportsWebPt to see your new clinic request");
-                }
+                userToAdd = UserUnitOfWork.AddUser(new User());
+                UserUnitOfWork.AddTherapist(userToAdd);
+            }
+            else
+            {
+                userToAdd =
+                    UserUnitOfWork.UserRepository.GetUserDetails()
+                        .SingleOrDefault(
+                            s => s.Hash.Equals(request.Therapist.Hash, StringComparison.OrdinalIgnoreCase));
+                if (userToAdd != null && userToAdd.Therapist == null)
+                    UserUnitOfWork.AddTherapist(userToAdd);
+            }
 
-                mailMessage.To.Add(new MailAddress(request.Therapist.EmailAddress));
-                mailClient.Send(mailMessage);
+            var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
+            var token = ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id, request.Therapist.EmailAddress);
+            //if token is returned, user is newly created or has not confirmed registration yet
+            if (!String.IsNullOrWhiteSpace(token))
+            {
+                using (var mailClient = new NetSmtpClient())
+                {
+                    var messageBody =
+                        String.Format(
+                            "Hello, you have requested by {0} to create an account on SportsWebPt to manage your patients and content. {1}", clinic.Name, Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format(
+                                      "Please click on the following link to start the registration process: http://localhost:8022/register/{0}/therapist {1}",
+                                      clinic.Id, Environment.NewLine);
+
+                    messageBody = messageBody + Environment.NewLine + Environment.NewLine;
+                    messageBody = messageBody +
+                                  String.Format("You will need to following information to register: {0}",
+                                      Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format("Registration Email Given: {0}{1}", request.Therapist.EmailAddress, Environment.NewLine);
+                    messageBody = messageBody +
+                                  String.Format("Registration Pin: {0}{1}", token, Environment.NewLine);
+
+                    var mailMessage = new MailMessage { Subject = "SportsWebPt Therapist Registration", Body = messageBody };
+                    mailMessage.To.Add(new MailAddress(request.Therapist.EmailAddress));
+                    mailClient.Send(mailMessage);
+                }
             }
 
             return Ok(new ApiResponse<UserDto>()
@@ -197,7 +216,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
             Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
 
-            var clinicTherapist = ClinicUnitOfWork.ValidateClinicTherapist(request.EmailAddress, request.Pin);
+            var clinicTherapist = ClinicUnitOfWork.ValidateClinicTherapist(request.EmailAddress, request.Pin, request.ServiceAccount);
 
             return Ok(new ApiResponse<ClinicTherapistDto>()
             {

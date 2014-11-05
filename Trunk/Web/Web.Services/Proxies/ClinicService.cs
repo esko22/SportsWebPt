@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using AutoMapper;
 using BrockAllen.MembershipReboot;
-using ServiceStack.ServiceHost;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.ServiceModels.Operations;
@@ -73,17 +71,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User AddPatientToClinic(int clinicId, User user)
         {
-            return AddUserToClinic(clinicId, user, new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
-        }
-
-        public User AddTherapistToClinic(int clinicId, User user)
-        {
-            return AddUserToClinic(clinicId, user, new AddClinicTherapistRequest { Id = clinicId.ToString(), Therapist = Mapper.Map<UserDto>(user) });
-        }
-
-        private User AddUserToClinic(int clinicId, User user, IReturn<ApiResponse<UserDto>> requestDto)
-        {
-            var userService = UserManagementService.UserAccountServiceFactory();
+            var userService = UserManagementService.UserAccountServiceFactory(); 
             var userToAdd = userService.GetByEmail(user.emailAddress);
             if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
@@ -91,8 +79,8 @@ namespace SportsWebPt.Platform.Web.Services
                 user.accountLinked = true;
             }
 
-            var request = PostSync(requestDto);
-            
+            var request = PostSync(new AddClinicPatientRequest { Id = clinicId.ToString(), User = Mapper.Map<UserDto>(user) });
+
             if (userToAdd != null && !user.accountLinked)
             {
                 userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
@@ -101,9 +89,34 @@ namespace SportsWebPt.Platform.Web.Services
             }
 
             return request.Response == null ? null : Mapper.Map<User>(request.Response);
-        } 
+        }
 
+        public User AddTherapistToClinic(int clinicId, User user)
+        {
+            var userService = UserManagementService.UserAccountServiceFactory();
+            var userToAdd = userService.GetByEmail(user.emailAddress);
+            if (userToAdd != null && userToAdd.HasClaim("service_account"))
+            {
+                user.hash = userToAdd.GetClaimValue("service_account");
+                user.accountLinked = true; 
+                
+                if (!userToAdd.HasClaim("role", "therapist"))
+                    userService.AddClaim(userToAdd.ID, "role", "therapist");
+            }
 
+            var request = PostSync(new AddClinicTherapistRequest { Id = clinicId.ToString(), Therapist = Mapper.Map<UserDto>(user) });
+
+            if (userToAdd != null && !user.accountLinked)
+            {
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
+                userService.AddClaim(userToAdd.ID, "role", "therapist");
+                userService.Update(userToAdd);
+
+                userToAdd.ServiceAccount = request.Response.Hash;
+            }
+
+            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+        }
 
         #endregion
     }

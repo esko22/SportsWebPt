@@ -74,7 +74,7 @@ namespace SportsWebPt.Platform.DataAccess
             return !clinicPatientMatrixItem.UserConfirmed ? SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, emailAddress) : String.Empty;
         }
 
-        public String AddTherapistToClinic(int clinicId, int therapistId)
+        public String AddTherapistToClinic(int clinicId, int therapistId, string emailAddress)
         {
             var clinicTherapistMatrixItem =
                 ClinicTherapistRepository.GetAll()
@@ -90,11 +90,9 @@ namespace SportsWebPt.Platform.DataAccess
                 };
                 ClinicTherapistRepository.Add(clinicTherapistMatrixItem);
                 Commit();
-
-                return clinicTherapistMatrixItem.Pin;
             }
 
-            return String.Empty;
+            return !clinicTherapistMatrixItem.UserConfirmed ? SymmetricCryptography.Encrypt(clinicTherapistMatrixItem.Pin, emailAddress) : String.Empty;
         }
 
         public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String serviceAccount)
@@ -154,15 +152,55 @@ namespace SportsWebPt.Platform.DataAccess
             UserRepository.Delete(mapFromUser);
         }
 
-        public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin)
+        public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String encryptedPin, String serviceAccount)
         {
-            return ClinicTherapistRepository.GetAll()
+            var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
+
+            var clinicTherapist = ClinicTherapistRepository.GetAll()
                 .Include(i => i.Therapist.User)
                 .Include(i => i.Clinic)
                 .SingleOrDefault(
-                    p =>
-                        p.Pin.Equals(pin, StringComparison.OrdinalIgnoreCase));
-            //TODO: need to think about case sensitivity for security
+                    p => p.Pin.Equals(pin, StringComparison.OrdinalIgnoreCase));
+
+            if (clinicTherapist != null)
+            {
+                clinicTherapist.UserConfirmed = true;
+                ClinicTherapistRepository.Update(clinicTherapist);
+
+                var user = UserRepository.GetById(clinicTherapist.TherapistId);
+                if (!user.Hash.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
+                {
+                    user.AccountLinked = true;
+                    //TODO: this remapping / drop is ghetto but I am at a loss right now...
+                    //there is a chance that a user can create an account after the clinic AddsPatient, 
+                    //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
+                    //to sync them up... if they go through registration process after, this will associate the accounts together
+                    AssocaiteExistingTherapistServiceAccounts(serviceAccount, clinicTherapist.Therapist.User.Hash);
+                }
+
+                Commit();
+            }
+
+            return clinicTherapist;
+        }
+
+        private void AssocaiteExistingTherapistServiceAccounts(String mapToAccount, String mapFromAccount)
+        {
+            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
+            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
+
+            Check.Argument.IsNotNull(mapToUser, "MapToUser");
+            Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
+
+            ClinicTherapistRepository.GetAll().Where(p => p.TherapistId == mapFromUser.Id).ForEach(f =>
+            {
+                f.Therapist.User = mapToUser;
+                ClinicTherapistRepository.Update(f);
+            });
+
+            Commit();
+
+            UserRepository.Delete(mapFromUser);
         }
 
         public void SetPatientConfirmation(int clientPatientMatrixId)
@@ -202,9 +240,9 @@ namespace SportsWebPt.Platform.DataAccess
         IQueryable<ClinicAdminMatrixItem> GetClinicAdminMatrixList();
 
         String AddPatientToClinic(int clinicId, int userId, String emailAddress);
-        String AddTherapistToClinic(int clinicId, int therapistId);
+        String AddTherapistToClinic(int clinicId, int therapistId, string emailAddress);
         ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, String subjectId);
-        ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin);
+        ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin, String subjectId);
         void SetPatientConfirmation(int clientPatientMatrixId);
         void SetTherapistConfirmation(int clientTherapistMatrixId);
 

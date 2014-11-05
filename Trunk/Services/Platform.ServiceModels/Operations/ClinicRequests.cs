@@ -46,6 +46,8 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
 
         public String Pin { get; set; }
 
+        public String ServiceAccount { get; set; }
+
         #endregion
 
     }

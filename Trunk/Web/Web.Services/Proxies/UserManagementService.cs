@@ -68,22 +68,21 @@ namespace SportsWebPt.Platform.Web.Services
             var userAccountService = UserAccountServiceFactory();
             var request = PostSync(new CreateUserRequest { AccountLinked = true });
             userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
-
             UpdateServiceAccount(subjectId, request.Response.Hash, userAccountService);
 
             return request.Response.Hash;
         }
 
-        public String ResetServiceAccount(String subjectId, String serviceAccount)
-        {
-            var userAccountService = UserAccountServiceFactory();
-            userAccountService.RemoveClaim(new Guid(subjectId), "service_account");
-            userAccountService.AddClaim(new Guid(subjectId), "service_account", serviceAccount);
+        //public String ResetServiceAccount(String subjectId, String serviceAccount)
+        //{
+        //    var userAccountService = UserAccountServiceFactory();
+        //    userAccountService.RemoveClaim(new Guid(subjectId), "service_account");
+        //    userAccountService.AddClaim(new Guid(subjectId), "service_account", serviceAccount);
 
-            UpdateServiceAccount(subjectId, serviceAccount, userAccountService);
+        //    UpdateServiceAccount(subjectId, serviceAccount, userAccountService);
 
-            return serviceAccount;
-        }
+        //    return serviceAccount;
+        //}
 
         private void UpdateServiceAccount(String subjectId, String serviceAccount, UserAccountService<SportsWebUser> userAccountService)
         {
@@ -128,9 +127,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<ClinicPatient>(request.Response);
         }
 
-        public ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin)
+        public ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String serviceAccount)
         {
-            var request = GetSync(new ValidateTherapistRegistrationRequest () { EmailAddress = emailAddress, Pin = pin });
+            var request = GetSync(new ValidateTherapistRegistrationRequest() { EmailAddress = emailAddress, Pin = pin, ServiceAccount = serviceAccount });
 
             return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);
         }
@@ -200,9 +199,8 @@ namespace SportsWebPt.Platform.Web.Services
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
         String CreateServiceAccount(String subjectId);
-        String ResetServiceAccount(String subjectId, String serviceAccount);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
-        ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin);
+        ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String subjectId);
 
         int RegisterPatient(User user, int registrationId);
         int RegisterTherapist(User user, int registrationId);
