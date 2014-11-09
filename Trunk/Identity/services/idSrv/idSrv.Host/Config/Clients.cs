@@ -24,17 +24,14 @@ namespace Thinktecture.IdentityServer.Host.Config
 
                     RequireConsent = true,
                     AllowRememberConsent = true,
-                    
+                    PostLogoutRedirectUris = new List<Uri>
+                    {
+                        new Uri("http://localhost:8022")
+                    },
                     RedirectUris = new List<Uri>
                     {
                         // JavaScript client
                         new Uri("http://localhost:21575/index.html"),
-
-                        // MVC form post sample
-                        new Uri("http://localhost:11716/account/signInCallback"),
-
-                        // OWIN middleware client
-                        new Uri("http://localhost:2671/"),
                         new Uri("http://localhost:8022/auth")
                     },
                     
@@ -51,7 +48,7 @@ namespace Thinktecture.IdentityServer.Host.Config
                     AccessTokenType = AccessTokenType.Jwt,
                     
                     IdentityTokenLifetime = 360,
-                    AccessTokenLifetime = 360,
+                    AccessTokenLifetime = 360
                 }
             };
         }

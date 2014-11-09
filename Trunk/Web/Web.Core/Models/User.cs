@@ -29,6 +29,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public Boolean accountLinked { get; set; }
 
+        public String serviceAccount { get; set; }
+
         public IEnumerable<Favorite> videos { get; set; }
 
         public IEnumerable<Favorite> plans { get; set; }

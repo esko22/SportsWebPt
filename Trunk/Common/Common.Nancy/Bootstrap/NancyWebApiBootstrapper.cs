@@ -45,7 +45,6 @@ namespace SportsWebPt.Common.Nancy
             _httpConfiguration.DependencyResolver = new NancyTinyIocApiResolver(tinyIoCContainer);
 
             LogManager.LoggerFactory = new NLogLoggerFactory();
-
         }
 
         #endregion
@@ -62,28 +61,17 @@ namespace SportsWebPt.Common.Nancy
         #endregion
 
         #region Methods
-        
-        protected virtual void ConfigureWebApi()
-        {
-            _httpConfiguration.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
-        }
 
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-        {
-            ConfigureWebApi();
-            BuildBundles();
+        protected virtual void ConfigureWebApi(IAppBuilder appBuilder) { }
 
-            base.ApplicationStartup(container, pipelines);
-        }
-
-        protected virtual void BuildBundles() { }
+        protected virtual void BuildBundles() {}
 
         public virtual void Configuration(IAppBuilder appBuilder)
         {
+            ConfigureWebApi(appBuilder);
             ConfigureAuthMiddleware(appBuilder);
 
-            appBuilder.UseWebApi(HttpConfiguration);
-
+            appBuilder.UseWebApi(_httpConfiguration);
             //Nancy route handling is kinda greedy.
             appBuilder.UseNancy(new NancyOptions() { Bootstrapper = this});
 

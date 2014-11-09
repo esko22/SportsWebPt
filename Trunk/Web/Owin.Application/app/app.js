@@ -173,6 +173,26 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         access: 'access.anon'
                     }
                 })
+               .state('public.auth',
+                {
+                    url: "/auth",
+                    onEnter: function ($window, $location) {
+                        var url = new URI($window.location);
+                        var fragment = url.fragment();
+                        fragment = '?' + fragment;
+                        var cleanQuery = new URI(fragment).normalizeSearch().search(true);
+                        $window.localStorage.setItem('access_token', cleanQuery.access_token);
+                        $window.sessionStorage.id_token = cleanQuery.id_token;
+
+                        if ($window.sessionStorage.redirectUrl
+                                   && $window.sessionStorage.redirectUrl !== '') {
+                            var redirectUrl = $window.sessionStorage.redirectUrl;
+                            $window.sessionStorage.redirectUrl = '';
+
+                            $location.path(redirectUrl);
+                        }
+                    }
+                })
                 .state('public.splash',
                 {
                     url: "/",
@@ -486,11 +506,29 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         //https://github.com/angular/angular.js/commit/3a75b1124d062f64093a90b26630938558909e8d
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
-        $httpProvider.interceptors.push(['$q', '$location', function ($q, $location) {
+        $httpProvider.interceptors.push(['$q', '$location', 'authenticationService', '$window', function ($q, $location, authenticationService, $window) {
             return {
-                'responseError': function(response) {
+                request: function (request) {
+                    if (request.skipAuthorization) {
+                        return request;
+                    }
+
+                    request.headers = request.headers || {};
+                    //// Already has an Authorization header
+                    //if (request.headers['Authorization']) {
+                    //    return request;
+                    //}
+
+                    if ($window.localStorage.getItem('access_token') != null) {
+                        request.headers['Authorization'] = 'Bearer ' + $window.localStorage.getItem('access_token');
+                    }
+                    return request;
+                },
+                responseError: function (response) {
                     if (response.status === 401 || response.status === 403) {
-                        $location.path('/');
+                        //todo: need to time stamp access token to see if it's expired or they really 
+                        //dont have access to the resource or make 403 is thrown properly
+                        authenticationService.signIn(encodeURIComponent($location.path));
                         return $q.reject(response);
                     } else {
                         return $q.reject(response);
@@ -498,6 +536,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 }
             };
         }]);
+
 
         // This is for using $rootScope.$emit and $scope.$on as a global event bus.
         // Creates an $onRootScope method that you can call from a local $scope to bind to events.
@@ -521,20 +560,20 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
         ]);
 
     }])
-    .run(['Analytics', 'userManagementService', '$rootScope', '$location', function (Analytics, userManagementService, $rootScope, $location) {
+    .run(['Analytics', 'userManagementService', '$rootScope', '$location', 'authenticationService', function (Analytics, userManagementService, $rootScope, $location, authenticationService) {
         // In case you are relying on automatic page tracking, you need to inject Analytics
         // at least once in your application (for example in the main run() block)
 
     $rootScope.$on('$stateChangeStart', function(ev, to, toParams, from, fromParams) {
 
-        if ($rootScope.currentUser || !userManagementService.isAuthenticated()) {
-            processRouteLogic();
-        } else {
+        if (!$rootScope.currentUser && authenticationService.isAuthenticated()) {
             userManagementService.getUser().$promise.then(function(user) {
                 $rootScope.currentUser = user;
                 processRouteLogic();
             });
-        } 
+        } else {
+            processRouteLogic();
+        }
 
         function processRouteLogic() {
             if (to.data && to.data.access) {
@@ -553,7 +592,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     } else {
                         event.preventDefault();
-                        window.location.assign('/auth?returnUrl=' + encodeURIComponent('#' + to.url));
+                        authenticationService.signIn(encodeURIComponent(to.url));
                     }
                 }
             }

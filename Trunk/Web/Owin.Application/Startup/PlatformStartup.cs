@@ -21,6 +21,7 @@ using SportsWebPt.Common.Nancy;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
+using Thinktecture.IdentityServer.v3.AccessTokenValidation;
 
 namespace SportsWebPt.Platform.Web.Application
 {
@@ -43,7 +44,6 @@ namespace SportsWebPt.Platform.Web.Application
             container.Register<ISessionService, SessionService>().AsMultiInstance();
 
             ServicesContentMaps.CreateContentMaps();
-
         }
 
         protected override void BuildBundles()
@@ -128,6 +128,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
+            BuildBundles();
             Csrf.Enable(pipelines);
 
             base.ApplicationStartup(container, pipelines);
@@ -162,24 +163,20 @@ namespace SportsWebPt.Platform.Web.Application
                 {"role",        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"}
             };
 
-            appBuilder.UseCookieAuthentication(new CookieAuthenticationOptions
+            // for self contained tokens
+            appBuilder.UseIdentityServerJwt(new JwtTokenValidationOptions
             {
-                AuthenticationType = "Cookies"
+                Authority = WebPlatformConfigSettings.Instance.AuthorityUri
             });
 
-            appBuilder.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
+            // for reference tokens
+            appBuilder.UseIdentityServerReferenceToken(new ReferenceTokenValidationOptions
             {
-                ClientId = WebPlatformConfigSettings.Instance.ClientId,
-                Authority = WebPlatformConfigSettings.Instance.AuthorityUri,
-                RedirectUri = WebPlatformConfigSettings.Instance.CallbackUri,
-                ResponseType = "id_token",
-                Scope = "openid email profile user_detail roles",
-                SignInAsAuthenticationType = "Cookies"
+                Authority = WebPlatformConfigSettings.Instance.AuthorityUri
             });
-
         }
 
-        protected override void ConfigureWebApi()
+        protected override void ConfigureWebApi(IAppBuilder appBuilder)
         {
             _httpConfiguration.MapHttpAttributeRoutes();
             // comment for IE 10. might be the cause of A callback parameter was not provided in the request URI exception

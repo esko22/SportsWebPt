@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Principal;
 using AutoMapper;
+using Microsoft.Owin;
 using SportsWebPt.Common.Utilities;
 using System.Web.Http;
 
@@ -34,42 +36,26 @@ namespace SportsWebPt.Platform.Web.Application
 
 
         [HttpGet]
+        [Authorize]
         [Route("data/users/current")]
         public User GetUser()
         {
-
             if (User.Identity.IsAuthenticated)
             {
                 var principle = (ClaimsPrincipal)User;
-                User user;
+                var serviceAccount = principle.GetServiceAccount();
+                var user = new User();
 
-                if (principle.FindFirst("service_account") != null)
-                {
-                    user = Mapper.Map<User>(_userManagementService.GetServiceUser(principle.FindFirst("service_account").Value));
-                    user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
-                    user.isAdmin = principle.IsInRole("admin");
-                    user.isTherapist = principle.IsInRole("therapist");
-                    user.isClinicManager = principle.IsInRole("manager");
-                }
-                else
-                {
-                    user = new User()
-                    {
-                        emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value
-                    };
-                }
+                if (String.IsNullOrEmpty(serviceAccount))
+                    serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
 
+                user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
+                user.isAdmin = principle.IsInRole("admin");
+                user.isTherapist = principle.IsInRole("therapist");
+                user.isClinicManager = principle.IsInRole("manager");
+                user.serviceAccount = serviceAccount;
 
                 return user;
-                //if user does not have a claim of the key in the service db create new user
-                //then I would add a claim of the services db id for user
-                //set flag of user to accountLinked
-
-                //in situation to validate
-                //after successful validation on web side
-                //I get user for that registration row, I can check if account is linked
-                //if account is not linked, I add claim for service db id for user and set flag
-
             }
 
             return new User();

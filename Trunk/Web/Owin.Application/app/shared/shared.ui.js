@@ -27,31 +27,27 @@ sharedUi.directive('modalHeader', [ function () {
     };
 }]);
 
-
 sharedUi.controller('HeaderController', [
-    '$scope', '$modal', 'userManagementService', '$rootScope', function ($scope, $modal, userManagementService, $rootScope) {
+    '$scope', '$modal', 'userManagementService', 'authenticationService', '$rootScope', function ($scope, $modal, userManagementService, authenticationService, $rootScope) {
 
         var currentModal = null;
-
-        userManagementService.getUser().$promise.then(function(user) {
-            $scope.currentUser = user;
+        $scope.currentUser = {};
+        $scope.isAuthenticated = authenticationService.isAuthenticated();
+        $rootScope.$watch('currentUser', function(newValue) {
+            $scope.currentUser = newValue;
         });
 
-        $scope.isAuthenticated = userManagementService.isAuthenticated();
 
         $scope.showSignUp = function () {
-            window.location.assign('/auth?returnUrl=');
+            authenticationService.signIn('/');
         };
 
         $scope.logOut = function () {
-            $rootScope.currentUser = null;
-            $scope.currentUser = null;
-            userManagementService.logOut();
-            $scope.isAuthenticated = false;
+            authenticationService.signOut();
         };
 
         $scope.showLogin = function () {
-            window.location.assign('/auth?returnUrl=');
+            authenticationService.signIn('/');
         };
 
         $scope.alreadyHaveAccount = function() {

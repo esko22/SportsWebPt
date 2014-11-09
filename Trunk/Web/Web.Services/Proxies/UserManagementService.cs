@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 
 using AutoMapper;
@@ -37,7 +38,15 @@ namespace SportsWebPt.Platform.Web.Services
         public User GetUser(String id)
         {
             var relationUser = UserAccountServiceFactory().GetByID(new Guid(id));
-            var user = new User {hash = relationUser.GetClaimValue("service_account")};
+            var user = new User
+            {
+                serviceAccount = relationUser.ServiceAccount,
+                hash = relationUser.ServiceAccount,
+                emailAddress = relationUser.Email,
+                isAdmin = relationUser.HasClaim("role","admin"),
+                isClinicManager = relationUser.HasClaim("role","manager"),
+                isTherapist = relationUser.HasClaim("role","therapist")
+            };
 
             return user;
         }
@@ -66,23 +75,20 @@ namespace SportsWebPt.Platform.Web.Services
         public String CreateServiceAccount(String subjectId)
         {
             var userAccountService = UserAccountServiceFactory();
-            var request = PostSync(new CreateUserRequest { AccountLinked = true });
-            userAccountService.AddClaim(new Guid(subjectId),"service_account", request.Response.Hash);
-            UpdateServiceAccount(subjectId, request.Response.Hash, userAccountService);
+            var user = userAccountService.GetByID(new Guid(subjectId));
+            var serviceAccount = user.ServiceAccount;
 
-            return request.Response.Hash;
+            if (String.IsNullOrEmpty(serviceAccount))
+            {
+                var request = PostSync(new CreateUserRequest {AccountLinked = true});
+                userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.Hash);
+                UpdateServiceAccount(subjectId, request.Response.Hash, userAccountService);
+
+                serviceAccount = request.Response.Hash;
+            }
+
+            return serviceAccount;
         }
-
-        //public String ResetServiceAccount(String subjectId, String serviceAccount)
-        //{
-        //    var userAccountService = UserAccountServiceFactory();
-        //    userAccountService.RemoveClaim(new Guid(subjectId), "service_account");
-        //    userAccountService.AddClaim(new Guid(subjectId), "service_account", serviceAccount);
-
-        //    UpdateServiceAccount(subjectId, serviceAccount, userAccountService);
-
-        //    return serviceAccount;
-        //}
 
         private void UpdateServiceAccount(String subjectId, String serviceAccount, UserAccountService<SportsWebUser> userAccountService)
         {
