@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
     { }
 
     [Route("/clinics/{id}/patients", "POST")]
-    public class AddClinicPatientRequest : AbstractResourceListRequest, IReturn<ApiResponse<UserDto>>
+    public class AddClinicPatientRequest : AbstractResourceListRequest, IReturn<ApiResponse<ClinicPatientDto>>
     {
         public UserDto User { get; set; }
     }
@@ -53,7 +53,7 @@ namespace SportsWebPt.Platform.ServiceModels.Operations
     }
 
     [Route("/clinics/{id}/therapists", "POST")]
-    public class AddClinicTherapistRequest : AbstractResourceListRequest, IReturn<ApiResponse<UserDto>>
+    public class AddClinicTherapistRequest : AbstractResourceListRequest, IReturn<ApiResponse<ClinicTherapistDto>>
     {
         public UserDto Therapist { get; set; }
     }

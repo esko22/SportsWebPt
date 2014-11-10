@@ -35,6 +35,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.UserConfirmed).HasColumnName("user_confirmed");
             Property(p => p.Pin).HasColumnName("pin").HasMaxLength(50);
             Property(p => p.Id).HasColumnName("clinic_therapist_matrix_item_id");
+            Property(p => p.AddedOn).HasColumnName("added_on");
         }
 
         #endregion
@@ -66,6 +67,7 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.UserId).HasColumnName("user_id");
             Property(p => p.UserConfirmed).HasColumnName("user_confirmed");
             Property(p => p.Pin).HasColumnName("pin").HasMaxLength(50);
+            Property(p => p.AddedOn).HasColumnName("added_on");
             Property(p => p.Id).HasColumnName("clinic_patient_matrix_item_id");
         }
 

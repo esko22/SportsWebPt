@@ -5,6 +5,7 @@ using System.Net.Mail;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Common.Utilities.Security;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -98,12 +99,15 @@ namespace SportsWebPt.Platform.ServiceImpl
                             s => s.Hash.Equals(request.User.Hash, StringComparison.OrdinalIgnoreCase));
             }
 
-            var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
+            var clinicPatientMatrixItem =
+                ClinicUnitOfWork.ClinicPatientRepository.GetAll()
+                    .SingleOrDefault(p => p.ClinicId == request.IdAsInt && p.UserId == userToAdd.Id) ??
+                ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
 
-            var token = ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id, request.User.EmailAddress);
             //if token is returned, user is newly created or has not confirmed registration yet
-            if (!String.IsNullOrWhiteSpace(token))
+            if (!clinicPatientMatrixItem.UserConfirmed)
             {
+                var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
                 using (var mailClient = new NetSmtpClient())
                 {
                     var messageBody =
@@ -121,7 +125,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     messageBody = messageBody +
                                   String.Format("Registration Email Given: {0}{1}",request.User.EmailAddress,Environment.NewLine);
                     messageBody = messageBody +
-                                  String.Format("Registration Pin: {0}{1}", token, Environment.NewLine);
+                                  String.Format("Registration Pin: {0}{1}", SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, request.User.EmailAddress), Environment.NewLine);
 
                     var mailMessage = new MailMessage {Subject = "SportsWebPt Patient Registration", Body = messageBody};
                     mailMessage.To.Add(new MailAddress(request.User.EmailAddress));
@@ -129,9 +133,10 @@ namespace SportsWebPt.Platform.ServiceImpl
                 }
             }
 
-            return Ok(new ApiResponse<UserDto>()
+            clinicPatientMatrixItem.Patient = userToAdd;
+            return Ok(new ApiResponse<ClinicPatientDto>()
             {
-                Response = Mapper.Map<UserDto>(userToAdd)
+                Response = Mapper.Map<ClinicPatientDto>(clinicPatientMatrixItem)
             });
 
         }
@@ -159,11 +164,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                     UserUnitOfWork.AddTherapist(userToAdd);
             }
 
-            var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
-            var token = ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id, request.Therapist.EmailAddress);
-            //if token is returned, user is newly created or has not confirmed registration yet
-            if (!String.IsNullOrWhiteSpace(token))
+
+            var clinicTherapistMatrixItem =
+                ClinicUnitOfWork.ClinicTherapistRepository.GetAll()
+                    .SingleOrDefault(p => p.ClinicId == request.IdAsInt && p.TherapistId == userToAdd.Id) ??
+                ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
+
+
+            if (!clinicTherapistMatrixItem.UserConfirmed)
             {
+                var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
                 using (var mailClient = new NetSmtpClient())
                 {
                     var messageBody =
@@ -181,7 +191,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     messageBody = messageBody +
                                   String.Format("Registration Email Given: {0}{1}", request.Therapist.EmailAddress, Environment.NewLine);
                     messageBody = messageBody +
-                                  String.Format("Registration Pin: {0}{1}", token, Environment.NewLine);
+                                  String.Format("Registration Pin: {0}{1}", SymmetricCryptography.Encrypt(clinicTherapistMatrixItem.Pin, request.Therapist.EmailAddress), Environment.NewLine);
 
                     var mailMessage = new MailMessage { Subject = "SportsWebPt Therapist Registration", Body = messageBody };
                     mailMessage.To.Add(new MailAddress(request.Therapist.EmailAddress));
@@ -189,9 +199,10 @@ namespace SportsWebPt.Platform.ServiceImpl
                 }
             }
 
-            return Ok(new ApiResponse<UserDto>()
+            clinicTherapistMatrixItem.Therapist.User = userToAdd;
+            return Ok(new ApiResponse<ClinicTherapistDto>()
             {
-                Response = Mapper.Map<UserDto>(userToAdd)
+                Response = Mapper.Map<ClinicTherapistDto>(clinicTherapistMatrixItem)
             });
         }
 

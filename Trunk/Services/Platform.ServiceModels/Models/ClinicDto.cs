@@ -31,6 +31,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public UserDto User { get; set; }
 
+        public DateTime AddedOn { get; set; }
+
         #endregion
     }
 
@@ -41,6 +43,8 @@ namespace SportsWebPt.Platform.ServiceModels
         public int Id { get; set; }
 
         public Boolean UserConfirmed { get; set; }
+
+        public DateTime AddedOn { get; set; }
 
         public ClinicDto Clinic { get; set; }
 

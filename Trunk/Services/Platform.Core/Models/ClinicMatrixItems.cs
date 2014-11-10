@@ -19,6 +19,8 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Pin { get; set; }
 
+        public DateTime AddedOn { get; set; }
+
         #endregion
 
         #region Navigation Properties
@@ -66,6 +68,8 @@ namespace SportsWebPt.Platform.Core.Models
         public Boolean UserConfirmed { get; set; }
 
         public String Pin { get; set; }
+
+        public DateTime AddedOn { get; set; }
 
         #endregion
 

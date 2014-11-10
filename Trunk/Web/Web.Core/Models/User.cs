@@ -106,6 +106,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public Clinic clinic { get; set; }
 
+        public String addedOn { get; set; }
+
         #endregion
     }
 
@@ -120,6 +122,8 @@ namespace SportsWebPt.Platform.Web.Core
         public Therapist therapist { get; set; }
 
         public Clinic clinic { get; set; }
+
+        public String addedOn { get; set; }
 
         #endregion
     }

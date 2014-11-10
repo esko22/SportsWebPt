@@ -4,58 +4,25 @@
     </div>
 </div>
 <div class="modal-body">
-    <form class="form-horizontal" novalidate rc-submit="submit()" name="addClinicPatientForm">
-        <div class="form-group">
-            <label class="control-label col-md-2">Email</label>
-            <div class="col-md-6">
-                <input type="text" class="form-control" ng-model="formData.lookupEmail" />
+    <div ng-if="!formData.clinicPatient">
+        <form class="form-horizontal" novalidate rc-submit="submit()" name="addClinicPatientForm">
+            <div class="form-group">
+                <label class="control-label col-md-2">Email</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" ng-model="formData.lookupEmail" />
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary">Add Patient</button>
+                </div>
             </div>
-            <div class="col-md-4">
-                <button ng-click="validateUser()">Search</button>
-            </div>
+        </form>
+    </div>
+    <div ng-if="formData.clinicPatient">
+        <div ng-if="!formData.clinicPatient.userConfirmed">
+            <h4>Patient: <span ng-bind="formData.clinicPatient.user.id"></span> has been sent an invitation to join your clinic! Please make note of this id.</h4>
         </div>
-        <div ng-show="userToAdd && userToAdd.accountLinked">
-            <h3>User exists in the system</h3>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> Email Address:</label>
-                </div>
-                <div class="col-md-5">
-                    <span ng-bind="userToAdd.emailAddress"></span>
-                </div>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary">Add User</button>
-            </div>
+        <div ng-if="formData.clinicPatient.userConfirmed">
+            <h4>Patient: <span ng-bind="formData.clinicPatient.user.id"></span> is already added as a member of your clinic @ <span ng-bind="formData.clinicPatient.addedOn"></span>.  </h4>
         </div>
-        <div ng-show="userToAdd && !userToAdd.accountLinked">
-            <div class="row">
-                <div class="col-md-3">
-                    <label> Email Address:</label>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" ng-model="userToAdd.emailAddress" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> First Name:</label>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" ng-model="userToAdd.firstName" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> Last Name:</label>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" ng-model="userToAdd.lastName" />
-                </div>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary">Add User</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>

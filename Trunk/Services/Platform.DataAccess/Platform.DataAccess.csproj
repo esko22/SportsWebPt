@@ -175,6 +175,10 @@
     <Compile Include="Migrations\201411040451497_DropClinicAdmin.Designer.cs">
       <DependentUpon>201411040451497_DropClinicAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411100433329_AddedOnDateStamp.cs" />
+    <Compile Include="Migrations\201411100433329_AddedOnDateStamp.Designer.cs">
+      <DependentUpon>201411100433329_AddedOnDateStamp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411040451497_DropClinicAdmin.resx">
       <DependentUpon>201411040451497_DropClinicAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411100433329_AddedOnDateStamp.resx">
+      <DependentUpon>201411100433329_AddedOnDateStamp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

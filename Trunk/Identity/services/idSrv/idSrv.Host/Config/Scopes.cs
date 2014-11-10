@@ -27,6 +27,7 @@ namespace Thinktecture.IdentityServer.Host.Config
                     Name = "roles",
                     DisplayName = "Roles",
                     Description = "Your organizational roles",
+                    Required = true,
                     Type = ScopeType.Resource,
                     IncludeAllClaimsForUser = true,
                     Claims = new[]
@@ -44,6 +45,7 @@ namespace Thinktecture.IdentityServer.Host.Config
                     DisplayName = "User Details",
                     Description = "Our info about you",
                     Type = ScopeType.Resource,
+                    Required = true,
                     IncludeAllClaimsForUser = true,
                     Claims = new []
                     {

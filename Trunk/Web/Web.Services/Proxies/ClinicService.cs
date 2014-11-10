@@ -15,9 +15,8 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<User> GetClinicPatients(int clinicId);
         IEnumerable<Therapist> GetClinicTherapists(int clinicId);
         Clinic GetClinic(int clinicId);
-        User AddPatientToClinic(int clinicId, User user);
-        User AddTherapistToClinic(int clinicId, User user);
-
+        ClinicPatient AddPatientToClinic(int clinicId, User user);
+        ClinicTherapist AddTherapistToClinic(int clinicId, User user);
     }
 
     public class ClinicService : BaseServiceStackClient, IClinicService
@@ -69,7 +68,7 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Therapist>>(request.Response.Items);
         }
 
-        public User AddPatientToClinic(int clinicId, User user)
+        public ClinicPatient AddPatientToClinic(int clinicId, User user)
         {
             var userService = UserManagementService.UserAccountServiceFactory(); 
             var userToAdd = userService.GetByEmail(user.emailAddress);
@@ -83,15 +82,15 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
-                userToAdd.ServiceAccount = request.Response.Hash;
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.User.Hash);
+                userToAdd.ServiceAccount = request.Response.User.Hash;
                 userService.Update(userToAdd);
             }
 
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+            return request.Response == null ? null : Mapper.Map<ClinicPatient>(request.Response);
         }
 
-        public User AddTherapistToClinic(int clinicId, User user)
+        public ClinicTherapist AddTherapistToClinic(int clinicId, User user)
         {
             var userService = UserManagementService.UserAccountServiceFactory();
             var userToAdd = userService.GetByEmail(user.emailAddress);
@@ -108,14 +107,14 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Hash);
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Therapist.Hash);
                 userService.AddClaim(userToAdd.ID, "role", "therapist");
                 userService.Update(userToAdd);
 
-                userToAdd.ServiceAccount = request.Response.Hash;
+                userToAdd.ServiceAccount = request.Response.Therapist.Hash;
             }
 
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
+            return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);
         }
 
         #endregion

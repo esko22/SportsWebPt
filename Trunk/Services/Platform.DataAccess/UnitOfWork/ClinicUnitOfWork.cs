@@ -54,45 +54,34 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.Patient);
         }
 
-        public String AddPatientToClinic(int clinicId, int userId, string emailAddress)
+        public ClinicPatientMatrixItem AddPatientToClinic(int clinicId, int userId)
         {
-            var clinicPatientMatrixItem =
-                ClinicPatientRepository.GetAll().SingleOrDefault(p => p.ClinicId == clinicId && p.UserId == userId);
-
-            if (clinicPatientMatrixItem == null)
+            var clinicPatientMatrixItem = new ClinicPatientMatrixItem()
             {
-                clinicPatientMatrixItem = new ClinicPatientMatrixItem()
-                {
-                    ClinicId = clinicId,
-                    UserId = userId,
-                    Pin = Guid.NewGuid().ToString()
-                };
-                ClinicPatientRepository.Add(clinicPatientMatrixItem);
-                Commit();
-            }
+                ClinicId = clinicId,
+                UserId = userId,
+                Pin = Guid.NewGuid().ToString(),
+                AddedOn = DateTime.Now
+            };
+            ClinicPatientRepository.Add(clinicPatientMatrixItem);
+            Commit();
 
-            return !clinicPatientMatrixItem.UserConfirmed ? SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, emailAddress) : String.Empty;
+            return clinicPatientMatrixItem;
         }
 
-        public String AddTherapistToClinic(int clinicId, int therapistId, string emailAddress)
+        public ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, int therapistId)
         {
-            var clinicTherapistMatrixItem =
-                ClinicTherapistRepository.GetAll()
-                    .SingleOrDefault(p => p.ClinicId == clinicId && p.TherapistId == therapistId);
-   
-            if (clinicTherapistMatrixItem == null)
+            var clinicTherapistMatrixItem = new ClinicTherapistMatrixItem()
             {
-                clinicTherapistMatrixItem = new ClinicTherapistMatrixItem()
-                {
-                    ClinicId = clinicId,
-                    TherapistId = therapistId,
-                    Pin = Guid.NewGuid().ToString()
-                };
-                ClinicTherapistRepository.Add(clinicTherapistMatrixItem);
-                Commit();
-            }
+                ClinicId = clinicId,
+                TherapistId = therapistId,
+                Pin = Guid.NewGuid().ToString(),
+                AddedOn = DateTime.Now
+            };
+            ClinicTherapistRepository.Add(clinicTherapistMatrixItem);
+            Commit();
 
-            return !clinicTherapistMatrixItem.UserConfirmed ? SymmetricCryptography.Encrypt(clinicTherapistMatrixItem.Pin, emailAddress) : String.Empty;
+            return clinicTherapistMatrixItem;
         }
 
         public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String serviceAccount)
@@ -234,13 +223,15 @@ namespace SportsWebPt.Platform.DataAccess
     public interface IClinicUnitOfWork : IBaseUnitOfWork
     {
         IClinicRepo ClinicRepository { get; }
+        IRepository<ClinicTherapistMatrixItem> ClinicTherapistRepository { get; }
+        IRepository<ClinicPatientMatrixItem> ClinicPatientRepository { get; }
 
         IQueryable<ClinicTherapistMatrixItem> GetClinicTherapists();
         IQueryable<ClinicPatientMatrixItem> GetClinicPatients();
         IQueryable<ClinicAdminMatrixItem> GetClinicAdminMatrixList();
 
-        String AddPatientToClinic(int clinicId, int userId, String emailAddress);
-        String AddTherapistToClinic(int clinicId, int therapistId, string emailAddress);
+        ClinicPatientMatrixItem AddPatientToClinic(int clinicId, int userId);
+        ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, int therapistId);
         ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, String subjectId);
         ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin, String subjectId);
         void SetPatientConfirmation(int clientPatientMatrixId);

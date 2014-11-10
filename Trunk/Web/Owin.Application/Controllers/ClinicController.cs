@@ -46,7 +46,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpPost]
         [Route("data/clinics/{clinicId}/patients")]
-        public User AddClinicPatient(int clinicId, User user)
+        public ClinicPatient AddClinicPatient(int clinicId, User user)
         {
             return _clinicService.AddPatientToClinic(clinicId,user);
         }
@@ -60,7 +60,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpPost]
         [Route("data/clinics/{clinicId}/therapists")]
-        public User AddClinicTherapist(int clinicId, User therapist)
+        public ClinicTherapist AddClinicTherapist(int clinicId, User therapist)
         {
             return _clinicService.AddTherapistToClinic(clinicId,therapist);
         }

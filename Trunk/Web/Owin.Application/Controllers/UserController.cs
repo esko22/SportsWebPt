@@ -50,9 +50,12 @@ namespace SportsWebPt.Platform.Web.Application
                     serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
 
                 user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
-                user.isAdmin = principle.IsInRole("admin");
-                user.isTherapist = principle.IsInRole("therapist");
-                user.isClinicManager = principle.IsInRole("manager");
+                //TODO: having issues mapping roles... First time auth after signin, Principal has Bearer and JWT identities that seem to use
+                //the role InboundClaimTypeMap correctly, when I do a refresh on the page, principal only has bearer identity
+                //and even though the roles are in the identity, they do not map because they are missing the xml namespace
+                user.isAdmin = principle.HasClaim("role", "admin");
+                user.isTherapist = principle.HasClaim("role","therapist");
+                user.isClinicManager = principle.HasClaim("role", "manager");
                 user.serviceAccount = serviceAccount;
 
                 return user;

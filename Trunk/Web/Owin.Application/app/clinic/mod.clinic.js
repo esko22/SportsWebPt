@@ -39,26 +39,12 @@ clinicModule.controller('ClinicAddPatientModalController', [
     function ($scope, clinicService, $modal, clinicId, $rootScope, notifierService, $modalInstance) {
 
         $scope.formData = {};
-
-        $scope.validateUser = function() {
-            $scope.userToAdd = null;
-
-            if ($scope.formData.lookupEmail) {
-                clinicService.validateUserByEmail($scope.formData.lookupEmail).then(function (userValid) {
-                    if (userValid.data === 'false') {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
-                    } else {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail};
-                    }
-                });
-            }
-        }
+        $scope.close = $modalInstance.close;
 
         $scope.submit = function () {
-            if ($scope.userToAdd) {
-                clinicService.addPatientToClinic(clinicId, $scope.userToAdd).$promise.then(function () {
-                    notifierService.notify('Patient Added To Clinic!');
-                    $modalInstance.close();
+            if ($scope.formData.lookupEmail && $scope.formData.lookupEmail !== '') {
+                clinicService.addPatientToClinic(clinicId, { emailAddress: $scope.formData.lookupEmail }).$promise.then(function (clinicPatient) {
+                    $scope.formData.clinicPatient = clinicPatient;
                 });
             }
         }

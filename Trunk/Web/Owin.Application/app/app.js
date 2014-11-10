@@ -528,7 +528,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     if (response.status === 401 || response.status === 403) {
                         //todo: need to time stamp access token to see if it's expired or they really 
                         //dont have access to the resource or make 403 is thrown properly
-                        authenticationService.signIn(encodeURIComponent($location.path));
+                        authenticationService.signIn($location.path());
                         return $q.reject(response);
                     } else {
                         return $q.reject(response);
@@ -592,7 +592,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     } else {
                         event.preventDefault();
-                        authenticationService.signIn(encodeURIComponent(to.url));
+                        authenticationService.signIn(to.url);
                     }
                 }
             }

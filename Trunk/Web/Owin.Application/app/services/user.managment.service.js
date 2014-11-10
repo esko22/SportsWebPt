@@ -19,11 +19,12 @@ swptApp.service('authenticationService', ['$window', function ($window) {
     };
 
     var signIn = function (redirectUri) {
+        $window.localStorage.removeItem('access_token');
         $window.sessionStorage.redirectUrl = redirectUri;
         var uri = URI('http://localhost:3333/core/connect/authorize')
-           .addSearch('response_type', 'id_token token')
+           .addSearch('response_type', 'token')
            .addSearch('client_id', 'implicitclient')
-           .addSearch('scope', 'openid email profile user_detail roles')
+           .addSearch('scope', 'user_detail')
            .addSearch('redirect_uri', 'http://localhost:8022/auth')
            .addSearch('nonce', Math.floor(Math.random() * 99999));
         $window.location.href = uri;
