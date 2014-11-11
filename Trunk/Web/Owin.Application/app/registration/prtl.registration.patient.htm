@@ -1,59 +1,39 @@
-﻿<div class="container" ng-show="!isValidated">
-    <div>
-        <span ng-bind="error"></span>
-    </div>
+﻿<div class="container">
     <h2>Patient Registration</h2>
-    
-    <div ng-if="user.emailAddress == null" class="row push-down-lg">
+    <div>
         <div>
             <h4>You have been requested by Clinic X to register on SportsWebPt.</h4>
+        </div>
+        <div ng-if="!isAuthenticated" class="row push-down-lg">
             <h4>First, you will need to sign in or create an account before we can sync you up.</h4>
-        </div>
-        <div>
-            <button class="btn btn-warning" ng-click="startRegistration()">Get Started!</button>
-        </div>
-    </div>
-    
-    <div ng-if="user.emailAddress != null" class="row push-down-lg">
-        <div>
-            <div class="col-md-3">
-                <label> Email Address:</label>
-            </div>
-            <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <label> Registration PIN:</label>
-            </div>
-            <div class="col-md-5">
-                <input type="text" class="form-control" ng-model="registrationDetails.pin" />
-            </div>
-        </div>
-        <div>
-            <button class="btn btn-warning" ng-click="validate()">Validate Pin</button>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<div class="container" ng-show="isValidated">
-    <div class="row" ng-show="!isConfirmed">
-        <div class="col-md-6">
-            <h2>{{clinic.name}}</h2>
             <div>
-                <img height="100" ng-src={{clinic.displayImage}} />
+                <button class="btn btn-warning" ng-click="startRegistration()">Get Started!</button>
             </div>
         </div>
-        <div class="col-md-6">
-            <register-patient-dialog></register-patient-dialog>
+        <div ng-if="isAuthenticated" class="row push-down-lg">
+            <div class="row">
+                <div class="col-md-3">
+                    <label> Email Address:</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label> Registration PIN:</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" ng-model="registrationDetails.pin" />
+                </div>
+            </div>
+            <div>
+                <span ng-bind="error"></span>
+            </div>
+            <div>
+                <button class="btn btn-warning" ng-click="validate()">Validate Pin</button>
+            </div>
         </div>
     </div>
-    <div ng-show="isConfirmed">
-        <h2>This Pin is already confirmed</h2>
-    </div>
 </div>
+

@@ -865,6 +865,10 @@
       <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
       <Name>Common.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Identity\Identity.Core\Identity.Core.csproj">
+      <Project>{af4c143b-bd7c-48d0-883a-4498b40dba67}</Project>
+      <Name>Identity.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\Platform.ServiceModels\Platform.ServiceModels.csproj">
       <Project>{1afe645d-a08f-4b96-b6d8-d47fffd8486f}</Project>
       <Name>Platform.ServiceModels</Name>

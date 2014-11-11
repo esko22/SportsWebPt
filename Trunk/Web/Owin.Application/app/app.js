@@ -189,7 +189,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                             var redirectUrl = $window.sessionStorage.redirectUrl;
                             $window.sessionStorage.redirectUrl = '';
 
-                            $location.path(redirectUrl);
+                            $location.path(decodeURIComponent(redirectUrl));
                         }
                     }
                 })
@@ -458,7 +458,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
                 .state('registration.therapist',
                 {
-                    url: "/registration/therapist?errId",
+                    url: "/register/:clinicId/therapist",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.therapist.htm',
@@ -528,7 +528,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     if (response.status === 401 || response.status === 403) {
                         //todo: need to time stamp access token to see if it's expired or they really 
                         //dont have access to the resource or make 403 is thrown properly
-                        authenticationService.signIn($location.path());
+                        authenticationService.signIn(encodeURIComponent($location.path()));
                         return $q.reject(response);
                     } else {
                         return $q.reject(response);
@@ -592,7 +592,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     } else {
                         event.preventDefault();
-                        authenticationService.signIn(to.url);
+                        authenticationService.signIn(encodeURIComponent(to.url));
                     }
                 }
             }

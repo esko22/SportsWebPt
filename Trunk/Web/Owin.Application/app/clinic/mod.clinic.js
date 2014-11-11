@@ -54,29 +54,13 @@ clinicModule.controller('ClinicAddPatientModalController', [
 clinicModule.controller('ClinicAddTherapistModalController', [
     '$scope', 'clinicService', '$modal', 'clinicId', '$rootScope', 'notifierService', '$modalInstance',
     function ($scope, clinicService, $modal, clinicId, $rootScope, notifierService, $modalInstance) {
-
         $scope.formData = {};
-
-        $scope.validateUser = function () {
-            $scope.userToAdd = null;
-
-            if ($scope.formData.lookupEmail) {
-                clinicService.validateUserByEmail($scope.formData.lookupEmail).then(function (userValid) {
-
-                    if (userValid.data === 'false') {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail}
-                    } else {
-                        $scope.userToAdd = { emailAddress: $scope.formData.lookupEmail, accountLinked : true};
-                    }
-                });
-            }
-        }
+        $scope.close = $modalInstance.close;
 
         $scope.submit = function () {
-            if ($scope.userToAdd) {
-                clinicService.addTherapistToClinic(clinicId, $scope.userToAdd).$promise.then(function () {
-                    notifierService.notify('Therapist Added To Clinic!');
-                    $modalInstance.close();
+            if ($scope.formData.lookupEmail && $scope.formData.lookupEmail !== '') {
+                clinicService.addTherapistToClinic(clinicId, { emailAddress: $scope.formData.lookupEmail }).$promise.then(function (clinicTherapist) {
+                    $scope.formData.clinicTherapist = clinicTherapist;
                 });
             }
         }

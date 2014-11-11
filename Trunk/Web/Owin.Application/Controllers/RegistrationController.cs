@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
-
+using Microsoft.Owin;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
@@ -48,6 +50,7 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [HttpPost]
+        [Authorize]
         [Route("data/registration/therapist")]
         public ClinicTherapist ValidateTherapistRegistration([FromBody] RegistrationDetails registrationDetails)
         {
@@ -59,8 +62,13 @@ namespace SportsWebPt.Platform.Web.Application
             if (String.IsNullOrEmpty(serviceAccount))
                 serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).hash;
 
+            if(!((ClaimsPrincipal)User).HasClaim("role","therapist"))
+                UserManagementService.UserAccountServiceFactory().AddClaim(new Guid(User.GetSubjectId()), "role", "therapist");
+
             var clinicTherapist = _userManagementService.ValidateTherapistRegistration(registrationDetails.emailAddress,
                 registrationDetails.pin, serviceAccount);
+
+            Request.GetOwinContext().Authentication.SignOut(new[] { "Bearer"});
 
             return clinicTherapist;
         }

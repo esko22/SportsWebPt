@@ -148,11 +148,12 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Therapist.EmailAddress, "Email Address cannot be empty");
 
             var userToAdd = Mapper.Map<User>(request.Therapist);
+            var therapist = new Therapist();
 
             if (!userToAdd.AccountLinked)
             {
                 userToAdd = UserUnitOfWork.AddUser(new User());
-                UserUnitOfWork.AddTherapist(userToAdd);
+                therapist = UserUnitOfWork.AddTherapist(userToAdd);
             }
             else
             {
@@ -160,13 +161,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                     UserUnitOfWork.UserRepository.GetUserDetails()
                         .SingleOrDefault(
                             s => s.Hash.Equals(request.Therapist.Hash, StringComparison.OrdinalIgnoreCase));
-                if (userToAdd != null && userToAdd.Therapist == null)
-                    UserUnitOfWork.AddTherapist(userToAdd);
+
+                if (userToAdd != null)
+                {
+                    therapist = userToAdd.Therapist ?? UserUnitOfWork.AddTherapist(userToAdd);
+                } 
             }
 
 
             var clinicTherapistMatrixItem =
-                ClinicUnitOfWork.ClinicTherapistRepository.GetAll()
+                ClinicUnitOfWork.GetClinicTherapists()
                     .SingleOrDefault(p => p.ClinicId == request.IdAsInt && p.TherapistId == userToAdd.Id) ??
                 ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
 
@@ -199,7 +203,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                 }
             }
 
-            clinicTherapistMatrixItem.Therapist.User = userToAdd;
+            therapist.User = userToAdd;
+            clinicTherapistMatrixItem.Therapist =  therapist;
             return Ok(new ApiResponse<ClinicTherapistDto>()
             {
                 Response = Mapper.Map<ClinicTherapistDto>(clinicTherapistMatrixItem)

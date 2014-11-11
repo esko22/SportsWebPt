@@ -21,6 +21,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<ClinicPatientMatrixItem> ClinicPatientRepository { get { return GetStandardRepo<ClinicPatientMatrixItem>(); } }
         public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } } 
         public IClinicRepo ClinicRepository { get { return GetRepo<IClinicRepo>(); } }
+        public IRepository<Therapist> TherapistRepository { get { return GetStandardRepo<Therapist>(); } } 
         public IRepository<Episode> EpisodeRepository { get { return GetStandardRepo<Episode>(); } } 
 
         #endregion
@@ -175,20 +176,25 @@ namespace SportsWebPt.Platform.DataAccess
 
         private void AssocaiteExistingTherapistServiceAccounts(String mapToAccount, String mapFromAccount)
         {
-            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
-            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
+            var mapToUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Hash.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
+            var mapFromUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Hash.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
 
             Check.Argument.IsNotNull(mapToUser, "MapToUser");
             Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
 
             ClinicTherapistRepository.GetAll().Where(p => p.TherapistId == mapFromUser.Id).ForEach(f =>
             {
-                f.Therapist.User = mapToUser;
+                if (mapToUser.Therapist == null)
+                    f.Therapist = new Therapist() { User = mapToUser };
+                else
+                    f.Therapist.User = mapToUser;
+                
                 ClinicTherapistRepository.Update(f);
             });
 
             Commit();
 
+            TherapistRepository.Delete(mapFromUser.Therapist);
             UserRepository.Delete(mapFromUser);
         }
 
