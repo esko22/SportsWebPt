@@ -41,12 +41,12 @@ namespace SportsWebPt.Platform.DataAccess
             return UserRepository.GetUserDetails()
                                 .SingleOrDefault(
                                     p =>
-                                    p.Hash.Equals(subjectId, StringComparison.OrdinalIgnoreCase));
+                                    p.ExternalAccountId.Equals(subjectId, StringComparison.OrdinalIgnoreCase));
         }
 
         public User AddUser(User user)
         {
-            user.Hash = Guid.NewGuid().ToString();
+            user.ExternalAccountId = Guid.NewGuid().ToString();
             UserRepository.Add(user);
             Commit();
 

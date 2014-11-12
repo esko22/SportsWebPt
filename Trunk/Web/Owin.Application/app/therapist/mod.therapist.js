@@ -4,10 +4,10 @@ var therapistModule = angular.module('therapist.module', []);
 
 
 therapistModule.controller('TherapistDashboardController', [
-    '$scope', 'therapistService',
-    function ($scope, therapistService) {
+    '$scope', 'therapistService','$rootScope',
+    function ($scope, therapistService,$rootScope) {
 
-        therapistService.get($scope.currentUser.id).$promise.then(function(therapistDetails) {
+        therapistService.get($rootScope.currentUser.serviceAccount).$promise.then(function (therapistDetails) {
             $scope.clinics = therapistDetails.clinics;
         });
     }
@@ -482,8 +482,8 @@ therapistModule.controller('TherapistSessionController', [
 ]);
 
 therapistModule.controller('TherapistEpisodeListController', [
-    '$scope', 'therapistService', '$modal','$state',
-    function ($scope, therapistService, $modal, $state) {
+    '$scope', 'therapistService', '$modal','$state','$rootScope',
+    function ($scope, therapistService, $modal, $state, $rootScope) {
 
         getActiveEpisodeList();
 
@@ -520,7 +520,7 @@ therapistModule.controller('TherapistEpisodeListController', [
         }
 
         function getActiveEpisodeList() {
-            therapistService.getEpisodesForTherapist($scope.currentUser.id, 'active').$promise.then(function (episodes) {
+            therapistService.getEpisodesForTherapist($rootScope.currentUser.serviceAccount, 'active').$promise.then(function (episodes) {
                 $scope.episodes = episodes;
             });
         }

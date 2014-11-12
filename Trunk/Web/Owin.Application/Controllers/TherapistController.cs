@@ -41,7 +41,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpGet]
         [Route("data/therapists/{id}")]
-        public Therapist GetTherapistDetail(int id)
+        public Therapist GetTherapistDetail(String id)
         {
             return _therapistService.GetTherapistDetail(id);
         }
@@ -77,7 +77,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpGet]
         [Route("data/therapists/{id}/episodes")]
-        public IEnumerable<Episode> GetTherapistEpisodes(int id, String state)
+        public IEnumerable<Episode> GetTherapistEpisodes(String id, String state)
         {
             return _therapistService.GetEpisodes(id, state);
         }

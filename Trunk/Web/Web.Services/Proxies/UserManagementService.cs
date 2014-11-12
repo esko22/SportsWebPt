@@ -41,7 +41,7 @@ namespace SportsWebPt.Platform.Web.Services
             var user = new User
             {
                 serviceAccount = relationUser.ServiceAccount,
-                hash = relationUser.ServiceAccount,
+                externalAccountId = relationUser.ServiceAccount,
                 emailAddress = relationUser.Email,
                 isAdmin = relationUser.HasClaim("role","admin"),
                 isClinicManager = relationUser.HasClaim("role","manager"),
@@ -60,7 +60,7 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var request = GetSync(new UserRequest() { Id = id });
 
-            return request.Response == null ? new User() { hash = id, accountLinked = false} : Mapper.Map<User>(request.Response);
+            return request.Response == null ? new User() { externalAccountId = id, accountLinked = false} : Mapper.Map<User>(request.Response);
         }
 
         public int AddUser(User user)
@@ -81,10 +81,10 @@ namespace SportsWebPt.Platform.Web.Services
             if (String.IsNullOrEmpty(serviceAccount))
             {
                 var request = PostSync(new CreateUserRequest {AccountLinked = true});
-                userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.Hash);
-                UpdateServiceAccount(subjectId, request.Response.Hash, userAccountService);
+                userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.ExternalAccountId);
+                UpdateServiceAccount(subjectId, request.Response.ExternalAccountId, userAccountService);
 
-                serviceAccount = request.Response.Hash;
+                serviceAccount = request.Response.ExternalAccountId;
             }
 
             return serviceAccount;
@@ -106,13 +106,6 @@ namespace SportsWebPt.Platform.Web.Services
             userFavRequest.Id = userId;
 
             PostSync(userFavRequest);
-        }
-
-        public User Auth(string emailAddress, string hash)
-        {
-            var request = PostSync(new AuthRequest() { EmailAddress = emailAddress, Hash = hash });
-
-            return request.Response == null ? null : Mapper.Map<User>(request.Response);
         }
 
         public IEnumerable<Episode> GetEpisodes(int patientId, String state)
@@ -201,7 +194,6 @@ namespace SportsWebPt.Platform.Web.Services
         Boolean ValidateUserByEmail(String emailAddress);
         User GetUser(String subjectId);
         User GetServiceUser(String id);
-        User Auth(String emailAddress, String hash);
         void AddFavorite(Favorite favorite, int userId);
         IEnumerable<Episode> GetEpisodes(int patientId, String state);
         String CreateServiceAccount(String subjectId);

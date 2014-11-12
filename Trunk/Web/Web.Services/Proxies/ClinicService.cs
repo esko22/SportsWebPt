@@ -74,7 +74,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userToAdd = userService.GetByEmail(user.emailAddress);
             if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
-                user.hash = userToAdd.GetClaimValue("service_account");
+                user.externalAccountId = userToAdd.GetClaimValue("service_account");
                 user.accountLinked = true;
             }
 
@@ -82,8 +82,8 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.User.Hash);
-                userToAdd.ServiceAccount = request.Response.User.Hash;
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.User.ExternalAccountId);
+                userToAdd.ServiceAccount = request.Response.User.ExternalAccountId;
                 userService.Update(userToAdd);
             }
 
@@ -96,7 +96,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userToAdd = userService.GetByEmail(user.emailAddress);
             if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
-                user.hash = userToAdd.GetClaimValue("service_account");
+                user.externalAccountId = userToAdd.GetClaimValue("service_account");
                 user.accountLinked = true; 
                 
                 if (!userToAdd.HasClaim("role", "therapist"))
@@ -107,11 +107,11 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Therapist.Hash);
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Therapist.ExternalAccountId);
                 userService.AddClaim(userToAdd.ID, "role", "therapist");
                 userService.Update(userToAdd);
 
-                userToAdd.ServiceAccount = request.Response.Therapist.Hash;
+                userToAdd.ServiceAccount = request.Response.Therapist.ExternalAccountId;
             }
 
             return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);

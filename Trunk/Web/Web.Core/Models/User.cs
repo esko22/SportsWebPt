@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int id { get; set; }
 
-        public String hash { get; set; }
+        public String externalAccountId { get; set; }
 
         public String emailAddress { get; set; }
 

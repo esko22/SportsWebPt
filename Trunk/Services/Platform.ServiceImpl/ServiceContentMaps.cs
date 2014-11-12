@@ -691,7 +691,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Clinic Maps
 
             Mapper.CreateMap<Therapist, TherapistDto>()
-                .ForMember(d => d.Hash, opt => opt.MapFrom(s => s.User.Hash));
+                .ForMember(d => d.ExternalAccountId, opt => opt.MapFrom(s => s.User.ExternalAccountId));
 
             Mapper.CreateMap<Clinic, ClinicDto>();
             Mapper.CreateMap<ClinicDto, Clinic>();

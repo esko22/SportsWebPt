@@ -25,9 +25,9 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(TherapistRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
-            var therapist = UserUnitOfWork.UserRepository.GetTherapistDetails().SingleOrDefault(p => p.Id == request.IdAsInt);
+            var therapist = UserUnitOfWork.UserRepository.GetTherapistDetails().SingleOrDefault(p => p.ExternalAccountId == request.Id);
 
             return Ok(new ApiResponse<TherapistDto>() { Response = Mapper.Map<TherapistDto>(therapist) });
         }
@@ -49,7 +49,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(TherapistEpisodeListRequest request)
         {
             var responseList = new List<EpisodeDto>();
-            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(request.IdAsInt, state: request.State.ToString());
+            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(request.Id, state: request.State.ToString());
 
             Mapper.Map(episodes, responseList);
 

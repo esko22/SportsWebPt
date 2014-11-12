@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201411100433329_AddedOnDateStamp.Designer.cs">
       <DependentUpon>201411100433329_AddedOnDateStamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411120618548_HashRename.cs" />
+    <Compile Include="Migrations\201411120618548_HashRename.Designer.cs">
+      <DependentUpon>201411120618548_HashRename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -291,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411100433329_AddedOnDateStamp.resx">
       <DependentUpon>201411100433329_AddedOnDateStamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411120618548_HashRename.resx">
+      <DependentUpon>201411120618548_HashRename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

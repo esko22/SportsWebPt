@@ -4,11 +4,15 @@ var registrationModule = angular.module('registration.module', []);
 
 
 registrationModule.controller('RegistrationPatientController', [
-    '$scope', 'registrationService', '$stateParams', 'authenticationService', '$state', 'notifierService',
-    function ($scope, registrationService, $stateParams, authenticationService, $state, notifierService) {
+    '$scope', 'registrationService', '$stateParams', 'authenticationService', '$state', 'notifierService','clinicService',
+    function ($scope, registrationService, $stateParams, authenticationService, $state, notifierService, clinicService) {
 
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
+
+        clinicService.get($stateParams.clinicId).$promise.then(function(clinic) {
+            $scope.clinic = clinic;
+        });
 
         $scope.startRegistration = function () {
             authenticationService.signIn(encodeURIComponent('/register/' + $stateParams.clinicId + '/patient'));
@@ -33,11 +37,14 @@ registrationModule.controller('RegistrationPatientController', [
 
 
 registrationModule.controller('RegistrationTherapistController', [
-    '$scope', 'registrationService', '$stateParams', 'authenticationService', '$state', 'notifierService',
-    function ($scope, registrationService, $stateParams, authenticationService, $state, notifierService) {
+    '$scope', 'registrationService', '$stateParams', 'authenticationService', '$state', 'notifierService','clinicService',
+    function ($scope, registrationService, $stateParams, authenticationService, $state, notifierService, clinicService) {
 
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
+        clinicService.get($stateParams.clinicId).$promise.then(function (clinic) {
+            $scope.clinic = clinic;
+        });
 
         $scope.startRegistration = function () {
             authenticationService.signIn(encodeURIComponent('/register/' + $stateParams.clinicId + '/therapist'));

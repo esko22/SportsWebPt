@@ -29,7 +29,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Id, "Clinic Manager Id must be listed");
 
             var responseList = new List<ClinicDto>();
-            var clinicAdminMatrixItems = ClinicUnitOfWork.GetClinicAdminMatrixList().Where(p => p.User.Hash == request.Id);
+            var clinicAdminMatrixItems = ClinicUnitOfWork.GetClinicAdminMatrixList().Where(p => p.User.ExternalAccountId == request.Id);
     
             Mapper.Map(clinicAdminMatrixItems.Select(s => s.Clinic), responseList);
 
@@ -96,7 +96,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 userToAdd =
                     UserUnitOfWork.UserRepository.GetAll()
                         .SingleOrDefault(
-                            s => s.Hash.Equals(request.User.Hash, StringComparison.OrdinalIgnoreCase));
+                            s => s.ExternalAccountId.Equals(request.User.ExternalAccountId, StringComparison.OrdinalIgnoreCase));
             }
 
             var clinicPatientMatrixItem =
@@ -160,7 +160,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 userToAdd =
                     UserUnitOfWork.UserRepository.GetUserDetails()
                         .SingleOrDefault(
-                            s => s.Hash.Equals(request.Therapist.Hash, StringComparison.OrdinalIgnoreCase));
+                            s => s.ExternalAccountId.Equals(request.Therapist.ExternalAccountId, StringComparison.OrdinalIgnoreCase));
 
                 if (userToAdd != null)
                 {

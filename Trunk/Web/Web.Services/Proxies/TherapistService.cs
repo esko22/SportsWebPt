@@ -12,12 +12,12 @@ namespace SportsWebPt.Platform.Web.Services
     {
         IEnumerable<GridExercise> GetExercises(String therapistId);
         IEnumerable<GridPlan> GetPlans(String therapistId);
-        Therapist GetTherapistDetail(int therapistId);
+        Therapist GetTherapistDetail(String therapistId);
         IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int therapistId, int? exerciseId);
         IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int therapistId, int? planId);
         bool UpdateTherapistSharedExercises(int therapistId, TherapistSharedExercise[] sharedExercises);
         bool UpdateTherapistSharedPlans(int therapistId, TherapistSharedPlan[] sharedPlans);
-        IEnumerable<Episode> GetEpisodes(int therapistId, String state);
+        IEnumerable<Episode> GetEpisodes(String therapistId, String state);
     }
 
 
@@ -50,13 +50,13 @@ namespace SportsWebPt.Platform.Web.Services
 
         }
 
-        public IEnumerable<Episode> GetEpisodes(int therapistId, String state)
+        public IEnumerable<Episode> GetEpisodes(String therapistId, String state)
         {
             EpisodeStateDto? episodeState = null;
             if (!String.IsNullOrEmpty(state))
                 episodeState = (EpisodeStateDto) Enum.Parse(typeof (EpisodeStateDto), state, true);
 
-            var request = GetSync(new TherapistEpisodeListRequest() { Id = therapistId.ToString(), State = episodeState });
+            var request = GetSync(new TherapistEpisodeListRequest() { Id = therapistId, State = episodeState });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
@@ -68,9 +68,9 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
-        public Therapist GetTherapistDetail(int therapistId)
+        public Therapist GetTherapistDetail(String therapistId)
         {
-            var request = GetSync(new TherapistRequest() { Id = therapistId.ToString() });
+            var request = GetSync(new TherapistRequest() { Id = therapistId});
 
             return request.Response == null ? null : Mapper.Map<Therapist>(request.Response);
         }

@@ -16,7 +16,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String UserName { get; set; }
 
-        public String Hash { get; set; }
+        public String ExternalAccountId { get; set; }
 
         public String Phone { get; set; }
 

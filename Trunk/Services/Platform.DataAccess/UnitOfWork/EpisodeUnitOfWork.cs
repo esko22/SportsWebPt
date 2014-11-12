@@ -31,16 +31,16 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IQueryable<Episode> GetFilteredEpisodes(int therapistId, int patientId, string state)
+        public IQueryable<Episode> GetFilteredEpisodes(String therapistId, String patientId, string state)
         {
             var episodes = EpisodeRepo.GetEpisodeDetails();
             var predicate = PredicateBuilder.True<Episode>();
 
-            if (patientId > 0)
-                predicate = predicate.And(p => p.Patient.Id == patientId);
+            if (!String.IsNullOrEmpty(patientId))
+                predicate = predicate.And(p => p.Patient.ExternalAccountId == patientId);
 
-            if (therapistId > 0)
-                predicate = predicate.And(p => p.Therapist.Id == therapistId);
+            if (!String.IsNullOrEmpty(therapistId))
+                predicate = predicate.And(p => p.Therapist.User.ExternalAccountId == therapistId);
 
             if (!String.IsNullOrEmpty(state))
             {
@@ -67,7 +67,7 @@ namespace SportsWebPt.Platform.DataAccess
     {
         IEpisodeRepo EpisodeRepo { get; }
 
-        IQueryable<Episode> GetFilteredEpisodes(int therapistId = 0, int patientId = 0, string state = "");
+        IQueryable<Episode> GetFilteredEpisodes(string therapistId = "", string patientId = "", string state = "");
         IQueryable<Session> GetEpisodeSessions();
     }
 }

@@ -38,7 +38,4 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
     }
 
-    [Route("/auth", "POST")]
-    public class AuthRequest : AuthRequestDto, IReturn<ApiResponse<UserDto>> { }
-
 }

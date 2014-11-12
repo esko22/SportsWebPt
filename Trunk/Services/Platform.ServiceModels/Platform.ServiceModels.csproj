@@ -80,7 +80,6 @@
     <Compile Include="Models\BodyPartDto.cs" />
     <Compile Include="Models\BodyPartMatrixItemDto.cs" />
     <Compile Include="Models\BodyPartSortBy.cs" />
-    <Compile Include="Models\AuthRequestDto.cs" />
     <Compile Include="Models\BodyRegionDto.cs" />
     <Compile Include="Models\CauseDto.cs" />
     <Compile Include="Models\ClinicDto.cs" />

@@ -41,7 +41,7 @@ namespace SportsWebPt.Platform.Web.Application
             //assuming this has been created already... should be but is not in principal yet, only in db
             var serviceAccount = User.GetServiceAccount();
             if (String.IsNullOrEmpty(serviceAccount))
-                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).hash;
+                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).externalAccountId;
  
             var clinicPatient = _userManagementService.ValidatePatientRegistration(registrationDetails.emailAddress,
                 registrationDetails.pin, serviceAccount);
@@ -60,7 +60,7 @@ namespace SportsWebPt.Platform.Web.Application
             //assuming this has been created already... should be but is not in principal yet, only in db
             var serviceAccount = User.GetServiceAccount();
             if (String.IsNullOrEmpty(serviceAccount))
-                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).hash;
+                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).externalAccountId;
 
             if(!((ClaimsPrincipal)User).HasClaim("role","therapist"))
                 UserManagementService.UserAccountServiceFactory().AddClaim(new Guid(User.GetSubjectId()), "role", "therapist");

@@ -101,14 +101,14 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicPatientRepository.Update(clinicPatient);
 
                 var user = UserRepository.GetById(clinicPatient.UserId);
-                if (!user.Hash.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
+                if (!user.ExternalAccountId.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
                 {
                     user.AccountLinked = true;
                     //TODO: this remapping / drop is ghetto but I am at a loss right now...
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.Hash);
+                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.ExternalAccountId);
                 }
 
                 Commit();
@@ -119,8 +119,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         private void AssocaiteExistingServiceAccounts(String mapToAccount, String mapFromAccount)
         {
-            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapToAccount,StringComparison.OrdinalIgnoreCase));
-            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Hash.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
+            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.ExternalAccountId.Equals(mapToAccount,StringComparison.OrdinalIgnoreCase));
+            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.ExternalAccountId.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
 
             Check.Argument.IsNotNull(mapToUser, "MapToUser");
             Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
@@ -158,14 +158,14 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicTherapistRepository.Update(clinicTherapist);
 
                 var user = UserRepository.GetById(clinicTherapist.TherapistId);
-                if (!user.Hash.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
+                if (!user.ExternalAccountId.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
                 {
                     user.AccountLinked = true;
                     //TODO: this remapping / drop is ghetto but I am at a loss right now...
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingTherapistServiceAccounts(serviceAccount, clinicTherapist.Therapist.User.Hash);
+                    AssocaiteExistingTherapistServiceAccounts(serviceAccount, clinicTherapist.Therapist.User.ExternalAccountId);
                 }
 
                 Commit();
@@ -176,8 +176,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         private void AssocaiteExistingTherapistServiceAccounts(String mapToAccount, String mapFromAccount)
         {
-            var mapToUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Hash.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
-            var mapFromUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Hash.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
+            var mapToUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.ExternalAccountId.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
+            var mapFromUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.ExternalAccountId.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
 
             Check.Argument.IsNotNull(mapToUser, "MapToUser");
             Check.Argument.IsNotNull(mapFromUser, "MapFromUser");

@@ -1,8 +1,11 @@
 ﻿<div class="container">
-    <h2>Therapist Registration</h2>
-    <div>
-        <div>
-            <h4>You have been requested by Clinic X to register on SportsWebPt.</h4>
+        <div class="row push-down-lg">
+            <div class="col-md-4">
+                <img height="100" ng-src={{clinic.displayImage}} />
+            </div>
+        </div>
+        <div class="row push-down-md">
+            <h4>You have been invited by <span ng-bind="clinic.name"></span> to register as a therapist on SportsWebPt.</h4>
         </div>
         <div ng-if="!isAuthenticated" class="row push-down-lg">
             <h4>First, you will need to sign in or create an account before we can sync you up.</h4>
@@ -28,7 +31,7 @@
                 </div>
             </div>
             <div>
-                <span ng-bind="error"></span>
+                <strong><span ng-bind="error" class="text-danger"></span></strong>
             </div>
             <div>
                 <button class="btn btn-warning" ng-click="validate()">Validate Pin</button>

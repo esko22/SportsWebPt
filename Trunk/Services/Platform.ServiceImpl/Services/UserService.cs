@@ -48,7 +48,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new ApiResponse<UserDto>()
                 {
-                    Response = new UserDto() { Id = userEntity.Id, Hash = userEntity.Hash}
+                    Response = new UserDto() { Id = userEntity.Id, ExternalAccountId = userEntity.ExternalAccountId}
                 });
         }
 

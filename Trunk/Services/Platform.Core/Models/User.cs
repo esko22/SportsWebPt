@@ -9,7 +9,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public String Hash { get; set; }
+        public String ExternalAccountId { get; set; }
 
         public Boolean AccountLinked { get; set; }
 
