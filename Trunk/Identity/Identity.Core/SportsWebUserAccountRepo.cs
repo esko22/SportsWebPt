@@ -78,5 +78,10 @@ namespace SportsWebPt.Identity.Core
         {
             return This.GetByCertificate(tenant, thumbprint);
         }
+
+        public IEnumerable<SportsWebUser> GetUsersByExternalAccount(IEnumerable<String> externalServiceAccounts)
+        {
+            return base.Queryable.Where(p => externalServiceAccounts.Contains(p.ServiceAccount));
+        } 
     }
 }

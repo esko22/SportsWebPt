@@ -183,6 +183,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         var cleanQuery = new URI(fragment).normalizeSearch().search(true);
                         $window.localStorage.setItem('access_token', cleanQuery.access_token);
                         $window.sessionStorage.id_token = cleanQuery.id_token;
+                        $location.hash('');
 
                         if ($window.sessionStorage.redirectUrl
                                    && $window.sessionStorage.redirectUrl !== '') {
@@ -191,6 +192,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
 
                             $location.path(decodeURIComponent(redirectUrl));
                         }
+
                     }
                 })
                 .state('public.splash',

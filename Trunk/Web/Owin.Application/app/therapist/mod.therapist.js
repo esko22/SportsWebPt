@@ -5,10 +5,13 @@ var therapistModule = angular.module('therapist.module', []);
 
 therapistModule.controller('TherapistDashboardController', [
     '$scope', 'therapistService','$rootScope',
-    function ($scope, therapistService,$rootScope) {
+    function($scope, therapistService, $rootScope) {
 
-        therapistService.get($rootScope.currentUser.serviceAccount).$promise.then(function (therapistDetails) {
-            $scope.clinics = therapistDetails.clinics;
+
+        $rootScope.$watch('currentUser', function(newValue) {
+            therapistService.get(newValue.serviceAccount).$promise.then(function(therapistDetails) {
+                $scope.clinics = therapistDetails.clinics;
+            });
         });
     }
 ]);
@@ -154,10 +157,14 @@ therapistModule.controller('SharedExerciseModalController', [
 ]);
 
 therapistModule.controller('TherapistExerciseController', [
-    '$scope', 'exerciseAdminService', '$modal',
-    function ($scope, exerciseAdminService, $modal) {
+    '$scope', 'exerciseAdminService', '$modal','$rootScope',
+    function ($scope, exerciseAdminService, $modal, $rootScope) {
 
-        getExerciseList();
+        $rootScope.$watch('currentUser', function (currentUser) {
+            if (currentUser)
+                getExerciseList(currentUser);
+        });
+
 
         $scope.exerciseGridOptions = {
             data: 'exercises',
@@ -207,8 +214,8 @@ therapistModule.controller('TherapistExerciseController', [
         }
 
 
-        function getExerciseList() {
-            exerciseAdminService.getExercisesForTherapist($scope.currentUser.id).$promise.then(function (exercises) {
+        function getExerciseList(currentUser) {
+            exerciseAdminService.getExercisesForTherapist(currentUser.serviceAccount).$promise.then(function (exercises) {
                 $scope.exercises = exercises;
             });
         }
@@ -377,33 +384,40 @@ therapistModule.controller('TherapistSessionModalController', [
 
 therapistModule.controller('TherapistSessionPlanModalController', [
     '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'planAdminService',
-function ($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, planAdminService) {
+    function($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, planAdminService) {
 
-    $scope.selectedPlans = [];
-    $scope.sessionId = sessionId;
-        getPlanList();
+        $scope.selectedPlans = [];
+        $scope.sessionId = sessionId;
+
+        $rootScope.$watch('currentUser', function(currentUser) {
+            if (currentUser)
+                getPlanList(currentUser);
+        });
+
 
         $scope.planGridOptions = {
             data: 'plans',
             selectedItems: $scope.selectedPlans,
             showGroupPanel: true,
-            columnDefs: [{ field: 'id', displayName: 'Id' },
+            columnDefs: [
+                { field: 'id', displayName: 'Id' },
                 { field: 'routineName', displayName: 'Name' },
                 { field: 'bodyRegions', displayName: 'Body Regions' },
-            { field: 'categories', displayName: 'Category' }]
+                { field: 'categories', displayName: 'Category' }
+            ]
         };
 
-        $scope.submit = function () {
+        $scope.submit = function() {
             if ($scope.sessionId > 0) {
-                sessionService.addSessionPlans($scope.sessionId, _.pluck($scope.selectedPlans, 'id')).$promise.then(function () {
+                sessionService.addSessionPlans($scope.sessionId, _.pluck($scope.selectedPlans, 'id')).$promise.then(function() {
                     notifierService.notify('Session Plans Added!');
                     $modalInstance.close();
                 });
             }
         }
 
-        function getPlanList() {
-            planAdminService.getPlansForTherapist($rootScope.currentUser.id).$promise.then(function (plans) {
+        function getPlanList(currentUser) {
+            planAdminService.getPlansForTherapist(currentUser.serviceAccount).$promise.then(function(plans) {
                 $scope.plans = plans;
             });
         }
@@ -485,7 +499,10 @@ therapistModule.controller('TherapistEpisodeListController', [
     '$scope', 'therapistService', '$modal','$state','$rootScope',
     function ($scope, therapistService, $modal, $state, $rootScope) {
 
-        getActiveEpisodeList();
+        $rootScope.$watch('currentUser', function (currentUser) {
+            if(currentUser)
+                getActiveEpisodeList(currentUser);
+        });
 
         $scope.episodeGridOptions = {
             data: 'episodes',
@@ -519,8 +536,8 @@ therapistModule.controller('TherapistEpisodeListController', [
             $state.go('therapist.episode', { episodeId: episode.id });
         }
 
-        function getActiveEpisodeList() {
-            therapistService.getEpisodesForTherapist($rootScope.currentUser.serviceAccount, 'active').$promise.then(function (episodes) {
+        function getActiveEpisodeList(currentUser) {
+            therapistService.getEpisodesForTherapist(currentUser.serviceAccount, 'active').$promise.then(function (episodes) {
                 $scope.episodes = episodes;
             });
         }

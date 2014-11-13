@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using BrockAllen.MembershipReboot;
 using SportsWebPt.Common.ServiceStack;

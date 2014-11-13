@@ -8,6 +8,7 @@ using AutoMapper;
 using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Relational;
+using ServiceStack.Text;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Identity.Core;
@@ -166,12 +167,26 @@ namespace SportsWebPt.Platform.Web.Services
             0, 1000, out count);
 
             return accounts;
+        }
+
+        public IEnumerable<SportsWebUser> GetUsersByExternalAccountId(IEnumerable<String> externalAccounts)
+        {
+            var users = new List<SportsWebUser>();
+            using (
+                var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore))
+            {
+                var userRepo = new SportsWebUserAccountRepo(database);
+                users.AddRange(userRepo.GetUsersByExternalAccount(externalAccounts));
+            }
+
+            return users;
         } 
 
         public static UserAccountService<SportsWebUser> UserAccountServiceFactory()
         {
             var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
             var userRepo = new SportsWebUserAccountRepo(database);
+
 
             var configuration = new MembershipRebootConfiguration<SportsWebUser>
             {
@@ -180,7 +195,6 @@ namespace SportsWebPt.Platform.Web.Services
             };
 
             var service = new UserAccountService<SportsWebUser>(configuration, userRepo);
-
 
             return service;
         }
@@ -199,6 +213,7 @@ namespace SportsWebPt.Platform.Web.Services
         String CreateServiceAccount(String subjectId);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String subjectId);
+        IEnumerable<SportsWebUser> GetUsersByExternalAccountId(IEnumerable<String> externalAccounts);
 
         int RegisterPatient(User user, int registrationId);
         int RegisterTherapist(User user, int registrationId);
