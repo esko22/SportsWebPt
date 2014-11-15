@@ -39,8 +39,12 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         {
             var episode = _episodeService.GetEpisode(episodeId);
             var user = _userManagementService.GetUserByServiceAccountId(episode.patientId);
+            var therapist = _userManagementService.GetUserByServiceAccountId(episode.therapistId);
             if(user != null)
               episode.patientEmail = user.Email;
+            if (therapist != null)
+                episode.therapistEmail = therapist.Email;
+
             return episode;
         }
 

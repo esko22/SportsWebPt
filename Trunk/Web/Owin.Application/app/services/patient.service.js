@@ -7,9 +7,9 @@
             var resource = $resource(patientPath);
             return resource.get({ id: id });
         },
-        getEpisodesForPatient: function (patientId, state) {
+        getEpisodesForPatient: function (state) {
             var resource = $resource(configService.apiUris.patientEpisodes);
-            return resource.query({ id: patientId, state: state });
+            return resource.query({state: state });
         }
     }
 }]);

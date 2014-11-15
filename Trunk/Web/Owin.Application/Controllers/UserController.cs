@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -90,10 +91,18 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [HttpGet]
-        [Route("data/patients/{id}/episodes")]
-        public IEnumerable<Episode> GetPatientEpisodes(String id, String state)
+        [Authorize]
+        [Route("data/patients/episodes")]
+        public IEnumerable<Episode> GetPatientEpisodes( String state)
         {
-            return _userManagementService.GetEpisodes(id, state);
+            var episodes = _userManagementService.GetEpisodes(User.GetServiceAccount(), state);
+
+            foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(episodes.Select(s => s.therapistId).Distinct()))
+            {
+                episodes.Where(p => p.patientId == User.GetServiceAccount()).ForEach(f => f.therapistEmail = user.Email);
+            }
+
+            return episodes;
         }
 
         [HttpGet]

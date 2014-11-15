@@ -45,7 +45,7 @@ patientModule.controller('PatientEpisodeListController', [
         }
 
         function getActiveEpisodeList() {
-            patientService.getEpisodesForPatient($scope.currentUser.id, 'active').$promise.then(function (episodes) {
+            patientService.getEpisodesForPatient('active').$promise.then(function (episodes) {
                 $scope.episodes = episodes;
             });
         }

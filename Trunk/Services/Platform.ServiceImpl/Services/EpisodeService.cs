@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(EpisodeListRequest request)
         {
             var responseList = new List<EpisodeDto>();
-            Mapper.Map(EpisodeUnitOfWork.GetFilteredEpisodes(request.TherapistId, request.ClinicPatientId, request.State.ToString()), responseList);
+            Mapper.Map(EpisodeUnitOfWork.GetFilteredEpisodes(request.TherapistId, request.PatientId, request.State.ToString()), responseList);
 
             return
                 Ok(new ApiListResponse<EpisodeDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

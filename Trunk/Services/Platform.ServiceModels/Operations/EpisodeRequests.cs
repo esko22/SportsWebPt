@@ -15,7 +15,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String TherapistId { get; set; }
 
-        public int ClinicPatientId { get; set; }
+        public String PatientId { get; set; }
 
         public EpisodeStateDto? State { get; set; }
 

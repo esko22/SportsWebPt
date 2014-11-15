@@ -25,7 +25,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(PatientEpisodeListRequest request)
         {
             var responseList = new List<EpisodeDto>();
-            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(clinicPatientId: request.IdAsInt, state: request.State.ToString());
+            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(patientId: request.Id, state: request.State.ToString());
 
             Mapper.Map(episodes, responseList);
 
