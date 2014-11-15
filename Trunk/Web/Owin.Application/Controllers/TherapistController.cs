@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Core;
@@ -7,79 +8,90 @@ using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application.Controllers
 {
+    [Authorize]
     public class TherapistController : ApiController
     {
         #region Fields
 
-        private ITherapistService _therapistService;
+        private readonly ITherapistService _therapistService;
+        private readonly IUserManagementService _userManagementService;
 
         #endregion
 
         #region Construction
 
-        public TherapistController(ITherapistService therapistService)
+        public TherapistController(ITherapistService therapistService, IUserManagementService userManagementService)
         {
             Check.Argument.IsNotNull(therapistService, "Therapist Service");
+            Check.Argument.IsNotNull(userManagementService, "User Management Service");
             _therapistService = therapistService;
+            _userManagementService = userManagementService;
         }
 
         #endregion
 
         [HttpGet]
-        [Route("data/therapists/{id}/exercises")]
-        public IEnumerable<GridExercise> GetExercises(String id)
+        [Route("data/therapists/exercises")]
+        public IEnumerable<GridExercise> GetExercises()
         {
-            return _therapistService.GetExercises(id);
+            return _therapistService.GetExercises(User.GetServiceAccount());
         }
 
         [HttpGet]
-        [Route("data/therapists/{id}/plans")]
-        public IEnumerable<GridPlan> GetPlans(String id)
+        [Route("data/therapists/plans")]
+        public IEnumerable<GridPlan> GetPlans()
         {
-            return _therapistService.GetPlans(id);
+            return _therapistService.GetPlans(User.GetServiceAccount());
         }
 
         [HttpGet]
-        [Route("data/therapists/{id}")]
-        public Therapist GetTherapistDetail(String id)
+        [Route("data/therapists")]
+        public Therapist GetTherapistDetail()
         {
-            return _therapistService.GetTherapistDetail(id);
+            return _therapistService.GetTherapistDetail(User.GetServiceAccount());
         }
 
         [HttpGet]
-        [Route("data/therapists/{id}/sharedplans")]
-        public IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int id, int? planId)
+        [Route("data/therapists/sharedplans")]
+        public IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int? planId)
         {
-            return _therapistService.GetTherapistSharedPlans(id, planId);
+            return _therapistService.GetTherapistSharedPlans(User.GetServiceAccount(), planId);
         }
 
         [HttpPut]
-        [Route("data/therapists/{id}/sharedplans")]
-        public Boolean UpdateTherapistSharedPlans(int id, TherapistSharedPlan[] sharedPlans)
+        [Route("data/therapists/sharedplans")]
+        public Boolean UpdateTherapistSharedPlans(TherapistSharedPlan[] sharedPlans)
         {
-            return _therapistService.UpdateTherapistSharedPlans(id, sharedPlans);
+            return _therapistService.UpdateTherapistSharedPlans(User.GetServiceAccount(), sharedPlans);
         }
 
         [HttpPut]
-        [Route("data/therapists/{id}/sharedexercises")]
-        public Boolean UpdateTherapistSharedExercises(int id, TherapistSharedExercise[] sharedExercises)
+        [Route("data/therapists/sharedexercises")]
+        public Boolean UpdateTherapistSharedExercises(TherapistSharedExercise[] sharedExercises)
         {
-            return _therapistService.UpdateTherapistSharedExercises(id, sharedExercises);
+            return _therapistService.UpdateTherapistSharedExercises(User.GetServiceAccount(), sharedExercises);
         }
 
 
         [HttpGet]
-        [Route("data/therapists/{id}/sharedexercises")]
-        public IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int id, int? exerciseId)
+        [Route("data/therapists/sharedexercises")]
+        public IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int? exerciseId)
         {
-            return _therapistService.GetTherapistSharedExercises(id, exerciseId);
+            return _therapistService.GetTherapistSharedExercises(User.GetServiceAccount(), exerciseId);
         }
 
         [HttpGet]
-        [Route("data/therapists/{id}/episodes")]
-        public IEnumerable<Episode> GetTherapistEpisodes(String id, String state)
+        [Route("data/therapists/episodes")]
+        public IEnumerable<Episode> GetTherapistEpisodes(String state)
         {
-            return _therapistService.GetEpisodes(id, state);
+            var episodes = _therapistService.GetEpisodes(User.GetServiceAccount(), state);
+
+            foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(episodes.Select(s => s.patientId).Distinct()))
+            {
+                episodes.Where(p => p.patientId == user.ServiceAccount).ForEach(f => f.patientEmail = user.Email);
+            }
+
+            return episodes;
         }
 
     }

@@ -59,6 +59,13 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/examine/diffdiag")]
         public int SubmitDifferentialDiagnosis(DifferentialDiagnosis details)
         {
+            if (User.Identity.IsAuthenticated && String.IsNullOrEmpty(details.submittedBy))
+                details.submittedBy = User.GetServiceAccount();
+
+            if (User.Identity.IsAuthenticated && String.IsNullOrEmpty(details.submittedFor))
+                details.submittedFor = User.GetServiceAccount();
+
+
             return _examineService.SubmitDifferentialDiagnosis(details);
         }
     }

@@ -11,9 +11,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
+        public String ClinicTherapistIdentifier { get; set; }
+
         public int ClinicId { get; set; }
 
-        public int TherapistId { get; set; }
+        public Guid TherapistId { get; set; }
 
         public Boolean UserConfirmed { get; set; }
 
@@ -41,7 +43,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int ClinicId { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         #endregion
 
@@ -61,9 +63,11 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
+        public String ClinicPatientIdentifier { get; set; }
+
         public int ClinicId { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public Boolean UserConfirmed { get; set; }
 
@@ -78,6 +82,8 @@ namespace SportsWebPt.Platform.Core.Models
         public virtual User Patient { get; set; }
 
         public virtual Clinic Clinic { get; set; }
+
+        public ICollection<Episode> Episodes { get; set; }
 
         #endregion
     }

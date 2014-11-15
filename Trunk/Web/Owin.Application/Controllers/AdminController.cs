@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Web.Http;
 
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Web.Application;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Admin
 {
+    [Authorize]
     public class AdminController : ApiController
     {
 
@@ -111,7 +113,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [Route("data/admin/exercises")]
         public Exercise AddExercise(Exercise exercise)
         {
-            var result = _adminService.AddExercise(exercise, Convert.ToInt32(User.Identity.Name));
+            var result = _adminService.AddExercise(exercise, User.GetServiceAccount());
             exercise.id = result;
             return exercise;
         }
@@ -163,7 +165,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [Route("data/admin/plans")]
         public Plan AddPlan(Plan plan)
         {
-            var result = _adminService.AddPlan(plan, Convert.ToInt32(User.Identity.Name));
+            var result = _adminService.AddPlan(plan, User.GetServiceAccount());
             plan.id = result;
 
             return plan;

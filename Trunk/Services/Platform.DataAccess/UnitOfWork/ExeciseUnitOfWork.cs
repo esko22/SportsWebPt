@@ -120,7 +120,7 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
-        public IQueryable<Exercise> GetSharedExercisesByTherapist(int therapistId)
+        public IQueryable<Exercise> GetSharedExercisesByTherapist(Guid therapistId)
         {
             return ExerciseRepo.GetAll()
                 .Include(i => i.ClinicExerciseMatrixItems.Select(l2 => l2.Clinic))
@@ -153,7 +153,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get; }
 
         void UpdateExercise(Exercise exercise);
-        IQueryable<Exercise> GetSharedExercisesByTherapist(int therapistId);
+        IQueryable<Exercise> GetSharedExercisesByTherapist(Guid therapistId);
         void UpdateSharedExercises(IEnumerable<ClinicExerciseMatrixItem> sharedExercises);
     }
 }

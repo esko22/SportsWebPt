@@ -7,9 +7,7 @@ namespace SportsWebPt.Platform.Core.Models
     {
         #region Properties
 
-        public int Id { get; set; }
-
-        public String ExternalAccountId { get; set; }
+        public Guid Id { get; set; }
 
         public Boolean AccountLinked { get; set; }
 

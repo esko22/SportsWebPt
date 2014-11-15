@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public IEpisodeRepo EpisodeRepo { get { return GetRepo<IEpisodeRepo>(); } }
+        public IUserRepo UserRepo { get { return GetRepo<IUserRepo>(); } }
         public IRepository<Session> SessionRepo { get { return GetStandardRepo<Session>(); } }
 
         #endregion
@@ -31,16 +32,16 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IQueryable<Episode> GetFilteredEpisodes(String therapistId, String patientId, string state)
+        public IQueryable<Episode> GetFilteredEpisodes(String therapistId, int clinicPatientId, string state)
         {
             var episodes = EpisodeRepo.GetEpisodeDetails();
             var predicate = PredicateBuilder.True<Episode>();
 
-            if (!String.IsNullOrEmpty(patientId))
-                predicate = predicate.And(p => p.Patient.ExternalAccountId == patientId);
+            if (clinicPatientId > 0)
+                predicate = predicate.And(p => p.ClinicPatient.Id == clinicPatientId);
 
             if (!String.IsNullOrEmpty(therapistId))
-                predicate = predicate.And(p => p.Therapist.User.ExternalAccountId == therapistId);
+                predicate = predicate.And(p => p.Therapist.User.Id == new Guid(therapistId));
 
             if (!String.IsNullOrEmpty(state))
             {
@@ -66,8 +67,9 @@ namespace SportsWebPt.Platform.DataAccess
     public interface IEpisodeUnitOfWork :  IBaseUnitOfWork
     {
         IEpisodeRepo EpisodeRepo { get; }
+        IUserRepo UserRepo { get; }
 
-        IQueryable<Episode> GetFilteredEpisodes(string therapistId = "", string patientId = "", string state = "");
+        IQueryable<Episode> GetFilteredEpisodes(string therapistId = "", int clinicPatientId = 0, string state = "");
         IQueryable<Session> GetEpisodeSessions();
     }
 }

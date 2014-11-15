@@ -26,7 +26,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Get(EpisodeListRequest request)
         {
             var responseList = new List<EpisodeDto>();
-            Mapper.Map(EpisodeUnitOfWork.GetFilteredEpisodes(request.ClinicTherapistId, request.ClinicPatientId, request.State.ToString()), responseList);
+            Mapper.Map(EpisodeUnitOfWork.GetFilteredEpisodes(request.TherapistId, request.ClinicPatientId, request.State.ToString()), responseList);
 
             return
                 Ok(new ApiListResponse<EpisodeDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
@@ -61,8 +61,9 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNull(request, "Session Cannot Be Null");
             Check.Argument.IsNotNegativeOrZero(request.ClinicId, "Clinic Id");
-            Check.Argument.IsNotNegativeOrZero(request.PatientId, "Patient Id");
-            Check.Argument.IsNotNegativeOrZero(request.TherapistId, "Therapist Id");
+            Check.Argument.IsNotNegativeOrZero(request.ClinicPatientId, "Clinic Patient Id");
+            Check.Argument.IsNotNullOrEmpty(request.TherapistId, "Therapist Id");
+
 
             var episode = Mapper.Map<Episode>(request);
             episode.PrognosisId = null;

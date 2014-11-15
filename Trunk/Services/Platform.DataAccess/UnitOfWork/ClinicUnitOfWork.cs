@@ -55,14 +55,19 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(i => i.Patient);
         }
 
-        public ClinicPatientMatrixItem AddPatientToClinic(int clinicId, int userId)
+        public ClinicPatientMatrixItem AddPatientToClinic(int clinicId, Guid userId)
         {
+            var clinic = ClinicRepository.GetById(clinicId);
+            var patientIdentifier = String.Format("{0}-P{1}", clinic.Name.Substring(0, 1),
+                    GetClinicPatients().Count(c => c.ClinicId == clinicId) + 1);
+
             var clinicPatientMatrixItem = new ClinicPatientMatrixItem()
             {
                 ClinicId = clinicId,
                 UserId = userId,
                 Pin = Guid.NewGuid().ToString(),
-                AddedOn = DateTime.Now
+                AddedOn = DateTime.Now,
+                ClinicPatientIdentifier = patientIdentifier
             };
             ClinicPatientRepository.Add(clinicPatientMatrixItem);
             Commit();
@@ -70,14 +75,19 @@ namespace SportsWebPt.Platform.DataAccess
             return clinicPatientMatrixItem;
         }
 
-        public ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, int therapistId)
+        public ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, Guid therapistId)
         {
+            var clinic = ClinicRepository.GetById(clinicId);
+            var therapistIdentifier = String.Format("{0}-T{1}", clinic.Name.Substring(0, 1),
+                GetClinicTherapists().Count(c => c.ClinicId == clinicId) + 1);
+
             var clinicTherapistMatrixItem = new ClinicTherapistMatrixItem()
             {
                 ClinicId = clinicId,
                 TherapistId = therapistId,
                 Pin = Guid.NewGuid().ToString(),
-                AddedOn = DateTime.Now
+                AddedOn = DateTime.Now,
+                ClinicTherapistIdentifier = therapistIdentifier
             };
             ClinicTherapistRepository.Add(clinicTherapistMatrixItem);
             Commit();
@@ -85,7 +95,7 @@ namespace SportsWebPt.Platform.DataAccess
             return clinicTherapistMatrixItem;
         }
 
-        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, String serviceAccount)
+        public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, Guid serviceAccount)
         {
             var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
 
@@ -100,15 +110,15 @@ namespace SportsWebPt.Platform.DataAccess
                 clinicPatient.UserConfirmed = true;
                 ClinicPatientRepository.Update(clinicPatient);
 
-                var user = UserRepository.GetById(clinicPatient.UserId);
-                if (!user.ExternalAccountId.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
+                var user = UserRepository.GetAll().SingleOrDefault(s => s.Id == clinicPatient.UserId);
+                if (user.Id != serviceAccount)
                 {
                     user.AccountLinked = true;
                     //TODO: this remapping / drop is ghetto but I am at a loss right now...
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.ExternalAccountId);
+                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.Id);
                 }
 
                 Commit();
@@ -117,10 +127,10 @@ namespace SportsWebPt.Platform.DataAccess
             return clinicPatient;
         }
 
-        private void AssocaiteExistingServiceAccounts(String mapToAccount, String mapFromAccount)
+        private void AssocaiteExistingServiceAccounts(Guid mapToAccount, Guid mapFromAccount)
         {
-            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.ExternalAccountId.Equals(mapToAccount,StringComparison.OrdinalIgnoreCase));
-            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.ExternalAccountId.Equals(mapFromAccount,StringComparison.OrdinalIgnoreCase));
+            var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Id == mapToAccount);
+            var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Id == mapFromAccount);
 
             Check.Argument.IsNotNull(mapToUser, "MapToUser");
             Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
@@ -131,9 +141,9 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicPatientRepository.Update(f);
             });
 
-            EpisodeRepository.GetAll().Where(p => p.PatientId == mapFromUser.Id).ForEach(f =>
+            EpisodeRepository.GetAll().Where(p => p.ClinicPatient.UserId == mapFromUser.Id).ForEach(f =>
             {
-                f.Patient = mapToUser;
+                f.ClinicPatient.Patient = mapToUser;
                 EpisodeRepository.Update(f);
             });
 
@@ -142,7 +152,7 @@ namespace SportsWebPt.Platform.DataAccess
             UserRepository.Delete(mapFromUser);
         }
 
-        public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String encryptedPin, String serviceAccount)
+        public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String encryptedPin, Guid serviceAccount)
         {
             var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
 
@@ -157,15 +167,15 @@ namespace SportsWebPt.Platform.DataAccess
                 clinicTherapist.UserConfirmed = true;
                 ClinicTherapistRepository.Update(clinicTherapist);
 
-                var user = UserRepository.GetById(clinicTherapist.TherapistId);
-                if (!user.ExternalAccountId.Equals(serviceAccount, StringComparison.OrdinalIgnoreCase))
+                var user = UserRepository.GetAll().SingleOrDefault(s => s.Id == clinicTherapist.TherapistId);
+                if (user.Id != serviceAccount)
                 {
                     user.AccountLinked = true;
                     //TODO: this remapping / drop is ghetto but I am at a loss right now...
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingTherapistServiceAccounts(serviceAccount, clinicTherapist.Therapist.User.ExternalAccountId);
+                    AssocaiteExistingTherapistServiceAccounts(serviceAccount, clinicTherapist.Therapist.User.Id);
                 }
 
                 Commit();
@@ -174,10 +184,10 @@ namespace SportsWebPt.Platform.DataAccess
             return clinicTherapist;
         }
 
-        private void AssocaiteExistingTherapistServiceAccounts(String mapToAccount, String mapFromAccount)
+        private void AssocaiteExistingTherapistServiceAccounts(Guid mapToAccount, Guid mapFromAccount)
         {
-            var mapToUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.ExternalAccountId.Equals(mapToAccount, StringComparison.OrdinalIgnoreCase));
-            var mapFromUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.ExternalAccountId.Equals(mapFromAccount, StringComparison.OrdinalIgnoreCase));
+            var mapToUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Id == mapToAccount);
+            var mapFromUser = UserRepository.GetAll().Include(t => t.Therapist).SingleOrDefault(s => s.Id == mapFromAccount);
 
             Check.Argument.IsNotNull(mapToUser, "MapToUser");
             Check.Argument.IsNotNull(mapFromUser, "MapFromUser");
@@ -236,10 +246,10 @@ namespace SportsWebPt.Platform.DataAccess
         IQueryable<ClinicPatientMatrixItem> GetClinicPatients();
         IQueryable<ClinicAdminMatrixItem> GetClinicAdminMatrixList();
 
-        ClinicPatientMatrixItem AddPatientToClinic(int clinicId, int userId);
-        ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, int therapistId);
-        ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, String subjectId);
-        ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin, String subjectId);
+        ClinicPatientMatrixItem AddPatientToClinic(int clinicId, Guid userId);
+        ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, Guid therapistId);
+        ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, Guid subjectId);
+        ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin, Guid subjectId);
         void SetPatientConfirmation(int clientPatientMatrixId);
         void SetTherapistConfirmation(int clientTherapistMatrixId);
 

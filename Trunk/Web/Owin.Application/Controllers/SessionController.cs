@@ -6,6 +6,7 @@ using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application.Controllers
 {
+    [Authorize]
     public class SessionController : ApiController
     {
 
@@ -31,6 +32,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         [Route("data/sessions")]
         public Session AddSession(Session session)
         {
+            session.scheduledWithId = User.GetServiceAccount();
             var response = _sessionService.AddSession(session);
             session.id = response;
 

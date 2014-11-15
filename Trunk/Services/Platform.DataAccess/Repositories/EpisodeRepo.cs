@@ -25,7 +25,7 @@ namespace SportsWebPt.Platform.DataAccess.Repositories
         {
             return GetAll()
                 .Include(i => i.Therapist.User)
-                .Include(i => i.Patient)
+                .Include(i => i.ClinicPatient.Patient)
                 .Include(i => i.Clinic)
                 .Include(i => i.Prognosis);
         }

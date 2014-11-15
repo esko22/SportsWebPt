@@ -8,9 +8,9 @@
         </div>
     </div>
     <table class="table table-striped">
-        <tr ng-repeat="therapist in therapists">
-            <td><a>{{therapist.id}}</a></td>
-            <td><a>{{therapist.hash}}</a></td>
+        <tr ng-repeat="clinicTherapist in therapists">
+            <td><a>{{clinicTherapist.clinicTherapistIdentifier}}</a></td>
+            <td><a>{{clinicTherapist.therapist.emailAddress}}</a></td>
         </tr>
     </table>
 </div>

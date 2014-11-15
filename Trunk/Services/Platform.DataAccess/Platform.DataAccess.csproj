@@ -183,6 +183,22 @@
     <Compile Include="Migrations\201411120618548_HashRename.Designer.cs">
       <DependentUpon>201411120618548_HashRename.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411140700409_IdToGuid.cs" />
+    <Compile Include="Migrations\201411140700409_IdToGuid.Designer.cs">
+      <DependentUpon>201411140700409_IdToGuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411150329514_CTPIds.cs" />
+    <Compile Include="Migrations\201411150329514_CTPIds.Designer.cs">
+      <DependentUpon>201411150329514_CTPIds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411150556087_clinicPatientEpisode.cs" />
+    <Compile Include="Migrations\201411150556087_clinicPatientEpisode.Designer.cs">
+      <DependentUpon>201411150556087_clinicPatientEpisode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411150904194_DiffDiagNull.cs" />
+    <Compile Include="Migrations\201411150904194_DiffDiagNull.Designer.cs">
+      <DependentUpon>201411150904194_DiffDiagNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -298,6 +314,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411120618548_HashRename.resx">
       <DependentUpon>201411120618548_HashRename.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411140700409_IdToGuid.resx">
+      <DependentUpon>201411140700409_IdToGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411150329514_CTPIds.resx">
+      <DependentUpon>201411150329514_CTPIds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411150556087_clinicPatientEpisode.resx">
+      <DependentUpon>201411150556087_clinicPatientEpisode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411150904194_DiffDiagNull.resx">
+      <DependentUpon>201411150904194_DiffDiagNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

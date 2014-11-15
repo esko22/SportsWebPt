@@ -14,8 +14,8 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
     {
         #region Fields
 
-        private IClinicService _clinicService;
-        private IUserManagementService _userManagementService;
+        private readonly IClinicService _clinicService;
+        private readonly IUserManagementService _userManagementService;
 
         #endregion
 
@@ -43,18 +43,10 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpGet]
         [Route("data/clinics/{clinicId}/patients")]
-        public IEnumerable<User> GetClinicPatients(int clinicId)
+        public IEnumerable<ClinicPatient> GetClinicPatients(int clinicId)
         {
             var clinicPatients = _clinicService.GetClinicPatients(clinicId);
-            var distinctExternalAccounts = clinicPatients.Select(s => s.externalAccountId).Distinct();
-
-            foreach (var identityUser in _userManagementService.GetUsersByExternalAccountId(distinctExternalAccounts))
-            {
-                var clinicPatient =
-                    clinicPatients.SingleOrDefault(s => s.externalAccountId.Equals(identityUser.ServiceAccount));
-                if (clinicPatient != null)
-                    clinicPatient.emailAddress = identityUser.Email;
-            }
+            _userManagementService.SetUserDetailsByExternalAccounts(clinicPatients.Select(s => s.user));
 
             return clinicPatients;
         }
@@ -68,9 +60,12 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpGet]
         [Route("data/clinics/{clinicId}/therapists")]
-        public IEnumerable<Therapist> GetClinicTherapists(int clinicId)
+        public IEnumerable<ClinicTherapist> GetClinicTherapists(int clinicId)
         {
-            return _clinicService.GetClinicTherapists(clinicId);
+            var clinicTherapists = _clinicService.GetClinicTherapists(clinicId);
+            _userManagementService.SetUserDetailsByExternalAccounts(clinicTherapists.Select(s => s.therapist));
+
+            return clinicTherapists;
         }
 
         [HttpPost]

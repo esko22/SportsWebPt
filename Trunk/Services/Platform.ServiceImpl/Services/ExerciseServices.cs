@@ -55,7 +55,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         {
             var responseList = new List<BriefExerciseDto>();
             var exercises = ExerciseUnitOfWork.ExerciseRepo.GetExerciseDetails()
-                .Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == request.IdAsLong && w.IsOwner == request.IsOwner));
+                .Where(p => p.TherapistExerciseMatrixItems.Any(w => w.TherapistId == new Guid(request.Id) && w.IsOwner == request.IsOwner));
 
             Mapper.Map(exercises, responseList);
 
@@ -82,7 +82,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             Check.Argument.IsNotNull(request, "ExerciseDto");
 
             var exercise = Mapper.Map<Exercise>(request);
-            exercise.TherapistExerciseMatrixItems = new List<TherapistExerciseMatrixItem>() { new TherapistExerciseMatrixItem() { TherapistId = request.TherapistId, IsOwner = true, IsActive = true } };
+            exercise.TherapistExerciseMatrixItems = new List<TherapistExerciseMatrixItem>() { new TherapistExerciseMatrixItem() { TherapistId = new Guid(request.TherapistId), IsOwner = true, IsActive = true } };
 
             ExerciseUnitOfWork.ExerciseRepo.Add(exercise);
             ExerciseUnitOfWork.Commit();

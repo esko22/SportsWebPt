@@ -10,9 +10,9 @@ namespace SportsWebPt.Platform.Web.Core
 
         public DateTime reviewedOn { get; set; }
 
-        public int submittedBy { get; set; }
+        public String submittedBy { get; set; }
 
-        public int submittedFor { get; set; }
+        public String submittedFor { get; set; }
 
     }
 }

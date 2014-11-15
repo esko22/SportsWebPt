@@ -13,9 +13,9 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public String ClinicTherapistId { get; set; }
+        public String TherapistId { get; set; }
 
-        public String ClinicPatientId { get; set; }
+        public int ClinicPatientId { get; set; }
 
         public EpisodeStateDto? State { get; set; }
 

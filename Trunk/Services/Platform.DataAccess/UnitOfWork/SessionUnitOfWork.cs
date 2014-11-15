@@ -32,7 +32,7 @@ namespace SportsWebPt.Platform.DataAccess
         {
             Check.Argument.IsNotNull(session, "Session Cannot Be Null");
             Check.Argument.IsNotNegativeOrZero(session.EpisodeId, "EpisodeId");
-            Check.Argument.IsNotNegativeOrZero(session.ScheduledWithId, "Scheduled With Id");
+            Check.Argument.IsNotEmpty(session.ScheduledWithId, "Scheduled With Id");
 
             session.Created = DateTime.Now;
             session.ScheduledAt = DateTime.Now;

@@ -8,7 +8,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         #region Properties
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public String Credentials { get; set; }
 
@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public int TherapistId { get; set; }
+        public Guid TherapistId { get; set; }
 
         public int PlanId { get; set; }
 
@@ -62,7 +62,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public int Id { get; set; }
 
-        public int TherapistId { get; set; }
+        public Guid TherapistId { get; set; }
 
         public int ExerciseId { get; set; }
 

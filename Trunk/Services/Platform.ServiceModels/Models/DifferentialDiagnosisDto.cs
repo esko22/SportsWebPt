@@ -13,9 +13,9 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public DateTime ReviewedOn { get; set; }
 
-        public int SubmittedBy { get; set; }
+        public String SubmittedBy { get; set; }
 
-        public int SubmittedFor { get; set; }
+        public String SubmittedFor { get; set; }
 
         public PotentialSymptomDto[] SymptomDetails { get; set; }
 

@@ -94,7 +94,6 @@
         });
 
         var diffDiagSubmission = {
-            "submittedFor": 0,
             "symptomDetails": symptomsForReport
         };
 

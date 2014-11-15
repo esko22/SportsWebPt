@@ -19,10 +19,10 @@
     </div>
     <div ng-if="formData.clinicPatient">
         <div ng-if="!formData.clinicPatient.userConfirmed">
-            <h4>Patient: <span ng-bind="formData.clinicPatient.user.id"></span> has been sent an invitation to join your clinic! Please make note of this id.</h4>
+            <h4>Patient: <span ng-bind="formData.clinicPatient.clinicPatientIdentifier"></span> has been sent an invitation to join your clinic! Please make note of this id.</h4>
         </div>
         <div ng-if="formData.clinicPatient.userConfirmed">
-            <h4>Patient: <span ng-bind="formData.clinicPatient.user.id"></span> is already added as a member of your clinic @ <span ng-bind="formData.clinicPatient.addedOn"></span>.  </h4>
+            <h4>Patient: <span ng-bind="formData.clinicPatient.clinicPatientIdentifier"></span> is already added as a member of your clinic @ <span ng-bind="formData.clinicPatient.addedOn"></span>.  </h4>
         </div>
     </div>
 </div>

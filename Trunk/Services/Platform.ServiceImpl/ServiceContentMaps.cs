@@ -129,6 +129,16 @@ namespace SportsWebPt.Platform.ServiceImpl
                    .ForMember(d => d.SymptomId, opt => opt.MapFrom(s => s.Symptom.Id));
             Mapper.CreateMap<DifferentialDiagnosisDto, DifferentialDiagnosis>()
                 .ForMember(d => d.SumbittedOn, opt => opt.UseValue(DateTime.Now))
+                .ForMember(d => d.SubmittedFor, opt =>
+                {
+                    opt.Condition(s => !String.IsNullOrEmpty(s.SubmittedFor));
+                    opt.MapFrom(s => new Guid(s.SubmittedFor));
+                })
+                .ForMember(d => d.SubmittedBy, opt =>
+                {
+                    opt.Condition(s => !String.IsNullOrEmpty(s.SubmittedBy));
+                    opt.MapFrom(s => new Guid(s.SubmittedBy));
+                })
                 .ForMember(d => d.SymptomDetails,
                     opt => opt.MapFrom(s => s.SymptomDetails.Where(p => !String.IsNullOrEmpty(p.GivenResponse))));
             Mapper.CreateMap<DifferentialDiagnosis, DifferentialDiagnosisDto>()
@@ -671,7 +681,10 @@ namespace SportsWebPt.Platform.ServiceImpl
             #region Episode Maps
 
             Mapper.CreateMap<EpisodeDto, Episode>();
-            Mapper.CreateMap<Episode, EpisodeDto>();
+            Mapper.CreateMap<Episode, EpisodeDto>()
+                .ForMember(d => d.ClinicPatientIdentifier,
+                    opt => opt.MapFrom(s => s.ClinicPatient.ClinicPatientIdentifier))
+                .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
             Mapper.CreateMap<Session, SessionDto>()
                 .ForMember(d => d.Plans, opt =>
                 {
@@ -683,15 +696,18 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt.Condition(s => s.DifferentialDiagnosis != null);
                     opt.MapFrom(s => s.DifferentialDiagnosis);
                 });
-            Mapper.CreateMap<CreateSessionRequest, Session>();
-            Mapper.CreateMap<CreateEpisodeRequest, Episode>();
+            Mapper.CreateMap<CreateSessionRequest, Session>()
+                .ForMember(d => d.ScheduledWithId, opt => opt.MapFrom(s => new Guid(s.ScheduledWithId)));
+            Mapper.CreateMap<CreateEpisodeRequest, Episode>()
+                .ForMember(d => d.ClinicPatientId, opt => opt.MapFrom(s => s.ClinicPatientId))
+                .ForMember(d => d.TherapistId, opt => opt.MapFrom(s => new Guid(s.TherapistId)));
 
             #endregion
 
             #region Clinic Maps
 
             Mapper.CreateMap<Therapist, TherapistDto>()
-                .ForMember(d => d.ExternalAccountId, opt => opt.MapFrom(s => s.User.ExternalAccountId));
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.User.Id));
 
             Mapper.CreateMap<Clinic, ClinicDto>();
             Mapper.CreateMap<ClinicDto, Clinic>();

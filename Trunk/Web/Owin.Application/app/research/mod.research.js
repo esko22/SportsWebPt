@@ -2,10 +2,10 @@
 
 angular.module('research', ['research.exercises', 'research.plans', 'research.injuries'])
     .controller('ResarchNavBarController', [
-        '$scope', '$rootScope', '$http', 'notifierService', 'userManagementService', 'navBarService', function ($scope, $rootScope, $http, notifierService, userManagementService) {
+        '$scope', '$rootScope', '$http', 'notifierService', 'userManagementService', 'authenticationService', function ($scope, $rootScope, $http, notifierService, userManagementService, authenticationService) {
 
         $scope.addAsFavorite = function() {
-            if (!userManagementService.isAuthenticated()) {
+            if (!authenticationService.isAuthenticated()) {
                 $rootScope.$emit("signup-dialog-prompt");
                 return;
             }
@@ -42,17 +42,17 @@ angular.module('research', ['research.exercises', 'research.plans', 'research.in
             };
 
     }])
-    .factory('navBarService', ['userManagementService', function (userManagementService) {
+    .factory('navBarService', ['authenticationService','$rootScope', function (authenticationService, $rootScope) {
         
         var entityType = '';
         var entityId = 0;
         var returnUri = '';
 
         function isFavorite() {
-            var user = userManagementService.getUser();
-
-            if (!user)
+            if (!authenticationService.isAuthenticated())
                 return false;
+
+            var user = $rootScope.currentUser;
 
             switch (this.entityType.toLowerCase()) {
                 case 'plan':

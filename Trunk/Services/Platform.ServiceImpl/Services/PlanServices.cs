@@ -85,10 +85,10 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Post(CreatePlanRequest request)
         {
             Check.Argument.IsNotNull(request, "PlanDto");
-            Check.Argument.IsNotNegativeOrZero(request.TherapistId, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.TherapistId, "TherapistId");
 
             var plan = Mapper.Map<Plan>(request);
-            plan.TherapistPlanMatrixItems = new List<TherapistPlanMatrixItem>() {new TherapistPlanMatrixItem() { TherapistId = request.TherapistId, IsOwner = true, IsActive = true }};
+            plan.TherapistPlanMatrixItems = new List<TherapistPlanMatrixItem>() {new TherapistPlanMatrixItem() { TherapistId = new Guid(request.TherapistId), IsOwner = true, IsActive = true }};
 
             PlanUnitOfWork.PlanRepo.Add(plan);
             PlanUnitOfWork.Commit();

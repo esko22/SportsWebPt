@@ -7,25 +7,25 @@
             var resource = $resource(therapistPath);
             return resource.get({ id: id });
         },
-        getSharedPlansForTherapist: function (therapistId, planId) {
+        getSharedPlansForTherapist: function (planId) {
             var resource = $resource(configService.apiUris.therapistSharedPlans);
-            return resource.query({ id: therapistId, planId: planId });
+            return resource.query({ planId: planId });
         },
-        getSharedExercisesForTherapist: function (therapistId, exerciseId) {
+        getSharedExercisesForTherapist: function (exerciseId) {
             var resource = $resource(configService.apiUris.therapistSharedExercises);
-            return resource.query({ id: therapistId, exerciseId: exerciseId });
+            return resource.query({exerciseId: exerciseId });
         },
-        getEpisodesForTherapist: function (therapistId, state) {
+        getEpisodesForTherapist: function (state) {
             var resource = $resource(configService.apiUris.therapistEpisodes);
-            return resource.query({ id: therapistId, state: state });
+            return resource.query({ state: state });
         },
-        updateSharedPlans: function (therapistId, sharedPlans) {
+        updateSharedPlans: function (sharedPlans) {
             var resource = $resource(configService.apiUris.therapistSharedPlans, null, { 'update': { method: 'PUT' } });
-            return resource.update({ id: therapistId }, sharedPlans);
+            return resource.update(sharedPlans);
         },
-        updateSharedExercises: function (therapistId, sharedExercises) {
+        updateSharedExercises: function (sharedExercises) {
             var resource = $resource(configService.apiUris.therapistSharedExercises, null, { 'update': { method: 'PUT' } });
-            return resource.update({ id: therapistId }, sharedExercises);
+            return resource.update(sharedExercises);
         }
     }
 }]);

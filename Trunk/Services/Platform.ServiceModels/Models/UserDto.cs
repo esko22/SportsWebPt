@@ -6,7 +6,7 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public int Id { get; set; }
+        public String Id { get; set; }
 
         public String EmailAddress { get; set; }
 
@@ -15,8 +15,6 @@ namespace SportsWebPt.Platform.ServiceModels
         public String LastName { get; set; }
 
         public String UserName { get; set; }
-
-        public String ExternalAccountId { get; set; }
 
         public String Phone { get; set; }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Web;
 
 using AutoMapper;
@@ -41,8 +42,7 @@ namespace SportsWebPt.Platform.Web.Services
             var relationUser = UserAccountServiceFactory().GetByID(new Guid(id));
             var user = new User
             {
-                serviceAccount = relationUser.ServiceAccount,
-                externalAccountId = relationUser.ServiceAccount,
+                id = relationUser.ServiceAccount,
                 emailAddress = relationUser.Email,
                 isAdmin = relationUser.HasClaim("role","admin"),
                 isClinicManager = relationUser.HasClaim("role","manager"),
@@ -61,10 +61,10 @@ namespace SportsWebPt.Platform.Web.Services
         {
             var request = GetSync(new UserRequest() { Id = id });
 
-            return request.Response == null ? new User() { externalAccountId = id, accountLinked = false} : Mapper.Map<User>(request.Response);
+            return request.Response == null ? new User() { id = id, accountLinked = false} : Mapper.Map<User>(request.Response);
         }
 
-        public int AddUser(User user)
+        public String AddUser(User user)
         {
             var userResuest = Mapper.Map<CreateUserRequest>(user);
    
@@ -82,10 +82,10 @@ namespace SportsWebPt.Platform.Web.Services
             if (String.IsNullOrEmpty(serviceAccount))
             {
                 var request = PostSync(new CreateUserRequest {AccountLinked = true});
-                userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.ExternalAccountId);
-                UpdateServiceAccount(subjectId, request.Response.ExternalAccountId, userAccountService);
+                userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.Id);
+                UpdateServiceAccount(subjectId, request.Response.Id, userAccountService);
 
-                serviceAccount = request.Response.ExternalAccountId;
+                serviceAccount = request.Response.Id;
             }
 
             return serviceAccount;
@@ -101,7 +101,7 @@ namespace SportsWebPt.Platform.Web.Services
             }
         }
 
-        public void AddFavorite(Favorite userFavorite, int userId)
+        public void AddFavorite(Favorite userFavorite, String userId)
         {
             var userFavRequest = Mapper.Map<CreateUserFavoriteRequest>(userFavorite);
             userFavRequest.Id = userId;
@@ -109,13 +109,13 @@ namespace SportsWebPt.Platform.Web.Services
             PostSync(userFavRequest);
         }
 
-        public IEnumerable<Episode> GetEpisodes(int patientId, String state)
+        public IEnumerable<Episode> GetEpisodes(String patientId, String state)
         {
             EpisodeStateDto? episodeState = null;
             if (!String.IsNullOrEmpty(state))
                 episodeState = (EpisodeStateDto)Enum.Parse(typeof(EpisodeStateDto), state, true);
 
-            var request = GetSync(new PatientEpisodeListRequest() { Id = patientId.ToString(), State = episodeState });
+            var request = GetSync(new PatientEpisodeListRequest() { Id = patientId, State = episodeState });
 
             return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
@@ -134,20 +134,20 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);
         }
 
-        public int RegisterPatient(User user, int registrationId)
+        public String RegisterPatient(User user, int registrationId)
         {
             var request =
                 Put(new RegisterPatientRequest() {RegistrationId = registrationId, User = Mapper.Map<UserDto>(user)});
 
-            return request.Response == null ? 0 : request.Response.Id;
+            return request.Response == null ? String.Empty : request.Response.Id;
         }
 
-        public int RegisterTherapist(User therapist, int registrationId)
+        public String RegisterTherapist(User therapist, int registrationId)
         {
             var request =
                 Put(new RegisterTherapistRequest() { RegistrationId = registrationId, Therapist = Mapper.Map<UserDto>(therapist) });
 
-            return request.Response == null ? 0 : request.Response.Id;
+            return request.Response == null ? String.Empty : request.Response.Id;
         }
 
         public IEnumerable<UserAccountQueryResult> GetUserList(String filter)
@@ -169,18 +169,40 @@ namespace SportsWebPt.Platform.Web.Services
             return accounts;
         }
 
-        public IEnumerable<SportsWebUser> GetUsersByExternalAccountId(IEnumerable<String> externalAccounts)
+        public void SetUserDetailsByExternalAccounts(IEnumerable<User> externalAccounts)
+        {
+            var distinctExternalAccounts = externalAccounts.Select(s => s.id).Distinct();
+            using (
+                var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore))
+            {
+                var userRepo = new SportsWebUserAccountRepo(database);
+
+                foreach (var identityUser in userRepo.GetUserDetailsByExternalAccount(distinctExternalAccounts))
+                {
+                    foreach(var clinicPatient in externalAccounts.Where(s => s.id.Equals(identityUser.ServiceAccount)))
+                        clinicPatient.emailAddress = identityUser.Email;
+                }
+            }
+        }
+
+        public IEnumerable<SportsWebUser> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts)
         {
             var users = new List<SportsWebUser>();
             using (
                 var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore))
             {
                 var userRepo = new SportsWebUserAccountRepo(database);
-                users.AddRange(userRepo.GetUsersByExternalAccount(externalAccounts));
+
+                users.AddRange(userRepo.GetUserDetailsByExternalAccount(externalAccounts));
             }
 
             return users;
-        } 
+        }
+
+        public SportsWebUser GetUserByServiceAccountId(String serviceAccountId)
+        {
+            return GetUserDetailsByExternalAccounts(new[] {serviceAccountId}).FirstOrDefault();
+        }
 
         public static UserAccountService<SportsWebUser> UserAccountServiceFactory()
         {
@@ -208,15 +230,17 @@ namespace SportsWebPt.Platform.Web.Services
         Boolean ValidateUserByEmail(String emailAddress);
         User GetUser(String subjectId);
         User GetServiceUser(String id);
-        void AddFavorite(Favorite favorite, int userId);
-        IEnumerable<Episode> GetEpisodes(int patientId, String state);
+        void AddFavorite(Favorite favorite, String userId);
+        IEnumerable<Episode> GetEpisodes(String patientId, String state);
         String CreateServiceAccount(String subjectId);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String subjectId);
-        IEnumerable<SportsWebUser> GetUsersByExternalAccountId(IEnumerable<String> externalAccounts);
+        void SetUserDetailsByExternalAccounts(IEnumerable<User> externalAccounts);
+        IEnumerable<SportsWebUser> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts);
+        SportsWebUser GetUserByServiceAccountId(String serviceAccountId);
 
-        int RegisterPatient(User user, int registrationId);
-        int RegisterTherapist(User user, int registrationId);
+        String RegisterPatient(User user, int registrationId);
+        String RegisterTherapist(User user, int registrationId);
     }
 
 

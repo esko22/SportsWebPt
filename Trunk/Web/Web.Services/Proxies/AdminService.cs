@@ -68,7 +68,7 @@ namespace SportsWebPt.Platform.Web.Services
         }
 
 
-        public int AddExercise(Exercise exercise, int therapistId)
+        public int AddExercise(Exercise exercise, String therapistId)
         {
             var requestMessage = Mapper.Map<CreateExerciseRequest>(exercise);
             requestMessage.TherapistId = therapistId;
@@ -104,7 +104,7 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<GridInjury>>(request.Response.Items.OrderBy(p => p.CommonName));
         }
 
-        public int AddPlan(Plan plan, int therapistId)
+        public int AddPlan(Plan plan, String therapistId)
         {
             var requestMessage = Mapper.Map<CreatePlanRequest>(plan);
             requestMessage.TherapistId = therapistId;
@@ -308,7 +308,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateVideo(Video video);
 
-        int AddExercise(Exercise exercise, int therapistId);
+        int AddExercise(Exercise exercise, String therapistId);
 
         void UpdateExercise(Exercise exercise);
 
@@ -316,7 +316,7 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<GridInjury> GetClinicInjuries();
         IEnumerable<GridExercise> GetClinicExercises();
 
-        int AddPlan(Plan plan, int therapistId);
+        int AddPlan(Plan plan, String therapistId);
 
         void PublishPlan(Plan plan);
         void PublishInjury(Injury injury);

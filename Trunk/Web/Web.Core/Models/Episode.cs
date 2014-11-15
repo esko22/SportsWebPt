@@ -22,9 +22,13 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int prognosisId { get; set; }
 
-        public int patientId { get; set; }
+        public int clinicPatientId { get; set; }
 
-        public int therapistId { get; set; }
+        public String clinicPatientIdentifier { get; set; }
+
+        public String patientId { get; set; }
+
+        public String therapistId { get; set; }
 
         public int clinicId { get; set; }
 

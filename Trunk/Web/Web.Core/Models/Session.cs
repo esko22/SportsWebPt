@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String notes { get; set; }
 
-        public int scheduledWithId { get; set; }
+        public String scheduledWithId { get; set; }
 
         public Int64 episodeId { get; set; }
 

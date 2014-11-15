@@ -13,9 +13,9 @@ namespace SportsWebPt.Platform.Core.Models
 
         public DateTime ReviewedOn { get; set; }
 
-        public int SubmittedBy { get; set; }
+        public Guid SubmittedBy { get; set; }
 
-        public int SubmittedFor { get; set; }
+        public Guid SubmittedFor { get; set; }
 
         public ICollection<SymptomDetail> SymptomDetails { get; set; } 
 

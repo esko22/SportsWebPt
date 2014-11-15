@@ -24,9 +24,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
         public object Get(UserRequest request)
         {
-            var user = request.IdAsInt > 0
-                           ? UserUnitOfWork.GetUserById(request.IdAsInt)
-                           : UserUnitOfWork.GetUserBySubject(request.Id);
+            var user = UserUnitOfWork.GetUserById(new Guid(request.Id));
 
             UserDto userDto = null;
 
@@ -48,7 +46,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
 
             return Ok(new ApiResponse<UserDto>()
                 {
-                    Response = new UserDto() { Id = userEntity.Id, ExternalAccountId = userEntity.ExternalAccountId}
+                    Response = new UserDto() { Id = userEntity.Id.ToString()}
                 });
         }
 
@@ -60,7 +58,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
             var user =
                 UserUnitOfWork.UserRepository
                 .GetUserDetails()
-                .SingleOrDefault(p => p.Id == favoriteToAdd.Id);
+                .SingleOrDefault(p => p.Id == new Guid(favoriteToAdd.Id));
 
             if (user == null)
                 return BadRequest("Invalid User Id");

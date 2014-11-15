@@ -10,10 +10,12 @@ injuryAdminModule.controller('InjuryModalController', [
 
         $scope.injury = {};
         if (selectedInjury) {
-            injuryAdminService.get(selectedInjury.id).$promise.then(function (result) {
+            injuryAdminService.get(selectedInjury.id).$promise.then(function(result) {
                 $scope.injury = result;
                 setSelectedItems();
             });
+        } else {
+            setSelectedItems();
         }
 
         //lookups

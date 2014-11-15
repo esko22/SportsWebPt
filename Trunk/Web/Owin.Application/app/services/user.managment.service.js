@@ -1,13 +1,19 @@
-﻿swptApp.service('userManagementService', ['$resource', 'configService', '$state', '$window', function ($resource, configService, $rootScope, $window) {
+﻿swptApp.service('userManagementService', ['$resource', 'configService', '$rootScope', function ($resource, configService, $rootScope) {
         var resource = $resource(configService.apiUris.currentUser);
 
         var getUser = function() {
             return resource.get();
         };
+
+        var refreshUser = function() {
+            getUser().$promise.then(function(user) {
+                $rootScope.currentUser = user;
+            });
+        }
      
         return {
             getUser: getUser,
-            refreshUser: getUser
+            refreshUser: refreshUser
         };
     }
 ]);

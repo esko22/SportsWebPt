@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNull(request, "Session Cannot Be Null");
             Check.Argument.IsNotNegativeOrZero(request.EpisodeId, "EpisodeId");
-            Check.Argument.IsNotNegativeOrZero(request.ScheduledWithId, "Scheduled With Id");
+            Check.Argument.IsNotEmpty(request.ScheduledWithId, "Scheduled With Id");
 
             var session = SessionUnitOfWork.AddSession(Mapper.Map<Session>(request));
 

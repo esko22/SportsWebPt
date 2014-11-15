@@ -29,7 +29,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Id, "Clinic Manager Id must be listed");
 
             var responseList = new List<ClinicDto>();
-            var clinicAdminMatrixItems = ClinicUnitOfWork.GetClinicAdminMatrixList().Where(p => p.User.ExternalAccountId == request.Id);
+            var clinicAdminMatrixItems = ClinicUnitOfWork.GetClinicAdminMatrixList().Where(p => p.User.Id == new Guid(request.Id));
     
             Mapper.Map(clinicAdminMatrixItems.Select(s => s.Clinic), responseList);
 
@@ -42,13 +42,13 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "Clinic Id must be listed");
 
-            var responseList = new List<UserDto>();
+            var responseList = new List<ClinicPatientDto>();
             var patients = ClinicUnitOfWork.GetClinicPatients().Where(p => p.ClinicId == request.IdAsInt);
 
-            Mapper.Map(patients.Select(s => s.Patient), responseList);
+            Mapper.Map(patients, responseList);
 
             return
-                Ok(new ApiListResponse<UserDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<ClinicPatientDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 
@@ -56,13 +56,13 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "Clinic Id must be listed");
 
-            var responseList = new List<TherapistDto>();
+            var responseList = new List<ClinicTherapistDto>();
             var therapists = ClinicUnitOfWork.GetClinicTherapists().Where(p => p.ClinicId == request.IdAsInt).ToList();
 
-            Mapper.Map(therapists.Select(s => s.Therapist), responseList);
+            Mapper.Map(therapists, responseList);
 
             return
-                Ok(new ApiListResponse<TherapistDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<ClinicTherapistDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 
@@ -96,12 +96,12 @@ namespace SportsWebPt.Platform.ServiceImpl
                 userToAdd =
                     UserUnitOfWork.UserRepository.GetAll()
                         .SingleOrDefault(
-                            s => s.ExternalAccountId.Equals(request.User.ExternalAccountId, StringComparison.OrdinalIgnoreCase));
+                            s => s.Id == new Guid(request.User.Id));
             }
 
             var clinicPatientMatrixItem =
                 ClinicUnitOfWork.ClinicPatientRepository.GetAll()
-                    .SingleOrDefault(p => p.ClinicId == request.IdAsInt && p.UserId == userToAdd.Id) ??
+                    .FirstOrDefault(p => p.ClinicId == request.IdAsInt && p.UserId == userToAdd.Id) ??
                 ClinicUnitOfWork.AddPatientToClinic(request.IdAsInt, userToAdd.Id);
 
             //if token is returned, user is newly created or has not confirmed registration yet
@@ -160,7 +160,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 userToAdd =
                     UserUnitOfWork.UserRepository.GetUserDetails()
                         .SingleOrDefault(
-                            s => s.ExternalAccountId.Equals(request.Therapist.ExternalAccountId, StringComparison.OrdinalIgnoreCase));
+                            s => s.Id ==  new Guid(request.Therapist.Id));
 
                 if (userToAdd != null)
                 {
@@ -171,7 +171,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             var clinicTherapistMatrixItem =
                 ClinicUnitOfWork.GetClinicTherapists()
-                    .SingleOrDefault(p => p.ClinicId == request.IdAsInt && p.TherapistId == userToAdd.Id) ??
+                    .FirstOrDefault(p => p.ClinicId == request.IdAsInt && p.TherapistId == userToAdd.Id) ??
                 ClinicUnitOfWork.AddTherapistToClinic(request.IdAsInt, userToAdd.Id);
 
 
@@ -218,7 +218,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
             Check.Argument.IsNotNullOrEmpty(request.ServiceAccount, "Service Account Cannot Be Empty");
 
-            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin, request.ServiceAccount);
+            var clinicPatient = ClinicUnitOfWork.ValidateClinicPatient(request.EmailAddress, request.Pin, new Guid(request.ServiceAccount));
 
             return Ok(new ApiResponse<ClinicPatientDto>()
             {
@@ -232,7 +232,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNullOrEmpty(request.Pin, "Pin Cannot Be Empty");
             Check.Argument.IsNotNullOrEmpty(request.EmailAddress, "Email Cannot Be Empty");
 
-            var clinicTherapist = ClinicUnitOfWork.ValidateClinicTherapist(request.EmailAddress, request.Pin, request.ServiceAccount);
+            var clinicTherapist = ClinicUnitOfWork.ValidateClinicTherapist(request.EmailAddress, request.Pin, new Guid(request.ServiceAccount));
 
             return Ok(new ApiResponse<ClinicTherapistDto>()
             {

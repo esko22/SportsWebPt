@@ -22,17 +22,17 @@ namespace SportsWebPt.Identity.Services
         {
             var db = new SportsWebMembershipRebootDatabase(IdentityServerConfigSettings.Instance.PersistanceConnection);
             var repo = new SportsWebUserAccountRepo(db);
-            var userAccountService = new UserAccountService(Config, repo);
+            var userAccountService = new UserAccountService<SportsWebUser>(Config, repo);
             var userSvc = new SportsWebPtUserService(userAccountService, db);
 
             return userSvc;
         }
 
-        public static MembershipRebootConfiguration Config;
+        public static MembershipRebootConfiguration<SportsWebUser> Config;
         static MembershipRebootUserServiceFactory()
         {
 
-            Config = new MembershipRebootConfiguration
+            Config = new MembershipRebootConfiguration<SportsWebUser>
             {
                 PasswordHashingIterationCount = 50000,
                 AllowLoginAfterAccountCreation = true,
@@ -43,19 +43,19 @@ namespace SportsWebPt.Identity.Services
 
     public class UserAccountServiceFactory
     {
-        public static UserAccountService<UserAccount> GetUserAccountService()
+        public static UserAccountService<SportsWebUser> GetUserAccountService()
         {
             var db = new SportsWebMembershipRebootDatabase(IdentityServerConfigSettings.Instance.PersistanceConnection);
             var repo = new SportsWebUserAccountRepo(db);
-            return new UserAccountService(MembershipRebootUserServiceFactory.Config, repo);
+            return new UserAccountService<SportsWebUser>(MembershipRebootUserServiceFactory.Config, repo);
         } 
     }
 
 
-    public class SportsWebPtUserService : MembershipRebootUserService<UserAccount>
+    public class SportsWebPtUserService : MembershipRebootUserService<SportsWebUser>
     {
 
-        public SportsWebPtUserService(UserAccountService<UserAccount> userAccountService, IDisposable cleanup)
+        public SportsWebPtUserService(UserAccountService<SportsWebUser> userAccountService, IDisposable cleanup)
             : base(userAccountService, cleanup)
         {}
 

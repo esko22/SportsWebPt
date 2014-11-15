@@ -27,7 +27,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
-            var therapist = UserUnitOfWork.UserRepository.GetTherapistDetails().SingleOrDefault(p => p.ExternalAccountId == request.Id);
+            var therapist = UserUnitOfWork.UserRepository.GetTherapistDetails().SingleOrDefault(p => p.Id == new Guid(request.Id));
 
             return Ok(new ApiResponse<TherapistDto>() { Response = Mapper.Map<TherapistDto>(therapist) });
         }
@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var responseList = new List<BriefPlanDto>();
             var plans = PlanUnitOfWork.PlanRepo.GetPlanDetails()
-                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == request.IdAsLong && a.IsOwner == request.IsOwner))
+                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == new Guid(request.Id) && a.IsOwner == request.IsOwner))
                 .OrderBy(p => p.RoutineName);
 
             Mapper.Map(plans, responseList);
@@ -60,9 +60,9 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(TherapistSharedPlanListRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
-            var sharedPlans = PlanUnitOfWork.GetSharedPlansByTherapist(request.IdAsInt);
+            var sharedPlans = PlanUnitOfWork.GetSharedPlansByTherapist(new Guid(request.Id));
 
             if (request.PlanId > 0)
                 sharedPlans = sharedPlans.Where(p => p.Id == request.PlanId);
@@ -77,9 +77,9 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(TherapistSharedExerciseListRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
-            var sharedExercises = ExerciseUnitOfWork.GetSharedExercisesByTherapist(request.IdAsInt);
+            var sharedExercises = ExerciseUnitOfWork.GetSharedExercisesByTherapist(new Guid(request.Id));
 
             if (request.ExerciseId > 0)
                 sharedExercises = sharedExercises.Where(p => p.Id == request.ExerciseId);
@@ -95,7 +95,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Put(UpdateTherapistSharedPlanRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
             if (request.SharedPlans.Any())
                 PlanUnitOfWork.UpdateSharedPlans(Mapper.Map<IEnumerable<ClinicPlanMatrixItem>>(request.SharedPlans));
@@ -105,7 +105,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Put(UpdateTherapistSharedExerciseRequest request)
         {
-            Check.Argument.IsNotNegativeOrZero(request.IdAsInt, "TherapistId");
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
             if (request.SharedExercises.Any())
                 ExerciseUnitOfWork.UpdateSharedExercises(Mapper.Map<IEnumerable<ClinicExerciseMatrixItem>>(request.SharedExercises));

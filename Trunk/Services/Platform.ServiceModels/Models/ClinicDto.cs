@@ -25,6 +25,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public int Id { get; set; }
 
+        public String ClinicPatientIdentifier { get; set; }
+
         public Boolean UserConfirmed { get; set; }
 
         public ClinicDto Clinic { get; set; }
@@ -41,6 +43,8 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         public int Id { get; set; }
+
+        public String ClinicTherapistIdentifier { get; set; }
 
         public Boolean UserConfirmed { get; set; }
 

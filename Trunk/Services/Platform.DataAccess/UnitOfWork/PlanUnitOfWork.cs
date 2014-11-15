@@ -87,7 +87,7 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
-        public IQueryable<Plan> GetSharedPlansByTherapist(int therapistId)
+        public IQueryable<Plan> GetSharedPlansByTherapist(Guid therapistId)
         {
             return PlanRepo.GetAll()
                 .Include(i => i.ClinicPlanMatrixItems.Select(l2 => l2.Clinic))
@@ -134,7 +134,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         void UpdatePlan(Plan plan);
 
-        IQueryable<Plan> GetSharedPlansByTherapist(int therapistId);
+        IQueryable<Plan> GetSharedPlansByTherapist(Guid therapistId);
 
         void UpdateSharedPlans(IEnumerable<ClinicPlanMatrixItem> sharedPlans);
 

@@ -12,8 +12,8 @@ namespace SportsWebPt.Platform.DataAccess
         {
             ToTable("DifferentialDiagnosis");
             Property(p => p.Id).IsRequired().HasColumnName("differential_diagnosis_id");
-            Property(p => p.SubmittedBy).IsRequired().HasColumnName("submitted_by");
-            Property(p => p.SubmittedFor).IsRequired().HasColumnName("submitted_for");
+            Property(p => p.SubmittedBy).HasColumnName("submitted_by");
+            Property(p => p.SubmittedFor).HasColumnName("submitted_for");
             Property(p => p.ReviewedOn).HasColumnName("reviewed_on");
             Property(p => p.SumbittedOn).HasColumnName("submitted_on");
         }

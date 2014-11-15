@@ -48,6 +48,14 @@ namespace SportsWebPt.Platform.Web.Application
 
                 if (String.IsNullOrEmpty(serviceAccount))
                     serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
+                else
+                {
+                    var serviceUser = _userManagementService.GetServiceUser(serviceAccount);
+                    user.plans = serviceUser.plans;
+                    user.videos = serviceUser.exercises;
+                    user.injuries = serviceUser.injuries;
+                    user.exercises = serviceUser.exercises;
+                }
 
                 user.emailAddress = principle.FindFirst("email") == null ? String.Empty : principle.FindFirst("email").Value;
                 //TODO: having issues mapping roles... First time auth after signin, Principal has Bearer and JWT identities that seem to use
@@ -56,7 +64,7 @@ namespace SportsWebPt.Platform.Web.Application
                 user.isAdmin = principle.HasClaim("role", "admin");
                 user.isTherapist = principle.HasClaim("role","therapist");
                 user.isClinicManager = principle.HasClaim("role", "manager");
-                user.serviceAccount = serviceAccount;
+                user.id = serviceAccount;
 
                 return user;
             }
@@ -73,18 +81,17 @@ namespace SportsWebPt.Platform.Web.Application
         }
 
         [HttpPost]
-        [Route("data/users/current/favorites")]
+        [Authorize]
+        [Route("data/users/favorites")]
         public Favorite AddFavorites(Favorite favorite)
         {
-            if (User.Identity.IsAuthenticated)
-                _userManagementService.AddFavorite(favorite, Convert.ToInt32(User.Identity.Name));
-
+            _userManagementService.AddFavorite(favorite, User.GetServiceAccount());
             return favorite;
         }
 
         [HttpGet]
         [Route("data/patients/{id}/episodes")]
-        public IEnumerable<Episode> GetPatientEpisodes(int id, String state)
+        public IEnumerable<Episode> GetPatientEpisodes(String id, String state)
         {
             return _userManagementService.GetEpisodes(id, state);
         }

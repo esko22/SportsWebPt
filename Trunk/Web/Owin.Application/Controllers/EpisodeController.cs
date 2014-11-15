@@ -8,21 +8,25 @@ using SportsWebPt.Platform.Web.Services;
 
 namespace SportsWebPt.Platform.Web.Application.Controllers
 {
+    [Authorize]
     public class EpisodeController : ApiController
     {
 
         #region Fields
 
         private readonly IEpisodeService _episodeService;
-
+        private readonly IUserManagementService _userManagementService;
         #endregion
 
         #region Construction
 
-        public EpisodeController(IEpisodeService episodeService)
+        public EpisodeController(IEpisodeService episodeService, IUserManagementService userManagementService)
         {
             Check.Argument.IsNotNull(episodeService, "Episode Service");
+            Check.Argument.IsNotNull(userManagementService, "User Management Service");
+
             _episodeService = episodeService;
+            _userManagementService = userManagementService;
         }
 
         #endregion
@@ -33,7 +37,11 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         [Route("data/episodes/{episodeId}")]
         public Episode GetEpisode(Int64 episodeId)
         {
-            return _episodeService.GetEpisode(episodeId);
+            var episode = _episodeService.GetEpisode(episodeId);
+            var user = _userManagementService.GetUserByServiceAccountId(episode.patientId);
+            if(user != null)
+              episode.patientEmail = user.Email;
+            return episode;
         }
 
         [HttpGet]
@@ -47,6 +55,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         [Route("data/episodes")]
         public Episode AddEpisode(Episode episode)
         {
+            episode.therapistId = User.GetServiceAccount();
             var response = _episodeService.AddEpisode(episode);
             episode.id = response;
 

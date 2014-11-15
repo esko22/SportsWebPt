@@ -7,9 +7,9 @@ namespace SportsWebPt.Platform.Web.Core
     {
         #region Properties
 
-        public int id { get; set; }
+        public String id { get; set; }
 
-        public String externalAccountId { get; set; }
+        public String subjectId { get; set; }
 
         public String emailAddress { get; set; }
 
@@ -28,8 +28,6 @@ namespace SportsWebPt.Platform.Web.Core
         public Boolean isClinicManager { get; set; }
 
         public Boolean accountLinked { get; set; }
-
-        public String serviceAccount { get; set; }
 
         public IEnumerable<Favorite> videos { get; set; }
 
@@ -100,6 +98,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public int id { get; set; }
 
+        public String clinicPatientIdentifier { get; set; }
+
         public Boolean userConfirmed { get; set; }
 
         public User user { get; set; }
@@ -116,6 +116,8 @@ namespace SportsWebPt.Platform.Web.Core
         #region Properties
 
         public int id { get; set; }
+
+        public String clinicTherapistIdentifier { get; set; }
 
         public Boolean userConfirmed { get; set; }
 

@@ -13,8 +13,8 @@ namespace SportsWebPt.Platform.Web.Services
     public interface IClinicService
     {
         IEnumerable<Clinic> GetManagedClinics(String clinicManagerId);
-        IEnumerable<User> GetClinicPatients(int clinicId);
-        IEnumerable<Therapist> GetClinicTherapists(int clinicId);
+        IEnumerable<ClinicPatient> GetClinicPatients(int clinicId);
+        IEnumerable<ClinicTherapist> GetClinicTherapists(int clinicId);
         Clinic GetClinic(int clinicId);
         ClinicPatient AddPatientToClinic(int clinicId, User user);
         ClinicTherapist AddTherapistToClinic(int clinicId, User user);
@@ -55,18 +55,18 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Clinic>>(request.Response.Items);
         }
 
-        public IEnumerable<User> GetClinicPatients(int clinicId)
+        public IEnumerable<ClinicPatient> GetClinicPatients(int clinicId)
         {
             var request = GetSync(new ClinicPatientListRequest() { Id = clinicId.ToString() });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<User>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<ClinicPatient>>(request.Response.Items);
         }
 
-        public IEnumerable<Therapist> GetClinicTherapists(int clinicId)
+        public IEnumerable<ClinicTherapist> GetClinicTherapists(int clinicId)
         {
             var request = GetSync(new ClinicTherapistListRequest() { Id = clinicId.ToString() });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<Therapist>>(request.Response.Items);
+            return request.Response == null ? null : Mapper.Map<IEnumerable<ClinicTherapist>>(request.Response.Items);
         }
 
         public ClinicPatient AddPatientToClinic(int clinicId, User user)
@@ -75,7 +75,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userToAdd = userService.GetByEmail(user.emailAddress);
             if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
-                user.externalAccountId = userToAdd.GetClaimValue("service_account");
+                user.id = userToAdd.GetClaimValue("service_account");
                 user.accountLinked = true;
             }
 
@@ -83,8 +83,8 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.User.ExternalAccountId);
-                userToAdd.ServiceAccount = request.Response.User.ExternalAccountId;
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.User.Id);
+                userToAdd.ServiceAccount = request.Response.User.Id;
                 userService.Update(userToAdd);
             }
 
@@ -97,7 +97,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userToAdd = userService.GetByEmail(user.emailAddress);
             if (userToAdd != null && userToAdd.HasClaim("service_account"))
             {
-                user.externalAccountId = userToAdd.GetClaimValue("service_account");
+                user.id = userToAdd.GetClaimValue("service_account");
                 user.accountLinked = true; 
                 
                 if (!userToAdd.HasClaim("role", "therapist"))
@@ -108,11 +108,11 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (userToAdd != null && !user.accountLinked)
             {
-                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Therapist.ExternalAccountId);
+                userService.AddClaim(userToAdd.ID, "service_account", request.Response.Therapist.Id);
                 userService.AddClaim(userToAdd.ID, "role", "therapist");
                 userService.Update(userToAdd);
 
-                userToAdd.ServiceAccount = request.Response.Therapist.ExternalAccountId;
+                userToAdd.ServiceAccount = request.Response.Therapist.Id;
             }
 
             return request.Response == null ? null : Mapper.Map<ClinicTherapist>(request.Response);

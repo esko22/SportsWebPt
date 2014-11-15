@@ -31,22 +31,14 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public User GetUserById(int userId)
+        public User GetUserById(Guid userId)
         {
             return UserRepository.GetUserDetails().SingleOrDefault(w => w.Id == userId);
-        }
-        
-        public User GetUserBySubject(string subjectId)
-        {
-            return UserRepository.GetUserDetails()
-                                .SingleOrDefault(
-                                    p =>
-                                    p.ExternalAccountId.Equals(subjectId, StringComparison.OrdinalIgnoreCase));
         }
 
         public User AddUser(User user)
         {
-            user.ExternalAccountId = Guid.NewGuid().ToString();
+            user.Id = Guid.NewGuid();
             UserRepository.Add(user);
             Commit();
 
@@ -58,18 +50,18 @@ namespace SportsWebPt.Platform.DataAccess
             TherapistRepository.Add(new Therapist() { Id = user.Id} );
             Commit();
 
-            return TherapistRepository.GetById(user.Id);
+            return GetTherapistById(user.Id);
         }
 
-        public Therapist GetTherapistById(int therapistId)
+        public Therapist GetTherapistById(Guid therapistId)
         {
-            return TherapistRepository.GetById(therapistId);
+            return TherapistRepository.GetAll().SingleOrDefault(s => s.Id == therapistId);
         }
 
-        public User UpdateUser(User newUser, int originalUserId)
+        public User UpdateUser(User newUser, Guid originalUserId)
         {
             var userInDb =
-                UserRepository.GetById(originalUserId);
+                GetUserById(originalUserId);
 
             if (userInDb == null)
                 throw new ArgumentNullException("user id", "user id does not exist");
@@ -96,11 +88,10 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<Video> VideoRepository { get; }
         IRepository<Exercise> ExerciseRepository { get; }
 
-        User GetUserById(int userId);
-        User GetUserBySubject(string subjectId);
+        User GetUserById(Guid userId);
         User AddUser(User user);
-        User UpdateUser(User newUser, int originalUserId);
+        User UpdateUser(User newUser, Guid originalUserId);
         Therapist AddTherapist(User user);
-        Therapist GetTherapistById(int therapistId);
+        Therapist GetTherapistById(Guid therapistId);
     }
 }

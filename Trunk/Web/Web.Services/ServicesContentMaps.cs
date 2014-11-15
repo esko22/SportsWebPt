@@ -155,7 +155,12 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Plan, PlanDto>()
                   .Include<Plan, CreatePlanRequest>()
                   .Include<Plan, UpdatePlanRequest>()
-                  .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
+                  .ForMember(d => d.Categories,
+                      opt =>
+                      {
+                          opt.Condition(s => s.categories != null && s.categories.Any());
+                          opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_")));
+                      });
             Mapper.CreateMap<Plan, CreatePlanRequest>()
                   .ForMember(d => d.Categories, opt => opt.MapFrom(s => s.categories.Select(p => p.Replace(" ", "_"))));
 

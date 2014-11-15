@@ -20,7 +20,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Notes { get; set; }
 
-        public int ScheduledWithId { get; set; }
+        public Guid ScheduledWithId { get; set; }
 
         public Int64 EpisodeId { get; set; }
 

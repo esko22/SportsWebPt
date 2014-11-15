@@ -18,9 +18,11 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public int PrognosisId { get; set; }
 
-        public int PatientId { get; set; }
+        public int ClinicPatientId { get; set; }
 
-        public int TherapistId { get; set; }
+        public String PatientId { get; set; }
+
+        public String TherapistId { get; set; }
 
         public int ClinicId { get; set; }
 
@@ -34,6 +36,8 @@ namespace SportsWebPt.Platform.ServiceModels
         #region Properties
 
         public PrognosisDto Prognosis { get; set; }
+
+        public String ClinicPatientIdentifier { get; set; }
 
         public String PatientEmail { get; set; }
 

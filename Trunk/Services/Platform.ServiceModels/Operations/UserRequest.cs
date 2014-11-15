@@ -1,4 +1,5 @@
 ﻿
+using System;
 using ServiceStack.ServiceHost;
 using SportsWebPt.Common.ServiceStack;
 
@@ -33,7 +34,7 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         #region Properties
 
-        public int Id { get; set; }
+        public String Id { get; set; }
 
         #endregion
     }
