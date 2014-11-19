@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using System.Web;
+using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,13 @@ namespace SportsWebPt.Identity.Services.Core
 {
     public class ViewService : IViewService
     {
-        IClientStore clientStore;
-        public ViewService(IClientStore clientStore)
+        public virtual Task<System.IO.Stream> Login(IDictionary<string, object> env, LoginViewModel model, SignInMessage message)
         {
-            this.clientStore = clientStore;
-        }
+            var loginViewModel = new SwptLoginModel(model);
+            var returnUrlQueryStrings = HttpUtility.ParseQueryString(message.ReturnUrl);
+            loginViewModel.ViewType = returnUrlQueryStrings.Get("viewType");
 
-        public virtual async Task<System.IO.Stream> Login(IDictionary<string, object> env, LoginViewModel model, SignInMessage message)
-        {
-            var client = await clientStore.FindClientByIdAsync(message.ClientId);
-            var name = client != null ? client.ClientName : null;
-            return await Render(model, "login", name);
+            return Render(loginViewModel, "login");
         }
 
         public virtual Task<System.IO.Stream> Logout(IDictionary<string, object> env, LogoutViewModel model)
@@ -41,17 +38,12 @@ namespace SportsWebPt.Identity.Services.Core
             return Render(model, "consent");
         }
 
-        public Task<Stream> ClientPermissions(IDictionary<string, object> env, ClientPermissionsViewModel model)
-        {
-            return Render(model, "permissions");
-        }
-
         public virtual Task<System.IO.Stream> Error(IDictionary<string, object> env, ErrorViewModel model)
         {
             return Render(model, "error");
         }
 
-        protected virtual Task<System.IO.Stream> Render(CommonViewModel model, string page, string clientName = null)
+        protected virtual Task<System.IO.Stream> Render(CommonViewModel model, string page)
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(model, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() });
 
@@ -60,7 +52,6 @@ namespace SportsWebPt.Identity.Services.Core
             {
                 siteName = model.SiteName,
                 model = json,
-                clientName = clientName
             });
 
             return Task.FromResult(StringToStream(html));
@@ -77,12 +68,7 @@ namespace SportsWebPt.Identity.Services.Core
         {
             foreach (var key in values.Keys)
             {
-                var val = values[key];
-                val = val ?? String.Empty;
-                if (val != null)
-                {
-                    value = value.Replace("{" + key + "}", val.ToString());
-                }
+                value = value.Replace("{" + key + "}", values[key].ToString());
             }
             return value;
         }
@@ -117,5 +103,41 @@ namespace SportsWebPt.Identity.Services.Core
             ms.Seek(0, SeekOrigin.Begin);
             return ms;
         }
+
+        public Task<Stream> ClientPermissions(IDictionary<string, object> env, ClientPermissionsViewModel model)
+        {
+            return Render(model, "permissions");
+        }
+    }
+
+    public class SwptLoginModel : LoginViewModel
+    {
+        #region Properties
+
+        public String ViewType { get; set; }
+
+        #endregion
+
+        #region
+
+        public SwptLoginModel(LoginViewModel loginViewModel)
+        {
+            //TODO: move to a library mapping function
+            base.AdditionalLinks = loginViewModel.AdditionalLinks;
+            base.AllowRememberMe = loginViewModel.AllowRememberMe;
+            base.AntiForgery = loginViewModel.AntiForgery;
+            base.CurrentUser = loginViewModel.CurrentUser;
+            base.ErrorMessage = loginViewModel.ErrorMessage;
+            base.ExternalProviders = loginViewModel.ExternalProviders;
+            base.LoginUrl = loginViewModel.LoginUrl;
+            base.LogoutUrl = loginViewModel.LogoutUrl;
+            base.RememberMe = loginViewModel.RememberMe;
+            base.SiteName = loginViewModel.SiteName;
+            base.SiteUrl = loginViewModel.SiteUrl;
+            base.Username = loginViewModel.Username;
+            
+        }
+
+        #endregion
     }
 }

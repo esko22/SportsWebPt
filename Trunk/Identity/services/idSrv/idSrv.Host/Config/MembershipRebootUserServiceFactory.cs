@@ -59,25 +59,25 @@ namespace SportsWebPt.Identity.Services
             : base(userAccountService, cleanup)
         {}
 
+        //TODO: commenting out for now, don't need any additional info for external openid providers at this time
+        //public override Task<AuthenticateResult> AuthenticateExternalAsync(ExternalIdentity externalUser)
+        //{
+        //    if (externalUser == null)
+        //        throw new ArgumentNullException("externalUser");
 
-        public override Task<AuthenticateResult> AuthenticateExternalAsync(ExternalIdentity externalUser)
-        {
-            if (externalUser == null)
-                throw new ArgumentNullException("externalUser");
+        //    var acct = userAccountService.GetByLinkedAccount(externalUser.Provider, externalUser.ProviderId);
 
-            var acct = userAccountService.GetByLinkedAccount(externalUser.Provider, externalUser.ProviderId);
+        //    if (acct == null)
+        //    {
+        //        var createAccountResult = ProcessNewExternalAccountAsync(externalUser.Provider, externalUser.ProviderId,
+        //             externalUser.Claims).Result;
 
-            if (acct == null)
-            {
-                var createAccountResult = ProcessNewExternalAccountAsync(externalUser.Provider, externalUser.ProviderId,
-                     externalUser.Claims).Result;
+        //        return Task.FromResult(new AuthenticateResult("/core/register/external", externalUser));
+        //    }
 
-                return Task.FromResult(new AuthenticateResult("/core/register/external", externalUser));
-            }
+        //    return ProcessExistingExternalAccountAsync(acct.ID, externalUser.Provider,
+        //        externalUser.ProviderId, GetClaimsFromAccount(acct));
 
-            return ProcessExistingExternalAccountAsync(acct.ID, externalUser.Provider,
-                externalUser.ProviderId, GetClaimsFromAccount(acct));
-
-        }
+        //}
     }
 }

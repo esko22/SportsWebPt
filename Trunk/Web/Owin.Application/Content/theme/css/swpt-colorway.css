@@ -647,3 +647,12 @@ body a .de-em {
     zoom: 1;
 }
 
+#navigation .user-menu .btn {
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 0 1.5em;
+  height: 36px;
+  line-height: 36px;
+  margin: 9px 0;
+}
+

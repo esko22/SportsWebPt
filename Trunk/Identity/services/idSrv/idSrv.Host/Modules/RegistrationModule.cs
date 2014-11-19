@@ -17,30 +17,39 @@ namespace SportsWebPt.Identity.Services.Modules
 
             Get["/register"] = _ =>
             {
-                var model = new {title = "SportsWebPt Registration", signin = Request.Query["signin"]};
+                var model = new { title = "SportsWebPt Registration", signin = Request.Query["signin"], errorMessage = ""};
                 return View["registration", model];
             };
 
             Post["/register"] = _ =>
             {
+
                 var registrationData = this.Bind<LocalRegistrationModel>();
                 var userAccountService = UserAccountServiceFactory.GetUserAccountService();
-                if (userAccountService != null)
+
+                try
                 {
-                    var user = userAccountService.CreateAccount(registrationData.Username,
-                        registrationData.Password,
-                        registrationData.Email);
-
-                    var claimCollection = new UserClaimCollection(new[]
+                    if (userAccountService != null)
                     {
-                        new Claim("first name", registrationData.FirstName),
-                        new Claim("last name", registrationData.LastName),
-                        new Claim("name",
-                            String.Format("{0} {1}", registrationData.FirstName, registrationData.LastName)),
-                        new Claim("invite code", registrationData.InviteCode)
-                    });
+                        var user = userAccountService.CreateAccount(registrationData.Username,
+                            registrationData.SignupPassword,
+                            registrationData.Email);
 
-                    userAccountService.AddClaims(user.ID, claimCollection);
+                        var claimCollection = new UserClaimCollection(new[]
+                        {
+                            new Claim("first name", registrationData.FirstName),
+                            new Claim("last name", registrationData.LastName),
+                            new Claim("name",
+                                String.Format("{0} {1}", registrationData.FirstName, registrationData.LastName))
+                        });
+
+                        userAccountService.AddClaims(user.ID, claimCollection);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    var model = new { title = "SportsWebPt Registration", signin = Request.Query["signin"], errorMessage = ex.Message };
+                    return View["registration", model];
                 }
 
                 return new RedirectResponse("/core/" + Constants.RoutePaths.Login + "?signin=" + Request.Query["signin"]);
@@ -82,8 +91,7 @@ namespace SportsWebPt.Identity.Services.Modules
 
                     var claimCollection = new UserClaimCollection(new[]
                     {
-                        new Claim("username", registrationData.Username),
-                        new Claim("invite code", registrationData.InviteCode)
+                        new Claim("username", registrationData.Username)
                     });
 
                     userAccountService.AddClaims(acct.ID, claimCollection);
@@ -99,16 +107,16 @@ namespace SportsWebPt.Identity.Services.Modules
     public class LocalRegistrationModel
     {
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string SignupPassword { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string InviteCode { get; set; }
+        public string State { get; set; }
         public String Email { get; set; }
     }
 
     public class ExternalRegistrationModel
     {
         public string Username { get; set; }
-        public string InviteCode { get; set; }
+        public string State { get; set; }
     }
 }

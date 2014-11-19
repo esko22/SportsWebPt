@@ -1,0 +1,28 @@
+﻿<div class="navbar-static-top" id="navigation">
+    <div class="header">
+        <div class="header-inner container">
+            <div class="row">
+                <div class="col-md-8">
+                    <a class="navbar-brand" href="http://sportswebpt.com"><img class="header-logo" style="padding-right: 16px;" src="/Content/images/logoFooterDark.png" /></a>
+                    <div class="slogan" style="margin-top: 16px;">Guided, effective, always accessible</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar" id="master-header">
+        <ul class="nav navbar-nav" ng-show="model.currentUser" ng-cloak>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{model.currentUser}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{model.logoutUrl}}">Logout</a></li>
+                    <li class="divider" ng-show="model.loginWithDifferentAccountUrl"></li>
+                    <li><a href="{{model.loginWithDifferentAccountUrl}}" ng-show="model.loginWithDifferentAccountUrl">Login With Different Account</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
