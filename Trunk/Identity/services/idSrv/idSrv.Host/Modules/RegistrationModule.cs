@@ -21,6 +21,13 @@ namespace SportsWebPt.Identity.Services.Modules
                 return View["registration", model];
             };
 
+            Get["/register/login"] = _ =>
+            {
+                var model = new { title = "SportsWebPt Registration", signin = Request.Query["signin"], errorMessage = "" };
+                return View["login", model];
+            };
+
+
             Post["/register"] = _ =>
             {
 
@@ -51,6 +58,8 @@ namespace SportsWebPt.Identity.Services.Modules
                     var model = new { title = "SportsWebPt Registration", signin = Request.Query["signin"], errorMessage = ex.Message };
                     return View["registration", model];
                 }
+
+                //return new RedirectResponse("/core/register/login?signin=" + Request.Query["signin"]);
 
                 return new RedirectResponse("/core/" + Constants.RoutePaths.Login + "?signin=" + Request.Query["signin"]);
             };

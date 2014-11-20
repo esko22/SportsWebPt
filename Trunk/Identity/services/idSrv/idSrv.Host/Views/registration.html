@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="page-header">
-                        <h1>Create a SportsWebPt Login</h1>
+                        <h1>Create a SportsWebPt Account</h1>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                     <span class="help-block" ng-show="signUpForm.signupPassword2.$error.required  && rc.signUpForm.attempted">Required</span>
                                     <span class="help-block" ng-show="signUpForm.signupPassword2.$error.pwmatch  && rc.signUpForm.attempted">Passwords must be the same.</span>
                                 </div>
-                                <div class="form-group">
+                                <div align="center" class="form-group">
                                     <input type="submit" class="btn btn-primary"></input>
                                 </div>
                                 <div ng-show="model.errorMessage" class="alert alert-danger">
@@ -86,12 +86,13 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <a href="/core/login?signin=@Model.signin" class="href-no-underline"><h4 style="color: #333333">Already have an account?</h4></a>
+                    <div class="row">
+                        <div align="center">
+                            <h4>Already have an account or want to use a social provider??</h4>
+                            <a href="/core/login?signin=@Model.signin" class="login-btn login-twitter" style="width:310px;"><span style="padding-left:100px;">Go to Sign In</span></a>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

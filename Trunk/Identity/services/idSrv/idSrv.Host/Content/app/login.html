@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="page-header">
-                        <h1>Log In</h1>
+                        <h1>Sign In</h1>
                     </div>
                 </div>
             </div>
@@ -27,44 +27,24 @@
                             <div>
                                 <ul class="list-no-style">
                                     <li ng-repeat="provider in model.externalProviders">
-                                        <a class="login-{{provider.text.toLowerCase()}} login-btn" href="{{provider.href}}"><i class="icon-sportswebpt-{{provider.text.toLowerCase()}} login-icon"></i>Log in using {{provider.text}}</a>
+                                        <a class="login-{{provider.text.toLowerCase()}} login-btn" href="{{provider.href}}"><i class="icon-sportswebpt-{{provider.text.toLowerCase()}} login-icon"></i>Sign in using {{provider.text}}</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="top-border-header text-center">
-                                <h4>or log in with your SportsWebPt account</h4>
+                                <h4>or sign in with your SportsWebPt account</h4>
                             </div>
-                            <form name="loginForm" method="post" action="{{model.loginUrl}}">
-                                <anti-forgery-token token="model.antiForgery"></anti-forgery-token>
-                                <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.username)}">
-                                    <div class="input-group">
-                                        <span class="input-group-addon icon-sportswebpt-user"></span>
-                                        <input class="form-control" name="username" type="text" ng-model="user.username" placeholder="Username" ng-minlength="6" ng-maxlength="12" required>
-                                    </div>
-                                </div>
-                                <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(signUpForm.signupPassword)}">
-                                    <div class="input-group ">
-                                        <span class="input-group-addon icon-sportswebpt-suitcase3"></span>
-                                        <input class="form-control" id="password" name="password" type="password" ng-model="user.password" placeholder="Password" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">Login</button>
-                                    <a class="btn btn-default" onclick="window.history.go(-1); return false;">Cancel</a>
-                                </div>
-                                <div ng-show="model.errorMessage" class="alert alert-danger">
-                                    <strong>Error:</strong>
-                                    {{model.errorMessage}}
-                                </div>
-                            </form>
+                            <login></login>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <div class="text-center">
-                        <a href="{{model.additionalLinks[0].href}}" class="href-no-underline"><h4 style="color: #333333">Create a SportsWebPt account</h4></a>
+                    <div class="row">
+                        <div align="center">
+                            <h4>Don't have an account or want to use a social provider??</h4>
+                            <a href="{{model.additionalLinks[0].href}}" class="login-btn login-twitter" style="width:310px;"><span style="padding-left: 10px">Create a SportsWebPt account</span></a>
+                        </div>
                     </div>
-
                 </div>
             </div>        
     </div>

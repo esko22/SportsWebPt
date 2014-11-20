@@ -29,7 +29,7 @@ swptApp.service('authenticationService', ['$window', function ($window) {
         $window.sessionStorage.redirectUrl = redirectUri;
         var uri = URI('http://localhost:3333/core/connect/authorize')
            .addSearch('response_type', 'token')
-           .addSearch('client_id', 'implicitclient')
+           .addSearch('client_id', '94CDBD19-3B0D-4D64-980C-6DC68D26B31B')
            .addSearch('scope', 'user_detail')
            .addSearch('redirect_uri', 'http://localhost:8022/auth')
            .addSearch('nonce', Math.floor(Math.random() * 99999));

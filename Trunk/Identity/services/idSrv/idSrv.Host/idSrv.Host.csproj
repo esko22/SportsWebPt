@@ -451,6 +451,7 @@
     <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.js" />
     <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.min.js" />
     <Content Include="Views\externalRegistration.html" />
+    <Content Include="Views\login.html" />
     <Content Include="Views\registration.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

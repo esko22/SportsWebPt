@@ -15,8 +15,8 @@ namespace Thinktecture.IdentityServer.Host.Config
                 {
                     ClientName = "Implicit Clients",
                     Enabled = true,
-                    ClientId = "implicitclient",
-                    ClientSecret = "secret",
+                    ClientId = "94CDBD19-3B0D-4D64-980C-6DC68D26B31B",
+                    ClientSecret = "2CB157BE-5FCB-4AA6-8B29-76B42F8EA744",
                     Flow = Flows.Implicit,
                     
                     ClientUri = "http://www.thinktecture.com",
@@ -24,14 +24,11 @@ namespace Thinktecture.IdentityServer.Host.Config
 
                     RequireConsent = true,
                     AllowRememberConsent = true,
-                    PostLogoutRedirectUris = new List<Uri>
-                    {
-                        new Uri("http://localhost:8022")
-                    },
                     RedirectUris = new List<Uri>
                     {
                         // JavaScript client
-                        new Uri("http://localhost:21575/index.html"),
+                        new Uri("http://sportswebpt.com/auth"),
+                        new Uri("https://sportswebpt.com/auth"),
                         new Uri("http://localhost:8022/auth")
                     },
                     

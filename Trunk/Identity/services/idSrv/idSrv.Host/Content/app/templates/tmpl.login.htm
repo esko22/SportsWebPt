@@ -1,54 +1,25 @@
-﻿<section>
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <div class="page-header">
-                <h1>Log In</h1>
+﻿<div>
+    <form name="loginForm" method="post" action="{{model.loginUrl}}">
+        <anti-forgery-token token="model.antiForgery"></anti-forgery-token>
+        <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(loginForm.username)}">
+            <div class="input-group">
+                <span class="input-group-addon icon-sportswebpt-user"></span>
+                <input class="form-control" name="username" type="text" ng-model="user.username" placeholder="Username" ng-minlength="6" ng-maxlength="12" required>
             </div>
         </div>
-    </div>
-    <div class="row login-page">
-        <div class="col-md-6 col-sm-6">
-            <div class="panel panel-default" style="background: #f3f3f3">
-                <div class="panel-body">
-                    <div>
-                        <ul class="list-no-style">
-                            <li ng-repeat="provider in model.externalProviders">
-                                <a class="login-{{provider.text.toLowerCase()}} login-btn" href="{{provider.href}}"><i class="icon-sportswebpt-{{provider.text.toLowerCase()}} login-icon"></i>Log in using {{provider.text}}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="top-border-header text-center">
-                        <h4>or log in with your SportsWebPt account</h4>
-                    </div>
-                    <form name="form" method="post" action="{{model.loginUrl}}">
-                        <anti-forgery-token token="model.antiForgery"></anti-forgery-token>
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input required name="username" autofocus id="username" type="text" class="form-control" placeholder="Username" ng-model="model.username">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input required id="password" name="password" type="password" class="form-control" placeholder="Password" ng-model="model.password">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary" ng-disabled="form.$invalid">Login</button>
-                                <a class="btn btn-default" ng-href="#/Home">Cancel</a>
-                            </div>
-                            <div ng-show="model.errorMessage" class="alert alert-danger">
-                                <strong>Error:</strong>
-                                {{model.errorMessage}}
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
+        <div class="form-group" ng-class="{'has-error': rc.loginForm.needsAttention(signUpForm.signupPassword)}">
+            <div class="input-group ">
+                <span class="input-group-addon icon-sportswebpt-suitcase3"></span>
+                <input class="form-control" id="password" name="password" type="password" ng-model="user.password" placeholder="Password" required>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="text-center">
-                <a href="{{model.additionalLinks[0].href}}" class="href-no-underline"><h4 style="color: #333333">Create a SportsWebPt account</h4></a>
-            </div>
-
+        <div align="center" class="form-group">
+            <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">Login</button>
+            <a class="btn btn-default" onclick="window.history.go(-1); return false;">Cancel</a>
         </div>
-    </div>
-</section>
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            <strong>Error:</strong>
+            {{model.errorMessage}}
+        </div>
+    </form>
+</div>
