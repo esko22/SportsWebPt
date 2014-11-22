@@ -6,6 +6,7 @@ using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Common.Utilities.Security;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -115,8 +116,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                             "Hello, you have requested by {0} to create an account on SportsWebPt to access your physical therapy information {1}", clinic.Name, Environment.NewLine);
                     messageBody = messageBody +
                                   String.Format(
-                                      "Please click on the following link to start the registration process: http://localhost:8022/register/{0}/patient {1}",
-                                      clinic.Id, Environment.NewLine);
+                                      "Please click on the following link to start the registration process: {0}/{1}/patient {2}",
+                                      PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, Environment.NewLine);
 
                     messageBody = messageBody + Environment.NewLine + Environment.NewLine;
                     messageBody = messageBody +
@@ -185,8 +186,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                             "Hello, you have requested by {0} to create an account on SportsWebPt to manage your patients and content. {1}", clinic.Name, Environment.NewLine);
                     messageBody = messageBody +
                                   String.Format(
-                                      "Please click on the following link to start the registration process: http://localhost:8022/register/{0}/therapist {1}",
-                                      clinic.Id, Environment.NewLine);
+                                      "Please click on the following link to start the registration process: {0}/{1}/therapist {2}",
+                                      PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, Environment.NewLine);
 
                     messageBody = messageBody + Environment.NewLine + Environment.NewLine;
                     messageBody = messageBody +

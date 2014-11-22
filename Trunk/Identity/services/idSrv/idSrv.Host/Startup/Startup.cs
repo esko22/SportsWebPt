@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Web.Http;
+using System.Web.SessionState;
 using BrockAllen.MembershipReboot;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
@@ -33,7 +34,7 @@ namespace Thinktecture.IdentityServer.Host
             {
 
                 LogProvider.SetCurrentLogProvider(new DiagnosticsTraceLogProvider());
-                var idsrvOptions = new IdentityServerOptions
+                IdentityServerOptions = new IdentityServerOptions
                 {
                     IssuerUri = "https://idsrv3.com",
                     SiteName = "SportsWebPt",
@@ -55,10 +56,12 @@ namespace Thinktecture.IdentityServer.Host
                         }
                     }
                 };
-                coreApp.UseIdentityServer(idsrvOptions);
+                coreApp.UseIdentityServer(IdentityServerOptions);
                 coreApp.UseNancy(new NancyOptions() { });
             });
         }
+
+        internal static IdentityServerOptions IdentityServerOptions { get; private set; }
 
         public static void ConfigureIdentityProviders(IAppBuilder app, string signInAsType)
         {

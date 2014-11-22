@@ -27,18 +27,17 @@ swptApp.service('authenticationService', ['$window', function ($window) {
     var signIn = function (redirectUri) {
         $window.localStorage.removeItem('access_token');
         $window.sessionStorage.redirectUrl = redirectUri;
-        var uri = URI('http://localhost:3333/core/connect/authorize')
+        var uri = URI(SportsWebPt.Config.AuthorityUrl + '/connect/authorize')
            .addSearch('response_type', 'token')
            .addSearch('client_id', '94CDBD19-3B0D-4D64-980C-6DC68D26B31B')
            .addSearch('scope', 'user_detail')
-           .addSearch('redirect_uri', 'http://localhost:8022/auth')
+           .addSearch('redirect_uri', SportsWebPt.Config.AuthRedirectPath)
            .addSearch('nonce', Math.floor(Math.random() * 99999));
         $window.location.href = uri;
     }
 
     var signOut = function () {
-        var uri = URI('http://localhost:3333/core/logout')
-            .addSearch('post_logout_redirect_uri', 'http://localhost:8022');
+        var uri = URI(SportsWebPt.Config.AuthorityUrl +'/logout');
         $window.location.href = uri;
         $window.localStorage.removeItem('access_token');
     }

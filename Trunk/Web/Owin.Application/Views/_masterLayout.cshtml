@@ -22,8 +22,6 @@
     @Html.Raw(Scripts.Render("~/bundles/modernizr").ToString())
 </head>
 <body id="body-content">
-    <input type="hidden" id="authTime" value="@Model.authTime" />
-
     @RenderBody()
 
     @Html.AntiForgeryToken()
@@ -35,6 +33,14 @@
     @Html.Raw(Scripts.Render(
     "~/bundles/angular",
     "~/bundles/angularApp").ToString())
+    <script>
+    var SportsWebPt = {
+    Config: {
+    AuthRedirectPath: '@Model.authRedirectPath',
+    AuthorityUrl: '@Model.authorityUrl'
+    }
+    };
+    </script>
 </body>
 </html>
 

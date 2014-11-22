@@ -37,6 +37,8 @@ namespace SportsWebPt.Platform.Core
 
         public string ApiVersion { get; private set; }
 
+        public string RegistrationPathUri { get; private set; }
+
         public IEnumerable<String> ApiDocumentAssemblies { get; private set; }
 
         public int ClinicId { get; private set; }
@@ -71,6 +73,7 @@ namespace SportsWebPt.Platform.Core
         {
             ApiUrl = ConfigurationManager.AppSettings["apiUri"];
             ApiVersion = ConfigurationManager.AppSettings["apiVersion"];
+            RegistrationPathUri = ConfigurationManager.AppSettings["registrationPathUri"];
             ApiDocumentAssemblies = ConfigurationManager.AppSettings["apiDocumentAssemblies"].Split(',');
             ClinicId = int.Parse(ConfigurationManager.AppSettings["clinicId"]);
         }

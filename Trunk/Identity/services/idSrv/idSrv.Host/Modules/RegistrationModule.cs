@@ -4,9 +4,13 @@ using System.Security.Claims;
 using BrockAllen.MembershipReboot;
 using Nancy;
 using Nancy.ModelBinding;
+using Nancy.Owin;
 using Nancy.Responses;
 using Nancy.Security;
 using Thinktecture.IdentityServer.Core;
+using Thinktecture.IdentityServer.Core.Configuration.Hosting;
+using Thinktecture.IdentityServer.Core.Models;
+using Thinktecture.IdentityServer.Host;
 
 namespace SportsWebPt.Identity.Services.Modules
 {
@@ -59,9 +63,14 @@ namespace SportsWebPt.Identity.Services.Modules
                     return View["registration", model];
                 }
 
-                //return new RedirectResponse("/core/register/login?signin=" + Request.Query["signin"]);
 
-                return new RedirectResponse("/core/" + Constants.RoutePaths.Login + "?signin=" + Request.Query["signin"]);
+                var userService = MembershipRebootUserServiceFactory.Factory();
+                var localAuthResult = userService.AuthenticateLocalAsync(registrationData.Username, registrationData.SignupPassword);
+                Context.GetAuthenticationManager().SignIn(new ClaimsIdentity(localAuthResult.Result.User.Claims, Constants.PrimaryAuthenticationType));
+                var cookie = new MessageCookie<SignInMessage>(Context.GetOwinEnvironment(), Startup.IdentityServerOptions);
+                var signInMessage = cookie.Read(Request.Query["signin"]);
+
+                return new RedirectResponse(signInMessage.ReturnUrl);
             };
         }
 

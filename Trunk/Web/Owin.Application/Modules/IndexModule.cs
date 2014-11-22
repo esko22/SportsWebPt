@@ -8,6 +8,7 @@ using Nancy.ErrorHandling;
 using Nancy.Owin;
 using Nancy.Security;
 using Nancy.ViewEngines;
+using SportsWebPt.Platform.Web.Core;
 
 
 namespace SportsWebPt.Platform.Web.Application
@@ -52,10 +53,12 @@ namespace SportsWebPt.Platform.Web.Application
     {
         public static dynamic BuildIndexModel(this NancyContext context)
         {
-            var user = context.GetAuthenticationManager().User;
-            var tokenClaim = user.FindFirst("auth_time");
-
-            return new { title = "Accessible Physical Therapy", authTime = tokenClaim == null ? "" : tokenClaim.Value };
+            return new
+            {
+                title = "Accessible Physical Therapy",
+                authRedirectPath = WebPlatformConfigSettings.Instance.CallbackUri,
+                authorityUrl = WebPlatformConfigSettings.Instance.AuthorityUri
+            };
         }
     }
 }
