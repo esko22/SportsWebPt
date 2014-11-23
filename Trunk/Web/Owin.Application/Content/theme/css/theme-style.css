@@ -4404,7 +4404,7 @@ blockquote small img {
 .title-divider {
   text-align: left;
   margin-bottom: 1em;
-  background: url(../img/bg_divider.png) left center repeat-x;
+  background: url(/content/theme/img/bg_divider.png) left center repeat-x;
   padding: 0;
 }
 .title-divider span {
@@ -5058,7 +5058,7 @@ a:hover .icon-inverse-80 {
 }
 #jPanelMenu-menu {
   background-color: #1b1b1b;
-  background-image: url(../img/bg_noise-2.png);
+  background-image: url(/content/theme/img/bg_noise-2.png);
   background-position: left top;
   background-repeat: repeat;
   padding: 0;
@@ -5349,7 +5349,7 @@ a:hover .icon-inverse-80 {
   background-image: linear-gradient(to bottom, #202020 0%, #1b1b1b 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff202020', endColorstr='#ff1b1b1b', GradientType=0);
-  background-image: url(../img/bg_noise-2.png);
+  background-image: url(/content/theme/img/bg_noise-2.png);
   background-position: left top;
   background-repeat: repeat;
   -webkit-box-shadow: 1px 1px 10px rgba(27, 27, 27, 0.4);
@@ -5478,7 +5478,7 @@ a:hover .icon-inverse-80 {
   background-image: linear-gradient(to bottom, #202020 0%, #1b1b1b 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff202020', endColorstr='#ff1b1b1b', GradientType=0);
-  background-image: url(../img/bg_noise-2.png);
+  background-image: url(/content/theme/img/bg_noise-2.png);
   background-position: left top;
   background-repeat: repeat;
   background-color: #1b1b1b;

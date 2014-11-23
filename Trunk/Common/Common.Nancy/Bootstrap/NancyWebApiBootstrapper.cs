@@ -73,9 +73,7 @@ namespace SportsWebPt.Common.Nancy
 
             appBuilder.UseWebApi(_httpConfiguration);
             //Nancy route handling is kinda greedy.
-            appBuilder.UseNancy(new NancyOptions() { Bootstrapper = this});
-
-            //, PerformPassThrough = context => context.Response.StatusCode == HttpStatusCode.NotFound 
+            appBuilder.UseNancy(new NancyOptions() { Bootstrapper = this, PerformPassThrough = context => context.Response.StatusCode == HttpStatusCode.NotFound });
 
             //IIS's native static file module is very greedy.
             //http://katanaproject.codeplex.com/discussions/470920

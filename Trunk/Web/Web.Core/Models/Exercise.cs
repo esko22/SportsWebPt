@@ -26,6 +26,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String structuresInvolved { get; set; }
 
+        public Boolean visible { get; set; }
+
         #endregion
     }
 

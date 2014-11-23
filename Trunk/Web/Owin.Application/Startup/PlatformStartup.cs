@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Net.Http.Formatting;
-using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Optimization;
 
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OpenIdConnect;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
-using Nancy.Owin;
 using Nancy.Security;
 using Nancy.TinyIoc;
+
 using Newtonsoft.Json.Serialization;
+
 using Owin;
-using SportsWebPt.Common.Logging;
+
 using SportsWebPt.Common.Nancy;
-using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
+
 using Thinktecture.IdentityServer.v3.AccessTokenValidation;
 
 namespace SportsWebPt.Platform.Web.Application
@@ -48,16 +45,9 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void BuildBundles()
         {
-            // Force optimization to be on or off, regardless of web.config setting
-            BundleTable.EnableOptimizations = false;
-
-#if !DEBUG
-            BundleTable.EnableOptimizations = true;
-#endif
             var bundles = BundleTable.Bundles;
-
             bundles.UseCdn = false;
-            
+
             // .debug.js, -vsdoc.js and .intellisense.js files 
             // are in BundleTable.Bundles.IgnoreList by default.
             // Clear out the list and add back the ones we want to ignore.
@@ -65,16 +55,29 @@ namespace SportsWebPt.Platform.Web.Application
             bundles.IgnoreList.Clear();
             bundles.IgnoreList.Ignore("*-vsdoc.js");
             bundles.IgnoreList.Ignore("*intellisense.js");
-            
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/libs/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/libs/jquery-{version}.js"));
+            //libs
 
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+            var jsPreBundle = new ScriptBundle("~/js/pre");
+            jsPreBundle.Include("~/Scripts/libs/modernizr-*");
+
+            var jsPostBundle = new ScriptBundle("~/js/post");
+            jsPostBundle.Include("~/Scripts/libs/jquery-{version}.js");
+            jsPostBundle.Include(
+            "~/Scripts/libs/Uri.js",
+            "~/Scripts/libs/underscore.js",
+            "~/Scripts/libs/bootstrap.js",
+            "~/Scripts/libs/kendo/kendo.web.min.js",
+            "~/Scripts/libs/toastr.js",
+            "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
+            "~/Content/theme/plugins/clingify/jquery.clingify.js",
+            "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
+            "~/Content/theme/plugins/jRespond/js/jrespond.js"
+            );
+            jsPostBundle.Include(
                         "~/Scripts/libs/angular/angular.js",
                         "~/Scripts/libs/angular/angular-route.js",
                         "~/Scripts/libs/angular/angular-sanitize.js",
@@ -85,30 +88,19 @@ namespace SportsWebPt.Platform.Web.Application
                         "~/Scripts/libs/angular-ui/ui-router.js",
                         "~/Scripts/libs/angular/angular-animate.js",
                         "~/Scripts/libs/angular-bootstrap/ui-bootstrap-tpls-{version}.js",
-                        "~/Scripts/libs/angular-kendo/angular-kendo.js"));
+                        "~/Scripts/libs/angular-kendo/angular-kendo.js");
 
-            bundles.Add(new ScriptBundle("~/bundles/angularApp").IncludeDirectory("~/App/", "*.js", searchSubdirectories: true));
-
-            bundles.Add(new ScriptBundle("~/bundles/jslibs").Include(
-            "~/Scripts/libs/Uri.js",
-            "~/Scripts/libs/underscore.js",
-            "~/Scripts/libs/bootstrap.js",
-            "~/Scripts/libs/kendo/kendo.web.min.js",
-            "~/Scripts/libs/toastr.js",
-            "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
-            "~/Content/theme/plugins/clingify/jquery.clingify.js",
-            "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
-            "~/Content/theme/plugins/jRespond/js/jrespond.js"
-            ));
+            jsPostBundle.IncludeDirectory("~/App/", "*.js", searchSubdirectories: true);
 
 
+            var cssBundle = new StyleBundle("~/content/css");
+            //kendo
+            cssBundle.Include(
+                        "~/Content/kendo/kendo.blueopal.min.css",
+                        "~/Content/kendo/kendo.common.min.css");
 
-            bundles.Add(new StyleBundle("~/content/kendo/bundle").Include(
-                "~/Content/kendo/kendo.blueopal.min.css",
-                "~/Content/kendo/kendo.common.min.css"
-                ));
-
-            bundles.Add(new StyleBundle("~/content/theme/css/appstrap").Include(
+            //theme items
+            cssBundle.Include(
                 "~/Content/bootstrap.css",
                 "~/Content/theme/plugins/flexslider/flexslider.css",
                 "~/Content/theme/plugins/animate/animate.css",
@@ -116,14 +108,27 @@ namespace SportsWebPt.Platform.Web.Application
                 "~/Content/theme/css/swpt-colorway.css",
                 "~/Content/theme/plugins/clingify/clingify.css",
                 "~/Content/theme/css/font-awesome.css"
-                ));
+                );
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            //custom
+            cssBundle.Include(
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
                 "~/Content/ng-grid.css",
                 "~/Content/sportsweb-pt.css"
-                            ));
+                            );
+
+            bundles.Add(jsPreBundle);
+            bundles.Add(jsPostBundle);
+            bundles.Add(cssBundle);
+
+
+            BundleTable.EnableOptimizations = false;
+
+#if !DEBUG
+                        BundleTable.EnableOptimizations = true;
+#endif
+
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
@@ -137,24 +142,27 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void ConfigureConventions(NancyConventions conventions)
         {
-            base.ConfigureConventions(conventions);
-
-            conventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("/app")
-            );
+            //base.ConfigureConventions(conventions);
 
             conventions.StaticContentsConventions.Add(
                 StaticContentConventionBuilder.AddDirectory("/scripts")
                 );
 
             conventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("/bundles")
+                StaticContentConventionBuilder.AddDirectory("/app")
                 );
 
             conventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("/content/css")
+                StaticContentConventionBuilder.AddDirectory("/js")
                 );
 
+            conventions.StaticContentsConventions.Add(
+                StaticContentConventionBuilder.AddDirectory("/css")
+                );
+
+            conventions.StaticContentsConventions.Add(
+                StaticContentConventionBuilder.AddDirectory("/content")
+                );
         }
 
         protected override void ConfigureAuthMiddleware(IAppBuilder appBuilder)

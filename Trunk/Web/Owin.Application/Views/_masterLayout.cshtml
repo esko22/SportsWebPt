@@ -9,9 +9,7 @@
     <title>SportsWebPT - @Model.title</title>
     <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
     <script type="text/javascript" src="http://www.swarminteractive.com/js/vm.js"></script>
-    @Html.Raw(Styles.Render("~/content/kendo/bundle").ToString())
-    @Html.Raw(Styles.Render("~/content/theme/css/appstrap").ToString())
-    @Html.Raw(Styles.Render("~/Content/css").ToString())
+    @Html.Raw(Styles.Render("~/content/css").ToString())
     @Html.Partial("_addThisSDK.cshtml")
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -19,20 +17,18 @@
       <script src="~/scripts/libs/html5shiv.js"></script>
       <script src="~/scripts/libs/respond.min.js"></script>
     <![endif]-->
-    @Html.Raw(Scripts.Render("~/bundles/modernizr").ToString())
+    @Html.Raw(Scripts.Render(
+            "~/js/pre"
+    ).ToString())
 </head>
 <body id="body-content">
+
     @RenderBody()
 
     @Html.AntiForgeryToken()
     @Html.Raw(Scripts.Render(
-    "~/bundles/jquery",
-    "~/bundles/jslibs"
+            "~/js/post"
     ).ToString())
-
-    @Html.Raw(Scripts.Render(
-    "~/bundles/angular",
-    "~/bundles/angularApp").ToString())
     <script>
     var SportsWebPt = {
     Config: {

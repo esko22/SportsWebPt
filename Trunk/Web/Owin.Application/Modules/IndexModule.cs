@@ -42,10 +42,16 @@ namespace SportsWebPt.Platform.Web.Application
 
         public void Handle(HttpStatusCode statusCode, NancyContext context)
         {
-            var response = _viewRenderer.RenderView(context, "index", context.BuildIndexModel());
-            response.StatusCode = HttpStatusCode.OK;
-            
-            context.Response = response;
+            //TODO: make this configurable list.. tied to bundling paths
+            if (context.Request.Path != "/content/css" 
+                && context.Request.Path != "/js/post" 
+                && context.Request.Path != "/js/pre")
+            {
+                var response = _viewRenderer.RenderView(context, "index", context.BuildIndexModel());
+                response.StatusCode = HttpStatusCode.OK;
+
+                context.Response = response;
+            }
         }
     }
 
