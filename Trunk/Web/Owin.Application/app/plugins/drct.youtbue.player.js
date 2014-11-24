@@ -9,7 +9,7 @@ jQueryPluginModule.directive('youtubePlayer', ['$sce', function ($sce) {
         link: function (scope) {
             scope.$watch('code', function (newVal) {
                 if (newVal) {
-                    scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?enablejsapi=1");
+                    scope.url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + newVal + "?enablejsapi=1");
                 }
             });
         }

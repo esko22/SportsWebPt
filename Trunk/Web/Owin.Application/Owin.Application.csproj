@@ -692,6 +692,7 @@
     <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.js" />
     <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.min.js" />
     <Content Include="Content\toastr.css" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.js" />
     <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
@@ -726,6 +727,7 @@
     <Content Include="Scripts\libs\Uri.js" />
     <None Include="Views\_addThisSDK.cshtml" />
     <None Include="Views\_masterLayout.cshtml" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -849,10 +851,6 @@
     <ProjectReference Include="..\..\Common\Common.Nancy\Common.Nancy.csproj">
       <Project>{b2a00b43-287f-419b-b3c8-16fe2a5f3386}</Project>
       <Name>Common.Nancy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\Common.PreRender\Common.PreRender.csproj">
-      <Project>{ea80d503-3412-421b-bf8c-c4960e04e44d}</Project>
-      <Name>Common.PreRender</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.ServiceStack.Base\Common.ServiceStack.Base.csproj">
       <Project>{c13f4c43-687f-4d3c-970d-9394bb8989e5}</Project>

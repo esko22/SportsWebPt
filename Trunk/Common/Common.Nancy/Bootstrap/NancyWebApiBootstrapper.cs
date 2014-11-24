@@ -3,12 +3,11 @@
 using Microsoft.Owin.Extensions;
 
 using Nancy;
-using Nancy.Bootstrapper;
 using Nancy.Owin;
 using Nancy.TinyIoc;
-using Nancy.Security;
 
 using Owin;
+using PrerenderService.Owin;
 using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Utilities;
 
@@ -71,9 +70,11 @@ namespace SportsWebPt.Common.Nancy
             ConfigureWebApi(appBuilder);
             ConfigureAuthMiddleware(appBuilder);
 
+            appBuilder.UsePrerenderer();
             appBuilder.UseWebApi(_httpConfiguration);
             //Nancy route handling is kinda greedy.
             appBuilder.UseNancy(new NancyOptions() { Bootstrapper = this, PerformPassThrough = context => context.Response.StatusCode == HttpStatusCode.NotFound });
+
 
             //IIS's native static file module is very greedy.
             //http://katanaproject.codeplex.com/discussions/470920

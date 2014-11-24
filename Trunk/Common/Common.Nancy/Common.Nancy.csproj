@@ -97,6 +97,10 @@
       <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
       <Name>Common.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrerenderService.Owin\PrerenderService.Owin.csproj">
+      <Project>{b4a0be66-85f4-4d13-8123-fd86306cebc1}</Project>
+      <Name>PrerenderService.Owin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
