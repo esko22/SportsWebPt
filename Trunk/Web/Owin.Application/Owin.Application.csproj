@@ -860,6 +860,14 @@
       <Project>{673df020-3c60-4285-9318-ae793b2dc0b7}</Project>
       <Name>Common.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\PrerenderService.Owin\PrerenderService.Owin.csproj">
+      <Project>{b4a0be66-85f4-4d13-8123-fd86306cebc1}</Project>
+      <Name>PrerenderService.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\PrerenderService\PrerenderService.csproj">
+      <Project>{843c155f-4388-4bea-931e-8b14caa97545}</Project>
+      <Name>PrerenderService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Identity\Identity.Core\Identity.Core.csproj">
       <Project>{af4c143b-bd7c-48d0-883a-4498b40dba67}</Project>
       <Name>Identity.Core</Name>
