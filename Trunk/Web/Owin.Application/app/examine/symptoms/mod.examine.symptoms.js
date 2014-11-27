@@ -56,6 +56,9 @@
                         examineSymptomsService.getSymptoms(bodyPart.bodyPartMatrixId).$promise.then(function(results) {
                             bodyPart.potentialSymptoms = results;
                             if (bodyPart.potentialSymptoms.length > 0) {
+                                angular.forEach(bodyPart.potentialSymptoms, function(symptom) {
+                                    symptom.givenResponse = [];
+                                });
                                 $scope.bodyParts.push(bodyPart);
                                 $scope.selectedBodyPart = $scope.bodyParts[0];
                             }

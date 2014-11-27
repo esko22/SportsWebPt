@@ -17,6 +17,17 @@
             </div>
         </div>
         <div class="form-group">
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'"  ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <div class="form-group">
+            <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
+        </div>
+        <div class="form-group">
             <label class="control-label col-lg-3">Session Notes</label>
             <div class="col-lg-9" ng-class="{'has-error': rc.createSessionForm.needsAttention(createSessionForm.sessionNotes)}">
                 <input type="text" class="form-control" name="sessionNotes" ng-model="session.notes" placeholder="Notes" ng-minlength="2" ng-maxlength="10000">

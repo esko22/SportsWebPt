@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="false" ng-repeat="plan in filteredPlans | startFrom:firstItemPosition | limitTo:pageSize">
+        <accordion-group ng-repeat="plan in filteredPlans | startFrom:firstItemPosition | limitTo:pageSize">
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-clipboard3"></i>
@@ -38,7 +38,7 @@
     </accordion>
     <div>
         <div class="pull-right" ng-show="filteredPlans.length > 0">
-            <pagination page="currentPage" total-items="filteredPlans.length" items-per-page="pageSize" max-size="5"
+            <pagination ng-model="currentPage" total-items="filteredPlans.length" items-per-page="pageSize" max-size="5"
                         on-select-page="onPageChanged(page)">
             </pagination>
         </div>

@@ -1,6 +1,6 @@
 ﻿<div>
     <accordion close-others="oneAtATime">
-        <accordion-group is-open="false" ng-repeat="exercise in filteredExercises | startFrom:firstItemPosition | limitTo:pageSize">
+        <accordion-group ng-repeat="exercise in filteredExercises | startFrom:firstItemPosition | limitTo:pageSize">
             <accordion-heading>
                 <span class="research-accordian-icon">
                     <i class="icon-sportswebpt-barbell"></i>
@@ -44,7 +44,7 @@
     </accordion>
     <div>
         <div class="pull-right" ng-show="filteredExercises.length > 0">
-            <pagination page="currentPage" total-items="filteredExercises.length" items-per-page="pageSize" max-size="5"
+            <pagination ng-model="currentPage" total-items="filteredExercises.length" items-per-page="pageSize" max-size="5"
                         on-select-page="onPageChanged(page)">
             </pagination>
         </div>

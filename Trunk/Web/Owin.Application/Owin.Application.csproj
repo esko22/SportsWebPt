@@ -693,12 +693,9 @@
     <Content Include="Content\theme\plugins\retina\js\retina-1.1.0.min.js" />
     <Content Include="Content\toastr.css" />
     <Content Include="robots.txt" />
-    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-0.10.0.js" />
-    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.10.0.js" />
+    <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.12.0.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
-    <Content Include="Scripts\libs\angular-kendo\angular-kendo.min.js" />
     <Content Include="Scripts\libs\angular-ui\ui-router.js" />
-    <Content Include="Scripts\libs\angular-ui\ui-router.min.js" />
     <Content Include="Scripts\libs\angular\angular-animate.js" />
     <Content Include="Scripts\libs\angular\angular-cookies.js" />
     <Content Include="Scripts\libs\angular\angular-google-analytics.js" />
@@ -712,8 +709,6 @@
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\ng-grid.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
-    <Content Include="Scripts\libs\extentsions\knockout-extensions.js" />
-    <Content Include="Scripts\libs\extentsions\knockout-kendo.min.js" />
     <Content Include="Scripts\libs\html5shiv.js" />
     <None Include="Properties\PublishProfiles\OwinWeb.pubxml" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />

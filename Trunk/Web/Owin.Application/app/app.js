@@ -176,7 +176,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                .state('public.auth',
                 {
                     url: "/auth",
-                    onEnter: function ($window, $location) {
+                    onEnter: ['$window', '$location', function ($window, $location) {
                         var url = new URI($window.location);
                         var fragment = url.fragment();
                         fragment = '?' + fragment;
@@ -193,7 +193,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                             $location.path(decodeURIComponent(redirectUrl));
                         }
 
-                    }
+                    }]
                 })
                 .state('public.splash',
                 {

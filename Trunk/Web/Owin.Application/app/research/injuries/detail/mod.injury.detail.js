@@ -2,7 +2,7 @@
 
 angular.module('research.injury.detail', [])
     .controller('InjuryViewController', [
-        '$scope','navBarService', 'configService', 'injuryDetailService', '$stateParams', function($scope, navBarService, configService, injuryDetailService, $stateParams) {
+        '$scope', 'navBarService', 'configService', 'injuryDetailService', '$stateParams', function($scope, navBarService, configService, injuryDetailService, $stateParams) {
 
             $scope.isLoading = true;
             $scope.animationTag = null;
@@ -13,7 +13,7 @@ angular.module('research.injury.detail', [])
             if (injuryDump) {
                 onInjuryLoadComplete(JSON.parse(injuryDump));
             } else {
-                injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function (injury) {
+                injuryDetailService.getInjury($stateParams.injuryId).$promise.then(function(injury) {
                     onInjuryLoadComplete(injury);
                 });
             }
@@ -31,47 +31,56 @@ angular.module('research.injury.detail', [])
             $scope.navBarService = navBarService;
         }
     ])
-    .controller('InjuryDescriptionController', ['$scope', function ($scope) {
-        $scope.hasAnimationTag = function () {
-            return $scope.animationTag !== null;
-        };
+    .controller('InjuryDescriptionController', [
+        '$scope', function($scope) {
+            $scope.hasAnimationTag = function() {
+                return $scope.animationTag !== null;
+            };
 
-        $scope.treatmentSortFunc = function(treatment) {
-            switch (treatment.provider.toLowerCase()) {
-            case "self":
-                return 1;
-            case "physicaltherapist":
-                return 2;
-            case "messagetherapist":
-                return 3;
-            case "physican":
-                return 4;
-            case "surgeon":
-                return 5;
-            case "chiropracter":
-                return 6;
-            default:
-                return 99;
-            }
-        };
-
-        $scope.$watch('injury', function (injury) {
-            if (injury) {
-                if ($scope.injury.animationTag) {
-                    $scope.animationTag = $scope.injury.animationTag;
+            $scope.treatmentSortFunc = function(treatment) {
+                switch (treatment.provider.toLowerCase()) {
+                case "self":
+                    return 1;
+                case "physicaltherapist":
+                    return 2;
+                case "messagetherapist":
+                    return 3;
+                case "physican":
+                    return 4;
+                case "surgeon":
+                    return 5;
+                case "chiropracter":
+                    return 6;
+                default:
+                    return 99;
                 }
-            }
-        });
-    }])
-    .controller('InjuryPlanDetailController', ['$scope', function ($scope) {
-    }])
-    .controller('InjuryPlanListingController', ['$scope', function ($scope) {
-        $scope.$watch('injury', function (injury) {
-            if (injury) {
-                $scope.oneAtATime = true;
-                $scope.plans = $scope.injury.plans;
-            }
-        });
+            };
+
+            $scope.$watch('injury', function(injury) {
+                if (injury) {
+                    if ($scope.injury.animationTag) {
+                        $scope.animationTag = $scope.injury.animationTag;
+                    }
+                }
+            });
+        }
+    ])
+    .controller('InjuryPlanDetailController', [
+        '$scope', function($scope) {
+        }
+    ])
+    .controller('InjuryPlanListingController', [
+        '$scope', function($scope) {
+            $scope.$watch('injury', function(injury) {
+                if (injury) {
+                    $scope.oneAtATime = true;
+                    $scope.plans = $scope.injury.plans;
+                }
+            });
+
+        $scope.status = {
+            isFirstOpen: false
+        };
 
         $scope.planSortFunc = function (plan) {
             if (!plan.categories)

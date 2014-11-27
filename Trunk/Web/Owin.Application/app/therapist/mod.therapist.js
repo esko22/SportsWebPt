@@ -308,8 +308,52 @@ therapistModule.controller('TherapistSessionModalController', [
     '$scope', 'sessionService', '$modal', 'episodeId', '$rootScope', 'notifierService', '$modalInstance', '$http','$timeout',
     function ($scope, sessionService, $modal, episodeId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
 
-        $scope.session = {};
-        $scope.gtmData = {}; 
+        $scope.session = {
+            time: new Date().setMinutes(0),
+            date: new Date()
+        };
+
+        $scope.gtmData = {};
+        //TODO: move these to config
+        $scope.timePicker = {
+            showMeridian: true,
+            meridians: ['AM', 'PM'],
+            mStep: 15,
+            hStep: 1
+        };
+
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.opened = true;
+        };
+
+
+        $scope.datePicker = function () {
+            var open = function($event) {
+                $event.preventDefault();
+                $event.stopPropagation();
+                $scope.opened = true;
+            }
+
+            return {
+                clear: function() {
+                    $scope.dt = null;
+                },
+                disabled: function(date, mode) {
+                    return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+                },
+
+                toggleMin: function() {
+                    $scope.minDate = $scope.minDate ? null : new Date();
+                },
+                open: open,
+                dateOptions: {
+                    formatYear: 'yy',
+                    startingDay: 1
+                }
+            }
+        }
 
         $scope.launchGTM = function() {
             var authWindow = window.open('https://api.citrixonline.com/oauth/authorize?client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp', 'gtmAuthWindow', 'width=800, height=600');
