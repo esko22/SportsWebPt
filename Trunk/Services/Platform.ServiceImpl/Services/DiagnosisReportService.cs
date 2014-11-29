@@ -139,7 +139,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         public object Post(CreateDiagnosisReportRequest request)
         {
             var differentialDiagEntity = Mapper.Map<DifferentialDiagnosis>(request);
-            DiffDiagUnitOfWork.DiffDiagRepo.Add(differentialDiagEntity);
+            DiffDiagUnitOfWork.AddDifferentialDiagnosis(differentialDiagEntity, request.SessionId);
             DiffDiagUnitOfWork.Commit();
 
             return Ok(new ApiResponse<DifferentialDiagnosisDto>()

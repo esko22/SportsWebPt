@@ -263,8 +263,10 @@
     <Content Include="app\examine\report\tmpl.examine.report.injury.nav.htm" />
     <Content Include="app\examine\skeleton\mod.examine.skeleton.js" />
     <Content Include="app\examine\skeleton\prtl.examine.skeleton.htm" />
+    <Content Include="app\examine\skeleton\tmpl.examine.skeleton.htm" />
     <Content Include="app\examine\symptoms\mod.examine.symptoms.js" />
     <Content Include="app\examine\symptoms\prtl.examine.symptoms.htm" />
+    <Content Include="app\examine\symptoms\tmpl.examine.symptoms.htm" />
     <Content Include="app\examine\symptoms\tmpl.report.progress.modal.htm" />
     <Content Include="app\examine\symptoms\tmpl.symptom.details.htm" />
     <Content Include="app\examine\symptoms\tmpl.symptom.listing.htm" />
@@ -339,6 +341,9 @@
     <Content Include="app\therapist\mod.therapist.js" />
     <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
     <Content Include="app\therapist\prtl.therapist.case.htm" />
+    <Content Include="app\therapist\prtl.therapist.examine.symptoms.htm" />
+    <Content Include="app\therapist\prtl.therapist.examine.report.htm" />
+    <Content Include="app\therapist\prtl.therapist.examine.skeleton.htm" />
     <Content Include="app\therapist\prtl.therapist.session.htm" />
     <Content Include="app\therapist\tmpl.therapist.case.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.case.modal.htm" />

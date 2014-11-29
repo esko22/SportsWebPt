@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String SubmittedFor { get; set; }
 
+        public Int64 SessionId { get; set; }
+
         public PotentialSymptomDto[] SymptomDetails { get; set; }
 
         #endregion

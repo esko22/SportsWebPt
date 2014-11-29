@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<SymptomDetail> SymptomResponseRepo { get { return GetStandardRepo<SymptomDetail>(); } }
         public IRepository<InjurySymptomMatrixItem> InjurySymptomMatrixItemRepo { get { return GetStandardRepo<InjurySymptomMatrixItem>(); } }
         public IRepository<InjuryPlanMatrixItem> InjuryPlanMatrixItemRepo { get { return GetStandardRepo<InjuryPlanMatrixItem>(); } }
+        public IRepository<Session> SessionRepo { get { return GetStandardRepo<Session>(); } }
         public IInjuryRepo InjuryRepo { get { return GetRepo<IInjuryRepo>(); } }
 
         #endregion
@@ -30,6 +31,23 @@ namespace SportsWebPt.Platform.DataAccess
         #endregion
 
         #region Methods
+
+        public DifferentialDiagnosis AddDifferentialDiagnosis(DifferentialDiagnosis diagnosis, Int64 sessionId)
+        {
+            DiffDiagRepo.Add(diagnosis);
+
+            if (sessionId > 0)
+            {
+                var session = SessionRepo.GetAll().SingleOrDefault(s => s.Id == sessionId);
+                if (session != null)
+                {
+                    session.DifferentialDiagnosis = diagnosis;
+                    SessionRepo.Update(session);
+                }
+            }
+
+            return diagnosis;
+        }
 
         public DifferentialDiagnosis GetDiffDiagWithDetails(Int64 diffDiagId)
         {
@@ -63,7 +81,8 @@ namespace SportsWebPt.Platform.DataAccess
 		
         DifferentialDiagnosis GetDiffDiagWithDetails(Int64 diffDiagId);
         IEnumerable<Injury> GetPotentialInjuries(IEnumerable<int> symptomMatrixIds, int clinicId);
+        DifferentialDiagnosis AddDifferentialDiagnosis(DifferentialDiagnosis diagnosis, Int64 sessionId);
 
-	    #endregion    
+        #endregion
     }
 }

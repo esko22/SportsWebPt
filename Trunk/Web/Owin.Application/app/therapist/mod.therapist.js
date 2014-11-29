@@ -511,12 +511,70 @@ therapistModule.controller('TherapistCaseModalController', [
     }
 ]);
 
+therapistModule.controller('TherapistExamineSessionController', ['$scope','$state','examineSymptomsService','sessionService',
+    function ($scope, $state, examineSymptomsService, sessionService) {
+        $scope.selectedAreas = [];
+        $scope.report = {};
+        $scope.report.potentialInjuries = [];
+
+        $scope.currentStep = {};
+        $scope.currentStep.order = 0;
+
+        $scope.skeletonNextState = 'therapist.session.symptoms';
+        $scope.symptomBackState = 'therapist.session.skeleton';
+
+
+        $scope.$watch('session', function (session) {
+            if (session) {
+                if (session.differentialDiagnosisId == 0) {
+                    $state.go('therapist.session.skeleton');
+                } else {
+                    $state.go('therapist.session.report');
+                }
+            }
+        });
+
+        $scope.submitReport = function () {
+
+            var allBodyParts = [];
+            angular.forEach($scope.selectedAreas, function (selectedArea) {
+                angular.forEach(selectedArea.bodyParts, function (bodyPart) {
+                    allBodyParts.push(bodyPart);
+                });
+            });
+
+            examineSymptomsService.submitReport(allBodyParts, $scope.session.id).then(function (response) {
+                sessionService.get($scope.session.id).$promise.then(function(session) {
+                    $scope.session = session;
+                    $state.go('therapist.session.report');
+                });
+            });
+        };
+
+    }
+]);
+
+therapistModule.controller('TherapistExamineReportController', [
+    '$scope','examineSymptomsService',
+    function ($scope, examineSymptomsService) {
+
+        if (!$scope.session.diagnosis) {
+            examineSymptomsService.getReport($scope.session.differentialDiagnosisId).$promise.then(function(report) {
+                $scope.session.diagnosis = report;
+            });
+        }
+    }
+]);
+
+
 therapistModule.controller('TherapistSessionController', [
-    '$scope', 'sessionService', '$stateParams','$modal',
-    function ($scope, sessionService, $stateParams,$modal) {
+    '$scope', 'sessionService', '$stateParams','$modal','$state',
+    function ($scope, sessionService, $stateParams, $modal, $state) {
 
         $scope.sessionId = $stateParams.sessionId;
         getSessionDetail();
+
+
 
         $scope.addSessionPlan = function () {
             var modalInstance = $modal.open({

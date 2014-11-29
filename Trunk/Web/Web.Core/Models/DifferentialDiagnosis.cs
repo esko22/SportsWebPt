@@ -14,5 +14,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String submittedFor { get; set; }
 
+        public Int64 sessionId { get; set; }
+
     }
 }

@@ -19,6 +19,14 @@
         $scope.isSelected = examineSkeletonService.isSelected;
 
     }])
+    .directive("examineSkeletonControl", [function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            templateUrl: '/app/examine/skeleton/tmpl.examine.skeleton.htm',
+            controller: 'ExamineSkeletonController'
+        };
+    }])
     .factory('examineSkeletonService', ['configService', 'notifierService', function (configService, notifierService) {
 
         var onSelectedRegion = function (region, selectedAreas) {

@@ -66,23 +66,7 @@
     
     
     <h3>Diagnosis</h3>
-    <div class="push-down-md">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Body Part</th>
-                    <th>Name</th>
-                    <th>Response</th>
-                </tr>
-            </thead>
-            <tbody ng-repeat="symptomDetail in session.diagnosis.symptomDetails">
-                <tr>
-                    <td ng-bind="symptomDetail.bodyPart"></td>
-                    <td ng-bind="symptomDetail.name"></td>
-                    <td ng-bind="symptomDetail.givenResponse[0]"></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row" ng-controller="TherapistExamineSessionController">
+        <div class="core-view-container" ui-view="therapist-session-examine-view" autoscroll="false"></div>
     </div>
-
 </div>

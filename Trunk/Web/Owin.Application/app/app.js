@@ -234,8 +234,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                     url: "/examine",
                     views: {
                         "examine-app-view": {
-                            templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm',
-                            controller: 'ExamineSkeletonController'
+                            templateUrl: '/app/examine/skeleton/prtl.examine.skeleton.htm'
                         }
                     }
                 })
@@ -435,6 +434,32 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         "core-app-view": {
                             templateUrl: '/app/therapist/prtl.therapist.session.htm',
                             controller: 'TherapistSessionController'
+                        }
+                    }
+                })
+                .state('therapist.session.skeleton',
+                {
+                    url: "/skeleton",
+                    views: {
+                        "therapist-session-examine-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.examine.skeleton.htm'
+                        }
+                    }
+                })
+                .state('therapist.session.symptoms',
+                {
+                    views: {
+                        "therapist-session-examine-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.examine.symptoms.htm'
+                        }
+                    }
+                })
+                .state('therapist.session.report',
+                {
+                    views: {
+                        "therapist-session-examine-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.examine.report.htm',
+                            controller: 'TherapistExamineReportController'
                         }
                     }
                 })
