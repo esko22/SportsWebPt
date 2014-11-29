@@ -82,12 +82,12 @@
                                     </td>
                                     <td>
                                         <div class="animate-switch-container">
-                                            <small-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.five'" given-response="injurySymptom.givenResponse"></small-scale-slider>
-                                            <medium-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.ten'" given-response="injurySymptom.givenResponse"></medium-scale-slider>
-                                            <duration-list ng-show="injurySymptom.renderTemplate == 'examine.duration.dropdown'" given-response="injurySymptom.givenResponse"></duration-list>
-                                            <feels-like-list ng-show="injurySymptom.renderTemplate == 'examine.feels.multi'" given-response="injurySymptom.givenResponse"></feels-like-list>
-                                            <while-list ng-show="injurySymptom.renderTemplate == 'examine.while.multi'" given-response="injurySymptom.givenResponse"></while-list>
-                                            <boolean-response ng-show="injurySymptom.renderTemplate == 'examine.radio.bool'" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
+                                            <small-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.five'" enabled="symptomsEnabled" given-response="injurySymptom.givenResponse"></small-scale-slider>
+                                            <medium-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.ten'" enabled="symptomsEnabled" given-response="injurySymptom.givenResponse"></medium-scale-slider>
+                                            <duration-list ng-show="injurySymptom.renderTemplate == 'examine.duration.dropdown'" enabled="symptomsEnabled" given-response="injurySymptom.givenResponse"></duration-list>
+                                            <feels-like-list ng-show="injurySymptom.renderTemplate == 'examine.feels.multi'" enabled="symptomsEnabled" given-response="injurySymptom.givenResponse"></feels-like-list>
+                                            <while-list ng-show="injurySymptom.renderTemplate == 'examine.while.multi'" enabled="symptomsEnabled" given-response="injurySymptom.givenResponse"></while-list>
+                                            <boolean-response ng-show="injurySymptom.renderTemplate == 'examine.radio.bool'" enabled="symptomsEnabled" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
                                         </div>
                                     </td>
                     <td><input type="checkbox" ng-model="injurySymptom.isRedFlag" name="adminIsRedFlag"></td>

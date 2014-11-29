@@ -11,9 +11,7 @@ angular.module('examine', ['examine.skeleton', 'examine.symptoms', 'examine.repo
 
         $scope.skeletonNextState = 'public.examine.symptoms';
         $scope.symptomBackState = 'public.examine.skeleton';
-
-
-
+        $scope.symptomsEnabled = true;
 
         var showModal = function () {
             return $modal.open({

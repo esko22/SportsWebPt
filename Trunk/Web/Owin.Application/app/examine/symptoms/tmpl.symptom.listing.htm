@@ -29,12 +29,12 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="animate-switch-container" ng-switch on="symptom.renderTemplate">
-                                    <small-scale-slider ng-switch-when="examine.slider.five" given-response="symptom.givenResponse"></small-scale-slider>
-                                    <medium-scale-slider ng-switch-when="examine.slider.ten" given-response="symptom.givenResponse"></medium-scale-slider>
-                                    <duration-list ng-switch-when="examine.duration.dropdown" given-response="symptom.givenResponse"></duration-list>
-                                    <feels-like-list ng-switch-when="examine.feels.multi" given-response="symptom.givenResponse"></feels-like-list>
-                                    <while-list ng-switch-when="examine.while.multi" given-response="symptom.givenResponse"></while-list>
-                                    <boolean-response ng-switch-when="examine.radio.bool" name="{{symptom.id}}" given-response="symptom.givenResponse"></boolean-response>
+                                    <small-scale-slider ng-switch-when="examine.slider.five" enabled="symptomsEnabled" given-response="symptom.givenResponse"></small-scale-slider>
+                                    <medium-scale-slider ng-switch-when="examine.slider.ten" enabled="symptomsEnabled" given-response="symptom.givenResponse"></medium-scale-slider>
+                                    <duration-list ng-switch-when="examine.duration.dropdown" enabled="symptomsEnabled" given-response="symptom.givenResponse"></duration-list>
+                                    <feels-like-list ng-switch-when="examine.feels.multi" enabled="symptomsEnabled" given-response="symptom.givenResponse"></feels-like-list>
+                                    <while-list ng-switch-when="examine.while.multi" enabled="symptomsEnabled" given-response="symptom.givenResponse"></while-list>
+                                    <boolean-response ng-switch-when="examine.radio.bool" name="{{symptom.id}}" enabled="symptomsEnabled" given-response="symptom.givenResponse"></boolean-response>
                                     <div ng-switch-default></div>
                                 </div>
                             </div>

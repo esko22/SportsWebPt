@@ -17,6 +17,7 @@ injuryAdminModule.controller('InjuryModalController', [
         } else {
             setSelectedItems();
         }
+        $scope.symptomsEnabled = true;
 
         //lookups
         $scope.repetitionRangeValues = configService.lookups.repetitionRangeValues;

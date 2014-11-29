@@ -6,9 +6,10 @@ angular.module('symptom.controls', [])
             restrict: 'E',
             replace: true,
             scope: {
-                givenResponse: '='
+                givenResponse: '=',
+                enabled: '='
             },
-            template: '<div kendo-slider ng-model="givenResponse[0]" class="balSlider" k-options="{ min : 0, max : 5, value : 0}"></div>'
+            template: '<div kendo-slider ng-model="givenResponse[0]" class="balSlider" k-options="{ min : 0, max : 5, value : 0}" k-enabled="enabled"></div>'
         };
     })
     .directive("mediumScaleSlider", function() {
@@ -16,9 +17,10 @@ angular.module('symptom.controls', [])
             restrict: 'E',
             replace: true,
             scope: {
-                givenResponse: '='
+                givenResponse: '=',
+                enabled: '='
             },
-            template: '<div ng-model="givenResponse[0]" kendo-slider k-options="{ min : 0, max : 10, value : 0}"></div>'
+            template: '<div ng-model="givenResponse[0]" kendo-slider k-options="{ min : 0, max : 10, value : 0}" k-enabled="enabled"></div>'
         };
     })
     .directive("durationList", function() {
@@ -26,9 +28,10 @@ angular.module('symptom.controls', [])
             restrict: 'E',
             replace: true,
             scope: {
-                givenResponse: '='
+                givenResponse: '=',
+                enabled: '='
             },
-            template: '<select ng-model="givenResponse[0]" kendo-drop-down-list> ' +
+            template: '<select ng-model="givenResponse[0]" kendo-drop-down-list k-enabled="enabled"> ' +
                 '<option value="0">Not Bothering Me</option>' +
                 '<option value="1">1 - 3 Days</option>' +
                 '<option value="2">3 - 7 Days</option>' +
@@ -46,13 +49,14 @@ angular.module('symptom.controls', [])
             restrict: 'E',
             replace: true,
             scope: {
-                givenResponse: '='
+                givenResponse: '=',
+                enabled: '='
             },
             template: '<div class="form-inline"><label class="radio">' +
-                '<input type="radio" id="option2" value="1" ng-model="givenResponse[0]"> Yes ' +
+                '<input type="radio" id="option2" ng-disabled="!enabled" value="1" ng-model="givenResponse[0]"> Yes ' +
                 '</label>' +
                 '<label style="padding-left:10px" class="radio">' +
-                '<input type="radio" id="option1" value="0" ng-model="givenResponse[0]"> No ' +
+                '<input type="radio" id="option1" ng-disabled="!enabled" value="0" ng-model="givenResponse[0]"> No ' +
                 '</label></div>'
         };
     })
@@ -62,6 +66,7 @@ angular.module('symptom.controls', [])
             replace: true,
             scope: {
                 givenResponse: '=',
+                    enabled: '='
             },
             link: function(scope, element, attrs) {
                 scope.whileItems = [
@@ -99,6 +104,7 @@ angular.module('symptom.controls', [])
             replace: true,
             scope: {
                 givenResponse: '=',
+                enabled: '='
             },
             link: function(scope, element, attrs) {
                 scope.feelItems = [

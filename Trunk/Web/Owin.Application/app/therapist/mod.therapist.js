@@ -523,6 +523,8 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
         $scope.skeletonNextState = 'therapist.session.symptoms';
         $scope.symptomBackState = 'therapist.session.skeleton';
 
+        $scope.symptomsEnabled = false;
+
 
         $scope.$watch('session', function (session) {
             if (session) {

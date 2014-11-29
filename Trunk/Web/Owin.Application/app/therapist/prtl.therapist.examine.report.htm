@@ -1,17 +1,25 @@
 ﻿<div class="push-down-md">
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Body Part</th>
-                <th>Name</th>
-                <th>Response</th>
-            </tr>
+        <th>Symptom</th>
+        <th>BodyPart</th>
+        <th>Response</th>
+        <th></th>
         </thead>
-        <tbody ng-repeat="symptomDetail in session.diagnosis.symptomDetails">
+        <tbody ng-repeat="injurySymptom in session.diagnosis.symptomDetails">
             <tr>
-                <td ng-bind="symptomDetail.bodyPart"></td>
-                <td ng-bind="symptomDetail.name"></td>
-                <td ng-bind="symptomDetail.givenResponse[0]"></td>
+                <td ng-bind="injurySymptom.bodyPart"></td>
+                <td ng-bind="injurySymptom.name"></td>
+                <td>
+                    <div class="animate-switch-container">
+                        <small-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.five'" enabled="false" given-response="injurySymptom.givenResponse"></small-scale-slider>
+                        <medium-scale-slider ng-show="injurySymptom.renderTemplate == 'examine.slider.ten'" enabled="false" given-response="injurySymptom.givenResponse" ></medium-scale-slider>
+                        <duration-list ng-show="injurySymptom.renderTemplate == 'examine.duration.dropdown'" enabled="false" given-response="injurySymptom.givenResponse"></duration-list>
+                        <feels-like-list ng-show="injurySymptom.renderTemplate == 'examine.feels.multi'" enabled="false" given-response="injurySymptom.givenResponse"></feels-like-list>
+                        <while-list ng-show="injurySymptom.renderTemplate == 'examine.while.multi'" enabled="false" given-response="injurySymptom.givenResponse"></while-list>
+                        <boolean-response ng-show="injurySymptom.renderTemplate == 'examine.radio.bool'" enabled="false" name="{{injurySymptom.id}}" given-response="injurySymptom.givenResponse"></boolean-response>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

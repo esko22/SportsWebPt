@@ -1,6 +1,6 @@
 ﻿<div>
     <label style="padding-right: 10px; " ng-repeat="feelItem in feelItems">
-        <input type="checkbox" name="selectedFeelItems[]" value="{{feelItem.value}}"
+        <input type="checkbox" ng-disabled="!enabled" name="selectedFeelItems[]" value="{{feelItem.value}}"
                ng-checked="givenResponse.indexOf(feelItem.value) > -1"
                ng-click="toggleSelection(feelItem)"> {{feelItem.name}}
     </label>
