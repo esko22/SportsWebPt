@@ -66,7 +66,7 @@
     <Compile Include="DbInitialization\PlatformDbDefaultSeeder.cs" />
     <Compile Include="EntityConfiguration\CauseConfiguration.cs" />
     <Compile Include="EntityConfiguration\ClinicConfiguration.cs" />
-    <Compile Include="EntityConfiguration\EpisodeConfiguration.cs" />
+    <Compile Include="EntityConfiguration\CaseConfiguration.cs" />
     <Compile Include="EntityConfiguration\PrognosisConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryPrognosisMatrixConfiguration.cs" />
     <Compile Include="EntityConfiguration\InjuryTreatmentMatrixConfiguration.cs" />
@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201411150904194_DiffDiagNull.Designer.cs">
       <DependentUpon>201411150904194_DiffDiagNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411290143193_EpisodeToCase.cs" />
+    <Compile Include="Migrations\201411290143193_EpisodeToCase.Designer.cs">
+      <DependentUpon>201411290143193_EpisodeToCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -207,7 +211,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BodyPartRepo.cs" />
     <Compile Include="Repositories\ClinicRepo.cs" />
-    <Compile Include="Repositories\EpisodeRepo.cs" />
+    <Compile Include="Repositories\CaseRepo.cs" />
     <Compile Include="Repositories\ExerciseRepo.cs" />
     <Compile Include="Repositories\InjuryRepo.cs" />
     <Compile Include="Repositories\SessionRepo.cs" />
@@ -219,7 +223,7 @@
     <Compile Include="Repositories\VideoRepo.cs" />
     <Compile Include="UnitOfWork\BaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ClinicUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\EpisodeUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\CaseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\ExeciseUnitOfWork.cs" />
     <Compile Include="UnitOfWork\PlanUnitOfWork.cs" />
     <Compile Include="UnitOfWork\DiffDiagUnitOfWork.cs" />
@@ -326,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411150904194_DiffDiagNull.resx">
       <DependentUpon>201411150904194_DiffDiagNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411290143193_EpisodeToCase.resx">
+      <DependentUpon>201411290143193_EpisodeToCase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

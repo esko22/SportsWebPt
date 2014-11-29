@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsWebPt.Platform.Web.Core
 {
-    public class Episode
+    public class Case
     {
         #region Properties
 

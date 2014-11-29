@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.Core.Models
         public ICollection<Injury> InjuryFavorites { get; set; }
         public ICollection<ClinicPatientMatrixItem> ClinicPatientMatrixItems { get; set; }
         public ICollection<ClinicAdminMatrixItem> ClinicAdminMatrixItems { get; set; }
-        public ICollection<Episode> Episodes { get; set; }
+        public ICollection<Case> Cases { get; set; }
 
         public virtual Therapist Therapist { get; set; }
 

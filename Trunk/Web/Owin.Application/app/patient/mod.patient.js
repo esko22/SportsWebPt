@@ -14,52 +14,52 @@ patientModule.controller('PatientDashboardController', ['$scope', 'userManagemen
 ]);
 
 
-patientModule.directive('patientEpisodeList', [function () {
+patientModule.directive('patientCaseList', [function () {
     return {
         restrict: 'E',
         replace: 'true',
-        templateUrl: '/app/patient/tmpl.patient.episode.list.htm',
-        controller: 'PatientEpisodeListController'
+        templateUrl: '/app/patient/tmpl.patient.case.list.htm',
+        controller: 'PatientCaseListController'
     };
 }]);
 
-patientModule.controller('PatientEpisodeListController', [
+patientModule.controller('PatientCaseListController', [
     '$scope', 'patientService', '$state',
     function ($scope, patientService, $state) {
 
-        getActiveEpisodeList();
+        getActiveCaseList();
 
-        $scope.episodeGridOptions = {
-            data: 'episodes',
+        $scope.caseGridOptions = {
+            data: 'cases',
             showGroupPanel: true,
             columnDefs: [
                 { field: 'therapistEmail', displayName: 'Therapist' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showEpisode(row.entity)" >View</button>' }]
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showCase(row.entity)" >View</button>' }]
         };
 
-        $scope.showEpisode = function (episode) {
-            $state.go('patient.episode', { episodeId: episode.id });
+        $scope.showCase = function (caseInstance) {
+            $state.go('patient.case', { caseId: caseInstance.id });
         }
 
-        function getActiveEpisodeList() {
-            patientService.getEpisodesForPatient('active').$promise.then(function (episodes) {
-                $scope.episodes = episodes;
+        function getActiveCaseList() {
+            patientService.getCasesForPatient('active').$promise.then(function (cases) {
+                $scope.cases = cases;
             });
         }
     }
 ]);
 
-patientModule.controller('PatientEpisodeController', [
-    '$scope', 'episodeService', '$stateParams',
-    function ($scope, episodeService, $stateParams) {
+patientModule.controller('PatientCaseController', [
+    '$scope', 'caseService', '$stateParams',
+    function ($scope, caseService, $stateParams) {
 
-        $scope.episodeId = $stateParams.episodeId;
+        $scope.caseId = $stateParams.caseId;
 
-        episodeService.get($stateParams.episodeId).$promise.then(function (episode) {
-            $scope.episode = episode;
+        caseService.get($stateParams.caseId).$promise.then(function (caseInstance) {
+            $scope.case = caseInstance;
         });
     }
 ]);
@@ -79,21 +79,21 @@ patientModule.controller('PatientSessionController', [
     }
 ]);
 
-patientModule.directive('patientEpisodeSessionList', [function () {
+patientModule.directive('patientCaseSessionList', [function () {
     return {
         restrict: 'E',
         replace: 'true',
-        templateUrl: '/app/patient/tmpl.patient.episode.session.list.htm',
-        controller: 'PatientEpisodeSessionListController',
+        templateUrl: '/app/patient/tmpl.patient.case.session.list.htm',
+        controller: 'PatientCaseSessionListController',
         scope: {
-            episodeId: '='
+            caseId: '='
         }
     };
 }]);
 
-patientModule.controller('PatientEpisodeSessionListController', [
-    '$scope', 'episodeService', '$state',
-    function ($scope, episodeService, $state) {
+patientModule.controller('PatientCaseSessionListController', [
+    '$scope', 'caseService', '$state',
+    function ($scope, caseService, $state) {
 
         getSessionList();
 
@@ -107,11 +107,11 @@ patientModule.controller('PatientEpisodeSessionListController', [
         };
 
         $scope.showSession = function (session) {
-            $state.go('patient.episode.session', { sessionId: session.id });
+            $state.go('patient.case.session', { sessionId: session.id });
         }
 
         function getSessionList() {
-            episodeService.getSessions($scope.episodeId).$promise.then(function (sessions) {
+            caseService.getSessions($scope.caseId).$promise.then(function (sessions) {
                 $scope.sessions = sessions;
             });
         };

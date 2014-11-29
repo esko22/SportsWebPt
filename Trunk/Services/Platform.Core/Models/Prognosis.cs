@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         #region Navigation Properties
 
-        public ICollection<Episode> Episodes { get; set; } 
+        public ICollection<Case> Cases { get; set; } 
 
         #endregion
     }

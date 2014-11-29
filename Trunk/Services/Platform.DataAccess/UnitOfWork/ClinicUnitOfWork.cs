@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<User> UserRepository { get { return GetStandardRepo<User>(); } } 
         public IClinicRepo ClinicRepository { get { return GetRepo<IClinicRepo>(); } }
         public IRepository<Therapist> TherapistRepository { get { return GetStandardRepo<Therapist>(); } } 
-        public IRepository<Episode> EpisodeRepository { get { return GetStandardRepo<Episode>(); } } 
+        public IRepository<Case> CaseRepository { get { return GetStandardRepo<Case>(); } } 
 
         #endregion
 
@@ -141,10 +141,10 @@ namespace SportsWebPt.Platform.DataAccess
                 ClinicPatientRepository.Update(f);
             });
 
-            EpisodeRepository.GetAll().Where(p => p.ClinicPatient.UserId == mapFromUser.Id).ForEach(f =>
+            CaseRepository.GetAll().Where(p => p.ClinicPatient.UserId == mapFromUser.Id).ForEach(f =>
             {
                 f.ClinicPatient.Patient = mapToUser;
-                EpisodeRepository.Update(f);
+                CaseRepository.Update(f);
             });
 
             Commit();

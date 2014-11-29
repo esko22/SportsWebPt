@@ -1,14 +1,14 @@
 ﻿<div>
     <div class="modal-header">
-        <h3 class="modal-title">Create New Episode</h3>
+        <h3 class="modal-title">Create New Case</h3>
     </div>
 </div>
 <div class="modal-body">
-    <form class="form-horizontal" novalidate rc-submit="submit()" name="createEpisodeForm">
+    <form class="form-horizontal" novalidate rc-submit="submit()" name="createCaseForm">
         <div class="form-group">
             <label class="control-label col-lg-3">Clinic</label>
             <div class="col-lg-9">
-                <select class="input-sm" name="clinic" ng-change="onClinicChange()" ng-options="clinic.name for clinic in clinics" ng-model="episode.clinic">
+                <select class="input-sm" name="clinic" ng-change="onClinicChange()" ng-options="clinic.name for clinic in clinics" ng-model="case.clinic">
                     <option value="">-- Select Clinic -- </option>
                 </select>
             </div>
@@ -19,15 +19,15 @@
 
         <div class="form-group">
             <label class="control-label col-lg-3">Name</label>
-            <div class="col-lg-9" ng-class="{'has-error': rc.createEpisodeForm.needsAttention(createEpisodeForm.episodeName)}">
-                <input type="text" class="form-control" name="episodeName" ng-model="episode.name" placeholder="Name" ng-minlength="2" ng-maxlength="50">
+            <div class="col-lg-9" ng-class="{'has-error': rc.createCaseForm.needsAttention(createCaseForm.caseName)}">
+                <input type="text" class="form-control" name="caseName" ng-model="case.name" placeholder="Name" ng-minlength="2" ng-maxlength="50">
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-lg-3">Description</label>
-            <div class="col-lg-9" ng-class="{'has-error': rc.createEpisodeForm.needsAttention(createEpisodeForm.episodeDescription)}">
-                <input type="text" class="form-control" name="episodeDescription" ng-model="episode.description" placeholder="Description" ng-minlength="2" ng-maxlength="10000">
+            <div class="col-lg-9" ng-class="{'has-error': rc.createCaseForm.needsAttention(createCaseForm.caseDescription)}">
+                <input type="text" class="form-control" name="caseDescription" ng-model="case.description" placeholder="Description" ng-minlength="2" ng-maxlength="10000">
             </div>
         </div>
 

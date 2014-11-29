@@ -271,10 +271,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<TherapistSharedExerciseDto, TherapistSharedExercise>();
             Mapper.CreateMap<TherapistSharedPlan, TherapistSharedPlanDto>();
             Mapper.CreateMap<TherapistSharedPlanDto, TherapistSharedPlan>();
-            Mapper.CreateMap<EpisodeDto, Episode>();
+            Mapper.CreateMap<CaseDto, Case>();
             Mapper.CreateMap<SessionDto, Session>();
             Mapper.CreateMap<Session, CreateSessionRequest>();
-            Mapper.CreateMap<Episode, CreateEpisodeRequest>();
+            Mapper.CreateMap<Case, CreateCaseRequest>();
 
             Mapper.CreateMap<ClinicPatientDto, ClinicPatient>();
             Mapper.CreateMap<ClinicTherapistDto, ClinicTherapist>();

@@ -12,11 +12,11 @@ using SportsWebPt.Platform.DataAccess.Repositories;
 
 namespace SportsWebPt.Platform.DataAccess
 {
-    public class EpisodeUnitOfWork : BaseUnitOfWork, IEpisodeUnitOfWork
+    public class CaseUnitOfWork : BaseUnitOfWork, ICaseUnitOfWork
     {
         #region Properties
 
-        public IEpisodeRepo EpisodeRepo { get { return GetRepo<IEpisodeRepo>(); } }
+        public ICaseRepo CaseRepo { get { return GetRepo<ICaseRepo>(); } }
         public IUserRepo UserRepo { get { return GetRepo<IUserRepo>(); } }
         public IRepository<Session> SessionRepo { get { return GetStandardRepo<Session>(); } }
 
@@ -24,7 +24,7 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Construction
 
-        public EpisodeUnitOfWork(IRepositoryProvider repositoryProvider)
+        public CaseUnitOfWork(IRepositoryProvider repositoryProvider)
             :base(repositoryProvider, new PlatformDbContext())
         {}
 
@@ -32,10 +32,10 @@ namespace SportsWebPt.Platform.DataAccess
 
         #region Methods
 
-        public IQueryable<Episode> GetFilteredEpisodes(String therapistId, String clinicPatientId, string state)
+        public IQueryable<Case> GetFilteredCases(String therapistId, String clinicPatientId, string state)
         {
-            var episodes = EpisodeRepo.GetEpisodeDetails();
-            var predicate = PredicateBuilder.True<Episode>();
+            var cases = CaseRepo.GetCaseDetails();
+            var predicate = PredicateBuilder.True<Case>();
 
             if (!String.IsNullOrEmpty(clinicPatientId))
                 predicate = predicate.And(p => p.ClinicPatient.UserId == new Guid(clinicPatientId));
@@ -45,13 +45,13 @@ namespace SportsWebPt.Platform.DataAccess
 
             if (!String.IsNullOrEmpty(state))
             {
-                var episodeState = (EpisodeState)Enum.Parse(typeof(EpisodeState), state, true);
-                predicate = predicate.And(p => p.State == episodeState);
+                var caseState = (CaseState)Enum.Parse(typeof(CaseState), state, true);
+                predicate = predicate.And(p => p.State == caseState);
             }
-            return episodes.AsExpandable().Where(predicate);
+            return cases.AsExpandable().Where(predicate);
         }
 
-        public IQueryable<Session> GetEpisodeSessions()
+        public IQueryable<Session> GetCaseSessions()
         {
             return SessionRepo.GetAll()
                 .Include(p => p.SessionPlans)
@@ -64,12 +64,12 @@ namespace SportsWebPt.Platform.DataAccess
 
     }
 
-    public interface IEpisodeUnitOfWork :  IBaseUnitOfWork
+    public interface ICaseUnitOfWork :  IBaseUnitOfWork
     {
-        IEpisodeRepo EpisodeRepo { get; }
+        ICaseRepo CaseRepo { get; }
         IUserRepo UserRepo { get; }
 
-        IQueryable<Episode> GetFilteredEpisodes(string therapistId = "", string patientId = "", string state = "");
-        IQueryable<Session> GetEpisodeSessions();
+        IQueryable<Case> GetFilteredCases(string therapistId = "", string patientId = "", string state = "");
+        IQueryable<Session> GetCaseSessions();
     }
 }

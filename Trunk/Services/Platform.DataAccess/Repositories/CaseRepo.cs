@@ -8,11 +8,11 @@ using SportsWebPt.Platform.Core.Models;
 
 namespace SportsWebPt.Platform.DataAccess.Repositories
 {
-    public class EpisodeRepo : EFRepository<Episode>,IEpisodeRepo
+    public class CaseRepo : EFRepository<Case>,ICaseRepo
     {
         #region Construction
 
-        public EpisodeRepo(DbContext context)
+        public CaseRepo(DbContext context)
             : base(context)
         {
         }
@@ -21,7 +21,7 @@ namespace SportsWebPt.Platform.DataAccess.Repositories
 
         #region Methods
 
-        public IQueryable<Episode> GetEpisodeDetails()
+        public IQueryable<Case> GetCaseDetails()
         {
             return GetAll()
                 .Include(i => i.Therapist.User)
@@ -34,8 +34,8 @@ namespace SportsWebPt.Platform.DataAccess.Repositories
 
     }
 
-    public interface IEpisodeRepo : IRepository<Episode>
+    public interface ICaseRepo : IRepository<Case>
     {
-        IQueryable<Episode> GetEpisodeDetails();
+        IQueryable<Case> GetCaseDetails();
     }
 }

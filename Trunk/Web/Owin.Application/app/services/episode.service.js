@@ -1,17 +1,17 @@
-﻿swptApp.factory('episodeService', ['$resource', 'configService', function ($resource, configService) {
+﻿swptApp.factory('caseService', ['$resource', 'configService', function ($resource, configService) {
 
-    var episodePath = configService.apiUris.episodes;
+    var casePath = configService.apiUris.cases;
 
     return {
         get: function (id) {
-            var resource = $resource(episodePath);
+            var resource = $resource(casePath);
             return resource.get({ id: id });
         },
-        addEpisode: function (episode) {
-            return $resource(episodePath).save(episode);
+        addCase: function (caseInstance) {
+            return $resource(casePath).save(caseInstance);
         },
         getSessions: function(id) {
-            var resource = $resource(configService.apiUris.episodeSessions);
+            var resource = $resource(configService.apiUris.caseSessions);
             return resource.query({ id: id });
         }
     }

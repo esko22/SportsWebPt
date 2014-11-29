@@ -37,7 +37,7 @@ namespace SportsWebPt.Platform.Web.Application
             container.Register<IClinicService, ClinicService>().AsMultiInstance();
             container.Register<ITherapistService, TherapistService>().AsMultiInstance();
             container.Register<ILookupService, LookupService>().AsMultiInstance();
-            container.Register<IEpisodeService, EpisodeService>().AsMultiInstance();
+            container.Register<ICaseService, CaseService>().AsMultiInstance();
             container.Register<ISessionService, SessionService>().AsMultiInstance();
 
             ServicesContentMaps.CreateContentMaps();

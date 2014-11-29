@@ -92,17 +92,17 @@ namespace SportsWebPt.Platform.Web.Application
 
         [HttpGet]
         [Authorize]
-        [Route("data/patients/episodes")]
-        public IEnumerable<Episode> GetPatientEpisodes( String state)
+        [Route("data/patients/cases")]
+        public IEnumerable<Case> GetPatientCases( String state)
         {
-            var episodes = _userManagementService.GetEpisodes(User.GetServiceAccount(), state);
+            var cases = _userManagementService.GetCases(User.GetServiceAccount(), state);
 
-            foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(episodes.Select(s => s.therapistId).Distinct()))
+            foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(cases.Select(s => s.therapistId).Distinct()))
             {
-                episodes.Where(p => p.patientId == User.GetServiceAccount()).ForEach(f => f.therapistEmail = user.Email);
+                cases.Where(p => p.patientId == User.GetServiceAccount()).ForEach(f => f.therapistEmail = user.Email);
             }
 
-            return episodes;
+            return cases;
         }
 
         [HttpGet]

@@ -678,10 +678,10 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             #endregion
 
-            #region Episode Maps
+            #region Case Maps
 
-            Mapper.CreateMap<EpisodeDto, Episode>();
-            Mapper.CreateMap<Episode, EpisodeDto>()
+            Mapper.CreateMap<CaseDto, Case>();
+            Mapper.CreateMap<Case, CaseDto>()
                 .ForMember(d => d.ClinicPatientIdentifier,
                     opt => opt.MapFrom(s => s.ClinicPatient.ClinicPatientIdentifier))
                 .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
@@ -698,7 +698,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                 });
             Mapper.CreateMap<CreateSessionRequest, Session>()
                 .ForMember(d => d.ScheduledWithId, opt => opt.MapFrom(s => new Guid(s.ScheduledWithId)));
-            Mapper.CreateMap<CreateEpisodeRequest, Episode>()
+            Mapper.CreateMap<CreateCaseRequest, Case>()
                 .ForMember(d => d.ClinicPatientId, opt => opt.MapFrom(s => s.ClinicPatientId))
                 .ForMember(d => d.TherapistId, opt => opt.MapFrom(s => new Guid(s.TherapistId)));
 

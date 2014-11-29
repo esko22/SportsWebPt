@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public String ScheduledWithId { get; set; }
 
-        public Int64 EpisodeId { get; set; }
+        public Int64 CaseId { get; set; }
 
         public int DifferentialDiagnosisId { get; set; }
 

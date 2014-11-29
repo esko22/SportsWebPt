@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String scheduledWithId { get; set; }
 
-        public Int64 episodeId { get; set; }
+        public Int64 caseId { get; set; }
 
         public int differentialDiagnosisId { get; set; }
 

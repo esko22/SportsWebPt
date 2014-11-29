@@ -20,7 +20,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         public SessionController(ISessionService sessionService)
         {
-            Check.Argument.IsNotNull(sessionService, "Episode Service");
+            Check.Argument.IsNotNull(sessionService, "Session Service");
             _sessionService = sessionService;
         }
 

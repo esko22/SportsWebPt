@@ -15,22 +15,22 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         #region Properties
 
-        public IEpisodeUnitOfWork EpisodeUnitOfWork { get; set; }
+        public ICaseUnitOfWork CaseUnitOfWork { get; set; }
 
         #endregion
 
 
         #region Methods
 
-        public object Get(PatientEpisodeListRequest request)
+        public object Get(PatientCaseListRequest request)
         {
-            var responseList = new List<EpisodeDto>();
-            var episodes = EpisodeUnitOfWork.GetFilteredEpisodes(patientId: request.Id, state: request.State.ToString());
+            var responseList = new List<CaseDto>();
+            var cases = CaseUnitOfWork.GetFilteredCases(patientId: request.Id, state: request.State.ToString());
 
-            Mapper.Map(episodes, responseList);
+            Mapper.Map(cases, responseList);
 
             return
-                Ok(new ApiListResponse<EpisodeDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                Ok(new ApiListResponse<CaseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
 

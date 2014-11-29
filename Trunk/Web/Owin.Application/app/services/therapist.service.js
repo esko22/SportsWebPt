@@ -15,8 +15,8 @@
             var resource = $resource(configService.apiUris.therapistSharedExercises);
             return resource.query({exerciseId: exerciseId });
         },
-        getEpisodesForTherapist: function (state) {
-            var resource = $resource(configService.apiUris.therapistEpisodes);
+        getCasesForTherapist: function (state) {
+            var resource = $resource(configService.apiUris.therapistCases);
             return resource.query({ state: state });
         },
         updateSharedPlans: function (sharedPlans) {

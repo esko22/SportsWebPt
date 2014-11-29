@@ -2,13 +2,13 @@
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    public class BriefEpisodeDto
+    public class BriefCaseDto
     {
         #region Properties
 
         public int Id { get; set; }
 
-        public EpisodeStateDto State { get; set; }
+        public CaseStateDto State { get; set; }
 
         public String Name { get; set; }
 
@@ -31,7 +31,7 @@ namespace SportsWebPt.Platform.ServiceModels
     }
 
 
-    public class EpisodeDto : BriefEpisodeDto
+    public class CaseDto : BriefCaseDto
     {
         #region Properties
 
@@ -48,7 +48,7 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
     }
 
-    public enum EpisodeStateDto
+    public enum CaseStateDto
     {
         Pending = 1,
         Active = 2,

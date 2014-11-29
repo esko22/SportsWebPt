@@ -5,13 +5,13 @@ using SportsWebPt.Common.ServiceStack;
 
 namespace SportsWebPt.Platform.ServiceModels
 {
-    [Route("/patients/{id}/episodes", "GET")]
-    public class PatientEpisodeListRequest : AbstractResourceListRequest,
-        IReturn<ApiListResponse<EpisodeDto, BasicSortBy>>
+    [Route("/patients/{id}/cases", "GET")]
+    public class PatientCaseListRequest : AbstractResourceListRequest,
+        IReturn<ApiListResponse<CaseDto, BasicSortBy>>
     {
         #region Properties
 
-        public EpisodeStateDto? State { get; set; }
+        public CaseStateDto? State { get; set; }
 
         #endregion
 

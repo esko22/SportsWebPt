@@ -109,15 +109,15 @@ namespace SportsWebPt.Platform.Web.Services
             PostSync(userFavRequest);
         }
 
-        public IEnumerable<Episode> GetEpisodes(String patientId, String state)
+        public IEnumerable<Case> GetCases(String patientId, String state)
         {
-            EpisodeStateDto? episodeState = null;
+            CaseStateDto? caseState = null;
             if (!String.IsNullOrEmpty(state))
-                episodeState = (EpisodeStateDto)Enum.Parse(typeof(EpisodeStateDto), state, true);
+                caseState = (CaseStateDto)Enum.Parse(typeof(CaseStateDto), state, true);
 
-            var request = GetSync(new PatientEpisodeListRequest() { Id = patientId, State = episodeState });
+            var request = GetSync(new PatientCaseListRequest() { Id = patientId, State = caseState });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Case>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
         public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String serviceAccount)
@@ -231,7 +231,7 @@ namespace SportsWebPt.Platform.Web.Services
         User GetUser(String subjectId);
         User GetServiceUser(String id);
         void AddFavorite(Favorite favorite, String userId);
-        IEnumerable<Episode> GetEpisodes(String patientId, String state);
+        IEnumerable<Case> GetCases(String patientId, String state);
         String CreateServiceAccount(String subjectId);
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String subjectId);

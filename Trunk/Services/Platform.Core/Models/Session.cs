@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public Guid ScheduledWithId { get; set; }
 
-        public Int64 EpisodeId { get; set; }
+        public Int64 CaseId { get; set; }
 
         public int? DifferentialDiagnosisId { get; set; }
 
@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual DifferentialDiagnosis DifferentialDiagnosis { get; set; }
 
-        public virtual Episode Episode { get; set; }
+        public virtual Case Case { get; set; }
 
         public ICollection<SessionPlanMatrixItem> SessionPlans { get; set; } 
 

@@ -270,10 +270,10 @@
     <Content Include="app\examine\symptoms\tmpl.symptom.listing.htm" />
     <Content Include="app\patient\mod.patient.js" />
     <Content Include="app\patient\prtl.patient.dashboard.htm" />
-    <Content Include="app\patient\prtl.patient.episode.htm" />
+    <Content Include="app\patient\prtl.patient.case.htm" />
     <Content Include="app\patient\prtl.patient.session.htm" />
-    <Content Include="app\patient\tmpl.patient.episode.list.htm" />
-    <Content Include="app\patient\tmpl.patient.episode.session.list.htm" />
+    <Content Include="app\patient\tmpl.patient.case.list.htm" />
+    <Content Include="app\patient\tmpl.patient.case.session.list.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />
@@ -338,11 +338,11 @@
     <Content Include="app\srvc.config.js" />
     <Content Include="app\therapist\mod.therapist.js" />
     <Content Include="app\therapist\prtl.therapist.dashboard.htm" />
-    <Content Include="app\therapist\prtl.therapist.episode.htm" />
+    <Content Include="app\therapist\prtl.therapist.case.htm" />
     <Content Include="app\therapist\prtl.therapist.session.htm" />
-    <Content Include="app\therapist\tmpl.therapist.episode.list.htm" />
-    <Content Include="app\therapist\tmpl.therapist.episode.modal.htm" />
-    <Content Include="app\therapist\tmpl.therapist.episode.session.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.case.list.htm" />
+    <Content Include="app\therapist\tmpl.therapist.case.modal.htm" />
+    <Content Include="app\therapist\tmpl.therapist.case.session.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.exercise.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.plan.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.session.modal.htm" />
@@ -733,7 +733,7 @@
     <Compile Include="Controllers\ClinicController.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\EpisodeController.cs" />
+    <Compile Include="Controllers\CaseController.cs" />
     <Compile Include="Controllers\ExamineController.cs" />
     <Compile Include="Controllers\LookupController.cs">
       <SubType>Code</SubType>

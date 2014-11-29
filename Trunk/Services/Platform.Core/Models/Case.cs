@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace SportsWebPt.Platform.Core.Models
 {
-    public class Episode
+    public class Case
     {
 
         #region Properties
 
         public Int64 Id { get; set; }
 
-        public EpisodeState State { get; set; }
+        public CaseState State { get; set; }
 
         public String Name { get; set; }
 
@@ -43,7 +43,7 @@ namespace SportsWebPt.Platform.Core.Models
         #endregion
     }
 
-    public enum EpisodeState
+    public enum CaseState
     {
         Pending = 1,
         Active = 2,

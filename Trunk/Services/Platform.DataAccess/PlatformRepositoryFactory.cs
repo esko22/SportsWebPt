@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.DataAccess
                    {typeof(IExerciseRepo), dbContext => new ExerciseRepo(dbContext)},
                    {typeof(IInjuryRepo), dbContext => new InjuryRepo(dbContext)},
                    {typeof(IVideoRepo), dbContext => new VideoRepo(dbContext)},
-                   {typeof(IEpisodeRepo), dbContext => new EpisodeRepo(dbContext)},
+                   {typeof(ICaseRepo), dbContext => new CaseRepo(dbContext)},
                    {typeof(ISessionRepo), dbContext => new SessionRepo(dbContext)},
                    {typeof(IClinicRepo), dbContext => new ClinicRepo(dbContext)}
                 };

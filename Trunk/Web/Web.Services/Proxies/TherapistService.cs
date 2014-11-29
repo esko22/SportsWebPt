@@ -17,7 +17,7 @@ namespace SportsWebPt.Platform.Web.Services
         IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(String therapistId, int? planId);
         bool UpdateTherapistSharedExercises(String therapistId, TherapistSharedExercise[] sharedExercises);
         bool UpdateTherapistSharedPlans(String therapistId, TherapistSharedPlan[] sharedPlans);
-        IEnumerable<Episode> GetEpisodes(String therapistId, String state);
+        IEnumerable<Case> GetCases(String therapistId, String state);
     }
 
 
@@ -50,15 +50,15 @@ namespace SportsWebPt.Platform.Web.Services
 
         }
 
-        public IEnumerable<Episode> GetEpisodes(String therapistId, String state)
+        public IEnumerable<Case> GetCases(String therapistId, String state)
         {
-            EpisodeStateDto? episodeState = null;
+            CaseStateDto? caseState = null;
             if (!String.IsNullOrEmpty(state))
-                episodeState = (EpisodeStateDto) Enum.Parse(typeof (EpisodeStateDto), state, true);
+                caseState = (CaseStateDto)Enum.Parse(typeof(CaseStateDto), state, true);
 
-            var request = GetSync(new TherapistEpisodeListRequest() { Id = therapistId, State = episodeState });
+            var request = GetSync(new TherapistCaseListRequest() { Id = therapistId, State = caseState });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<Episode>>(request.Response.Items.OrderBy(p => p.CreatedOn));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<Case>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
         public IEnumerable<GridPlan> GetPlans(String therapistId)

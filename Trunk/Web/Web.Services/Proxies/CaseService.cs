@@ -9,7 +9,7 @@ using SportsWebPt.Platform.Web.Core;
 
 namespace SportsWebPt.Platform.Web.Services
 {
-    public class EpisodeService : BaseServiceStackClient, IEpisodeService
+    public class CaseService : BaseServiceStackClient, ICaseService
     {
         #region Fields
 
@@ -19,7 +19,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Construction
 
-        public EpisodeService(SportsWebPtClientSettings clientSettings)
+        public CaseService(SportsWebPtClientSettings clientSettings)
             : base(clientSettings)
         {
             _sportsWebPtClientSettings = clientSettings;
@@ -29,23 +29,23 @@ namespace SportsWebPt.Platform.Web.Services
 
         #region Methods
         
-        public Episode GetEpisode(Int64 episodeId)
+        public Case GetCase(Int64 caseId)
         {
-            var request = GetSync(new EpisodeRequest {Id = episodeId.ToString()});
+            var request = GetSync(new CaseRequest {Id = caseId.ToString()});
 
-            return Mapper.Map<Episode>(request.Response);
+            return Mapper.Map<Case>(request.Response);
         }
 
-        public IEnumerable<Session> GetEpisodeSessions(Int64 episodeId)
+        public IEnumerable<Session> GetCaseSessions(Int64 caseId)
         {
-            var request = GetSync(new EpisodeSessionListRequest { Id = episodeId.ToString() });
+            var request = GetSync(new CaseSessionListRequest { Id = caseId.ToString() });
 
             return Mapper.Map<IEnumerable<Session>>(request.Response.Items);
         }
 
-        public Int64 AddEpisode(Episode episode)
+        public Int64 AddCase(Case caseInstance)
         {
-            var request = PostSync(Mapper.Map<CreateEpisodeRequest>(episode));
+            var request = PostSync(Mapper.Map<CreateCaseRequest>(caseInstance));
 
             return request.Response.Id;
         }
@@ -54,11 +54,11 @@ namespace SportsWebPt.Platform.Web.Services
         #endregion
     }
 
-    public interface IEpisodeService
+    public interface ICaseService
     {
-        Int64 AddEpisode(Episode episode);
-        Episode GetEpisode(Int64 episodeId);
-        IEnumerable<Session> GetEpisodeSessions(Int64 episodeId);
+        Int64 AddCase(Case caseInstance);
+        Case GetCase(Int64 caseId);
+        IEnumerable<Session> GetCaseSessions(Int64 caseId);
 
     }
 }

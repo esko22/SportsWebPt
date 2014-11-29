@@ -83,7 +83,7 @@ namespace SportsWebPt.Platform.Core.Models
 
         public virtual Clinic Clinic { get; set; }
 
-        public ICollection<Episode> Episodes { get; set; }
+        public ICollection<Case> Cases { get; set; }
 
         #endregion
     }

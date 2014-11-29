@@ -368,17 +368,17 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     }
                 })
-                .state('patient.episode',
+                .state('patient.case',
                 {
-                    url: "/patient/episode/:episodeId",
+                    url: "/patient/cases/:caseId",
                     views: {
                         "core-app-view": {
-                            templateUrl: '/app/patient/prtl.patient.episode.htm',
-                            controller: 'PatientEpisodeController'
+                            templateUrl: '/app/patient/prtl.patient.case.htm',
+                            controller: 'PatientCaseController'
                         }
                     }
                 })
-                .state('patient.episode.session',
+                .state('patient.case.session',
                 {
                     url: "/session/:sessionId",
                     views: {
@@ -388,7 +388,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     }
                 })
-                .state('patient.episode.session.plan',
+                .state('patient.case.session.plan',
                 {
                     url: "/plan/:planId",
                     views: {
@@ -418,13 +418,13 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         }
                     }
                 })
-                .state('therapist.episode',
+                .state('therapist.case',
                 {
-                    url: "/therapist/episode/:episodeId",
+                    url: "/therapist/cases/:caseId",
                     views: {
                         "core-app-view": {
-                            templateUrl: '/app/therapist/prtl.therapist.episode.htm',
-                            controller: 'TherapistEpisodeController'
+                            templateUrl: '/app/therapist/prtl.therapist.case.htm',
+                            controller: 'TherapistCaseController'
                         }
                     }
                 })

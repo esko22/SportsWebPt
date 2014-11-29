@@ -50,7 +50,7 @@
     <Compile Include="Models\ClinicMatrixItems.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Episode.cs" />
+    <Compile Include="Models\Case.cs" />
     <Compile Include="Models\InjuryPrognosisMatrixItem.cs" />
     <Compile Include="Models\Prognosis.cs" />
     <Compile Include="Models\InjuryTreatmentMatrixItem.cs" />

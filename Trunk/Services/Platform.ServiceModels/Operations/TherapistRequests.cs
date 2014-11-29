@@ -76,13 +76,13 @@ namespace SportsWebPt.Platform.ServiceModels
         
     }
 
-    [Route("/therapists/{id}/episodes", "GET")]
-    public class TherapistEpisodeListRequest : AbstractResourceListRequest,
-        IReturn<ApiListResponse<EpisodeDto, BasicSortBy>>
+    [Route("/therapists/{id}/cases", "GET")]
+    public class TherapistCaseListRequest : AbstractResourceListRequest,
+        IReturn<ApiListResponse<CaseDto, BasicSortBy>>
     {
         #region Properties
 
-        public EpisodeStateDto? State { get; set; }
+        public CaseStateDto? State { get; set; }
 
         #endregion
 

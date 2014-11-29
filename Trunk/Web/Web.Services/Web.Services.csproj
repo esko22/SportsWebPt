@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="Proxies\AdminService.cs" />
     <Compile Include="Proxies\ClinicService.cs" />
-    <Compile Include="Proxies\EpisodeService.cs" />
+    <Compile Include="Proxies\CaseService.cs" />
     <Compile Include="Proxies\ExamineService.cs" />
     <Compile Include="Proxies\LookupService.cs" />
     <Compile Include="Proxies\ResearchService.cs" />

@@ -18,14 +18,14 @@ therapistModule.controller('TherapistDashboardController', [
     }
 ]);
 
-therapistModule.controller('TherapistEpisodeController', [
-    '$scope', 'episodeService', '$stateParams',
-    function ($scope, episodeService, $stateParams) {
+therapistModule.controller('TherapistCaseController', [
+    '$scope', 'caseService', '$stateParams',
+    function ($scope, caseService, $stateParams) {
 
-        $scope.episodeId = $stateParams.episodeId;
+        $scope.caseId = $stateParams.caseId;
 
-        episodeService.get($stateParams.episodeId).$promise.then(function (episode) {
-            $scope.episode = episode;
+        caseService.get($stateParams.caseId).$promise.then(function (caseInstance) {
+            $scope.case = caseInstance;
         });
     }
 ]);
@@ -237,30 +237,30 @@ therapistModule.directive('therapistExerciseList', [function () {
 }]);
 
 
-therapistModule.directive('therapistEpisodeList', [function () {
+therapistModule.directive('therapistCaseList', [function () {
     return {
         restrict: 'E',
         replace: 'true',
-        templateUrl: '/app/therapist/tmpl.therapist.episode.list.htm',
-        controller: 'TherapistEpisodeListController'
+        templateUrl: '/app/therapist/tmpl.therapist.case.list.htm',
+        controller: 'TherapistCaseListController'
     };
 }]);
 
-therapistModule.directive('therapistEpisodeSessionList', [function () {
+therapistModule.directive('therapistCaseSessionList', [function () {
     return {
         restrict: 'E',
         replace: 'true',
-        templateUrl: '/app/therapist/tmpl.therapist.episode.session.list.htm',
-        controller: 'TherapistEpisodeSessionListController',
+        templateUrl: '/app/therapist/tmpl.therapist.case.session.list.htm',
+        controller: 'TherapistCaseSessionListController',
         scope: {
-            episodeId : '='
+            caseId : '='
         }
     };
 }]);
 
-therapistModule.controller('TherapistEpisodeSessionListController', [
-    '$scope', 'episodeService', '$modal','$state',
-    function ($scope, episodeService, $modal, $state) {
+therapistModule.controller('TherapistCaseSessionListController', [
+    '$scope', 'caseService', '$modal','$state',
+    function ($scope, caseService, $modal, $state) {
 
         getSessionList();
 
@@ -280,8 +280,8 @@ therapistModule.controller('TherapistEpisodeSessionListController', [
                 templateUrl: '/app/therapist/tmpl.therapist.session.modal.htm',
                 controller: 'TherapistSessionModalController',
                 resolve: {
-                    episodeId: function () {
-                        return $scope.episodeId;
+                    caseId: function () {
+                        return $scope.caseId;
                     }
                 }
             });
@@ -296,7 +296,7 @@ therapistModule.controller('TherapistEpisodeSessionListController', [
         }
 
         function getSessionList() {
-            episodeService.getSessions($scope.episodeId).$promise.then(function (sessions) {
+            caseService.getSessions($scope.caseId).$promise.then(function (sessions) {
                 $scope.sessions = sessions;
             });
         };
@@ -305,8 +305,8 @@ therapistModule.controller('TherapistEpisodeSessionListController', [
 
 
 therapistModule.controller('TherapistSessionModalController', [
-    '$scope', 'sessionService', '$modal', 'episodeId', '$rootScope', 'notifierService', '$modalInstance', '$http','$timeout',
-    function ($scope, sessionService, $modal, episodeId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
+    '$scope', 'sessionService', '$modal', 'caseId', '$rootScope', 'notifierService', '$modalInstance', '$http','$timeout',
+    function ($scope, sessionService, $modal, caseId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
 
         $scope.session = {
             time: new Date().setMinutes(0),
@@ -420,7 +420,7 @@ therapistModule.controller('TherapistSessionModalController', [
 
         $scope.submit = function () {
             if ($scope.session) {
-                $scope.session.episodeId = episodeId;
+                $scope.session.caseId = caseId;
                 $scope.session.scheduledWithId = $rootScope.currentUser.id;
                 sessionService.addSession($scope.session).$promise.then(function () {
                     notifierService.notify('Session Create Success!');
@@ -473,16 +473,16 @@ therapistModule.controller('TherapistSessionPlanModalController', [
     }
 ]);
 
-therapistModule.controller('TherapistEpisodeModalController', [
-    '$scope', 'episodeService', '$modal', '$rootScope', 'notifierService', '$modalInstance', 'clinics', 'clinicService',
-    function ($scope, episodeService, $modal, $rootScope, notifierService, $modalInstance, clinics, clinicService) {
+therapistModule.controller('TherapistCaseModalController', [
+    '$scope', 'caseService', '$modal', '$rootScope', 'notifierService', '$modalInstance', 'clinics', 'clinicService',
+    function ($scope, caseService, $modal, $rootScope, notifierService, $modalInstance, clinics, clinicService) {
 
         $scope.clinics = clinics;
-        $scope.episode = {};
+        $scope.case = {};
         $scope.selectedPatients = [];
 
         $scope.onClinicChange = function() {
-            clinicService.getClinicPatients($scope.episode.clinic.id).$promise.then(function(patients) {
+            clinicService.getClinicPatients($scope.case.clinic.id).$promise.then(function(patients) {
                 $scope.patients = patients;
             });
         }
@@ -498,12 +498,12 @@ therapistModule.controller('TherapistEpisodeModalController', [
         };
 
         $scope.submit = function () {
-            if ($scope.episode) {
-                $scope.episode.clinicId = $scope.episode.clinic.id;
-                $scope.episode.clinicPatientId = $scope.selectedPatients[0].id;
+            if ($scope.case) {
+                $scope.case.clinicId = $scope.case.clinic.id;
+                $scope.case.clinicPatientId = $scope.selectedPatients[0].id;
 
-                episodeService.addEpisode($scope.episode).$promise.then(function () {
-                    notifierService.notify('Episode Create Success!');
+                caseService.addCase($scope.case).$promise.then(function () {
+                    notifierService.notify('Case Create Success!');
                     $modalInstance.close();
                 });
             }
@@ -544,17 +544,17 @@ therapistModule.controller('TherapistSessionController', [
     }
 ]);
 
-therapistModule.controller('TherapistEpisodeListController', [
+therapistModule.controller('TherapistCaseListController', [
     '$scope', 'therapistService', '$modal','$state','$rootScope',
     function ($scope, therapistService, $modal, $state, $rootScope) {
 
         $rootScope.$watch('currentUser', function (currentUser) {
             if(currentUser)
-                getActiveEpisodeList();
+                getActiveCaseList();
         });
 
-        $scope.episodeGridOptions = {
-            data: 'episodes',
+        $scope.caseGridOptions = {
+            data: 'cases',
             showGroupPanel: true,
             columnDefs: [
                 { field: 'clinicPatientIdentifier', displayName: 'Patient' },
@@ -562,13 +562,13 @@ therapistModule.controller('TherapistEpisodeListController', [
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showEpisode(row.entity)" > View </button>' }]
+            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showCase(row.entity)" > View </button>' }]
         };
 
-        $scope.addEpisode = function() {
+        $scope.addCase = function() {
             var modalInstance = $modal.open({
-                templateUrl: '/app/therapist/tmpl.therapist.episode.modal.htm',
-                controller: 'TherapistEpisodeModalController',
+                templateUrl: '/app/therapist/tmpl.therapist.case.modal.htm',
+                controller: 'TherapistCaseModalController',
                 resolve: {
                     clinics: function () {
                         return $scope.clinics;
@@ -577,18 +577,18 @@ therapistModule.controller('TherapistEpisodeListController', [
             });
 
             modalInstance.result.then(function () {
-                getActiveEpisodeList();
+                getActiveCaseList();
             });
 
         }
 
-        $scope.showEpisode = function (episode) {
-            $state.go('therapist.episode', { episodeId: episode.id });
+        $scope.showCase = function (caseInstance) {
+            $state.go('therapist.case', { caseId: caseInstance.id });
         }
 
-        function getActiveEpisodeList() {
-            therapistService.getEpisodesForTherapist('active').$promise.then(function (episodes) {
-                $scope.episodes = episodes;
+        function getActiveCaseList() {
+            therapistService.getCasesForTherapist('active').$promise.then(function (cases) {
+                $scope.cases = cases;
             });
         }
     }

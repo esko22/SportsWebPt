@@ -92,7 +92,7 @@
     <Compile Include="Services\CauseServices.cs" />
     <Compile Include="Services\ClinicService.cs" />
     <Compile Include="Services\DiagnosisReportService.cs" />
-    <Compile Include="Services\EpisodeService.cs" />
+    <Compile Include="Services\CaseService.cs" />
     <Compile Include="Services\EquipmentServices.cs" />
     <Compile Include="Services\ExerciseServices.cs" />
     <Compile Include="Services\InjuryServices.cs" />

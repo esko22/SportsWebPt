@@ -13,7 +13,7 @@ namespace SportsWebPt.Platform.DataAccess
         #region Properties
 
         public ISessionRepo SessionRepo { get { return GetRepo<ISessionRepo>(); } }
-        public IRepository<Episode> EpisodeRepo { get { return GetStandardRepo<Episode>(); } }
+        public IRepository<Case> CaseRepo { get { return GetStandardRepo<Case>(); } }
         public IRepository<SessionPlanMatrixItem> SessionPlanMatrixRepo { get { return GetStandardRepo<SessionPlanMatrixItem>();} } 
 
         #endregion
@@ -31,7 +31,7 @@ namespace SportsWebPt.Platform.DataAccess
         public Session AddSession(Session session)
         {
             Check.Argument.IsNotNull(session, "Session Cannot Be Null");
-            Check.Argument.IsNotNegativeOrZero(session.EpisodeId, "EpisodeId");
+            Check.Argument.IsNotNegativeOrZero(session.CaseId, "CaseId");
             Check.Argument.IsNotEmpty(session.ScheduledWithId, "Scheduled With Id");
 
             session.Created = DateTime.Now;

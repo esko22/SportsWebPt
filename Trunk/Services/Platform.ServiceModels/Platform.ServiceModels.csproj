@@ -85,7 +85,7 @@
     <Compile Include="Models\ClinicDto.cs" />
     <Compile Include="Models\DifferentialDiagnosisDto.cs" />
     <Compile Include="Models\DiagnosisReportDto.cs" />
-    <Compile Include="Models\EpisodeDto.cs" />
+    <Compile Include="Models\CaseDto.cs" />
     <Compile Include="Models\EquipmentDto.cs" />
     <Compile Include="Models\ExerciseDto.cs" />
     <Compile Include="Models\InjuryDto.cs" />
@@ -111,7 +111,7 @@
     <Compile Include="Operations\CauseRequests.cs" />
     <Compile Include="Operations\ClinicRequests.cs" />
     <Compile Include="Operations\DiagnosisReportRequest.cs" />
-    <Compile Include="Operations\EpisodeRequests.cs" />
+    <Compile Include="Operations\CaseRequests.cs" />
     <Compile Include="Operations\EquipmentRequests.cs" />
     <Compile Include="Operations\ExecerciseRequests.cs" />
     <Compile Include="Operations\InjuryRequests.cs" />

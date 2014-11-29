@@ -1,17 +1,17 @@
-﻿<div class="container" id="therapist-episode-page">
-    <h2>Episode Detail: {{episode.name}}</h2>
+﻿<div class="container" id="therapist-case-page">
+    <h2>Case Detail: {{case.name}}</h2>
     <div class="row">
         <div class="well col-md-6">
             <div class="row">
-                <h4>{{episode.clinic.name}}</h4>
-                <img height="100" ng-src={{episode.clinic.displayImage}} />
+                <h4>{{case.clinic.name}}</h4>
+                <img height="100" ng-src={{case.clinic.displayImage}} />
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <label>Therapist: </label>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="episode.therapistEmail"></span>
+                    <span ng-bind="case.therapistEmail"></span>
                 </div>
             </div>
             <div class="row">
@@ -19,7 +19,7 @@
                     <label>Created On: </label>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="episode.createdOn"></span>
+                    <span ng-bind="case.createdOn"></span>
                 </div>
             </div>
             <div class="row">
@@ -27,12 +27,12 @@
                     <label>Description: </label>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="episode.description"></span>
+                    <span ng-bind="case.description"></span>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <patient-episode-session-list episode-id="episodeId" />
+            <patient-case-session-list case-id="caseId" />
         </div>
     </div>
     <div class="row">
