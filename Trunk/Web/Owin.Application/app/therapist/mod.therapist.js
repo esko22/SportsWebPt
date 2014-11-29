@@ -523,7 +523,7 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
         $scope.skeletonNextState = 'therapist.session.symptoms';
         $scope.symptomBackState = 'therapist.session.skeleton';
 
-        $scope.symptomsEnabled = false;
+        $scope.symptomsEnabled = true;
 
 
         $scope.$watch('session', function (session) {
@@ -559,6 +559,8 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
 therapistModule.controller('TherapistExamineReportController', [
     '$scope','examineSymptomsService',
     function ($scope, examineSymptomsService) {
+
+        $scope.symptomsEnabled = true;
 
         if (!$scope.session.diagnosis) {
             examineSymptomsService.getReport($scope.session.differentialDiagnosisId).$promise.then(function(report) {
