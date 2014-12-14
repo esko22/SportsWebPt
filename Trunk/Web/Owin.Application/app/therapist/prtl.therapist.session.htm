@@ -15,9 +15,26 @@
                     <label>Scheduled At: </label>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="session.scheduledAt"></span>
+                    <span ng-bind="session.scheduledStartTime"></span>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Scheduled End: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <span ng-bind="session.scheduledEndTime"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Video Meeting Url: </label>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <a ng-href="{{session.videoMeetingUri}}" target="_blank">{{session.videoMeetingUri}}</a> 
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-3">
                     <label>Notes: </label>

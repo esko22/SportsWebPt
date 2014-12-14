@@ -542,9 +542,9 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
 
                     request.headers = request.headers || {};
                     //// Already has an Authorization header
-                    //if (request.headers['Authorization']) {
-                    //    return request;
-                    //}
+                    if (request.headers['Authorization']) {
+                        return request;
+                    }
 
                     if ($window.localStorage.getItem('access_token') != null) {
                         request.headers['Authorization'] = 'Bearer ' + $window.localStorage.getItem('access_token');

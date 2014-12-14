@@ -18,14 +18,26 @@
         </div>
         <div class="form-group">
             <p class="input-group">
-                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'"  ng-required="true" close-text="Close" />
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="session.time" is-open="opened" min-date="minDate" max-date="'2015-06-22'"  ng-required="true" ng-disabled ="true" close-text="Close" />
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
             </p>
         </div>
         <div class="form-group">
-            <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
+            <div class="row">
+                <div class="col-md-6">
+                    <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
+                </div>
+                <div class="col-md-6">
+                    <select class="input-sm" name="sessionDuration" ng-model="session.duration">
+                        <option value="30">30</option>
+                        <option value="15">15</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label col-lg-3">Session Notes</label>

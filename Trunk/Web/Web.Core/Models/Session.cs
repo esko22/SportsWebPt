@@ -11,7 +11,11 @@ namespace SportsWebPt.Platform.Web.Core
 
         public string created { get; set; }
 
-        public string scheduledAt { get; set; }
+        public string scheduledStartTime { get; set; }
+
+        public string scheduledEndTime { get; set; }
+
+        public string videoMeetingUri { get; set; }
 
         public string executed { get; set; }
 

@@ -269,8 +269,8 @@ therapistModule.controller('TherapistCaseSessionListController', [
             showGroupPanel: true,
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
-                { field: 'scheduledAt', displayName: 'Scheduled' },
-                { field: 'executed', displayName: 'Executed At' },
+                { field: 'scheduledStartTime', displayName: 'Scheduled' },
+                { field: 'scheduledEndTime', displayName: 'End' },
                 { field: 'notes', displayName: 'notes' },
             { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showSession(row.entity)" > View </button>' }]
         };
@@ -306,11 +306,10 @@ therapistModule.controller('TherapistCaseSessionListController', [
 
 therapistModule.controller('TherapistSessionModalController', [
     '$scope', 'sessionService', '$modal', 'caseId', '$rootScope', 'notifierService', '$modalInstance', '$http','$timeout',
-    function ($scope, sessionService, $modal, caseId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
+    function($scope, sessionService, $modal, caseId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
 
         $scope.session = {
-            time: new Date().setMinutes(0),
-            date: new Date()
+            time: new Date()
         };
 
         $scope.gtmData = {};
@@ -322,20 +321,16 @@ therapistModule.controller('TherapistSessionModalController', [
             hStep: 1
         };
 
-        $scope.open = function ($event) {
+        $scope.open = function($event) {
             $event.preventDefault();
             $event.stopPropagation();
             $scope.opened = true;
         };
 
+        $scope.session.time.setMinutes(0);
+        $scope.session.time.setSeconds(0);
 
-        $scope.datePicker = function () {
-            var open = function($event) {
-                $event.preventDefault();
-                $event.stopPropagation();
-                $scope.opened = true;
-            }
-
+        $scope.datePicker = function() {
             return {
                 clear: function() {
                     $scope.dt = null;
@@ -343,11 +338,9 @@ therapistModule.controller('TherapistSessionModalController', [
                 disabled: function(date, mode) {
                     return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
                 },
-
                 toggleMin: function() {
                     $scope.minDate = $scope.minDate ? null : new Date();
                 },
-                open: open,
                 dateOptions: {
                     formatYear: 'yy',
                     startingDay: 1
@@ -358,15 +351,14 @@ therapistModule.controller('TherapistSessionModalController', [
         $scope.launchGTM = function() {
             var authWindow = window.open('https://api.citrixonline.com/oauth/authorize?client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp', 'gtmAuthWindow', 'width=800, height=600');
 
-            var pollTimer   =   window.setInterval(function () {
+            var pollTimer = window.setInterval(function() {
                 try {
                     if (authWindow.document.URL.indexOf('code') != -1) {
                         window.clearInterval(pollTimer);
                         var url = authWindow.document.URL;
-                        var responseKey = gup(url, 'code');
+                        $scope.responseKey = gup(url, 'code');
+                        $scope.getAccessToken($scope.responseKey);
                         authWindow.close();
-
-                        $scope.getAccessToken(responseKey);
                     }
                 } catch (err) {
                     console.log(err);
@@ -374,35 +366,52 @@ therapistModule.controller('TherapistSessionModalController', [
             }, 500);
         }
 
+        $scope.addVideoMeeting = function() {
+            var endTime = new Date($scope.session.time.getTime() + $scope.session.duration * 60000);
+            var meeting = {
+                "subject": "test",
+                "starttime": $scope.session.time.toISOString(),
+                "endtime": endTime.toISOString(),
+                "passwordrequired": "false",
+                "conferencecallinfo": "Hybrid",
+                "timezonekey": "",
+                "meetingtype": "Scheduled"
+            }
 
+            return $http.post('https://api.citrixonline.com/G2M/rest/meetings', meeting, {
+                headers: {
+                    'Authorization': 'OAuth oauth_token=' + $scope.gtmData.access.access_token
+                }
+            });
+        }
 
+        $scope.postSession = function() {
+            if ($scope.session) {
+                var endTime = new Date($scope.session.time.getTime() + $scope.session.duration * 60000);
+
+                $scope.session.caseId = caseId;
+                $scope.session.scheduledStartTime = $scope.session.time.toUTCString();
+                $scope.session.scheduledEndTime = endTime.toUTCString();
+
+                if ($scope.session.videoMeetingDetail) {
+                    $scope.session.videoMeetingUri = $scope.session.videoMeetingDetail.joinURL;
+                }
+            }
+
+            $scope.session.scheduledWithId = $rootScope.currentUser.id;
+            sessionService.addSession($scope.session).$promise.then(function() {
+                notifierService.notify('Session Create Success!');
+                $modalInstance.close();
+            });
+        };
 
         $scope.getAccessToken = function(responseKey) {
             $http({ method: 'GET', url: 'https://api.citrixonline.com/oauth/access_token?grant_type=authorization_code&code=' + responseKey + '&client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp' }).
-                success(function (data, status, headers, config) {
+                success(function(data, status, headers, config) {
                     $scope.gtmData.access = data;
-
-
-                    $http.defaults.headers.common['Authorization'] = 'OAuth oauth_token=' + data.access_token;
-                    $http.defaults.headers.common['Accept'] = 'application/json';
-                    $http.defaults.headers.common['Content-type'] = 'application/json';
-                    var meeting = {
-                        "subject": "test",
-                        "starttime": "2014-12-01T09:00:00",
-                        "endtime": "2014-12-01T10:00:00",
-                        "passwordrequired": "false",
-                        "conferencecallinfo": "Hybrid",
-                        "timezonekey": "",
-                        "meetingtype": "Scheduled"
-                    }
-
-                    $http.post('https://api.citrixonline.com/G2M/rest/meetings', meeting).success(function(data2) {
-                        $scope.meetingtype = data2;
-                    });
-
-
                 }).
                 error(function(data, status, headers, config) {
+                    console.log(data);
                 });
         };
 
@@ -418,16 +427,18 @@ therapistModule.controller('TherapistSessionModalController', [
                 return results[1];
         }
 
-        $scope.submit = function () {
-            if ($scope.session) {
-                $scope.session.caseId = caseId;
-                $scope.session.scheduledWithId = $rootScope.currentUser.id;
-                sessionService.addSession($scope.session).$promise.then(function () {
-                    notifierService.notify('Session Create Success!');
-                    $modalInstance.close();
+        $scope.submit = function() {
+            if ($scope.session.sessionType === 'Video') {
+                $scope.addVideoMeeting().success(function(data) {
+                    $scope.session.videoMeetingDetail = data[0];
+                    $scope.postSession();
+                }).error(function(err) {
+                    console.log(err);
                 });
+            } else {
+                $scope.postSession();
             }
-        }
+        };
     }
 ]);
 

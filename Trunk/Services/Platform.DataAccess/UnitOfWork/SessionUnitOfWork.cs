@@ -35,9 +35,7 @@ namespace SportsWebPt.Platform.DataAccess
             Check.Argument.IsNotEmpty(session.ScheduledWithId, "Scheduled With Id");
 
             session.Created = DateTime.Now;
-            session.ScheduledAt = DateTime.Now;
-            session.Executed = DateTime.Now;
-
+            session.Executed = null;
             //TODO: hack
             session.DifferentialDiagnosisId = null;
 

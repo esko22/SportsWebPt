@@ -14,9 +14,13 @@ namespace SportsWebPt.Platform.Core.Models
 
         public DateTime Created { get; set; }
 
-        public DateTime ScheduledAt { get; set; }
+        public DateTime ScheduledStartTime { get; set; }
 
-        public DateTime Executed { get; set; }
+        public DateTime ScheduledEndTime { get; set; }
+
+        public String VideoMeetingUri { get; set; }
+
+        public DateTime? Executed { get; set; }
 
         public String Notes { get; set; }
 

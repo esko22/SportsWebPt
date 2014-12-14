@@ -101,8 +101,9 @@ patientModule.controller('PatientCaseSessionListController', [
             data: 'sessions',
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
-                { field: 'scheduledAt', displayName: 'Scheduled' },
-                { field: 'executed', displayName: 'Executed At' },
+                { field: 'scheduledStartTime', displayName: 'Scheduled' },
+                { field: 'scheduledEndTime', displayName: 'End' },
+                { field: 'videoMeetingUri', displayName: 'Meeting Link' },
             { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showSession(row.entity)" > View </button>' }]
         };
 

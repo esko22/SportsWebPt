@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201411290143193_EpisodeToCase.Designer.cs">
       <DependentUpon>201411290143193_EpisodeToCase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411291949162_SessionExecuteNull.cs" />
+    <Compile Include="Migrations\201411291949162_SessionExecuteNull.Designer.cs">
+      <DependentUpon>201411291949162_SessionExecuteNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412141824086_SessionUpdates.cs" />
+    <Compile Include="Migrations\201412141824086_SessionUpdates.Designer.cs">
+      <DependentUpon>201412141824086_SessionUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -333,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201411290143193_EpisodeToCase.resx">
       <DependentUpon>201411290143193_EpisodeToCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411291949162_SessionExecuteNull.resx">
+      <DependentUpon>201411291949162_SessionExecuteNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412141824086_SessionUpdates.resx">
+      <DependentUpon>201412141824086_SessionUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
