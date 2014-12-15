@@ -309,7 +309,8 @@ therapistModule.controller('TherapistSessionModalController', [
     function($scope, sessionService, $modal, caseId, $rootScope, notifierService, $modalInstance, $http, $timeout) {
 
         $scope.session = {
-            time: new Date()
+            time: new Date(),
+            duration: 30
         };
 
         $scope.gtmData = {};
@@ -369,7 +370,7 @@ therapistModule.controller('TherapistSessionModalController', [
         $scope.addVideoMeeting = function() {
             var endTime = new Date($scope.session.time.getTime() + $scope.session.duration * 60000);
             var meeting = {
-                "subject": "test",
+                "subject": "Patient Session",
                 "starttime": $scope.session.time.toISOString(),
                 "endtime": endTime.toISOString(),
                 "passwordrequired": "false",
@@ -380,7 +381,7 @@ therapistModule.controller('TherapistSessionModalController', [
 
             return $http.post('https://api.citrixonline.com/G2M/rest/meetings', meeting, {
                 headers: {
-                    'Authorization': 'OAuth oauth_token=' + $scope.gtmData.access.access_token
+                    'Authorization': 'OAuth oauth_token=' + $scope.gtmData.access_token
                 }
             });
         }
@@ -408,7 +409,7 @@ therapistModule.controller('TherapistSessionModalController', [
         $scope.getAccessToken = function(responseKey) {
             $http({ method: 'GET', url: 'https://api.citrixonline.com/oauth/access_token?grant_type=authorization_code&code=' + responseKey + '&client_id=uDtwgMdiQaxYomZuIR5nncG1otbpnTVp' }).
                 success(function(data, status, headers, config) {
-                    $scope.gtmData.access = data;
+                    $scope.gtmData.access_token = data.access_token;
                 }).
                 error(function(data, status, headers, config) {
                     console.log(data);
@@ -432,7 +433,8 @@ therapistModule.controller('TherapistSessionModalController', [
                 $scope.addVideoMeeting().success(function(data) {
                     $scope.session.videoMeetingDetail = data[0];
                     $scope.postSession();
-                }).error(function(err) {
+                }).error(function (err) {
+                    notifierService.error('Error Creating GTM Instance!');
                     console.log(err);
                 });
             } else {

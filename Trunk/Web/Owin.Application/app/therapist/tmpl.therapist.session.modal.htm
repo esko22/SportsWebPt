@@ -17,25 +17,36 @@
             </div>
         </div>
         <div class="form-group">
-            <p class="input-group">
-                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="session.time" is-open="opened" min-date="minDate" max-date="'2015-06-22'"  ng-required="true" ng-disabled ="true" close-text="Close" />
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-            </p>
+            <div>
+                <label class="control-label col-lg-3">Date</label>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="session.time" is-open="opened" min-date="minDate" max-date="'2015-06-22'" ng-required="true" ng-disabled="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-6">
-                    <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
-                </div>
-                <div class="col-md-6">
-                    <select class="input-sm" name="sessionDuration" ng-model="session.duration">
-                        <option value="30">30</option>
-                        <option value="15">15</option>
-                        <option value="45">45</option>
-                        <option value="60">60</option>
-                    </select>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">Time</label>
+                        <div class="col-md-6">
+                            <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
+                        </div>
+            </div>
+                <div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">Duration</label>
+                        <div class="col-md-6">
+                            <select class="input-sm" name="sessionDuration" ng-model="session.duration">
+                                <option value="30">30</option>
+                                <option value="15">15</option>
+                                <option value="45">45</option>
+                                <option value="60">60</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,16 +57,22 @@
             </div>
         </div>
 
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Save changes</button>
+        <div ng-if="session.sessionType === 'Video'">
+            <div ng-show="!gtmData.access_token">
+                <button class="btn btn-info" type="button" ng-click="launchGTM()">Log into GoToMeeting</button>
+            </div>
+            <div ng-show="gtmData.access_token" class="text-center" >
+                <button type="submit" class="btn btn-primary">Create Session</button>
+                <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+
+
+        <div ng-if="session.sessionType !== 'Video'" class="text-center">
+            <button type="submit" class="btn btn-primary">Create Session</button>
             <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
         </div>
 
     </form>
-    <div ng-show="session.sessionType === 'Video'">
-        <div>
-            <button class="btn btn-info" ng-click="launchGTM()">Log into GoToMeeting</button>
-        </div>
-    </div>
 
 </div>
