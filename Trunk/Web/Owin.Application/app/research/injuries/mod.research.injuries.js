@@ -16,8 +16,9 @@ angular.module('research.injuries', ['research.injury.detail'])
             $scope.currentPage = 1;
             $scope.firstItemPosition = 1;
             $scope.lastItemPosition = $scope.pageSize;
-            $scope.onPageChanged = function (page) {
-                updatePaging(page);
+            $scope.onPageChanged = function () {
+                $scope.firstItemPosition = (($scope.currentPage - 1) * $scope.pageSize) + 1;
+                $scope.lastItemPosition = Math.min($scope.currentPage * $scope.pageSize, $scope.filteredInjuries.length);
             };
 
             $scope.isSignSelected = function (sign) {
@@ -46,18 +47,11 @@ angular.module('research.injuries', ['research.injury.detail'])
 
             function applyFilter() {
                 $scope.filteredInjuries = $filter('filter')($scope.injuries, { signs: $scope.selectedSign, bodyRegions: $scope.selectedBodyRegion });
-                updatePaging(1);
+                $scope.currentPage = 1;
+                $scope.onPageChanged();
                 $location.hash('research-injury-panel');
                 //$anchorScroll();
             }
-
-            //todo: convert to a service
-            function updatePaging(page) {
-                $scope.firstItemPosition = ((page - 1) * $scope.pageSize) + 1;
-                $scope.lastItemPosition = Math.min(page * $scope.pageSize, $scope.filteredInjuries.length);
-            }
-
-
         }
     ])
     .controller('BriefInjuryController', [

@@ -39,7 +39,7 @@
     <div>
         <div class="pull-right" ng-show="filteredPlans.length > 0">
             <pagination ng-model="currentPage" total-items="filteredPlans.length" items-per-page="pageSize" max-size="5"
-                        on-select-page="onPageChanged(page)">
+                        ng-change="onPageChanged()">
             </pagination>
         </div>
     </div>

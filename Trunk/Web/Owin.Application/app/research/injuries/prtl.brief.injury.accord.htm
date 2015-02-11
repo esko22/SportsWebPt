@@ -32,7 +32,7 @@
     <div>
         <div class="pull-right" ng-show="filteredInjuries.length > 0">
             <pagination ng-model="currentPage" total-items="filteredInjuries.length" items-per-page="pageSize" max-size="5"
-                        on-select-page="onPageChanged(page)">
+                        ng-change="onPageChanged(page)">
             </pagination>
         </div>
     </div>

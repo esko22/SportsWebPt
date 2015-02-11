@@ -18,8 +18,9 @@ angular.module('research.exercises', ['research.exercise.detail'])
         $scope.currentPage = 1;
         $scope.firstItemPosition = 1;
         $scope.lastItemPosition = $scope.pageSize;
-        $scope.onPageChanged = function (page) {
-            updatePaging(page);
+        $scope.onPageChanged = function () {
+            $scope.firstItemPosition = (($scope.currentPage - 1) * $scope.pageSize) + 1;
+            $scope.lastItemPosition = Math.min($scope.currentPage * $scope.pageSize, $scope.filteredExercises.length);
         };
 
         $scope.isCategorySelected = function(category) {
@@ -57,15 +58,10 @@ angular.module('research.exercises', ['research.exercise.detail'])
 
         function applyFilter() {
             $scope.filteredExercises = $filter('filter')($scope.exercises, { categories: $scope.selectedCategory, bodyRegions: $scope.selectedBodyRegion, equipment: $scope.selectedEquipment });
-            updatePaging(1);
+            $scope.currentPage = 1;
+            $scope.onPageChanged();
             $location.hash('research-exercise-panel');
             //$anchorScroll();
-        }
-
-            //todo: convert to a service
-        function updatePaging(page) {
-            $scope.firstItemPosition = ((page - 1) * $scope.pageSize) + 1;
-            $scope.lastItemPosition = Math.min(page * $scope.pageSize, $scope.filteredExercises.length);
         }
 
     }])
