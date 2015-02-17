@@ -3,6 +3,7 @@ using System.Data.Entity;
 
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Common.Logging;
 
 namespace SportsWebPt.Platform.DataAccess
 {
@@ -12,6 +13,7 @@ namespace SportsWebPt.Platform.DataAccess
         
         protected IRepositoryProvider _repositoryProvider;
         protected DbContext _context;
+        protected ILog _logger = LogManager.GetCommonLogger();
 
         #endregion
 

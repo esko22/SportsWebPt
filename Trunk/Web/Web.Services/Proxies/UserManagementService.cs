@@ -9,8 +9,8 @@ using AutoMapper;
 using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Ef;
 using BrockAllen.MembershipReboot.Relational;
-using ServiceStack.Text;
 using SportsWebPt.Common.ServiceStack;
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Identity.Core;
 using SportsWebPt.Platform.ServiceModels;
@@ -25,6 +25,7 @@ namespace SportsWebPt.Platform.Web.Services
         #region Fields
 
         private readonly SportsWebPtClientSettings _sportsWebPtClientSettings;
+        private static readonly ILog _logger = LogManager.GetCommonLogger();
 
         #endregion
        
@@ -39,7 +40,12 @@ namespace SportsWebPt.Platform.Web.Services
 
         public User GetUser(String id)
         {
+            _logger.Debug(String.Format("Attempt to get user {0}",id));
             var relationUser = UserAccountServiceFactory().GetByID(new Guid(id));
+
+            if(relationUser == null)
+                throw new Exception("User does not exist");
+
             var user = new User
             {
                 id = relationUser.ServiceAccount,
@@ -81,6 +87,8 @@ namespace SportsWebPt.Platform.Web.Services
 
             if (String.IsNullOrEmpty(serviceAccount))
             {
+                _logger.Info(String.Format("Creating Service Account for {0}", subjectId));
+
                 var request = PostSync(new CreateUserRequest {AccountLinked = true});
                 userAccountService.AddClaim(new Guid(subjectId), "service_account", request.Response.Id);
                 UpdateServiceAccount(subjectId, request.Response.Id, userAccountService);
@@ -96,6 +104,7 @@ namespace SportsWebPt.Platform.Web.Services
             var userToEdit = userAccountService.GetByID(new Guid(subjectId));
             if (userToEdit != null)
             {
+                _logger.Info(String.Format("Updating Service Account for {0}", subjectId));
                 userToEdit.ServiceAccount = serviceAccount;
                 userAccountService.Update(userToEdit);
             }
@@ -206,9 +215,13 @@ namespace SportsWebPt.Platform.Web.Services
 
         public static UserAccountService<SportsWebUser> UserAccountServiceFactory()
         {
+            _logger.Debug("MR DB Context Requested");
             var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
-            var userRepo = new SportsWebUserAccountRepo(database);
+            _logger.Debug("MR DB Context Created");
 
+            _logger.Debug("MR DB Repo Requested");
+            var userRepo = new SportsWebUserAccountRepo(database);
+            _logger.Debug("MR DB Repo Created");
 
             var configuration = new MembershipRebootConfiguration<SportsWebUser>
             {
@@ -216,7 +229,9 @@ namespace SportsWebPt.Platform.Web.Services
                 RequireAccountVerification = false
             };
 
+            _logger.Debug("UAS Requested");
             var service = new UserAccountService<SportsWebUser>(configuration, userRepo);
+            _logger.Debug("UAS Created");
 
             return service;
         }

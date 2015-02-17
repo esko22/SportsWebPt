@@ -2,7 +2,8 @@
 using System.Net.Http;
 using System.Security.Claims;
 using System.Web.Http;
-using Microsoft.Owin;
+
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
@@ -15,6 +16,7 @@ namespace SportsWebPt.Platform.Web.Application
         #region Fields
 
         private IUserManagementService _userManagementService;
+        private ILog _logger = LogManager.GetCommonLogger();
 
         #endregion
 
@@ -42,9 +44,14 @@ namespace SportsWebPt.Platform.Web.Application
             var serviceAccount = User.GetServiceAccount();
             if (String.IsNullOrEmpty(serviceAccount))
                 serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).id;
- 
+
+            _logger.Info(String.Format("Validation Request For {0} - {1}", registrationDetails.emailAddress, serviceAccount));
+
             var clinicPatient = _userManagementService.ValidatePatientRegistration(registrationDetails.emailAddress,
                 registrationDetails.pin, serviceAccount);
+
+            if(clinicPatient == null)
+                _logger.Info("Failed Registration Attempt");
 
             return clinicPatient;
         }

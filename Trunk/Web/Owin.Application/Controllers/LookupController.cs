@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
-
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
@@ -13,6 +13,7 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
         #region Fields
 
         private ILookupService _lookupService;
+        private ILog _logger = LogManager.GetCommonLogger();
 
         #endregion
 

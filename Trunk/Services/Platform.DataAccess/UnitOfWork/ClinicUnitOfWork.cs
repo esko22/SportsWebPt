@@ -97,6 +97,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         public ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String encryptedPin, Guid serviceAccount)
         {
+            _logger.Info(String.Format("Validate Clinic Patient For {0} - {1}", emailAddress, serviceAccount));
+
             var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
 
             var clinicPatient = ClinicPatientRepository.GetAll()
@@ -118,17 +120,21 @@ namespace SportsWebPt.Platform.DataAccess
                     //there is a chance that a user can create an account after the clinic AddsPatient, 
                     //that creates an account for the session to move forward, user could create account without registration mapping because there is no PHI with user account in service 
                     //to sync them up... if they go through registration process after, this will associate the accounts together
-                    AssocaiteExistingServiceAccounts(serviceAccount, clinicPatient.Patient.Id);
+                    AssociateExistingServiceAccounts(serviceAccount, clinicPatient.Patient.Id);
                 }
 
                 Commit();
+
+                _logger.Info(String.Format("Validate Clinic Patient For {0} - {1} Success", emailAddress, serviceAccount));
             }
 
             return clinicPatient;
         }
 
-        private void AssocaiteExistingServiceAccounts(Guid mapToAccount, Guid mapFromAccount)
+        private void AssociateExistingServiceAccounts(Guid mapToAccount, Guid mapFromAccount)
         {
+            _logger.Info(String.Format("Associate Existing Serivce Accounts: {0} To {1}", mapFromAccount, mapToAccount));
+
             var mapToUser = UserRepository.GetAll().SingleOrDefault(s => s.Id == mapToAccount);
             var mapFromUser = UserRepository.GetAll().SingleOrDefault(s => s.Id == mapFromAccount);
 
@@ -150,6 +156,8 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
 
             UserRepository.Delete(mapFromUser);
+
+            _logger.Info(String.Format("Associate Existing Serivce Accounts Completed: {0} To {1}", mapFromAccount, mapToAccount));
         }
 
         public ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String encryptedPin, Guid serviceAccount)
@@ -208,30 +216,6 @@ namespace SportsWebPt.Platform.DataAccess
             UserRepository.Delete(mapFromUser);
         }
 
-        public void SetPatientConfirmation(int clientPatientMatrixId)
-        {
-            var clinicPatient = ClinicPatientRepository.GetById(clientPatientMatrixId);
-
-            if (clinicPatient != null)
-            {
-                clinicPatient.UserConfirmed = true;
-                ClinicPatientRepository.Update(clinicPatient);
-                Commit();
-            }
-        }
-
-        public void SetTherapistConfirmation(int clientTherapistMatrixId)
-        {
-            var clinicTherapist = ClinicTherapistRepository.GetById(clientTherapistMatrixId);
-
-            if (clinicTherapist != null)
-            {
-                clinicTherapist.UserConfirmed = true;
-                ClinicTherapistRepository.Update(clinicTherapist);
-                Commit();
-            }
-        }
-
         #endregion
 
     }
@@ -250,8 +234,5 @@ namespace SportsWebPt.Platform.DataAccess
         ClinicTherapistMatrixItem AddTherapistToClinic(int clinicId, Guid therapistId);
         ClinicPatientMatrixItem ValidateClinicPatient(String emailAddress, String pin, Guid subjectId);
         ClinicTherapistMatrixItem ValidateClinicTherapist(String emailAddress, String pin, Guid subjectId);
-        void SetPatientConfirmation(int clientPatientMatrixId);
-        void SetTherapistConfirmation(int clientTherapistMatrixId);
-
     }
 }

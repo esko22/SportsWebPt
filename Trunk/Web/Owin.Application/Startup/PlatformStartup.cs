@@ -3,6 +3,7 @@ using System.IdentityModel.Tokens;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 using System.Web.Optimization;
 
 using Nancy.Bootstrapper;
@@ -13,8 +14,9 @@ using Nancy.TinyIoc;
 using Newtonsoft.Json.Serialization;
 
 using Owin;
-
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Nancy;
+using SportsWebPt.Common.Web;
 using SportsWebPt.Platform.Web.Core;
 using SportsWebPt.Platform.Web.Services;
 
@@ -24,7 +26,6 @@ namespace SportsWebPt.Platform.Web.Application
 {
     public class PlatformStartup : NancyWebApiBootstrapper
     {
-
         #region Methods
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
@@ -133,6 +134,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
+            LogManager.LoggerFactory = new NLogLoggerFactory();
             BuildBundles();
             Csrf.Enable(pipelines);
 
@@ -186,6 +188,7 @@ namespace SportsWebPt.Platform.Web.Application
 
         protected override void ConfigureWebApi(IAppBuilder appBuilder)
         {
+            _httpConfiguration.Services.Add(typeof(IExceptionLogger), new NLogExceptionLogger());
             _httpConfiguration.MapHttpAttributeRoutes();
             // comment for IE 10. might be the cause of A callback parameter was not provided in the request URI exception
             //   _httpConfiguration.AddJsonpFormatter(callbackQueryParameter)
