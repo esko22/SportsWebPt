@@ -2,7 +2,7 @@
 using Microsoft.Owin;
 using Owin;
 using SportsWebPt.Identity.Admin;
-using Thinktecture.IdentityManager;
+using Thinktecture.IdentityManager.Configuration;
 
 [assembly: OwinStartup("IdentityManager", typeof(Startup_IdentityManager))]
 namespace SportsWebPt.Identity.Admin
@@ -11,14 +11,15 @@ namespace SportsWebPt.Identity.Admin
     {
         public void Configuration(IAppBuilder app)
         {
-            var factory = new MembershipRebootIdentityManagerFactory("MembershipReboot");
-            var config = new IdentityManagerConfiguration
+            var factory = new IdentityManagerServiceFactory();
+            factory.Configure("MembershipReboot");
+            var options = new IdentityManagerOptions
             {
-                IdentityManagerFactory = factory.Create,
+                Factory = factory,
                 SecurityMode = SecurityMode.LocalMachine
             };
 
-            app.UseIdentityManager(config);
+            app.UseIdentityManager(options);
         }
 
     }
