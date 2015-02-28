@@ -35,12 +35,13 @@
                                 <h4>or sign in with your SportsWebPt account</h4>
                             </div>
                             <login></login>
-                            <div>
-                                <ul class="list-no-style">
-                                    <li ng-repeat="link in model.additionalLinks">
-                                        <a href="{{link.href}}">{{link.text}}</a>
-                                    </li>
-                                </ul>
+                            <div class="row push-down-md">
+                                <div class="col-md-6 text-center">
+                                    <a href="{{model.additionalLinks[1].href}}">{{model.additionalLinks[1].text}}</a>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <a href="{{model.additionalLinks[2].href}}">{{model.additionalLinks[2].text}}</a>
+                                </div>
                             </div>
                         </div>
                     </div>

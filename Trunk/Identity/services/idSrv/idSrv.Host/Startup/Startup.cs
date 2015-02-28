@@ -50,6 +50,11 @@ namespace Thinktecture.IdentityServer.Host
                         {
                             new LoginPageLink
                             {
+                                Text = "Register",
+                                Href = "/core/register"
+                            },
+                            new LoginPageLink
+                            {
                                 Text = "Forgot Username",
                                 Href = "/core/usernameRecovery"
                             },
