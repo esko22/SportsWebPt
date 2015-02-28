@@ -42,6 +42,8 @@ namespace SportsWebPt.Identity.Services.Core
 
         public string PublicHostName { get; private set; }
 
+        public String DefaultClientUri { get; private set; }
+
 
         #endregion
 
@@ -71,6 +73,7 @@ namespace SportsWebPt.Identity.Services.Core
             PersistanceConnection = ConfigurationManager.AppSettings["persistanceConnection"];
             ConfigConnection = ConfigurationManager.AppSettings["configConnection"];
             PublicHostName = ConfigurationManager.AppSettings["publicHostName"];
+            DefaultClientUri = ConfigurationManager.AppSettings["defaultClientUri"];
         }
 
         #endregion

@@ -1,24 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using BrockAllen.MembershipReboot;
+using BrockAllen.MembershipReboot.Relational;
 
 namespace SportsWebPt.Identity.Core
 {
     public class SportsWebMembershipRebootConfig : MembershipRebootConfiguration<SportsWebUser>
     {
-        public static readonly SportsWebMembershipRebootConfig Config;
 
-        static SportsWebMembershipRebootConfig()
+        #region Construction
+        
+        public SportsWebMembershipRebootConfig()
+            : this(String.Empty, String.Empty)
+        { }
+
+        public SportsWebMembershipRebootConfig(String loginUrl, String identityUrl)
         {
-            Config = new SportsWebMembershipRebootConfig
-            {
-                PasswordHashingIterationCount = 10000,
-                RequireAccountVerification = false
-            };
+            PasswordHashingIterationCount = 50000;
+            AllowLoginAfterAccountCreation = true;
+            RequireAccountVerification = false;
             //config.EmailIsUsername = true;
-        }
+            var appinfo = new ApplicationInformation
+            {
+                ApplicationName = "SportsWebPT",
+                EmailSignature = "SportsWebPT Staff",
+                LoginUrl = loginUrl,
+                CancelVerificationUrl = String.Format("{0}/core/cancelVerification/", identityUrl),
+                ConfirmChangeEmailUrl = String.Format("{0}/core/verifyEmail/", identityUrl),
+                ConfirmPasswordResetUrl = String.Format("{0}/core/passwordReset/", identityUrl)
+            };
+
+            AddEventHandler(new EmailAccountEventsHandler<SportsWebUser>(new EmailMessageFormatter<SportsWebUser>(appinfo)));
+        } 
+
+        #endregion
     }
+
 }

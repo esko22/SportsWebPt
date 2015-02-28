@@ -23,6 +23,39 @@
 
     });
 
+    app.controller("PasswordResetCtrl", function ($scope, Model) {
+        $scope.model = Model;
+
+        $scope.$watch('model.Password', function (newVal, oldVal) {
+            if (newVal !== oldVal) {
+                $scope.model.Password = newVal;
+                if ($scope.model.Password)
+                    $scope.validPassword = 'success';
+                else
+                    $scope.validPassword = 'error';
+
+                if ($scope.model.Password !== $scope.model.ConfirmPassword) {
+                    $scope.validConfirmPassword = 'error';
+                } else {
+                    $scope.validConfirmPassword = 'success';
+                }
+            }
+        });
+
+        $scope.$watch('model.ConfirmPassword', function (newVal, oldVal) {
+            if (newVal !== oldVal) {
+                $scope.model.ConfirmPassword = newVal;
+                if ($scope.model.Password !== $scope.model.ConfirmPassword) {
+                    $scope.validConfirmPassword = 'error';
+                } else {
+                    $scope.validConfirmPassword = 'success';
+                }
+                console.log("validConfirmPassword=" + $scope.validConfirmPassword);
+            }
+        });
+    });
+
+
     app.directive("antiForgeryToken", function () {
         return {
             restrict: 'E',

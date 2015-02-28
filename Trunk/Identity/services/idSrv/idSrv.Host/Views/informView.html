@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html ng-app="app" ng-controller="LayoutCtrl">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@Model.title</title>
+    <link href="/content/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/content/theme/css/theme-style.css" rel="stylesheet">
+    <link href="/content/theme/css/swpt-colorway.css" rel="stylesheet">
+    <link href="/content/app/css/icon-fonts.css" rel="stylesheet">
+    <link href="/content/app/css/sportsweb-pt.css" rel="stylesheet">
+</head>
+<body lang="en" id="body-content">
+    <master-header></master-header>
+    <div class="container">
+        <form name="patient-signup" action="/core/passwordrecovery?signin=@Model.signin" method="POST">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="invite-modal">
+                        <div class="small-wave"></div>
+                        <div class="modal-body invite-content">
+                            <div class="row margin-b-40">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <h1>@Model.subject</h1>
+                                </div>
+                            </div>
+                            <div class="row margin-b-40">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <h4>
+                                        @Model.body1
+                                    </h4>
+                                    <h4>
+                                        @Model.body2
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <a href="@Model.backUrl"><h4>@Model.backText</h4></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script id='modelJson' type='application/json'>
+        {
+        "error" : "@Model.error"
+        }
+    </script>
+    <script src="/content/libs/jquery/jquery-1.11.0.min.js"></script>
+    <script src="/content/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/content/libs/angular/angular.1.2.13.min.js"></script>
+    <script src="/content/app/js/util.module.js"></script>
+    <script src="/content/app/js/app.js"></script>
+</body>
+</html>
+
+

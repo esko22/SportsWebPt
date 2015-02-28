@@ -20,7 +20,7 @@ namespace SportsWebPt.Identity.Admin
             factory.Register(new Registration<SportsWebUserRepository>());
             factory.Register(new Registration<SportsWebGroupRepository>());
             factory.Register(new Registration<SportsWebMembershipRebootDatabase>(resolver => new SportsWebMembershipRebootDatabase(connectionString)));
-            factory.Register(new Registration<SportsWebMembershipRebootConfig>(SportsWebMembershipRebootConfig.Config));
+            factory.Register(new Registration<SportsWebMembershipRebootConfig>(new SportsWebMembershipRebootConfig()));
         }
     }
 
