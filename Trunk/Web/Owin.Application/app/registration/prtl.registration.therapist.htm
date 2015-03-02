@@ -16,25 +16,18 @@
         <div ng-if="isAuthenticated" class="row push-down-lg">
             <div class="row">
                 <div class="col-md-3">
-                    <label> Email Address:</label>
+                    <label>Registration Email Address:</label>
                 </div>
                 <div class="col-md-5">
                     <input type="text" class="form-control" ng-model="registrationDetails.emailAddress" />
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label> Registration PIN:</label>
-                </div>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" ng-model="registrationDetails.pin" />
-                </div>
-            </div>
             <div>
                 <strong><span ng-bind="error" class="text-danger"></span></strong>
             </div>
+            <input type="hidden" class="form-control" ng-model="registrationDetails.pin" />
             <div>
-                <button class="btn btn-warning" ng-click="validate()">Validate Pin</button>
+                <button class="btn btn-warning" ng-click="validate()">Register</button>
             </div>
         </div>
     </div>

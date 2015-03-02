@@ -9,26 +9,27 @@ registrationModule.controller('RegistrationPatientController', [
 
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
+        $scope.registrationDetails.pin = $stateParams.pin;
 
         clinicService.get($stateParams.clinicId).$promise.then(function(clinic) {
             $scope.clinic = clinic;
         });
 
         $scope.startRegistration = function () {
-            authenticationService.signIn(encodeURIComponent('/register/' + $stateParams.clinicId + '/patient'));
+            authenticationService.signIn('/register/' + $stateParams.clinicId + '/patient?pin=' + encodeURIComponent($stateParams.pin));
         };
 
         $scope.validate = function() {
             $scope.isValidated = false;
             registrationService.validatePatient($scope.registrationDetails.emailAddress, $scope.registrationDetails.pin).$promise.then(function (clinicPatient) {
-                if (clinicPatient) {
+                if (clinicPatient.id > 0) {
                     notifierService.notify('You have been registered successfully!');
                     $state.go('patient.dashboard');
                 } else {
-                    $scope.error = "Invalid Email / Pin Combo, Please try again";
+                    $scope.error = "Email Given Not Used With Initial Registration, Please try again";
                 }
             },function(error) {
-                $scope.error = "Invalid Email / Pin Combo, Please try again";
+                $scope.error = "Email Given Not Used With Initial Registration, Please try again";
             });
         }
     }
@@ -42,25 +43,26 @@ registrationModule.controller('RegistrationTherapistController', [
 
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
+        $scope.registrationDetails.pin = $stateParams.pin;
         clinicService.get($stateParams.clinicId).$promise.then(function (clinic) {
             $scope.clinic = clinic;
         });
 
         $scope.startRegistration = function () {
-            authenticationService.signIn(encodeURIComponent('/register/' + $stateParams.clinicId + '/therapist'));
+            authenticationService.signIn('/register/' + $stateParams.clinicId + '/therapist?pin=' + encodeURIComponent($stateParams.pin));
         };
 
         $scope.validate = function () {
             $scope.isValidated = false;
-            registrationService.validateTherapist($scope.registrationDetails.emailAddress, $scope.registrationDetails.pin).$promise.then(function (clinicPatient) {
-                if (clinicPatient) {
+            registrationService.validateTherapist($scope.registrationDetails.emailAddress, $scope.registrationDetails.pin).$promise.then(function (clinicTherapist) {
+                if (clinicTherapist.id > 0) {
                     notifierService.notify('You have been registered successfully!');
                     authenticationService.signIn('/therapist');
                 } else {
-                    $scope.error = "Invalid Email / Pin Combo, Please try again";
+                    $scope.error = "Email Given Not Used With Initial Registration, Please try again";
                 }
             }, function (error) {
-                $scope.error = "Invalid Email / Pin Combo, Please try again";
+                $scope.error = "Email Given Not Used With Initial Registration, Please try again";
             });
         }
     }

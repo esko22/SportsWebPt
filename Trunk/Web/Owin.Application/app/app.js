@@ -190,7 +190,8 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                             var redirectUrl = $window.sessionStorage.redirectUrl;
                             $window.sessionStorage.redirectUrl = '';
 
-                            $location.path(decodeURIComponent(redirectUrl));
+                            console.log(redirectUrl);
+                            $location.url(redirectUrl);
                         }
 
                     }]
@@ -495,7 +496,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
                 .state('registration.patient',
                 {
-                    url: "/register/:clinicId/patient",
+                    url: "/register/:clinicId/patient?pin",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.patient.htm',
@@ -505,7 +506,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
                 .state('registration.therapist',
                 {
-                    url: "/register/:clinicId/therapist",
+                    url: "/register/:clinicId/therapist?pin",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.therapist.htm',
@@ -545,7 +546,11 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                 })
             ;
 
-            $urlRouterProvider.otherwise('/404');
+            $urlRouterProvider.otherwise(
+                function ($injector, $location) {
+                    console.log($location.path());
+                    $location.path('/404');
+                });
             $locationProvider.html5Mode(true);
             $locationProvider.hashPrefix('!');
 

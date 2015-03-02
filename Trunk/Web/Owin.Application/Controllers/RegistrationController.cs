@@ -53,7 +53,7 @@ namespace SportsWebPt.Platform.Web.Application
             if(clinicPatient == null)
                 _logger.Info("Failed Registration Attempt");
 
-            return clinicPatient;
+            return clinicPatient ?? new ClinicPatient();
         }
 
         [HttpPost]
@@ -77,7 +77,7 @@ namespace SportsWebPt.Platform.Web.Application
 
             Request.GetOwinContext().Authentication.SignOut(new[] { "Bearer"});
 
-            return clinicTherapist;
+            return clinicTherapist ?? new ClinicTherapist();
         }
 
         
