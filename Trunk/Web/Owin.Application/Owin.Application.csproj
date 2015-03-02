@@ -255,6 +255,8 @@
     <Content Include="app\clinic\tmpl.clinic.add.therapist.modal.htm" />
     <Content Include="app\clinic\tmpl.clinic.patient.list.htm" />
     <Content Include="app\clinic\tmpl.clinic.therapist.list.htm" />
+    <Content Include="app\dashboard\mod.dashboard.js" />
+    <Content Include="app\dashboard\prtl.user.dashboard.htm" />
     <Content Include="app\examine\mod.examine.js" />
     <Content Include="app\examine\prtl.examine.htm" />
     <Content Include="app\examine\report\mod.examine.report.js" />

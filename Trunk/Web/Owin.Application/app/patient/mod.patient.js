@@ -23,6 +23,15 @@ patientModule.directive('patientCaseList', [function () {
     };
 }]);
 
+patientModule.directive('patientDashboard', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/patient/prtl.patient.dashboard.htm',
+        controller: 'PatientDashboardController'
+    };
+}]);
+
 patientModule.controller('PatientCaseListController', [
     '$scope', 'patientService', '$state',
     function ($scope, patientService, $state) {

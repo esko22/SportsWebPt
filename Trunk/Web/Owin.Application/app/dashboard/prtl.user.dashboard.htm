@@ -1,0 +1,5 @@
+﻿<div class="container" id="user-dashboard-page">
+    <patient-dashboard ng-if="!currentUser.isTherapist"></patient-dashboard>
+    <therapist-dashboard ng-if="currentUser.isTherapist"></therapist-dashboard>
+</div>
+

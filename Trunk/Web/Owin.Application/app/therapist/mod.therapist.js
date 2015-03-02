@@ -39,6 +39,16 @@ therapistModule.directive('therapistPlanList', [function () {
     };
 }]);
 
+therapistModule.directive('therapistDashboard', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/therapist/prtl.therapist.dashboard.htm',
+        controller: 'TherapistDashboardController'
+    };
+}]);
+
+
 therapistModule.controller('TherapistPlanController', [
     '$scope', 'planAdminService', 'userManagementService', '$modal','$rootScope',
     function ($scope, planAdminService, userManagementService, $modal, $rootScope) {

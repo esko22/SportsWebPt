@@ -39,7 +39,7 @@ sharedUi.controller('HeaderController', [
 
 
         $scope.showSignUp = function () {
-            authenticationService.signIn('/');
+            authenticationService.signIn('/dashboard');
         };
 
         $scope.logOut = function () {
@@ -47,7 +47,7 @@ sharedUi.controller('HeaderController', [
         };
 
         $scope.showLogin = function () {
-            authenticationService.signIn('/');
+            authenticationService.signIn('/dashboard');
         };
 
         $scope.alreadyHaveAccount = function() {

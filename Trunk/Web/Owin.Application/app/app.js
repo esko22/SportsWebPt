@@ -3,7 +3,7 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
-    'ngGrid', 'therapist.module', 'clinic.module', 'registration.module'])
+    'ngGrid', 'therapist.module', 'clinic.module', 'registration.module', 'user.dashboard.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -344,6 +344,26 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         "research-app-view": {
                             templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
                             controller: 'InjuryViewController'
+                        }
+                    }
+                })
+                .state('user',
+                {
+                    abstract: true,
+                    views: {
+                        "core-view": { templateUrl: '/app/prtl.core.htm' }
+                    },
+                    data: {
+                        access: 'access.user'
+                    }
+                })
+                .state('user.dashboard',
+                {
+                    url: "/dashboard",
+                    views: {
+                        "core-app-view": {
+                            templateUrl: '/app/dashboard/prtl.user.dashboard.htm',
+                            controller: 'UserDashboardController'
                         }
                     }
                 })

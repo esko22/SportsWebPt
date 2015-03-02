@@ -111,13 +111,20 @@ namespace SportsWebPt.Platform.ServiceImpl
                 var clinic = ClinicUnitOfWork.ClinicRepository.GetById(request.IdAsInt);
                 using (var mailClient = new NetSmtpClient())
                 {
+                    var pin = SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, request.User.EmailAddress);
+                    var registrationVars = new object[]
+                    {
+                        PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, request.User.EmailAddress,
+                        pin
+                    };
+                    var registrationLink = String.Format("{0}/{1}/patient?email={2}&pin={3}", registrationVars);
                     var messageBody =
                         String.Format(
                             "Hello, you have requested by {0} to create an account on SportsWebPt to access your physical therapy information {1}", clinic.Name, Environment.NewLine);
                     messageBody = messageBody +
                                   String.Format(
-                                      "Please click on the following link to start the registration process: {0}/{1}/patient {2}",
-                                      PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, Environment.NewLine);
+                                      "Please click on the following link to start the registration process: {0} {1}",
+                                      registrationLink, Environment.NewLine);
 
                     messageBody = messageBody + Environment.NewLine + Environment.NewLine;
                     messageBody = messageBody +
@@ -126,7 +133,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     messageBody = messageBody +
                                   String.Format("Registration Email Given: {0}{1}",request.User.EmailAddress,Environment.NewLine);
                     messageBody = messageBody +
-                                  String.Format("Registration Pin: {0}{1}", SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, request.User.EmailAddress), Environment.NewLine);
+                                  String.Format("Registration Pin: {0}{1}", pin, Environment.NewLine);
 
                     var mailMessage = new MailMessage {Subject = "SportsWebPt Patient Registration", Body = messageBody};
                     mailMessage.To.Add(new MailAddress(request.User.EmailAddress));
