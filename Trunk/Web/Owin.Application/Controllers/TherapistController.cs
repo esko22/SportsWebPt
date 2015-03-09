@@ -32,14 +32,14 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpGet]
         [Route("data/therapists/exercises")]
-        public IEnumerable<GridExercise> GetExercises()
+        public IEnumerable<BriefExercise> GetExercises()
         {
             return _therapistService.GetExercises(User.GetServiceAccount());
         }
 
         [HttpGet]
         [Route("data/therapists/plans")]
-        public IEnumerable<GridPlan> GetPlans()
+        public IEnumerable<BriefPlan> GetPlans()
         {
             return _therapistService.GetPlans(User.GetServiceAccount());
         }
@@ -51,33 +51,18 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return _therapistService.GetTherapistDetail(User.GetServiceAccount());
         }
 
-        [HttpGet]
-        [Route("data/therapists/sharedplans")]
-        public IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(int? planId)
-        {
-            return _therapistService.GetTherapistSharedPlans(User.GetServiceAccount(), planId);
-        }
-
         [HttpPut]
         [Route("data/therapists/sharedplans")]
-        public Boolean UpdateTherapistSharedPlans(TherapistSharedPlan[] sharedPlans)
+        public Boolean UpdateTherapistSharedPlans(ClinicPlan[] sharedPlans)
         {
             return _therapistService.UpdateTherapistSharedPlans(User.GetServiceAccount(), sharedPlans);
         }
 
         [HttpPut]
         [Route("data/therapists/sharedexercises")]
-        public Boolean UpdateTherapistSharedExercises(TherapistSharedExercise[] sharedExercises)
+        public Boolean UpdateTherapistSharedExercises(ClinicExercise[] sharedExercises)
         {
             return _therapistService.UpdateTherapistSharedExercises(User.GetServiceAccount(), sharedExercises);
-        }
-
-
-        [HttpGet]
-        [Route("data/therapists/sharedexercises")]
-        public IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(int? exerciseId)
-        {
-            return _therapistService.GetTherapistSharedExercises(User.GetServiceAccount(), exerciseId);
         }
 
         [HttpGet]

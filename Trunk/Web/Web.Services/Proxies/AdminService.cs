@@ -83,18 +83,18 @@ namespace SportsWebPt.Platform.Web.Services
             Put(Mapper.Map<UpdateExerciseRequest>(exercise));
         }
 
-        public IEnumerable<GridPlan> GetClinicPlans()
+        public IEnumerable<BriefPlan> GetClinicPlans()
         {
             var request = GetSync(new BriefPlanListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
-        public IEnumerable<GridExercise> GetClinicExercises()
+        public IEnumerable<BriefExercise> GetClinicExercises()
         {
             var request = GetSync(new BriefExerciseListRequest() { ClinicId = WebPlatformConfigSettings.Instance.SportsWebPtClinicId });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<GridExercise>>(request.Response.Items.OrderBy(p => p.Name));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items.OrderBy(p => p.Name));
         }
 
         public IEnumerable<GridInjury> GetClinicInjuries()
@@ -312,9 +312,9 @@ namespace SportsWebPt.Platform.Web.Services
 
         void UpdateExercise(Exercise exercise);
 
-        IEnumerable<GridPlan> GetClinicPlans();
+        IEnumerable<BriefPlan> GetClinicPlans();
         IEnumerable<GridInjury> GetClinicInjuries();
-        IEnumerable<GridExercise> GetClinicExercises();
+        IEnumerable<BriefExercise> GetClinicExercises();
 
         int AddPlan(Plan plan, String therapistId);
 

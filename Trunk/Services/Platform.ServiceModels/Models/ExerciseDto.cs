@@ -28,6 +28,10 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public Boolean Visible { get; set; }
 
+        public ClinicExerciseDto[] SharedClinics { get; set; }
+
+        public Boolean RequestorIsOwner { get; set; }
+
         #endregion
         
     }

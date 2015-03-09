@@ -14,6 +14,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
+        public IEnumerable<ClinicExercise> sharedClinics { get; set; } 
+
         public String name { get; set; }
 
         public String pageName { get; set; }
@@ -27,6 +29,16 @@ namespace SportsWebPt.Platform.Web.Core
         public String structuresInvolved { get; set; }
 
         public Boolean visible { get; set; }
+
+        public Boolean requestorIsOwner { get; set; }
+
+        #region Grid Helpers
+
+        public String formattedBodyRegions { get; set; }
+
+        public String formattedCategories { get; set; }
+
+        #endregion
 
         #endregion
     }
@@ -60,24 +72,4 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
     }
 
-    public class GridExercise
-    {
-        #region Properties
-
-        public int id { get; set; }
-
-        public String bodyRegions { get; set; }
-
-        public String name { get; set; }
-
-        public String pageName { get; set; }
-
-        public string categories { get; set; }
-
-        public bool visible { get; set; }
-
-        public String tags { get; set; }
-
-        #endregion
-    }
 }

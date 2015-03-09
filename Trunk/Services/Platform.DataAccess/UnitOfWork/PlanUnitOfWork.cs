@@ -20,7 +20,8 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<PlanBodyRegionMatrixItem> PlanBodyRegionRepo { get { return GetStandardRepo<PlanBodyRegionMatrixItem>(); } }
         public IRepository<PlanExerciseMatrixItem> PlanExerciseMatrixRepo { get { return GetStandardRepo<PlanExerciseMatrixItem>(); } }
         public IRepository<PlanCategoryMatrixItem> PlanCategoryRepo { get { return GetStandardRepo<PlanCategoryMatrixItem>(); } }
-        public IRepository<PlanPublishDetail> PlanPublishRepo { get { return GetStandardRepo<PlanPublishDetail>(); } } 
+        public IRepository<PlanPublishDetail> PlanPublishRepo { get { return GetStandardRepo<PlanPublishDetail>(); } }
+        public IRepository<ClinicTherapistMatrixItem> ClinicTherapistRepo { get { return GetStandardRepo<ClinicTherapistMatrixItem>();} } 
 
         #endregion
 
@@ -87,12 +88,14 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
-        public IQueryable<Plan> GetSharedPlansByTherapist(Guid therapistId)
+        public IQueryable<Plan> GetPlansByTherapist(Guid therapistId)
         {
-            return PlanRepo.GetAll()
-                .Include(i => i.ClinicPlanMatrixItems.Select(l2 => l2.Clinic))
-                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == therapistId && a.IsOwner))
-                .OrderBy(p => p.Id);
+            var therapistClinics =
+                ClinicTherapistRepo.GetAll().Where(p => p.TherapistId == therapistId).Select(s => s.ClinicId).ToList();
+
+            return PlanRepo.GetPlanDetails()
+            .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == therapistId && a.IsOwner) || p.ClinicPlanMatrixItems.Any(a => therapistClinics.Contains(a.ClinicId)))
+            .OrderBy(p => p.Id);
         }
 
         public void UpdateSharedPlans(IEnumerable<ClinicPlanMatrixItem> sharedPlans)
@@ -134,10 +137,9 @@ namespace SportsWebPt.Platform.DataAccess
 
         void UpdatePlan(Plan plan);
 
-        IQueryable<Plan> GetSharedPlansByTherapist(Guid therapistId);
+        IQueryable<Plan> GetPlansByTherapist(Guid therapistId);
 
         void UpdateSharedPlans(IEnumerable<ClinicPlanMatrixItem> sharedPlans);
-
 
         #endregion
     }

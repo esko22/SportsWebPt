@@ -12,6 +12,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<BodyRegion> bodyRegions { get; set; }
 
+        public IEnumerable<ClinicPlan> sharedClinics { get; set; } 
+
         public String[] categories { get; set; }
 
         public String routineName { get; set; }
@@ -24,28 +26,17 @@ namespace SportsWebPt.Platform.Web.Core
 
         public bool visible { get; set; }
 
+        public Boolean requestorIsOwner { get; set; }
+
+        #region Grid Helpers
+
+        public String formattedBodyRegions { get; set; }
+
+        public String formattedCategories { get; set; }
+        
         #endregion
-    }
 
-    public class GridPlan
-    {
-        #region Properties
-
-        public String routineName { get; set; }
-
-        public int id { get; set; }
-
-        public string bodyRegions { get; set; }
-
-        public string categories { get; set; }
-
-        public bool visible { get; set; }
-
-        public String pageName { get; set; }
-
-        public String tags { get; set; }
-
-        #endregion        
+        #endregion
     }
 
     public class Plan : BriefPlan

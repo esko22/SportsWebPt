@@ -34,10 +34,10 @@ namespace SportsWebPt.Platform.ServiceImpl
 
         public object Get(TherapistPlanListRequest request)
         {
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
+
             var responseList = new List<BriefPlanDto>();
-            var plans = PlanUnitOfWork.PlanRepo.GetPlanDetails()
-                .Where(p => p.TherapistPlanMatrixItems.Any(a => a.TherapistId == new Guid(request.Id) && a.IsOwner == request.IsOwner))
-                .OrderBy(p => p.RoutineName);
+            var plans = PlanUnitOfWork.GetPlansByTherapist(new Guid(request.Id)).ToList().OrderBy(p => p.RoutineName);
 
             Mapper.Map(plans, responseList);
 
@@ -45,6 +45,22 @@ namespace SportsWebPt.Platform.ServiceImpl
                 Ok(new ApiListResponse<BriefPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
         }
+
+        public object Get(TherapistExerciseListRequest request)
+        {
+            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
+
+            var responseList = new List<BriefExerciseDto>();
+            var exercises =
+                ExerciseUnitOfWork.GetExercisesByTherapist(new Guid(request.Id)).ToList().OrderBy(p => p.Name);
+
+            Mapper.Map(exercises, responseList);
+
+            return
+                Ok(new ApiListResponse<BriefExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
+                                                                        null, null));
+        }
+
 
         public object Get(TherapistCaseListRequest request)
         {
@@ -56,41 +72,6 @@ namespace SportsWebPt.Platform.ServiceImpl
             return
                 Ok(new ApiListResponse<CaseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
                                                                         null, null));
-        }
-
-        public object Get(TherapistSharedPlanListRequest request)
-        {
-            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
-
-            var sharedPlans = PlanUnitOfWork.GetSharedPlansByTherapist(new Guid(request.Id));
-
-            if (request.PlanId > 0)
-                sharedPlans = sharedPlans.Where(p => p.Id == request.PlanId);
-
-            var responseList = new List<TherapistSharedPlanDto>();
-
-            Mapper.Map(sharedPlans.ToList().SelectMany(s => s.ClinicPlanMatrixItems), responseList);
-
-            return Ok(new ApiListResponse<TherapistSharedPlanDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
-                                                                        null, null));
-        }
-
-        public object Get(TherapistSharedExerciseListRequest request)
-        {
-            Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
-
-            var sharedExercises = ExerciseUnitOfWork.GetSharedExercisesByTherapist(new Guid(request.Id));
-
-            if (request.ExerciseId > 0)
-                sharedExercises = sharedExercises.Where(p => p.Id == request.ExerciseId);
-
-            var responseList = new List<TherapistSharedExerciseDto>();
-
-            Mapper.Map(sharedExercises.ToList().SelectMany(s => s.ClinicExerciseMatrixItems), responseList);
-
-            return Ok(new ApiListResponse<TherapistSharedExerciseDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,
-                                                                        null, null));
-
         }
 
         public object Put(UpdateTherapistSharedPlanRequest request)

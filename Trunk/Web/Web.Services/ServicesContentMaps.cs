@@ -132,16 +132,28 @@ namespace SportsWebPt.Platform.Web.Services
                   .ForMember(d => d.delayedRecovery, opt => opt.MapFrom(s => s.InjuryPrognoses.FirstOrDefault(p => p.Category.Equals("delayedrecovery", StringComparison.OrdinalIgnoreCase))));
 
 
-            Mapper.CreateMap<BriefPlanDto, GridPlan>()
-                .ForMember(d => d.categories, opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
-                .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+            Mapper.CreateMap<BriefPlanDto, BriefPlan>()
+                .ForMember(d => d.sharedClinics, opt => opt.MapFrom(s => s.SharedClinics))
+                .ForMember(d => d.formattedCategories,
+                    opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
+                .ForMember(d => d.categories, opt =>
+                {
+                    opt.Condition(s => s.Categories != null && s.Categories.Any());
+                    opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " ")));
+                })
+                .ForMember(d => d.formattedBodyRegions,
+                    opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+
 
             Mapper.CreateMap<BriefInjuryDto, GridInjury>()
                 .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
 
-            Mapper.CreateMap<BriefExerciseDto, GridExercise>()
-                .ForMember(d => d.categories, opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
-                .ForMember(d => d.bodyRegions, opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
+            Mapper.CreateMap<BriefExerciseDto, BriefExercise>()
+                .ForMember(d => d.sharedClinics, opt => opt.MapFrom(s => s.SharedClinics))
+                .ForMember(d => d.formattedCategories,
+                    opt => opt.MapFrom(s => String.Join(",", s.Categories.OrderBy(o => o))))
+                .ForMember(d => d.formattedBodyRegions,
+                    opt => opt.MapFrom(s => String.Join(",", s.BodyRegions.OrderBy(o => o.Name).Select(b => b.Name))));
 
             Mapper.CreateMap<BriefPlanDto, BriefPlan>()
                   .ForMember(d => d.categories, opt => opt.MapFrom(s => s.Categories.Select(p => p.Replace("_", " "))));
@@ -267,10 +279,10 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<TherapistDto, Therapist>();
             Mapper.CreateMap<Clinic, ClinicDto>();
             Mapper.CreateMap<ClinicDto, Clinic>();
-            Mapper.CreateMap<TherapistSharedExercise, TherapistSharedExerciseDto>();
-            Mapper.CreateMap<TherapistSharedExerciseDto, TherapistSharedExercise>();
-            Mapper.CreateMap<TherapistSharedPlan, TherapistSharedPlanDto>();
-            Mapper.CreateMap<TherapistSharedPlanDto, TherapistSharedPlan>();
+            Mapper.CreateMap<ClinicExercise, ClinicExerciseDto>();
+            Mapper.CreateMap<ClinicExerciseDto, ClinicExercise>();
+            Mapper.CreateMap<ClinicPlan, ClinicPlanDto>();
+            Mapper.CreateMap<ClinicPlanDto, ClinicPlan>();
             Mapper.CreateMap<CaseDto, Case>();
             Mapper.CreateMap<SessionDto, Session>();
             Mapper.CreateMap<Session, CreateSessionRequest>();

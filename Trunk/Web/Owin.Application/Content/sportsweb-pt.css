@@ -1145,6 +1145,9 @@ a:focus {
   animation: bounceOut 1s;
 }*/
 
+.grid-link-padding {
+  margin-left:10px
+}
 
 .accordion-toggle {
     text-decoration: none !important;

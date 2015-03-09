@@ -90,7 +90,7 @@ namespace SportsWebPt.Platform.Web.Admin
 
         [HttpGet]
         [Route("data/admin/exercises")]
-        public IEnumerable<GridExercise> GetExercises()
+        public IEnumerable<BriefExercise> GetExercises()
         {
             return _adminService.GetClinicExercises();
         }
@@ -135,7 +135,7 @@ namespace SportsWebPt.Platform.Web.Admin
 
         [HttpGet]
         [Route("data/admin/plans")]
-        public IEnumerable<GridPlan> GetPlans()
+        public IEnumerable<BriefPlan> GetPlans()
         {
             return _adminService.GetClinicPlans();
         }

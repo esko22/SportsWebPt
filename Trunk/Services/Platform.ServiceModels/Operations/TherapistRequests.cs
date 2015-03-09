@@ -27,54 +27,29 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
     }
 
-    [Route("/therapists/{id}/sharedplans", "GET")]
-    public class TherapistSharedPlanListRequest : AbstractResourceListRequest,
-        IReturn<ApiListResponse<TherapistSharedPlanDto, BasicSortBy>>
-    {
-        #region Properties
-
-        public int PlanId { get; set; }
-
-        #endregion
-    }
-
-    [Route("/therapists/{id}/sharedexercises", "GET")]
-    public class TherapistSharedExerciseListRequest : AbstractResourceListRequest,
-    IReturn<ApiListResponse<TherapistSharedExerciseDto, BasicSortBy>>
-    {
-        #region Properties
-
-        public int ExerciseId { get; set; }
-
-        #endregion
-    }
-
     [Route("/therapists/{id}/sharedplans", "PUT")]
-    public class UpdateTherapistSharedPlanRequest : AbstractResourceRequest, IReturn<ApiListResponse<TherapistSharedPlanDto, BasicSortBy>>
+    public class UpdateTherapistSharedPlanRequest : AbstractResourceRequest, IReturn<ApiListResponse<ClinicPlanDto, BasicSortBy>>
     {
         #region Properties
 
-        public TherapistSharedPlanDto[] SharedPlans { get; set; }
+        public ClinicPlanDto[] SharedPlans { get; set; }
 
         #endregion
     }
 
     [Route("/therapists/{id}/sharedexercises", "PUT")]
-    public class UpdateTherapistSharedExerciseRequest : AbstractResourceRequest, IReturn<ApiListResponse<TherapistSharedExerciseDto, BasicSortBy>>
+    public class UpdateTherapistSharedExerciseRequest : AbstractResourceRequest, IReturn<ApiListResponse<ClinicExerciseDto, BasicSortBy>>
     {
         #region Properties
 
-        public TherapistSharedExerciseDto[] SharedExercises { get; set; }
+        public ClinicExerciseDto[] SharedExercises { get; set; }
 
         #endregion
     }
 
-
     [Route("/therapists/{id}", "GET")]
     public class TherapistRequest : AbstractResourceRequest, IReturn<ApiResponse<TherapistDto>>
-    {
-        
-    }
+    {}
 
     [Route("/therapists/{id}/cases", "GET")]
     public class TherapistCaseListRequest : AbstractResourceListRequest,

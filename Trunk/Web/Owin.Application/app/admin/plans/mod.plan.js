@@ -16,8 +16,8 @@ planAdminModule.controller('PlanAdminController', ['$scope', 'planAdminService',
         showGroupPanel: true,
         columnDefs: [{ field: 'id', displayName: 'Id' },
             { field: 'routineName', displayName: 'Name' },
-            { field: 'bodyRegions', displayName: 'Body Regions' },
-        { field: 'categories', displayName: 'Category' },
+            { field: 'formattedBodyRegions', displayName: 'Body Regions' },
+        { field: 'formattedCategories', displayName: 'Category' },
         { field: 'visible', displayName: 'Visible' },
         { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishPlan(row.entity)" >Edit</button> ' }]
     };
@@ -64,8 +64,8 @@ planAdminModule.controller('PublishPlanAdminController', [
 
 planAdminModule.controller('PlanModalController', [
     '$scope', 'planAdminService', '$modalInstance', 'selectedPlan', 'notifierService',
-    'configService', 'exerciseAdminService', 'bodyRegionAdminService',
-    function ($scope, planAdminService, $modalInstance, selectedPlan, notifierService, configService, exerciseAdminService, bodyRegionAdminService) {
+    'configService', 'therapistService', 'bodyRegionAdminService',
+function ($scope, planAdminService, $modalInstance, selectedPlan, notifierService, configService, therapistService, bodyRegionAdminService) {
 
         $scope.plan = {};
         if (selectedPlan) {
@@ -96,7 +96,7 @@ planAdminModule.controller('PlanModalController', [
                 }
             });
 
-            exerciseAdminService.getAll().$promise.then(function(results) {
+            therapistService.getExercisesForTherapist().$promise.then(function(results) {
                 $scope.availableExercises = results;
                 if ($scope.plan) {
                     _.each($scope.plan.exercises, function (planExercise) {
@@ -156,11 +156,7 @@ planAdminModule.factory('planAdminService', ['$resource', 'configService', funct
         getAll: function() {
             return $resource(adminPlanPath).query();
         },
-        getPlansForTherapist : function(therapistId) {
-            var resource = $resource(configService.apiUris.therapistPlans, { id: '@id' });
-            return resource.query({ id: therapistId });
-        },
-        save: function(plan) {
+        save: function (plan) {
             return $resource(adminPlanPath).save(plan);
         },
         update: function(plan) {

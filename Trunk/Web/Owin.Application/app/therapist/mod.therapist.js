@@ -50,8 +50,8 @@ therapistModule.directive('therapistDashboard', [function () {
 
 
 therapistModule.controller('TherapistPlanController', [
-    '$scope', 'planAdminService', 'userManagementService', '$modal','$rootScope',
-    function ($scope, planAdminService, userManagementService, $modal, $rootScope) {
+    '$scope', 'therapistService', 'userManagementService', '$modal','$rootScope',
+    function ($scope, therapistService, userManagementService, $modal, $rootScope) {
 
         $rootScope.$watch('currentUser', function (currentUser) {
             if(currentUser)
@@ -61,11 +61,11 @@ therapistModule.controller('TherapistPlanController', [
         $scope.planGridOptions = {
             data: 'plans',
             showGroupPanel: true,
-            columnDefs: [{ field: 'id', displayName: 'Id' },
+            columnDefs: [{ field: 'requestorIsOwner', width: 60, displayName: 'Owner', cellTemplate: '<input type="checkbox" ng-model="row.entity.requestorIsOwner" disabled>' },
                 { field: 'routineName', displayName: 'Name' },
-                { field: 'bodyRegions', displayName: 'Body Regions' },
-            { field: 'categories', displayName: 'Category' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedPlan(row.entity)" >Edit</button> <button id="editBtn" type="button" class="btn-small" ng-click="setSharedPlanSettings(row.entity)" >Share</button>' }]
+                { field: 'formattedBodyRegions', displayName: 'Body Regions' },
+            { field: 'formattedCategories', displayName: 'Category' },
+            { displayName: 'Action', width: 140, cellTemplate: '<a href="/research/plans/{{row.entity.id}}"  class="grid-link-padding" target="_blank">View</a> <a class="grid-link-padding" ng-click="bindSelectedPlan(row.entity)" ng-show="row.entity.requestorIsOwner" >Edit</a> <a class="grid-link-padding" ng-show="row.entity.requestorIsOwner" ng-click="setSharedPlanSettings(row.entity)" >Share</a>' }]
         };
 
         $scope.bindSelectedPlan = function (plan) {
@@ -84,7 +84,6 @@ therapistModule.controller('TherapistPlanController', [
 
             modalInstance.result.then(function (planReturned) {
                 getPlanList();
-                $scope.selectedPlan = planReturned;
             });
         }
 
@@ -108,7 +107,7 @@ therapistModule.controller('TherapistPlanController', [
 
 
         function getPlanList() {
-            planAdminService.getPlansForTherapist().$promise.then(function (plans) {
+            therapistService.getPlansForTherapist().$promise.then(function (plans) {
                 $scope.plans = plans;
             });
         }
@@ -116,21 +115,20 @@ therapistModule.controller('TherapistPlanController', [
 ]);
 
 therapistModule.controller('SharedPlanModalController', [
-    '$scope', 'therapistService', '$modal', 'selectedPlan', 'clinics','$rootScope','notifierService','$modalInstance',
-    function ($scope, therapistService, $modal, selectedPlan, clinics, $rootScope, notifierService, $modalInstance) {
+    '$scope', 'therapistService', 'selectedPlan','clinics', 'notifierService','$modalInstance',
+    function ($scope, therapistService, selectedPlan, clinics, notifierService, $modalInstance) {
 
         $scope.sharedPlans = [];
 
-        therapistService.getSharedPlansForTherapist(selectedPlan.id).$promise.then(function(results) {
-            angular.forEach(clinics, function (clinic) {
-                var sharedPlanRecord = _.findWhere(results, { clinicId: clinic.id });
-                if (sharedPlanRecord) {
-                    $scope.sharedPlans.push(sharedPlanRecord);
-                } else {
-                    $scope.sharedPlans.push({ clinicName : clinic.name, clinicId : clinic.id, isActive : false, planId : selectedPlan.id });
-                }
-            });
+        angular.forEach(clinics, function (clinic) {
+            var sharedPlanRecord = _.findWhere(selectedPlan.sharedClinics, { clinicId: clinic.id });
+            if (sharedPlanRecord) {
+                $scope.sharedPlans.push(sharedPlanRecord);
+            } else {
+                $scope.sharedPlans.push({ clinicName: clinic.name, clinicId: clinic.id, isActive: false, planId: selectedPlan.id });
+            }
         });
+
 
         $scope.submit = function () {
             if ($scope.sharedPlans.length > 0) {
@@ -144,22 +142,20 @@ therapistModule.controller('SharedPlanModalController', [
 ]);
 
 therapistModule.controller('SharedExerciseModalController', [
-    '$scope', 'therapistService', '$modal', 'selectedExercise', 'clinics', '$rootScope', 'notifierService','$modalInstance',
-    function ($scope, therapistService, $modal, selectedExercise, clinics, $rootScope, notifierService, $modalInstance) {
+    '$scope', 'therapistService', 'selectedExercise', 'clinics', 'notifierService','$modalInstance',
+    function ($scope, therapistService, selectedExercise, clinics, notifierService, $modalInstance) {
 
         $scope.sharedExercises = [];
-
-        therapistService.getSharedExercisesForTherapist(selectedExercise.id).$promise.then(function (results) {
-            angular.forEach(clinics, function (clinic) {
-                var sharedExerciseRecord = _.findWhere(results, { clinicId: clinic.id });
-                if (sharedExerciseRecord) {
-                    $scope.sharedExercises.push(sharedExerciseRecord);
-                } else {
-                    $scope.sharedExercises.push({ clinicName: clinic.name, clinicId: clinic.id, isActive: false, exerciseId: selectedExercise.id });
-                }
-            });
+        
+        angular.forEach(clinics, function (clinic) {
+            var sharedExerciseRecord = _.findWhere(selectedExercise.sharedClinics, { clinicId: clinic.id });
+            if (sharedExerciseRecord) {
+                $scope.sharedExercises.push(sharedExerciseRecord);
+            } else {
+                $scope.sharedExercises.push({ clinicName: clinic.name, clinicId: clinic.id, isActive: false, exerciseId: selectedExercise.id });
+            }
         });
-
+        
         $scope.submit = function () {
             if ($scope.sharedExercises.length > 0) {
                 therapistService.updateSharedExercises($scope.sharedExercises).$promise.then(function () {
@@ -172,8 +168,8 @@ therapistModule.controller('SharedExerciseModalController', [
 ]);
 
 therapistModule.controller('TherapistExerciseController', [
-    '$scope', 'exerciseAdminService', '$modal','$rootScope',
-    function ($scope, exerciseAdminService, $modal, $rootScope) {
+    '$scope', 'therapistService', '$modal','$rootScope',
+    function ($scope, therapistService, $modal, $rootScope) {
 
         $rootScope.$watch('currentUser', function (currentUser) {
             if (currentUser)
@@ -184,11 +180,11 @@ therapistModule.controller('TherapistExerciseController', [
         $scope.exerciseGridOptions = {
             data: 'exercises',
             showGroupPanel: true,
-            columnDefs: [{ field: 'id', displayName: 'Id' },
+            columnDefs: [{ field: 'requestorIsOwner', width: 60, displayName: 'Owner', cellTemplate: '<input type="checkbox" ng-model="row.entity.requestorIsOwner" disabled>' },
                 { field: 'name', displayName: 'Name' },
-                { field: 'bodyRegions', displayName: 'Body Regions' },
-            { field: 'categories', displayName: 'Category' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindSelectedExercise(row.entity)" >Edit</button> <button id="editBtn" type="button" class="btn-small" ng-click="setSharedExerciseSettings(row.entity)" >Share</button>' }]
+                { field: 'formattedBodyRegions', displayName: 'Body Regions' },
+            { field: 'formattedCategories', displayName: 'Category' },
+            { field: 'requestorIsOwner', displayName: 'Action', cellTemplate: '<a href="/research/exercises/{{row.entity.id}}"  class="grid-link-padding" target="_blank">View</a> <a class="grid-link-padding" ng-show="row.entity.requestorIsOwner" ng-click="bindSelectedExercise(row.entity)" >Edit</a> <a ng-show="row.entity.requestorIsOwner" class="grid-link-padding" ng-click="setSharedExerciseSettings(row.entity)" >Share</a>' }]
         };
 
         $scope.bindSelectedExercise = function (exercise) {
@@ -230,7 +226,7 @@ therapistModule.controller('TherapistExerciseController', [
 
 
         function getExerciseList() {
-            exerciseAdminService.getExercisesForTherapist().$promise.then(function (exercises) {
+            therapistService.getExercisesForTherapist().$promise.then(function (exercises) {
                 $scope.exercises = exercises;
             });
         }
@@ -455,15 +451,15 @@ therapistModule.controller('TherapistSessionModalController', [
 ]);
 
 therapistModule.controller('TherapistSessionPlanModalController', [
-    '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'planAdminService',
-    function($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, planAdminService) {
+    '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'therapistService',
+    function ($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, therapistService) {
 
         $scope.selectedPlans = [];
         $scope.sessionId = sessionId;
 
         $rootScope.$watch('currentUser', function(currentUser) {
             if (currentUser)
-                getPlanList();
+                getSharedPlanList();
         });
 
 
@@ -474,8 +470,8 @@ therapistModule.controller('TherapistSessionPlanModalController', [
             columnDefs: [
                 { field: 'id', displayName: 'Id' },
                 { field: 'routineName', displayName: 'Name' },
-                { field: 'bodyRegions', displayName: 'Body Regions' },
-                { field: 'categories', displayName: 'Category' }
+                { field: 'formattedBodyRegions', displayName: 'Body Regions' },
+                { field: 'formattedCategories', displayName: 'Category' }
             ]
         };
 
@@ -488,8 +484,8 @@ therapistModule.controller('TherapistSessionPlanModalController', [
             }
         }
 
-        function getPlanList() {
-            planAdminService.getPlansForTherapist().$promise.then(function(plans) {
+        function getSharedPlanList() {
+            therapistService.getPlansForTherapist().$promise.then(function (plans) {
                 $scope.plans = plans;
             });
         }
@@ -647,7 +643,7 @@ therapistModule.controller('TherapistCaseListController', [
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showCase(row.entity)" > View </button>' }]
+            { displayName: 'Action', cellTemplate: '<a class="grid-link-padding" ng-click="showCase(row.entity)" > View </a>' }]
         };
 
         $scope.addCase = function() {

@@ -10,13 +10,11 @@ namespace SportsWebPt.Platform.Web.Services
 {
     public interface ITherapistService
     {
-        IEnumerable<GridExercise> GetExercises(String therapistId);
-        IEnumerable<GridPlan> GetPlans(String therapistId);
+        IEnumerable<BriefExercise> GetExercises(String therapistId);
+        IEnumerable<BriefPlan> GetPlans(String therapistId);
         Therapist GetTherapistDetail(String therapistId);
-        IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(String therapistId, int? exerciseId);
-        IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(String therapistId, int? planId);
-        bool UpdateTherapistSharedExercises(String therapistId, TherapistSharedExercise[] sharedExercises);
-        bool UpdateTherapistSharedPlans(String therapistId, TherapistSharedPlan[] sharedPlans);
+        bool UpdateTherapistSharedExercises(String therapistId, ClinicExercise[] sharedExercises);
+        bool UpdateTherapistSharedPlans(String therapistId, ClinicPlan[] sharedPlans);
         IEnumerable<Case> GetCases(String therapistId, String state);
     }
 
@@ -41,13 +39,12 @@ namespace SportsWebPt.Platform.Web.Services
 
 
         #region Methods
-        
-        public IEnumerable<GridExercise> GetExercises(String therapistId)
+
+        public IEnumerable<BriefExercise> GetExercises(String therapistId)
         {
             var request = GetSync(new TherapistExerciseListRequest() { Id = therapistId, IsOwner = true});
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<GridExercise>>(request.Response.Items.OrderBy(p => p.Name));
-
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefExercise>>(request.Response.Items.OrderBy(p => p.Name));
         }
 
         public IEnumerable<Case> GetCases(String therapistId, String state)
@@ -61,11 +58,11 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Case>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
-        public IEnumerable<GridPlan> GetPlans(String therapistId)
+        public IEnumerable<BriefPlan> GetPlans(String therapistId)
         {
             var request = GetSync(new TherapistPlanListRequest() { Id = therapistId, IsOwner = true });
 
-            return request.Response == null ? null : Mapper.Map<IEnumerable<GridPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
+            return request.Response == null ? null : Mapper.Map<IEnumerable<BriefPlan>>(request.Response.Items.OrderBy(p => p.RoutineName));
         }
 
         public Therapist GetTherapistDetail(String therapistId)
@@ -75,25 +72,12 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<Therapist>(request.Response);
         }
 
-        public IEnumerable<TherapistSharedExercise> GetTherapistSharedExercises(String therapistId, int? exerciseId)
-        {
-            var request = GetSync(new TherapistSharedExerciseListRequest() { Id = therapistId, ExerciseId = exerciseId ?? 0});
-            return request.Response == null ? null : Mapper.Map<IEnumerable<TherapistSharedExercise>>(request.Response.Items);
-        }
-
-        public IEnumerable<TherapistSharedPlan> GetTherapistSharedPlans(String therapistId, int? planId)
-        {
-            var request = GetSync(new TherapistSharedPlanListRequest() { Id = therapistId, PlanId = planId ?? 0 });
-
-            return request.Response == null ? null : Mapper.Map<IEnumerable<TherapistSharedPlan>>(request.Response.Items);
-        }
-
-        public bool UpdateTherapistSharedExercises(String therapistId, TherapistSharedExercise[] sharedExercises)
+        public bool UpdateTherapistSharedExercises(String therapistId, ClinicExercise[] sharedExercises)
         {
             var request = new UpdateTherapistSharedExerciseRequest()
             {
                 Id = therapistId,
-                SharedExercises = Mapper.Map<TherapistSharedExerciseDto[]>(sharedExercises)
+                SharedExercises = Mapper.Map<ClinicExerciseDto[]>(sharedExercises)
             };
 
             Put(request);
@@ -101,12 +85,12 @@ namespace SportsWebPt.Platform.Web.Services
             return true;
         }
 
-        public bool UpdateTherapistSharedPlans(String therapistId, TherapistSharedPlan[] sharedPlans)
+        public bool UpdateTherapistSharedPlans(String therapistId, ClinicPlan[] sharedPlans)
         {
             var request = new UpdateTherapistSharedPlanRequest()
             {
-                Id = therapistId.ToString(),
-                SharedPlans = Mapper.Map<TherapistSharedPlanDto[]>(sharedPlans)
+                Id = therapistId,
+                SharedPlans = Mapper.Map<ClinicPlanDto[]>(sharedPlans)
             };
 
             Put(request);

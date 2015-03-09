@@ -19,11 +19,15 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public BodyRegionDto[] BodyRegions { get; set; }
 
+        public ClinicPlanDto[] SharedClinics { get; set; }
+
         public String PageName { get; set; }
 
         public Boolean Visible { get; set; }
 
         public String Tags { get; set; }
+
+        public Boolean RequestorIsOwner { get; set; }
 
         #endregion
     }

@@ -17,6 +17,7 @@ namespace SportsWebPt.Platform.DataAccess
         public IRepository<ClinicExerciseMatrixItem> ClinicExerciseRepo { get { return GetStandardRepo<ClinicExerciseMatrixItem>(); } }
         public IExerciseRepo ExerciseRepo { get { return GetRepo<IExerciseRepo>(); } }
         public IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get { return GetStandardRepo<ExercisePublishDetail>(); } }
+        public IRepository<ClinicTherapistMatrixItem> ClinicTherapistRepo { get { return GetStandardRepo<ClinicTherapistMatrixItem>(); } } 
 
         #endregion
         
@@ -120,11 +121,13 @@ namespace SportsWebPt.Platform.DataAccess
             Commit();
         }
 
-        public IQueryable<Exercise> GetSharedExercisesByTherapist(Guid therapistId)
+        public IQueryable<Exercise> GetExercisesByTherapist(Guid therapistId)
         {
-            return ExerciseRepo.GetAll()
-                .Include(i => i.ClinicExerciseMatrixItems.Select(l2 => l2.Clinic))
-                .Where(p => p.TherapistExerciseMatrixItems.Any(a => a.TherapistId == therapistId && a.IsOwner))
+            var therapistClinics =
+                ClinicTherapistRepo.GetAll().Where(p => p.TherapistId == therapistId).Select(s => s.ClinicId).ToList();
+
+            return ExerciseRepo.GetExerciseDetails()
+                .Where(p => p.TherapistExerciseMatrixItems.Any(a => a.TherapistId == therapistId && a.IsOwner) || p.ClinicExerciseMatrixItems.Any(a => therapistClinics.Contains(a.ClinicId)))
                 .OrderBy(p => p.Id);
         }
 
@@ -153,7 +156,7 @@ namespace SportsWebPt.Platform.DataAccess
         IRepository<ExercisePublishDetail> ExercisePublishDetailRepo { get; }
 
         void UpdateExercise(Exercise exercise);
-        IQueryable<Exercise> GetSharedExercisesByTherapist(Guid therapistId);
+        IQueryable<Exercise> GetExercisesByTherapist(Guid therapistId);
         void UpdateSharedExercises(IEnumerable<ClinicExerciseMatrixItem> sharedExercises);
     }
 }

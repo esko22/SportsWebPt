@@ -47,14 +47,14 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Clinic> clinics { get; set; }
 
-        public IEnumerable<TherapistSharedPlan> sharedPlans { get; set; }
+        public IEnumerable<ClinicPlan> sharedPlans { get; set; }
 
-        public IEnumerable<TherapistSharedExercise> sharedExercises { get; set; } 
+        public IEnumerable<ClinicExercise> sharedExercises { get; set; } 
 
         #endregion
     }
 
-    public class TherapistSharedPlan
+    public class ClinicPlan
     {
         #region Prorperties
 
@@ -73,7 +73,7 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
     }
 
-    public class TherapistSharedExercise
+    public class ClinicExercise
     {
         #region Prorperties
 

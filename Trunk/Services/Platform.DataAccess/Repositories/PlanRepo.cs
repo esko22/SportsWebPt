@@ -21,11 +21,12 @@ namespace SportsWebPt.Platform.DataAccess
         public IQueryable<Plan> GetPlanDetails()
         {
             return GetAll()
-                .Include(i => i.ClinicPlanMatrixItems)
+                .Include(i => i.TherapistPlanMatrixItems)             
+                .Include(i => i.ClinicPlanMatrixItems.Select(i2 => i2.Clinic))
                 .Include(i => i.PlanCategoryMatrixItems)
                 .Include(i => i.PlanExerciseMatrixItems.Select(l2 => l2.Exercise))
                 .Include(i => i.PlanBodyRegionMatrixItems.Select(l2 => l2.BodyRegion))
-                .Include(i => i.PublishDetail);                
+                .Include(i => i.PublishDetail);
         }
        
         #endregion

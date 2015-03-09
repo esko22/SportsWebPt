@@ -7,13 +7,13 @@
             var resource = $resource(therapistPath);
             return resource.get({ id: id });
         },
-        getSharedPlansForTherapist: function (planId) {
-            var resource = $resource(configService.apiUris.therapistSharedPlans);
-            return resource.query({ planId: planId });
+        getPlansForTherapist: function () {
+            var resource = $resource(configService.apiUris.therapistPlans);
+            return resource.query();
         },
-        getSharedExercisesForTherapist: function (exerciseId) {
-            var resource = $resource(configService.apiUris.therapistSharedExercises);
-            return resource.query({exerciseId: exerciseId });
+        getExercisesForTherapist: function () {
+            var resource = $resource(configService.apiUris.therapistExercises);
+            return resource.query();
         },
         getCasesForTherapist: function (state) {
             var resource = $resource(configService.apiUris.therapistCases);

@@ -99,8 +99,8 @@ exerciseAdminModule.controller('ExerciseAdminController', ['$scope', 'exerciseAd
         showGroupPanel: true,
         columnDefs: [{ field: 'id', displayName: 'Id' },
             { field: 'name', displayName: 'Name' },
-            { field: 'bodyRegions', displayName: 'Body Regions' },
-        { field: 'categories', displayName: 'Category' },
+            { field: 'formattedBodyRegions', displayName: 'Body Regions' },
+        { field: 'formattedCategories', displayName: 'Category' },
         { field: 'visible', displayName: 'Visible' },
         { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="bindPublishExercise(row.entity)" >Edit</button> ' }]
     };
@@ -155,10 +155,6 @@ exerciseAdminModule.factory('exerciseAdminService', ['$resource', 'configService
         },
         getAll: function () {
             return $resource(adminExercisePath).query();
-        },
-        getExercisesForTherapist : function (therapistId) {
-            var resource = $resource(configService.apiUris.therapistExercises, { id: '@id' });
-            return resource.query({ id: therapistId });
         },
         save: function (exercise) {
             return $resource(adminExercisePath).save(exercise);
