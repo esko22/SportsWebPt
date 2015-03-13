@@ -36,8 +36,16 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
+            var therapistId = new Guid(request.Id);
             var responseList = new List<BriefPlanDto>();
-            var plans = PlanUnitOfWork.GetPlansByTherapist(new Guid(request.Id)).ToList().OrderBy(p => p.RoutineName);
+            var plans = PlanUnitOfWork.GetPlansByTherapist(therapistId).ToList().OrderBy(p => p.RoutineName);
+
+            plans.ForEach(plan =>
+            {
+                var theraList = plan.TherapistPlanMatrixItems.ToList();
+                theraList.RemoveAll(r => !r.TherapistId.Equals(therapistId));
+                plan.TherapistPlanMatrixItems = theraList;
+            });
 
             Mapper.Map(plans, responseList);
 
@@ -50,9 +58,17 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNullOrEmpty(request.Id, "TherapistId");
 
+            var therapistId = new Guid(request.Id);
             var responseList = new List<BriefExerciseDto>();
             var exercises =
-                ExerciseUnitOfWork.GetExercisesByTherapist(new Guid(request.Id)).ToList().OrderBy(p => p.Name);
+                ExerciseUnitOfWork.GetExercisesByTherapist(therapistId).ToList().OrderBy(p => p.Name);
+
+            exercises.ForEach(exercise =>
+            {
+                var theraList = exercise.TherapistExerciseMatrixItems.ToList();
+                theraList.RemoveAll(r => !r.TherapistId.Equals(therapistId));
+                exercise.TherapistExerciseMatrixItems = theraList;
+            });
 
             Mapper.Map(exercises, responseList);
 
