@@ -704,6 +704,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.ClinicPatientIdentifier,
                     opt => opt.MapFrom(s => s.ClinicPatient.ClinicPatientIdentifier))
                 .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
+            Mapper.CreateMap<Case, CaseSnapshotDto>()
+                .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
             Mapper.CreateMap<Session, SessionDto>()
                 .ForMember(d => d.Plans, opt =>
                 {

@@ -44,4 +44,18 @@ namespace SportsWebPt.Platform.Web.Core
 
     }
 
+    public class CaseSnapshot : Case
+    {
+        #region Properties
+
+        public Session nextSession { get; set; }
+
+        public Session lastSession { get; set; }
+
+        public Plan[] lastAssignment { get; set; }
+
+
+        #endregion
+    }
+
 }

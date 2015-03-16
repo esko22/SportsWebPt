@@ -129,6 +129,13 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response == null ? null : Mapper.Map<IEnumerable<Case>>(request.Response.Items.OrderBy(p => p.CreatedOn));
         }
 
+        public PatientSnapshot GetPatientSnapshot(String patientId)
+        {
+            var request = GetSync(new PatientSnapshotRequest() { Id = patientId});
+
+            return request.Response == null ? null : Mapper.Map<PatientSnapshot>(request.Response);
+        } 
+
         public ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String serviceAccount)
         {
             var request = GetSync(new ValidatePatientRegistrationRequest() { EmailAddress = emailAddress, Pin = pin, ServiceAccount = serviceAccount});
@@ -256,6 +263,7 @@ namespace SportsWebPt.Platform.Web.Services
 
         String RegisterPatient(User user, int registrationId);
         String RegisterTherapist(User user, int registrationId);
+        PatientSnapshot GetPatientSnapshot(String patientId);
     }
 
 

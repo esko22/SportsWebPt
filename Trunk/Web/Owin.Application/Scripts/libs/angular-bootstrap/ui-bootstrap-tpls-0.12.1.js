@@ -2,7 +2,7 @@
  * angular-ui-bootstrap
  * http://angular-ui.github.io/bootstrap/
 
- * Version: 0.12.0 - 2014-11-16
+ * Version: 0.12.1 - 2015-02-20
  * License: MIT
  */
 angular.module("ui.bootstrap", ["ui.bootstrap.tpls", "ui.bootstrap.transition", "ui.bootstrap.collapse", "ui.bootstrap.accordion", "ui.bootstrap.alert", "ui.bootstrap.bindHtml", "ui.bootstrap.buttons", "ui.bootstrap.carousel", "ui.bootstrap.dateparser", "ui.bootstrap.position", "ui.bootstrap.datepicker", "ui.bootstrap.dropdown", "ui.bootstrap.modal", "ui.bootstrap.pagination", "ui.bootstrap.tooltip", "ui.bootstrap.popover", "ui.bootstrap.progressbar", "ui.bootstrap.rating", "ui.bootstrap.tabs", "ui.bootstrap.timepicker", "ui.bootstrap.typeahead"]);
@@ -415,6 +415,7 @@ angular.module('ui.bootstrap.buttons', [])
 });
 
 /**
+* THIS IS COPY FROM AN UNMERGED PULL REQUEST TO FIX ISSUE WITH NGANIMATE
 * @ngdoc overview
 * @name ui.bootstrap.carousel
 *
@@ -423,11 +424,11 @@ angular.module('ui.bootstrap.buttons', [])
 *
 */
 angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
-.controller('CarouselController', ['$scope', '$timeout', '$interval', '$transition', function ($scope, $timeout, $interval, $transition) {
+.controller('CarouselController', ['$scope', '$timeout', '$animate', function ($scope, $timeout, $animate) {
     var self = this,
       slides = self.slides = $scope.slides = [],
       currentIndex = -1,
-      currentInterval, isPlaying;
+      currentTimeout, isPlaying;
     self.currentSlide = null;
 
     var destroyed = false;
@@ -439,50 +440,29 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
             direction = nextIndex > currentIndex ? 'next' : 'prev';
         }
         if (nextSlide && nextSlide !== self.currentSlide) {
-            if ($scope.$currentTransition) {
-                $scope.$currentTransition.cancel();
-                //Timeout so ng-class in template has time to fix classes for finished slide
-                $timeout(goNext);
-            } else {
-                goNext();
-            }
+            goNext();
         }
         function goNext() {
             // Scope has been destroyed, stop here.
             if (destroyed) { return; }
-            //If we have a slide to transition from and we have a transition type and we're allowed, go
-            if (self.currentSlide && angular.isString(direction) && !$scope.noTransition && nextSlide.$element) {
-                //We shouldn't do class manip in here, but it's the same weird thing bootstrap does. need to fix sometime
-                nextSlide.$element.addClass(direction);
-                var reflow = nextSlide.$element[0].offsetWidth; //force reflow
 
-                //Set all other slides to stop doing their stuff for the new transition
-                angular.forEach(slides, function (slide) {
-                    angular.extend(slide, { direction: '', entering: false, leaving: false, active: false });
+            angular.extend(nextSlide, { direction: direction, active: true });
+            angular.extend(self.currentSlide || {}, { direction: direction, active: false });
+
+            if ($animate.enabled() && !$scope.noTransition && nextSlide.$element) {
+                $scope.$currentTransition = true;
+                // TODO: Switch to use .one when upgrading beyond 1.2.21
+                // (See https://github.com/angular/angular.js/pull/5984)
+                nextSlide.$element.on('$animate:close', function closeFn() {
+                    $scope.$currentTransition = null;
+                    nextSlide.$element.off('$animate:close', closeFn);
                 });
-                angular.extend(nextSlide, { direction: direction, active: true, entering: true });
-                angular.extend(self.currentSlide || {}, { direction: direction, leaving: true });
-
-                $scope.$currentTransition = $transition(nextSlide.$element, {});
-                //We have to create new pointers inside a closure since next & current will change
-                (function (next, current) {
-                    $scope.$currentTransition.then(
-                      function () { transitionDone(next, current); },
-                      function () { transitionDone(next, current); }
-                    );
-                }(nextSlide, self.currentSlide));
-            } else {
-                transitionDone(nextSlide, self.currentSlide);
             }
+
             self.currentSlide = nextSlide;
             currentIndex = nextIndex;
             //every time you change slides, reset the timer
             restartTimer();
-        }
-        function transitionDone(next, current) {
-            angular.extend(next, { direction: '', active: true, leaving: false, entering: false });
-            angular.extend(current || {}, { direction: '', active: false, leaving: false, entering: false });
-            $scope.$currentTransition = null;
         }
     };
     $scope.$on('$destroy', function () {
@@ -522,22 +502,22 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     function restartTimer() {
         resetTimer();
         var interval = +$scope.interval;
-        if (!isNaN(interval) && interval > 0) {
-            currentInterval = $interval(timerFn, interval);
+        if (!isNaN(interval) && interval >= 0) {
+            currentTimeout = $timeout(timerFn, interval);
         }
     }
 
     function resetTimer() {
-        if (currentInterval) {
-            $interval.cancel(currentInterval);
-            currentInterval = null;
+        if (currentTimeout) {
+            $timeout.cancel(currentTimeout);
+            currentTimeout = null;
         }
     }
 
     function timerFn() {
-        var interval = +$scope.interval;
-        if (isPlaying && !isNaN(interval) && interval > 0) {
+        if (isPlaying) {
             $scope.next();
+            restartTimer();
         } else {
             $scope.pause();
         }
@@ -625,6 +605,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
   </file>
 </example>
  */
+
 .directive('carousel', [function () {
     return {
         restrict: 'EA',
@@ -706,7 +687,136 @@ function CarouselDemoCtrl($scope) {
             });
         }
     };
-});
+})
+
+
+.animation('.item', [
+         '$animate',
+function ($animate) {
+    return {
+        beforeAddClass: function (element, className, done) {
+            // Due to transclusion, noTransition property is on parent's scope
+            if (className == 'active' && element.parent() &&
+                !element.parent().scope().noTransition) {
+                var stopped = false;
+                var direction = element.isolateScope().direction;
+                var directionClass = direction == 'next' ? 'left' : 'right';
+                element.addClass(direction);
+                $animate.addClass(element, directionClass, function () {
+                    if (!stopped) {
+                        element.removeClass(directionClass + ' ' + direction);
+                    }
+                    done();
+                });
+
+                return function () {
+                    stopped = true;
+                };
+            }
+            done();
+        },
+        beforeRemoveClass: function (element, className, done) {
+            // Due to transclusion, noTransition property is on parent's scope
+            if (className == 'active' && element.parent() &&
+                !element.parent().scope().noTransition) {
+                var stopped = false;
+                var direction = element.isolateScope().direction;
+                var directionClass = direction == 'next' ? 'left' : 'right';
+                $animate.addClass(element, directionClass, function () {
+                    if (!stopped) {
+                        element.removeClass(directionClass);
+                    }
+                    done();
+                });
+                return function () {
+                    stopped = true;
+                };
+            }
+            done();
+        }
+    };
+
+}])
+
+/**
+ * @ngdoc directive
+ * @name ui.bootstrap.carousel.directive:carousel
+ * @restrict EA
+ *
+ * @description
+ * Carousel is the outer container for a set of image 'slides' to showcase.
+ *
+ * @param {number=} interval The time, in milliseconds, that it will take the carousel to go to the next slide.
+ * @param {boolean=} noTransition Whether to disable transitions on the carousel.
+ * @param {boolean=} noPause Whether to disable pausing on the carousel (by default, the carousel interval pauses on hover).
+ *
+ * @example
+<example module="ui.bootstrap">
+  <file name="index.html">
+    <carousel>
+      <slide>
+        <img src="http://placekitten.com/150/150" style="margin:auto;">
+        <div class="carousel-caption">
+          <p>Beautiful!</p>
+        </div>
+      </slide>
+      <slide>
+        <img src="http://placekitten.com/100/150" style="margin:auto;">
+        <div class="carousel-caption">
+          <p>D'aww!</p>
+        </div>
+      </slide>
+    </carousel>
+  </file>
+  <file name="demo.css">
+    .carousel-indicators {
+      top: auto;
+      bottom: 15px;
+    }
+  </file>
+</example>
+ */
+
+/**
+ * @ngdoc directive
+ * @name ui.bootstrap.carousel.directive:slide
+ * @restrict EA
+ *
+ * @description
+ * Creates a slide inside a {@link ui.bootstrap.carousel.directive:carousel carousel}.  Must be placed as a child of a carousel element.
+ *
+ * @param {boolean=} active Model binding, whether or not this slide is currently active.
+ *
+ * @example
+<example module="ui.bootstrap">
+  <file name="index.html">
+<div ng-controller="CarouselDemoCtrl">
+  <carousel>
+    <slide ng-repeat="slide in slides" active="slide.active">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <h4>Slide {{$index}}</h4>
+        <p>{{slide.text}}</p>
+      </div>
+    </slide>
+  </carousel>
+  Interval, in milliseconds: <input type="number" ng-model="myInterval">
+  <br />Enter a negative number to stop the interval.
+</div>
+  </file>
+  <file name="script.js">
+function CarouselDemoCtrl($scope) {
+  $scope.myInterval = 5000;
+}
+  </file>
+  <file name="demo.css">
+    .carousel-indicators {
+      top: auto;
+      bottom: 15px;
+    }
+  </file>
+</example>
+*/
 
 angular.module('ui.bootstrap.dateparser', [])
 
@@ -2612,14 +2722,7 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.b
 
                             // Set the initial positioning.
                             tooltip.css({ top: 0, left: 0, display: 'block' });
-
-                            // Now we add it to the DOM because need some info about it. But it's not
-                            // visible yet anyway.
-                            if (appendToBody) {
-                                $document.find('body').append(tooltip);
-                            } else {
-                                element.after(tooltip);
-                            }
+                            ttScope.$digest();
 
                             positionTooltip();
 
@@ -2659,7 +2762,13 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.b
                                 removeTooltip();
                             }
                             tooltipLinkedScope = ttScope.$new();
-                            tooltip = tooltipLinker(tooltipLinkedScope, angular.noop);
+                            tooltip = tooltipLinker(tooltipLinkedScope, function (tooltip) {
+                                if (appendToBody) {
+                                    $document.find('body').append(tooltip);
+                                } else {
+                                    element.after(tooltip);
+                                }
+                            });
                         }
 
                         function removeTooltip() {
@@ -3949,11 +4058,7 @@ angular.module("template/carousel/carousel.html", []).run(["$templateCache", fun
 angular.module("template/carousel/slide.html", []).run(["$templateCache", function ($templateCache) {
     $templateCache.put("template/carousel/slide.html",
       "<div ng-class=\"{\n" +
-      "    'active': leaving || (active && !entering),\n" +
-      "    'prev': (next || active) && direction=='prev',\n" +
-      "    'next': (next || active) && direction=='next',\n" +
-      "    'right': direction=='prev',\n" +
-      "    'left': direction=='next'\n" +
+      "    'active': active \n" +
       "  }\" class=\"item text-center\" ng-transclude></div>\n" +
       "");
 }]);

@@ -47,6 +47,16 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
     }
 
+    public class PatientSnapshotDto
+    {
+        #region Properties
+
+        public CaseSnapshotDto[] ActiveCases { get; set; }
+
+        #endregion
+
+    }
+
     public class TherapistDto : UserDto
     {
         #region Properties
@@ -55,6 +65,5 @@ namespace SportsWebPt.Platform.ServiceModels
 
         #endregion
     }
-
    
 }

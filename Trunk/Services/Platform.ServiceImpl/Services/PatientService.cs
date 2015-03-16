@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using SportsWebPt.Common.ServiceStack;
+using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
 
@@ -34,6 +36,49 @@ namespace SportsWebPt.Platform.ServiceImpl
                                                                         null, null));
         }
 
+        public object Get(PatientSnapshotRequest request)
+        {
+            Check.Argument.IsNotNullOrEmpty(request.Id, "PatientId");
+
+            var activeCases = new List<CaseSnapshotDto>(); 
+                
+            CaseUnitOfWork.GetFilteredCases(patientId: request.Id, state: CaseState.Active.ToString()).ToList().ForEach(c =>
+            {
+                var caseSnapshot = Mapper.Map<CaseSnapshotDto>(c);
+
+                caseSnapshot.LastSession =
+                    Mapper.Map<SessionDto>(
+                        CaseUnitOfWork.GetCaseSessions()
+                            .OrderByDescending(o => o.ScheduledStartTime)
+                            .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime < DateTime.Now));
+
+                caseSnapshot.NextSession =
+                    Mapper.Map<SessionDto>(
+                        CaseUnitOfWork.GetCaseSessions()
+                            .OrderBy(o => o.ScheduledStartTime)
+                            .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime > DateTime.Now));
+
+
+                var lastAssignment = CaseUnitOfWork.GetCaseSessionsWithPlans()
+                    .OrderBy(o => o.ScheduledStartTime)
+                    .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime < DateTime.Now && f.SessionPlans.Any());
+
+                if (lastAssignment != null && lastAssignment.SessionPlans != null)
+                {
+                    var plans = new List<PlanDto>();
+                    Mapper.Map(lastAssignment.SessionPlans.Select(s => s.Plan), plans);
+                    caseSnapshot.LastAssignment = plans.ToArray();
+                }
+
+
+                activeCases.Add(caseSnapshot);
+
+            });
+
+            var patientSnapshot = new PatientSnapshotDto() {ActiveCases = activeCases.ToArray()};
+
+            return Ok(new ApiResponse<PatientSnapshotDto>(patientSnapshot));
+        }
 
         #endregion
     }

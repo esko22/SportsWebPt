@@ -7,6 +7,10 @@
             var resource = $resource(patientPath);
             return resource.get({ id: id });
         },
+        getPatientSnapshot: function() {
+            var resource = $resource(configService.apiUris.patientSnapshot);
+            return resource.get();
+        },
         getCasesForPatient: function (state) {
             var resource = $resource(configService.apiUris.patientCases);
             return resource.query({state: state });

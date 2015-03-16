@@ -16,4 +16,9 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
 
     }
+
+    [Route("/patients/{id}/snapshot", "GET")]
+    public class PatientSnapshotRequest : AbstractResourceRequest, IReturn<ApiResponse<PatientSnapshotDto>>
+    {
+    }
 }

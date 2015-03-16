@@ -30,6 +30,22 @@ namespace SportsWebPt.Platform.ServiceModels
 
     }
 
+    public class CaseSnapshotDto : BriefCaseDto
+    {
+
+        #region Properties
+	    
+        public ClinicDto Clinic { get; set; }
+
+        public SessionDto NextSession { get; set; }
+
+        public SessionDto LastSession { get; set; }
+
+        public PlanDto[] LastAssignment { get; set; }
+
+    	#endregion    
+    }
+
 
     public class CaseDto : BriefCaseDto
     {

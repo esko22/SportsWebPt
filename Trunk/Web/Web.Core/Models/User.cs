@@ -130,4 +130,15 @@ namespace SportsWebPt.Platform.Web.Core
         #endregion
     }
 
+    public class PatientSnapshot
+    {
+        #region Properties
+
+        public CaseSnapshot[] activeCases { get; set; }
+
+        #endregion
+
+    }
+
+
 }

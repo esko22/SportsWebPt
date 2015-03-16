@@ -58,7 +58,10 @@ namespace SportsWebPt.Platform.DataAccess
                 .Include(p => p.ScheduledWith.User);
         }
 
-
+        public IQueryable<Session> GetCaseSessionsWithPlans()
+        {
+            return GetCaseSessions().Include(i => i.SessionPlans.Select(i2 => i2.Plan));
+        } 
 
         #endregion
 
@@ -71,5 +74,6 @@ namespace SportsWebPt.Platform.DataAccess
 
         IQueryable<Case> GetFilteredCases(string therapistId = "", string patientId = "", string state = "");
         IQueryable<Session> GetCaseSessions();
+        IQueryable<Session> GetCaseSessionsWithPlans();
     }
 }

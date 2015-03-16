@@ -1,8 +1,8 @@
 ﻿'use strict';
 
 
-var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
-    'research', 'ui.bootstrap', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
+var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
+    'research', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
     'ngGrid', 'therapist.module', 'clinic.module', 'registration.module', 'user.dashboard.module'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
@@ -182,6 +182,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router', 'ngAnimate',
                         fragment = '?' + fragment;
                         var cleanQuery = new URI(fragment).normalizeSearch().search(true);
                         $window.localStorage.setItem('access_token', cleanQuery.access_token);
+                        console.log(cleanQuery.access_token);
                         $window.sessionStorage.id_token = cleanQuery.id_token;
                         $location.hash('');
 

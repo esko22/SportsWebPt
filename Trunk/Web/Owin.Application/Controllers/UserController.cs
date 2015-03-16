@@ -107,6 +107,14 @@ namespace SportsWebPt.Platform.Web.Application
 
         [HttpGet]
         [Authorize]
+        [Route("data/patients/snapshot")]
+        public PatientSnapshot GetPatientSnapshot()
+        {
+            return _userManagementService.GetPatientSnapshot(User.GetServiceAccount());
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("data/users/current/managedclinics")]
         public IEnumerable<Clinic> GetManagedClinics()
         {
