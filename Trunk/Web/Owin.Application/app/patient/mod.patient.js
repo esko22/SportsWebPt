@@ -10,25 +10,12 @@ patientModule.controller('PatientDashboardController', ['$scope', 'userManagemen
             $scope.currentUser = user;
         });
 
-        $scope.myInterval = 2000;
-        var slides = $scope.slides = [];
-        $scope.addSlide = function () {
-            var newWidth = 600 + slides.length + 1;
-            slides.push({
-                image: 'http://placekitten.com/' + newWidth + '/300',
-                text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' +
-                  ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-            });
-        };
-        for (var i = 0; i < 4; i++) {
-            $scope.addSlide();
+        $scope.selectedTab = 'caseDisplay';
+        $scope.onTabSelect = function (tab) {
+            $scope.selectedTab = tab;
         }
-      
-
-
     }
 ]);
-
 
 patientModule.directive('patientCaseList', [function () {
     return {
@@ -38,6 +25,24 @@ patientModule.directive('patientCaseList', [function () {
         controller: 'PatientCaseListController'
     };
 }]);
+
+patientModule.directive('patientCaseDisplay', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/patient/tmpl.patient.case.display.htm',
+        controller: 'PatientCaseDisplayController'
+    };
+}]);
+
+patientModule.directive('patientBookmarkDisplay', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/patient/tmpl.patient.bookmark.display.htm'
+    };
+}]);
+
 
 patientModule.directive('patientDashboard', [function () {
     return {
@@ -74,12 +79,21 @@ patientModule.controller('PatientCaseListController', [
                 $scope.cases = cases;
             });
 
-            patientService.getPatientSnapshot().$promise.then(function(snapshot) {
-                $scope.snapshot = snapshot;
-            });
         }
     }
 ]);
+
+patientModule.controller('PatientCaseDisplayController', [
+    '$scope', 'patientService',
+    function ($scope, patientService) {
+
+        $scope.myInterval = -1;
+        patientService.getPatientSnapshot().$promise.then(function (snapshot) {
+            $scope.snapshot = snapshot;
+        });
+    }
+]);
+
 
 patientModule.controller('PatientCaseController', [
     '$scope', 'caseService', '$stateParams',

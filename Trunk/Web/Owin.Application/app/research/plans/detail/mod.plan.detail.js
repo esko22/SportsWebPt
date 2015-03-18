@@ -5,9 +5,14 @@ angular.module('research.plan.detail', [])
         '$scope', 'navBarService', 'configService', 'planDetailService', '$stateParams', function ($scope, navBarService, configService, planDetailService, $stateParams) {
             $scope.isLoading = true;
             $scope.animationTag = null;
+            $scope.showNavBar = true;
 
             //TODO: move this out of controller
             var planDump = $('#selected-plan').val();
+
+            if ($stateParams.showNavBar) {
+                $scope.showNavBar = $stateParams.showNavBar;
+            }
 
             if (planDump) {
                 onPlanLoadComplete(JSON.parse(planDump));

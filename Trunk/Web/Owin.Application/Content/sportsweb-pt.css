@@ -1159,3 +1159,44 @@ a:focus {
 }
 
 
+.carousel-indicators {
+  position: relative;
+  top: 10px;
+}
+
+.carousel-indicators li {
+  border: 2px solid #333333;
+}
+
+.carousel-indicators .active {
+  background-color: #3a87ad;
+}
+
+.carousel-caption {
+  color: #333333;
+}
+
+.carousel-control {
+  font-size: 16px;
+  color: #333333;
+  opacity: 0.75;
+}
+
+.carousel-control.left {
+  background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.0001)));
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.0001) 100%);
+}
+
+.carousel-control.right {
+  background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.0001)));
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.0001) 100%);
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+  color: #3a87ad;
+}

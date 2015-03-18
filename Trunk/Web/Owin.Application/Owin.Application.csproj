@@ -276,6 +276,8 @@
     <Content Include="app\patient\prtl.patient.dashboard.htm" />
     <Content Include="app\patient\prtl.patient.case.htm" />
     <Content Include="app\patient\prtl.patient.session.htm" />
+    <Content Include="app\patient\tmpl.patient.case.display.htm" />
+    <Content Include="app\patient\tmpl.patient.bookmark.display.htm" />
     <Content Include="app\patient\tmpl.patient.case.list.htm" />
     <Content Include="app\patient\tmpl.patient.case.session.list.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />

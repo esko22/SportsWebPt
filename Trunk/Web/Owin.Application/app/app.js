@@ -182,7 +182,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                         fragment = '?' + fragment;
                         var cleanQuery = new URI(fragment).normalizeSearch().search(true);
                         $window.localStorage.setItem('access_token', cleanQuery.access_token);
-                        console.log(cleanQuery.access_token);
+                        //console.log(cleanQuery.access_token);
                         $window.sessionStorage.id_token = cleanQuery.id_token;
                         $location.hash('');
 
@@ -191,7 +191,6 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                             var redirectUrl = $window.sessionStorage.redirectUrl;
                             $window.sessionStorage.redirectUrl = '';
 
-                            console.log(redirectUrl);
                             $location.url(redirectUrl);
                         }
 
@@ -389,6 +388,16 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                         }
                     }
                 })
+                .state('patient.dashboard.plan',
+                {
+                    url: "/plan/:planId/:showNavBar",
+                    views: {
+                        "patient-session-plan-view": {
+                            templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
+                            controller: 'PlanViewController'
+                        }
+                    }
+                })
                 .state('patient.case',
                 {
                     url: "/patient/cases/:caseId",
@@ -411,7 +420,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                 })
                 .state('patient.case.session.plan',
                 {
-                    url: "/plan/:planId",
+                    url: "/plan/:planId/:showNavBar",
                     views: {
                         "patient-session-plan-view": {
                             templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',

@@ -1,0 +1,42 @@
+﻿<div class="row push-down-md">
+    <div class="row">
+        <carousel interval="myInterval">
+            <slide ng-repeat="case in snapshot.activeCases" active="case.active">
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="title-divider-no-bar"><span>Case: <span class="de-em">{{case.name}}</span></span></h2>
+                        </div>
+                        <div class="col-md-6">
+                            <img height="100" ng-src={{case.clinic.displayImage}} />
+                        </div>
+                    </div>
+                    <div class="row push-down-xl">
+                        <div class="col-md-5 col-md-offset-1">
+                            <h4><i class="icon-sportswebpt-clipboard3"></i>Current Assignment</h4>
+                            <div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr ng-repeat="assignment in case.lastAssignment">
+                                            <td><a ui-sref="patient.dashboard.plan({ planId : assignment.id, showNavBar : false })">{{assignment.routineName}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <h4><i class="icon-sportswebpt-calendar1"></i> Next Session</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="core-view-container" ui-view="patient-session-plan-view" autoscroll="false"></div>
+        </div>
+    </div>
+</div>
+

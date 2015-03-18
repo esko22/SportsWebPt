@@ -1,52 +1,36 @@
-﻿<div class="container" id="patient-dashboard-page">
+﻿<div class="container push-down-sm" id="patient-dashboard-page">
     <h2>Patient Dashboard</h2>
-    <h2>Snipsnot</h2>
     <div>
-
-        <div style="height: 305px">
-            <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index}}</h4>
-                        <p>{{slide.text}}</p>
+        <div class="row push-down-lg">
+            <!-- sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-class="{'active' : selectedTab == 'caseDisplay' }">
+                            <a ng-click="onTabSelect('caseDisplay')" class="first"><span>Recent</span><small>Your current case activity</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'history' }">
+                            <a ng-click="onTabSelect('history')"><span>History</span><small>Access all your cases</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'bookmarks' }">
+                            <a ng-click="onTabSelect('bookmarks')"><span>Bookmarks</span><small>Site content favorited</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'caseDisplay' }">
+                        <patient-case-display />
                     </div>
-                </slide>
-            </carousel>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'history' }">
+                        <patient-case-list /> 
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'bookmarks' }">
+                        <patient-bookmark-display />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-   
-   
-    <div class="push-down-md">
-        <patient-case-list />
-    </div>
-    <h3>Bookmarks</h3>
-    <div class="row push-down-md">
-        <div class="col-md-3">
-            <h4>Exercises</h4>
-            <table class="table table-striped">
-                <tr ng-repeat="exercise in currentUser.exercises">
-                    <td><a ng-href="/#!/research/exercises/{{exercise.entityId}}">{{exercise.entityName}}</a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="col-md-3 col-md-offset-1">
-            <h4>Plans</h4>
-            <table class="table table-striped">
-                <tr ng-repeat="plan in currentUser.plans">
-                    <td><a ng-href="/#!/research/plans/{{plan.entityId}}">{{plan.entityName}}</a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="col-md-3 col-md-offset-1">
-            <h4>Injuries</h4>
-            <table class="table table-striped">
-                <tr ng-repeat="injury in currentUser.injuries">
-                    <td><a ng-href="/#!/research/injuries/{{injury.entityId}}">{{injury.entityName}}</a></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
 </div>
-
