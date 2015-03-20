@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Logging\Common.Logging.csproj">
+      <Project>{053e6ded-c0e3-46f7-a8c9-442517f7cb2f}</Project>
+      <Name>Common.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrerenderService\PrerenderService.csproj">
       <Project>{843c155f-4388-4bea-931e-8b14caa97545}</Project>
       <Name>PrerenderService</Name>

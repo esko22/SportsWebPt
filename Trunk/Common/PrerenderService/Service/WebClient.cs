@@ -1,12 +1,15 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Net;
 using System.Threading.Tasks;
+using SportsWebPt.Common.Logging;
 
 namespace PrerenderService.Service
 {
     internal class WebClient
     {
         private readonly IPrerenderServiceConfiguration _config;
+        private readonly ILog _logger = LogManager.GetCommonLogger();
 
         public WebClient(IPrerenderServiceConfiguration config)
         {
@@ -15,6 +18,8 @@ namespace PrerenderService.Service
 
         public async Task<WebResponse> Get(string uri)
         {
+            //TODO: HACK - Not sure why this comes in as http when it's https -- needs investigation
+            uri = uri.Replace("http", "https");
             string serviceUrl = _config.ServiceUrl.EndsWith("/") ? _config.ServiceUrl : _config.ServiceUrl + "/";
             var webRequest = (HttpWebRequest) WebRequest.Create(serviceUrl + uri);
 
@@ -27,6 +32,8 @@ namespace PrerenderService.Service
             {
                 webRequest.Proxy = new WebProxy(_config.ProxyUrl);
             }
+
+            _logger.Info(String.Format("PrerenderIO Request To: {0}", webRequest.RequestUri));
 
             return await webRequest.GetResponseAsync().ConfigureAwait(false);
         }
