@@ -458,17 +458,17 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                         }
                     }
                 })
-                .state('therapist.session',
+                .state('therapist.case.session',
                 {
-                    url: "/therapist/session/:sessionId",
+                    url: "/session/:sessionId",
                     views: {
-                        "core-app-view": {
-                            templateUrl: '/app/therapist/prtl.therapist.session.htm',
-                            controller: 'TherapistSessionController'
+                        "therapist-session-view": {
+                            templateUrl: '/app/therapist/prtl.therapist.case.session.htm',
+                            controller: 'TherapistCaseSessionController'
                         }
                     }
                 })
-                .state('therapist.session.skeleton',
+                .state('therapist.case.session.skeleton',
                 {
                     url: "/skeleton",
                     views: {
@@ -477,7 +477,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                         }
                     }
                 })
-                .state('therapist.session.symptoms',
+                .state('therapist.case.session.symptoms',
                 {
                     views: {
                         "therapist-session-examine-view": {
@@ -485,7 +485,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                         }
                     }
                 })
-                .state('therapist.session.report',
+                .state('therapist.case.session.report',
                 {
                     views: {
                         "therapist-session-examine-view": {

@@ -21,6 +21,12 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String notes { get; set; }
 
+        public String recommendations { get; set; }
+
+        public String healthReport { get; set; }
+
+        public String patientDialog { get; set; }
+
         public String scheduledWithId { get; set; }
 
         public Int64 caseId { get; set; }

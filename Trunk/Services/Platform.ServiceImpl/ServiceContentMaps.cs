@@ -717,6 +717,7 @@ namespace SportsWebPt.Platform.ServiceImpl
                     opt.Condition(s => s.DifferentialDiagnosis != null);
                     opt.MapFrom(s => s.DifferentialDiagnosis);
                 });
+            Mapper.CreateMap<UpdateSessionRequest, Session>();
             Mapper.CreateMap<CreateSessionRequest, Session>()
                 .ForMember(d => d.ScheduledWithId, opt => opt.MapFrom(s => new Guid(s.ScheduledWithId)));
             Mapper.CreateMap<CreateCaseRequest, Case>()

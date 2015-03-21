@@ -24,6 +24,12 @@ namespace SportsWebPt.Platform.Core.Models
 
         public String Notes { get; set; }
 
+        public String Recommendations { get; set; }
+
+        public String HealthReport { get; set; }
+
+        public String PatientDialog { get; set; }
+
         public Guid ScheduledWithId { get; set; }
 
         public Int64 CaseId { get; set; }

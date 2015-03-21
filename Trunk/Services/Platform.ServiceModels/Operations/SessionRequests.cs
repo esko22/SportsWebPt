@@ -14,6 +14,11 @@ namespace SportsWebPt.Platform.ServiceModels
     {
     }
 
+    [Route("/sessions", "PUT")]
+    public class UpdateSessionRequest : SessionDto, IReturn<ApiResponse<SessionDto>>
+    {
+    }
+
     [Route("/sessions/{id}/plans", "POST")]
     public class CreateSessionPlanRequest : SessionDto, IReturn<ApiResponse<Boolean>>
     {

@@ -20,6 +20,9 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.ScheduledEndTime).IsRequired().HasColumnName("scheduled_end_time");
             Property(p => p.VideoMeetingUri).IsOptional().HasColumnName("video_meeting_uri");
             Property(p => p.Notes).HasColumnName("notes").HasColumnType("TEXT");
+            Property(p => p.Recommendations).HasColumnName("recommendations").HasColumnType("TEXT");
+            Property(p => p.HealthReport).HasColumnName("health_report").HasColumnType("TEXT");
+            Property(p => p.PatientDialog).HasColumnName("patient_dialog").HasColumnType("TEXT");
             Property(p => p.CaseId).IsRequired().HasColumnName("case_id");
             Property(p => p.ScheduledWithId).IsRequired().HasColumnName("therapist_id");
             Property(p => p.DifferentialDiagnosisId).IsOptional().HasColumnName("differential_diagnosis_id");

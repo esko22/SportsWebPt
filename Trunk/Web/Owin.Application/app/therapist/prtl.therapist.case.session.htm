@@ -1,0 +1,148 @@
+﻿<div id="therapist-session-page" ng-show="sessionId > 0">
+    <div class="well">
+        <h2 class="title-divider-no-bar"><i class="icon-sportswebpt-calendar1"></i> <span>Session<span class="de-em"></span></span></h2>
+        <div class="row push-down-lg">
+            <!-- sidebar -->
+            <div class="col-md-2 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-class="{'active' : selectedTab == 'sessionDetail' }">
+                            <a ng-click="onTabSelect('sessionDetail')" class="first"><span>Details</span><small>Session info</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'rehabPlans' }">
+                            <a ng-click="onTabSelect('rehabPlans')"><span>Assignment</span><small>Rehab plans</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'symptoms' }">
+                            <a ng-click="onTabSelect('symptoms')"><span>Diagnosis</span><small>Symptom detail</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="tab-content">
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'sessionDetail' }">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Type: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.sessionType"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Scheduled At: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.scheduledStartTime"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Scheduled End: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.scheduledEndTime"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Video Meeting Url: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <a ng-href="{{session.videoMeetingUri}}" target="_blank">{{session.videoMeetingUri}}</a>
+                                    </div>
+                                </div>
+
+                                <div class="row push-down-lg">
+                                    <div class="col-md-3">
+                                        <label>Notes: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <textarea rows="5" class="form-control" name="notes" ng-model="session.notes" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row push-down-md">
+                                    <div class="col-md-3">
+                                        <label>Patient Dialog: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <textarea rows="5" class="form-control" name="patientDialog" ng-model="session.patientDialog" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row push-down-md">
+                                    <div class="col-md-3">
+                                        <label>Recommendations: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <textarea rows="5" class="form-control" name="recommendations" ng-model="session.recommendations" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row push-down-md">
+                                    <div class="col-md-3">
+                                        <label>Health Report: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <textarea rows="5" class="form-control" name="healthReport" ng-model="session.healthReport" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row push-down-lg">
+                                    <button ng-click="updateSessionDetail()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i>  Update Session</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'rehabPlans' }">
+                        <div class="row">
+                            <div class="col-md-3"><h3>Plans</h3></div>
+                            <div class="col-md-3 col-md-offset-6">
+                                <button ng-click="addSessionPlan()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i>  Set Rehab Plans</button>
+                            </div>
+                        </div>
+                        <div ng-repeat="plan in session.plans" class="push-down-md">
+                            <h4 ng-bind="plan.routineName"></h4>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Sets</th>
+                                        <th>Reps</th>
+                                        <th>Per Week</th>
+                                        <th>Per Day</th>
+                                        <th>Hold</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="exercise in plan.exercises">
+                                    <tr>
+                                        <td ng-bind="exercise.name"></td>
+                                        <td ng-bind="exercise.sets"></td>
+                                        <td ng-bind="exercise.repititions"></td>
+                                        <td ng-bind="exercise.perWeek"></td>
+                                        <td ng-bind="exercise.perDay"></td>
+                                        <td>
+                                            <span ng-bind="exercise.holdFor"></span>
+                                            <span ng-bind="exercise.holdType"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'symptoms' }">
+                        <div class="row" ng-controller="TherapistExamineSessionController">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-7">
+                                    <button ng-click="resetDiagnosis()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i>  Reset Diagnosis</button>
+                                </div>
+                            </div>
+                            <div class="core-view-container" ui-view="therapist-session-examine-view" autoscroll="false"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

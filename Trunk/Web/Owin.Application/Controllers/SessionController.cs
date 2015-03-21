@@ -39,6 +39,13 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return session;
         }
 
+        [HttpPut]
+        [Route("data/sessions/{sessionId}")]
+        public Session UpdateSession(Session session)
+        {
+            return _sessionService.UpdateSession(session);
+        }
+
         [HttpGet]
         [Route("data/sessions/{sessionId}")]
         public Session GetSession(Int64 sessionId)
@@ -48,9 +55,9 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
 
         [HttpPost]
         [Route("data/sessions/{sessionId}/plans")]
-        public Boolean AddSessionPlan(Int64 sessionId, int[] planIds)
+        public Boolean SetSessionPlan(Int64 sessionId, int[] planIds)
         {
-            _sessionService.AddSessionPlans(sessionId,planIds);
+            _sessionService.SetSessionPlans(sessionId,planIds);
 
             return true;
         }

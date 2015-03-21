@@ -61,6 +61,7 @@ therapistModule.controller('TherapistPlanController', [
         $scope.planGridOptions = {
             data: 'plans',
             showGroupPanel: true,
+            enableRowSelection: false,
             columnDefs: [{ field: 'requestorIsOwner', width: 60, displayName: 'Owner', cellTemplate: '<input type="checkbox" ng-model="row.entity.requestorIsOwner" disabled>' },
                 { field: 'routineName', displayName: 'Name' },
                 { field: 'formattedBodyRegions', displayName: 'Body Regions' },
@@ -180,6 +181,7 @@ therapistModule.controller('TherapistExerciseController', [
         $scope.exerciseGridOptions = {
             data: 'exercises',
             showGroupPanel: true,
+            enableRowSelection: false,
             columnDefs: [{ field: 'requestorIsOwner', width: 60, displayName: 'Owner', cellTemplate: '<input type="checkbox" ng-model="row.entity.requestorIsOwner" disabled>' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'formattedBodyRegions', displayName: 'Body Regions' },
@@ -252,6 +254,7 @@ therapistModule.directive('therapistCaseList', [function () {
     };
 }]);
 
+
 therapistModule.directive('therapistCaseSessionList', [function () {
     return {
         restrict: 'E',
@@ -273,12 +276,18 @@ therapistModule.controller('TherapistCaseSessionListController', [
         $scope.sessionGridOptions = {
             data: 'sessions',
             showGroupPanel: true,
+            multiSelect: false,
+            afterSelectionChange: function (rowItem) {
+                if (rowItem.selected) {
+                    $scope.showSession(rowItem.entity);
+                } 
+            },
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
                 { field: 'scheduledStartTime', displayName: 'Scheduled' },
                 { field: 'scheduledEndTime', displayName: 'End' },
-                { field: 'notes', displayName: 'notes' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showSession(row.entity)" > View </button>' }]
+                { field: 'notes', displayName: 'Notes' }
+            ]
         };
 
         $scope.addSession = function() {
@@ -298,7 +307,7 @@ therapistModule.controller('TherapistCaseSessionListController', [
         }
 
         $scope.showSession = function (session) {
-            $state.go('therapist.session', { sessionId: session.id });
+            $state.go('therapist.case.session', { sessionId: session.id });
         }
 
         function getSessionList() {
@@ -451,8 +460,8 @@ therapistModule.controller('TherapistSessionModalController', [
 ]);
 
 therapistModule.controller('TherapistSessionPlanModalController', [
-    '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'therapistService',
-    function ($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, therapistService) {
+    '$scope', 'sessionService', '$modal', 'sessionId', '$rootScope', 'notifierService', '$modalInstance', 'therapistService','selectedPlans',
+    function ($scope, sessionService, $modal, sessionId, $rootScope, notifierService, $modalInstance, therapistService, selectedPlans) {
 
         $scope.selectedPlans = [];
         $scope.sessionId = sessionId;
@@ -477,8 +486,8 @@ therapistModule.controller('TherapistSessionPlanModalController', [
 
         $scope.submit = function() {
             if ($scope.sessionId > 0) {
-                sessionService.addSessionPlans($scope.sessionId, _.pluck($scope.selectedPlans, 'id')).$promise.then(function() {
-                    notifierService.notify('Session Plans Added!');
+                sessionService.setSessionPlanList($scope.sessionId, _.pluck($scope.selectedPlans, 'id')).$promise.then(function () {
+                    notifierService.notify('Session Plans Set!');
                     $modalInstance.close();
                 });
             }
@@ -487,6 +496,15 @@ therapistModule.controller('TherapistSessionPlanModalController', [
         function getSharedPlanList() {
             therapistService.getPlansForTherapist().$promise.then(function (plans) {
                 $scope.plans = plans;
+                if (selectedPlans.length > 0) {
+                    angular.forEach(selectedPlans, function (selectedPlan) {
+                        angular.forEach(plans, function(plan) {
+                            if (plan.id === selectedPlan.id)
+                                $scope.selectedPlans.push(plan);
+                        });
+                    });
+                }
+
             });
         }
     }
@@ -539,8 +557,8 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
         $scope.currentStep = {};
         $scope.currentStep.order = 0;
 
-        $scope.skeletonNextState = 'therapist.session.symptoms';
-        $scope.symptomBackState = 'therapist.session.skeleton';
+        $scope.skeletonNextState = 'therapist.case.session.symptoms';
+        $scope.symptomBackState = 'therapist.case.session.skeleton';
 
         $scope.symptomsEnabled = true;
 
@@ -548,9 +566,9 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
         $scope.$watch('session', function (session) {
             if (session) {
                 if (session.differentialDiagnosisId == 0) {
-                    $state.go('therapist.session.skeleton');
+                    $state.go('therapist.case.session.skeleton');
                 } else {
-                    $state.go('therapist.session.report');
+                    $state.go('therapist.case.session.report');
                 }
             }
         });
@@ -567,7 +585,7 @@ therapistModule.controller('TherapistExamineSessionController', ['$scope','$stat
             examineSymptomsService.submitReport(allBodyParts, $scope.session.id).then(function (response) {
                 sessionService.get($scope.session.id).$promise.then(function(session) {
                     $scope.session = session;
-                    $state.go('therapist.session.report');
+                    $state.go('therapist.case.session.report');
                 });
             });
         };
@@ -590,14 +608,18 @@ therapistModule.controller('TherapistExamineReportController', [
 ]);
 
 
-therapistModule.controller('TherapistSessionController', [
-    '$scope', 'sessionService', '$stateParams','$modal','$state',
-    function ($scope, sessionService, $stateParams, $modal, $state) {
+therapistModule.controller('TherapistCaseSessionController', [
+    '$scope', 'sessionService', '$stateParams','$modal','configService','notifierService','$state',
+    function ($scope, sessionService, $stateParams, $modal, configService, notifierService, $state) {
 
+        $scope.editorOptions = configService.kendoEditorOptions;
         $scope.sessionId = $stateParams.sessionId;
         getSessionDetail();
 
-
+        $scope.selectedTab = 'sessionDetail';
+        $scope.onTabSelect = function (tab) {
+            $scope.selectedTab = tab;
+        }
 
         $scope.addSessionPlan = function () {
             var modalInstance = $modal.open({
@@ -606,6 +628,9 @@ therapistModule.controller('TherapistSessionController', [
                 resolve: {
                     sessionId: function () {
                         return $scope.sessionId;
+                    },
+                    selectedPlans: function() {
+                        return $scope.session.plans;
                     }
                 }
             });
@@ -616,6 +641,17 @@ therapistModule.controller('TherapistSessionController', [
 
         }
 
+        $scope.resetDiagnosis = function() {
+            $scope.session.differentialDiagnosisId = 0;
+            $state.go('therapist.case.session.skeleton');
+        }
+
+        $scope.updateSessionDetail = function() {
+            sessionService.update($scope.session).$promise.then(function() {
+                notifierService.notify('Update Success!');
+                getSessionDetail();
+            });
+        }
 
         function getSessionDetail() {
             sessionService.get($stateParams.sessionId).$promise.then(function(session) {
@@ -637,6 +673,7 @@ therapistModule.controller('TherapistCaseListController', [
         $scope.caseGridOptions = {
             data: 'cases',
             showGroupPanel: true,
+            enableRowSelection: false,
             columnDefs: [
                 { field: 'clinicPatientIdentifier', displayName: 'Patient' },
                 { field: 'patientEmail', displayName: 'Email' },

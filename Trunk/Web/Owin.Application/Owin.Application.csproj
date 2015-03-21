@@ -348,7 +348,7 @@
     <Content Include="app\therapist\prtl.therapist.examine.symptoms.htm" />
     <Content Include="app\therapist\prtl.therapist.examine.report.htm" />
     <Content Include="app\therapist\prtl.therapist.examine.skeleton.htm" />
-    <Content Include="app\therapist\prtl.therapist.session.htm" />
+    <Content Include="app\therapist\prtl.therapist.case.session.htm" />
     <Content Include="app\therapist\tmpl.therapist.case.list.htm" />
     <Content Include="app\therapist\tmpl.therapist.case.modal.htm" />
     <Content Include="app\therapist\tmpl.therapist.case.session.list.htm" />

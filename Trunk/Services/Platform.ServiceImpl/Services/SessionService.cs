@@ -36,7 +36,7 @@ namespace SportsWebPt.Platform.ServiceImpl
             Check.Argument.IsNotNull(request, "Session Cannot Be Null");
             Check.Argument.IsNotEmpty(request.PlanIds, "Plan Ids");
 
-            SessionUnitOfWork.AddSessionPlans(request.Id, request.PlanIds);
+            SessionUnitOfWork.SetSessionPlans(request.Id, request.PlanIds);
 
             return Ok();
         }
@@ -53,6 +53,15 @@ namespace SportsWebPt.Platform.ServiceImpl
                 NotFound("Session Not Found");
 
             return Ok(new ApiResponse<SessionDto>() { Response = Mapper.Map<SessionDto>(session) });
+        }
+
+        public object Put(UpdateSessionRequest request)
+        {
+            Check.Argument.IsNotNull(request, "SessionDto");
+
+            SessionUnitOfWork.UpdateSession(Mapper.Map<Session>(request));
+
+            return Ok(new ApiResponse<SessionDto>(request));
         }
             
 

@@ -45,13 +45,41 @@ namespace SportsWebPt.Platform.DataAccess
             return session;
         }
 
-        public void AddSessionPlans(Int64 sessionId, int[] planIds)
+        public Session UpdateSession(Session session)
         {
+            Check.Argument.IsNotNull(session, "Session Cannot Be Null");
+            Check.Argument.IsNotNegativeOrZero(session.Id, "SessionId");
+
+            var sessionInDb = SessionRepo.GetSessionDetails()
+                .SingleOrDefault(p => p.Id == session.Id);
+
+            if (sessionInDb == null)
+                throw new ArgumentNullException("session id", "session does not exist");
+
+            var sessionEntry = _context.Entry(sessionInDb);
+            sessionEntry.CurrentValues.SetValues(session);
+
+            Commit();
+
+            return session;
+        }
+
+        public void SetSessionPlans(Int64 sessionId, int[] planIds)
+        {
+            Check.Argument.IsNotNegativeOrZero(sessionId, "SessionId");
+
+            var sessionPlans = SessionPlanMatrixRepo.GetAll().Where(p => p.SessionId == sessionId);
+
+            if (sessionPlans.Any())
+            {
+                foreach (var sessionPlan in sessionPlans)
+                    SessionPlanMatrixRepo.Delete(sessionPlan);
+
+                Commit();
+            }
 
             foreach (int planId in planIds)
-            {
                 SessionPlanMatrixRepo.Add(new SessionPlanMatrixItem() { SessionId = sessionId, PlanId = planId, Name = String.Empty} );    
-            }
 
             Commit();
         }
@@ -64,7 +92,8 @@ namespace SportsWebPt.Platform.DataAccess
     {
         ISessionRepo SessionRepo { get; }
 
+        Session UpdateSession(Session session);
         Session AddSession(Session session);
-        void AddSessionPlans(Int64 sessionId, int[] planIds);
+        void SetSessionPlans(Int64 sessionId, int[] planIds);
     }
 }

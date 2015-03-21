@@ -11,8 +11,14 @@
             addSession: function(session) {
                 return $resource(sessionsPath).save(session);
             },
-            addSessionPlans: function(sessionId, planIds) {
+            setSessionPlanList: function(sessionId, planIds) {
                 return $resource(configService.apiUris.sessionPlans).save({ id: sessionId }, planIds);
+            },
+            update: function (session) {
+                var resource = $resource(sessionsPath, null, {
+                    'update': { method: 'PUT' }
+                });
+                return resource.update({ id: session.id }, session);
             }
         }
 

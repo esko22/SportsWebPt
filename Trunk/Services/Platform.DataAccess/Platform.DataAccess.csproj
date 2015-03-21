@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201412141824086_SessionUpdates.Designer.cs">
       <DependentUpon>201412141824086_SessionUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503210408338_AVS_Updates.cs" />
+    <Compile Include="Migrations\201503210408338_AVS_Updates.Designer.cs">
+      <DependentUpon>201503210408338_AVS_Updates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -347,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201412141824086_SessionUpdates.resx">
       <DependentUpon>201412141824086_SessionUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503210408338_AVS_Updates.resx">
+      <DependentUpon>201503210408338_AVS_Updates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

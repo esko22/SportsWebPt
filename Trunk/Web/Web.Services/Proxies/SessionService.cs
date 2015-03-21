@@ -37,6 +37,13 @@ namespace SportsWebPt.Platform.Web.Services
             return request.Response.Id;
         }
 
+        public Session UpdateSession(Session session)
+        {
+            var request = Put(Mapper.Map<UpdateSessionRequest>(session));
+
+            return Mapper.Map<Session>(request.Response);
+        }
+
         public Session GetSession(Int64 sessionId)
         {
             var request = GetSync(new SessionRequest { Id = sessionId.ToString() });
@@ -44,7 +51,7 @@ namespace SportsWebPt.Platform.Web.Services
             return Mapper.Map<Session>(request.Response);
         }
 
-        public void AddSessionPlans(Int64 sessionId, int[] planIds)
+        public void SetSessionPlans(Int64 sessionId, int[] planIds)
         {
             PostSync(new CreateSessionPlanRequest {Id = sessionId, PlanIds = planIds});
         }
@@ -57,6 +64,7 @@ namespace SportsWebPt.Platform.Web.Services
     {
         Int64 AddSession(Session session);
         Session GetSession(Int64 sessionId);
-        void AddSessionPlans(Int64 sessionId, int[] planIds);
+        void SetSessionPlans(Int64 sessionId, int[] planIds);
+        Session UpdateSession(Session session);
     }
 }
