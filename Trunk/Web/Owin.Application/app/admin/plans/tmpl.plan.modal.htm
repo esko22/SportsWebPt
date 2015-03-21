@@ -150,7 +150,8 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" ng-show="originalPlanId == 0 || plan.requestorIsOwner"  class="btn btn-primary">Save changes</button>
+            <button type="submit" ng-show="originalPlanId > 0" ng-click="saveAs()" class="btn btn-primary">Save As</button>
             <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
         </div>
     </form>

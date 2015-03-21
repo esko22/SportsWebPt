@@ -32,6 +32,11 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/sessions/{id}", "GET")]
     public class SessionRequest : AbstractResourceRequest, IReturn<ApiResponse<SessionDto>>
     {
+        #region Properties
+
+        public String TherapistId { get; set; }
+
+        #endregion
     }
 
 

@@ -46,8 +46,9 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNegativeOrZero(request.IdAsLong, "SessionId");
 
-            var session =
-                SessionUnitOfWork.SessionRepo.GetSessionDetails().SingleOrDefault(p => p.Id == request.IdAsLong);
+            var session = request.TherapistId.IsNotNullOrEmpty()
+                ? SessionUnitOfWork.GetSessionWithPlanOwner(request.IdAsLong, new Guid(request.TherapistId))
+                : SessionUnitOfWork.GetSession(request.IdAsLong);
 
             if (session == null)
                 NotFound("Session Not Found");

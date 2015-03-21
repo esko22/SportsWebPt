@@ -67,10 +67,16 @@ planAdminModule.controller('PlanModalController', [
     'configService', 'therapistService', 'bodyRegionAdminService',
 function ($scope, planAdminService, $modalInstance, selectedPlan, notifierService, configService, therapistService, bodyRegionAdminService) {
 
-        $scope.plan = {};
+    $scope.plan = {};
+    $scope.originalPlanName = '';
+    $scope.originalPlanId = 0;
+
+
         if (selectedPlan) {
             planAdminService.get(selectedPlan.id).$promise.then(function(result) {
                 $scope.plan = result;
+                $scope.originalPlanName = result.routineName;
+                $scope.originalPlanId = result.id;
                 setSelectedItems();
             });
         } else {
@@ -118,6 +124,9 @@ function ($scope, planAdminService, $modalInstance, selectedPlan, notifierServic
             $scope.plan.exercises.splice(index, 1);
         }
 
+        $scope.saveAs = function () {
+            $scope.plan.id = 0;
+        }
 
         $scope.submit = function () {
             if ($scope.plan && $scope.plan.id > 0) {
@@ -126,10 +135,17 @@ function ($scope, planAdminService, $modalInstance, selectedPlan, notifierServic
                     $modalInstance.close($scope.plan);
                 });
             } else {
-                planAdminService.save($scope.plan).$promise.then(function () {
-                    notifierService.notify('Created Successfully!');
-                    $modalInstance.close($scope.plan);
-                });
+
+                //if orignal plan name is set, infers a save as request
+                if ($scope.originalPlanName !== $scope.plan.routineName) {
+                    planAdminService.save($scope.plan).$promise.then(function(data) {
+                        notifierService.notify('Created Successfully!');
+                        $modalInstance.close(data);
+                    });
+                } else {
+                    $scope.plan.id = $scope.originalPlanId;
+                    notifierService.error('Save As Failed. Please Use A Unique Name');
+                }
             }
         };
 

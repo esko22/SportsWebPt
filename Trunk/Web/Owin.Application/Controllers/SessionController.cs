@@ -53,6 +53,13 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return _sessionService.GetSession(sessionId);
         }
 
+        [HttpGet]
+        [Route("data/sessions/{sessionId}/therapist")]
+        public Session GetSessionAsTherapist(Int64 sessionId)
+        {
+            return _sessionService.GetSessionAsTherapist(sessionId, User.GetServiceAccount());
+        }
+
         [HttpPost]
         [Route("data/sessions/{sessionId}/plans")]
         public Boolean SetSessionPlan(Int64 sessionId, int[] planIds)

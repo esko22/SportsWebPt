@@ -2,13 +2,17 @@
     '$resource', 'configService', function($resource, configService) {
 
         var sessionsPath = configService.apiUris.sessions;
-
+        
         return {
             get: function(id) {
                 var resource = $resource(sessionsPath);
                 return resource.get({ id: id });
             },
-            addSession: function(session) {
+            getAsTherapist: function (id) {
+                var resource = $resource(configService.apiUris.sessionsAsTherapist);
+                return resource.get({ id: id });
+            },
+            addSession: function (session) {
                 return $resource(sessionsPath).save(session);
             },
             setSessionPlanList: function(sessionId, planIds) {

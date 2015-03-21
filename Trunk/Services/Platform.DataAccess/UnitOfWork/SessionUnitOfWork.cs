@@ -14,7 +14,8 @@ namespace SportsWebPt.Platform.DataAccess
 
         public ISessionRepo SessionRepo { get { return GetRepo<ISessionRepo>(); } }
         public IRepository<Case> CaseRepo { get { return GetStandardRepo<Case>(); } }
-        public IRepository<SessionPlanMatrixItem> SessionPlanMatrixRepo { get { return GetStandardRepo<SessionPlanMatrixItem>();} } 
+        public IRepository<SessionPlanMatrixItem> SessionPlanMatrixRepo { get { return GetStandardRepo<SessionPlanMatrixItem>();} }
+        public IRepository<TherapistPlanMatrixItem> TherapistPlanMatrixRepo { get {  return GetStandardRepo<TherapistPlanMatrixItem>();} } 
 
         #endregion
 
@@ -44,6 +45,39 @@ namespace SportsWebPt.Platform.DataAccess
 
             return session;
         }
+
+        public Session GetSession(Int64 id)
+        {
+            var session =  SessionRepo.GetSessionDetails().SingleOrDefault(p => p.Id == id);
+
+            if (session != null)
+            {
+                session.SessionPlans.ForEach(f =>
+                {
+                    f.Plan.TherapistPlanMatrixItems =
+                        TherapistPlanMatrixRepo.GetAll().Where(p => p.PlanId == f.PlanId).ToList();
+                });
+            }
+
+            return session;
+        }
+
+        public Session GetSessionWithPlanOwner(Int64 id, Guid therapistId)
+        {
+            var session = GetSession(id);
+
+            if (session != null)
+            {
+                session.SessionPlans.ForEach(f =>
+                {
+                    f.Plan.TherapistPlanMatrixItems =
+                        TherapistPlanMatrixRepo.GetAll().Where(p => p.PlanId == f.PlanId && p.TherapistId == therapistId).ToList();
+                });
+            }
+
+            return session;
+        }
+
 
         public Session UpdateSession(Session session)
         {
@@ -92,6 +126,8 @@ namespace SportsWebPt.Platform.DataAccess
     {
         ISessionRepo SessionRepo { get; }
 
+        Session GetSession(Int64 id);
+        Session GetSessionWithPlanOwner(Int64 id, Guid therapistId);
         Session UpdateSession(Session session);
         Session AddSession(Session session);
         void SetSessionPlans(Int64 sessionId, int[] planIds);

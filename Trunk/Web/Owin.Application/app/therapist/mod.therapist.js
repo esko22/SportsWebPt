@@ -66,7 +66,7 @@ therapistModule.controller('TherapistPlanController', [
                 { field: 'routineName', displayName: 'Name' },
                 { field: 'formattedBodyRegions', displayName: 'Body Regions' },
             { field: 'formattedCategories', displayName: 'Category' },
-            { displayName: 'Action', width: 140, cellTemplate: '<a href="/research/plans/{{row.entity.id}}"  class="grid-link-padding" target="_blank">View</a> <a class="grid-link-padding" ng-click="bindSelectedPlan(row.entity)" ng-show="row.entity.requestorIsOwner" >Edit</a> <a class="grid-link-padding" ng-show="row.entity.requestorIsOwner" ng-click="setSharedPlanSettings(row.entity)" >Share</a>' }]
+            { displayName: 'Action', width: 140, cellTemplate: '<a href="/research/plans/{{row.entity.id}}"  class="grid-link-padding" target="_blank">View</a> <a class="grid-link-padding" ng-click="bindSelectedPlan(row.entity)" ng-show="row.entity.requestorIsOwner" >Edit</a> <a class="grid-link-padding" ng-click="bindSelectedPlan(row.entity)" ng-show="!row.entity.requestorIsOwner" >Save As</a> <a class="grid-link-padding" ng-show="row.entity.requestorIsOwner" ng-click="setSharedPlanSettings(row.entity)" >Share</a>' }]
         };
 
         $scope.bindSelectedPlan = function (plan) {
@@ -641,6 +641,36 @@ therapistModule.controller('TherapistCaseSessionController', [
 
         }
 
+        $scope.bindSelectedPlan = function (plan) {
+            $scope.selectedPlan = plan;
+
+            var modalInstance = $modal.open({
+                templateUrl: '/app/admin/plans/tmpl.plan.modal.htm',
+                controller: 'PlanModalController',
+                windowClass: 'xx-dialog',
+                resolve: {
+                    selectedPlan: function () {
+                        return $scope.selectedPlan;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (planReturned) {
+                setSessionPlans(planReturned);
+            });
+        }
+
+        function setSessionPlans(planReturned) {
+            if ($scope.selectedPlan && ($scope.selectedPlan.id !== planReturned.id))
+                $scope.session.plans.push(planReturned);
+
+            sessionService.setSessionPlanList($scope.sessionId, _.pluck($scope.session.plans, 'id')).$promise.then(function () {
+                getSessionDetail();
+                notifierService.notify('Session Plans Set!');
+            });
+        }
+
+
         $scope.resetDiagnosis = function() {
             $scope.session.differentialDiagnosisId = 0;
             $state.go('therapist.case.session.skeleton');
@@ -654,7 +684,7 @@ therapistModule.controller('TherapistCaseSessionController', [
         }
 
         function getSessionDetail() {
-            sessionService.get($stateParams.sessionId).$promise.then(function(session) {
+            sessionService.getAsTherapist($stateParams.sessionId).$promise.then(function (session) {
                 $scope.session = session;
             });
         }

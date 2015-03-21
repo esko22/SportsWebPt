@@ -98,12 +98,23 @@
                     <div class="tab-pane" ng-class="{'active' : selectedTab == 'rehabPlans' }">
                         <div class="row">
                             <div class="col-md-3"><h3>Plans</h3></div>
-                            <div class="col-md-3 col-md-offset-6">
+                            <div class="col-md-2 col-md-offset-5">
+                                <button ng-click="bindSelectedPlan()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i> Create New Plan</button>
+                            </div>
+                            <div class="col-md-2">
                                 <button ng-click="addSessionPlan()" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i>  Set Rehab Plans</button>
                             </div>
                         </div>
                         <div ng-repeat="plan in session.plans" class="push-down-md">
-                            <h4 ng-bind="plan.routineName"></h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4 ng-bind="plan.routineName"></h4>
+                                </div>
+                                <div class="col-md-4 col-md-offset-4">
+                                    <button ng-show="plan.requestorIsOwner" ng-click="bindSelectedPlan(plan)" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i> Edit</button>
+                                    <button ng-show="!plan.requestorIsOwner" ng-click="bindSelectedPlan(plan)" class="btn btn-info"><i class="icon-sportswebpt-keyboard1"></i> Save As</button>
+                                </div>
+                            </div>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>

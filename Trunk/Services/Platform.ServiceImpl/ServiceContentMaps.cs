@@ -219,33 +219,38 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdAsInt));
 
             Mapper.CreateMap<Plan, PlanDto>()
-                  .Include<Plan, CreatePlanRequest>()
-                  .Include<Plan, UpdatePlanRequest>()
-                  .ForMember(d => d.Exercises, opt =>
-                      {
-                          opt.Condition(s => s.PlanExerciseMatrixItems != null);
-                          opt.MapFrom(s => s.PlanExerciseMatrixItems);
-                      })
-                  .ForMember(d => d.BodyRegions, opt =>
-                      {
-                          opt.Condition(s => s.PlanBodyRegionMatrixItems != null);
-                          opt.MapFrom(s => s.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
-                      })
-                  .ForMember(d => d.Tags, opt =>
-                  {
-                      opt.Condition(s => s.PublishDetail != null);
-                      opt.MapFrom(s => s.PublishDetail.Tags);
-                  })
-                   .ForMember(d => d.PageName, opt =>
-                   {
-                       opt.Condition(s => s.PublishDetail != null);
-                       opt.MapFrom(s => s.PublishDetail.PageName);
-                   })
-                  .ForMember(d => d.Categories, opt =>
-                      {
-                          opt.Condition(s => s.PlanCategoryMatrixItems != null);
-                          opt.MapFrom(s => s.PlanCategoryMatrixItems.Select(p => p.Category));
-                      });
+                .Include<Plan, CreatePlanRequest>()
+                .Include<Plan, UpdatePlanRequest>()
+                .ForMember(d => d.Exercises, opt =>
+                {
+                    opt.Condition(s => s.PlanExerciseMatrixItems != null);
+                    opt.MapFrom(s => s.PlanExerciseMatrixItems);
+                })
+                .ForMember(d => d.BodyRegions, opt =>
+                {
+                    opt.Condition(s => s.PlanBodyRegionMatrixItems != null);
+                    opt.MapFrom(s => s.PlanBodyRegionMatrixItems.Select(p => p.BodyRegion));
+                })
+                .ForMember(d => d.Tags, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.Tags);
+                })
+                .ForMember(d => d.PageName, opt =>
+                {
+                    opt.Condition(s => s.PublishDetail != null);
+                    opt.MapFrom(s => s.PublishDetail.PageName);
+                })
+                .ForMember(d => d.RequestorIsOwner, opt =>
+                {
+                    opt.Condition(s => s.TherapistPlanMatrixItems != null);
+                    opt.MapFrom(s => s.TherapistPlanMatrixItems.Any(a => a.IsOwner || a.CanEdit));
+                })
+                .ForMember(d => d.Categories, opt =>
+                {
+                    opt.Condition(s => s.PlanCategoryMatrixItems != null);
+                    opt.MapFrom(s => s.PlanCategoryMatrixItems.Select(p => p.Category));
+                });
             Mapper.CreateMap<Plan, CreatePlanRequest>();
             Mapper.CreateMap<Plan, UpdatePlanRequest>();
             
