@@ -3,7 +3,7 @@
 
 var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'jquery.plugin.module', 'shared.ui', 'examine',
     'research', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', 'kendo.directives', 'patient.module', 'util.module', 'common.filters', 'angular-google-analytics', 'about.module', 'admin.module',
-    'ngGrid', 'therapist.module', 'clinic.module', 'registration.module', 'user.dashboard.module'])
+    'ngGrid', 'therapist.module', 'clinic.module', 'registration.module', 'user.dashboard.module', 'angular-sly'])
     .config(['$urlRouterProvider', '$stateProvider', '$httpProvider', '$provide', 'AnalyticsProvider', '$locationProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider, $provide, AnalyticsProvider, $locationProvider) {
 
@@ -392,7 +392,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                 {
                     url: "/plan/:planId/:showNavBar",
                     views: {
-                        "patient-session-plan-view": {
+                        "patient-case-assignment-view": {
                             templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
                             controller: 'PlanViewController'
                         }

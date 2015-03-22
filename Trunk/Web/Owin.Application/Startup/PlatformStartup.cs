@@ -73,6 +73,7 @@ namespace SportsWebPt.Platform.Web.Application
             "~/Scripts/libs/bootstrap.js",
             "~/Scripts/libs/kendo/kendo.web.min.js",
             "~/Scripts/libs/toastr.js",
+            "~/Scripts/libs/sly.js",
             "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
             "~/Content/theme/plugins/clingify/jquery.clingify.js",
             "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",
@@ -88,6 +89,7 @@ namespace SportsWebPt.Platform.Web.Application
                         "~/Scripts/libs/angular/angular-google-analytics.js",
                         "~/Scripts/libs/angular-ui/ui-router.js",
                         "~/Scripts/libs/angular/angular-animate.js",
+                        "~/Scripts/libs/angular-sly/angular-sly.js",
                         "~/Scripts/libs/angular-bootstrap/ui-bootstrap-tpls-{version}.js",
                         "~/Scripts/libs/angular-kendo/angular-kendo.js");
 
@@ -116,7 +118,8 @@ namespace SportsWebPt.Platform.Web.Application
                 "~/Content/icon-fonts.css",
                 "~/Content/toastr.css",
                 "~/Content/ng-grid.css",
-                "~/Content/sportsweb-pt.css"
+                "~/Content/sportsweb-pt.css",
+                "~/Content/sly.css"
                             );
 
             bundles.Add(jsPreBundle);

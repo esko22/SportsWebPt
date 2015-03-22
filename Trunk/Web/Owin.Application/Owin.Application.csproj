@@ -276,7 +276,7 @@
     <Content Include="app\patient\prtl.patient.dashboard.htm" />
     <Content Include="app\patient\prtl.patient.case.htm" />
     <Content Include="app\patient\prtl.patient.session.htm" />
-    <Content Include="app\patient\tmpl.patient.case.display.htm" />
+    <Content Include="app\patient\tmpl.patient.case.preview.htm" />
     <Content Include="app\patient\tmpl.patient.bookmark.display.htm" />
     <Content Include="app\patient\tmpl.patient.case.list.htm" />
     <Content Include="app\patient\tmpl.patient.case.session.list.htm" />
@@ -450,6 +450,7 @@
     <Content Include="Content\kendo\uniform\sprite.png" />
     <Content Include="Content\kendo\uniform\sprite_2x.png" />
     <Content Include="Content\ng-grid.css" />
+    <Content Include="Content\sly.css" />
     <Content Include="Content\sportsweb-pt.css" />
     <Content Include="Content\theme\css\custom-style.css" />
     <Content Include="Content\theme\css\font-awesome.css" />
@@ -704,6 +705,7 @@
     <Content Include="robots.txt" />
     <Content Include="Scripts\libs\angular-bootstrap\ui-bootstrap-tpls-0.12.1.js" />
     <Content Include="Scripts\libs\angular-kendo\angular-kendo.js" />
+    <Content Include="Scripts\libs\angular-sly\angular-sly.js" />
     <Content Include="Scripts\libs\angular-ui\ui-router.js" />
     <Content Include="Scripts\libs\angular\angular-animate.js" />
     <Content Include="Scripts\libs\angular\angular-cookies.js" />
@@ -727,6 +729,7 @@
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
+    <Content Include="Scripts\libs\sly.js" />
     <Content Include="Scripts\libs\toastr.js" />
     <Content Include="Scripts\libs\underscore.js" />
     <Content Include="Scripts\libs\Uri.js" />

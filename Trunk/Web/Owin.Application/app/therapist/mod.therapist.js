@@ -8,6 +8,12 @@ therapistModule.controller('TherapistDashboardController', [
     function($scope, therapistService, $rootScope) {
 
 
+        $scope.selectedTab = 'caseList';
+        $scope.onTabSelect = function (tab) {
+            $scope.selectedTab = tab;
+        }
+
+
         $rootScope.$watch('currentUser', function (currentUser) {
             if (currentUser) {
                 therapistService.get().$promise.then(function (therapistDetails) {
@@ -703,14 +709,18 @@ therapistModule.controller('TherapistCaseListController', [
         $scope.caseGridOptions = {
             data: 'cases',
             showGroupPanel: true,
-            enableRowSelection: false,
+            multiSelect: false,
+            afterSelectionChange: function (rowItem) {
+                if (rowItem.selected) {
+                    $scope.showCase(rowItem.entity);
+                }
+            },
             columnDefs: [
                 { field: 'clinicPatientIdentifier', displayName: 'Patient' },
                 { field: 'patientEmail', displayName: 'Email' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
-            { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<a class="grid-link-padding" ng-click="showCase(row.entity)" > View </a>' }]
+            { field: 'createdOn', displayName: 'Created' }]
         };
 
         $scope.addCase = function() {

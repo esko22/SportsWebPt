@@ -35,6 +35,15 @@ angular.module('research.plan.detail', [])
             $scope.navBarService = navBarService;
         }
     ])
+     .controller('SessionPlanViewController', [
+        '$scope', function ($scope) {
+            $scope.isLoading = false;
+            $scope.animationTag = null;
+            $scope.showNavBar = false;
+
+            $scope.plan = $scope.selectedPlan;
+        }
+     ])
     .controller('PlanDescriptionController', ['$scope', function ($scope) {
         $scope.$watch('plan', function (plan) {
 
@@ -86,7 +95,19 @@ angular.module('research.plan.detail', [])
             templateUrl: '/app/research/plans/detail/tmpl.plan.description.htm'
         };
     }])
-    .directive("planExerciseListing",[ function () {
+    .directive("sessionPlanView", [function () {
+        return {
+            restrict: 'E',
+            replace: true,
+            controller: 'SessionPlanViewController',
+            templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
+            scope: {
+                plan: '='
+            }
+
+        };
+    }])
+    .directive("planExerciseListing", [function () {
         return {
             restrict: 'E',
             replace: true,

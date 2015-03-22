@@ -1,41 +1,40 @@
 ﻿<div class="container" id="therapist-case-page">
-    <h2>Case Detail: {{case.name}}</h2>
-    <div class="row">
-        <div class="well col-md-6">
-            <div class="row">
-                <h4>{{case.clinic.name}}</h4>
+    <h2 class="title-divider"><i class="icon-sportswebpt-medkit"></i> <span>Case: <span class="de-em" ng-bind="case.name"></span></span></h2>
+    <div class="row well">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Therapist: </label>
+                    </div>
+                    <div>
+                        <span ng-bind="case.therapistEmail"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Created On: </label>
+                    </div>
+                    <div>
+                        <span ng-bind="case.createdOn"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Description: </label>
+                    </div>
+                    <div>
+                        <span ng-bind="case.description"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pull-right">
                 <img height="100" ng-src={{case.clinic.displayImage}} />
             </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label>Therapist: </label>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="case.therapistEmail"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label>Created On: </label>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="case.createdOn"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <label>Description: </label>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <span ng-bind="case.description"></span>
-                </div>
-            </div>
         </div>
-        <div class="col-md-6">
-            <patient-case-session-list case-id="caseId" />
-        </div>
+        <patient-case-session-list case-id="caseId" class="push-down-lg"></patient-case-session-list>
     </div>
     <div class="row">
         <div class="core-view-container" ui-view="patient-session-view" autoscroll="false"></div>
     </div>
-</div>
+ </div>

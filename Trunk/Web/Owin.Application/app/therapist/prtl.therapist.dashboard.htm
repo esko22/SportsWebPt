@@ -1,22 +1,46 @@
 ﻿<div class="container" id="therapist-dashboard-page">
     <h2>Therapist Dashboard</h2>
-    <div class="row push-down-md">
-        <div class="col-md-3">
-            <h3>My Clinics</h3>
-            <table class="table table-striped">
-                <tr ng-repeat="clinic in clinics">
-                    <td>{{clinic.name}}</td>
-                </tr>
-            </table>
+    <div>
+        <div class="row push-down-lg">
+            <!-- sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="section-menu">
+                    <ul class="nav nav-list">
+                        <li ng-class="{'active' : selectedTab == 'caseList' }">
+                            <a ng-click="onTabSelect('caseList')" class="first"><span>Cases</span><small>Your current case activity</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'plans' }">
+                            <a ng-click="onTabSelect('plans')"><span>Plans</span><small>Manage your plans</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'exercises' }">
+                            <a ng-click="onTabSelect('exercises')"><span>Exercises</span><small>Manage your exercises</small></a>
+                        </li>
+                        <li ng-class="{'active' : selectedTab == 'clinics' }">
+                            <a ng-click="onTabSelect('clinics')" class="first"><span>Clinics</span><small>Clinic rosters you're on</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'caseList' }">
+                        <therapist-case-list />
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'plans' }">
+                        <therapist-plan-list />
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'exercises' }">
+                        <therapist-exercise-list />
+                    </div>
+                    <div class="tab-pane" ng-class="{'active' : selectedTab == 'clinics' }">
+                        <table class="table table-striped">
+                            <tr ng-repeat="clinic in clinics">
+                                <td>{{clinic.name}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="push-down-md">
-        <therapist-case-list />
-    </div>
-    <div class="push-down-md">
-        <therapist-plan-list />
-    </div>
-    <div class="push-down-md">
-        <therapist-exercise-list />
     </div>
 </div>

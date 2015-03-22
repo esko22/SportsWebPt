@@ -35,6 +35,15 @@ patientModule.directive('patientCaseDisplay', [function () {
     };
 }]);
 
+patientModule.directive('patientCasePreview', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/patient/tmpl.patient.case.preview.htm',
+        controller: 'PatientCasePreviewController'
+    };
+}]);
+
 patientModule.directive('patientBookmarkDisplay', [function () {
     return {
         restrict: 'E',
@@ -62,13 +71,21 @@ patientModule.controller('PatientCaseListController', [
         $scope.caseGridOptions = {
             data: 'cases',
             showGroupPanel: true,
+            multiSelect: false,
+            afterSelectionChange: function(rowItem) {
+                if (rowItem.selected) {
+                    $scope.showCase(rowItem.entity);
+                }
+            },
+
             columnDefs: [
                 { field: 'therapistEmail', displayName: 'Therapist' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
-            { field: 'createdOn', displayName: 'Created' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showCase(row.entity)" >View</button>' }]
+                { field: 'createdOn', displayName: 'Created' }
+            ]
         };
+
 
         $scope.showCase = function (caseInstance) {
             $state.go('patient.case', { caseId: caseInstance.id });
@@ -83,17 +100,58 @@ patientModule.controller('PatientCaseListController', [
     }
 ]);
 
-patientModule.controller('PatientCaseDisplayController', [
+patientModule.controller('PatientCasePreviewController', [
     '$scope', 'patientService',
     function ($scope, patientService) {
 
-        $scope.myInterval = -1;
+        $scope.slyOptions = {
+            horizontal: 1, // or 0 depending on sly-horizontal or sly-vertical
+            itemNav: 'basic',
+            smart: 1,
+            activateOn: 'click',
+            mouseDragging: 1,
+            touchDragging: 1,
+            releaseSwing: 1,
+            startAt: 0,
+            scrollBy: 1,
+            activatePageOn: 'click',
+            speed: 300,
+            elasticBounds: 1,
+            easing: 'swing',
+            dragHandle: 1,
+            dynamicHandle: 1,
+            clickBar: 1,
+        };
+
+        $scope.showCaseSnapshot = function(caseSnapshot) {
+            $scope.selectedPlan = null;
+            $scope.caseSnapshot = caseSnapshot;
+        };
+
+        $scope.showAssignment = function(plan) {
+            $scope.selectedPlan = plan;
+        };
+
         patientService.getPatientSnapshot().$promise.then(function (snapshot) {
             $scope.snapshot = snapshot;
+            if (snapshot.activeCases)
+                $scope.caseSnapshot = snapshot.activeCases[0];
         });
     }
 ]);
 
+
+patientModule.controller('PatientCaseDisplayController', [
+    '$scope', 'caseService', '$stateParams',
+    function ($scope, caseService, $stateParams) {
+
+        $scope.caseId = $stateParams.caseId;
+
+        caseService.get($stateParams.caseId).$promise.then(function (caseInstance) {
+            $scope.case = caseInstance;
+        });
+    }
+]);
 
 patientModule.controller('PatientCaseController', [
     '$scope', 'caseService', '$stateParams',
@@ -113,6 +171,12 @@ patientModule.controller('PatientSessionController', [
 
         $scope.sessionId = $stateParams.sessionId;
         getSessionDetail();
+
+        $scope.selectedTab = 'sessionDetail';
+        $scope.onTabSelect = function (tab) {
+            $scope.selectedTab = tab;
+        }
+
 
         function getSessionDetail() {
             sessionService.get($stateParams.sessionId).$promise.then(function (session) {
@@ -142,12 +206,17 @@ patientModule.controller('PatientCaseSessionListController', [
 
         $scope.sessionGridOptions = {
             data: 'sessions',
+            multiSelect: false,
+            afterSelectionChange: function (rowItem) {
+                if (rowItem.selected) {
+                    $scope.showSession(rowItem.entity);
+                }
+            },
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
                 { field: 'scheduledStartTime', displayName: 'Scheduled' },
                 { field: 'scheduledEndTime', displayName: 'End' },
-                { field: 'videoMeetingUri', displayName: 'Meeting Link' },
-            { displayName: 'Action', cellTemplate: '<button id="editBtn" type="button" class="btn-small" ng-click="showSession(row.entity)" > View </button>' }]
+                { field: 'videoMeetingUri', displayName: 'Meeting Link' }]
         };
 
         $scope.showSession = function (session) {
