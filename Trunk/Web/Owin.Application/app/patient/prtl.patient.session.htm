@@ -45,28 +45,33 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label>Video Meeting Url: </label>
+                                    <label>Video Session: </label>
                                 </div>
                                 <div class="col-md-6 col-md-offset-1">
-                                    <a ng-href="{{session.videoMeetingUri}}" target="_blank">{{session.videoMeetingUri}}</a>
+                                    <button ng-click="" class="btn btn-info" style="font-size: 16px;"><i class="glyphicon glyphicon-facetime-video"></i> Launch</button>
                                 </div>
                             </div>
-                            <div class="row push-down-md">
-                                <div class="col-md-3">
-                                    <label>Recommendations: </label>
+                            <section ng-if="session.fee === 0 || session.hasPaid">
+                                <div class="row push-down-md">
+                                    <div class="col-md-3">
+                                        <label>Recommendations: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.recommendations"></span>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <span ng-bind="session.recommendations"></span>
+                                <div class="row push-down-md">
+                                    <div class="col-md-3">
+                                        <label>Health Report: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.healthReport"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row push-down-md">
-                                <div class="col-md-3">
-                                    <label>Health Report: </label>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <span ng-bind="session.healthReport"></span>
-                               </div>
-                            </div>
+                            </section>
+                            <section ng-if="session.fee > 0 && !session.hasPaid">
+                                <session-pay></session-pay>
+                            </section>
                         </div>
                     </div>
                 </div>

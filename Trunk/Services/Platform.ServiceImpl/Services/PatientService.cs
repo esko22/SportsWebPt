@@ -60,7 +60,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
 
                 var lastAssignment = CaseUnitOfWork.GetCaseSessionsWithPlans()
-                    .OrderBy(o => o.ScheduledStartTime)
+                    .OrderByDescending(o => o.ScheduledStartTime)
                     .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime < DateTime.Now && f.SessionPlans.Any());
 
                 if (lastAssignment != null && lastAssignment.SessionPlans != null)

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Web.Core;
@@ -69,9 +71,53 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             return true;
         }
 
-
+        [HttpGet]
+        [Route("data/sessions/{sessionId}/pay")]
+        public SessionPay StartSessionPay(Int64 sessionId)
+        {
+            return _sessionService.StartSessionPay(sessionId);
+        }
 
         #endregion
+    }
+
+    public class PayPalController : ApiController
+    {
+        #region Fields
+
+        private readonly ISessionService _sessionService;
+
+        #endregion
+
+        #region Construction
+
+        public PayPalController(ISessionService sessionService)
+        {
+            Check.Argument.IsNotNull(sessionService, "Session Service");
+            _sessionService = sessionService;
+        }
+
+        #endregion
+
+
+        [HttpGet]
+        [Route("data/sessions/{sessionId}/pay/execute")]
+        public HttpResponseMessage ExecuteSessionPay(Int64 sessionId, String paymentId, String payerId)
+        {
+            var sessionPay = _sessionService.ExecuteSessionPay(sessionId, payerId, paymentId);
+
+            var response = Request.CreateResponse(HttpStatusCode.Moved);
+            response.Headers.Location = new Uri("http://localhost:8022/patient/cases/" + sessionPay.caseId + "/session/" + sessionPay.sessionId);
+            return response;
+        }
+
+        [HttpGet]
+        [Route("data/sessions/{sessionId}/pay/cancel")]
+        public String CancelSessionPay(Int64 sessionId, String paymentId, String payerId)
+        {
+            return String.Empty;
+        }
+
     }
 
 }

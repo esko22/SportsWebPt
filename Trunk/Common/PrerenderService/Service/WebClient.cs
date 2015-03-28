@@ -18,7 +18,8 @@ namespace PrerenderService.Service
 
         public async Task<WebResponse> Get(string uri)
         {
-            //TODO: HACK - Not sure why this comes in as http when it's https -- needs investigation
+            //TODO: HACK - This is in place right now because the https redirect at the LB 
+            //forces the request to come in as http instead of https. The http request returns a 301 which is correct
             uri = uri.Replace("http", "https");
             string serviceUrl = _config.ServiceUrl.EndsWith("/") ? _config.ServiceUrl : _config.ServiceUrl + "/";
             var webRequest = (HttpWebRequest) WebRequest.Create(serviceUrl + uri);

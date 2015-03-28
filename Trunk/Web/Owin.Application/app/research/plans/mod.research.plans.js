@@ -1,8 +1,9 @@
 ﻿'use strict';
 
 angular.module('research.plans', ['research.plan.detail'])
-    .controller('PlanController', ['$scope', 'configService', 'planListService', '$filter', '$location', '$anchorScroll', function ($scope, configService, planListService, $filter, $location, $anchorScroll) {
+    .controller('PlanController', ['$scope', 'configService', 'planListService', '$filter', '$location', '$rootScope', function ($scope, configService, planListService, $filter, $location, $rootScope) {
 
+        $rootScope.pageTitle = 'Research - Plan Listing';
         $scope.categories = configService.lookups.planCategories;
         $scope.bodyRegions = configService.bodyRegions;
         $scope.isLoading = true;

@@ -64,6 +64,20 @@ namespace SportsWebPt.Platform.Web.Services
             PostSync(new CreateSessionPlanRequest {Id = sessionId, PlanIds = planIds});
         }
 
+        public SessionPay StartSessionPay(Int64 sessionId)
+        {
+            var request = GetSync(new StartSessionPayRequest {Id = sessionId.ToString()});
+
+            return Mapper.Map<SessionPay>(request.Response);
+        }
+
+        public SessionPay ExecuteSessionPay(Int64 sessionId, String payerId, String paymentId)
+        {
+            var request = GetSync(new ExecuteSessionPayRequest { Id = sessionId.ToString(), PayerId = payerId, PaymentId = paymentId});
+
+            return Mapper.Map<SessionPay>(request.Response);
+        }
+
 
         #endregion
     }
@@ -75,5 +89,7 @@ namespace SportsWebPt.Platform.Web.Services
         Session GetSessionAsTherapist(Int64 sessionId, String therapistId);
         void SetSessionPlans(Int64 sessionId, int[] planIds);
         Session UpdateSession(Session session);
+        SessionPay StartSessionPay(Int64 sessionId);
+        SessionPay ExecuteSessionPay(Int64 sessionId, String payerId, String paymentId);
     }
 }

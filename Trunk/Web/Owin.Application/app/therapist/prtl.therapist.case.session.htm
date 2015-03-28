@@ -55,7 +55,22 @@
                                         <a ng-href="{{session.videoMeetingUri}}" target="_blank">{{session.videoMeetingUri}}</a>
                                     </div>
                                 </div>
-
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Session Fee: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span>$ </span> <span ng-bind="session.fee"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Paid: </label>
+                                    </div>
+                                    <div class="col-md-6 col-md-offset-1">
+                                        <span ng-bind="session.hasPaid"></span>
+                                    </div>
+                                </div>
                                 <div class="row push-down-lg">
                                     <div class="col-md-3">
                                         <label>Notes: </label>

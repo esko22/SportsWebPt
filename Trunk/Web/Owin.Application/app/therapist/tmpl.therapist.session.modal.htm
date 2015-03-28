@@ -8,11 +8,11 @@
         <div class="form-group">
             <label class="control-label col-lg-3">Session Type</label>
             <div class="col-lg-9">
-                <select class="input-sm" name="sessionType"  ng-model="session.sessionType">
-                    <option value="">-- Select Type -- </option>
+                <select class="input-sm" name="sessionType" ng-init="session.sessionType = 'Physical'"  ng-model="session.sessionType">
                     <option value="Physical">Physical</option>
                     <option value="Video">Video</option>
                     <option value="Audio">Audio</option>
+                    <option value="Email">Email</option>
                 </select>
             </div>
         </div>
@@ -39,11 +39,30 @@
                     <div class="form-group">
                         <label class="control-label col-lg-3">Duration</label>
                         <div class="col-md-6">
-                            <select class="input-sm" name="sessionDuration" ng-model="session.duration">
+                            <select class="input-sm" name="sessionDuration" ng-init="session.duration = 30" ng-model="session.duration">
                                 <option value="30">30</option>
                                 <option value="15">15</option>
                                 <option value="45">45</option>
                                 <option value="60">60</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3">Fee</label>
+                        <div class="col-md-6">
+                            <select class="input-sm" name="sessionFee" ng-init="session.fee = 0" ng-model="session.fee">
+                                <option value="0">Free</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
                             </select>
                         </div>
                     </div>

@@ -340,6 +340,7 @@
     <Content Include="app\shared\symptoms\tmpl.while.symptom.htm" />
     <Content Include="app\shared\tmpl.master.footer.htm" />
     <Content Include="app\shared\tmpl.master.header.htm" />
+    <Content Include="app\shared\tmpl.session.pay.htm" />
     <Content Include="app\splash\prtl.splash.htm" />
     <Content Include="app\srvc.config.js" />
     <Content Include="app\therapist\mod.therapist.js" />

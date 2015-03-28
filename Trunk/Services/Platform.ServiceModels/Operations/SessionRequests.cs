@@ -39,6 +39,19 @@ namespace SportsWebPt.Platform.ServiceModels
         #endregion
     }
 
+    [Route("/sessions/{id}/pay", "GET")]
+    public class StartSessionPayRequest : AbstractResourceRequest, IReturn<ApiResponse<SessionPayDto>>
+    {
+
+    }
+
+    [Route("/sessions/{id}/pay/execute", "GET")]
+    public class ExecuteSessionPayRequest : AbstractResourceRequest, IReturn<ApiResponse<SessionPayDto>>
+    {
+        public string PayerId { get; set; }
+
+        public string PaymentId { get; set; }
+    }
 
 
 }

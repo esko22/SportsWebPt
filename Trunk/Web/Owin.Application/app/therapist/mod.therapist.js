@@ -483,7 +483,6 @@ therapistModule.controller('TherapistSessionPlanModalController', [
             selectedItems: $scope.selectedPlans,
             showGroupPanel: true,
             columnDefs: [
-                { field: 'id', displayName: 'Id' },
                 { field: 'routineName', displayName: 'Name' },
                 { field: 'formattedBodyRegions', displayName: 'Body Regions' },
                 { field: 'formattedCategories', displayName: 'Category' }
@@ -631,6 +630,7 @@ therapistModule.controller('TherapistCaseSessionController', [
             var modalInstance = $modal.open({
                 templateUrl: '/app/therapist/tmpl.therapist.session.plan.modal.htm',
                 controller: 'TherapistSessionPlanModalController',
+                windowClass: 'xx-dialog',
                 resolve: {
                     sessionId: function () {
                         return $scope.sessionId;
@@ -686,6 +686,8 @@ therapistModule.controller('TherapistCaseSessionController', [
             sessionService.update($scope.session).$promise.then(function() {
                 notifierService.notify('Update Success!');
                 getSessionDetail();
+            }, function (error) {
+                notifierService.error('Update Failed, Please Try Again');
             });
         }
 

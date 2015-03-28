@@ -64,7 +64,29 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             return Ok(new ApiResponse<SessionDto>(request));
         }
-            
+
+        public object Get(StartSessionPayRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsLong, "SessionId");
+
+            var sessionPayDetail = SessionUnitOfWork.CreateTransaction(request.IdAsLong);
+            var sessionPayDetails = new SessionPayDto() {PayToUri = sessionPayDetail.PayToUri};
+
+
+            return Ok(new ApiResponse<SessionPayDto>() { Response = sessionPayDetails });
+        }
+
+        public object Get(ExecuteSessionPayRequest request)
+        {
+            Check.Argument.IsNotNegativeOrZero(request.IdAsLong, "SessionId");
+            Check.Argument.IsNotNullOrEmpty(request.PayerId, "PayerId");
+            Check.Argument.IsNotNullOrEmpty(request.PaymentId, "PaymentId");
+
+            var executePayDetail = SessionUnitOfWork.ExecuteTransaction(request.IdAsLong, request.PayerId,
+                request.PaymentId);
+
+            return Ok(new ApiResponse<SessionPayDto>() { Response = Mapper.Map<SessionPayDto>(executePayDetail) });
+        }
 
         #endregion
 

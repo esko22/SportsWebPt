@@ -36,6 +36,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String patientEmail { get; set; }
 
+        public String patientName { get; set; }
+
         public String therapistEmail { get; set; }
 
         public Clinic clinic { get; set; }

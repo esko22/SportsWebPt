@@ -2,7 +2,7 @@
 
 angular.module('research.plan.detail', [])
     .controller('PlanViewController', [
-        '$scope', 'navBarService', 'configService', 'planDetailService', '$stateParams', function ($scope, navBarService, configService, planDetailService, $stateParams) {
+        '$scope', 'navBarService', 'configService', 'planDetailService', '$stateParams', '$rootScope', function ($scope, navBarService, configService, planDetailService, $stateParams, $rootScope) {
             $scope.isLoading = true;
             $scope.animationTag = null;
             $scope.showNavBar = true;
@@ -13,6 +13,9 @@ angular.module('research.plan.detail', [])
             if ($stateParams.showNavBar) {
                 $scope.showNavBar = $stateParams.showNavBar;
             }
+
+            //if ($stateParams.planId && isNaN($stateParams.planId))
+            //    $rootScope.pageTitle = $stateParams.planId;
 
             if (planDump) {
                 onPlanLoadComplete(JSON.parse(planDump));

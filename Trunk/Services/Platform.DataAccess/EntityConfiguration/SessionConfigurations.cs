@@ -27,7 +27,10 @@ namespace SportsWebPt.Platform.DataAccess
             Property(p => p.ScheduledWithId).IsRequired().HasColumnName("therapist_id");
             Property(p => p.DifferentialDiagnosisId).IsOptional().HasColumnName("differential_diagnosis_id");
             Property(p => p.SessionType).IsRequired().HasColumnName("session_type_id");
-            
+            Property(p => p.TransactionId).HasColumnName("transaction_id").IsOptional();
+            Property(p => p.Fee).HasColumnName("fee");
+            Property(p => p.HasPaid).HasColumnName("has_paid");
+
             HasOptional(o => o.DifferentialDiagnosis).WithMany().HasForeignKey(k => k.DifferentialDiagnosisId);
             HasRequired(r => r.ScheduledWith).WithMany(m => m.Sessions).HasForeignKey(k => k.ScheduledWithId);
         }            

@@ -27,6 +27,27 @@ sharedUi.directive('modalHeader', [ function () {
     };
 }]);
 
+
+sharedUi.directive('sessionPay', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/shared/tmpl.session.pay.htm',
+        controller: 'SessionPayController'
+    };
+}]);
+
+sharedUi.controller('SessionPayController', [
+    '$scope', 'sessionService', '$window', function ($scope, sessionService, $window) {
+
+        $scope.startSessionPay = function(sessionId) {
+            sessionService.startSessionPay(sessionId).$promise.then(function(data) {
+                $window.location = data.payToUri;
+            });
+        }
+    }
+]);
+
 sharedUi.controller('HeaderController', [
     '$scope', '$modal', 'userManagementService', 'authenticationService', '$rootScope', function ($scope, $modal, userManagementService, authenticationService, $rootScope) {
 

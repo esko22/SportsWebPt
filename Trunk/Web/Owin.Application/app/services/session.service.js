@@ -1,5 +1,5 @@
 ﻿swptApp.factory('sessionService', [
-    '$resource', 'configService', function($resource, configService) {
+    '$resource', 'configService', '$http', function($resource, configService) {
 
         var sessionsPath = configService.apiUris.sessions;
         
@@ -18,10 +18,15 @@
             setSessionPlanList: function(sessionId, planIds) {
                 return $resource(configService.apiUris.sessionPlans).save({ id: sessionId }, planIds);
             },
+            startSessionPay: function (id) {
+                var resource = $resource(sessionsPath + '/pay');
+                return resource.get({ id: id });
+            },
             update: function (session) {
                 var resource = $resource(sessionsPath, null, {
                     'update': { method: 'PUT' }
                 });
+
                 return resource.update({ id: session.id }, session);
             }
         }

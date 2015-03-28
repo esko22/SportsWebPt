@@ -5,13 +5,18 @@
 </div>
 <div class="modal-body">
     <form class="form-horizontal" novalidate rc-submit="submit()" name="addSessionPlanForm">
-        <div class="gridStyle" ng-grid="planGridOptions"></div>
-        <div>
-            <ul>
-                <li ng-repeat="plan in selectedPlans"><span ng-bind="plan.routineName"></span></li>
-            </ul>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="largeGridStyle" ng-grid="planGridOptions"></div>
+            </div>
+            <div class="col-md-4">
+                <h4>Selected Plans</h4>
+                <ul>
+                    <li ng-repeat="plan in selectedPlans"><span ng-bind="plan.routineName"></span></li>
+                </ul>
+            </div>
         </div>
-        <div class="text-center">
+        <div class="text-center push-down-lg">
             <button type="submit" class="btn btn-primary">Save changes</button>
             <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
         </div>

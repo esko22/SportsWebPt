@@ -1,6 +1,6 @@
 ﻿<div>
     <div class="modal-header">
-        <h3 class="modal-title">Shared Plan Listing</h3>
+        <h3 class="modal-title">Shared Settings</h3>
     </div>
 </div>
 <div class="modal-body">
@@ -8,13 +8,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Clinic</th>
                     <th>Shared</th>
                 </tr>
             </thead>
             <tr ng-repeat="plan in sharedPlans">
-                <td>{{plan.id}}</td>
                 <td>{{plan.clinicName}}</td>
                 <td><input type="checkbox" ng-checked="plan.isActive" ng-model="plan.isActive" /></td>
             </tr>

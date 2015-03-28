@@ -39,6 +39,22 @@ namespace SportsWebPt.Platform.Web.Core
 
         public DifferentialDiagnosis diagnosis { get; set; }
 
+        public float fee { get; set; }
+
+        public Boolean hasPaid { get; set; }
+
+        public String transactionId { get; set; }
+
         #endregion
+    }
+
+    public class SessionPay
+    {
+        public String payToUri { get; set; }
+
+        public Int64 caseId { get; set; }
+
+        public Int64 sessionId { get; set; }
+
     }
 }

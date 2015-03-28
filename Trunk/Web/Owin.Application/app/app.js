@@ -326,7 +326,11 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                             templateUrl: '/app/research/exercises/detail/prtl.exercise.view.htm',
                             controller: 'ExerciseViewController'
                         }
-                    }
+                    },
+                    onEnter: ['$rootScope', '$stateParams', function ($rootScope, $stateParams) {
+                        if ($stateParams.exerciseId && isNaN($stateParams.exerciseId))
+                            $rootScope.pageTitle = 'SportsWebPT - Exercise - ' + $stateParams.exerciseId;
+                    }]
                 })
                 .state('public.research.planDetail',
                 {
@@ -336,7 +340,11 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                             templateUrl: '/app/research/plans/detail/prtl.plan.view.htm',
                             controller: 'PlanViewController'
                         }
-                    }
+                    },
+                    onEnter: ['$rootScope', '$stateParams', function ($rootScope, $stateParams) {
+                        if ($stateParams.planId && isNaN($stateParams.planId))
+                            $rootScope.pageTitle = 'SportsWebPT - Plan - ' + $stateParams.planId;
+                    }]
                 })
                 .state('public.research.injuryDetail',
                 {
@@ -346,7 +354,11 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                             templateUrl: '/app/research/injuries/detail/prtl.injury.view.htm',
                             controller: 'InjuryViewController'
                         }
-                    }
+                    },
+                    onEnter: ['$rootScope', '$stateParams', function ($rootScope, $stateParams) {
+                        if ($stateParams.injuryId && isNaN($stateParams.injuryId))
+                            $rootScope.pageTitle = 'SportsWebPT - Injury - ' + $stateParams.injuryId;
+                    }]
                 })
                 .state('user',
                 {
@@ -627,6 +639,9 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
         // at least once in your application (for example in the main run() block)
 
     $rootScope.$on('$stateChangeStart', function(ev, to, toParams, from, fromParams) {
+
+        //default page title
+        $rootScope.pageTitle = 'SportsWebPT - Accessible Physical Threrapy';
 
         if (!$rootScope.currentUser && authenticationService.isAuthenticated()) {
             userManagementService.getUser().$promise.then(function(user) {

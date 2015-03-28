@@ -38,6 +38,12 @@ namespace SportsWebPt.Platform.ServiceModels
 
         public DifferentialDiagnosisDto Diagnosis { get; set; }
 
+        public float Fee { get; set; }
+
+        public Boolean HasPaid { get; set; }
+
+        public String TransactionId { get; set; }
+
         #endregion
     }
 
@@ -45,6 +51,17 @@ namespace SportsWebPt.Platform.ServiceModels
     {
         Physical =1,
         Video =2,
-        Audio =3
+        Audio =3,
+        Email = 4
+    }
+
+    public class SessionPayDto
+    {
+        public String PayToUri { get; set; }
+
+        public Int64 CaseId { get; set; }
+
+        public Int64 SessionId { get; set; }
+
     }
 }

@@ -49,6 +49,13 @@
     <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal">
+      <HintPath>..\packages\PayPal.1.4.0\lib\net45\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -215,6 +222,10 @@
     <Compile Include="Migrations\201503210408338_AVS_Updates.Designer.cs">
       <DependentUpon>201503210408338_AVS_Updates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503280406484_SessionPay.cs" />
+    <Compile Include="Migrations\201503280406484_SessionPay.Designer.cs">
+      <DependentUpon>201503280406484_SessionPay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlatformDbContext.cs" />
     <Compile Include="DbInitialization\PlatformDbCreateInitializer.cs" />
@@ -354,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503210408338_AVS_Updates.resx">
       <DependentUpon>201503210408338_AVS_Updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503280406484_SessionPay.resx">
+      <DependentUpon>201503280406484_SessionPay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -729,6 +729,8 @@ namespace SportsWebPt.Platform.ServiceImpl
                 .ForMember(d => d.ClinicPatientId, opt => opt.MapFrom(s => s.ClinicPatientId))
                 .ForMember(d => d.TherapistId, opt => opt.MapFrom(s => new Guid(s.TherapistId)));
 
+            Mapper.CreateMap<SessionPayDetail, SessionPayDto>();
+
             #endregion
 
             #region Clinic Maps

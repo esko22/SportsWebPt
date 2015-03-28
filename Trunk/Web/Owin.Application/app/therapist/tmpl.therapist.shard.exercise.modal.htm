@@ -8,13 +8,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Clinic</th>
                     <th>Shared</th>
                 </tr>
             </thead>
             <tr ng-repeat="exercise in sharedExercises">
-                <td>{{exercise.id}}</td>
                 <td>{{exercise.clinicName}}</td>
                 <td><input type="checkbox" ng-checked="exercise.isActive" ng-model="exercise.isActive" /></td>
             </tr>
