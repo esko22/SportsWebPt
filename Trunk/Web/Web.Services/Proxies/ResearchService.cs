@@ -28,10 +28,10 @@ namespace SportsWebPt.Platform.Web.Services
 
         #endregion
 
-        public Plan GetPlan(int planId)
+        public Plan GetPlan(int planId, String requestorId)
         {
             var request =
-                GetSync(new PlanRequest() { Id = planId.ToString() });
+                GetSync(new PlanRequest() { Id = planId.ToString(), RequestorId = requestorId});
 
             var plan = Mapper.Map<Plan>(request.Response);
 
@@ -170,7 +170,7 @@ namespace SportsWebPt.Platform.Web.Services
 
     public interface IResearchService
     {
-        Plan GetPlan(int planId);
+        Plan GetPlan(int planId, String requestorId);
         Exercise GetExercise(int exerciseId);
         Injury GetInjury(int injuryId);
         IEnumerable<BodyPart> GetBodyParts();

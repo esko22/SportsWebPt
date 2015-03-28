@@ -52,6 +52,24 @@ patientModule.directive('patientBookmarkDisplay', [function () {
     };
 }]);
 
+patientModule.directive('patientSessionDetail', [function () {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: '/app/patient/tmpl.patient.session.detail.htm',
+        controller: 'PatientSessionDetailController',
+        scope: {
+            session: '='
+        }
+    };
+}]);
+
+patientModule.controller('PatientSessionDetailController', [
+    '$scope',
+    function ($scope) {
+    }
+]);
+
 
 patientModule.directive('patientDashboard', [function () {
     return {

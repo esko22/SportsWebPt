@@ -280,6 +280,7 @@
     <Content Include="app\patient\tmpl.patient.bookmark.display.htm" />
     <Content Include="app\patient\tmpl.patient.case.list.htm" />
     <Content Include="app\patient\tmpl.patient.case.session.list.htm" />
+    <Content Include="app\patient\tmpl.patient.session.detail.htm" />
     <Content Include="app\plugins\dctc.add.this.toolbox.js" />
     <Content Include="app\plugins\dctv.clingify.js" />
     <Content Include="app\plugins\dctv.flex.slider.js" />

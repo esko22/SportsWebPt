@@ -141,6 +141,8 @@ function ($scope, planAdminService, $modalInstance, selectedPlan, notifierServic
                     planAdminService.save($scope.plan).$promise.then(function(data) {
                         notifierService.notify('Created Successfully!');
                         $modalInstance.close(data);
+                    }, function(error) {
+                        notifierService.error('Create Failed, Please retry.');
                     });
                 } else {
                     $scope.plan.id = $scope.originalPlanId;

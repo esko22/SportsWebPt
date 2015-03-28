@@ -19,80 +19,54 @@
                 <div class="tab-pane" ng-class="{'active' : selectedTab == 'sessionDetail' }">
                     <div class="row">
                         <div class="col-md-10">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Type: </label>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <span ng-bind="session.sessionType"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Scheduled At: </label>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <span ng-bind="session.scheduledStartTime"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Scheduled End: </label>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <span ng-bind="session.scheduledEndTime"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Video Session: </label>
-                                </div>
-                                <div class="col-md-6 col-md-offset-1">
-                                    <button ng-click="" class="btn btn-info" style="font-size: 16px;"><i class="glyphicon glyphicon-facetime-video"></i> Launch</button>
-                                </div>
-                            </div>
+                            <patient-session-detail session="session"></patient-session-detail>
                             <section ng-if="session.fee === 0 || session.hasPaid">
                                 <div class="row push-down-md">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label>Recommendations: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <span ng-bind="session.recommendations"></span>
+                                        <span ng-bind-html="session.recommendations"></span>
                                     </div>
                                 </div>
                                 <div class="row push-down-md">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label>Health Report: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <span ng-bind="session.healthReport"></span>
+                                        <span ng-bind-html="session.healthReport"></span>
                                     </div>
                                 </div>
                             </section>
                             <section ng-if="session.fee > 0 && !session.hasPaid">
-                                <session-pay></session-pay>
+                                <session-pay session="session"></session-pay>
                             </section>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane" ng-class="{'active' : selectedTab == 'rehabPlans' }">
-                    <div class="row">
-                        <h4><i class="icon-sportswebpt-clipboard3"></i>Current Assignment</h4>
-                        <div>
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr ng-repeat="plan in session.plans">
-                                        <td><a ui-sref="patient.case.session.plan({ planId : plan.id, showNavBar : false })">{{plan.routineName}}</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <section ng-if="session.fee > 0 && !session.hasPaid">
+                        <session-pay session="session"></session-pay>
+                    </section>
+                    <section ng-if="session.fee === 0 || session.hasPaid">
+                        <div class="row">
+                            <h4><i class="icon-sportswebpt-clipboard3"></i>Current Assignment</h4>
+                            <div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr ng-repeat="plan in session.plans">
+                                            <td><a ui-sref="patient.case.session.plan({ planId : plan.id, showNavBar : false })">{{plan.routineName}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row push-down-md">
-                        <div class="col-md-12">
-                            <div class="core-view-container" ui-view="patient-session-plan-view" autoscroll="false"></div>
+                        <div class="row push-down-md">
+                            <div class="col-md-12">
+                                <div class="core-view-container" ui-view="patient-session-plan-view" autoscroll="false"></div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

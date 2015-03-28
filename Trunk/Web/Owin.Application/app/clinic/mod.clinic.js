@@ -106,12 +106,17 @@ clinicModule.controller('ClniicTherapistListController', [
     '$scope', 'clinicService', '$modal',
     function ($scope, clinicService, $modal) {
 
-        clinicService.getClinicTherapists($scope.clinicId).$promise.then(function (therapists) {
-            $scope.therapists = therapists;
-        });
+        init();
+
+
+        function init() {
+            clinicService.getClinicTherapists($scope.clinicId).$promise.then(function (therapists) {
+                $scope.therapists = therapists;
+            });
+        }
 
         $scope.showAddTherapistModal = function() {
-            $modal.open({
+            var therapistModal = $modal.open({
                 templateUrl: '/app/clinic/tmpl.clinic.add.therapist.modal.htm',
                 controller: 'ClinicAddTherapistModalController',
                 size: 'sm',
@@ -121,6 +126,11 @@ clinicModule.controller('ClniicTherapistListController', [
                     }
                 }
             });
+
+            therapistModal.result.then(function () {
+                init();
+            });
         };
+
     }
 ]);

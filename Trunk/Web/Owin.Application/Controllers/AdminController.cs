@@ -144,7 +144,7 @@ namespace SportsWebPt.Platform.Web.Admin
         [Route("data/admin/plans/{id}")]
         public Plan GetPlan(Int32 id)
         {
-            return _researchService.GetPlan(id);
+            return _researchService.GetPlan(id, User.GetServiceAccount());
         }
 
         [HttpGet]

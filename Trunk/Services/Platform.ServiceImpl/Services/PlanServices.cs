@@ -74,6 +74,16 @@ namespace SportsWebPt.Platform.ServiceImpl
             foreach (var planExercise in planEntity.PlanExerciseMatrixItems)
                 planExercise.Exercise = exerciseEntities.Single(p => p.Id == planExercise.ExerciseId);
 
+
+            if (!String.IsNullOrEmpty(request.RequestorId))
+            {
+                var requestorId = new Guid(request.RequestorId);
+                var theraList = planEntity.TherapistPlanMatrixItems.ToList();
+                theraList.RemoveAll(r => !r.TherapistId.Equals(requestorId));
+                planEntity.TherapistPlanMatrixItems = theraList;
+            }
+
+
             var planDto = Mapper.Map<PlanDto>(planEntity);
 
             return Ok(new ApiResponse<PlanDto>()

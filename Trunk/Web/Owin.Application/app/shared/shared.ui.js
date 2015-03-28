@@ -33,7 +33,10 @@ sharedUi.directive('sessionPay', [function () {
         restrict: 'E',
         replace: 'true',
         templateUrl: '/app/shared/tmpl.session.pay.htm',
-        controller: 'SessionPayController'
+        controller: 'SessionPayController',
+        scope: {
+            session: '='
+        }
     };
 }]);
 

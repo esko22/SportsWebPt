@@ -54,6 +54,11 @@ namespace SportsWebPt.Platform.ServiceModels
     [Route("/plans/{id}", "GET")]
     public class PlanRequest : AbstractResourceRequest, IReturn<ApiResponse<PlanDto>>
     {
+        #region Properties
+
+        public String RequestorId { get; set; }
+
+        #endregion
     }
 
     [Route("/clinics/{id}/plans")]

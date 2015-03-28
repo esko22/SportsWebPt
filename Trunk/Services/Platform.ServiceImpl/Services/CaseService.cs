@@ -50,7 +50,7 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             var responseList = new List<SessionDto>();
 
-            Mapper.Map(CaseUnitOfWork.GetCaseSessions().Where(p => p.CaseId == request.IdAsLong), responseList);
+            Mapper.Map(CaseUnitOfWork.GetCaseSessions().Where(p => p.CaseId == request.IdAsLong).OrderBy(o => o.ScheduledStartTime), responseList);
 
             return
                 Ok(new ApiListResponse<SessionDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

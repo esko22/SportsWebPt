@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <label class="control-label col-lg-2" >Description</label>
                     <div class="col-lg-10" ng-class="{'has-error': rc.planForm.needsAttention(planForm.description)}">
-                        <textarea rows="5 " class="form-control" name="description" ng-model="plan.description" kendo-editor k-tools="editorOptions" placeholder="Description" ng-minlength="2" ng-maxlength="60000"></textarea>
+                        <textarea rows="5 " class="form-control" name="description" ng-model="plan.description" kendo-editor k-tools="editorOptions" placeholder="Description" ng-required="true" ng-minlength="2" ng-maxlength="60000"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -138,6 +138,9 @@
             </div>
             <div ng-show="(planForm.instructions.$error.minlength || planForm.instructions.$error.maxlength)  && rc.planForm.attempted">
                 <strong><span class="help-block">Instructions must be between 1 and 60000 characters</span></strong>
+            </div>
+            <div ng-show="planForm.description.$error.required && rc.planForm.attempted">
+                <strong><span class="help-block">Description Required</span></strong>
             </div>
             <div ng-show="(planForm.description.$error.minlength || planForm.description.$error.maxlength)  && rc.planForm.attempted">
                 <strong><span class="help-block">Description must be between 1 and 60000 characters</span></strong>

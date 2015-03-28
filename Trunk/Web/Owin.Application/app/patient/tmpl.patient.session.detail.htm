@@ -1,0 +1,34 @@
+﻿<section>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Type: </label>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <span ng-bind="session.sessionType"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Scheduled At: </label>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <span ng-bind="session.scheduledStartTime"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Scheduled End: </label>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <span ng-bind="session.scheduledEndTime"></span>
+        </div>
+    </div>
+    <div class="row" ng-if="session.sessionType.toLowerCase() === 'video'">
+        <div class="col-md-4">
+            <label>Video Session: </label>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <a class="btn btn-info" style="font-size: 16px;" ng-href="{{session.videoMeetingUri}}" target="_blank"><i class="glyphicon glyphicon-facetime-video"></i> Launch</a>
+        </div>
+    </div>
+</section>

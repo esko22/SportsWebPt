@@ -13,73 +13,42 @@
                         <div class="push-down-md">
                             {{caseSnapshot.name}}
                         </div>
-                        <!--<div class="push-down-lg">
-                        </div>-->
                     </li>
                 </ul>
             </div>
-            <!--<div class="controls center">
-            <button class="btn prev"><i class="glyphicon glyphicon-chevron-left"></i> prev</button>
-            <button class="btn next">next <i class="glyphicon glyphicon-chevron-right"></i></button>
-        </div>-->
         </div>
         <div ng-show="snapshot.activeCases.length == 0">
             <h2>You currently have no active cases</h2>
         </div>
         <div class="row" ng-show="caseSnapshot">
             <div class="row well">
-                <div class="col-md-6">
-                    <section ng-show="caseSnapshot.lastAssignment.length > 0">
-                        <h4><i class="icon-sportswebpt-clipboard3"></i> Current Assignment</h4>
-                        <div>
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr ng-repeat="assignment in caseSnapshot.lastAssignment">
-                                        <td><a ng-click="showAssignment(assignment)">{{assignment.routineName}}</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                    <section ng-show="caseSnapshot.lastAssignment.length == 0">
-                        <h4>No Current Assignment</h4>
-                    </section>
-                </div>
+                <section ng-if="caseSnapshot.lastSession.fee > 0 && !caseSnapshot.lastSession.hasPaid">
+                    <session-pay session="caseSnapshot.lastSession"></session-pay>
+                </section>
+                <section ng-if="caseSnapshot.lastSession.fee === 0 || caseSnapshot.lastSession.hasPaid">
+                    <div class="col-md-6">
+                        <section ng-show="caseSnapshot.lastAssignment.length > 0">
+                            <h4><i class="icon-sportswebpt-clipboard3"></i> Current Assignment</h4>
+                            <div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr ng-repeat="assignment in caseSnapshot.lastAssignment">
+                                            <td><a ng-click="showAssignment(assignment)">{{assignment.routineName}}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section ng-show="caseSnapshot.lastAssignment.length == 0">
+                            <h4>No Current Assignment</h4>
+                        </section>
+                    </div>
+                </section>
+
                 <div class="col-md-6">
                     <section ng-show="caseSnapshot.nextSession">
                         <h4><i class="icon-sportswebpt-calendar1"></i> Next Session</h4>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Type: </label>
-                            </div>
-                            <div class="col-md-6 col-md-offset-1">
-                                <span ng-bind="caseSnapshot.nextSession.sessionType"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Scheduled At: </label>
-                            </div>
-                            <div class="col-md-6 col-md-offset-1">
-                                <span ng-bind="caseSnapshot.nextSession.scheduledStartTime"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Scheduled End: </label>
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                                <span ng-bind="caseSnapshot.nextSession.scheduledEndTime"></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <label>Video Meeting Url: </label>
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                                <a ng-href="{{caseSnapshot.nextSession.videoMeetingUri}}" target="_blank">{{caseSnapshot.nextSession.videoMeetingUri}}</a>
-                            </div>
-                        </div>
+                        <patient-session-detail session="caseSnapshot.nextSession"></patient-session-detail>
                     </section>
                     <section ng-show="!caseSnapshot.nextSession">
                         <h4>No Future Session Scheduled</h4>
