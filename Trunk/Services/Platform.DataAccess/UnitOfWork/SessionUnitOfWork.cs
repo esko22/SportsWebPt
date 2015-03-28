@@ -5,6 +5,7 @@ using PayPal.Api;
 using PayPal.Sample;
 using SportsWebPt.Common.DataAccess;
 using SportsWebPt.Common.DataAccess.Ef;
+using SportsWebPt.Common.Logging;
 using SportsWebPt.Common.Utilities;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess.Repositories;
@@ -13,12 +14,19 @@ namespace SportsWebPt.Platform.DataAccess
 {
     public class SessionUnitOfWork : BaseUnitOfWork, ISessionUnitOfWork
     {
+
+        #region Fields
+
+        private ILog _logger = LogManager.GetCommonLogger();
+
+        #endregion
+
         #region Properties
 
         public ISessionRepo SessionRepo { get { return GetRepo<ISessionRepo>(); } }
         public IRepository<Case> CaseRepo { get { return GetStandardRepo<Case>(); } }
         public IRepository<SessionPlanMatrixItem> SessionPlanMatrixRepo { get { return GetStandardRepo<SessionPlanMatrixItem>();} }
-        public IRepository<TherapistPlanMatrixItem> TherapistPlanMatrixRepo { get {  return GetStandardRepo<TherapistPlanMatrixItem>();} } 
+        public IRepository<TherapistPlanMatrixItem> TherapistPlanMatrixRepo { get {  return GetStandardRepo<TherapistPlanMatrixItem>();} }
 
         #endregion
 
@@ -132,49 +140,68 @@ namespace SportsWebPt.Platform.DataAccess
 
             var session = SessionRepo.GetAll().FirstOrDefault(f => f.Id == sessionId);
 
-            payment.Execute(apiContext, paymentExecution);
+            _logger.Info(String.Format("Executing payment for session {0} : {1} - Payer {2}", sessionId, paymentId, payerId));
+            var executeResults = payment.Execute(apiContext, paymentExecution);
+            _logger.Info(String.Format("Executing payment success for session {0} : {1} - Payer {2}", sessionId, paymentId, payerId));
+
+
+            if (executeResults.state.ToLower().Equals("approved"))
+            {
+                session.HasPaid = true;
+                SessionRepo.Update(session);
+                Commit();
+            }
 
             return new SessionPayDetail() { SessionId = sessionId, CaseId = session.CaseId} ;
         }
 
-        public SessionPayDetail CreateTransaction(Int64 sessionId)
+        public SessionPayDetail CreateTransaction(Int64 sessionId, String cancelPath, String executePath)
         {
             var sessionPayDetail = new SessionPayDetail();
             var session = SessionRepo.GetAll().FirstOrDefault(f => f.Id == sessionId);
 
             Check.Argument.IsNotNull(session, "Session does not exist");
+            
             var apiContext = Configuration.GetAPIContext();
+            _logger.Info(String.Format("Creating payment for session {0}", session.Id));
 
-            // ###Items
-            // Items within a transaction.
+            var payment = CreatePayment(cancelPath, executePath, session);
+            var createdPayment = payment.Create(apiContext);
+            session.TransactionId = createdPayment.id;
+            SessionRepo.Update(session);
+            Commit();
+
+            _logger.Info(String.Format("Payment created for session {0} : {1}", session.Id, createdPayment.id));
+
+            var redirectLink = createdPayment.links.FirstOrDefault(w => w.rel.ToLower().Trim().Equals("approval_url"));
+            if(redirectLink != null)
+                sessionPayDetail.PayToUri = redirectLink.href;
+
+            return sessionPayDetail;
+        }
+
+        private Payment CreatePayment(string cancelPath, string executePath, Session session)
+        {
             var itemList = new ItemList()
             {
-                items = new List<Item>() 
+                items = new List<Item>()
+                {
+                    new Item()
                     {
-                        new Item()
-                        {
-                            name = "Session: " + session.Id ,
-                            currency = "USD",
-                            price = session.Fee.ToString(),
-                            quantity = "1",
-                            sku = "sku"
-                        }
+                        name = "Session: " + session.Id,
+                        currency = "USD",
+                        price = session.Fee.ToString(),
+                        quantity = "1",
+                        sku = "sku"
                     }
+                }
             };
 
-            // ###Payer
-            // A resource representing a Payer that funds a payment
-            // Payment Method
-            // as `paypal`
-            var payer = new Payer() { payment_method = "paypal" };
-
-            // ###Redirect URLS
-            // These URLs will determine how the user is redirected from PayPal once they have either approved or canceled the payment.
-            var baseURI = "http://localhost:8022/data/sessions/" + session.Id; 
+            var payer = new Payer() {payment_method = "paypal"};
             var redirUrls = new RedirectUrls()
             {
-                cancel_url = baseURI + "/pay/cancel",
-                return_url = baseURI + "/pay/execute"
+                cancel_url = cancelPath,
+                return_url = executePath
             };
 
             // ###Details
@@ -223,33 +250,7 @@ namespace SportsWebPt.Platform.DataAccess
                 redirect_urls = redirUrls
             };
 
-            //// ^ Ignore workflow code segment
-            //#region Track Workflow
-            //this.flow.AddNewRequest("Create PayPal payment", payment);
-            //#endregion
-
-            // Create a payment using a valid APIContext
-            var createdPayment = payment.Create(apiContext);
-
-            //// ^ Ignore workflow code segment
-            //#region Track Workflow
-            //this.flow.RecordResponse(createdPayment);
-            //#endregion
-
-            // Using the `links` provided by the `createdPayment` object, we can give the user the option to redirect to PayPal to approve the payment.
-            var links = createdPayment.links.GetEnumerator();
-            while (links.MoveNext())
-            {
-                var link = links.Current;
-                if (link.rel.ToLower().Trim().Equals("approval_url"))
-                {
-                    sessionPayDetail.PayToUri = link.href;
-
-                    //this.flow.RecordRedirectUrl("Redirect to PayPal to approve the payment...", link.href);
-                }
-            }
-
-            return sessionPayDetail;
+            return payment;
         }
 
         #endregion
@@ -264,7 +265,7 @@ namespace SportsWebPt.Platform.DataAccess
         Session UpdateSession(Session session);
         Session AddSession(Session session);
         void SetSessionPlans(Int64 sessionId, int[] planIds);
-        SessionPayDetail CreateTransaction(Int64 sessionId);
+        SessionPayDetail CreateTransaction(Int64 sessionId, String cancelPath, String executePath);
         SessionPayDetail ExecuteTransaction(Int64 sessionId, String payerId, String paymentId);
     }
 }

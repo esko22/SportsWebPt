@@ -4,6 +4,7 @@ using AutoMapper;
 using ServiceStack.Redis;
 using SportsWebPt.Common.ServiceStack;
 using SportsWebPt.Common.Utilities;
+using SportsWebPt.Platform.Core;
 using SportsWebPt.Platform.Core.Models;
 using SportsWebPt.Platform.DataAccess;
 using SportsWebPt.Platform.ServiceModels;
@@ -69,7 +70,9 @@ namespace SportsWebPt.Platform.ServiceImpl
         {
             Check.Argument.IsNotNegativeOrZero(request.IdAsLong, "SessionId");
 
-            var sessionPayDetail = SessionUnitOfWork.CreateTransaction(request.IdAsLong);
+            var sessionPayDetail = SessionUnitOfWork.CreateTransaction(request.IdAsLong,
+                PlatformServiceConfiguration.Instance.PayCancelPathUri.Replace("{sessionId}", request.Id), 
+                PlatformServiceConfiguration.Instance.PayExecutePathUri.Replace("{sessionId}", request.Id));
             var sessionPayDetails = new SessionPayDto() {PayToUri = sessionPayDetail.PayToUri};
 
 

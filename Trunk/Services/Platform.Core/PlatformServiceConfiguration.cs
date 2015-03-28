@@ -39,6 +39,12 @@ namespace SportsWebPt.Platform.Core
 
         public string RegistrationPathUri { get; private set; }
 
+        public string PayCancelPathUri { get; private set; }
+
+        public string PayExecutePathUri { get; private set; }
+
+        public string WebBaseUri { get; private set; }
+
         public IEnumerable<String> ApiDocumentAssemblies { get; private set; }
 
         public int ClinicId { get; private set; }
@@ -73,7 +79,11 @@ namespace SportsWebPt.Platform.Core
         {
             ApiUrl = ConfigurationManager.AppSettings["apiUri"];
             ApiVersion = ConfigurationManager.AppSettings["apiVersion"];
-            RegistrationPathUri = ConfigurationManager.AppSettings["registrationPathUri"];
+            WebBaseUri = ConfigurationManager.AppSettings["webBaseUri"];
+
+            RegistrationPathUri = String.Format("{0}{1}", WebBaseUri, ConfigurationManager.AppSettings["registrationPathUri"]);
+            PayCancelPathUri = String.Format("{0}{1}", WebBaseUri, ConfigurationManager.AppSettings["payCancelPathUri"]);
+            PayExecutePathUri = String.Format("{0}{1}", WebBaseUri, ConfigurationManager.AppSettings["payExecutePathUri"]);
             ApiDocumentAssemblies = ConfigurationManager.AppSettings["apiDocumentAssemblies"].Split(',');
             ClinicId = int.Parse(ConfigurationManager.AppSettings["clinicId"]);
         }

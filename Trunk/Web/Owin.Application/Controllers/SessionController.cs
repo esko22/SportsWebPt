@@ -107,17 +107,32 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             var sessionPay = _sessionService.ExecuteSessionPay(sessionId, payerId, paymentId);
 
             var response = Request.CreateResponse(HttpStatusCode.Moved);
-            response.Headers.Location = new Uri("http://localhost:8022/patient/cases/" + sessionPay.caseId + "/session/" + sessionPay.sessionId);
+            response.Headers.Location = BuildSessionRedirectUri(sessionId, sessionPay.caseId);
             return response;
         }
 
         [HttpGet]
         [Route("data/sessions/{sessionId}/pay/cancel")]
-        public String CancelSessionPay(Int64 sessionId, String paymentId, String payerId)
+        public HttpResponseMessage CancelSessionPay(Int64 sessionId)
         {
-            return String.Empty;
+            var session = _sessionService.GetSession(sessionId);
+
+            if (session == null)
+                throw new Exception("Session Does Not Exist");
+
+            var response = Request.CreateResponse(HttpStatusCode.Moved);
+            response.Headers.Location = BuildSessionRedirectUri(sessionId, session.caseId);
+
+            return response;
         }
 
+        private Uri BuildSessionRedirectUri(Int64 sessionId, Int64 caseId)
+        {
+            return
+                new Uri(
+                    WebPlatformConfigSettings.Instance.SessionPayReturnUri.Replace("{caseId}", caseId.ToString())
+                        .Replace("{sessionId}", sessionId.ToString()));
+        }
     }
 
 }
