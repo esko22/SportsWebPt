@@ -23,40 +23,9 @@
                     <div class="tab-pane" ng-class="{'active' : selectedTab == 'sessionDetail' }">
                         <div class="row">
                             <div class="col-md-10">
+                                <patient-session-detail session="session"></patient-session-detail>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <label>Type: </label>
-                                    </div>
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <span ng-bind="session.sessionType"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label>Scheduled At: </label>
-                                    </div>
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <span ng-bind="session.scheduledStartTime"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label>Scheduled End: </label>
-                                    </div>
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <span ng-bind="session.scheduledEndTime"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label>Video Meeting Url: </label>
-                                    </div>
-                                    <div class="col-md-6 col-md-offset-1">
-                                        <a ng-href="{{session.videoMeetingUri}}" target="_blank">{{session.videoMeetingUri}}</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label>Session Fee: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
@@ -64,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <label>Paid: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
@@ -76,7 +45,7 @@
                                         <label>Notes: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <textarea rows="5" class="form-control" name="notes" ng-model="session.notes" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                        <textarea rows="5" class="form-control" style="width: 600px; height:300px" name="notes" ng-model="session.notes" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
                                     </div>
                                 </div>
                                 <div class="row push-down-md">
@@ -84,7 +53,7 @@
                                         <label>Patient Dialog: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <textarea rows="5" class="form-control" name="patientDialog" ng-model="session.patientDialog" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                        <textarea rows="5" class="form-control" style="width: 600px; height:300px"  name="patientDialog" ng-model="session.patientDialog" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
                                     </div>
                                 </div>
                                 <div class="row push-down-md">
@@ -92,7 +61,7 @@
                                         <label>Recommendations: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <textarea rows="5" class="form-control" name="recommendations" ng-model="session.recommendations" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                        <textarea rows="5" class="form-control" style="width: 600px; height:300px"  name="recommendations" ng-model="session.recommendations" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
                                     </div>
                                 </div>
                                 <div class="row push-down-md">
@@ -100,7 +69,7 @@
                                         <label>Health Report: </label>
                                     </div>
                                     <div class="col-md-6 col-md-offset-1">
-                                        <textarea rows="5" class="form-control" name="healthReport" ng-model="session.healthReport" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
+                                        <textarea rows="5" class="form-control" name="healthReport" style="width: 600px; height:300px"  ng-model="session.healthReport" kendo-editor k-tools="editorOptions" ng-minlength="2" ng-maxlength="60000"></textarea>
                                     </div>
                                 </div>
                                 <div class="row push-down-lg">
