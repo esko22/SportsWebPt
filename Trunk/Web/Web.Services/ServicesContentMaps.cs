@@ -287,6 +287,7 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<CaseSnapshotDto, CaseSnapshot>();
             Mapper.CreateMap<PatientSnapshotDto, PatientSnapshot>();
             Mapper.CreateMap<SessionDto, Session>();
+
             Mapper.CreateMap<Session, CreateSessionRequest>();
             Mapper.CreateMap<Session, UpdateSessionRequest>()
                                   .ForMember(d => d.Diagnosis, opt => opt.Ignore());

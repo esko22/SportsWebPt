@@ -74,6 +74,7 @@ namespace SportsWebPt.Platform.Web.Application
             "~/Scripts/libs/kendo/kendo.web.min.js",
             "~/Scripts/libs/toastr.js",
             "~/Scripts/libs/sly.js",
+            "~/Scripts/libs/moment.js",
             "~/Content/theme/plugins/flexslider/jquery.flexslider.js",
             "~/Content/theme/plugins/clingify/jquery.clingify.js",
             "~/Content/theme/plugins/jPanelMenu/jquery.jpanelmenu.js",

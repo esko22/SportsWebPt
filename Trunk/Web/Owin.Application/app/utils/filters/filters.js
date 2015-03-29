@@ -17,6 +17,19 @@ filterModule.filter('startFrom', function () {
     };
 });
 
+
+filterModule.filter('moment', function () {
+    return function (input, format) {
+        return moment(parseInt(input)).utc().format(format);
+    };
+});
+
+filterModule.filter('localTime', function () {
+    return function (input) {
+        return moment(input).local().format("MMMM DD, YYYY @ hh:mm A");
+    };
+});
+
 filterModule.filter('unsafe', ['$sce', function ($sce) {
     return function (val) {
         return $sce.trustAsHtml(val);

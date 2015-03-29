@@ -12,7 +12,7 @@
             <label>Scheduled At: </label>
         </div>
         <div class="col-md-6 col-md-offset-1">
-            <span ng-bind="session.scheduledStartTime"></span>
+            <span ng-bind="session.scheduledStartTime | localTime"></span>
         </div>
     </div>
     <div class="row">
@@ -20,7 +20,7 @@
             <label>Scheduled End: </label>
         </div>
         <div class="col-md-6 col-md-offset-1">
-            <span ng-bind="session.scheduledEndTime"></span>
+            <span ng-bind="session.scheduledEndTime | localTime"></span>
         </div>
     </div>
     <div class="row" ng-if="session.sessionType.toLowerCase() === 'video'">

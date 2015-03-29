@@ -290,8 +290,8 @@ therapistModule.controller('TherapistCaseSessionListController', [
             },
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
-                { field: 'scheduledStartTime', displayName: 'Scheduled' },
-                { field: 'scheduledEndTime', displayName: 'End' },
+                { field: 'scheduledStartTime', displayName: 'Scheduled', cellFilter: 'localTime' },
+                { field: 'scheduledEndTime', displayName: 'End', cellFilter: 'localTime' },
                 { field: 'notes', displayName: 'Notes' }
             ]
         };
@@ -722,7 +722,7 @@ therapistModule.controller('TherapistCaseListController', [
                 { field: 'patientEmail', displayName: 'Email' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
-            { field: 'createdOn', displayName: 'Created' }]
+            { field: 'createdOn', displayName: 'Created', cellFilter: 'localTime' }]
         };
 
         $scope.addCase = function() {

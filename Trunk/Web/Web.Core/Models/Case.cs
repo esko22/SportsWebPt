@@ -18,7 +18,7 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String description { get; set; }
 
-        public String createdOn { get; set; }
+        public DateTime createdOn { get; set; }
 
         public int prognosisId { get; set; }
 

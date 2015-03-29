@@ -100,7 +100,7 @@ patientModule.controller('PatientCaseListController', [
                 { field: 'therapistEmail', displayName: 'Therapist' },
                 { field: 'name', displayName: 'Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
-                { field: 'createdOn', displayName: 'Created' }
+                { field: 'createdOn', displayName: 'Created', cellFilter: 'localTime' }
             ]
         };
 
