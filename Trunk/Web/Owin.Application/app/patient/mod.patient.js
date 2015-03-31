@@ -232,8 +232,8 @@ patientModule.controller('PatientCaseSessionListController', [
             },
             columnDefs: [
                 { field: 'sessionType', displayName: 'Type' },
-                { field: 'scheduledStartTime', displayName: 'Scheduled' },
-                { field: 'scheduledEndTime', displayName: 'End' },
+                { field: 'scheduledStartTime', displayName: 'Scheduled', cellFilter: 'localTime' },
+                { field: 'scheduledEndTime', displayName: 'End', cellFilter: 'localTime' },
                 { field: 'videoMeetingUri', displayName: 'Meeting Link' }]
         };
 

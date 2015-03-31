@@ -706,12 +706,16 @@ namespace SportsWebPt.Platform.ServiceImpl
 
             Mapper.CreateMap<CaseDto, Case>();
             Mapper.CreateMap<Case, CaseDto>()
+                .ForMember(d => d.CreatedOn, opt => opt.MapFrom(s => DateTime.SpecifyKind(s.CreatedOn, DateTimeKind.Utc)))
                 .ForMember(d => d.ClinicPatientIdentifier,
                     opt => opt.MapFrom(s => s.ClinicPatient.ClinicPatientIdentifier))
                 .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
             Mapper.CreateMap<Case, CaseSnapshotDto>()
                 .ForMember(d => d.PatientId, opt => opt.MapFrom(s => s.ClinicPatient.Patient.Id));
             Mapper.CreateMap<Session, SessionDto>()
+                .ForMember(d => d.ScheduledStartTime, opt => opt.MapFrom(s => DateTime.SpecifyKind(s.ScheduledStartTime, DateTimeKind.Utc)))
+                .ForMember(d => d.ScheduledEndTime, opt => opt.MapFrom(s => DateTime.SpecifyKind(s.ScheduledEndTime, DateTimeKind.Utc)))
+                .ForMember(d => d.Created, opt => opt.MapFrom(s => DateTime.SpecifyKind(s.Created, DateTimeKind.Utc)))
                 .ForMember(d => d.Plans, opt =>
                 {
                     opt.Condition(s => s.SessionPlans != null && s.SessionPlans.Any());

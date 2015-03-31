@@ -22,7 +22,7 @@ namespace SportsWebPt.Platform.ServiceImpl.Services
         public object Get(VideoListRequest request)
         {
             var responseList = new List<VideoDto>();
-            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll().OrderBy(o => o.MedicalName) , responseList);
+            Mapper.Map(ResearchUnitOfWork.VideoRepo.GetAll().OrderBy(o => o.Name) , responseList);
 
             return
                 Ok(new ApiListResponse<VideoDto, BasicSortBy>(responseList.ToArray(), responseList.Count, 0, 0,

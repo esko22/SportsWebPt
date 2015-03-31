@@ -66,6 +66,7 @@ namespace SportsWebPt.Platform.ServiceImpl
 
 
             var caseInstance = Mapper.Map<Case>(request);
+            caseInstance.Clinic = null;
             caseInstance.PrognosisId = null;
             caseInstance.State = CaseState.Active;
             caseInstance.CreatedOn = DateTime.Now;

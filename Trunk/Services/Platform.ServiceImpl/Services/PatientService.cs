@@ -46,17 +46,19 @@ namespace SportsWebPt.Platform.ServiceImpl
             {
                 var caseSnapshot = Mapper.Map<CaseSnapshotDto>(c);
 
+                //assumption all servers are running on UTC time
                 caseSnapshot.LastSession =
                     Mapper.Map<SessionDto>(
                         CaseUnitOfWork.GetCaseSessions()
                             .OrderByDescending(o => o.ScheduledStartTime)
                             .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime < DateTime.Now));
 
+                var nextSessionCutoff = DateTime.Now.Subtract(new TimeSpan(0, 30, 0));
                 caseSnapshot.NextSession =
                     Mapper.Map<SessionDto>(
                         CaseUnitOfWork.GetCaseSessions()
                             .OrderBy(o => o.ScheduledStartTime)
-                            .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime > DateTime.Now));
+                            .FirstOrDefault(f => f.CaseId == c.Id && f.ScheduledStartTime > nextSessionCutoff));
 
 
                 var lastAssignment = CaseUnitOfWork.GetCaseSessionsWithPlans()
