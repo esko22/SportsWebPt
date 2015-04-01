@@ -5,7 +5,7 @@
 </div>
 <div class="modal-body">
     <form class="form-horizontal" novalidate rc-submit="submit()" name="createSessionForm">
-        <div class="form-group">
+        <div class="row form-group">
             <label class="control-label col-lg-3">Session Type</label>
             <div class="col-lg-9">
                 <select class="input-sm" name="sessionType" ng-init="session.sessionType = 'Physical'"  ng-model="session.sessionType">
@@ -16,82 +16,80 @@
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <div>
-                <label class="control-label col-lg-3">Date</label>
-                <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="session.time" is-open="opened" min-date="minDate" max-date="'2015-06-22'" ng-required="true" ng-disabled="true" close-text="Close" />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="row">
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">Time</label>
-                        <div class="col-md-6">
-                            <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
-                        </div>
-            </div>
-                <div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">Duration</label>
-                        <div class="col-md-6">
-                            <select class="input-sm" name="sessionDuration" ng-init="session.duration = 30" ng-model="session.duration">
-                                <option value="30">30</option>
-                                <option value="15">15</option>
-                                <option value="45">45</option>
-                                <option value="60">60</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">Fee</label>
-                        <div class="col-md-6">
-                            <select class="input-sm" name="sessionFee" ng-init="session.fee = 0" ng-model="session.fee">
-                                <option value="0">Free</option>
-                                <option value="10">10</option>
-                                <option value="15">15</option>
-                                <option value="20">20</option>
-                                <option value="25">25</option>
-                                <option value="30">30</option>
-                                <option value="35">35</option>
-                                <option value="40">40</option>
-                                <option value="45">45</option>
-                                <option value="50">50</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-lg-3">Session Notes</label>
-            <div class="col-lg-9" ng-class="{'has-error': rc.createSessionForm.needsAttention(createSessionForm.sessionNotes)}">
-                <input type="text" class="form-control" name="sessionNotes" ng-model="session.notes" placeholder="Notes" ng-minlength="2" ng-maxlength="10000">
-            </div>
-        </div>
-
-        <div ng-if="session.sessionType === 'Video'">
-            <div ng-show="!gtmData.access_token">
+        
+        <div ng-show="session.sessionType === 'Video' && !gtmData.access_token">
+            <div class="text-center">
                 <button class="btn btn-info" type="button" ng-click="launchGTM()">Log into GoToMeeting</button>
             </div>
-            <div ng-show="gtmData.access_token" class="text-center" >
+        </div>
+        <div ng-show="(session.sessionType === 'Video' && gtmData.access_token) || session.sessionType !== 'Video' ">
+            <div class="row form-group">
+                <label class="control-label col-lg-3">Date</label>
+                <div class="col-lg-6">
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="session.time" is-open="opened" min-date="minDate" max-date="'2015-06-22'" ng-required="true" ng-disabled="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3">Time</label>
+                <div class="col-md-6">
+                    <timepicker ng-model="session.time" ng-change="changed()" hour-step="timePicker.hStep" minute-step="timePicker.mStep" show-meridian="timePicker.showMeridian" meridians="timePicker.meridians"></timepicker>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <label class="control-label col-lg-3">Duration</label>
+                <div class="col-md-6">
+                    <select class="input-sm" name="sessionDuration" ng-init="session.duration = 30" ng-model="session.duration">
+                        <option value="30">30</option>
+                        <option value="15">15</option>
+                        <option value="45">45</option>
+                        <option value="60">60</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3">Fee</label>
+                <div class="col-md-6">
+                    <select class="input-sm" name="sessionFee" ng-init="session.fee = 0" ng-model="session.fee">
+                        <option value="0">N/A</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                        <option value="60">60</option>
+                        <option value="65">65</option>
+                        <option value="70">70</option>
+                        <option value="75">75</option>
+                        <option value="80">80</option>
+                        <option value="85">85</option>
+                        <option value="90">90</option>
+                        <option value="95">95</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3">Session Notes</label>
+                <div class="col-lg-9" ng-class="{'has-error': rc.createSessionForm.needsAttention(createSessionForm.sessionNotes)}">
+                    <textarea class="form-control" name="sessionNotes" ng-model="session.notes" rows="4" ng-minlength="2" ng-maxlength="10000"></textarea>
+                </div>
+            </div>
+            <div class="text-center">
                 <button type="submit" class="btn btn-primary">Create Session</button>
                 <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
             </div>
         </div>
 
-
-        <div ng-if="session.sessionType !== 'Video'" class="text-center">
-            <button type="submit" class="btn btn-primary">Create Session</button>
-            <button ng-click="reset()" type="reset" class="btn btn-primary">Cancel</button>
-        </div>
-
     </form>
-
 </div>

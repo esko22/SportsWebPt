@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,7 +82,7 @@ namespace SportsWebPt.Identity.Core
 
         public IEnumerable<SportsWebUser> GetUserDetailsByExternalAccount(IEnumerable<String> externalServiceAccounts)
         {
-            return base.Queryable.Where(p => externalServiceAccounts.Contains(p.ServiceAccount));
+            return base.Queryable.Where(p => externalServiceAccounts.Contains(p.ServiceAccount)).Include(i => i.ClaimCollection);
         } 
     }
 }

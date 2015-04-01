@@ -71,12 +71,10 @@ clinicModule.controller('ClinicPatientListController', [
     '$scope', 'clinicService', '$modal',
     function ($scope, clinicService, $modal) {
 
-        clinicService.getClinicPatients($scope.clinicId).$promise.then(function (patients) {
-            $scope.patients = patients;
-        });
+        activate();
 
         $scope.showAddPatientModal = function() {
-            $modal.open({
+            var patientModal = $modal.open({
                 templateUrl: '/app/clinic/tmpl.clinic.add.patient.modal.htm',
                 controller: 'ClinicAddPatientModalController',
                 resolve: {
@@ -85,7 +83,20 @@ clinicModule.controller('ClinicPatientListController', [
                     }
                 }
             });
+
+            patientModal.result.then(function () {
+                activate();
+            });
         };
+
+
+
+        function activate() {
+            clinicService.getClinicPatients($scope.clinicId).$promise.then(function (patients) {
+                $scope.patients = patients;
+            });
+        }
+
     }
 ]);
 
@@ -106,16 +117,10 @@ clinicModule.controller('ClniicTherapistListController', [
     '$scope', 'clinicService', '$modal',
     function ($scope, clinicService, $modal) {
 
-        init();
+        activate();
 
+        $scope.showAddTherapistModal = function () {
 
-        function init() {
-            clinicService.getClinicTherapists($scope.clinicId).$promise.then(function (therapists) {
-                $scope.therapists = therapists;
-            });
-        }
-
-        $scope.showAddTherapistModal = function() {
             var therapistModal = $modal.open({
                 templateUrl: '/app/clinic/tmpl.clinic.add.therapist.modal.htm',
                 controller: 'ClinicAddTherapistModalController',
@@ -128,9 +133,17 @@ clinicModule.controller('ClniicTherapistListController', [
             });
 
             therapistModal.result.then(function () {
-                init();
+                activate();
             });
         };
+
+        function activate() {
+            clinicService.getClinicTherapists($scope.clinicId).$promise.then(function (therapists) {
+                $scope.therapists = therapists;
+            });
+        }
+
+
 
     }
 ]);

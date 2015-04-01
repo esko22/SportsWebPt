@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AutoMapper;
+using BrockAllen.MembershipReboot;
 using BrockAllen.MembershipReboot.Relational;
+using SportsWebPt.Identity.Core;
 using SportsWebPt.Platform.ServiceModels;
 using SportsWebPt.Platform.Web.Core;
 
@@ -286,8 +288,7 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<CaseDto, Case>();
             Mapper.CreateMap<CaseSnapshotDto, CaseSnapshot>();
             Mapper.CreateMap<PatientSnapshotDto, PatientSnapshot>();
-            Mapper.CreateMap<SessionDto, Session>()
-                                  .ForMember(d => d.scheduledStartTime, opt => opt.MapFrom(s => s.ScheduledStartTime.ut()));
+            Mapper.CreateMap<SessionDto, Session>();
 
             Mapper.CreateMap<Session, CreateSessionRequest>();
             Mapper.CreateMap<Session, UpdateSessionRequest>()
@@ -295,11 +296,15 @@ namespace SportsWebPt.Platform.Web.Services
             Mapper.CreateMap<Case, CreateCaseRequest>();
 
             Mapper.CreateMap<ClinicPatientDto, ClinicPatient>();
+
             Mapper.CreateMap<ClinicTherapistDto, ClinicTherapist>();
 
 
             Mapper.CreateMap<SessionPayDto, SessionPay>();
 
+            Mapper.CreateMap<SportsWebUser, User>()
+                .ForMember(d => d.fullName, opt => opt.MapFrom(s => s.GetClaimValue("name")))
+                .ForMember(d => d.emailAddress, opt => opt.MapFrom(s => s.Email));
 
         }
     }

@@ -195,40 +195,40 @@ namespace SportsWebPt.Platform.Web.Services
 
                 foreach (var identityUser in userRepo.GetUserDetailsByExternalAccount(distinctExternalAccounts))
                 {
-                    foreach(var clinicPatient in externalAccounts.Where(s => s.id.Equals(identityUser.ServiceAccount)))
+                    var identityName = identityUser.GetClaimValue("name");
+                    foreach (var clinicPatient in externalAccounts.Where(s => s.id.Equals(identityUser.ServiceAccount)))
+                    {
                         clinicPatient.emailAddress = identityUser.Email;
+                        clinicPatient.fullName = identityName;
+                    }
                 }
             }
         }
 
-        public IEnumerable<SportsWebUser> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts)
+        public IEnumerable<User> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts)
         {
-            var users = new List<SportsWebUser>();
+            var users = new List<User>();
             using (
                 var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore))
             {
                 var userRepo = new SportsWebUserAccountRepo(database);
 
-                users.AddRange(userRepo.GetUserDetailsByExternalAccount(externalAccounts));
+                Mapper.Map(userRepo.GetUserDetailsByExternalAccount(externalAccounts), users);
+
             }
 
             return users;
         }
 
-        public SportsWebUser GetUserByServiceAccountId(String serviceAccountId)
+        public User GetUserByServiceAccountId(String serviceAccountId)
         {
             return GetUserDetailsByExternalAccounts(new[] {serviceAccountId}).FirstOrDefault();
         }
 
         public static UserAccountService<SportsWebUser> UserAccountServiceFactory()
         {
-            _logger.Debug("MR DB Context Requested");
             var database = new SportsWebMembershipRebootDatabase(WebPlatformConfigSettings.Instance.IdentityStore);
-            _logger.Debug("MR DB Context Created");
-
-            _logger.Debug("MR DB Repo Requested");
             var userRepo = new SportsWebUserAccountRepo(database);
-            _logger.Debug("MR DB Repo Created");
 
             var configuration = new MembershipRebootConfiguration<SportsWebUser>
             {
@@ -236,9 +236,7 @@ namespace SportsWebPt.Platform.Web.Services
                 RequireAccountVerification = false
             };
 
-            _logger.Debug("UAS Requested");
             var service = new UserAccountService<SportsWebUser>(configuration, userRepo);
-            _logger.Debug("UAS Created");
 
             return service;
         }
@@ -258,8 +256,8 @@ namespace SportsWebPt.Platform.Web.Services
         ClinicPatient ValidatePatientRegistration(String emailAddress, String pin, String subjectId);
         ClinicTherapist ValidateTherapistRegistration(String emailAddress, String pin, String subjectId);
         void SetUserDetailsByExternalAccounts(IEnumerable<User> externalAccounts);
-        IEnumerable<SportsWebUser> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts);
-        SportsWebUser GetUserByServiceAccountId(String serviceAccountId);
+        IEnumerable<User> GetUserDetailsByExternalAccounts(IEnumerable<String> externalAccounts);
+        User GetUserByServiceAccountId(String serviceAccountId);
 
         String RegisterPatient(User user, int registrationId);
         String RegisterTherapist(User user, int registrationId);

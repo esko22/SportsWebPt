@@ -99,7 +99,11 @@ namespace SportsWebPt.Platform.Web.Application
 
             foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(cases.Select(s => s.therapistId).Distinct()))
             {
-                cases.Where(p => p.patientId == User.GetServiceAccount()).ForEach(f => f.therapistEmail = user.Email);
+                cases.Where(p => p.patientId == User.GetServiceAccount()).ForEach(f =>
+                {
+                    f.therapistEmail = user.emailAddress;
+                    f.therapistName = user.fullName;
+                });
             }
 
             return cases;

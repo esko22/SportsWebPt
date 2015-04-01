@@ -126,6 +126,7 @@ therapistModule.controller('SharedPlanModalController', [
     function ($scope, therapistService, selectedPlan, clinics, notifierService, $modalInstance) {
 
         $scope.sharedPlans = [];
+        $scope.planName = selectedPlan.routineName;
 
         angular.forEach(clinics, function (clinic) {
             var sharedPlanRecord = _.findWhere(selectedPlan.sharedClinics, { clinicId: clinic.id });
@@ -153,7 +154,8 @@ therapistModule.controller('SharedExerciseModalController', [
     function ($scope, therapistService, selectedExercise, clinics, notifierService, $modalInstance) {
 
         $scope.sharedExercises = [];
-        
+        $scope.exerciseName = selectedExercise.name;
+
         angular.forEach(clinics, function (clinic) {
             var sharedExerciseRecord = _.findWhere(selectedExercise.sharedClinics, { clinicId: clinic.id });
             if (sharedExerciseRecord) {
@@ -531,12 +533,12 @@ therapistModule.controller('TherapistCaseModalController', [
 
         $scope.patientGridOptions = {
             data: 'patients',
-            showGroupPanel: true,
             selectedItems: $scope.selectedPatients,
             multiSelect: false,
             columnDefs: [
-                { field: 'user.emailAddress', displayName: 'Email' },
-                { field: 'clinicPatientIdentifier', displayName: 'Identifier' }]
+                { field: 'clinicPatientIdentifier', displayName: 'Identifier', width: 120 },
+                { field: 'user.fullName', displayName: 'Name' }
+            ]
         };
 
         $scope.submit = function () {
@@ -718,9 +720,8 @@ therapistModule.controller('TherapistCaseListController', [
                 }
             },
             columnDefs: [
-                { field: 'clinicPatientIdentifier', displayName: 'Patient' },
-                { field: 'patientEmail', displayName: 'Email' },
-                { field: 'name', displayName: 'Name' },
+                { field: 'clinicPatientIdentifier', displayName: 'Patient', cellTemplate: '<div class="ngCellText">{{row.entity.clinicPatientIdentifier}} : {{row.entity.patientName}}</div>' },
+                { field: 'name', displayName: 'Case Name' },
                 { field: 'clinic.name', displayName: 'Clinic' },
             { field: 'createdOn', displayName: 'Created', cellFilter: 'localTime' }]
         };
@@ -729,6 +730,7 @@ therapistModule.controller('TherapistCaseListController', [
             var modalInstance = $modal.open({
                 templateUrl: '/app/therapist/tmpl.therapist.case.modal.htm',
                 controller: 'TherapistCaseModalController',
+                windowClass: 'modal-lg',
                 resolve: {
                     clinics: function () {
                         return $scope.clinics;

@@ -24,5 +24,8 @@
         <div ng-if="formData.clinicTherapist.userConfirmed">
             <h4>Therapist: <span ng-bind="formData.clinicTherapist.clinicTherapistIdentifier"></span> was already added to your clinic @ <span ng-bind="formData.clinicTherapist.addedOn"></span>.  </h4>
         </div>
+        <div class="text-center">
+            <button class="btn btn-primary" ng-click="close()">Close</button>
+        </div>
     </div>
 </div>

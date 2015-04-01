@@ -40,10 +40,16 @@ namespace SportsWebPt.Platform.Web.Application.Controllers
             var caseInstance = _caseService.GetCase(caseId);
             var user = _userManagementService.GetUserByServiceAccountId(caseInstance.patientId);
             var therapist = _userManagementService.GetUserByServiceAccountId(caseInstance.therapistId);
-            if(user != null)
-              caseInstance.patientEmail = user.Email;
+            if (user != null)
+            {
+                caseInstance.patientEmail = user.emailAddress;
+                caseInstance.patientName = user.fullName;
+            }
             if (therapist != null)
-                caseInstance.therapistEmail = therapist.Email;
+            {
+                caseInstance.therapistEmail = therapist.emailAddress;
+                caseInstance.therapistName = therapist.fullName;
+            }
 
             return caseInstance;
         }

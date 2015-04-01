@@ -17,6 +17,8 @@ namespace SportsWebPt.Platform.Web.Core
 
         public String lastName { get; set; }
 
+        public String fullName { get; set; }
+
         public String phone { get; set; }
 
         public String userName { get; set; }
@@ -35,7 +37,9 @@ namespace SportsWebPt.Platform.Web.Core
 
         public IEnumerable<Favorite> injuries { get; set; }
         
-        public IEnumerable<Favorite> exercises { get; set; } 
+        public IEnumerable<Favorite> exercises { get; set; }
+
+        public string serviceAccount { get; set; }
 
         #endregion
 
