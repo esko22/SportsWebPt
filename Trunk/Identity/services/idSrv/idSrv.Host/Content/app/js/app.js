@@ -8,7 +8,7 @@
 (function () {
     "use strict";
 
-    var app = angular.module("app", ["util.module"]);
+    var app = angular.module("app", ["util.module", "ngPasswordStrength"]);
 
     app.controller("LayoutCtrl", function ($scope, Model) {
         $scope.model = Model;
@@ -23,22 +23,48 @@
 
     });
 
+    app.controller("RegistrationCtrl", function($scope, Model) {
+
+        $scope.user = {};
+        $scope.user.password = '';
+        $scope.user.passStrength = 0;
+        $scope.mode = 'bootstrap';
+
+    });
+
     app.controller("PasswordResetCtrl", function ($scope, Model) {
         $scope.model = Model;
+        $scope.mode = 'bootstrap';
+        $scope.model.passStrength = 0;
 
-        $scope.$watch('model.Password', function (newVal, oldVal) {
+
+        $scope.$watch('model.passStrength', function (newVal, oldVal) {
             if (newVal !== oldVal) {
-                $scope.model.Password = newVal;
-                if ($scope.model.Password)
+                if ($scope.model.passStrength >= 70) {
                     $scope.validPassword = 'success';
+                }
                 else
                     $scope.validPassword = 'error';
+            }
+        });
+
+            $scope.$watch('model.Password', function (newVal, oldVal) {
+            if (newVal !== oldVal) {
+                $scope.model.Password = newVal;
+
+                if ($scope.model.Password) {
+                    $scope.validPassword = 'success';
+                }
+                else
+                    $scope.validPassword = 'error';
+
 
                 if ($scope.model.Password !== $scope.model.ConfirmPassword) {
                     $scope.validConfirmPassword = 'error';
                 } else {
                     $scope.validConfirmPassword = 'success';
                 }
+
             }
         });
 

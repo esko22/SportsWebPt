@@ -175,6 +175,8 @@
     <Content Include="Content\app\js\app.js" />
     <Content Include="Content\app\consent.html" />
     <Content Include="Content\app\error.html" />
+    <Content Include="Content\app\js\ng-password-strength.js" />
+    <Content Include="Content\app\js\underscore.js" />
     <Content Include="Content\app\js\util.module.js" />
     <Content Include="Content\app\loggedOut.html" />
     <Content Include="Content\app\login.html" />

@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row login-page">
+            <div class="row login-page" ng-controller="RegistrationCtrl">
                 <div class="col-md-6">
                     <div class="panel panel-default" style="background: silver">
                         <div class="panel-body">
@@ -59,13 +59,21 @@
                                     <span class="help-block" ng-show="signUpForm.lastname.$error.minlength && rc.signUpForm.attempted">Last name must be between 2 and 20 characters</span>
                                 </div>
                                 <div class="form-group" ng-class="{'has-error': rc.signUpForm.needsAttention(signUpForm.signupPassword)}">
-                                    <div class="input-group ">
+                                    <div class="input-group">
                                         <span class="input-group-addon icon-sportswebpt-suitcase3"></span>
                                         <input class="form-control" id="signupPassword" name="signupPassword" type="password" ng-model="user.password" placeholder="Password" ng-minlength="6" ng-maxlength="12" required>
                                     </div>
                                     <span class="help-block" ng-show="signUpForm.signupPassword.$error.required  && rc.signUpForm.attempted">Required</span>
                                     <span class="help-block" ng-show="signUpForm.signupPassword.$error.minlength && rc.signUpForm.attempted">Password must be between 6 and 12 characters</span>
+                                    <span class="help-block" ng-show="signUpForm.pStrength.$error.min  && rc.signUpForm.attempted">Password Strength must be 70 or greater.</span>
                                 </div>
+                                <div class="form-group">
+                                    <div mode="mode" ng-password-strength="user.password" strength="user.passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
+                                    <div>Current password strength is <strong>{{user.passStrength}}</strong> </div>
+                                    <input type="number" name="pStrength" ng-model="user.passStrength" min="70" max="100" ng-show="false" />
+                                </div>
+
+
                                 <div class="form-group" ng-class="{'has-error': rc.signUpForm.needsAttention(signUpForm.signupPassword2)}">
                                     <div class="input-group ">
                                         <span class="input-group-addon icon-sportswebpt-suitcase3"></span>
@@ -105,6 +113,8 @@
     <script src="/content/libs/bootstrap/js/bootstrap.min.js"></script>
     <script src="/content/libs/angular/angular.1.2.13.min.js"></script>
     <script src="/content/app/js/util.module.js"></script>
+    <script src="/content/app/js/underscore.js"></script>
+    <script src="/content/app/js/ng-password-strength.js"></script>
     <script src="/content/app/js/app.js"></script>
 </body>
 </html>
