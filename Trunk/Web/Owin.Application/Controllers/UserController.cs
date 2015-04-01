@@ -95,7 +95,7 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/patients/cases")]
         public IEnumerable<Case> GetPatientCases( String state)
         {
-            var cases = _userManagementService.GetCases(User.GetServiceAccount(), state);
+            var cases = _userManagementService.GetCases(GetInitialSignInServiceAccount(), state);
 
             foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(cases.Select(s => s.therapistId).Distinct()))
             {
@@ -114,7 +114,7 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/patients/snapshot")]
         public PatientSnapshot GetPatientSnapshot()
         {
-            return _userManagementService.GetPatientSnapshot(User.GetServiceAccount());
+            return _userManagementService.GetPatientSnapshot(GetInitialSignInServiceAccount());
         }
 
         [HttpGet]
@@ -123,6 +123,21 @@ namespace SportsWebPt.Platform.Web.Application
         public IEnumerable<Clinic> GetManagedClinics()
         {
             return _clinicService.GetManagedClinics((User).GetServiceAccount());
+        }
+
+        private String GetInitialSignInServiceAccount()
+        {
+            //TODO: hack... user not getting set on redirect after account creation
+            //need to figure this out or move it down to Get, not sure if I do something if it's null yet
+            var serviceAccount = User.GetServiceAccount();
+
+            if (String.IsNullOrEmpty(serviceAccount))
+                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).serviceAccount;
+
+            if(String.IsNullOrEmpty(serviceAccount))
+                serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
+
+            return serviceAccount;
         }
     }
 
