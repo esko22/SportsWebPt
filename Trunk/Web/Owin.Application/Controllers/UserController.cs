@@ -48,7 +48,10 @@ namespace SportsWebPt.Platform.Web.Application
                 var user = new User();
 
                 if (String.IsNullOrEmpty(serviceAccount))
+                {
                     serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
+                    ((ClaimsIdentity)principle.Identity).AddClaim(new Claim("service_account", serviceAccount));
+                }
                 else
                 {
                     var serviceUser = _userManagementService.GetServiceUser(serviceAccount);
@@ -95,7 +98,7 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/patients/cases")]
         public IEnumerable<Case> GetPatientCases( String state)
         {
-            var cases = _userManagementService.GetCases(GetInitialSignInServiceAccount(), state);
+            var cases = _userManagementService.GetCases(User.GetServiceAccount(), state);
 
             foreach (var user in _userManagementService.GetUserDetailsByExternalAccounts(cases.Select(s => s.therapistId).Distinct()))
             {
@@ -114,7 +117,7 @@ namespace SportsWebPt.Platform.Web.Application
         [Route("data/patients/snapshot")]
         public PatientSnapshot GetPatientSnapshot()
         {
-            return _userManagementService.GetPatientSnapshot(GetInitialSignInServiceAccount());
+            return _userManagementService.GetPatientSnapshot(User.GetServiceAccount());
         }
 
         [HttpGet]
@@ -123,21 +126,6 @@ namespace SportsWebPt.Platform.Web.Application
         public IEnumerable<Clinic> GetManagedClinics()
         {
             return _clinicService.GetManagedClinics((User).GetServiceAccount());
-        }
-
-        private String GetInitialSignInServiceAccount()
-        {
-            //TODO: hack... user not getting set on redirect after account creation
-            //need to figure this out or move it down to Get, not sure if I do something if it's null yet
-            var serviceAccount = User.GetServiceAccount();
-
-            if (String.IsNullOrEmpty(serviceAccount))
-                serviceAccount = _userManagementService.GetUser(User.GetSubjectId()).serviceAccount;
-
-            if(String.IsNullOrEmpty(serviceAccount))
-                serviceAccount = _userManagementService.CreateServiceAccount(User.GetSubjectId());
-
-            return serviceAccount;
         }
     }
 
@@ -153,7 +141,20 @@ namespace SportsWebPt.Platform.Web.Application
         public static String GetServiceAccount(this IPrincipal principal)
         {
             var user = (ClaimsPrincipal)principal;
-            return user.FindFirst("service_account") == null ? String.Empty : user.FindFirst("service_account").Value;
+
+            var serviceAccount = user.FindFirst("service_account") == null
+                ? String.Empty
+                : user.FindFirst("service_account").Value;
+
+            if (String.IsNullOrEmpty(serviceAccount))
+            {
+                //TODO: this is when initial login happens and service account has not been set in the claims for the principal... should 
+                //be able to take this out once I fix auto login with update on IDSvr 
+                var userManagementService = new UserManagementService(WebPlatformConfigSettings.Instance.ServiceStackClientSettings);
+                serviceAccount = userManagementService.GetUser(user.GetSubjectId()).id;
+            }
+
+            return serviceAccount;
         }
     }
 
