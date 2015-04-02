@@ -1,7 +1,8 @@
-﻿using System.Configuration;
-using System.Web.Http;
-using System.Web.SessionState;
-using BrockAllen.MembershipReboot;
+﻿using System;
+using System.Configuration;
+using System.Threading.Tasks;
+using System.Linq;
+
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
@@ -89,8 +90,22 @@ namespace Thinktecture.IdentityServer.Host
                 AuthenticationType = "Facebook",
                 SignInAsAuthenticationType = signInAsType,
                 AppId = ConfigurationManager.AppSettings["facebookClientKey"],
-                AppSecret = ConfigurationManager.AppSettings["facebookClientSecret"]
+                AppSecret = ConfigurationManager.AppSettings["facebookClientSecret"],
+                Provider = new FacebookAuthenticationProvider()
+                {
+                    OnAuthenticated = (context) =>
+                    {
+                        if(String.IsNullOrEmpty(context.Email))
+                            throw new ArgumentException("Email Permission Must Be Granted");
+
+                        return Task.FromResult(0);
+                    }
+                }
             };
+
+            fb.Scope.Add("public_profile");
+            fb.Scope.Add("email");
+
             app.UseFacebookAuthentication(fb);
         }
     }
