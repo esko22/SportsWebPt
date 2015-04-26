@@ -116,9 +116,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                     var pin = SymmetricCryptography.Encrypt(clinicPatientMatrixItem.Pin, request.User.EmailAddress);
                     var registrationVars = new object[]
                     {
-                        PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, HttpUtility.UrlEncode(pin)
+                        PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, HttpUtility.UrlEncode(pin), HttpUtility.UrlEncode(request.User.EmailAddress)
                     };
-                    var registrationLink = String.Format("{0}/{1}/patient?pin={2}", registrationVars);
+                    var registrationLink = String.Format("{0}/{1}/patient?pin={2}&email={3}", registrationVars);
                     var messageBody =
                         String.Format(
                             "Hello, you have requested by {0} to create an account on SportsWebPt to access your physical therapy information {1}", clinic.Name, Environment.NewLine);
@@ -190,9 +190,9 @@ namespace SportsWebPt.Platform.ServiceImpl
                     var pin = SymmetricCryptography.Encrypt(clinicTherapistMatrixItem.Pin, request.Therapist.EmailAddress);
                     var registrationVars = new object[]
                     {
-                        PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, HttpUtility.UrlEncode(pin)
+                        PlatformServiceConfiguration.Instance.RegistrationPathUri, clinic.Id, HttpUtility.UrlEncode(pin), HttpUtility.UrlEncode(request.Therapist.EmailAddress)
                     };
-                    var registrationLink = String.Format("{0}/{1}/therapist?pin={2}", registrationVars);
+                    var registrationLink = String.Format("{0}/{1}/therapist?pin={2}&email={3}", registrationVars);
                     var messageBody =
                         String.Format(
                             "Hello, you have requested by {0} to create an account on SportsWebPt to manage your patients and content. {1}", clinic.Name, Environment.NewLine);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using SportsWebPt.Common.DataAccess;
@@ -99,7 +100,7 @@ namespace SportsWebPt.Platform.DataAccess
         {
             _logger.Info(String.Format("Validate Clinic Patient For {0} - {1}", emailAddress, serviceAccount));
 
-            var pin = SymmetricCryptography.Decrypt(encryptedPin, emailAddress);
+            var pin = SymmetricCryptography.Decrypt( encryptedPin, emailAddress);
 
             var clinicPatient = ClinicPatientRepository.GetAll()
                 .Include(i => i.Patient)

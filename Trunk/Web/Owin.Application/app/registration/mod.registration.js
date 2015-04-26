@@ -10,13 +10,14 @@ registrationModule.controller('RegistrationPatientController', [
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
         $scope.registrationDetails.pin = $stateParams.pin;
+        $scope.registrationDetails.emailAddress = $stateParams.email;
 
         clinicService.get($stateParams.clinicId).$promise.then(function(clinic) {
             $scope.clinic = clinic;
         });
 
-        $scope.startRegistration = function () {
-            authenticationService.signIn('/register/' + $stateParams.clinicId + '/patient?pin=' + encodeURIComponent($stateParams.pin));
+        $scope.startRegistration = function() {
+            authenticationService.signIn('/register/' + $stateParams.clinicId + '/patient?pin=' + encodeURIComponent($stateParams.pin) + '&email=' + encodeURIComponent($stateParams.email));
         };
 
         $scope.validate = function() {
@@ -44,12 +45,13 @@ registrationModule.controller('RegistrationTherapistController', [
         $scope.isAuthenticated = authenticationService.isAuthenticated();
         $scope.registrationDetails = {};
         $scope.registrationDetails.pin = $stateParams.pin;
+        $scope.registrationDetails.emailAddress = $stateParams.email;
         clinicService.get($stateParams.clinicId).$promise.then(function (clinic) {
             $scope.clinic = clinic;
         });
 
         $scope.startRegistration = function () {
-            authenticationService.signIn('/register/' + $stateParams.clinicId + '/therapist?pin=' + encodeURIComponent($stateParams.pin));
+            authenticationService.signIn('/register/' + $stateParams.clinicId + '/therapist?pin=' + encodeURIComponent($stateParams.pin) + '&email=' + encodeURIComponent($stateParams.email));
         };
 
         $scope.validate = function () {

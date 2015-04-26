@@ -518,7 +518,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                 })
                 .state('registration.patient',
                 {
-                    url: "/register/:clinicId/patient?pin",
+                    url: "/register/:clinicId/patient?pin&email",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.patient.htm',
@@ -528,7 +528,7 @@ var swptApp = angular.module('swptApp', ['ngResource', 'ui.router','ngTouch', 'j
                 })
                 .state('registration.therapist',
                 {
-                    url: "/register/:clinicId/therapist?pin",
+                    url: "/register/:clinicId/therapist?pin&email",
                     views: {
                         "core-app-view": {
                             templateUrl: '/app/registration/prtl.registration.therapist.htm',
