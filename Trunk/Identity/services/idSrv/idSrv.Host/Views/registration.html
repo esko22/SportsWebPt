@@ -74,6 +74,7 @@
                                 <div class="form-group">
                                     <div mode="mode" ng-password-strength="user.password" strength="user.passStrength" inner-class="progress-bar" inner-class-prefix="progress-bar-"></div>
                                     <div>Current password strength is <strong>{{user.passStrength}}</strong> </div>
+                                    <div class="small">Mix upper and lowercase letters, numbers and other characters for increased password strength</div>
                                     <input type="number" name="pStrength" ng-model="user.passStrength" min="70" max="100" ng-show="false" />
                                 </div>
 
